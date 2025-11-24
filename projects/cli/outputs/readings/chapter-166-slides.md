@@ -1,132 +1,160 @@
-Study Title: The Divine Foundation of a Happy Home
+## Slide 1 – Q1: Foundations of Home
 
----
+- **Question:** Where were the foundations of home laid?
+- **Key Text:** Genesis 2:8 – “And the Lord God planted a garden eastward in Eden, and there He put the man whom He had formed.”
 
-Slide 1 Title: The Divine Foundation of a Happy Home
+## Slide 2 – Q1: A Divine Institution
 
-[IMG] Warm classical biblical painting of a peaceful ancient home nestled within a lush, vibrant garden, soft golden hour light illuminating the scene.
+- **God as Architect**
+  - The home is not a human invention; it is a divine institution established before sin.
+  - Along with the Sabbath, it is one of the two “twin institutions” from Eden.
+  - God did not leave Adam to wander; He provided a sanctuary called home, showing His intense interest in our domestic life.
+- **Environment and Character**
+  - God placed man in a garden to uplift his thoughts through nature.
+  - The atmosphere we create in our homes today—physically and spiritually—directly impacts character development.
 
----
+## Slide 3 – Q1: A Model of Heaven
 
-Slide 2 Question: Where were the foundations of the home first laid?
+- **A Type of the Heavenly**
+  - Just as the earthly sanctuary was a pattern of the heavenly sanctuary, the home is to be a “little heaven on earth.”
+  - **Hebrews 8:5** – “Who serve unto the example and shadow of heavenly things, as Moses was admonished of God when he was about to make the tabernacle: for, See, saith he, that thou make all things according to the pattern shewed to thee in the mount.”
+- **The School of Sanctification**
+  - The home is the primary place for sanctification (being made holy).
+  - **1 Thessalonians 4:3** – “For this is the will of God, even your sanctification, that ye should abstain from fornication.”
+  - Here we learn patience, unselfishness, and service, fitting us for the society of angels.
 
-[IMG] Warm classical biblical painting of the Garden of Eden at dawn, mist rising from the ground, revealing a landscape of pristine beauty.
+## Slide 4 – Q1: Illustration
 
----
+- **The Master Builder**
+  - Imagine a master builder who uses the strongest materials for the foundation to ensure stability.
+  - God laid the foundation of human society—the family—in the perfect soil of Eden.
+  - If a builder’s foundation is cracked, the building is unstable.
+  - **Lesson:** If we ignore God’s original plan for the home (love, purity, obedience), the structure of our lives and society will crumble.
 
-Slide 3 Biblical Answer: “And the Lord God planted a garden eastward in Eden, and there He put the man whom He had formed.” (Gen. 2:8)
+## Slide 5 – Q2: Completing the Plan
 
-[IMG] Warm classical biblical painting of God’s hands symbolically placing Adam into a lush, verdant garden filled with fruit trees and rivers.
+- **Question:** In carrying out His perfect plan! what was still needed?
+- **Key Text:** Genesis 2:18 – “And the Lord God said, It is not good that the man should be alone; I will make him a help meet for him.”
 
----
+## Slide 6 – Q2: The Need for Connection
 
-Slide 4 Explanation: The home is not a human invention; it is a divine institution. God prepared the home *before* He created the family to inhabit it. It was the first school and the first church.
+- **Not Good to be Alone**
+  - Even in a perfect world, solitude was declared “not good.”
+  - Humanity reflects the social nature of the Godhead.
+  - **Genesis 1:26** – “And God said, Let us make man in our image, after our likeness...”
+- **"Help Meet"**
+  - A helper comparable to him.
+  - Eve was not made from Adam’s head to rule, nor his feet to be trampled, but from his side to be near his heart.
+  - This union represents a blending of lives in service to God.
 
-[IMG] Warm classical biblical painting of Adam standing in awe within the garden, observing the beauty of creation, soft light filtering through the canopy.
+## Slide 7 – Q2: A Type of Christ and the Church
 
----
+- **The Spiritual Parallel**
+  - Marriage is the deepest earthly illustration of the union between Christ and His people.
+  - **Ephesians 5:30** – “For we are members of his body, of his flesh, and of his bones.”
+- **Justification and Faith**
+  - Just as Adam accepted Eve, Christ accepts the repentant sinner, covering them with His righteousness.
+  - **Romans 5:1** – “Therefore being justified by faith, we have peace with God through our Lord Jesus Christ.”
+  - A happy home requires the surrender of "self" and the exercise of faith that works by love.
+  - **Galatians 5:6** – “For in Jesus Christ neither circumcision availeth any thing, nor uncircumcision; but faith which worketh by love.”
 
-Slide 5 Did You Know? The word "Eden" signifies "pleasure" or "delight." God’s original design for the home was for it to be a place of supreme happiness and safety.
+## Slide 8 – Q2: Illustration
 
-[IMG] Warm classical biblical painting of a serene river flowing through Eden, flowers blooming in vibrant colors, portraying a sense of perfect peace.
+- **The Two Hands**
+  - Consider the human body: the right hand and left hand are distinct, yet "meet" for one another.
+  - They do not compete; they wash, protect, and help each other.
+  - If one is injured, the other comforts it.
+  - **Lesson:** A godly home is a partnership of mutual service, animated by the Spirit of Christ, where neither seeks to rule over the other.
 
----
+## Slide 9 – Q3: Children as a Heritage
 
-Slide 6 Question: In God’s perfect plan, what was needed to complete man’s happiness?
+- **Question:** Is the home complete without children?
+- **Key Text 1:** Psalm 127:3 – “Lo, children are a heritage of the Lord: and the fruit of the womb is his reward.”
+- **Key Text 2:** Proverbs 17:6 – “Children's children are the crown of old men; and the glory of children are their fathers.”
 
-[IMG] Warm classical biblical painting of Adam sitting alone in the garden, surrounded by animals in pairs, looking contemplative and longing for companionship.
+## Slide 10 – Q3: A Sacred Trust
 
----
+- **A Gift from God**
+  - Children are not a burden or hindrance, but a “heritage” (gift) from Jehovah.
+  - Parents stand in the place of God to their children during early years; the parent's character is the child's first textbook.
+- **The Family Altar**
+  - The father acts as the priest of the household.
+  - By leading morning and evening worship, he points his "heritage" to the Lamb of God.
 
-Slide 7 Biblical Answer: “And the Lord God said, It is not good that the man should be alone; I will make him a help meet for him.” (Gen. 2:18)
+## Slide 11 – Q3: Application (Righteousness by Faith)
 
-[IMG] Warm classical biblical painting of Eve being presented to Adam, a divine light surrounding them, signifying the first union.
+- **Transformation of the Heart**
+  - Parents cannot change a child's heart; only the Holy Spirit can.
+  - Parents must first possess Christ’s righteousness themselves, then present their children to God in faith.
+  - **Isaiah 49:25** – “But thus saith the Lord, Even the captives of the mighty shall be taken away, and the prey of the terrible shall be delivered: for I will contend with him that contendeth with thee, and I will save thy children.”
+- **Goal of Discipline**
+  - True discipline is not mere behavior modification.
+  - It seeks the transformation of the heart through the power of grace.
 
----
+## Slide 12 – Q3: Illustration
 
-Slide 8 Definition: “Help meet” implies a helper that is suitable, adapted, or corresponding to him. It suggests a counterpart that completes what is lacking, creating a unified whole.
+- **The Gardener**
+  - A gardener can water soil and prune branches, but he cannot make the seed grow; only God gives life.
+  - However, if the gardener neglects the plant, it will die or run wild.
+  - **Lesson:** Children are tender plants in the Lord's garden. Parents are under-gardeners who remove weeds (bad influences) and provide love, trusting God to produce the fruit.
 
-[ILL] Consider a lock and a key. They are different in shape and function, yet they are "meet" (suitable) for one another. One is essential to the purpose of the other.
+## Slide 13 – Q4: Possessions vs. Happiness
 
-[IMG] Warm classical biblical painting of a man and woman walking side by side in a garden, their distinct silhouettes harmonizing against a sunset.
+- **Question:** Does the happiness of home depend upon the abundance of things possessed?
+- **Key Text 1:** Luke 12:15 – “And he said unto them, Take heed, and beware of covetousness: for a man's life consisteth not in the abundance of the things which he possesseth.”
+- **Key Text 2:** Proverbs 15:17 – “Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.”
 
----
+## Slide 14 – Q4: The Fallacy of Materialism
 
-Slide 9 Question: How does Scripture view the addition of children to the family unit?
+- **Happiness is a Condition of the Heart**
+  - Possessions often bring anxiety and cannot heal a broken heart or forgive sin.
+  - **Proverbs 15:17** teaches that poverty with love is infinitely superior to luxury with strife.
+  - Love is the atmosphere of heaven; without it, a palace is a prison.
+- **Seeking the Kingdom**
+  - **Matthew 6:33** – “But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.”
 
-[IMG] Warm classical biblical painting of a father and mother holding an infant with joy, soft light highlighting the child’s face.
+## Slide 15 – Q4: Christ the Center (Sanctuary Theme)
 
----
+- **The Bread of Life**
+  - In the Sanctuary, the table of shewbread represented Christ as the sustenance of His people.
+  - A family that feeds on Christ—trusting His merits—is spiritually rich.
+- **True Riches**
+  - **Revelation 3:18** – “I counsel thee to buy of me gold tried in the fire, that thou mayest be rich; and white raiment, that thou mayest be clothed, and that the shame of thy nakedness do not appear; and anoint thine eyes with eyesalve, that thou mayest see.”
 
-Slide 10 Biblical Answer: “Lo, children are a heritage of the Lord.” (Ps. 127:3) “Children's children are the crown of old men, and the glory of children are their fathers.” (Prov. 17:6)
+## Slide 16 – Q4: Illustration
 
-[IMG] Warm classical biblical painting of an elder sitting with grandchildren around his knees, a look of pride and wisdom on his face.
+- **The Cold Lantern**
+  - Imagine a beautiful lantern, gold-plated and intricately carved, but with no flame inside. It is cold and useless in the dark.
+  - Compare it to a simple clay lamp that burns with a bright, warm flame.
+  - **Lesson:** A home filled with expensive things but lacking Christ’s love is like the cold, golden lantern—dark and cheerless.
 
----
+## Slide 17 – Q5: The Undesirable Home
 
-Slide 11 Progressive Disclosure:
-• **Heritage:** Children are a gift entrusted by God, not a burden.
-• **Crown:** Grandchildren are a sign of honor and established legacy.
-• **Glory:** Fathers are to provide dignity and a righteous example.
+- **Question:** May a home be undesirable under some circumstances?
+- **Key Text:** Proverbs 21:19 – “It is better to dwell in the wilderness, than with a contentious and an angry woman.”
 
-[SN] "Heritage" implies stewardship. Parents are stewards of their children's souls, entrusted to train them for the future, immortal life. The home is the nursery of the church.
+## Slide 18 – Q5: The Ruin of Contentiousness
 
-[IMG] Warm classical biblical painting of a young olive tree growing strong under the care of a gardener, symbolizing the growth of a child.
+- **The "Wilderness" Home**
+  - While the verse mentions a woman, the principle applies to any family member (husband, wife, child).
+  - Constant bickering and criticism destroy the "sanctuary" nature of the home.
+- **The Root of the Problem**
+  - Contentions come from pride and the unrenewed heart.
+  - **Proverbs 13:10** – “Only by pride cometh contention: but with the well advised is wisdom.”
 
----
+## Slide 19 – Q5: The Cure (Imparted Righteousness)
 
-Slide 12 Question: Does the happiness of a home depend on wealth or the abundance of possessions?
+- **A New Heart Needed**
+  - We cannot fix a bad temper by willpower alone; we need a change of nature.
+  - **Philippians 2:13** – “For it is God which worketh in you both to will and to do of his good pleasure.”
+- **The Prayer of Surrender**
+  - "Lord, take my heart; for I cannot give it. It is Thy property. Keep it pure, for I cannot keep it for Thee." (*Christ's Object Lessons*)
+- **The Result**
+  - **Galatians 5:22-23** – “But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.”
 
-[IMG] Warm classical biblical painting of a wealthy merchant counting coins at a table, looking unsatisfied and weary in the dim light.
+## Slide 20 – Q5: Illustration
 
----
-
-Slide 13 Biblical Answer: “A man's life consisteth not in the abundance of the things which he possesseth.” (Luke 12:15) “Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.” (Prov. 15:17)
-
-[IMG] Warm classical biblical painting of a humble family sitting around a simple wooden table with vegetable bowls, their faces glowing with laughter and love.
-
----
-
-Slide 14 Explanation: Jesus teaches that the quality of life is spiritual, not material. Solomon adds that the atmosphere of the home is more nutritious than the food on the table.
-
-[DYK] A "stalled ox" refers to a calf fattened for a special feast, representing the height of luxury. Yet, luxury without love is emptiness.
-
-[IMG] Warm classical biblical painting contrasting a lavish feast where guests look angry versus a simple meal where people look joyful.
-
----
-
-Slide 15 Illustration: A house is built by hands, but a home is built by hearts. You can buy a house with money, but you cannot buy a happy home; that requires the currency of love and contentment.
-
-[IMG] Warm classical biblical painting of a simple stone cottage at dusk with warm light spilling out of the windows, inviting and safe.
-
----
-
-Slide 16 Question: What circumstance makes a home—even a comfortable one—undesirable?
-
-[IMG] Warm classical biblical painting of a stormy wilderness landscape, rocky and barren, yet looking peaceful in its solitude.
-
----
-
-Slide 17 Biblical Answer: “It is better to dwell in the wilderness, than with a contentious and an angry woman.” (Prov. 21:19)
-
-[IMG] Warm classical biblical painting of a man sitting alone on a rock in a desert landscape, looking more at peace than a man arguing in a doorway.
-
----
-
-Slide 18 Deeper Insight: Contentiousness (constant arguing) destroys the sanctuary nature of the home. Solitude in a harsh "wilderness" is preferable to living in a comfortable house filled with an angry spirit.
-
-[SN] The home and the Sabbath are the "twin institutions" of Eden that survived the Fall. Both were designed for rest and relationship. Strife disrupts this Edenic purpose.
-
-[IMG] Warm classical biblical painting of a broken clay vessel on a floor, symbolizing the disruption of peace within a home.
-
----
-
-Slide 19 Practical Application: How can we cultivate a happy home today?
-1. Recognize the home as God's creation.
-2. Cherish family as a "heritage."
-3. Prioritize relationship ("love and herbs") over luxury.
-4. Be a peacemaker to guard the atmosphere.
-
-[IMG] Warm classical biblical painting of a family holding hands in prayer inside a home, soft light illuminating their unity and peace.
-
----
+- **The Leaky Roof**
+  - The Bible compares a contentious spouse to a "continual dropping in a very rainy day."
+  - **Proverbs 27:15** – “A continual dropping in a very rainy day and a contentious woman are alike.”
+  - **Lesson:** An angry spirit is a "spiritual leak" that destroys rest. You cannot just "catch the water" (manage anger); you must let God repair the roof by rebuilding the character through grace.

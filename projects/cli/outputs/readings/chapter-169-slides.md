@@ -1,191 +1,266 @@
-Study Title: God’s Special Promises for Children
+## Slide 1 – Q1: The First Commandment with Promise
+
+- Question: What is the first commandment which contains a promise?
+- Key Text: Ephesians 6:2 – “Honor thy father and mother; which is the first commandment with promise.”
 
----
+## Slide 2 – Q1: Key Points (The Law and God’s Character)
 
-Slide 1 Question: What is the first commandment that contains a specific promise?
+- **The Law is Still Binding**
+  - Paul quotes the Decalogue in the New Testament, confirming the moral law remains the standard for Christians.
+  - Romans 3:31 – “Do we then make void the law through faith? God forbid: yea, we establish the law.”
+- **A Commandment of Relationship**
+  - The Ten Commandments have two sections: love for God (1–4) and love for neighbor (6–10).
+  - The command to honor parents acts as the "hinge," being the first commandment regarding human relationships.
+- **God is a Rewarder**
+  - God is a loving Father, not a tyrant; He attaches blessings to obedience for our happiness.
+  - Deuteronomy 10:13 – “To keep the commandments of the Lord, and his statutes, which I command thee this day for thy good?”
 
-[IMG] Warm classical biblical painting of two stone tablets resting on a wooden table, soft light highlighting the engraved Hebrew text.
+## Slide 3 – Q1: Application (Sanctification)
+
+- **Learning Authority**
+  - Respecting parental authority teaches a child to respect God’s authority.
+- **Preparation for Sanctification**
+  - This discipline prepares the heart for the work of the Holy Spirit in making us holy.
+  - 1 Thessalonians 4:3 – “For this is the will of God, even your sanctification, that ye should abstain from fornication.”
 
----
+## Slide 4 – Q1: Illustration
+
+- **The Road Sign**
+  - Think of a sign that says, "Speed Limit 50." That is a law.
+  - Now imagine a sign that says, "Stay on this path to find buried treasure." That is a command with a promise.
+- **The Map to Happiness**
+  - The Ten Commandments are not just rules to stop our fun.
+  - They are a map leading us to the treasure of a happy, peaceful life.
 
-Slide 2 Biblical Answer: “Honor thy father and mother; which is the first commandment with promise.” (Ephesians 6:2)
+## Slide 5 – Q2: The Promise Given
 
-[IMG] Warm classical biblical painting of a young person bowing respectfully before their elderly parents in an ancient tent setting.
+- Question: What is the promise connected with that commandment?
+- Key Text: Exodus 20:12 – “Honor thy father and thy mother; that thy days may be long upon the land which the Lord thy God giveth thee.”
 
----
+## Slide 6 – Q2: Key Points (Blessings Temporal and Spiritual)
 
-Slide 3 Explanation: The Ten Commandments define our duty to God and to man. The fifth commandment, regarding parents, acts as a bridge between the two. The Apostle Paul notes that this is the first command in the list that includes a specific incentive for keeping it.
+- **Temporal Blessing**
+  - In Israel, this promised stability in Canaan.
+  - Generally, respect for authority leads to avoiding reckless behaviors that shorten life.
+  - Proverbs 4:10 – “Hear, O my son, and receive my sayings; and the years of thy life shall be many.”
+- **Spiritual Inheritance**
+  - The "land" ultimately points to the **New Earth**.
+  - Learning obedience now develops the character necessary for God's eternal kingdom.
 
-[IMG] Warm classical biblical painting of a scroll unrolled, showing a list of laws, with a bright light illuminating the center portion.
+## Slide 7 – Q2: Application (Righteousness by Faith)
 
----
+- **The Need for a New Heart**
+  - We cannot manufacture a heart that truly honors others; our natural heart is selfish.
+  - We need Jesus to write this law in our hearts.
+  - Hebrews 8:10 – “For this is the covenant that I will make with the house of Israel after those days, saith the Lord; I will put my laws into their mind, and write them in their hearts: and I will be to them a God, and they shall be to me a people.”
+- **Christ’s Work**
+  - When we submit to Christ, He gives us His spirit of humility, enabling genuine honor to parents and authorities.
+
+## Slide 8 – Q2: Illustration
 
-Slide 4 Question: What is the specific promise connected with honoring our parents?
+- **The Tree and its Roots**
+  - A great tree stands strong against the wind because of deep roots.
+  - If you cut the roots, the tree falls and dies quickly.
+- **Honoring Parents**
+  - Honoring father and mother is like watering the roots of your life.
+  - It anchors you in wisdom and stability, allowing you to grow tall and live long.
 
-[IMG] Warm classical biblical painting of an olive tree with deep roots and many branches, symbolizing life and longevity.
+## Slide 9 – Q3: The Promise to Hearken
 
----
+- Question: What promise is made to children if they will hearken to the Lord?
+- Key Text: Psalm 34:11 – “Come, ye children, hearken unto me: I will teach you the fear of the Lord.”
 
-Slide 5 Biblical Answer: “Honor thy father and thy mother; that thy days may be long upon the land which the Lord thy God giveth thee.” (Exodus 20:12)
+## Slide 10 – Q3: Key Points (The Divine Invitation)
+
+- **The Invitation: "Come"**
+  - God invites us close despite our ignorance or youth; this is the essence of the Gospel.
+  - Matthew 11:28 – “Come unto me, all ye that labour and are heavy laden, and I will give you rest.”
+- **The Subject: "Fear of the Lord"**
+  - This is the foundation of all true knowledge and the most important subject in the universe.
+- **The Teacher: God Himself**
+  - We do not have to figure out righteousness alone; God undertakes our education through His Word and Spirit.
+
+## Slide 11 – Q3: Application (Defining the Gospel)
 
-[IMG] Warm classical biblical painting of a peaceful landscape with rolling hills and a golden sunset, representing a blessed land.
+- **The Good News**
+  - The Gospel is the news that Jesus died for our sins and lives to restore us.
+  - 1 Corinthians 15:3–4 – “For I delivered unto you first of all that which I also received, how that Christ died for our sins according to the scriptures; And that he was buried, and that he rose again the third day according to the scriptures.”
 
----
+## Slide 12 – Q3: Illustration
 
-Slide 6 Did You Know? [DYK] In the culture of the Bible, the family was the center of religious training and education. To honor one's parents was to respect the structure God established for passing down wisdom and faith.
+- **The Master Musician**
+  - Imagine a master musician offering free violin lessons to a child.
+  - The child does not need to know how to play yet; they only need to be willing to listen and follow instructions.
+- **God’s Role**
+  - God is the Master Musician of life.
+  - He offers to teach us the melody of heaven if we "hearken."
 
-[IMG] Warm classical biblical painting of a father teaching his son from a scroll by candlelight in a humble home.
+## Slide 13 – Q4: Understanding the Fear of the Lord
 
----
+- Question: What is the fear of the Lord?
+- Key Text: Psalm 111:10 – “The fear of the Lord is the beginning of wisdom: a good understanding have all they that do His commandments.”
 
-Slide 7 Word Study: “Honor” (Hebrew *kabad*) literally means to be heavy or weighty.
+## Slide 14 – Q4: Key Points (Reverence and Action)
 
-To honor parents means to treat them with weight, significance, and high value, rather than treating them lightly or disrespectfully.
+- **Reverential Awe**
+  - Not terror, but a deep, holy respect for God as Creator.
+  - Revelation 14:7 – “Saying with a loud voice, Fear God, and give glory to him; for the hour of his judgment is come: and worship him that made heaven, and earth, and the sea, and the fountains of waters.”
+- **Hatred of Evil**
+  - Knowing God means loving what He loves and turning away from sin.
+  - Proverbs 8:13 – “The fear of the Lord is to hate evil: pride, and arrogancy, and the evil way, and the froward mouth, do I hate.”
 
-[IMG] Warm classical biblical painting of a merchant using antique scales, weighing gold against a stone weight, emphasizing value and heaviness.
+## Slide 15 – Q4: Application (Faith and Obedience)
 
----
+- **Practical Obedience**
+  - Wisdom is living in harmony with God's law ("they that **do** His commandments").
+- **Righteousness by Faith Connection**
+  - True faith always leads to obedience; the Holy Spirit makes the "fear of the Lord" a joy.
+  - James 2:17 – “Even so faith, if it hath not works, is dead, being alone.”
 
-Slide 8 Question: What does God promise to teach children who listen (hearken) to Him?
+## Slide 16 – Q4: Illustration
 
-[IMG] Warm classical biblical painting of a group of children sitting in a semi-circle, looking up attentively at a teacher.
+- **The Fire Analogy**
+  - A child does not play with fire. Is it because they hate the warmth? No.
+  - They respect the fire because they know its power can burn them.
+- **Spiritual Parallel**
+  - The "fear of the Lord" means we respect God’s law.
+  - We know that sin burns and destroys, while obedience brings safety and warmth.
 
----
+## Slide 17 – Q5: The Wise Child vs. The Foolish King
 
-Slide 9 Biblical Answer: “Come, ye children, hearken unto me: I will teach you the fear of the Lord.” (Psalm 34:11)
+- Question: How is a wise child, even though poor, regarded by the Lord?
+- Key Text: Ecclesiastes 4:13 – “Better is a poor and a wise child, than an old and foolish king, who will no more be admonished.”
 
-[IMG] Warm classical biblical painting of King David playing a harp, surrounded by attentive young listeners.
+## Slide 18 – Q5: Key Points (The Value of Teachability)
 
----
+- **God’s Measure of Worth**
+  - The world values position, age, and wealth.
+  - God values a humble, teachable spirit ("wise child").
+- **The Fatal Flaw of the King**
+  - He is "foolish" because he will "no more be admonished" (corrected).
+  - Pride prevents him from listening to counsel.
 
-Slide 10 Question: What is the "fear of the Lord"?
+## Slide 19 – Q5: Application (Justification)
 
-[IMG] Warm classical biblical painting of a man kneeling in a vast temple, looking up in awe at a shaft of divine light.
+- **Condition for Salvation**
+  - Justification is only possible for those who admit their need for a Savior.
+  - Luke 18:13–14 – “And the publican, standing afar off, would not lift up so much as his eyes unto heaven, but smote upon his breast, saying, God be merciful to me a sinner. I tell you, this man went down to his house justified rather than the other...”
+- **The Robe of Righteousness**
+  - We must accept correction from the Holy Spirit to receive Christ's righteousness.
 
----
+## Slide 20 – Q5: Illustration
 
-Slide 11 Biblical Answer: “The fear of the Lord is the beginning of wisdom: a good understanding have all they that do His commandments.” (Psalm 111:10)
+- **Two Cups**
+  - **Cup 1:** A golden goblet, expensive but sealed shut.
+  - **Cup 2:** A simple clay cup, but open and clean.
+- **The Lesson**
+  - A thirsty man can only use the open cup.
+  - God can use a poor, teachable child, but He can do nothing with a proud heart that is "sealed" like the foolish king.
 
-[IMG] Warm classical biblical painting of an ancient scribe writing carefully on parchment, an expression of deep contemplation on his face.
+## Slide 21 – Q6: The Saviour’s Attitude
 
----
+- Question: What tender words did the Saviour speak in behalf of children?
+- Key Text: Matthew 19:14 – “Suffer little children, and forbid them not, to come unto Me; for of such is the kingdom of heaven.”
 
-Slide 12 Explanation: Biblical "fear" in this context does not mean being terrified of God. It refers to a deep, reverential awe and respect. It is recognizing God as the supreme Authority. True wisdom begins when we acknowledge God's position and submit to His guidance through obedience.
+## Slide 22 – Q6: Key Points (Grace and Trust)
 
-[IMG] Warm classical biblical painting of the night sky full of stars, with a small human figure silhouetted in the foreground, gazing up in wonder.
+- **"Suffer Them"**
+  - Means "Allow them." Jesus rebuked those who thought He was too busy for the humble.
+- **Kingdom Traits**
+  - The Kingdom belongs to those with childlike traits: simplicity, trust, and dependence.
+- **Grace Through Faith**
+  - We are saved by grace, not by earning our way.
+  - Ephesians 2:8 – “For by grace are ye saved through faith; and that not of yourselves: it is the gift of God.”
 
----
+## Slide 23 – Q6: Illustration
 
-Slide 13 Illustration [ILL]: Think of a traveler on a steep mountain trail following an expert guide. The traveler has a healthy "fear" or respect for the guide's instructions, not because the guide is mean, but because the guide knows the safe path. Ignoring the guide is foolish; following him is wisdom.
+- **The Toddler’s Trust**
+  - If you hold out your hand to a toddler, they instinctively reach up and grab it.
+  - They do not ask for a map or a contract; they trust you to lead.
+- **Application**
+  - To enter the Kingdom, we must take Jesus’ hand with that same instant, questioning-nothing trust.
 
-[IMG] Warm classical biblical painting of a shepherd leading a flock along a narrow, steep mountain path, protecting them from the edge.
+## Slide 24 – Q7: Jesus’ Action of Love
 
----
+- Question: What did He do to the children to show that He loved them?
+- Key Text: Mark 10:16 – “And He took them up in His arms, put His hands upon them, and blessed them.”
 
-Slide 14 Question: How does God view a young person who is wise, compared to a powerful leader who refuses to learn?
+## Slide 25 – Q7: Key Points (Personal Ministry)
 
-[IMG] Warm classical biblical painting contrasting a humble youth in simple clothes with an old king in rich robes looking stubborn.
+- **Personal Involvement**
+  - **"Took them up":** Shows His power to support and carry us.
+  - **"Put His hands upon them":** Signifies imparting His Spirit and life.
+  - **"Blessed them":** A divine pronouncement that the world cannot remove.
 
----
+## Slide 26 – Q7: Application (Sanctuary Connection)
 
-Slide 15 Biblical Answer: “Better is a poor and a wise child, than an old and foolish king, who will no more be admonished.” (Ecclesiastes 4:13)
+- **Our High Priest**
+  - Jesus’ action on earth foreshadows His work in the **Heavenly Sanctuary**.
+  - He ministers in God’s presence, covering our imperfections and blessing us.
+  - Hebrews 7:25 – “Wherefore he is able also to save them to the uttermost that come unto God by him, seeing he ever liveth to make intercession for them.”
 
-[IMG] Warm classical biblical painting of a crown gathering dust on a table, while a simple shepherd's staff glows with light nearby.
+## Slide 27 – Q7: Illustration
 
----
+- **The Shepherd**
+  - When a shepherd finds a tired lamb, he does not shout at it to walk faster.
+  - He carries it on his shoulders.
+  - Isaiah 40:11 – “He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.”
+- **Jesus Carries Us**
+  - Jesus carries His children through the trials of this life.
 
-Slide 16 Deeper Insight: Wisdom in Scripture is not about age or status; it is about a teachable spirit ("admonished"). A child who listens to God is spiritually superior to a king who thinks he knows everything.
+## Slide 28 – Q8: Receiving the Blessing
 
-[IMG] Warm classical biblical painting of a young Samuel listening intently in the temple, soft light illuminating his face.
+- Question: How may all receive the Lord's blessing now?
+- Key Text: Matthew 21:22 – “And all things, whatsoever ye shall ask in prayer, believing, ye shall receive.”
 
----
+## Slide 29 – Q8: Key Points (Prayer and Faith)
 
-Slide 17 Question: How did Jesus demonstrate His feelings toward children?
+- **The Condition: Believing**
+  - Faith is taking God at His word and claiming promises as reality.
+  - Hebrews 11:1 – “Now faith is the substance of things hoped for, the evidence of things not seen.”
+- **The Scope: All Things**
+  - We may confidently ask for pardon, the Holy Spirit, and victory over sin.
+  - 1 John 5:14–15 – “And this is the confidence that we have in him, that, if we ask any thing according to his will, he heareth us...”
 
-[IMG] Warm classical biblical painting of Jesus sitting on a stone, smiling as children run toward Him.
+## Slide 30 – Q8: Illustration
 
----
+- **The Signed Check**
+  - Imagine a check signed by the wealthiest person in the world.
+  - It has no value if it stays in your pocket; you must present it at the bank.
+- **Spiritual Parallel**
+  - **The Check:** God’s promises.
+  - **The Bank:** The throne of Heaven.
+  - **Prayer:** Presenting the check.
+  - **Faith:** Confidence that the funds (blessings) will be released.
 
-Slide 18 Biblical Answer: “Suffer little children, and forbid them not, to come unto Me; for of such is the kingdom of heaven.” (Matthew 19:14)
+## Slide 31 – Q9: The Final Promise
 
-“And He took them up in His arms, put His hands upon them, and blessed them.” (Mark 10:16)
+- Question: If children do this, and as they grow older, keep all of God's commandments, what is promised?
+- Key Text: Revelation 22:14 – “Blessed are they that do His commandments, that they may have right to the tree of life, and may enter in through the gates into the city.”
 
-[IMG] Warm classical biblical painting of Jesus holding a small child in His arms, with other children gathering around His knees.
+## Slide 32 – Q9: Key Points (Obedience and Restoration)
 
----
+- **Evidence of Salvation**
+  - We do not obey *to get* saved; we obey because we *are* saved and love our Redeemer.
+  - John 14:15 – “If ye love me, keep my commandments.”
+- **Restoration**
+  - **Tree of Life:** Access lost by Adam (sin) is restored by the Second Adam (Jesus).
+  - **The Gates:** Citizenship belongs to those whose characters harmonize with the City's Law.
 
-Slide 19 Term Definition: “Suffer” in older English means "to allow" or "to permit."
+## Slide 33 – Q9: Application (Sanctuary & Great Controversy)
 
-The disciples tried to send the children away, thinking they were bothering the Master. Jesus corrected them, showing that the Kingdom of Heaven belongs to those with the humble, trusting heart of a child.
+- **The End of the Controversy**
+  - Sin is gone. God’s law is written on the hearts of His people.
+- **Sanctification Defined**
+  - Imparted Righteousness: God working within us to change our hearts.
+  - This enables us to "do His commandments" naturally and joyfully.
 
-[IMG] Warm classical biblical painting of disciples looking surprised as Jesus gestures for the children to come closer.
+## Slide 34 – Q9: Illustration
 
----
-
-Slide 20 Speaker's Note [SN]: This scene reveals the character of God. In ancient societies, children were often marginalized or seen as having low status. Jesus elevated them, showing that God’s love is not based on what we can produce or achieve, but on our willingness to come to Him.
-
-[IMG] Warm classical biblical painting focusing on the gentle hand of Jesus resting on a child's head, symbolizing blessing and acceptance.
-
----
-
-Slide 21 Question: Since Jesus is in Heaven now, how can we receive His blessing today?
-
-[IMG] Warm classical biblical painting of a beam of light connecting the heavens to a person kneeling on earth.
-
----
-
-Slide 22 Biblical Answer: “And all things, whatsoever ye shall ask in prayer, believing, ye shall receive.” (Matthew 21:22)
-
-[IMG] Warm classical biblical painting of a family kneeling together in prayer, their faces illuminated by a central candle.
-
----
-
-Slide 23 Explanation: We can no longer physically climb into Jesus' arms, but we access His presence through the medium of prayer. Faith ("believing") is the hand that reaches out to receive God's gifts.
-
-[IMG] Warm classical biblical painting of hands reached out open toward the sky, receiving intangible light.
-
----
-
-Slide 24 Question: What is the ultimate promise for those who keep God’s commandments?
-
-[IMG] Warm classical biblical painting of pearl gates opening to reveal a city of golden light.
-
----
-
-Slide 25 Biblical Answer: “Blessed are they that do His commandments, that they may have right to the tree of life, and may enter in through the gates into the city.” (Revelation 22:14)
-
-[IMG] Warm classical biblical painting of a magnificent tree with glowing fruit growing on either side of a crystal river.
-
----
-
-Slide 26 Progressive Disclosure:
-• Obedience leads to blessing.
-• Access is restored to what was lost in Eden (the Tree of Life).
-• Entrance is granted into the New Jerusalem.
-
-[IMG] Warm classical biblical painting of people walking in white robes through a grand archway into a bright city.
-
----
-
-Slide 27 Deeper Insight: This verse connects the end of the Bible with the beginning. In Genesis, humanity was barred from the Tree of Life because of disobedience. In Revelation, humanity is restored to the Tree of Life through faith and obedience. The law of God and the grace of God work together to restore His family.
-
-[IMG] Warm classical biblical painting depicting a garden on one side merging into a glorious city on the other, bridged by a cross of light.
-
----
-
-Slide 28 Speaker's Note [SN]: Early Adventists emphasized that the "Commandments" in Revelation 22:14 are the standard of judgment and the evidence of a transformed heart. It is fitting that the last promise in the Bible concerns the keeping of God's law, ensuring an eternity of peace and order.
-
-[IMG] Warm classical biblical painting of an open Bible with the pages turning from Genesis to Revelation, both glowing.
-
----
-
-Slide 29 Practical Application: How can we claim these promises today?
-
-• Show respect to parents and elders.
-• Cultivate a teachable spirit.
-• Do not be afraid to come to Jesus in prayer, no matter your age.
-• Value obedience to God’s law as the path to life.
-
-[IMG] Warm classical biblical painting of a diverse group of people, young and old, walking together on a lighted path toward the horizon.
-
----
+- **The Passport**
+  - A passport gives a traveler the right to enter a country. A counterfeit is rejected.
+- **Our Passport to Heaven**
+  - Our passport is the righteousness of Christ.
+  - **Title (Justification):** Clears our record.
+  - **Fitness (Sanctification):** Changes our character.
+  - With Him, we have the right to enter the City.

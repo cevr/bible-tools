@@ -1,112 +1,208 @@
-Study Title: The Mystery of Iniquity and the Union of Church and State
+## Slide 1 – Q1: The Mystery of Iniquity
 
----
+- **Question:** What was already at work in the church in Paul's day?
+- **Key Text:** 2 Thessalonians 2:7 – “For the mystery of iniquity doth already work: only he who now letteth will let, until he be taken out of the way.”
 
-Slide 1 Question: Did the apostles foresee that corruption and error would enter the Christian church from within?
+## Slide 2 – Q1: Key Points (Definition & Root)
 
-[IMG] Warm classical biblical painting of the Apostle Paul looking concerned while speaking to a group of elders, soft light illuminating his face against a shadowed background.
+- **Definition:**
+  - The "mystery of iniquity" refers to the hidden working of Satan to overthrow God’s law while remaining within the church.
+  - It is the counterfeit of the "mystery of godliness" (God manifested in the flesh).
+  - Key Text: 1 Timothy 3:16 – “And without controversy great is the mystery of godliness: God was manifest in the flesh, justified in the Spirit, seen of angels, preached unto the Gentiles, believed on in the world, received up into glory.”
+- **Self-Exaltation:**
+  - The "mystery of godliness" is Christ humbling Himself (Philippians 2:8 – “And being found in fashion as a man, he humbled himself, and became obedient unto death, even the death of the cross.”).
+  - The "mystery of iniquity" is man exalting himself to take the place of God.
+- **The Root:**
+  - This spirit begins in the heart.
+  - It substitutes human tradition for God's commandments.
+  - It uses force or manipulation rather than the Holy Spirit.
 
----
+## Slide 3 – Q1: Application (Faith & Sanctuary)
 
-Slide 2 Biblical Answer: “For I know this, that after my departing shall grievous wolves enter in among you, not sparing the flock. Also of your own selves shall men arise, speaking perverse things, to draw away disciples after them.” (Acts 20:29, 30)
+- **Righteousness by Faith Application:**
+  - True righteousness comes only by faith in Christ, who writes His law internally.
+  - Hebrews 8:10 – “For this is the covenant that I will make with the house of Israel after those days, saith the Lord; I will put my laws into their mind, and write them in their hearts: and I will be to them a God, and they shall be to me a people.”
+  - When the church loses the internal power of the Gospel (Christ in you), it seeks external political power.
+- **Sanctuary Connection:**
+  - In the true sanctuary, the sinner relies on the sacrifice and the High Priest.
+  - The "mystery of iniquity" shifts reliance to human priests and earthly systems, obscuring Christ’s work in heaven.
 
-[IMG] Warm classical biblical painting of a flock of sheep at twilight, with the shadow of a wolf cast upon the ground near the shepherds.
+## Slide 4 – Q1: Illustration
 
----
+- **The Leaven:**
+  - Jesus warned of the "leaven of the Pharisees," which is hypocrisy (Luke 12:1 – “In the mean time... he began to say unto his disciples first of all, Beware ye of the leaven of the Pharisees, which is hypocrisy.”).
+  - **The Lesson:**
+    - If a baker puts a drop of poison in the dough, it is hidden at first.
+    - It looks and smells like bread, but the poison corrupts the whole lump.
+    - The "mystery of iniquity" was spiritual poison introduced early, mixing the Gospel with human pride.
 
-Slide 3 Explanation: The Apostle Paul warned the elders of Ephesus that the greatest danger to the church would not always come from outside persecution, but from internal corruption. He predicted that leaders ("of your own selves") would twist the Scriptures to gain a following.
+## Slide 5 – Q2: Warning of Internal Corruption
 
-[DYK] Paul mentioned in 2 Thessalonians 2:7 that the "mystery of iniquity" was "already" at work in his day. This suggests that the seeds of apostasy—pride, formalism, and a desire for power—were present even in the apostolic era, waiting for the opportunity to grow.
+- **Question:** What class of men did he warn were to soon arise in the church?
+- **Key Text:** Acts 20:29, 30 – “For I know this, that after my departing shall grievous wolves enter in among you, not sparing the flock. Also of your own selves shall men arise, speaking perverse things, to draw away disciples after them.”
 
-[IMG] Warm classical biblical painting of a group of first-century men in a circle, one gesturing towards a scroll while others look doubtful or intrigued.
+## Slide 6 – Q2: Key Points (Wolves & Perversions)
 
----
+- **Wolves in Sheep's Clothing:**
+  - A "wolf" is a leader who feeds *on* the flock rather than feeding them.
+  - They seek personal gain and prestige rather than the salvation of souls.
+  - Ezekiel 34:2 – “Son of man, prophesy against the shepherds of Israel... Woe be to the shepherds of Israel that do feed themselves! should not the shepherds feed the flocks?”
+- **"Of Your Own Selves":**
+  - The most dangerous deception comes from within the church structure.
+  - **Motivation:** To draw disciples *after them*.
+  - They detach people from the Lamb of God and attach them to human intellect or organization.
+- **Perverse Things:**
+  - Any teaching that distorts God's character or lessens the authority of His law.
 
-Slide 4 Question: What specific development must occur before the Second Coming of Christ?
+## Slide 7 – Q2: The Spirit of Antichrist
 
-[IMG] Warm classical biblical painting of believers looking toward the horizon at sunrise, hopeful and expectant.
+- **Replacement, Not Just Denial:**
+  - The spirit of antichrist is a *replacement* of Jesus.
+  - When a leader steps between the soul and the Savior, demanding loyalty that belongs only to God, the seeds of the papacy are sown.
+- **Key Text:**
+  - John 1:29 – “The next day John seeth Jesus coming unto him, and saith, Behold the Lamb of God, which taketh away the sin of the world.”
+  - True leaders point to the Lamb; false leaders point to themselves.
 
----
+## Slide 8 – Q3: The Coming Apostasy
 
-Slide 5 Biblical Answer: “That day shall not come, except there come a falling away first, and that man of sin be revealed, the son of perdition.” (2 Thessalonians 2:3)
+- **Question:** What apostasy in the church was to develop before Christ would return the second time?
+- **Key Text:** 2 Thessalonians 2:3 – “Let no man deceive you by any means: for that day shall not come, except there come a falling away first, and that man of sin be revealed, the son of perdition.”
 
-[IMG] Warm classical biblical painting of an ancient scroll unfurled, revealing prophetic text, bathed in a solemn, dramatic light.
+## Slide 9 – Q3: Key Points (Definitions)
 
----
+- **Apostasy ("Falling Away"):**
+  - Greek *apostasia*: A defection or revolt.
+  - Not falling away from the *name* Christian, but from the *truth* of Christ.
+- **Man of Sin:**
+  - A system of lawlessness that attempts to change or annul the Law of God.
+  - Daniel 7:25 – “And he shall speak great words against the most High... and think to change times and laws...”
+- **Son of Perdition:**
+  - This title is used for only one other person: Judas Iscariot.
+  - John 17:12 – “While I was with them in the world, I kept them in thy name... and none of them is lost, but the son of perdition; that the scripture might be fulfilled.”
+  - **Significance:** This power is a *betrayer* from the inner circle, kissing Christ while selling Him out.
 
-Slide 6 Explanation: The Bible predicts a major "falling away" (apostasy) involving a specific power called the "man of sin." This power arises not by rejecting religion, but by corrupting it. It involves the adoption of heathen rites and customs into the church to make it more acceptable to the pagan world.
+## Slide 10 – Q3: Prophetic Sequence & Sanctuary
 
-[IMG] Warm classical biblical painting of a church interior where traditional symbols are being subtly replaced or mixed with foreign, ornate idols.
+- **The Sequence:**
+  1. The restraining power (pagan Rome) is removed.
+  2. The "Man of Sin" (Papal Rome) takes his seat in the "temple of God" (the church).
+  3. The Lord consumes this power at the Second Coming (2 Thessalonians 2:8).
+- **Sanctuary Insight:**
+  - By setting himself up in the "temple," this power obscures the view of the true Temple in heaven.
+  - It diverts the eyes of men from the true Intercessor to human intermediaries.
 
----
+## Slide 11 – Q4: Heathen Rites Adopted
 
-Slide 7 Term Definition: "Falling Away"
-From the Greek word *apostasia*, meaning a defection or revolt. It implies standing in the truth and then moving away from it.
+- **Question:** How was this "falling away" from Bible truth shown?
+- **Answer:** By the adoption of heathen rites and customs in the church.
+- **Key Concept:** The "falling away" was a gradual compromise—blending pagan philosophy with Christian terminology.
 
-[IMG] Warm classical biblical painting of a dirt path that forks; one path stays straight toward the light, the other turns sharply into a dark, mist-covered forest.
+## Slide 12 – Q4: Key Points (Syncretism)
 
----
+- **Syncretism (Mixing):**
+  - To make Christianity acceptable to the heathen, leaders adopted pagan festivals and images, giving them Christian names.
+  - **Images:** Veneration of images replaced pagan idol worship (violating the Second Commandment).
+  - **Sunday:** The "day of the sun" was elevated to replace the biblical Sabbath.
+- **Loss of Spiritual Power:**
+  - When the church has the "power of godliness," the Spirit convicts hearts.
+  - When the Spirit is lost, the church resorts to pageantry and sensory rituals to impress the people.
+  - 2 Timothy 3:5 – “Having a form of godliness, but denying the power thereof: from such turn away.”
 
-Slide 8 Illustration: The Ship and the Sea
-A ship is designed to be in the water, but if the water gets into the ship, it sinks.
-The church is meant to be in the world to save it, but when the world gets into the church—through worldly customs and politics—the church loses its buoyancy and sinks into error.
+## Slide 13 – Q4: Illustration
 
-[IMG] Warm classical biblical painting of a wooden sailing ship on a turbulent sea, heavy and low in the water, struggling against the waves.
+- **The Muddy Stream:**
+  - If you have a glass of pure water and add a drop of sewage, it is no longer pure.
+  - The early church tried to expand the "river of life" by digging channels into the stagnant pools of paganism.
+  - **Result:** The volume of water increased (more members), but the purity was lost.
 
----
+## Slide 14 – Q5: Character of Leadership
 
-Slide 9 Question: How did the character of church leadership change to facilitate this apostasy?
+- **Question:** What came to be the character and work of many of the religious leaders?
+- **Quote:** “Worldly-minded bishops, instead of caring for the salvation of their flocks, were often but too much inclined to travel about, and entangle themselves in worldly concerns.” (Neander, *General History of the Christian Religion and Church*)
 
-[IMG] Warm classical biblical painting of a bishop or church leader looking at a map of the Roman empire rather than a scroll of Scripture.
+## Slide 15 – Q5: Key Points (Shift in Focus)
 
----
+- **True Ministry:**
+  - The biblical elder feeds the flock and serves as an example, not for money or power.
+  - 1 Peter 5:2 – “Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind.”
+- **Apostate Ministry:**
+  - Leadership positions began to attract ambitious men seeking power rather than piety.
+  - They became entangled in "worldly concerns"—politics and civil influence.
 
-Slide 10 Historical Insight: As the historian Neander notes, “Worldly-minded bishops, instead of caring for the salvation of their flocks, were often but too much inclined to travel about, and entangle themselves in worldly concerns.”
+## Slide 16 – Q5: Sanctification vs. Status
 
-[IMG] Warm classical biblical painting of a religious leader dressed in fine robes engaging in a political discussion with a Roman official in a palace setting.
+- **God's Standard:**
+  - Greatness is measured by service.
+  - Mark 10:43 – “But so shall it not be among you: but whosoever will be great among you, shall be your minister.”
+- **The Apostate Standard:**
+  - Greatness measured by rank, titles, and proximity to the Emperor.
+  - A leader focused on political maneuvering has little time to weep for souls or point sinners to the Lamb of God.
 
----
+## Slide 17 – Q6: The Papacy Defined
 
-Slide 11 Explanation: A shift occurred where spiritual leaders became political players. Instead of feeding the flock of God with Scripture, they sought influence, prestige, and civil power.
+- **Question:** What has been the special characteristic of the papacy?
+- **Answer:** A union of church and state, or the religious power dominating the civil power to further its ends.
+- **Defining the Papacy:**
+  - It is the ecclesiastical system where the Bishop of Rome claims supreme authority over the church and (historically) the state.
 
-[SN] A Spirit-led tangent for study: Compare this "worldly-mindedness" with Jesus’ instruction in John 18:36, "My kingdom is not of this world." The hallmark of the "man of sin" is the attempt to establish the Kingdom of God through the machinery of earthly governments rather than the power of the Holy Spirit.
+## Slide 18 – Q6: Key Points (Two Opposing Principles)
 
-[IMG] Warm classical biblical painting of a shepherd leaving his sheep behind to walk toward a glowing, wealthy city in the distance.
+- **God's Government:**
+  - Based on free will and love.
+  - Revelation 22:17 – “And the Spirit and the bride say, Come... And whosoever will, let him take the water of life freely.”
+- **Satan's Principle:**
+  - Based on force and coercion (Church & State union).
+  - If the heart cannot be convinced, the body is forced.
+- **Spiritual Adultery:**
+  - The church is the bride of Christ (2 Corinthians 11:2).
+  - Relying on the state for power is "fornication" (Revelation 17:2).
 
----
+## Slide 19 – Q6: Illustration
 
-Slide 12 Question: What defines the union of church and state, and when was its foundation laid?
+- **Oil and Water:**
+  - The State deals with civil order using the sword (Romans 13:4).
+  - The Church deals with the conscience using the Word of God (Ephesians 6:17).
+  - **Lesson:**
+    - Like oil and water, they have distinct functions.
+    - Mixing them—using the sword to deal with conscience—creates a monster that destroys both liberty and true religion.
 
-[IMG] Warm classical biblical painting of a royal crown placed next to a simple wooden cross on a stone table.
+## Slide 20 – Q7: Formation of the Union
 
----
+- **Question:** When was the union of church and state formed, from which the papacy gained its control over the civil powers?
+- **Answer:** The foundation was laid for it during the reign of Constantine, A.D. 313-337, and it developed under his successors.
 
-Slide 13 Historical Insight: The union is defined as religious power dominating civil power to further its own ends. The foundation was laid notably during the reign of Constantine (A.D. 313-337).
+## Slide 21 – Q7: Key Points (Constantine & Prophecy)
 
-[IMG] Warm classical biblical painting of Emperor Constantine holding a decree, surrounded by church bishops, soft historical lighting.
+- **The Compromise:**
+  - The Edict of Milan (A.D. 313) granted freedom, but the church soon sought *favor*.
+  - Satan switched tactics from persecution (lion) to patronage (serpent).
+  - Christianity became fashionable; many joined for political advancement without the new birth.
+- **Prophetic Fulfillment:**
+  - This prepared the way for the "dragon" (Pagan Rome) to give his authority to the "beast" (Papal Rome).
+  - Revelation 13:2 – “...and the dragon gave him his power, and his seat, and great authority.”
 
----
+## Slide 22 – Q8: Government Patronage
 
-Slide 14 Explanation: Under Constantine, the government began offering "patronage" to the church. This included immunities, privileges, and financial support. What began as equality with paganism eventually turned into the state enforcing church dogmas and excluding all who disagreed.
+- **Question:** How was this governmental patronage of the church shown under Constantine and later rulers?
+- **Answer:** Immunities, privileges, and judicial functions for the clergy; gifts and financial support; finally, the exclusion of all except Catholic orthodoxy.
 
-[DYK] Constantine was the first Roman Emperor to profess Christianity. While this ended violent persecution, it introduced a new danger: popularity. The church became powerful, wealthy, and politically connected, leading to compromise on biblical truths to maintain state favor.
+## Slide 23 – Q8: Key Points (Steps to Tyranny)
 
-[IMG] Warm classical biblical painting of gold coins being exchanged within the pillars of a basilica, symbolizing the mixing of wealth and faith.
+- **The Progression:**
+  1. **Equality:** Christianity placed on par with paganism.
+  2. **Privilege:** Clergy exempted from taxes; state paid church bills.
+  3. **Exclusion:** Only "Catholic orthodoxy" remained legal; dissenters were punished.
+- **The Result:**
+  - **Distorted Atonement:** Focus shifted from the blood of Christ to the gold of the Empire.
+  - **Persecution:** The church used the state's sword, becoming "drunken with the blood of the saints" (Revelation 17:6).
 
----
+## Slide 24 – Q8: Application & Illustration
 
-Slide 15 Deeper Insight: This union paved the way for the Papacy to gain control over civil powers. When the church relies on the state for support, it eventually uses the state's sword to punish dissenters. This is the "image" of the beast power warned against in Revelation—forcing conscience through civil law.
-
-[IMG] Warm classical biblical painting of a Roman sword wrapped in religious vestments, lying on a judge's bench.
-
----
-
-Slide 16 Practical Application: Why does this history matter to us today?
-
-• **Guard the Truth**: Ensure beliefs come from the Bible, not custom.
-• **Liberty of Conscience**: Value the separation of church and state to protect freedom.
-• **Focus on Mission**: Focus on the "salvation of flocks," not political power.
-
-[IMG] Warm classical biblical painting of a humble believer holding an open Bible, standing firm with a gentle expression of faith.
-
----
+- **Righteousness by Faith Contrast:**
+  - A church relying on the state admits it lacks the Spirit's power.
+  - True believers trust in God, not the arm of flesh.
+  - Jeremiah 17:5 – “Thus saith the Lord; Cursed be the man that trusteth in man, and maketh flesh his arm, and whose heart departeth from the Lord.”
+- **Illustration: The Crutch**
+  - A healthy man walks on his own legs; a cripple needs a crutch.
+  - In Acts, the church walked and leaped in the Spirit.
+  - When paralyzed by compromise, she reached for the "crutch" of State Power to hold herself up.

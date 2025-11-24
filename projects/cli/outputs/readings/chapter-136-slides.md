@@ -1,179 +1,302 @@
-Study Title: Diligence: The Pathway to Peace and Prosperity
+## Slide 1 – Q1: The Blessings of Diligence
+
+- **Question:** What good things are spoken of the faithful and energetic?
+- **Key Text:** Proverbs 28:19 – “He that tilleth his land shall have plenty of bread: but he that followeth after vain persons shall have poverty enough.”
+- **Key Text:** Proverbs 10:4 – “He becometh poor that dealeth with a slack hand: but the hand of the diligent maketh rich.”
+- **Key Text:** Proverbs 13:4 – “The soul of the sluggard desireth, and hath nothing: but the soul of the diligent shall be made fat.”
+
+## Slide 2 – Q1: Key Points
+
+- **The Law of Sowing and Reaping**
+  - God has ordained that effort precedes reward.
+  - God gives the increase, but man must prepare the ground.
+  - Galatians 6:7 – “Be not deceived; God is not mocked: for whatsoever a man soweth, that shall he also reap.”
+- **Spiritual Fatness**
+  - Being "fat" in Scripture implies health, prosperity, and nourishment (Psalm 92:14).
+  - Diligent prayer and study result in a robust spiritual constitution.
+- **Cooperation with God**
+  - We are “labourers together with God” (1 Corinthians 3:9).
+  - He provides the soil, seed, and rain (grace); we provide the tillage (faith and obedience).
+
+## Slide 3 – Q1: Illustration
+
+- **The Water Wheel**
+  - Consider a water wheel at a mill.
+  - The river provides all the power (representing God’s grace).
+  - The wheel must be positioned correctly and maintained diligently to catch the current.
+  - If the miller is lazy and lets the wheel rot, the power passes by without effect.
+  - **Lesson:** We must diligently position ourselves in the stream of God’s power.
+
+## Slide 4 – Q2: The Sluggard’s Condition
+
+- **Question:** What is said of the man of opposite characteristics?
+- **Key Text:** Proverbs 10:4 – “He becometh poor that dealeth with a slack hand: but the hand of the diligent maketh rich.”
+- **Key Text:** Proverbs 13:4 – “The soul of the sluggard desireth, and hath nothing: but the soul of the diligent shall be made fat.”
+
+## Slide 5 – Q2: Key Points
+
+- **The Slack Hand**
+  - Implies doing work halfway, without heart or precision.
+  - Represents the lukewarm condition—knowing truth but not living it.
+  - Revelation 3:15–16 – “I know thy works, that thou art neither cold nor hot: I would thou wert cold or hot. So then because thou art lukewarm, and neither cold nor hot, I will spue thee out of my mouth.”
+- **Desire without Effort**
+  - Many desire the crown of life but refuse the cross of self-denial.
+  - They want victory without the surrender of the will.
+- **Spiritual Poverty**
+  - This poverty is a lack of "gold tried in the fire"—faith and love (Revelation 3:18).
+  - The sluggard procrastinates duties and makes excuses (Proverbs 26:13).
+
+## Slide 6 – Q2: Illustration
+
+- **The Fruit Tree**
+  - A man may stand by a fruit tree earnestly desiring an apple.
+  - Unless he stretches forth his hand or climbs the ladder, he goes hungry.
+  - **Lesson:** Wishing to be righteous does not make one righteous.
+  - We must "strive to enter in at the strait gate" (Luke 13:24), laying hold of Christ’s strength by faith.
+
+## Slide 7 – Q3: Social Distinction and Liberty
+
+- **Question:** What social distinction is shown between the diligent man and the slothful one?
+- **Key Text:** Proverbs 12:24 – “The hand of the diligent shall bear rule: but the slothful shall be under tribute.”
+
+## Slide 8 – Q3: Key Points
+
+- **Self-Mastery leads to Liberty**
+  - The man who rules his own passions by God's grace is free.
+  - He is not a slave to circumstances or appetites.
+- **Sloth leads to Slavery**
+  - "Under tribute" implies forced labor or bondage.
+  - John 8:34 – “Jesus answered them, Verily, verily, I say unto you, Whosoever committeth sin is the servant of sin.”
+  - The slothful Christian eventually falls under the tyranny of old habits.
+- **Righteousness by Faith Connection**
+  - True liberty is found in the law of God (James 1:25).
+  - When Christ writes the Law in our hearts (New Covenant), we obey out of love.
+  - This is the highest form of "bearing rule"—ruling oneself through the Spirit.
+
+## Slide 9 – Q3: Illustration
+
+- **The Prodigal Son**
+  - As long as the son demanded "freedom" to live riotously and lazily, he became a slave feeding pigs.
+  - When he returned to his Father’s house to serve, he was restored to dignity.
+  - **Lesson:** True diligence in the Father’s house brings royal dignity; slothful rebellion brings slavery.
+
+## Slide 10 – Q4: Honor for the Diligent
+
+- **Question:** What honor awaits the diligent man of business?
+- **Key Text:** Proverbs 22:29 – “Seest thou a man diligent in his business? he shall stand before kings; he shall not stand before mean men.”
+
+## Slide 11 – Q4: Key Points
+
+- **Witness through Excellence**
+  - God is glorified when His people are faithful in their work.
+  - A careless workman dishonors the Lord; a diligent one commends the Gospel to leaders.
+  - Daniel 6:4 – “Then the presidents and princes sought to find occasion against Daniel concerning the kingdom; but they could find none occasion nor fault; forasmuch as he was faithful...”
+- **The Heavenly Sanctuary Application**
+  - If diligence fits a man to stand before earthly kings, spiritual diligence fits us to stand before the King of Kings.
+  - 1 Peter 2:9 – “But ye are a chosen generation, a royal priesthood, an holy nation, a peculiar people...”
+- **Christ’s Example**
+  - Jesus was diligent in the carpenter’s shop before His public ministry.
+  - Faithful in "least," and therefore faithful in "much" (Luke 16:10).
+
+## Slide 12 – Q4: Illustration
+
+- **Daniel in Babylon**
+  - Daniel and his companions were captives in a foreign land.
+  - They did not sulk or work lazily.
+  - They applied themselves to study and duty with such diligence that God blessed them.
+  - **Result:** They advised the greatest emperors of the ancient world (Daniel 1:19–20).
+
+## Slide 13 – Q5: The Reward of Industry
+
+- **Question:** Give an example of the reward of industry.
+- **Key Text:** 1 Kings 11:28 – “And the man Jeroboam was a mighty man of valor: and Solomon seeing the young man that he was industrious, he made him ruler over all the charge of the house of Joseph.”
 
----
+## Slide 14 – Q5: Key Points
 
-Slide 1 Question: What tangible benefits does the Bible promise to those who are faithful and energetic in their work?
+- **God Uses Active Men**
+  - God rarely calls the idle to high holy office.
+  - Moses was tending sheep; Gideon was threshing wheat; Elisha was plowing.
+  - Peter and John were mending nets when called.
+- **Capacity for Service**
+  - Industry develops "spiritual muscles" to bear burdens.
+  - God looks for those who can carry the "charge" of His church without fainting.
+- **A Warning**
+  - Jeroboam had industry but lacked humility and doctrinal purity.
+  - Industry must be sanctified by the Spirit, or it may serve selfish ambition.
+
+## Slide 15 – Q5: Illustration
+
+- **Steering the Ship**
+  - A ship that is moving forward can be steered by the rudder.
+  - A ship sitting dead in the water cannot be turned.
+  - **Lesson:** God can steer an active, industrious person into the right path, but it is difficult to guide someone who is not moving at all.
+
+## Slide 16 – Q6: The Dwelling Place
+
+- **Question:** May we estimate a man's thrift by the condition of his dwelling?
+- **Key Text:** Ecclesiastes 10:18 – “By much slothfulness the building decayeth; and through idleness of the hands the house droppeth through.”
+
+## Slide 17 – Q6: Key Points
 
-[IMG] Warm classical biblical painting of a farmer looking out over a golden field of wheat ready for harvest, soft sunlight illuminating the grain.
+- **The Body Temple**
+  - Our bodies are the temple of the Holy Spirit (1 Corinthians 6:19).
+  - Slothfulness in health reform (diet, exercise, rest) causes the "building" to decay, hindering service.
+- **The Character Structure**
+  - Character is built brick by brick through daily habits.
+  - If we are idle in repentance, the "roof" drops through, allowing temptation to rot the soul.
+- **Maintenance is Required**
+  - The Christian life requires "dying daily" (1 Corinthians 15:31).
+  - We need daily renewal by the Holy Spirit (Titus 3:5).
+
+## Slide 18 – Q6: Illustration
+
+- **The Leaky Roof**
+  - A homeowner ignores a small leak because he is too comfortable to fix it.
+  - Eventually, water rots the beams and destroys the furniture.
+  - The damage of years was caused by the neglect of a moment.
+  - **Lesson:** "Little" sins left unconfessed and un-forsaken lead to ruin.
+
+## Slide 19 – Q7: The Field of the Slothful
+
+- **Question:** Give a picture of a slack man's farm, as drawn by an eyewitness.
+- **Key Text:** Proverbs 24:30 – “I went by the field of the slothful, and by the vineyard of the man void of understanding;”
+- **Key Text:** Proverbs 24:31 – “And, lo, it was all grown over with thorns, and nettles had covered the face thereof, and the stone wall thereof was broken down.”
 
----
+## Slide 20 – Q7: Key Points
+
+- **The Natural State of the Heart**
+  - Since the Fall, the ground produces thorns naturally (Genesis 3:18).
+  - The human heart naturally produces pride and selfishness; we need only neglect it for sin to grow.
+- **The Broken Wall**
+  - Walls protected vineyards; spiritually, God's Law and truth protect us.
+  - Slothfulness in doctrine breaks down the wall, allowing error and vice to enter.
+- **Sanctification**
+  - This is the work of the spiritual gardener.
+  - Justification plants us in grace; Sanctification is the daily weeding and pruning by Christ’s power.
+
+## Slide 21 – Q7: Illustration
+
+- **The Unattended Garden**
+  - A beautiful flower garden left unattended for two years becomes a weed patch.
+  - The gardener does not create the life in the flowers (only God does).
+  - But the gardener must diligently remove the weeds that threaten that life.
+
+## Slide 22 – Q8: Learning Wisdom
+
+- **Question:** What lesson did the wise man learn as he noticed these things?
+- **Key Text:** Proverbs 24:32 – “Then I saw, and considered it well: I looked upon it, and received instruction.”
 
-Slide 2 Biblical Answer: 
-“He that tilleth his land shall have plenty of bread.” (Prov. 28:19)
-“The hand of the diligent maketh rich.” (Prov. 10:4)
-“The soul of the diligent shall be made fat.” (Prov. 13:4)
-
-[IMG] Warm classical biblical painting of baskets overflowing with fresh bread and fruits on a wooden table, glowing in warm afternoon light.
-
----
-
-Slide 3 Explanation: Scripture presents work not as a curse, but as the God-ordained method for sustaining life. The "tilling of land" represents active engagement with our responsibilities. The promise is that effort leads to provision.
-
-[IMG] Warm classical biblical painting of a man guiding an ox-plow through a field, depicting strength and purposeful labor.
-
----
-
-Slide 4 Term Definition: “Fat” in the context of Proverbs 13:4 does not refer to physical weight. It refers to a state of prosperity, abundance, and deep satisfaction. It is the spiritual and emotional opposite of a "lean" or starving soul.
-
-[IMG] Warm classical biblical painting of a happy family gathered around a dinner table, their faces peaceful and satisfied, soft candlelight.
-
----
-
-Slide 5 Did You Know? [DYK]: In the agrarian society of ancient Israel, survival depended directly on daily physical labor. There were no safety nets; if you did not plant and harvest, you did not eat. This created a culture that viewed idleness as a direct threat to life.
-
-[IMG] Warm classical biblical painting of a village scene in ancient Israel during harvest time, everyone working together with urgency and focus.
-
----
-
-Slide 6 Question: Conversely, what are the consequences of dealing with life using a "slack hand"?
-
-[IMG] Warm classical biblical painting of a neglected tool lying in the dust, perhaps a rusted sickle, symbolizing disuse.
-
----
-
-Slide 7 Biblical Answer: 
-“He becometh poor that dealeth with a slack hand.” (Prov. 10:4)
-“The soul of the sluggard desireth and hath nothing.” (Prov. 13:4)
-
-[IMG] Warm classical biblical painting of a man sitting idly in the shade while others work in the background, looking wistful and empty-handed.
-
----
-
-Slide 8 Explanation: A "slack hand" describes negligence, laziness, or a lack of tension and focus. The sluggard lives in a state of perpetual desire—wanting the rewards of labor without paying the price of effort—resulting in emptiness.
-
-[IMG] Warm classical biblical painting of empty grain jars in a dark, dusty storage room.
-
----
-
-Slide 9 Illustration [ILL]: Imagine an archer. To hit the target, they must pull the bowstring tight with tension and focus. A "slack" string has no power and cannot launch the arrow. Similarly, a life without the tension of discipline cannot reach its goals.
-
-[IMG] Warm classical biblical painting of an archer drawing a wooden bow with great focus and tension, muscles taut, soft light highlighting the bowstring.
-
----
-
-Slide 10 Question: How does diligence affect a person’s social standing and influence?
-
-[IMG] Warm classical biblical painting of a craftsman presenting a finely made object to a nobleman or king.
-
----
-
-Slide 11 Biblical Answer: 
-“The hand of the diligent shall bear rule, but the slothful shall be under tribute.” (Prov. 12:24)
-“See thou a man diligent in his business? He shall stand before kings; he shall not stand before mean men.” (Prov. 22:29)
-
-[IMG] Warm classical biblical painting of a distinct individual standing confidently in a royal court, holding a scroll or tool of their trade.
-
----
-
-Slide 12 Progressive Disclosure:
-• Competence leads to influence
-• Laziness leads to dependence
-• Quality work is noticed by leadership
-
-[IMG] Warm classical biblical painting of a busy marketplace where one stall stands out for its organization and quality, attracting the attention of officials.
-
----
-
-Slide 13 Spirit-Led Insight [SN]: This principle was exemplified by Daniel and Joseph. Both were captives in foreign lands, yet their exceptional diligence and "excellent spirit" raised them to the right hand of kings. Faithful work is a form of witness to the world.
-
-[IMG] Warm classical biblical painting of Daniel standing respectfully beside the golden throne of a Babylonian king, soft light illuminating his face.
-
----
-
-Slide 14 Question: What happens to our physical surroundings when we neglect them?
-
-[IMG] Warm classical biblical painting of an ancient stone wall beginning to crumble, vines creeping over the stones.
-
----
-
-Slide 15 Biblical Answer: 
-“By much slothfulness the building decayeth; and through idleness of the hands the house droppeth through.” (Eccl. 10:18)
-“I went by the field of the slothful... and lo, it was all grown over with thorns... and the stone wall thereof was broken down.” (Prov. 24:30-31)
-
-[IMG] Warm classical biblical painting of a ruined vineyard, overgrown with briars and weeds, with a broken watchtower in the background.
-
----
-
-Slide 16 Explanation: The wise man observed that the natural state of a fallen world is entropy and decay. Without active maintenance ("diligence"), order turns to chaos. Thorns and broken walls are the natural result of doing nothing.
-
-[IMG] Warm classical biblical painting of a close-up of thorns wrapping around a fallen stone, soft but somber lighting.
-
----
-
-Slide 17 Deeper Insight: The "thorns" mentioned in Proverbs 24 harken back to Genesis 3, where the ground was cursed because of sin. Diligence is man’s way of fighting back against the curse, cultivating beauty and order in a fallen world.
-
-[IMG] Warm classical biblical painting of a gardener pulling weeds from a flower bed, revealing beautiful blooms underneath.
-
----
-
-Slide 18 Question: Is there a connection between our secular work and our spiritual life?
-
-[IMG] Warm classical biblical painting of a carpenter planing wood, with a look of prayerful meditation on his face.
-
----
-
-Slide 19 Biblical Answer: 
-“Not slothful in business; fervent in spirit; serving the Lord.” (Rom. 12:11)
-“Cursed be he that doeth the work of the Lord deceitfully.” (Jer. 48:10)
-
-[IMG] Warm classical biblical painting of a scribe writing on parchment with intense focus and reverence.
-
----
-
-Slide 20 Explanation: The Apostle Paul links business diligence directly with spiritual fervor. The Christian cannot be lazy in their daily vocation and expect to be vibrant in their spiritual walk. God calls for our best in all things.
-
-[IMG] Warm classical biblical painting of a potter shaping a clay vessel, the light emphasizing the skill of his hands.
-
----
-
-Slide 21 Historical Note [SN]: The early Adventists and Puritans held to the "Protestant Work Ethic"—the belief that secular work was a vocation (calling) from God. Doing one's trade well was an act of worship. Practical duties are the discipline God uses to fit us for higher responsibilities.
-
-[IMG] Warm classical biblical painting of a simple colonial or ancient workshop, clean and orderly, filled with a sense of sacred purpose.
-
----
-
-Slide 22 Question: How does the quality of diligence relate to our preparation for the Second Coming of Christ?
-
-[IMG] Warm classical biblical painting of a figure standing on a hill at twilight, looking expectantly toward the horizon.
-
----
-
-Slide 23 Biblical Answer: 
-“Wherefore, beloved, seeing that ye look for such things, be diligent that ye may be found of Him in peace, without spot and blameless.” (2 Peter 3:14)
-“Give diligence to make your calling and election sure...” (2 Peter 1:10)
-
-[IMG] Warm classical biblical painting of a person washing a white robe, ensuring it is spotless and clean.
-
----
-
-Slide 24 Explanation: Waiting for Christ is not a passive activity; it is an active one. We are to be diligent in character building, ensuring that when He returns, we are found in peace.
-
-[IMG] Warm classical biblical painting of an oil lamp burning brightly on a window ledge against a night sky.
-
----
-
-Slide 25 Term Definition: “Election” refers to God’s choice of us. By "making it sure," Peter means we confirm God’s choice by living in a way that demonstrates the reality of our faith. Diligence reveals the genuineness of our transformation.
-
-[IMG] Warm classical biblical painting of a seal being pressed into hot wax on a document, symbolizing authentication and certainty.
-
----
-
-Slide 26 Practical Application: Where do we need to apply diligence today?
-• In our careers: working with integrity.
-• In our homes: maintaining order and peace.
-• In our spiritual lives: consistently studying and praying.
-• In our character: rooting out the "thorns" of sin.
-
-[IMG] Warm classical biblical painting of a peaceful, well-tended garden path leading toward a light, symbolizing a life of order and faithfulness.
-
----
+## Slide 23 – Q8: Key Points
+
+- **Self-Examination**
+  - We must not just see the ruin of others, but examine our own "fields."
+  - 2 Corinthians 13:5 – “Examine yourselves, whether ye be in the faith; prove your own selves...”
+- **Learning from Others**
+  - The failures of Israel were written “for our admonition” (1 Corinthians 10:11).
+  - We should look at the results of half-hearted religion and choose to be wholehearted.
+- **The Investigative Judgment**
+  - God is also looking and considering well; He is inspecting the vineyard of our lives.
+  - Now is the time to cooperate with Jesus to clear the ground.
+
+## Slide 24 – Q8: Illustration
+
+- **The Mountain Road**
+  - A driver sees a car that crashed through the guardrail due to speeding.
+  - The wise driver immediately checks his own speedometer and slows down.
+  - **Lesson:** He receives instruction from the tragedy of another.
+
+## Slide 25 – Q9: Secular and Spiritual
+
+- **Question:** Is our work for "the life that now is," closely united with that for the one to come?
+- **Key Text:** Romans 12:11 – “Not slothful in business; fervent in spirit; serving the Lord;”
+
+## Slide 26 – Q9: Key Points
+
+- **Fervent in Spirit**
+  - "Fervent" implies boiling or hot.
+  - We are to be on fire for God *while* attending to daily business.
+- **Serving the Lord**
+  - Whether washing dishes or preaching, we serve Christ.
+  - Colossians 3:23 – “And whatsoever ye do, do it heartily, as to the Lord, and not unto men;”
+- **Righteousness by Faith in Daily Life**
+  - Christ’s righteousness is a living principle, not just a Sabbath cloak.
+  - The life of Christ in the heart makes a man a better employee and citizen.
+
+## Slide 27 – Q9: Illustration
+
+- **Jesus the Carpenter**
+  - Jesus spent the majority of His life working as a craftsman, not preaching.
+  - By making perfect yokes and tables, He was "serving the Lord."
+  - **Lesson:** He sanctified daily labor, glorifying the Father in the workshop as much as in the healing ministry.
+
+## Slide 28 – Q10: The Danger of Negligence
+
+- **Question:** What sentence is pronounced against the man who is unfaithful in God's work?
+- **Key Text:** Jeremiah 48:10 – “Cursed be he that doeth the work of the Lord deceitfully, and cursed be he that keepeth back his sword from blood.”
+
+## Slide 29 – Q10: Key Points
+
+- **The Stakes are High**
+  - To do God's work "deceitfully" (or negligently) is fearful.
+  - Negligence in building endangers a house; negligence in witnessing endangers souls for eternity.
+- **The Sin of Nadab and Abihu**
+  - They offered "strange fire" due to negligence and lack of reverence (Leviticus 10:1).
+  - We must not treat holy work as a common thing.
+- **Hypocrisy**
+  - "Deceitfully" implies pretending to serve God while serving self.
+  - Psalm 51:6 – “Behold, thou desirest truth in the inward parts...”
+
+## Slide 30 – Q10: Illustration
+
+- **The Surgeon**
+  - A surgeon scrubbing in for a heart transplant cannot be casual.
+  - One microscopic germ introduced through carelessness can kill.
+  - **Lesson:** Dealing with souls and God's truth requires a spiritual cleansing that is even more critical.
+
+## Slide 31 – Q11: Preparation for Christ’s Appearing
+
+- **Question:** In view of the reward to be given at Christ's appearing, what exhortation is given?
+- **Key Text:** 2 Peter 3:14 – “Wherefore, beloved, seeing that ye look for such things, be diligent that ye may be found of him in peace, without spot, and blameless.”
+
+## Slide 32 – Q11: Key Points
+
+- **Without Spot and Blameless**
+  - Describes the character of those who meet the Lord (Revelation 14:5; Ephesians 5:27).
+- **The Work of Atonement**
+  - In the antitypical Day of Atonement, Jesus is cleansing the Heavenly Sanctuary.
+  - Like ancient Israel (Leviticus 16), we are to afflict our souls and put away sin.
+- **How is this Possible?**
+  - Impossible by human effort alone.
+  - We are found "without spot" only when washed in the blood of the Lamb (Justification) and kept by His indwelling life (Sanctification).
+  - John 15:4 – “Abide in me, and I in you...”
+
+## Slide 33 – Q11: Illustration
+
+- **The Bride**
+  - A bride checks her dress for the slightest stain or wrinkle before the wedding.
+  - She does this not out of fear, but out of love for the groom.
+  - **Lesson:** Our diligence in holiness is our preparation for the marriage supper of the Lamb.
+
+## Slide 34 – Q12: Assurance of Victory
+
+- **Question:** What blessed assurance is given such as follow this advice?
+- **Key Text:** 2 Peter 1:10 – “Wherefore the rather, brethren, give diligence to make your calling and election sure: for if ye do these things, ye shall never fall:”
+- **Key Text:** 2 Peter 1:11 – “For so an entrance shall be ministered unto you abundantly into the everlasting kingdom of our Lord and Saviour Jesus Christ.”
+
+## Slide 35 – Q12: Key Points
+
+- **Making Election Sure**
+  - God has chosen all to be saved, but we must accept and walk in that election.
+  - We vote "yes" to God's vote for us.
+- **"Ye Shall Never Fall"**
+  - If we "do these things" (add to faith virtue, knowledge, etc.), God's power keeps us from stumbling (Jude 24).
+- **Righteousness by Faith**
+  - This diligence is the "work of faith" (1 Thessalonians 1:3).
+  - We are not working *for* salvation, but working *out* salvation because God works in us (Philippians 2:12-13).
+
+## Slide 36 – Q12: Illustration
+
+- **Entering the Harbor**
+  - A ship can enter port as a wreck, barely afloat.
+  - Or, it can enter "abundantly"—sails full, cargo intact, driven by the wind.
+  - **Lesson:** God desires us to have an abundant entrance into His Kingdom, victorious in Christ.

@@ -1,171 +1,219 @@
-Study Title: The Stewardship of Speech
-
----
-
-Slide 1 Question: What condition does the Apostle Peter place upon those who wish to enjoy life and see good days?
-
-[IMG] Warm classical biblical painting of the Apostle Peter writing a scroll in a sunlit room, thoughtful and solemn expression, soft light illuminating the parchment.
-
----
-
-Slide 2 Biblical Answer: “For he that will love life, and see good days, let him refrain his tongue from evil, and his lips that they speak no guile.” (1 Peter 3:10)
-
-[IMG] Warm classical biblical painting of a peaceful, ancient village scene at dawn, representing a "good day" and a quiet, blessed life.
-
----
-
-Slide 3 Explanation: Scripture establishes a direct link between the quality of our life and the quality of our speech. To "refrain" implies a conscious, disciplined holding back of natural impulses. A happy life is not found in unbridled expression, but in sanctified self-control.
-
-[IMG] Warm classical biblical painting of a man placing a hand gently over his mouth in a gesture of self-restraint and wisdom.
-
----
-
-Slide 4 Term Definition: "Guile" refers to deceit, craftiness, or duplicity. It is speaking with hidden motives or attempting to mislead others.
-
-[IMG] Warm classical biblical painting of two figures conversing, one with a face partially in shadow, representing hidden motives or duplicity.
-
----
-
-Slide 5 Question: How does the Bible categorize "foolish talking" and "jesting," and what should replace them?
-
-[IMG] Warm classical biblical painting of a group of men in a marketplace, some laughing uproariously while a wise observer looks on with concern.
-
----
-
-Slide 6 Biblical Answer: “Let no corrupt communication proceed out of your mouth.” (Ephesians 4:29). “Neither filthiness, nor foolish talking, nor jesting, which are not convenient; but rather giving of thanks.” (Ephesians 5:4)
-
-[IMG] Warm classical biblical painting of an open scroll resting on a table, with a simple loaf of bread and wine, symbolizing thanksgiving and purity.
-
----
-
-Slide 7 Explanation: The Christian’s speech is to be distinct from the world. Paul warns against "corrupt" (rotten or worthless) speech. He specifically highlights "jesting"—wit used for levity or inappropriate humor—as things that are "not convenient" (not fitting or proper for a believer).
-
-[IMG] Warm classical biblical painting of the Apostle Paul speaking earnestly to a group of early Christians in Ephesus, gesturing for order and dignity.
-
----
-
-Slide 8 Historical Context: "Jesting" (eutrapelia)
-
-[DYK] The word translated "jesting" (eutrapelia) was often considered a virtue in Greek society, representing quick wit. However, the Apostle Paul reclassifies it as a vice when it turns into low humor, obscenity, or speech that lacks the dignity of a child of God.
-
-[IMG] Warm classical biblical painting contrasting a jester’s mask lying on the ground with a glowing oil lamp, symbolizing the rejection of worldly foolishness for divine light.
-
----
-
-Slide 9 Question: What solemn warning did Jesus give regarding "idle" words?
-
-[IMG] Warm classical biblical painting of Jesus teaching a crowd on a hillside, His expression serious and authoritative, pointing toward heaven.
-
----
-
-Slide 10 Biblical Answer: “But I say unto you, That every idle word that men shall speak, they shall give account thereof in the day of judgment.” (Matthew 12:36)
-
-[IMG] Warm classical biblical painting of a heavenly court, a large book of records being opened by an angelic figure in soft, radiant light.
-
----
-
-Slide 11 Explanation: Words are not temporary; they are recorded. An "idle" word is one that is useless, barren, or unproductive of good. The reality of the judgment seat suggests that our casual speech carries eternal weight.
-
-[IMG] Warm classical biblical painting of a scribe writing on a scroll with intense focus, symbolizing the recording of every word.
-
----
-
-Slide 12 Spirit-Led Insight: The Review of Life
-
-[SN] In the context of the judgment, this aligns with the understanding that our lives are being reviewed. If our words are the fruit of our heart, they serve as evidence of our true character before the heavenly court. "By thy words thou shalt be justified, and by thy words thou shalt be condemned" (Matthew 12:37).
-
-[IMG] Warm classical biblical painting of a balance scale made of gold, weighing a scroll against a feather, set against a backdrop of divine light.
-
----
-
-Slide 13 Question: How do our words impact the emotional state of others?
-
-[IMG] Warm classical biblical painting of two people in a tense conversation, one looking angry, the other looking calm and gentle.
-
----
-
-Slide 14 Biblical Answer: “A soft answer turneth away wrath.” (Proverbs 15:1). “There is that speaketh like the piercings of a sword.” (Proverbs 12:18).
-
-[IMG] Warm classical biblical painting of a sword lying next to a bowl of water and a towel, contrasting the weapon of pain with the tools of service and peace.
-
----
-
-Slide 15 Progressive Disclosure: The Mechanism of Conflict
-
-*   **The mechanism of peace:** A soft (gentle) answer de-escalates conflict.
-*   **The mechanism of pain:** Rash words inflict wounds as real as physical weapons.
-
-[IMG] Warm classical biblical painting of a storm cloud breaking apart to reveal a calm sun, symbolizing the diffusing of wrath.
-
----
-
-Slide 16 The Healing Agent: "A wholesome tongue is a tree of life." (Proverbs 15:4).
-
-[ILL] Consider a small spark in a dry forest. A "grievous word" is like wind fanning that spark into a wildfire of anger. A "soft answer" is like water, extinguishing the heat before damage is done.
-
-[IMG] Warm classical biblical painting of a lush, fruit-bearing tree growing beside a stream, offering shade and life.
-
----
-
-Slide 17 Question: Why is it impossible to fix our speech without addressing our inner character?
-
-[IMG] Warm classical biblical painting of a man looking into a mirror or a pool of water, examining his own reflection intently.
-
----
-
-Slide 18 Biblical Answer: “For out of the abundance of the heart the mouth speaketh.” (Matthew 12:34)
-
-[IMG] Warm classical biblical painting of a spring of water gushing forth from a rock; the water is clear and pure.
-
----
-
-Slide 19 Explanation: Speech is the index of the soul. The mouth acts as an overflow valve for what is stored in the heart. If the heart is pure, the speech will be pure; if the heart is bitter or worldly, the speech will reflect that.
-
-[IMG] Warm classical biblical painting of an earthen vessel overflowing with grain and fruit, representing the abundance of the heart.
-
----
-
-Slide 20 Term Definition: "Bridle"
-
-"Bridle" (James 1:26, 3:2) refers to the headgear used to control a horse. It implies that the tongue is a powerful force that requires strong, intentional guidance.
-
-[IMG] Warm classical biblical painting of a strong white horse with a bridle, standing calmly under the control of a gentle master.
-
----
-
-Slide 21 Deeper Insight: Christian Maturity
-
-James 3:2 states, "If any man offend not in word, the same is a perfect man." This suggests that the mastery of the tongue is the highest test of Christian maturity and self-control. To rule the tongue is to rule the whole body.
-
-[IMG] Warm classical biblical painting of an elder standing on a high rock, looking out over a valley with dignity and composure.
-
----
-
-Slide 22 Question: Recognizing the power of the tongue for life and death, what should be our prayer?
-
-[IMG] Warm classical biblical painting of King David kneeling in prayer, playing a harp, looking upward toward a shaft of light.
-
----
-
-Slide 23 Biblical Answer: “Let the words of my mouth, and the meditation of my heart, be acceptable in thy sight, O Lord, my strength and my Redeemer.” (Psalm 19:14)
-
-[IMG] Warm classical biblical painting of rays of light breaking through clouds, illuminating a person in a posture of surrender and worship.
-
----
-
-Slide 24 Explanation: The Psalmist recognizes that we cannot tame the tongue on our own strength. We need the Redeemer. This prayer connects the *outward* word with the *inward* meditation, asking that both be pleasing to God.
-
-[IMG] Warm classical biblical painting of a heart glowing with internal light, symbolizing a sanctified inner life.
-
----
-
-Slide 25 Practical Application
-
-*   **Pause:** Before speaking, ask if the words are "wholesome."
-*   **Reflect:** Do my words stir up anger or turn away wrath?
-*   **Repent:** If my speech is critical or idle, what does it reveal about my heart?
-*   **Pray:** Make Psalm 19:14 a daily petition.
-
-[IMG] Warm classical biblical painting of a person sitting quietly in a garden at dusk, hands folded, in a moment of deep reflection.
-
----
+## Slide 1 – Q1: Loving Life and Seeing Good Days
+- **Question:** What must we do, among other things, if we would love life, and see good days?
+- **Key Text:** 1 Peter 3:10 – “For he that will love life, and see good days, let him refrain his tongue from evil, and his lips that they speak no guile.”
+
+## Slide 2 – Q1: Key Points (Restraint and Purity)
+- **Guardianship of Speech:**
+  - To enjoy peace in Christ, Scripture commands strict guardianship over our words.
+  - This instruction touches the core of Christian character.
+- **Refraining from Evil:**
+  - Implies conscious, Spirit-empowered restraint.
+  - The natural heart is prone to criticism and gossip.
+  - Through the indwelling Christ, we must check these impulses (Psalm 141:3 – “Set a watch, O Lord, before my mouth; keep the door of my lips.”).
+- **No Guile:**
+  - Guile refers to deceit, cunning, or hypocrisy.
+  - The 144,000 are noted for this purity: “And in their mouth was found no guile: for they are without fault before the throne of God.” (Revelation 14:5).
+
+## Slide 3 – Q1: Illustration
+- **The Bit and the Rudder:**
+  - James compares the tongue to a bit in a horse’s mouth or a rudder on a ship (James 3:3–5).
+  - Though small, the rudder directs the entire course of the vessel.
+  - **Lesson:** If the rudder is set toward “evil,” life steers into storms. If the Holy Spirit controls the rudder, life is steered into the harbor of “good days.”
+
+## Slide 4 – Q2: Corrupt Communication
+- **Question:** What words has Paul left on record concerning corrupt communication, foolish talking and jesting?
+- **Key Text 1:** Ephesians 4:29 – “Let no corrupt communication proceed out of your mouth.”
+- **Key Text 2:** Ephesians 5:4 – “Neither filthiness, nor foolish talking, nor jesting, which are not convenient; but rather giving of thanks.”
+
+## Slide 5 – Q2: Key Points (Purity of Speech)
+- **Corrupt Communication:**
+  - Implies something rotten or putrid (vulgarity, gossip).
+  - Such words grieve the Holy Spirit (Ephesians 4:30).
+- **Foolish Talking & Jesting:**
+  - Senseless chatter that brings no glory to God.
+  - Coarse humor or making light of sacred things.
+- **The Remedy – Sanctification:**
+  - Sanctification includes the cleansing of our vocabulary.
+  - When the heart is filled with gratitude ("giving of thanks"), there is no room for corruption.
+
+## Slide 6 – Q2: Illustration
+- **The Filtered Stream:**
+  - Imagine a stream flowing from a mountain spring.
+  - If the source is pure, it brings life; if poisoned, it brings death.
+  - **Lesson:** Our heart is the spring; our mouth is the stream. We cannot allow the “poison” of the world to mix with the water of life we are called to share.
+
+## Slide 7 – Q3: Idle Words
+- **Question:** What did the Saviour say about idle words?
+- **Key Text:** Matthew 12:36 – “But I say unto you, That every idle word that men shall speak, they shall give account thereof in the day of judgment.”
+
+## Slide 8 – Q3: Key Points (Judgment and Atonement)
+- **Solemn Warning:**
+  - This verse points to the **Investigative Judgment**—the review of lives in the heavenly sanctuary.
+  - God reviews not only crimes but wasted opportunities (idle/useless words).
+- **The Need for Atonement:**
+  - This drives us to the foot of the cross.
+  - We have all spoken idle words and need **Justification** (righteousness by faith).
+  - We need Christ’s blood to blot out the record and His Spirit to fill our mouths today.
+
+## Slide 9 – Q3: Illustration
+- **The Tape Recorder:**
+  - Imagine a recording device around your neck capturing every syllable for a week.
+  - Would you be comfortable playing it back for a room full of people?
+  - **Lesson:** In the judgment, the universe listens. Only the blood of Jesus can wash that tape clean.
+
+## Slide 10 – Q4: Keeping the Soul
+- **Question:** From what does he who keeps his mouth and tongue, keep his soul?
+- **Key Text:** Proverbs 21:23 – “Whoso keepeth his mouth and his tongue, keepeth his soul from troubles.”
+
+## Slide 11 – Q4: Key Points (Preservation)
+- **Prevention of Trouble:**
+  - Much human suffering (strife, broken friendships) stems from hasty words.
+  - Guarding the tongue spares the soul from guilt and anxiety.
+- **A Fruit of the Spirit:**
+  - This is not just willpower; it is "temperance" or self-control (Galatians 5:23).
+  - When we abide in Christ, He stands as a sentinel at the door of our lips.
+
+## Slide 12 – Q5: Silence and Wisdom
+- **Question:** How is he who holds his peace, under certain circumstances, regarded by people of good sense?
+- **Key Text:** Proverbs 17:28 – “Even a fool, when he holdeth his peace, is counted wise; and he that shutteth his lips is esteemed a man of understanding.”
+
+## Slide 13 – Q5: Key Points (The Wisdom of Restraint)
+- **Silence as Wisdom:**
+  - To speak requires knowledge; to listen requires wisdom.
+  - Silence prevents exposing one's own folly.
+- **Christ’s Example:**
+  - When falsely accused, Jesus “answered nothing” (Matthew 27:12).
+  - His silence testified to a character at rest in the Father’s will.
+- **Application:** When provoked or uninformed, the most Christ-like action is often to close the lips.
+
+## Slide 14 – Q6: Influence of Kind Words
+- **Question:** What influence have kind words and a wholesome tongue upon others?
+- **Key Text 1:** Proverbs 15:1 – “A soft answer turneth away wrath.”
+- **Key Text 2:** Proverbs 15:4 – “A wholesome tongue is a tree of life.”
+
+## Slide 15 – Q6: Key Points (Healing and Grace)
+- **The Soft Answer:**
+  - Breaks the power of wrath.
+  - Fire dies without fuel; contention dies without a harsh response.
+- **Tree of Life:**
+  - A wholesome tongue feeds and heals (Revelation 22:2).
+  - It is a channel for **Imparted Righteousness**—Christ’s love flowing through us to others.
+
+## Slide 16 – Q6: Illustration
+- **Oil on Water:**
+  - Sailors used to pour oil on rough, turbulent waters to calm them.
+  - **Lesson:** A soft answer is like oil on the turbulent waters of an argument; it smoothes the surface and brings peace.
+
+## Slide 17 – Q7: Grievous Words
+- **Question:** What is the effect of grievous words?
+- **Key Text 1:** Proverbs 15:1 – “Grievous words stir up anger.”
+- **Key Text 2:** Proverbs 12:18 – “There is that speaketh like the piercings of a sword.”
+
+## Slide 18 – Q7: Key Points (Destruction)
+- **Stirring Up Anger:**
+  - Harsh, critical words act as fuel for conflict.
+- **Piercings of a Sword:**
+  - Sarcasm and belittling remarks inflict invisible, long-lasting wounds.
+- **Heart Condition:**
+  - A piercing tongue reveals a heart not yet softened by grace.
+  - We cannot love God while stabbing our brother with words (1 John 4:20).
+
+## Slide 19 – Q8: Truth vs. Falsehood
+- **Question:** Contrast the abiding future of the truthful, with the brief continuance of such as speak falsely?
+- **Key Text:** Proverbs 12:19 – “The lip of truth shall be established forever; but a lying tongue is but for a moment.”
+
+## Slide 20 – Q8: Key Points (Eternity vs. Moment)
+- **Established Forever:**
+  - Truth stands the test of time and investigation.
+  - Speakers of truth build on the Rock.
+- **Lying is Temporary:**
+  - Lies require more lies to sustain them and eventually collapse.
+  - In the final judgment, all lies are exposed.
+  - All liars have their part in the second death (Revelation 21:8).
+
+## Slide 21 – Q9: The Index of the Heart
+- **Question:** Are words a sure index of the heart?
+- **Key Text:** Matthew 12:34 – “For out of the abundance of the heart the mouth speaketh.”
+
+## Slide 22 – Q9: Key Points (Righteousness by Faith)
+- **The Index:**
+  - Just as a thermometer reveals temperature, words reveal the soul's condition.
+- **The Remedy:**
+  - Behavior modification (fixing words) is insufficient.
+  - We need the **New Heart** of the New Covenant (Ezekiel 36:26 – “A new heart also will I give you...”).
+  - When Christ dwells within by faith, words naturally become Christ-like.
+
+## Slide 23 – Q9: Illustration
+- **The Bucket in the Well:**
+  - If you drop a bucket into a well, what comes up is exactly what is down there.
+  - You cannot bring fresh water from a salt-water well.
+  - **Lesson:** When life “bumps” us, what spills out? If Christ is in the heart, grace spills out.
+
+## Slide 24 – Q10: The Perfect Man
+- **Question:** What is said of the man who offends not in word?
+- **Key Text:** James 3:2 – “If any man offend not in word, the same is a perfect man, and able also to bridle the whole body.”
+
+## Slide 25 – Q10: Key Points (Maturity in Christ)
+- **Christian Perfection:**
+  - Refers to maturity and a heart fully surrendered to the Spirit.
+- **The Master Key:**
+  - The tongue is the hardest member to tame.
+  - Victory here implies spiritual strength to “bridle” (control) every other passion.
+- **Victory is Possible:**
+  - This verse is a promise: by God’s grace, we can reach a stage where we do not stumble in word.
+
+## Slide 26 – Q11: Unbecoming Language
+- **Question:** What is said of the professed Christian whose language is unbecoming?
+- **Key Text:** James 1:26 – “If any man among you seem to be religious, and bridleth not his tongue, ... this man's religion is vain.”
+
+## Slide 27 – Q11: Key Points (Vain Religion)
+- **Empty Profession:**
+  - "Vain" means useless or profitless.
+  - Outward religious forms (Sabbath keeping, tithe paying) do not save if speech remains slanderous or deceitful.
+- **The Bridle:**
+  - Our nature needs the restraint of the Holy Spirit.
+  - Without it, religion is merely a form of godliness without power (2 Timothy 3:5).
+
+## Slide 28 – Q12: Words in the Judgment
+- **Question:** Will our words have weight in the judgment?
+- **Key Text:** Matthew 12:37 – “For by thy words thou shalt be condemned, and by thy words thou shalt be justified.”
+
+## Slide 29 – Q12: Key Points (Evidence of Faith)
+- **Evidence, Not Merit:**
+  - We are saved by grace through faith (Ephesians 2:8), not by speech.
+  - However, words testify whether our faith is genuine.
+- **Sanctuary Reality:**
+  - Our words serve as external proof of our internal state in the heavenly judgment.
+  - They show if we were truly united with Christ.
+  - This calls for repentance and dependence on Christ’s intercession.
+
+## Slide 30 – Q13: Life and Death
+- **Question:** By these forcible scriptures, what startling truth is established?
+- **Key Text:** Proverbs 18:21 – “Death and life are in the power of the tongue.”
+
+## Slide 31 – Q13: Key Points (The Power of Choice)
+- **Power of Death:**
+  - Words can kill reputation, hope, and enthusiasm.
+  - The "accuser of the brethren" (Revelation 12:10) uses human tongues for his work.
+- **Power of Life:**
+  - Words can point sinners to the Savior and bring comfort.
+- **The Choice:**
+  - Every time we speak, we choose which power to unleash (Deuteronomy 30:19).
+
+## Slide 32 – Q14: The Constant Prayer
+- **Question:** What should be the constant prayer of each heart?
+- **Key Text:** Psalm 19:14 – “Let the words of my mouth, and the meditation of my heart, be acceptable in thy sight, O Lord, my strength and my Redeemer.”
+
+## Slide 33 – Q14: Key Points (Living Coram Deo)
+- **Inner and Outer Harmony:**
+  - The prayer covers both outward words and inward thoughts.
+  - The standard is what is acceptable in "Thy sight" (God's view).
+- **Redeemer & Strength:**
+  - **Redeemer:** His blood forgives past sin (Justification).
+  - **Strength:** His power keeps us from future sin (Sanctification).
+  - This is **Righteousness by Faith**: depending on God to produce what is pleasing to Him.
+
+## Slide 34 – Q14: Illustration
+- **The Watchman:**
+  - In ancient cities, a watchman stood at the gate to inspect everyone entering or leaving.
+  - **Lesson:** We should install a “watchman” of prayer at the gate of our lips, asking God to approve every word before it is allowed to pass.

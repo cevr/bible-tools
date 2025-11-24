@@ -1,151 +1,375 @@
-Study Title: The Spirit of Elijah: A Message for the Last Days
+Here is the slide deck for the study on "The Spirit and Power of Elijah."
+
+## Slide 1 – Title: The Spirit and Power of Elijah
+- A Study on the Final Warning and Preparation
+- Based on Malachi, the Gospels, and Revelation
 
 ---
 
-Slide 1 Question: According to prophecy, who was predicted to appear before the final "Day of the Lord"?
-
-[IMG] Warm classical biblical painting of an ancient prophet standing on a hill at twilight, looking toward the horizon with a scroll in hand.
-
----
-
-Slide 2 Biblical Answer: “Behold, I will send you Elijah the prophet before the coming of the great and dreadful day of the Lord.” (Malachi 4:5)
-
-[IMG] Warm classical biblical painting of Malachi the prophet writing on a parchment, illuminated by a candle, with a serious expression.
+## Slide 2 – Q1: The Final Messenger
+- **Question:** Before the day of the lord, who was to be sent to the world?
+- **Key Text:** Malachi 4:5 – “Behold, I will send you Elijah the prophet before the coming of the great and dreadful day of the Lord.”
 
 ---
 
-Slide 3 Explanation: The prophet Malachi closes the Old Testament with a promise. Before God concludes history, a special work of preparation—identified by the name "Elijah"—will take place.
-
-[DYK] The name Elijah (Eliyahu) means "My God is Yahweh" (or Jehovah). His very name was a protest against the idolatry of his time.
-
-[IMG] Warm classical biblical painting of Elijah standing firm and solitary against a background of pagan altars, soft light highlighting his rugged features.
-
----
-
-Slide 4 Question: Did Jesus identify a fulfillment of this prophecy in His day?
-
-[IMG] Warm classical biblical painting of Jesus teaching a crowd on a hillside, soft sunlight filtering through olive trees.
+## Slide 3 – Q1: Key Points (The Warning)
+- Malachi closes the Old Testament with a solemn promise.
+- The "great and dreadful day" refers to the final judgment and the Second Coming of Christ.
+- **Nature of the Warning:**
+  - Just as Elijah called Israel back to God during apostasy (1 Kings 18:37), God sends a final warning before probation closes.
+- **The Purpose:**
+  - Not merely to frighten, but to prepare a people to stand in the presence of a holy God.
 
 ---
 
-Slide 5 Biblical Answer: “And if ye will receive it, this is Elias [Elijah], which was for to come.” (Matthew 11:14)
-
-[IMG] Warm classical biblical painting of Jesus gesturing gently, explaining the scriptures to his disciples.
-
----
-
-Slide 6 Explanation: Jesus identified John the Baptist as a fulfillment of this prophecy. However, when asked directly, "Art thou Elias?" John answered, "I am not" (John 1:21).
-
-[IMG] Warm classical biblical painting of John the Baptist by the Jordan River, dressed in camel hair, speaking to priests with humility.
+## Slide 4 – Q1: Sanctuary Connection
+- **The Day of Atonement:**
+  - In the typical service, this was a day of judgment.
+  - The people were called to afflict their souls and put away sin (Leviticus 16:29–30 – “And this shall be a statute for ever unto you: that in the seventh month, on the tenth day of the month, ye shall afflict your souls...”).
+- **The Antitype:**
+  - The work of "Elijah" corresponds to the work of the High Priest in the Most Holy Place.
+  - It is a call to holiness and cleansing while the sanctuary is being cleansed.
 
 ---
 
-Slide 7 Term Definition: **"Spirit and Power"**
-The Bible resolves this apparent contradiction in Luke 1:17. John was not the *reincarnation* of the literal Elijah; rather, he went forth "in the spirit and power of Elias." He had the same boldness, the same simple lifestyle, and the same mission to call people to repentance.
-
-[IMG] Warm classical biblical painting contrasting Elijah and John the Baptist side by side, showing their similar rugged appearance and fervent preaching style.
-
----
-
-Slide 8 Question: Since John the Baptist died long ago, is there a future work for the "Spirit of Elijah"?
-
-[IMG] Warm classical biblical painting of a person looking up at a starry sky, contemplating the future.
+## Slide 5 – Q1: Illustration
+- **The Washed-Out Bridge:**
+  - Imagine a bridge has washed out on a dark, winding highway.
+  - A good patrolman does not hide in the bushes to catch speeders.
+  - He stands visibly with flares to stop drivers before they go over the edge.
+- **Application:**
+  - The "Elijah message" is God’s flare in the darkness.
+  - It warns that human history is ending and calls us to turn to Christ for safety.
 
 ---
 
-Slide 9 Biblical Answer: “The sun shall be turned into darkness, and the moon into blood, before the great and the terrible day of the Lord come.” (Joel 2:31)
-
-[IMG] Warm classical biblical painting depicting a dramatic sky with a darkened sun and a reddish moon over an ancient landscape, historically respectful and solemn.
-
----
-
-Slide 10 Explanation: The "great and terrible day of the Lord" (the Second Coming) is still future. Therefore, just as John the Baptist prepared the way for Christ's *first* coming, there must be a movement in the "spirit and power of Elijah" to prepare the world for His *second* coming.
-
-[ILL] Think of an ambassador sent ahead of a King to ensure the road is clear and the people are ready to receive Him. This is the function of the Elijah message.
-
-[IMG] Warm classical biblical painting of a royal herald clearing stones from a path to prepare for a coming King.
+## Slide 6 – Q2: Partial Fulfillment
+- **Question:** In whom was this prophecy partially fulfilled?
+- **Key Text:** Matthew 11:13, 14 – “For all the Prophets and the law prophesied until John. And if ye will receive it, this is Elias, which was for to come.”
 
 ---
 
-Slide 11 Question: What is the core message of the Elijah spirit?
-
-[IMG] Warm classical biblical painting of Mount Carmel, with a crowd of Israelites looking expectant and conflicted.
-
----
-
-Slide 12 Biblical Answer: “How long halt ye between two opinions? If the Lord be God, follow Him: but if Baal, then follow him.” (1 Kings 18:21)
-
-[IMG] Warm classical biblical painting of Elijah on Mount Carmel with arms raised, calling out to the people, soft dramatic lighting.
-
----
-
-Slide 13 Explanation: Elijah’s message is a call to radical decision. It exposes the middle ground as dangerous. The message forces a choice: Who is your Master?
-
-[IMG] Warm classical biblical painting of a single Israelite standing apart from a crowd, face set in deep thought and decision.
+## Slide 7 – Q2: Key Points (John the Baptist)
+- Jesus identifies John the Baptist as the fulfillment for that generation.
+- **Type and Antitype:**
+  - **Type:** John prepared the way for the *First* Advent.
+  - **Antitype:** A greater fulfillment occurs before the "great and dreadful" *Second* Advent.
+- **John’s Work:**
+  - Called for repentance and pointed away from self to Jesus.
+  - “Behold the Lamb of God, which taketh away the sin of the world” (John 1:29).
 
 ---
 
-Slide 14 Deeper Insight: In the context of Revelation 14:9-12, this same call is repeated by the Third Angel. The choice is no longer between Yahweh and Baal, but between the "Seal of God" (worshiping the Creator) and the "Mark of the Beast" (false worship).
-
-[SN] Optional Spirit-led tangent: The parallel between Queen Jezebel and the "Woman" of Revelation 17. Just as Jezebel persecuted God’s true prophet, Revelation describes a corrupt power that persecutes the saints.
-
-[IMG] Warm classical biblical painting of three angels flying in mid-heaven with trumpets, soft golden light against clouds.
-
----
-
-Slide 15 Question: How will the world generally treat those who deliver this message?
-
-[IMG] Warm classical biblical painting of a stormy sky gathering over a small group of faithful believers.
+## Slide 8 – Q2: Application (Righteousness by Faith)
+- John taught that hereditary religion (being children of Abraham) could not save.
+- True salvation requires a personal, transformed character through faith.
+- Matthew 3:8 – “Bring forth therefore fruits meet for repentance.”
 
 ---
 
-Slide 16 Biblical Answer: “And the dragon was wroth with the woman, and went to make war with the remnant of her seed, which keep the commandments of God, and have the testimony of Jesus Christ.” (Revelation 12:17)
-
-[IMG] Warm classical biblical painting symbolic of a red dragon looking threateningly at a woman clothed with the sun, historically respectful artistic interpretation.
-
----
-
-Slide 17 Explanation: Just as Ahab accused Elijah of being the one who "troubleth Israel" (1 Kings 18:17), the end-time people of God will be viewed as troublemakers because they refuse to compromise with false worship.
-
-[IMG] Warm classical biblical painting of King Ahab pointing an accusing finger at a calm Elijah.
+## Slide 9 – Q3: The Scribes’ Objection
+- **Question:** What objection was raised by the scribes to Christ's mission?
+- **Key Text:** Matthew 17:10 – “And His disciples asked Him, saying, Why then say the scribes that Elias must first come?”
 
 ---
 
-Slide 18 Progressive Disclosure:
-*   **Elijah's trial**: Persecuted by the state (Ahab) and false religion (Jezebel).
-*   **The Remnant's trial**: Revelation 13:15 warns of a decree against those who do not worship the image of the beast.
-*   **The outcome**: Deliverance.
-
-[IMG] Warm classical biblical painting of a group of faithful people praying together in a hidden place, illuminated by a single lamp.
-
----
-
-Slide 19 Question: What happened to the literal Elijah, offering hope to the end-time faithful?
-
-[IMG] Warm classical biblical painting of Elisha looking up in awe as the sky opens.
+## Slide 10 – Q3: Key Points (Misinterpretation)
+- The religious leaders knew the letter of the prophecy but missed its spirit.
+- **False Expectation:**
+  - They expected the literal Elijah to descend in a chariot of fire to overthrow Rome.
+  - Because this spectacular event didn't happen, they rejected Jesus.
+- **Blindness:**
+  - They looked for outward glory.
+  - God sent a humble man (John) preaching inward purity.
 
 ---
 
-Slide 20 Biblical Answer: “Behold, there appeared a chariot of fire... and Elijah went up by a whirlwind into heaven.” (2 Kings 2:11)
-
-[IMG] Warm classical biblical painting of a chariot of fire drawn by horses of fire ascending into the heavens, soft and majestic light.
-
----
-
-Slide 21 Explanation: Elijah is one of only two men in the Bible taken to heaven without seeing death. This is a "type" or foreshadowing of the faithful who will be alive when Jesus returns—they will be translated without dying.
-
-[SN] The "Sea of Glass" in Revelation 15:2 depicts the victorious saints standing with harps. This mirrors Elijah's victory.
-
-[IMG] Warm classical biblical painting of a multitude of people in white robes looking upward with joy and hope.
+## Slide 11 – Q4: Jesus’ Answer
+- **Question:** What answer was made to this?
+- **Key Text:** Matthew 17:11-13 – “And Jesus answered and said unto them, Elias truly shall first come, and restore all things. But I say unto you, That Elias is come already... Then the disciples understood that He spake unto them of John the Baptist.”
 
 ---
 
-Slide 22 Practical Application:
-The spirit of Elijah calls us to examine our hearts today:
-*   Are we "halting between two opinions"?
-*   Are we trying to follow popular culture while claiming to follow Christ?
-*   God is calling for a people who will "keep the commandments of God and the faith of Jesus."
-
-[IMG] Warm classical biblical painting of a person kneeling in a quiet room, Bible open, making a solemn decision.
+## Slide 12 – Q4: Key Points (Restoration)
+- Jesus indicates a dual application:
+  1. **Past:** "Elias is come already" (John the Baptist).
+  2. **Future:** "Elias truly *shall* first come" (to restore all things).
+- **The Work of Restoration:**
+  - **Restoring the Law:** Pointing back to forgotten commandments, including the Sabbath (Isaiah 58:12).
+  - **Restoring the Gospel:** Presenting Christ as our Righteousness—the power to transform the life (Romans 1:16).
+  - **Restoring the Image:** Reproducing the character of Christ in His people through sanctification.
 
 ---
+
+## Slide 13 – Q5: John’s Testimony
+- **Question:** What was John's Testimony of himself?
+- **Key Text:** John 1:21 – “And they asked him, What then? Art thou Elias? And he saith, I am not. Art thou that Prophet? And he answered, No.”
+
+---
+
+## Slide 14 – Q5: Key Points (Humility)
+- **No Contradiction:**
+  - Jesus said John *was* Elijah (in spirit/function).
+  - John said he *was not* Elijah (the literal resurrected person).
+- **The Lesson:**
+  - True servants of God do not draw attention to their own titles.
+  - John was content to be "a voice" so that the Word (Jesus) could be magnified.
+
+---
+
+## Slide 15 – Q5: Illustration
+- **The Magnifying Glass:**
+  - A magnifying glass does not exist to be looked *at*.
+  - It exists to be looked *through*.
+  - If the glass is dirty or calls attention to itself, it obscures the object.
+- **Application:**
+  - John the Baptist was a clean lens, focusing all attention on the Lamb of God.
+
+---
+
+## Slide 16 – Q6: Explaining the Discrepancy
+- **Question:** How is this apparent discrepancy explained?
+- **Key Text:** Luke 1:17 – “And he shall go before Him in the spirit and power of Elias, to turn the hearts of the fathers to the children, and the disobedient to the wisdom of the just; to make ready a people prepared for the Lord.”
+
+---
+
+## Slide 17 – Q6: Key Points (Spirit and Power)
+- The "Elijah" prophecy is not a reincarnation, but a replication of mission and character.
+- **The Spirit of Elijah:**
+  - Boldness, reform, and loyalty to God's law amidst apostasy.
+- **Turning Hearts:**
+  - **Family Reformation:** Restoring order and love ("fathers to children").
+  - **Spiritual Reformation:** Turning the disobedient to the wisdom of the just.
+- **Goal:** To "make ready a people prepared for the Lord"—a people purified from sin.
+
+---
+
+## Slide 18 – Q7: Timing of the Message
+- **Question:** When was this spirit and power to be manifested?
+- **Key Text:** Malachi 4:5 – “Before 'the great and dreadful' day of the Lord.”
+
+---
+
+## Slide 19 – Q7: Key Points (Urgency)
+- The prophecy points to the very end of time, before the seven last plagues and Christ's return.
+- **Application:**
+  - We must look for a movement *today* carrying this spirit of reform.
+  - It calls men and women back to the commandments of God and the faith of Jesus (Revelation 14:12).
+
+---
+
+## Slide 20 – Q8: Signs of the Day
+- **Question:** What else was to take place before that "terrible" day?
+- **Key Text:** Joel 2:31 – “The sun shall be turned into darkness, and the moon into blood, before the great and the terrible day of the Lord come.”
+
+---
+
+## Slide 21 – Q8: Key Points (Historical Fulfillment)
+- God provides natural signs to herald the judgment.
+- **The Dark Day:**
+  - May 19, 1780: A supernatural darkening of the sun across New England, with the moon appearing as blood that night.
+- **Prophetic Clock:**
+  - These signs (along with the falling stars of 1833) mark the beginning of the "time of the end."
+
+---
+
+## Slide 22 – Q9: Future Reality
+- **Question:** Was that day still future in Peter's time?
+- **Key Text:** 2 Peter 3:10 – “But the day of the Lord will come as a thief in the night; in the which the heavens shall pass away with a great noise.”
+
+---
+
+## Slide 23 – Q9: Key Points (The Thief in the Night)
+- The apostles looked forward to this as a future event.
+- **As a Thief:**
+  - Unexpected for the world asleep in sin (1 Thessalonians 5:2–4).
+  - Expected for the children of light who are watching.
+- **Cleansing:**
+  - The heavens passing away signifies the complete removal of the stain of rebellion.
+
+---
+
+## Slide 24 – Q10: The Spirit of Decision
+- **Question:** What did the spirit of Elijah lead him to do?
+- **Key Text:** 1 Kings 18:21 – “And Elijah came unto all the people, and said, How long halt ye between two opinions? If the Lord be God, follow Him: but if Baal, then follow him.”
+
+---
+
+## Slide 25 – Q10: Key Points (Total Surrender)
+- The spirit of Elijah forces a decision; neutrality is impossible.
+- **"Halt Between Two Opinions":**
+  - Literally means hopping back and forth between two branches.
+  - We cannot serve God and mammon (Matthew 6:24).
+- **Faith Application:**
+  - True faith is a transaction: giving up our way (Self/Baal) to receive Christ's way.
+
+---
+
+## Slide 26 – Q10: Illustration
+- **The Boat and the Dock:**
+  - A man cannot walk in two opposite directions.
+  - If he keeps one foot in a drifting boat and one foot on the dock, he will fall.
+- **Application:**
+  - The Elijah message calls us to step fully onto the solid rock of Christ.
+
+---
+
+## Slide 27 – Q11: Persecution
+- **Question:** After boldly declaring the truth, what was Elijah compelled to do?
+- **Key Text:** 1 Kings 19:2, 3 – “Then Jezebel sent a messenger unto Elijah, saying, So let the gods do to me... if I make not thy life as the life of one of them... And when he saw that, he arose, and went for his life...”
+
+---
+
+## Slide 28 – Q11: Key Points (The Dragon's Wrath)
+- **The Pattern:**
+  - After the proclamation of truth, the enemy attacks.
+  - The "dragon" works through earthly powers to threaten God's people (Revelation 12:17).
+- **Human Weakness:**
+  - Elijah fled in fear.
+  - This shows that the power of the message comes from God, not the prophet's own strength.
+
+---
+
+## Slide 29 – Q12: The Accusation
+- **Question:** What charge was brought against Elijah?
+- **Key Text:** 1 Kings 18:17 – “And it came to pass, when Ahab saw Elijah, that Ahab said unto him, Art thou he that troubleth Israel?”
+
+---
+
+## Slide 30 – Q12: Key Points (The Troubler of Israel)
+- Ahab accused Elijah of causing the drought and calamity.
+- **The Reality:**
+  - It was Ahab's sin and violation of God's law that brought trouble (1 Kings 18:18).
+- **Modern Parallel:**
+  - In the last days, those who keep God's commandments (especially the Sabbath) will be branded as "troublers" of society and causes of judgment.
+
+---
+
+## Slide 31 – Q13: Discouragement
+- **Question:** How did Elijah feel?
+- **Key Text:** 1 Kings 19:4 – “And said, It is enough; now, a Lord, take away my life; for I am not better than my fathers.”
+
+---
+
+## Slide 32 – Q13: Key Points (God’s Mercy)
+- Elijah felt his work was a failure and that he was alone.
+- **God’s Response:**
+  - God did not rebuke him.
+  - God provided rest, food, and a "still small voice" (1 Kings 19:12).
+- **Lesson:**
+  - Our standing is based on God's mercy, not our emotional state.
+  - Psalm 103:14 – “For he knoweth our frame; he remembereth that we are dust.”
+
+---
+
+## Slide 33 – Q14: Translation
+- **Question:** What did the Lord do for Elijah?
+- **Key Text:** 2 Kings 2:11 – “Behold, there appeared a chariot of fire, and horses of fire, and parted them both asunder; and Elijah went up by a whirlwind into heaven.”
+
+---
+
+## Slide 34 – Q14: Key Points (Victory Over Death)
+- God honored His servant by taking him to heaven without seeing death.
+- **Type of the 144,000:**
+  - Elijah represents the saints alive at Christ's return.
+  - They will be "changed, in a moment" (1 Corinthians 15:51–52) and translated.
+- **Assurance:**
+  - God's grace is sufficient to bring His people through the severest trials to glory.
+
+---
+
+## Slide 35 – Q15: The Third Angel’s Message
+- **Question:** What will the last message before the Lord comes demand of the faithful?
+- **Key Text:** Revelation 14:9-12 – “If any man worship the beast and his image... the same shall drink of the wine of the wrath of God... Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.”
+
+---
+
+## Slide 36 – Q15: Key Points (The Demands)
+- The Third Angel's Message is the "Elijah message" for today.
+- **Refusal to Compromise:**
+  - Refusing to worship the beast or receive its mark.
+- **Obedience:**
+  - Keeping the "commandments of God" (including the Sabbath).
+
+---
+
+## Slide 37 – Q15: Application (Faith and Sanctuary)
+- **The Faith of Jesus:**
+  - Not just faith *in* Jesus, but the faith *of* Jesus living in us.
+  - Galatians 2:20 – “I live; yet not I, but Christ liveth in me.”
+- **Sanctuary Context:**
+  - This message prepares the world for the close of probation.
+  - It produces a people who are safe to save.
+
+---
+
+## Slide 38 – Q16: The Remnant
+- **Question:** How will the remnant church be generally regarded for thus keeping God's commandments?
+- **Key Text:** Revelation 12:17 – “And the dragon was wroth with the woman, and went to make war with the remnant of her seed, which keep the commandments of God, and have the testimony of Jesus Christ.”
+
+---
+
+## Slide 39 – Q16: Key Points (Marks of the Remnant)
+- The "remnant" (the last faithful part) is the object of Satan's war.
+- **Why?**
+  - Their obedience proves God's law can be kept through Christ.
+- **Identifiers:**
+  1. **Keep the Commandments:** A return to the full moral law.
+  2. **Testimony of Jesus:** Defined in Revelation 19:10 as "the spirit of prophecy."
+
+---
+
+## Slide 40 – Q17: The Death Decree
+- **Question:** How far may we expect this persecution to be carried against those who will not yield to the power of the beast?
+- **Key Text:** Revelation 13:15 – “And he had power to give life unto the image of the beast... and cause that as many as would not worship the image of the beast should be killed.”
+
+---
+
+## Slide 41 – Q17: Key Points (The Final Test)
+- Just as Jezebel sought Elijah's life, end-time powers will issue a death decree.
+- **Economic Pressure:**
+  - Preceded by restrictions on buying and selling (Revelation 13:17).
+- **The Decision:**
+  - "Fear God" or "Fear Man"?
+  - Only those grounded in Christ's righteousness will stand.
+
+---
+
+## Slide 42 – Q18: Final Deliverance
+- **Question:** If faithful, what will be done for these persecuted ones?
+- **Key Text:** Revelation 15:2 – “And I saw as it were a sea of glass mingled with fire: and them that had gotten the victory over the beast... stand on the sea of glass, having the harps of God.”
+
+---
+
+## Slide 43 – Q18: Key Points (Victory)
+- **The Sea of Glass:**
+  - The redeemed stand before God's throne.
+- **The Source of Victory:**
+  - Not their own strength, but "by the blood of the Lamb" (Revelation 12:11).
+- **The Song:**
+  - They sing the song of Moses and the Lamb—a song of experience and deliverance.
+
+---
+
+## Slide 44 – Q18: Illustration
+- **Refined by Fire:**
+  - The sea of glass is "mingled with fire."
+  - Fire purifies gold by burning away the dross.
+  - The trials of the last days burn away selfishness, leaving a character that reflects Jesus perfectly.
+
+---
+
+## Slide 45 – Q19: The Gathering
+- **Question:** How will the Lord gather His faithful ones in the last great struggle?
+- **Key Text:** Matthew 24:31 – “And He shall send His angels with a great sound of a trumpet, and they shall gather together His elect from the four winds, from one end of heaven to the other.”
+
+---
+
+## Slide 46 – Q19: Key Points (The Harvest)
+- The drama concludes with the glorious return of Christ.
+- **The Elect:**
+  - Those who accepted the Elijah message.
+  - Those who allowed Christ to cleanse their hearts.
+- **Assurance:**
+  - No matter how scattered or hidden, the Lord knows them that are His.
+  - 2 Timothy 2:19 – “The Lord knoweth them that are his.”

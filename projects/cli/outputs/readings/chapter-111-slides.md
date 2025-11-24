@@ -1,143 +1,208 @@
-Study Title: Paul’s Desire: To Depart and Be with Christ
+## Slide 1 – Q1: Paul’s Great Desire
 
----
+- **Question:** When writing to the Philippians, what desire did the apostle Paul express?
+- **Key Text:** Philippians 1:23 – “For I am in a strait betwixt two, having a desire to depart, and to be with Christ; which is far better.”
 
-Slide 1 Title: Paul’s Desire: To Depart and Be with Christ
+## Slide 2 – Q1: Key Points
 
-[IMG] Warm classical biblical painting of the Apostle Paul sitting in a Roman prison cell, light streaming through a small high window, illuminating a scroll in his hands.
+- **A Heart Surrendered:**
+  - Paul describes being in a “strait,” meaning he is hemmed in by two powerful, opposing motivations.
+  - His personal desire was to leave behind the trials and weariness of this life to reach the ultimate goal: union with Christ.
+- **Righteousness by Faith:**
+  - This longing reveals the intimacy of **Righteousness by Faith**.
+  - To the believer, Christ is not a distant figure but a personal friend and the source of life.
+- **The Meaning of “Depart”:**
+  - The Greek word used here refers to unmooring a ship or striking down a tent.
+  - Paul viewed his body as a temporary tabernacle (2 Corinthians 5:1 – “For we know that if our earthly house of this tabernacle were dissolved, we have a building of God, an house not made with hands, eternal in the heavens.”).
 
----
+## Slide 3 – Q1: Illustration
 
-Slide 2 Question: When writing to the church in Philippi, what personal dilemma did the apostle Paul express?
+- **The Sailor’s Longing:**
+  - Imagine a sailor at sea, battling storms and danger for months.
+  - As the ship nears the harbor, he sees the lights of his home.
+  - He has a duty to the ship, but his heart desperately desires to “depart” and be with his family.
+  - His desire is not to drown in the water (death itself), but to reach the destination where his loved ones wait.
 
-[IMG] Warm classical biblical painting of an older Paul looking contemplatively out of a barred window, his expression reflecting a deep internal struggle.
+## Slide 4 – Q2: The Two Conditions
 
----
+- **Question:** What were the two conditions between which the apostle was thus in difficulty?
+- **Key Text:** Philippians 1:21 – “For to me to live is Christ, and to die is gain.”
 
-Slide 3 Biblical Answer: “For I am in a strait betwixt two, having a desire to depart, and to be with Christ; which is far better.” (Philippians 1:23)
+## Slide 5 – Q2: Key Points (To Live is Christ)
 
-[IMG] Warm classical biblical painting of Paul looking toward a heavenly light, his face full of longing and hope, contrasting with the shadows of his prison.
+- **The Dilemma:**
+  - The two conditions pressing on Paul were **life** (continued ministry) and **death** (rest from labor).
+- **“To Live is Christ” (Sanctification):**
+  - This is a concise summary of **Sanctification**: the Holy Spirit imparting Christ’s character to the believer.
+  - Paul’s life was not his own; Jesus lived through him.
+  - Galatians 2:20 – “I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.”
 
----
+## Slide 6 – Q2: Key Points (To Die is Gain)
 
-Slide 4 Explanation: Paul describes himself as being under pressure, caught between two strong possibilities. He was torn between continuing his difficult work on earth or laying down his life to rest until the Lord comes.
+- **“To Die is Gain”:**
+  - This does not mean immediate entry into heaven.
+  - For a man who had been stoned, beaten, and imprisoned, death meant the “gain” of absolute rest.
+  - It meant the cessation of burdens and the sealing of his life’s testimony.
 
-[DYK] When Paul wrote this, he was likely a prisoner in Rome. He was facing a potential death sentence. His "strait" (difficulty) was not just theoretical; he was literally facing life or death judgment by the Empire.
+## Slide 7 – Q2: Illustration
 
-[IMG] Warm classical biblical painting of Roman chains lying on a stone floor, with a quill and parchment nearby, symbolizing the tension between imprisonment and ministry.
+- **The Worker and the Whistle:**
+  - Consider a laborer working in a scorching field, dedicated to his master (“to live is Christ”).
+  - However, his body aches and he is exhausted.
+  - When the evening whistle blows (“to die”), it represents “gain.”
+  - He does not hate the work, but he longs for the rest and the wages secured at the end of the day.
 
----
+## Slide 8 – Q3: Meaning of “Depart”
 
-Slide 5 Question: What does Paul mean by the word “depart”?
+- **Question:** What does he mean by the words “to depart”?
+- **Key Text:** 2 Timothy 4:6 – “For I am now ready to be offered, and the time of my departure is at hand.”
 
-[IMG] Warm classical biblical painting of an ancient sailing ship tied to a dock, preparing to leave the harbor at sunset.
+## Slide 9 – Q3: Key Points
 
----
+- **Physical Death as a Journey:**
+  - Paul refers to his impending physical death.
+  - Biblical death is often likened to sleep or a departure, not the final end.
+  - It is the exit from this world of sin; the arrival depends on the resurrection.
+- **Sanctuary Connection:**
+  - Paul speaks of being “offered” (poured out).
+  - In the **Sanctuary** service, the drink offering was poured out around the altar, symbolizing a life fully consumed in service to God.
+  - Paul viewed his death as a final act of worship.
 
-Slide 6 Biblical Answer: “For I am now ready to be offered, and the time of my departure is at hand.” (2 Timothy 4:6)
+## Slide 10 – Q3: Illustration
 
-[IMG] Warm classical biblical painting of Paul handing a finished scroll to a messenger, his posture indicating he has finished his course and is ready to rest.
+- **The Unmooring:**
+  - The Greek word for “departure” (*analusis*) describes unmooring a ship to set sail.
+  - When a ship leaves the dock, it disappears from the sight of those on shore, but it has not ceased to exist.
+  - It is simply voyaging toward the next port.
+  - Death is the unmooring from the shores of this sinful earth.
 
----
+## Slide 11 – Q4: Magnifying Christ
 
-Slide 7 Explanation: Paul uses “departure” as a gentle term for death. Just as a ship departs from the dock, death is a leaving of this present world.
+- **Question:** What was sure to the cause of Christ, whether Paul lived or died?
+- **Key Text:** Philippians 1:20 – “According to my earnest expectation and my hope, that in nothing I shall be ashamed, but that with all boldness, as always, so now also Christ shall be magnified in my body, whether it be by life, or by death.”
 
-[IMG] Warm classical biblical painting of a ship sailing away into a horizon filled with golden light, leaving the shore behind.
+## Slide 12 – Q4: Key Points
 
----
+- **Christ Magnified:**
+  - Paul’s supreme objective was the glory of Jesus, not his own survival.
+  - **By Life:** Preaching the Gospel and proving God’s power to keep a man from sinning.
+  - **By Death:** A martyr’s unwavering faith testifies to the reality of the Truth.
+- **The Great Controversy:**
+  - Satan claims men serve God only for selfish gain (Job 1:9 – “Then Satan answered the LORD, and said, Doth Job fear God for nought?”).
+  - When a believer is willing to die rather than disobey, Satan’s accusations are refuted.
 
-Slide 8 Term Definition: **Departure** (Greek: *analusai*)
+## Slide 13 – Q4: Illustration
 
-This word was used for unloosing a ship from its moorings or striking down a tent. Paul viewed his body as a temporary tent or vessel (2 Corinthians 5:1).
+- **The Telescope:**
+  - A telescope does not generate its own light; it catches the light of a distant star and magnifies it.
+  - Paul realized his body was like a telescope.
+  - Whether standing tall (life) or being broken down (death), as long as the lens focused on Jesus, the world would see Christ clearly.
 
-[IMG] Warm classical biblical painting of a nomad’s tent being taken down in the desert, stakes being pulled from the ground.
+## Slide 14 – Q5: Expressing the Sentiment
 
----
+- **Question:** In what other words does he express the same sentiment?
+- **Key Text:** Philippians 1:21 – “For to me to live is Christ, and to die is gain.”
 
-Slide 9 Question: Paul said “to die is gain” (Phil 1:21). Does this mean he gains a personal reward immediately, or is there a deeper meaning?
+## Slide 15 – Q5: Key Points
 
-[IMG] Warm classical biblical painting of Paul standing boldly before a Roman official, speaking with conviction.
+- **Two Aspects of “Gain”:**
+  1.  **Gain to Paul:** Relief from the “thorn in the flesh” and the struggle against darkness.
+  2.  **Gain to the Cause:** The blood of martyrs is the seed of the church; his death would seal his testimony.
+- **The Secured Reward:**
+  - The gain is not becoming a disembodied spirit, but finishing the race.
+  - 2 Timothy 4:8 – “Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day: and not to me only, but unto all them also that love his appearing.”
 
----
+## Slide 16 – Q5: Illustration
 
-Slide 10 Biblical Answer: “According to my earnest expectation and my hope... that with all boldness, as always, so now also Christ shall be magnified in my body, whether it be by life, or by death.” (Philippians 1:20)
+- **The Artist’s Masterpiece:**
+  - When an artist finishes a masterpiece, he lays down his brush.
+  - The work is done; he gains the satisfaction of completion.
+  - Paul’s life was a canvas; death was merely laying down the brush because the picture of Christ in his character was complete.
 
-[IMG] Warm classical biblical painting of a single candle flame being reflected in a mirror, symbolizing Christ being magnified in a believer's life.
+## Slide 17 – Q6: Inclined to Life
 
----
+- **Question:** What, then, inclined Paul to the side of life?
+- **Key Text:** Philippians 1:24 – “Nevertheless to abide in the flesh is more needful for you.”
 
-Slide 11 Explanation: The context shows that the "gain" is the magnification of Christ. If Paul lives, he preaches Christ; if he dies a martyr’s death, his faithfulness witnesses for Christ. In either case, the Gospel gains.
+## Slide 18 – Q6: Key Points
 
-[ILL] Imagine a soldier holding a flag. If he stands and fights, he honors his country. If he falls refusing to surrender, he also honors his country. Paul’s life was entirely about honoring his King, Jesus.
+- **Love for the Church:**
+  - Paul chose to live because the believers still needed his guidance and encouragement.
+- **Application of Righteousness by Faith:**
+  - True faith works by love (Galatians 5:6 – “For in Jesus Christ neither circumcision availeth any thing, nor uncircumcision; but faith which worketh by love.”).
+  - A justified man does not live for himself.
+  - Like Jesus, who left heaven to minister, Paul postponed his own relief to serve others.
 
-[IMG] Warm classical biblical painting of a Roman soldier holding a banner high amidst a battle, standing firm.
+## Slide 19 – Q6: Illustration
 
----
+- **The Mother’s Vigil:**
+  - A mother sitting by a sick child is desperate for sleep.
+  - Her body screams for rest, yet she stays awake.
+  - Her presence is “more needful” for the child.
+  - Paul chose to “stay awake” in this world of suffering for the sake of his spiritual children.
 
-Slide 12 Question: If Paul departs (dies), when exactly does he get to “be with Christ”? Is it immediately, or is there an appointed time?
+## Slide 20 – Q7: Inclined to Depart
 
-[IMG] Warm classical biblical painting of believers looking upward toward the clouds with anticipation.
+- **Question:** What inclined him to prefer to depart, or lay down this life?
+- **Key Text:** Philippians 1:23 – “For I am in a strait betwixt two, having a desire to depart, and to be with Christ; which is far better.”
 
----
+## Slide 21 – Q7: Key Points
 
-Slide 13 Biblical Answer: “For the Lord Himself shall descend from heaven with a shout... and the dead in Christ shall rise first: Then we which are alive and remain shall be caught up together with them in the clouds, to meet the Lord in the air: and so shall we ever be with the Lord.” (1 Thessalonians 4:16-17)
+- **Desire for Presence:**
+  - Paul knew that while in the mortal body, he was “absent from the Lord” in a literal sense (2 Corinthians 5:6).
+  - He links departure (death) with being with Christ because there is no conscious interval between them for the believer.
+- **The Hope of Glory:**
+  - Paul longed for the mortal to put on immortality (1 Corinthians 15:53).
+  - This longing for God’s presence is the mark of a converted heart.
 
-[IMG] Warm classical biblical painting of the resurrection, with graves opening and figures rising toward a glorious light in the clouds.
+## Slide 22 – Q7: Illustration
 
----
+- **The Long Journey Home:**
+  - If a man travels a long distance to see his king, the journey is exhausting.
+  - He desires the journey to end *so that* he may see the king.
+  - The end of the journey (death) is the necessary step to the meeting (resurrection).
 
-Slide 14 Explanation: Paul’s theology was consistent: the reunion with Jesus happens at the Resurrection (the Second Coming). He does not expect to be with the Lord as a disembodied spirit, but rather to be “caught up” along with the resurrected saints when the trumpet sounds.
+## Slide 23 – Q8: Timing of Reunion
 
-[SN] Spirit-led tangent: The Harmony of Scripture. Paul speaks of receiving a "crown of righteousness," but in 2 Timothy 4:8 he says the Lord will give it to him "at that day"—referring to the day of Christ’s appearing, not the day of his death. The Bible consistently points to the Resurrection as the hope of the believer.
+- **Question:** How long after his departure before he would be with Christ?
+- **Key Text:** 1 Thessalonians 4:16 – “For the Lord himself shall descend from heaven with a shout, with the voice of the archangel, and with the trump of God: and the dead in Christ shall rise first.”
 
-[IMG] Warm classical biblical painting of a golden crown resting on a stone table, illuminated by a beam of light, waiting to be claimed.
+## Slide 24 – Q8: Key Points
 
----
+- **Reunion at the Second Coming:**
+  - Paul consistently pointed to “that day” (the Resurrection) as the time of reward.
+  - 1 Thessalonians 4:17 – “Then we which are alive and remain shall be caught up together with them in the clouds, to meet the Lord in the air: and so shall we ever be with the Lord.”
+- **Sanctuary Connection:**
+  - Christ is currently interceding in the Heavenly Sanctuary.
+  - We do not go to Him individually at death; He comes for us collectively when His work is finished.
 
-Slide 15 Question: If Paul has to wait in the grave until the Resurrection, why did he say departing is “far better”?
+## Slide 25 – Q8: Illustration
 
-[IMG] Warm classical biblical painting of a man resting peacefully in deep sleep, unbothered by the world around him.
+- **The Alarm Clock:**
+  - When you sleep at night, hours pass without your knowledge.
+  - The moment you fall asleep and the moment the alarm rings seem connected, though separated by time.
+  - So it is with death and the resurrection: the next conscious moment after death is the return of Christ.
 
----
+## Slide 26 – Q9: The “Far Better” Choice
 
-Slide 16 Biblical Answer: Scripture logic (Ecclesiastes 9:5, Psalm 146:4) teaches that in death, there is no consciousness of time.
+- **Question:** If none go to be with Christ till after the resurrection, how would it have been better for Paul, so far as he was concerned, to depart then, rather than live on?
+- **Key Text:** Ecclesiastes 9:5 – “For the living know that they shall die: but the dead know not any thing...”
 
-[IMG] Warm classical biblical painting of an hourglass lying on its side, the sand standing still.
+## Slide 27 – Q9: Key Points
 
----
+- **The Nature of Death:**
+  - Death is a state of unconsciousness where thoughts perish (Psalm 146:4 – “His breath goeth forth, he returneth to his earth; in that very day his thoughts perish.”).
+- **Subjective Time:**
+  - If Paul died in the first century, he rests in sleep.
+  - To him, the time between death and the resurrection feels like the twinkling of an eye.
+  - He effectively bypasses centuries of history and persecution.
+- **The Victory:**
+  - He rests from his labors immediately, and his next waking moment is the glorious Resurrection.
 
-Slide 17 Explanation: To the one who dies, the very next instant of consciousness is the face of Jesus at the resurrection. Whether 20 minutes or 2,000 years pass on earth, to Paul, it would seem like the twinkling of an eye. It is "better" because the suffering stops, and the next moment is glory.
+## Slide 28 – Q9: Illustration
 
-[ILL] Think of a deep, dreamless sleep or undergoing surgery with anesthesia. You close your eyes, and seemingly one second later, you wake up, even though hours have passed. Death is a rest from labor, and the "waking up" is the resurrection morning.
-
-[IMG] Warm classical biblical painting of a person waking up with joy to a bright, glorious morning sun.
-
----
-
-Slide 18 Question: If resting in death was better for Paul personally, what inclined him to choose life?
-
-[IMG] Warm classical biblical painting of Paul looking with compassion upon a gathering of early Christians.
-
----
-
-Slide 19 Biblical Answer: “Nevertheless to abide in the flesh is more needful for you.” (Philippians 1:24)
-
-[IMG] Warm classical biblical painting of Paul teaching a group of people, gesturing with worn hands, putting their needs first.
-
----
-
-Slide 20 Explanation: This reveals Paul’s heart. Even though he was tired and longed for the rest that comes with death, he was willing to endure more suffering if it helped the church. He put the needs of others above his own desire for rest.
-
-[IMG] Warm classical biblical painting of Paul writing a letter by candlelight, looking exhausted but determined and loving.
-
----
-
-Slide 21 Practical Application:
-
-1.  **Confidence in Death**: Death is a "departure"—a sleep that ends with the voice of Jesus.
-2.  **Selflessness**: Are we willing to labor for the good of others, even when we are tired?
-3.  **Hope**: Our great hope is the Resurrection—the moment we will "ever be with the Lord."
-
-[IMG] Warm classical biblical painting of a group of diverse believers standing together, looking toward a horizon filled with the light of dawn.
-
----
+- **The Surgery:**
+  - When a patient goes under anesthesia, surgery may take hours.
+  - To the patient, they close their eyes and instantly wake up in recovery.
+  - They skipped the waiting and the pain.
+  - For Paul, death was the anesthesia; the Resurrection is waking up in the recovery of eternal life.

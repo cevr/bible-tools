@@ -1,114 +1,243 @@
-Study Title: A Remarkable Symbol: The Church in Light
+## Slide 1 – A Remarkable Symbol: Daniel 8
 
----
+- **Topic:** The Vision of the Ram, the He-Goat, and the Sanctuary
+- **Focus:** The rise and fall of empires and the spiritual conflict involving Christ’s ministry.
+- **Key Chapter:** Daniel 8
 
-Slide 1 Question: How does the Bible introduce the history of the true church in the book of Revelation?
+***
 
-[IMG] Warm classical biblical painting of the Apostle John on the rocky island of Patmos, looking up toward a break in the stormy clouds where a vision is beginning to form.
+## Slide 2 – Q1: Time of the Vision
 
----
+- **Question:** At what time was the vision of Daniel 8 given?
+- **Key Text:** Daniel 8:1 – “In the third year of the reign of king Belshazzar a vision appeared unto me, even unto me Daniel, after that which appeared unto me at the first.”
 
-Slide 2 Biblical Answer: “And there appeared a great wonder in heaven; a woman clothed with the sun, and the moon under her feet, and upon her head a crown of twelve stars.” (Revelation 12:1)
+***
 
-[IMG] Warm classical biblical painting of a majestic vision in the sky: a woman radiating light, standing atop a glowing moon, with the sun enveloping her and twelve stars shining above her head.
+## Slide 3 – Q1: Key Points
 
----
+- **Historical Context:**
+  - given toward the close of the Babylonian empire.
+  - shortly before the events of the writing on the wall (Daniel 5).
+- **Sanctuary Imagery:**
+  - Unlike previous visions using wild beasts, this vision uses a Ram and a Goat.
+  - These are sacrificial animals used on the Day of Atonement (Leviticus 16:5 – “And he shall take of the congregation of the children of Israel two kids of the goats for a sin offering, and one ram for a burnt offering.”).
+  - This indicates the vision concerns the plan of salvation and God’s method of dealing with sin.
+- **God's Foreknowledge:**
+  - God provides a roadmap before the darkness of a new era comes (Isaiah 46:9-10 – “Declaring the end from the beginning, and from ancient times the things that are not yet done...”[fragment]).
 
-Slide 3 Explanation: Prophecy often uses symbols to convey history. In the Bible, a woman represents a church. A pure, virtuous woman represents God’s faithful people, while a corrupt woman represents a corrupt church. This "great wonder" outlines the experience of God’s people transitioning from the Old Testament era into the New.
+***
 
-[DYK] In the Bible, the relationship between God and His people is frequently compared to a marriage. Paul writes to the church in Corinth, "I have espoused you to one husband, that I may present you as a chaste virgin to Christ" (2 Corinthians 11:2).
+## Slide 4 – Q2: The First Symbol
 
-[IMG] Warm classical biblical painting of a bride in white, ancient linen robes, standing humbly and purely before a divine light, representing spiritual faithfulness.
+- **Question:** What was the first symbol presented to the prophet?
+- **Key Text:** Daniel 8:3 – “Then I lifted up mine eyes, and saw, and, behold, there stood before the river a ram which had two horns: and the two horns were high; but one was higher than the other, and the higher came up last.”
 
----
+***
 
-Slide 4 Question: What does the "Sun" represent in this symbol?
+## Slide 5 – Q2: Key Points
 
-[IMG] Warm classical biblical painting of a sunrise breaking over an ancient landscape, the golden rays illuminating the horizon with intense brightness.
+- **Identity of the Ram:**
+  - The angel Gabriel interprets this explicitly:
+  - Daniel 8:20 – “The ram which thou sawest having two horns are the kings of Media and Persia.”
+- **The Two Horns:**
+  - Represents the dual nature of the Medo-Persian empire.
+  - The higher horn coming up last represents the Persian element, which became dominant later in the alliance.
+- **Sovereignty of God:**
+  - The ram pushed westward, northward, and southward; no beast could stand before it.
+  - This confirms that when God allows a nation to rise, no human power can stop it until His purpose is fulfilled (Daniel 2:21 – “And he changeth the times and the seasons: he removeth kings, and setteth up kings...”).
 
----
+***
 
-Slide 5 Biblical Answer: “But unto you that fear my name shall the Sun of righteousness arise with healing in his wings...” (Malachi 4:2)
+## Slide 6 – Q2: Illustration
 
-[IMG] Warm classical biblical painting of Jesus Christ standing with outstretched arms, radiating a brilliant, warm light that banishes all surrounding darkness.
+- **[ILL] The Tide of History**
+  - Men often believe they shape history through military genius or strategy.
+  - In reality, they are like driftwood on a rising tide; they move only where the tide takes them.
+  - The rise of Medo-Persia was decreed by God long before Cyrus was born.
+  - Isaiah 45:1 – “Thus saith the LORD to his anointed, to Cyrus, whose right hand I have holden, to subdue nations before him...”
 
----
+***
 
-Slide 6 Explanation: Being "clothed with the sun" represents the glory of the Gospel dispensation—the era of the New Testament. Just as the sun is the supreme source of light in the physical world, Jesus Christ and His direct gospel message are the supreme light of the spiritual world. The church is wrapped in the brightness of Christ's righteousness.
+## Slide 7 – Q3: The Second Symbol
 
-[IMG] Warm classical biblical painting of a group of early disciples gathered together, their faces illuminated not by a lamp, but by a supernatural, divine glow surrounding them.
+- **Question:** What symbol was next introduced?
+- **Key Text:** Daniel 8:5 – “And as I was considering, behold, an he goat came from the west on the face of the whole earth, and touched not the ground: and the goat had a notable horn between his eyes.”
 
----
+***
 
-Slide 7 Illustration: Imagine standing at high noon in a field; there are no shadows, only brightness. This is the position of the Christian church under the Gospel—fully illuminated by the reality of Jesus, no longer looking through the dimmer light of symbols and sacrifices.
+## Slide 8 – Q3: Key Points
 
-[IMG] Warm classical biblical painting of a vast, green field under a bright midday sun, everything is clear and vivid with absolutely no shadows cast on the ground.
+- **Identity of the He-Goat:**
+  - Daniel 8:21 – “And the rough goat is the king of Grecia: and the great horn that is between his eyes is the first king.”
+- **Speed of Conquest:**
+  - The goat "touched not the ground," symbolizing the incredible speed of Alexander the Great’s conquests.
+  - In roughly a decade, Greek forces swept across the known world.
+- **The Notable Horn:**
+  - Represents Alexander the Great.
+- **Prophetic Symbolism:**
+  - The Bible uses physical objects (animals) to represent abstract realities (kingdoms) and their moral character (predatory, swift, strong).
 
----
+***
 
-Slide 8 Question: Why is the "Moon" under her feet, and what does it signify?
+## Slide 9 – Q4: The Broken Horn
 
-[IMG] Warm classical biblical painting of a night scene with a full moon reflecting bright silver light onto a quiet ancient city.
+- **Question:** What happened to the "notable horn" when it was strong?
+- **Key Text:** Daniel 8:8 – “Therefore the he goat waxed very great: and when he was strong, the great horn was broken; and for it came up four notable ones toward the four winds of heaven.”
 
----
+***
 
-Slide 9 Biblical Answer: “For the law having a shadow of good things to come, and not the very image of the things...” (Hebrews 10:1)
+## Slide 10 – Q4: Key Points
 
-[IMG] Warm classical biblical painting of an Old Testament priest performing a sacrifice near an altar, the scene lit dimly by firelight and moonlight, symbolizing the "shadow" of things to come.
+- **Human Fragility:**
+  - Alexander conquered the world but died at age 32 (323 B.C.), reportedly of fever and intemperance.
+  - Jeremiah 9:23 – “Thus saith the LORD, Let not the wise man glory in his wisdom, neither let the mighty man glory in his might...”
+- **The Four Horns:**
+  - The kingdom did not pass to Alexander's sons.
+  - It was divided among his four leading generals (Cassander, Lysimachus, Ptolemy, Seleucus) toward the "four winds," exactly as prophesied.
 
----
+***
 
-Slide 10 Explanation: The moon has no light of its own; it merely reflects the light of the sun. Similarly, the Mosaic dispensation (the Old Testament system of sacrifices and types) shone only by reflecting the light of the coming Messiah.
+## Slide 11 – Q4: Illustration
 
-To have the moon "under her feet" means she stands *upon* it as a foundation. The New Testament church stands upon the foundation of the Old Testament prophets but has risen into the superior glory of the Gospel sunlight.
+- **[ILL] The Broken Pillar**
+  - Imagine a massive marble pillar supporting a great roof.
+  - It snaps not from external weight or attack, but from a flaw within.
+  - Alexander’s empire broke because the man at the center was mortal and flawed.
+  - Our only sure foundation is Christ, the Rock that cannot be broken.
+  - 1 Corinthians 10:4 – “And did all drink the same spiritual drink: for they drank of that spiritual Rock that followed them: and that Rock was Christ.”
 
-[IMG] Warm classical biblical painting of a woman's feet standing firmly on a glowing silver orb (the moon), which serves as a pedestal or foundation for her glory.
+***
 
----
+## Slide 12 – Q5: The Little Horn
 
-Slide 11 Term Definition & Insight: 
-**Dispensation**: A specific period of time in which God administers His government or reveals Himself in a specific way (e.g., the period of the sacrifices vs. the period of the Gospel).
+- **Question:** What new power arises from one of the four winds?
+- **Key Text:** Daniel 8:9 – “And out of one of them came forth a little horn, which waxed exceeding great, toward the south, and toward the east, and toward the pleasant land.”
 
-[SN] **Spirit-Led Tangent:** Consider the beauty of this astronomical symbol. The moon (Old Testament) fades when the Sun (Christ) rises, yet the Sun gave the Moon its light all along. The sacrifices only had value because they pointed to Jesus. Once the reality (the Sun) appeared, the reflection (the Moon) was no longer the primary source, yet it remains the platform upon which the church stands.
+***
 
-[IMG] Warm classical biblical painting of the sky showing both the setting moon and the rising sun, demonstrating the transition of light sources.
+## Slide 13 – Q5: Key Points
 
----
+- **Identity of the Little Horn:**
+  - Represents **Rome** in two phases:
+    1. **Pagan Rome:** The political empire ruling during Christ’s life.
+    2. **Papal Rome:** The religious-political power ruling the Middle Ages.
+- **"Exceeding Great":**
+  - Surpasses the Ram ("great") and Goat ("very great").
+  - Extends influence spiritually, dominating the conscience of man.
+- **The Pleasant Land:**
+  - Refers to Judea/Palestine.
+  - Rome conquered this territory in 63 B.C.; under this power, Jesus was born and crucified.
 
-Slide 12 Question: What is the meaning of the "Crown of Twelve Stars"?
+***
 
-[IMG] Warm classical biblical painting of a golden crown floating in the air, set with twelve brilliant, diamond-like stars.
+## Slide 14 – Q6: The Attack on the Prince
 
----
+- **Question:** How does this power treat the "Prince of the host"?
+- **Key Text:** Daniel 8:11 – “Yea, he magnified himself even to the prince of the host, and by him the daily sacrifice was taken away, and the place of his sanctuary was cast down.”
 
-Slide 13 Biblical Answer & Explanation: The number twelve is significantly linked to the governance of God’s people. The twelve stars represent the twelve apostles of the Lamb.
+***
 
-As the church entered the Gospel era, the apostles were the primary lights sent forth to illuminate the darkness of the world with the testimony of Jesus.
+## Slide 15 – Q6: Key Points
 
-[IMG] Warm classical biblical painting of the twelve apostles standing together, each holding a scroll or staff, with a faint star glowing above each of their heads.
+- **Spiritual Warfare:**
+  - The prophecy shifts from military battles to a war against Christ’s ministry.
+- **The Prince of the Host:**
+  - This is Jesus Christ, Commander of heaven's armies (Joshua 5:14).
+- **Taking Away "The Daily":**
+  - "Sacrifice" is a supplied word. The Hebrew is *Ha-Tamid* ("The Continual").
+  - Refers to Christ's continual ministry in the heavenly sanctuary.
+  - By establishing an earthly priesthood and earthly sacrifices, this power obscured Christ's direct intercession.
 
----
+***
 
-Slide 14 Deeper Insight: 
-[DYK] In the Old Testament, the High Priest wore a breastplate with twelve stones representing the twelve tribes. Here, the church wears a crown of twelve stars, representing the apostles who foundationalized the Christian church.
+## Slide 16 – Q6: Application (Righteousness by Faith)
 
-This vision presents the church not as a physical building, but as a dazzling, celestial body. She is clothed in light (Christ), standing on the prophetic foundation (Old Testament), and crowned with apostolic authority (New Testament).
+- **The Danger of Human Mediation:**
+  - When a system places human priests or rituals between the sinner and the Savior, it "casts down" the truth of the Gospel.
+- **True Justification:**
+  - Salvation is found only in direct communion with Christ by faith.
+  - We are justified freely by grace, not through human systems.
+  - Romans 3:24 – “Being justified freely by his grace through the redemption that is in Christ Jesus.”
 
-[IMG] Warm classical biblical painting contrasting the High Priest's jeweled breastplate with a radiant crown of stars, symbolizing the shift from the Levitical order to the Apostolic order.
+***
 
----
+## Slide 17 – Q7: Truth Cast Down
 
-Slide 15 Practical Application: How does this symbol affect us today?
-• It assures us that the Church is precious to God.
-• It reminds us that we have the "full light" of the Gospel—we are without excuse if we walk in darkness.
-• It encourages us to value both the Old and New Testaments as essential to our standing.
+- **Question:** What was done to the truth?
+- **Key Text:** Daniel 8:12 – “And an host was given him against the daily sacrifice by reason of transgression, and it cast down the truth to the ground; and it practised, and prospered.”
 
-[IMG] Warm classical biblical painting of a modern believer sitting by a window, reading an open Bible where light seems to spring from the pages onto their face.
+***
 
----
+## Slide 18 – Q7: Key Points
 
-Slide 16 Summary: God’s church is called to reflect His light. Just as this woman is illuminated by the sun, moon, and stars, our lives should be illuminated by the fullness of Scripture.
+- **Truth Cast Down:**
+  - The "truth" includes the Law of God and the Gospel of the sanctuary.
+  - Psalm 119:142 – “Thy righteousness is an everlasting righteousness, and thy law is the truth.”
+- **By Reason of Transgression:**
+  - Error prospers when people turn away from God's law.
+  - When the law is set aside, the gospel is misunderstood (Romans 3:20).
+- **It Prospered:**
+  - For a season (the 1260 years), this system seemed to win.
+  - God tolerates evil temporarily to reveal its true character before the universe.
 
-[IMG] Warm classical biblical painting of an ancient oil lamp, a scroll, and a bright light source combining to illuminate a dark room, symbolizing the total light of God's Word.
+***
 
----
+## Slide 19 – Q8: The Question of "How Long?"
+
+- **Question:** What question was asked concerning this desolation?
+- **Key Text:** Daniel 8:13 – “Then I heard one saint speaking, and another saint said unto that certain saint which spake, How long shall be the vision concerning the daily sacrifice, and the transgression of desolation, to give both the sanctuary and the host to be trodden under foot?”
+
+***
+
+## Slide 20 – Q8: Key Points
+
+- **The Cry of the Universe:**
+  - "How long?" is a cry for justice and restoration (Revelation 6:10).
+- **The Central Issue:**
+  - How long will truth be trampled?
+  - How long will God’s character be misrepresented?
+- **Focus on the Sanctuary:**
+  - The question concerns the restoration of the knowledge of God's way of salvation.
+  - It is about restoring the truth that sinners are made right with God through Christ alone, without human intermediaries.
+
+***
+
+## Slide 21 – Q9: The 2300 Days
+
+- **Question:** What was the answer regarding the time?
+- **Key Text:** Daniel 8:14 – “And he said unto me, Unto two thousand and three hundred days; then shall the sanctuary be cleansed.”
+
+***
+
+## Slide 22 – Q9: Key Points
+
+- **The Time Span:**
+  - In Bible prophecy, a day represents a year.
+  - Numbers 14:34 – “After the number of the days in which ye searched the land, even forty days, each day for a year, shall ye bear your iniquities...”
+  - Ezekiel 4:6 – “...I have appointed thee each day for a year.”
+  - This period is 2,300 literal years.
+- **The Event: Cleansing the Sanctuary:**
+  - Points to the **Investigative Judgment**.
+  - Just as the earthly sanctuary was cleansed on the Day of Atonement, Christ entered the Most Holy Place (1844) to blot out sin and prepare a people for His return.
+
+***
+
+## Slide 23 – Q9: Illustration
+
+- **[ILL] The Courtroom**
+  - Imagine a courtroom where a judge reviews cases before the verdict.
+  - The verdict is not based on the defendant's perfect performance, but on whether they have a competent Advocate.
+  - The cleansing of the sanctuary is that review.
+  - If we rely on our own works, we are lost.
+  - If we rely on Christ our High Priest, His righteousness covers us.
+  - Acts 3:19 – “Repent ye therefore, and be converted, that your sins may be blotted out, when the times of refreshing shall come from the presence of the Lord.”
+
+***
+
+## Slide 24 – Conclusion
+
+- **Restoration of Truth:**
+  - Daniel 8 reveals that while earthly powers attack God's truth, God has a set time to restore it.
+- **Our Response:**
+  - The "cleansing of the sanctuary" is a call to turn our eyes to heaven.
+  - We must trust entirely in the merits of Jesus, who is finishing His work of atonement for us.

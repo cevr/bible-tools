@@ -1,59 +1,239 @@
-Study Title: Understanding Saving Faith
+### Q1. Give the Bible definition of faith.
+“Now faith is the substance of things hoped for, the evidence of things not seen." Hebrews 11:1.
 
-Question: What is the Bible’s definition of faith?
+**Answer:**
+The Bible does not define faith as a mere feeling, an intellectual guess, or a "leap in the dark." Rather, Scripture presents faith as a tangible reality in the spiritual realm.
 
-Biblical Answer: “Now faith is the substance of things hoped for, the evidence of things not seen.” (Hebrews 11:1)
+*   **Substance (assurance):** The Greek word used here (*hypostasis*) means a foundation, a ground of confidence, or a title deed. Faith is the "title deed" to things God has promised but which we do not yet possess in the physical realm. It treats the future promises of God as a present reality.
+*   **Evidence (proof):** Faith serves as the eye of the soul. It sees the invisible. Just because we cannot see God or the heavenly sanctuary with our natural eyes does not mean they are not real. Faith is the evidence that they exist (2 Corinthians 4:18).
+*   **Connection to Righteousness by Faith:** In the plan of salvation, faith is the hand that lays hold of the merits of Christ. We cannot see our names written in the Book of Life, nor can we physically see Christ’s righteousness covering us; but faith accepts the "substance" of Christ’s perfect life as our own (Romans 4:3–5).
 
-Explanation: Faith is not merely a wish or a positive feeling. The Scripture defines it as “substance”—something tangible and real. It is treating God's promises as present realities, even when our physical eyes cannot yet see them.
+**[ILL]** Imagine you hold a title deed to a piece of land in a distant country that you have never visited. You have never seen the land with your eyes, but the deed in your hand is the "substance" or legal proof that the land is yours. You can sell it, build on it, or pass it to your heirs because the deed makes it real to you. So it is with faith: the Word of God is the title deed, and faith accepts it as fact.
 
-Term Definition: “Substance” comes from a Greek word meaning “standing under” or “foundation.” It implies that faith is the solid ground upon which our hope rests. It is the title-deed to the things God has promised.
+---
 
-[ILL] Imagine you hold a property deed in your hand. You may not be standing on the land yet, nor have you seen the soil, but the deed is the "substance" or proof of your ownership. Faith acts as that deed for God's promises.
+### Q2. When coming to God, what is it necessary to believe concerning Him?
+“But without faith it is impossible to please Him; for he that cometh to God must believe that He is, and that He is a rewarder of them that diligently seek Him." Hebrews 11:6.
 
-Question: How do we obtain this faith?
+**Answer:**
+True faith is not vague; it must have a specific object. To come to God, we must settle two foundational truths in our minds:
 
-Biblical Answer: “So then faith cometh by hearing, and hearing by the word of God.” (Romans 10:17)
+1.  **That He Is (God's Existence):** We must believe in the reality of a personal, living God who is the Creator and Sustainer of all things. This is the first step away from the darkness of atheism or idolatry.
+2.  **That He is a Rewarder (God's Character):** It is not enough to believe God exists; the devils believe that and tremble (James 2:19). We must believe in His benevolent character—that He desires to save and bless those who seek Him. He is not a tyrant waiting to condemn, but a Father waiting to reward the seeker with His presence and salvation.
 
-Explanation: Faith is not something we conjure up from within our own imagination. It is a response to God’s revelation. We cannot trust a God we do not know; therefore, we learn of Him through His Word. As we digest Scripture, our confidence in His character grows.
+**Definition:**
+*   **Grace:** The unmerited favor of God toward the undeserving. It is because of grace that God becomes a "rewarder" to sinful humans who seek Him (Ephesians 2:8–9).
 
-[DYK] In the original Greek, "hearing" implies more than just audio processing; it implies understanding and taking heed. To have faith, one must not only listen to the Bible but let its message sink deep into the heart.
+**[ILL]** A child approaches their father to ask for bread. If the child believes the father is stingy or cruel, they will ask with fear and hesitation. But if the child knows the father is loving and generous, they come with confidence. Our faith determines how we approach the throne of grace (Hebrews 4:16).
 
-Question: Is it possible to please God without this faith?
+---
 
-Biblical Answer: “But without faith it is impossible to please Him; for he that cometh to God must believe that He is, and that He is a rewarder of them that diligently seek Him.” (Hebrews 11:6)
+### Q3. How may we know that God exists?
+“The heavens declare the glory of God; and the firmament showeth His handiwork." Psalm 19:1 (Rom. 1:19, 20).
 
-Explanation: God is not merely a concept; He is a Person who interacts with those who seek Him. Coming to God requires two foundational beliefs: 1) That He exists, and 2) That He is good and responds to those who pursue Him.
+**Answer:**
+God has written the evidence of His existence in two great books: the book of Scripture and the book of Nature.
 
-[SN] The phrase "diligently seek" suggests an intense, earnest search. The SDA pioneers often emphasized that religion was not casual; it required the whole heart. Just as the Israelites gathered manna daily, we must seek God's presence with diligence every morning.
+*   **General Revelation:** The intricate design of the universe, from the vastness of the starry heavens to the complexity of a single cell, testifies to a Designer (Romans 1:20). Nature speaks of God’s power and His Godhead.
+*   **The Law of God in Nature:** Just as nature obeys physical laws (gravity, motion), the moral universe is governed by God’s moral law. The orderliness of the heavens declares that God is a God of order and law, not confusion (1 Corinthians 14:33).
+*   **The Sabbath Connection:** The Sabbath commandment (Exodus 20:8–11) was given as a memorial of this creation. By keeping the Sabbath, we acknowledge the God whose handiwork the heavens declare.
 
-Question: Does true faith lead to action, or is it just a mental belief?
+**[ILL]** If you found a precise, ticking pocket watch lying in a field, you would never assume the wind and rain assembled it by accident over millions of years. The gears, springs, and purpose of the watch prove there was a watchmaker. The universe is far more complex than a watch; it proves there is a Creator.
 
-Biblical Answer: “For as the body without the spirit is dead, so faith without works is dead also.” (James 2:26)
-“Beloved, if our heart condemn us not, then have we confidence toward God. And whatsoever we ask, we receive of Him, because we keep His commandments, and do those things that are pleasing in His sight.” (1 John 3:21, 22)
+---
 
-Explanation: There is a vital link between faith and obedience. A body that does not breathe is dead; likewise, a faith that does not result in obedience to God is dead. True saving faith always produces the fruit of a changed life. We do not obey *to be* saved; we obey because we *believe* and love the Saviour.
+### Q4. How may we have faith in Him?
+“So then faith cometh by hearing, and hearing by the word of God." Romans 10:17.
 
-Deeper Insight: Notice the connection in 1 John: our confidence in prayer ("whatsoever we ask") is linked to a life that harmonizes with God’s will ("keep His commandments"). Disobedience creates a barrier of doubt, but a clear conscience strengthens our faith.
+**Answer:**
+Many struggle because they try to manufacture faith from their own emotions. This text reveals that faith is not a product of human will, but a result of contact with God’s Word.
 
-[SN] Optional Spirit-led tangent: This harmonizes with the 1888 message of Righteousness by Faith, which became central to Adventist theology. It teaches that genuine faith in Christ's righteousness naturally empowers the believer to keep the law, not by their own power, but through His abiding Spirit.
+*   **The Source of Faith:** Faith is generated by the Word of God. When God speaks, His word carries the power to fulfill itself (Isaiah 55:11). To get more faith, we must not look at our own hearts (which are deceitful), but look at the Word.
+*   **The Role of Intellect and Will:** We "hear" the Word (intellectual understanding) and choose to accept it (act of the will). As we feed on the promises of the Bible, faith grows naturally.
+*   **Righteousness by Faith:** We cannot produce righteousness; we receive it. Similarly, we cannot produce faith; we receive it as a gift through the Word (Ephesians 2:8). As we study the life of Christ and the plan of redemption, confidence in God is the inevitable result.
 
-Question: What happens when we let doubt enter our minds?
+**[ILL]** A man wants to trust a bridge before he walks across it. He doesn't stand there trying to "feel" trust. Instead, he examines the bridge. He looks at the strong cables, the solid concrete, and the thick steel beams. The more he sees the strength of the bridge (the Word), the more his confidence (faith) grows.
 
-Biblical Answer: “And immediately Jesus stretched forth His hand, and caught him, and said unto him, O thou of little faith, wherefore didst thou doubt?” (Matthew 14:31)
-“Let not that man think that he shall receive anything of the Lord.” (James 1:7)
+---
 
-Explanation: Peter began to sink when he took his eyes off Jesus and focused on the storm. Doubt disconnects us from the power of God. When we pray with a "doubtful mind," wavering between belief and unbelief, we cannot take hold of God's hand.
+### Q5. Are the promises of God of any value to those who do not believe them?
+"I will therefore put you in remembrance, though ye once knew this, how that the Lord, having saved the people out of the land of Egypt, afterward destroyed them that believed not." Jude 5 (Heb. 3:14).
 
-[ILL] A person trying to cross a chasm on a bridge must trust the bridge entirely. If they stand on the edge, trembling and refusing to step out, the bridge cannot help them. Doubt paralyzes our spiritual progress.
+**Answer:**
+God’s promises are absolute, but their benefit to the individual is conditional upon faith.
 
-Question: What is the ultimate result of having saving faith?
+*   **The Lesson of Israel:** God physically delivered Israel from Egypt (a type of justification/deliverance from the penalty of sin). However, they never entered the Promised Land (a type of glorification/heaven) because of "unbelief" (Hebrews 3:19). They did not believe God could give them victory over the giants (sin and enemies).
+*   **Faith Mixes with the Word:** Hebrews 4:2 tells us the gospel was preached to them, but "the word preached did not profit them, not being mixed with faith in them that heard it."
+*   **Warning:** A believer may be justified (saved from Egypt) but lose their way if they do not maintain a living faith in God’s power to sanctify and keep them (bring them into Canaan).
 
-Biblical Answer: “Therefore being justified by faith, we have peace with God through our Lord Jesus Christ.” (Romans 5:1)
-“Now the God of hope fill you with all joy and peace in believing...” (Romans 15:13)
+**[ILL]** A wealthy philanthropist may deposit a million dollars into an account in your name. The promise is real; the money is there. But if you do not believe it is there, you will never write a check against it, and you will live in poverty despite the provision made for you. Unbelief renders God’s infinite resources useless to us.
 
-Explanation: The fruit of faith is not anxiety or striving, but peace. When we rely entirely on the merits of Jesus for our salvation and trust His Word for our daily guidance, we enter into a rest that the world cannot understand.
+---
 
-Practical Application: How can we exercise saving faith today?
-• **In Prayer:** When you ask for forgiveness, believe immediately that you are forgiven (1 John 1:9), not because you feel it, but because God said it.
-• **In Trials:** When things go wrong, trust that "all things work together for good" (Rom 8:28).
-• **In Obedience:** Step forward in keeping God's commandments, trusting He will provide the power to do so.
+### Q6. In whom must we believe in order to be saved?
+“For God so loved the world, that He gave His only Son, that whosoever believeth in Him should not perish, but have everlasting life." John 3:16.
+
+**Answer:**
+Saving faith is not merely believing in a doctrine, but believing in a Person—Jesus Christ.
+
+*   **The Object of Faith:** We believe in Jesus as the Divine Son of God and the Lamb of God who takes away the sin of the world (John 1:29).
+*   **The Exchange:** We give Him our sins; He gives us His righteousness. This is the great transaction of the Atonement.
+*   **Perishing vs. Life:** Without Christ, the natural result of sin is death (separation from God). Faith in Christ reconnects the soul to the Source of life.
+
+**Definition:**
+*   **Atonement:** The work of reconciliation by which God and man are brought into agreement. It involves the covering of sin by Christ's blood and the restoration of the sinner to favor with God (Romans 5:11).
+
+---
+
+### Q7. When we believe on the Son of God, what evidence do we have that our sins are forgiven?
+“He that believeth on the Son of God hath the witness in himself: he that believeth not God hath made Him a liar; because he believeth not the record that God gave of His Son." 1 John 5:10.
+
+**Answer:**
+The evidence of forgiveness is found in "the record that God gave."
+
+*   **Not Feelings:** We do not look to our shifting emotions for proof of forgiveness. We look to God's record (His Word). If we have confessed our sins, God *says* we are forgiven (1 John 1:9). To doubt this is to call God a liar.
+*   **The Witness in Himself:** When we accept the Word as true, the Holy Spirit plants a deep, internal assurance (a witness) in our hearts. We know we are forgiven because God said so, and God cannot lie (Titus 1:2).
+
+**[ILL]** If a judge issues a pardon for a prisoner, the prisoner is free. He may *feel* guilty or afraid, but his feelings do not change the fact of the pardon. His freedom depends on the judge's signature (the record), not on his own emotions.
+
+---
+
+### Q8. What is the nature of this witness?
+“The Spirit itself beareth witness with our spirit, that we are the children of God." Romans 8:16.
+
+**Answer:**
+The "witness" is a cooperative interaction between God’s Spirit and our renewed mind.
+
+*   **Adoption:** The Spirit assures us that we are no longer slaves to sin or fear, but adopted children of the King. We belong to the heavenly family.
+*   **Harmony:** When our spirit (mind/conscience) consents to God’s law and trusts His promises, the Holy Spirit confirms, "Yes, you are God's child." This results in a desire to obey and please our Father.
+
+**Definition:**
+*   **Justification:** The legal declaration by God that a repentant sinner is counted righteous, not because of their own works, but because of the merits of Jesus credited to them (Romans 3:24–26).
+
+---
+
+### Q9. When we have this witness, what does it do for us?
+“Therefore being justified by faith, we have peace with God through our Lord Jesus Christ." Romans 5:1.
+
+**Answer:**
+The immediate fruit of justification by faith is **peace**.
+
+*   **End of Hostility:** Sin creates a state of war and separation between man and God (Isaiah 59:2). Justification ends this war. The believer is no longer an enemy, but a friend.
+*   **Sanctuary Imagery:** In the earthly sanctuary, the peace offering represented the fellowship and communion restored between the worshiper and God. Christ is our Peace (Ephesians 2:14).
+*   **Rest for the Soul:** This peace quiets the guilty conscience. We stop trying to earn heaven by our own painful efforts and rest in the finished work of Christ.
+
+---
+
+### Q10. Upon what conditions has God promised the forgiveness of sin?
+“But if we walk in the light, as He is in the light, we have fellowship one with another, and the blood of Jesus Christ His Son cleanseth us from all sin." "If we confess our sins, He is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness." 1 John 1:7, 9.
+
+**Answer:**
+While salvation is free, it is not unconditional. God requires honesty and surrender.
+
+1.  **Confession:** We must acknowledge our specific sins (Leviticus 5:5). This implies genuine repentance—a sorrow for sin and a turning away from it. We cannot hold onto a known sin and receive forgiveness for it simultaneously.
+2.  **Walking in the Light:** As God reveals truth to us (through His Word and Spirit), we must obey that truth. If we reject new light—for example, the truth about the Sabbath or health reform—we are choosing darkness, and the blood does not cover willful rebellion (Hebrews 10:26).
+3.  **Two-Fold Cleansing:** Note the text says He will *forgive* (Justification/Imputed Righteousness) AND *cleanse* us from all unrighteousness (Sanctification/Imparted Righteousness). God's plan is to make us holy, not just to call us holy.
+
+**Definition:**
+*   **Sanctification:** The ongoing process by which the Holy Spirit imparts Christ’s life to the believer, transforming their character to be like Jesus and empowering them to overcome sin (1 Thessalonians 4:3).
+
+---
+
+### Q11. Does the Bible warrant one in believing that he receives what he asks for, before he is conscious of possessing it?
+“Therefore I say unto you, What things soever ye desire, when ye pray, believe that ye receive them, and ye shall have them." Mark 11:24.
+
+**Answer:**
+Yes. This is the "science of prayer."
+
+*   **Believe, then Receive:** The order is specific. We do not receive first and then believe; we believe the promise of God, and the reception follows in God's time.
+*   **Claiming the Promise:** When we pray according to God's will (for forgiveness, for the Holy Spirit, for victory over sin), we need not wait for a feeling. We can say, "I have it, because God promised it," and go about our duty.
+*   **Faith vs. Sight:** To wait for the proof before believing is to walk by sight, not by faith.
+
+**[ILL]** When you order a product from a reputable online merchant, you pay your money and receive a confirmation email. You do not yet have the box in your hands, but you "believe that you receive it." You might even tell a friend, "I bought a new tool," even though it hasn't arrived yet. Faith trusts God's delivery system.
+
+---
+
+### Q12. How may one learn to develop patience in waiting on God?
+“My brethren, count it all joy when ye fall into divers temptations; knowing this, that the trying of your faith worketh patience." James 1:2, 3.
+
+**Answer:**
+Faith is like a muscle; it grows strong only through resistance and exercise.
+
+*   **The Role of Trials:** Temptations and trials are not signs of God's displeasure, but opportunities for the "trying of your faith." When we choose to trust God despite pain or delay, patience (endurance) is produced.
+*   **Preparation for the End:** In the last days, God's people will need the "patience of the saints" (Revelation 14:12). We learn this patience now by trusting God in the smaller trials of daily life.
+
+---
+
+### Q13. When in affliction, what ought all to believe?
+“And we know that all things work together for good to them that love God." Romans 8:28.
+
+**Answer:**
+The believer must possess an unshakeable confidence in God’s sovereignty and love.
+
+*   **"All Things":** This includes sickness, loss, persecution, and disappointment. God does not cause all evil, but He overrules it. He makes the machinery of life work for the spiritual good of His children.
+*   **The Goal is Character:** The "good" mentioned here is defined in the next verse (v. 29)—"to be conformed to the image of His Son." God uses affliction to burn away the dross of selfishness and reflect Christ's image in us.
+
+**[ILL]** A weaver creates a beautiful tapestry using both dark and bright threads. If you look at the back of the tapestry, it looks like a tangled mess. But the weaver knows that the dark threads are necessary to bring out the beauty of the gold and silver threads on the front. In affliction, we often see only the tangled back; faith trusts the Weaver's design.
+
+---
+
+### Q14. What kind of faith is that which is unaccompanied with works?
+“For as the body without the spirit is dead, so faith without works is dead also." James 2:26.
+
+**Answer:**
+Faith that does not lead to obedience is **dead faith**. It is a counterfeit.
+
+*   **Harmony of Paul and James:** Paul teaches we are justified by faith *apart* from works (Romans 3:28) to prevent boasting. James teaches that saving faith *always* produces works to prevent cheap grace.
+*   **The Vital Sign:** Just as breath is the sign of a living body, obedience is the sign of living faith. If a man claims to believe in Jesus but continues to willfully break God's commandments (lying, stealing, Sabbath-breaking), his faith is dead.
+*   **Righteousness by Faith:** True faith works by love (Galatians 5:6). It allows Christ to live His life of obedience *in* us.
+
+---
+
+### Q15. If one knows the he is constantly disobeying God, can he have real living faith?
+“Beloved, if our heart condemn us not, then have we confidence toward God. And whatsoever we ask, we receive of Him, because we keep His commandments, and do those things that are pleasing in His sight." 1 John 3:21, 22.
+
+**Answer:**
+No. Willful disobedience cuts the nerve of faith.
+
+*   **Confidence and Obedience:** We cannot approach God with confidence if we are knowingly rebelling against Him. A guilty conscience destroys faith.
+*   **The Condition of Answered Prayer:** The text clearly states that we receive answers *because* we keep His commandments. This is not legalism; it is the relationship of a loyal child to a loving Father.
+*   **Victory is Possible:** God does not command the impossible. Through the indwelling Christ, we can "do those things that are pleasing in His sight."
+
+**[ILL]** If an employee constantly steals from the cash register and insults the boss, he cannot confidently walk into the boss's office and ask for a favor. His actions have destroyed the ground of confidence. So it is with sin; it separates us from confidence in God (Isaiah 59:2).
+
+---
+
+### Q16. How much may one hope to receive, who asks with a doubtful mind?
+“Let not that man think that he shall receive anything of the Lord." James 1:7.
+
+**Answer:**
+The "double-minded" man—the one who wavers between faith and the world—receives nothing.
+
+*   **Stability Required:** God requires us to take a stand. We cannot pray for victory over sin while secretly planning to commit it. We cannot ask for wisdom while relying on worldly philosophy.
+*   **Total Dependence:** We must come to God with a single eye, looking only to Him for help.
+
+---
+
+### Q17. What was the cause of Peter's sinking after he had started to meet the Saviour on the stormy sea?
+“And immediately Jesus stretched forth His hand, and caught him, and said unto him, O thou of little faith, wherefore didst thou doubt?" Matthew 14:31.
+
+**Answer:**
+Peter sank because he shifted his focus.
+
+*   **Looking at the Storm:** As long as Peter looked at Jesus, he did the impossible—he walked on water. When he looked at the boisterous wind and waves (the circumstances), fear entered, and faith exited.
+*   **The Lesson for Us:** When we look at our sins, our weaknesses, or the persecution around us, we will sink in despair. We must keep our eyes fixed on Jesus, the Author and Finisher of our faith (Hebrews 12:2).
+*   **Christ's Grip:** Even when Peter’s faith failed, his cry for help was answered. Jesus "caught him." Our faith may be little, but our Saviour is great.
+
+---
+
+### Q18. What may one constantly have, by growing into the fullness of faith?
+“Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost." Romans 15:13.
+
+**Answer:**
+The mature Christian life is characterized by the fullness of the Spirit, resulting in joy, peace, and abounding hope.
+
+*   **Joy and Peace:** These are not found in worldly circumstances, but "in believing." They are the fruit of trusting God completely with our past (forgiveness), our present (care), and our future (salvation).
+*   **Power of the Holy Ghost:** This is the engine of the Christian life. It is the Spirit that makes the hope of the Second Coming real and keeps the believer steadfast until the end.
+
+**Summary:**
+Saving faith is the complete surrender of the soul to Jesus Christ, trusting His blood for pardon and His power for victory. It is a faith that works, obeys, and endures.

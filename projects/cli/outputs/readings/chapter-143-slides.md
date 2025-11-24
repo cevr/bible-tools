@@ -1,207 +1,318 @@
-Study Title: Shadows to Substance: The Lord's Supper and the New Covenant
+## Slide 1 – Q1: Character of Zacharias and Elizabeth
 
----
+- **Question:** What was the character of Zacharias, and Elizabeth?
+- **Key Text:** Luke 1:6 – “And they were both righteous before God, walking in all the commandments and ordinances of the Lord blameless.”
 
-Slide 1 Title Slide: Shadows to Substance
+## Slide 2 – Q1: Key Doctrinal Points
 
-[IMG] Warm classical biblical painting of an ancient altar in the foreground with a soft, glowing cross visible in the distance, symbolizing the transition from shadow to reality.
+- **Righteousness Defined:**
+  - To be “righteous” means to be in right standing with God.
+  - **Justification:** They were accounted righteous through faith in the promised Messiah (Romans 4:3 – “For what saith the scripture? Abraham believed God, and it was counted unto him for righteousness.”).
+  - **Sanctification:** Faith produced fruit. They were “walking” in obedience; true faith works by love (Galatians 5:6).
+- **Commandments and Ordinances:**
+  - **Commandments:** The moral law (Ten Commandments) reflecting God’s character.
+  - **Ordinances:** Ceremonial laws pointing to the Savior.
+- **Blameless:**
+  - This does not mean they were sinless by nature.
+  - It means their hearts were loyal; when they failed, they used God's provision of grace (sacrifices) and did not cherish known sin.
 
----
+## Slide 3 – Q1: Illustration
 
-Slide 2 Question: How were God's people expected to live before Christ came, as seen in the lives of Zacharias and Elizabeth?
+- **The Healthy Fruit Tree:**
+  - **The Root:** Hidden underground, representing **faith in God**.
+  - **The Fruit:** Visible to everyone, representing **obedience to the commandments**.
+- **Lesson:**
+  - Zacharias and Elizabeth did not practice legalism (stapling plastic fruit to dead branches).
+  - Their obedience was the natural outgrowth of a living connection with God.
 
-[IMG] Warm classical biblical painting of an elderly priest and his wife walking faithfully together down a Jerusalem street, soft light illuminating their faces.
+## Slide 4 – Q2: The Old Covenant System
 
----
+- **Question:** What was obligatory under the old covenant besides the ten commandments?
+- **Key Text:** Hebrews 9:1 – “Then verily the first covenant had also ordinances of divine service, and a worldly sanctuary.”
 
-Slide 3 Biblical Answer: “And they were both righteous before God, walking in all the commandments and ordinances of the Lord blameless.” (Luke 1:6)
+## Slide 5 – Q2: Key Points (Sanctuary & Law)
 
-[IMG] Warm classical biblical painting of Zacharias serving at the altar of incense, surrounded by the golden glow of the temple interior.
+- **Two Distinct Systems:**
+  - The Ten Commandments defined sin (Romans 7:7).
+  - The ceremonial system (ordinances) showed the *remedy* for sin.
+- **Ordinances of Divine Service:** Instructions regarding the priesthood, sacrifices, and feast days.
+- **A Worldly Sanctuary:**
+  - "Worldly" means earthly (made of gold, wood, linen), in contrast to the heavenly sanctuary pitched by the Lord (Hebrews 8:2).
+- **The Purpose:** A "schoolmaster" or visual aid to lead people to Christ (Galatians 3:24), teaching the holiness of the law and the cost of salvation.
 
----
+## Slide 6 – Q3: Content of the Ordinances
 
-Slide 4 Explanation: This verse highlights two distinct aspects of a righteous life:
-1.  The **Commandments** (God's moral law).
-2.  The **Ordinances** (The ceremonial religious services).
-Zacharias and Elizabeth were faithful in both.
+- **Question:** In what did these ordinances consist?
+- **Key Text:** Hebrews 9:10 – “Which stood only in meats and drinks, and divers washings, and carnal ordinances, imposed on them until the time of reformation.”
 
-[IMG] Warm classical biblical painting of two stone tablets resting beside a ceremonial priestly censer, representing the moral law and ceremonial law respectively.
+## Slide 7 – Q3: Key Points & Definition
 
----
+- **Meats and Drinks:**
+  - Refers to meal offerings and drink offerings (libations) in the sanctuary (Leviticus 23).
+  - distinct from health laws regarding clean/unclean animals (Genesis 7:2).
+- **Divers Washings:** Ceremonial cleansings teaching the need for purity and washing away sin.
+- **Time of Reformation:**
+  - These were temporary shadows imposed until Christ, the Reality, appeared.
+- **Definition – Ceremonial Law:** The temporary system of types, symbols, and sacrifices pointing forward to the cross of Christ.
 
-Slide 5 Term Definition: "Ordinances" in this context refers to the ceremonial laws, including the temple services, sacrifices, and feast days.
+## Slide 8 – Q4: Shadow and Substance
 
-[IMG] Warm classical biblical painting of a high priest inspecting a sacrificial lamb, historically respectful, detailed and solemn.
+- **Question:** What did these prefigure?
+- **Key Text:** Hebrews 10:1 – “For the law having a shadow of good things to come, and not the very image of the things, can never with those sacrifices which they offered year by year continually, make the comers thereunto perfect.”
 
----
+## Slide 9 – Q4: Key Points (Righteousness by Faith)
 
-Slide 6 Question: What was the purpose of the ceremonial ordinances involving sacrifices and offerings?
+- **Shadow vs. Image:**
+  - A shadow shows an outline but has no substance.
+  - The blood of bulls was the shadow; Christ is the Substance.
+- **Limitations:**
+  - Animal sacrifices could not cleanse the conscience or change the human heart ("make the comers thereunto perfect").
+- **Salvation in the OT:**
+  - Believers were not saved by animal blood.
+  - They were saved by faith in the "good things to come"—the perfect sacrifice of Jesus.
 
-[IMG] Warm classical biblical painting of a large altar with smoke rising, viewed from a distance, conveying a sense of mystery and anticipation.
+## Slide 10 – Q4: Illustration
 
----
+- **The Shadow in the Cave:**
+  - If you are lost in a dark cave and see a man's shadow, you know help is near.
+  - The shadow cannot lift you up; you must wait for the man.
+- **Lesson:**
+  - Old Testament saints saw the shadow (sacrifices).
+  - They placed their faith in the Man (Christ) who cast the shadow.
 
-Slide 7 Biblical Answer: “For the law having a shadow of good things to come, and not the very image of the things, can never with those sacrifices which they offered year by year continually, make the comers thereunto perfect.” (Hebrews 10:1)
+## Slide 11 – Q5: Necessity of Sacrifices
 
-[IMG] Warm classical biblical painting of a lamb casting a shadow on the ground, but the shadow takes the shape of a man on a cross.
+- **Question:** Why was it necessary for them to offer these sacrifices?
+- **Key Text:** Leviticus 4:27-28 – “And if any one of the common people sin through ignorance, while he doeth somewhat against any of the commandments of the Lord concerning things which ought not to be done, and be guilty; Or if his sin, which he hath sinned, come to his knowledge; then he shall bring his offering, a kid of the goats, a female without blemish, for his sin which he hath sinned.”
 
----
+## Slide 12 – Q5: Key Points (The Cost of Sin)
 
-Slide 8 Explanation: The ceremonial system was a "shadow." A shadow is not the reality; it merely outlines the shape of the reality. These sacrifices pointed forward to the coming Messiah but could not themselves solve the problem of sin.
+- **Acknowledgment of Guilt:** Breaking the Ten Commandments incurs guilt and the death penalty (Romans 6:23).
+- **Transfer of Sin:**
+  - The sinner laid his hand on the victim's head, symbolically transferring guilt to the substitute (Leviticus 4:29).
+- **Cost of Forgiveness:**
+  - The sinner had to slay the animal himself.
+  - This taught that "without shedding of blood is no remission" (Hebrews 9:22) and that *my* sin causes the death of the Innocent One.
 
-[IMG] Warm classical biblical painting of a dimly lit ancient scroll room, with light filtering in to reveal dust motes, symbolizing the partial revelation of the old system.
+## Slide 13 – Q6: The Limit of Animal Sacrifices
 
----
+- **Question:** Could these offerings take away their sins?
+- **Key Text:** Hebrews 10:4 – “For it is not possible that the blood of bulls and of goats should take away sins.”
 
-Slide 9 Illustration: Imagine seeing the shadow of a person coming around a corner. The shadow tells you someone is coming, but you cannot shake hands with the shadow. You must wait for the person (the substance) to arrive. The sacrifices were the shadow; Jesus is the Person.
+## Slide 14 – Q6: Key Points (Atonement)
 
-[IMG] Warm classical biblical painting of a cobblestone street corner, a long shadow cast on the wall of a figure approaching, soft morning light.
+- **The Problem:** Sin is a moral rebellion against God’s government; animals lack moral character.
+- **The Solution:** Only a Life equal to the broken law (the Creator) could pay the price for its transgression.
+- **The "Credit Card":**
+  - Animal blood did not wash away sin in reality.
+  - It served as a "credit slip" acknowledging a debt Christ would pay in full at Calvary.
+- **Definition – Atonement:** Reconciliation of God and man. Symbolic in the Old Testament; actual in Christ.
 
----
+## Slide 15 – Q7: Looking to Christ
 
-Slide 10 Did You Know?
+- **Question:** To what did they look forward?
+- **Key Text:** Hebrews 10:5 – “Wherefore when he cometh into the world, he saith, Sacrifice and offering thou wouldest not, but a body hast thou prepared me.”
 
-[DYK] In the Levitical system, if a common person sinned, they had to bring a female goat without blemish (Leviticus 4:27-28). This was a costly and bloody object lesson intended to show the terrible price of sin.
+## Slide 16 – Q7: Key Points (Incarnation)
 
-[IMG] Warm classical biblical painting of a humble israelite family sadly parting with a pristine white goat, soft emotional lighting.
+- **God's Desire:** He did not delight in death; He desired the obedience the sacrifices represented.
+- **"A Body Hast Thou Prepared Me":**
+  - The mystery of godliness: God took on human nature.
+  - As **God**, He could offer an infinite sacrifice.
+  - As **Man**, He could suffer and die in man’s place.
+- **Twofold Work:** Christ took a body to live a perfect life (sanctification) and die a sacrificial death (justification).
 
----
+## Slide 17 – Q8: The Law on Stone
 
-Slide 11 Question: Since animal sacrifices cannot take away sin, what was the solution?
+- **Question:** Where were the ten commandments written under the old covenant?
+- **Key Text:** Exodus 24:12 – “And the Lord said unto Moses, Come up to me into the mount, and be there: and I will give thee tables of stone, and a law, and commandments which I have written; that thou mayest teach them.”
 
-[IMG] Warm classical biblical painting of a dark sky breaking apart to reveal a beam of heavenly light, symbolizing divine intervention.
+## Slide 18 – Q8: Key Points
 
----
+- **Stone:** Signifies the durability and unchangeable nature of God's law (Psalm 111:7-8).
+- **External Standard:**
+  - A law on stone is outside the man.
+  - It commands "Thou shalt not" but offers no power to obey.
+- **Human Condition:** The stony tables mirrored the "stony heart" of unconverted man (Ezekiel 36:26).
 
-Slide 12 Biblical Answer: “For it is not possible that the blood of bulls and of goats should take away sins. ... Sacrifice and offering thou wouldst not, but a body hast thou prepared Me.” (Hebrews 10:4-5)
+## Slide 19 – Q9: The New Covenant
 
-[IMG] Warm classical biblical painting of the nativity scene, focusing on the infant Jesus, emphasizing the "body prepared" for Him.
+- **Question:** What was to be done with these commandments when the new covenant came in force?
+- **Key Text:** Jeremiah 31:33 – “But this shall be the covenant that I will make with the house of Israel; After those days, saith the Lord, I will put my law in their inward parts, and write it in their hearts; and will be their God, and they shall be my people.”
 
----
+## Slide 20 – Q9: Key Points (Righteousness by Faith)
 
-Slide 13 Explanation: The repetitive nature of animal sacrifices proved their inability to cleanse the conscience. They were temporary markers until God "prepared a body" for Jesus. Christ became the true sacrifice that the animals only typified.
+- **Internalization:** The New Covenant relocates the law from stone tables to the human heart (affections and will).
+- **Power to Obey:**
+  - Obedience becomes natural and joyful because we love the Lawgiver (John 14:15).
+  - The "writing" is done by the Spirit of the living God (2 Corinthians 3:3).
+- **Result:** Christ living His life of perfect obedience within the believer.
 
-[IMG] Warm classical biblical painting of Jesus walking towards the Jordan River, a sense of purpose and destiny in His expression.
+## Slide 21 – Q9: Illustration
 
----
+- **Statue vs. Living Child:**
+  - A statue obeys "Do not fall over" only because it is stone (external constraint).
+  - A living child learns to walk by instinct and life.
+- **Lesson:**
+  - Law on stone = Statue.
+  - Law in the heart = New nature that loves to do God’s will.
 
-Slide 14 Question: Under the New Covenant, what happens to the Ten Commandments?
+## Slide 22 – Q10: Memory of the Gospel
 
-[IMG] Warm classical biblical painting of Moses holding the stone tablets, looking forward into the distance, soft atmospheric perspective.
+- **Question:** Having God's commandments in the heart, should we also keep Christ and His sufferings in mind?
+- **Key Text:** 1 Corinthians 15:2-3 – “By which also ye are saved, if ye keep in memory what I preached unto you, unless ye have believed in vain. For I delivered unto you first of all that which I also received, how that Christ died for our sins according to the scriptures.”
 
----
+## Slide 23 – Q10: Key Points (Law and Gospel)
 
-Slide 15 Biblical Answer: “But this shall be the covenant that I will make with the house of Israel: After those days, saith the Lord, I will put My law in their inward parts, and write it in their hearts.” (Jeremiah 31:33; Hebrews 8:8-10)
+- **Inseparable:** The Law is the standard; the Gospel is the power.
+- **"Keep in Memory":**
+  - We must constantly remember the price paid for our redemption.
+  - Losing sight of the Cross makes the law a burden (legalism).
+- **Saved by the Gospel:** Contemplating His love melts the heart, allowing Him to write His law there (2 Corinthians 5:14).
 
-[IMG] Warm classical biblical painting of a man in prayer, a soft light emanating from his chest, symbolizing the law written on the heart.
+## Slide 24 – Q11: The Living Savior
 
----
+- **Question:** Is it enough simply to believe in the death of Christ?
+- **Key Text:** 1 Thessalonians 4:14 – “For if we believe that Jesus died and rose again, even so them also which sleep in Jesus will God bring with him.”
 
-Slide 16 Explanation: The New Covenant does not abolish the Law; it relocates it. Instead of being written only on tables of stone, the Holy Spirit writes God's principles of love and duty directly into our minds and affections.
+## Slide 25 – Q11: Key Points (Resurrection & Sanctuary)
 
-[IMG] Warm classical biblical painting of stone tablets fading into transparency, superimposed over a human heart, artistic and symbolic.
+- **A Living Savior:** Because He lives, we shall live also (John 14:19).
+- **High Priestly Work:**
+  - He rose to minister in the heavenly sanctuary.
+  - He applies the merits of His blood to blot out sins (Hebrews 7:25).
+- **Hope:** His resurrection guarantees our resurrection at the last day.
 
----
+## Slide 26 – Q12: Commemorating the Resurrection
 
-Slide 17 Insight: Spirit-led Balance
+- **Question:** By what act do we commemorate the resurrection of Christ?
+- **Key Text:** Colossians 2:12 – “Buried with him in baptism, wherein also ye are risen with him through the faith of the operation of God, who hath raised him from the dead.”
 
-[SN] Note the beautiful balance here. Repentance is toward God (whose Law was broken), and faith is toward our Lord Jesus Christ (who paid the penalty). This preserves the integrity of the Law while exalting the grace of the Gospel.
+## Slide 27 – Q12: Key Points (Baptism)
 
-[IMG] Warm classical biblical painting of a balance scale, one side holding a scroll of the law, the other a cross, perfectly balanced in golden light.
+- **The Symbolism of Immersion:**
+  - **Going down:** Death to the old life of sin.
+  - **Under water:** Burial.
+  - **Coming up:** Resurrection to "newness of life" (Romans 6:4).
+- **Faith:** It is the "faith of the operation of God" that saves, not the water itself.
+- **Definition:** *Baptizo* (Greek) means to dip, plunge, or immerse completely.
 
----
+## Slide 28 – Q13: Pre-requisite to Baptism
 
-Slide 18 Question: How do we publicly commemorate the death and resurrection of Jesus?
+- **Question:** But what should always precede baptism?
+- **Key Text:** Acts 2:38 – “Then Peter said unto them, Repent, and be baptized every one of you in the name of Jesus Christ for the remission of sins, and ye shall receive the gift of the Holy Ghost.”
 
-[IMG] Warm classical biblical painting of a quiet river bank at sunrise and a table set with bread and wine, combining the two settings.
+## Slide 29 – Q13: Key Points (Repentance)
 
----
+- **Sequence:** First repentance, then baptism. The "old man" must die before he is buried.
+- **Remission:** Baptism is for the forgiveness/removal of sins, marking entry into the covenant of grace.
+- **Definition – Repentance:** Deep sorrow for sin produced by the Holy Spirit, resulting in a turn away from sin and toward God (2 Corinthians 7:10).
 
-Slide 19 Biblical Answer:
-**For the Resurrection:** “Buried with Him in baptism, wherein also ye are risen with Him through the faith of the operation of God...” (Colossians 2:12)
+## Slide 30 – Q14: The Focus of Conversion
 
-**For His Death:** “For as often as ye eat this bread, and drink this cup, ye do show the Lord's death till He come.” (1 Corinthians 11:26)
+- **Question:** Toward whom must repentance be exercised?
+- **Key Text:** Acts 20:20-21 – “...Testifying both to the Jews, and also to the Greeks, repentance toward God, and faith toward our Lord Jesus Christ.”
 
-[IMG] Warm classical biblical painting split scene: left side showing a baptism in a river, right side showing the breaking of bread.
+## Slide 31 – Q14: Key Points
 
----
+- **Repentance Toward God:**
+  - Why? Because His law was broken. Sin is rebellion against the Father's government.
+- **Faith Toward Jesus Christ:**
+  - Why? Because we cannot atone for our own sin. We must look to the Mediator.
+- **Balance:** One cannot exist without the other.
+  - Repentance without faith = Despair (Judas).
+  - Faith without repentance = Presumption.
 
-Slide 20 Progressive Disclosure:
-1.  **Baptism**: A one-time event signifying our death to the old life and rising to a new life.
-2.  **The Lord's Supper**: A repeated ordinance to keep the memory of His sacrifice fresh in our minds.
+## Slide 32 – Q15: Public Declaration
 
-[IMG] Warm classical biblical painting of water rippling and a loaf of unleavened bread, simple and textured still life.
+- **Question:** Then by being baptized, what does one signify to the world?
+- **Key Text:** Galatians 3:27 – “For as many of you as have been baptized into Christ have put on Christ.”
 
----
+## Slide 33 – Q15: Key Points (Identity in Christ)
 
-Slide 21 Did You Know?
+- **"Putting On" Christ:**
+  - **Justification:** Putting on His robe of righteousness (covering past sins).
+  - **Sanctification:** Putting on His character (imparted righteousness for living).
+- **New Identity:** The believer no longer identifies with the world, but with the King of Heaven.
 
-[DYK] The word "baptize" comes from the Greek *baptizo*, meaning to immerse or dip under. This is why the Bible uses the imagery of being "buried" (going under) and "risen" (coming up).
+## Slide 34 – Q15: Illustration
 
-[IMG] Warm classical biblical painting of a figure submerged under clear water, light refracting through the surface, peaceful and symbolic.
+- **The Soldier's Uniform:**
+  - A uniform signifies which army a soldier belongs to.
+  - He is under the protection and command of his general.
+- **Lesson:**
+  - Baptism is the Christian's uniform.
+  - We signify to the universe that we have changed sides in the Great Controversy.
 
----
+## Slide 35 – Q16: Commemorating His Death
 
-Slide 22 Question: What do the symbols of the Lord's Supper represent?
+- **Question:** How is the death of Christ to be commemorated?
+- **Key Text:** 1 Corinthians 11:26 – “For as often as ye eat this bread, and drink this cup, ye do shew the Lord's death till he come.”
 
-[IMG] Warm classical biblical painting of a chalice and a broken loaf of bread on a wooden table, dramatic chiaroscuro lighting.
+## Slide 36 – Q16: Key Points (Communion)
 
----
+- **"Show the Lord's Death":**
+  - A visible sermon declaring our dependence on His broken body and spilled blood.
+- **"Till He Come":**
+  - The ordinance spans the time between the Cross and the Second Coming.
+  - It links what He *did* with what He *will do*.
 
-Slide 23 Biblical Answer:
-**The Bread:** “Take, eat; this is My body, which is broken for you...” (1 Corinthians 11:24)
-**The Cup:** “This cup is the new testament in My blood...” (1 Corinthians 11:25)
+## Slide 37 – Q17: Institution of the Ordinance
 
-[IMG] Warm classical biblical painting close up of hands breaking a loaf of bread, historically respectful.
+- **Question:** When and by whom was this ordinance instituted?
+- **Key Text:** 1 Corinthians 11:23-24 – “...The Lord Jesus the same night in which he was betrayed took bread: And when he had given thanks, he brake it, and said, Take, eat: this is my body, which is broken for you: this do in remembrance of me.”
 
----
+## Slide 38 – Q17: Key Points
 
-Slide 24 Explanation: The bread represents Christ's body, broken to make us whole. The cup represents the New Covenant ratified by His blood. We partake to bring to memory what He accomplished on the cross.
+- **Timing:** Instituted on the eve of the crucifixion, replacing the Passover.
+- **Symbols:** Bread represents His body, "broken" to satisfy the claims of the law.
+- **Remembrance:**
+  - A memorial of a one-time, all-sufficient sacrifice (Hebrews 10:12).
+- **Spiritual Feeding:** We are sustained by partaking of Christ and His Word by faith.
 
-[IMG] Warm classical biblical painting of the Last Supper, focusing on Jesus holding the cup, soft candlelight illuminating the disciples.
+## Slide 39 – Q18: The Cup
 
----
+- **Question:** What is signified by the cup?
+- **Key Text:** 1 Corinthians 11:25 – “After the same manner also he took the cup, when he had supped, saying, This cup is the new testament in my blood: this do ye, as oft as ye drink it, in remembrance of me.”
 
-Slide 25 Term Definition: Remembrance
+## Slide 40 – Q18: Key Points (Covenant)
 
-"Remembrance" implies more than just mental recall; it is an active memorial, a time to realign our lives with the reality of His sacrifice.
+- **The Symbol:** Unfermented wine (pure blood, Deut 32:14).
+- **New Testament (Covenant):** A binding agreement where God promises to save us and write His law in our hearts.
+- **"In My Blood":**
+  - Ancient covenants were ratified by blood (Exodus 24:8).
+  - Jesus' blood guarantees God will keep His promises to us.
 
-[IMG] Warm classical biblical painting of a person kneeling in deep reflection and prayer, historical setting.
+## Slide 41 – Q19: Closing the Service
 
----
+- **Question:** What was done by Christ and the disciples after partaking of the communion?
+- **Key Text:** Matthew 26:30 – “And when they had sung an hymn, they went out into the mount of Olives.”
 
-Slide 26 Question: What attitude should we have when participating in this service?
+## Slide 42 – Q19: Key Points
 
-[IMG] Warm classical biblical painting of a congregation in an early church house setting, heads bowed in reverence.
+- **Victory in Suffering:**
+  - Jesus sang even while facing Gethsemane and the Cross.
+  - Teaches that the joy of the Lord is our strength.
+- **Pattern:** Our worship services should conclude with praise and thanksgiving for the work of Christ.
 
----
+## Slide 43 – Q20: Worthy Partaking
 
-Slide 27 Biblical Answer: “Wherefore whosoever shall eat this bread, and drink this cup of the Lord, unworthily, shall be guilty of the body and blood of the Lord.” (1 Corinthians 11:27)
+- **Question:** If one refuses to obey God, can he be profited by partaking of the communion?
+- **Key Text:** 1 Corinthians 11:27 – “Wherefore whosoever shall eat this bread, and drink this cup of the Lord, unworthily, shall be guilty of the body and blood of the Lord.”
 
-[IMG] Warm classical biblical painting of a man examining his own hands in a beam of light, symbolizing self-examination.
+## Slide 44 – Q20: Key Points
 
----
+- **"Unworthily":**
+  - Refers to the *manner* of eating, not personal merit.
+  - Includes indifference, cherishing known sin, or harboring hatred (Matthew 5:23-24).
+- **Self-Examination:**
+  - Preparation (v. 28) is a time for soul-searching and confession.
+  - It is a time to renew vows of obedience.
 
-Slide 28 Explanation: To partake "unworthily" means to treat the service as a common meal or to participate without a repentant heart. It requires self-examination. We must ensure we are not holding onto known sin.
+## Slide 45 – Q20: Illustration
 
-[IMG] Warm classical biblical painting of a simple meal table contrasted with a sacred altar, highlighting the difference between common and holy.
-
----
-
-Slide 29 Insight: Tangent on Worship
-
-[SN] After instituting this solemn service, Jesus and His disciples "sung a hymn" before going to the Mount of Olives (Matthew 26:30). This suggests that despite the sorrow of the cross, the Communion service is ultimately an act of worship and praise.
-
-[IMG] Warm classical biblical painting of Jesus and the disciples standing together singing, illuminated by moonlight, peaceful despite the coming storm.
-
----
-
-Slide 30 Practical Application
-
-*   **Internal Law**: Ask God to write His law of love in your heart today.
-*   **Remembrance**: Visualize the service as "looking back" to the Cross and "looking forward" to His coming.
-*   **Preparation**: Repent and make things right with God and others before partaking.
-
-[IMG] Warm classical biblical painting of an open heart, a cross, and an olive branch, arranged as a spiritual still life, soft golden light.
-
----
+- **The Photo and Infidelity:**
+  - If a man carries a photo of his wife but is unfaithful, the photo testifies against him.
+- **Lesson:**
+  - If we hold the symbols of Christ's love but refuse Him entrance through obedience, the ordinance condemns our hypocrisy.
+  - But for the repentant soul, it provides strength and life.

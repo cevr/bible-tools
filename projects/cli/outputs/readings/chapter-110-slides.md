@@ -1,155 +1,200 @@
-Study Title: The Promise to the Thief: When is Paradise?
+## Slide 1 – Q1: The Promise to the Thief
+
+- **Question:** In answering the petition of the thief on the cross, what promise did the Saviour make him?
+- **Key Text:** Luke 23:43 – “And Jesus said unto him, Verily I say unto thee, Today shalt thou be with Me in Paradise.”
 
----
+## Slide 2 – Q1: Assurance and Justification
 
-Slide 1 Question: What promise did Jesus make to the thief on the cross?
+- **The Assurance of Acceptance:**
+  - The thief had no time for good works, baptism, or sacrifices; he was helpless.
+  - His salvation proves the doctrine of **Justification by Faith**.
+  - **Justification:** God’s legal declaration that a repentant sinner is righteous solely because of Christ’s merits.
+  - Romans 3:24 – “Being justified freely by his grace through the redemption that is in Christ Jesus.”
+  - Romans 3:28 – “Therefore we conclude that a man is justified by faith without the deeds of the law.”
+
+## Slide 3 – Q1: Certainty and Righteousness by Faith
 
-[IMG] Warm classical biblical painting of the penitent thief on the cross looking toward Jesus with hope amidst the darkness.
+- **The Certainty of the Promise:**
+  - Jesus used the word “Verily” (truly/assuredly).
+  - The promise relied on Christ’s power to save, not the thief’s past.
+  - Hebrews 7:25 – “Wherefore he is able also to save them to the uttermost that come unto God by him, seeing he ever liveth to make intercession for them.”
+- **Righteousness by Faith:**
+  - The thief looked to the Lamb of God, just as Israel looked to the serpent.
+  - John 3:14–15 – “And as Moses lifted up the serpent in the wilderness, even so must the Son of man be lifted up: That whosoever believeth in him should not perish, but have eternal life.”
+  - By faith, he laid hold of Christ's righteousness and was fitted for heaven.
 
----
+## Slide 4 – Q1: Illustration
 
-Slide 2 Biblical Answer: “And Jesus said unto him, Verily I say unto thee, Today shalt thou be with Me in Paradise.” (Luke 23:43)
+- **[ILL] The Helpless Debtor:**
+  - Imagine a man with a debt of millions thrown into prison, unable to pay.
+  - A wealthy King pays the full debt and opens the door.
+  - The prisoner did not “earn” his release; he simply accepted the payment.
+  - The thief was that debtor: he brought nothing but his need, and Christ supplied everything.
 
-[IMG] Warm classical biblical painting of Jesus on the cross, turning His head slightly to speak with compassion.
+## Slide 5 – Q2: The Tree of Life
 
----
+- **Question:** What noted tree is in Paradise?
+- **Key Text:** Revelation 2:7 – “He that hath an ear, let him hear what the Spirit saith unto the churches; To him that overcometh will I give to eat of the tree of life, which is in the midst of the paradise of God.”
 
-Slide 3 Explanation: This verse records one of the most beautiful assurances of salvation in Scripture. However, it has often led to confusion regarding the *timing* of this promise. To understand when this happens, we must first identify the location of "Paradise."
+## Slide 6 – Q2: Restoration and Victory
 
-[IMG] Warm classical biblical painting of a soft, ethereal light breaking through storm clouds, symbolizing hope.
+- **Restoration of What Was Lost:**
+  - Adam and Eve lost access to the tree of life due to sin (Genesis 3:24 – “So he drove out the man; and he placed at the east of the garden of Eden Cherubims, and a flaming sword which turned every way, to keep the way of the tree of life.”).
+  - Paradise is the restoration of the lost Eden.
+- **The Condition of Overcoming:**
+  - The right to the tree is for “him that overcometh.”
+  - Victory comes through the “faith of Jesus” (Revelation 14:12 – “Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.”).
+  - It is victory over sin through Christ’s indwelling power (1 John 5:4).
 
----
+## Slide 7 – Q2: Sanctuary Connection
 
-Slide 4 Question: Where is Paradise located according to Scripture?
+- **The Heavenly Sanctuary:**
+  - Just as the budding rod of Aaron was kept in the earthly sanctuary (Numbers 17:8), the true Tree of Life is preserved in the heavenly sanctuary.
+  - This places Paradise in the direct dwelling place of God.
 
-[IMG] Warm classical biblical painting of a lush, heavenly garden gate viewed from a distance, bathed in golden light.
+## Slide 8 – Q3: Location of the Tree
 
----
+- **Question:** By what river is the tree of life?
+- **Key Text:** Revelation 22:1 – “And he shewed me a pure river of water of life, clear as crystal, proceeding out of the throne of God and of the Lamb.”
+- **Key Text:** Revelation 22:2 – “In the midst of the street of it, and on either side of the river, was there the tree of life...”
 
-Slide 5 Biblical Answer: “To him that overcometh will I give to eat of the tree of life, which is in the midst of the Paradise of God.” (Revelation 2:7)
+## Slide 9 – Q3: Locating Paradise
 
-[IMG] Warm classical biblical painting of the Tree of Life, large and radiant, bearing fruit in a divine garden.
+- **Scripture Interprets Scripture:**
+  1. The Tree of Life is in Paradise (Revelation 2:7).
+  2. The Tree of Life is by the river coming from the **Throne of God** (Revelation 22:1–2).
+  3. Therefore, **Paradise is where God’s Throne is** (the third heaven).
+- **2 Corinthians 12:2, 4** – “I knew a man in Christ above fourteen years ago... caught up to the third heaven... How that he was caught up into paradise...”
+- **Implication:**
+  - Paradise is not a separate “waiting room” or “Abraham’s bosom.”
+  - If Jesus went to Paradise on Friday, He must have gone to the Father’s Throne that very day.
 
----
+## Slide 10 – Q3: Illustration
 
-Slide 6 Deeper Insight: Revelation 22:1-2 tells us the Tree of Life is located on either side of the river proceeding from the "throne of God." Therefore, Paradise is the dwelling place of God—the third heaven (2 Corinthians 12:2, 4).
+- **[ILL] The Map:**
+  - If one page of a map says the “Royal Oak Tree” is in the “King’s Garden”...
+  - And another page says the “Royal Oak Tree” is directly in front of the “Palace”...
+  - You know for a fact that the Garden and the Palace are in the same place.
+  - Scripture maps Paradise directly to God’s Throne.
 
-[IMG] Warm classical biblical painting of a river of crystal water flowing from a glorious, light-obscured throne.
+## Slide 11 – Q4: The Resurrection Timeline
 
----
+- **Question:** How long after Christ's crucifixion, did His resurrection take place?
+- **Key Text:** 1 Corinthians 15:3 – “For I delivered unto you first of all that which I also received, how that Christ died for our sins according to the scriptures;”
+- **Key Text:** 1 Corinthians 15:4 – “And that he was buried, and that he rose again the third day according to the scriptures.”
 
-Slide 7 Question: Did Jesus go to Paradise (God’s throne) on the day He died?
+## Slide 12 – Q4: Key Points & Sanctuary
 
-[IMG] Warm classical biblical painting of the three crosses silhouetted against a sunset, the scene quiet and solemn.
+- **The Timeline of Facts:**
+  - **Friday:** Christ died and was buried.
+  - **Sabbath:** He rested in the tomb.
+  - **Sunday (Third Day):** He rose from the dead.
+- **Significance of Burial:**
+  - His body did not go to heaven on Friday; it was laid in Joseph’s tomb.
+- **Sanctuary Connection:**
+  - Christ died on the cross (the altar in the outer court/earth).
+  - His ministry *within* the heavenly sanctuary began only after His resurrection, just as the High Priest took blood into the sanctuary *after* the sacrifice was slain.
 
----
-
-Slide 8 Biblical Answer: “Jesus saith unto her, Touch Me not; for I am not yet ascended to My Father...” (John 20:17)
-
-[IMG] Warm classical biblical painting of Mary Magdalene in the garden reaching out to the risen Jesus, who gently gestures for her to stop.
-
----
-
-Slide 9 Explanation: This conversation took place on Sunday morning, the third day after the crucifixion. If Jesus had not yet ascended to the Father (who dwells in Paradise) by Sunday, He could not have been in Paradise with the thief on Friday.
-
-[IMG] Warm classical biblical painting of the empty tomb at dawn, with the stone rolled away.
-
----
-
-Slide 10 Did You Know? The ancient Greek manuscripts of the New Testament were written in "scriptio continua"—continuous script without spaces or punctuation marks like commas. Punctuation was added by translators centuries later based on their theological understanding.
-
-[IMG] Warm classical biblical painting close-up of an ancient parchment scroll with Greek letters written closely together without spacing.
-
----
-
-Slide 11 Question: What was the specific request the thief made?
-
-[IMG] Warm classical biblical painting of the thief's face, showing pain but intense sincerity and petition.
-
----
-
-Slide 12 Biblical Answer: “Lord, remember me when thou comest into Thy kingdom.” (Luke 23:42)
-
-[IMG] Warm classical biblical painting of a vision of a glorious kingdom in the clouds, contrasting with the earthly suffering.
-
----
-
-Slide 13 Explanation: The thief did not ask to be in Paradise *that day*. He looked forward to the time when Jesus would establish His kingdom.
-
-[IMG] Warm classical biblical painting of a jeweled crown resting on a rock, symbolizing future kingship.
-
----
-
-Slide 14 Spirit-Led Insight: Consider the immense faith of the thief. While the religious leaders mocked Jesus and the disciples fled, this dying man looked at a crucified "criminal" and saw a King. He believed in a future resurrection and kingdom even when death seemed to have won.
-
-[IMG] Warm classical biblical painting of the scene at Golgotha, focusing on the contrast between the mocking crowd and the faithful thief.
-
----
-
-Slide 15 Question: When does Jesus promise to take His people to be with Him?
-
-[IMG] Warm classical biblical painting of Jesus teaching His disciples on the Mount of Olives, pointing toward the sky.
-
----
-
-Slide 16 Biblical Answer: “And if I go and prepare a place for you, I will come again, and receive you unto Myself; that where I am, there ye may be also.” (John 14:3)
-
-[IMG] Warm classical biblical painting of Jesus standing with open arms, welcoming believers into a heavenly city.
-
----
-
-Slide 17 Progressive Disclosure:
-• Jesus prepares a place (now).
-• Jesus comes again (future).
-• Then He receives us (at the Second Coming).
-
-Additional Reference: 1 Thessalonians 4:16-17 confirms that the reunion happens when the Lord descends with a shout and the "dead in Christ" rise.
-
-[IMG] Warm classical biblical painting of the heavens opening with angels and trumpet blasts, light pouring down to earth.
-
----
-
-Slide 18 Illustration: Imagine a father leaving on a long journey telling his child, "I tell you today, I will bring you a gift when I return." The statement is made *today*, but the fulfillment happens *upon return*. The emphasis is on the certainty of the promise made on that specific day.
-
-[IMG] Warm classical biblical painting of a father kneeling to speak gently to a young child before walking down a road.
-
----
-
-Slide 19 Question: How then should we understand the "Today" in Luke 23:43?
-
-[IMG] Warm classical biblical painting of a scholar's hand holding a quill, hovering over a manuscript to adjust a mark.
-
----
-
-Slide 20 Biblical Answer: The comma should be placed *after* the word "today," not before it.
-
-"Verily I say unto thee today, shalt thou be with Me in Paradise."
-
-[IMG] Warm classical biblical painting of an open Bible with a ray of light illuminating the text of Luke 23.
-
----
-
-Slide 21 Explanation: Jesus was answering the thief's plea. On that day—a day of darkness, mockery, and apparent defeat—Jesus gave the assurance: "I tell you today..." By moving the comma, the contradiction vanishes. Jesus made the promise on Friday, to be fulfilled at His Second Coming.
-
-[IMG] Warm classical biblical painting of Jesus on the cross, His expression one of sovereign authority despite His suffering.
-
----
-
-Slide 22 Term Definition: **Harmony of Scripture**
-The principle that since all Scripture is inspired by one Spirit, one passage cannot contradict another. We must interpret difficult verses in a way that aligns with clear verses (like John 20:17).
-
-[IMG] Warm classical biblical painting of several scrolls rolled together and bound by a single golden cord.
-
----
-
-Slide 23 Practical Application 1: It is never too late to turn to Jesus; His grace reaches even the final moments of life.
-
-[IMG] Warm classical biblical painting of a hand reaching down from light to grasp a hand reaching up from shadow.
-
----
-
-Slide 24 Practical Application 2: We can trust the consistency of God’s Word. The hope of the believer is the glorious resurrection at the return of Jesus.
-
-[IMG] Warm classical biblical painting of a multitude of people looking upward with joy at a breaking dawn.
-
----
+## Slide 13 – Q5: Sunday Morning Statement
+
+- **Question:** What did He say to Mary on the day of His resurrection?
+- **Key Text:** John 20:17 – “Jesus saith unto her, Touch me not; for I am not yet ascended to my Father: but go to my brethren, and say unto them, I ascend unto my Father, and your Father; and to my God, and your God.”
+
+## Slide 14 – Q5: Resolving the Conflict
+
+- **The Conflict:**
+  - If the promise meant “This Friday you will be in heaven,” Jesus must have gone there Friday.
+  - But on Sunday morning, Jesus stated: **“I am not yet ascended to My Father.”**
+- **The Harmony:**
+  - Christ is the Truth and cannot lie (Titus 1:2 – “In hope of eternal life, which God, that cannot lie, promised before the world began”).
+  - Therefore, Jesus was not in Paradise (God’s Throne) on Friday.
+  - The promise must refer to *when* the assurance was given, not *when* they would arrive.
+
+## Slide 15 – Q5: Illustration
+
+- **[ILL] The Locked House:**
+  - If a father tells his son, “I promise you today, we will go to Disneyland,” but they stay home for three more days to finish work, did the father lie?
+  - No. The promise was made *on that day*, but the trip happens later.
+  - If Jesus had gone to heaven Friday, He would have contradicted His own words to Mary on Sunday.
+
+## Slide 16 – Q6: The Thief’s Request
+
+- **Question:** What was really the thief's request?
+- **Key Text:** Luke 23:42 – “And he said unto Jesus, Lord, remember me when thou comest into thy kingdom.”
+
+## Slide 17 – Q6: Faith and The Kingdom
+
+- **The Thief’s Theology:**
+  - He did not ask to go to heaven immediately at death.
+  - He looked forward to the time when Christ would come into His **Kingdom**.
+- **Sanctification (The Mind of Christ):**
+  - To the natural eye, Jesus was a dying criminal.
+  - To the eye of faith, He was the Lord of Glory.
+  - The thief saw through the shame and believed in the future reign of Christ.
+
+## Slide 18 – Q7: The Time of Reunion
+
+- **Question:** When had Christ said that He would take His followers to Himself?
+- **Key Text:** John 14:3 – “And if I go and prepare a place for you, I will come again, and receive you unto myself; that where I am, there ye may be also.”
+
+## Slide 19 – Q7: Preparation and Judgment
+
+- **The Timing:**
+  - Christ receives His people **“when I will come again,”** not at the moment of death.
+- **Current Sanctuary Work:**
+  - Christ is currently “preparing a place” in the heavenly sanctuary (Hebrews 8:1–2).
+  - This involves the **Investigative Judgment** and final Atonement—blotting out sins so His people may stand faultless.
+  - The reunion happens after this work is complete.
+
+## Slide 20 – Q8: The Resurrection Hope
+
+- **Question:** When and how will all the righteous, both living and dead, be with Christ?
+- **Key Text:** 1 Thessalonians 4:16 – “For the Lord himself shall descend from heaven with a shout, with the voice of the archangel, and with the trump of God; and the dead in Christ shall rise first:”
+
+## Slide 21 – Q8: Events and State of the Dead
+
+- **Key Text Continued:**
+  - 1 Thessalonians 4:17 – “Then we which are alive and remain shall be caught up together with them in the clouds, to meet the Lord in the air: and so shall we ever be with the Lord.”
+- **The Order of Events:**
+  1. Second Coming (Lord descends).
+  2. Resurrection (Dead in Christ rise).
+  3. Translation (Living caught up).
+- **The Thief’s State:**
+  - He is currently sleeping in the grave (Ecclesiastes 9:5 – “For the living know that they shall die: but the dead know not any thing...”).
+  - He waits for the trumpet call.
+  - Immortality is given only at the resurrection (1 Corinthians 15:53).
+
+## Slide 22 – Q8: Illustration
+
+- **[ILL] The Deep Sleep:**
+  - When a patient undergoes surgery with anesthesia, they close their eyes.
+  - Hours pass, but to their consciousness, the next instant is waking up in recovery.
+  - Death for the believer is a sleep.
+  - The thief closed his eyes on the cross; his very next conscious thought will be the joy of Resurrection morning.
+
+## Slide 23 – Q9: Understanding "Today"
+
+- **Question:** Why did Christ use the word "today" in His answer to the thief?
+- **The Punctuation Problem:**
+  - Original Greek had no punctuation (commas). Translators added them later.
+  - **Option A:** “Verily I say unto thee, [comma] today shalt thou be...” (Implies immediate entry).
+  - **Option B:** “Verily I say unto thee today, [comma] shalt thou be...” (Emphasizes the time of the promise).
+
+## Slide 24 – Q9: The Power of the Promise
+
+- **Why Emphasize “Today”?**
+  - It was the darkest day in history. Jesus appeared defeated, rejected, and dying.
+  - By saying “I say to thee *today*,” Jesus declared:
+    - “Even now, while I hang on this cross...”
+    - “Even now, when the world rejects Me...”
+    - **“I assure you right now: You will be with Me in Paradise.”**
+- **Biblical Consistency:**
+  - Placing the comma after “today” harmonizes with John 20:17 (Resurrection) and 1 Thessalonians 4:16 (Second Coming).
+
+## Slide 25 – Q9: Illustration
+
+- **[ILL] The Courtroom Verdict:**
+  - Imagine a judge sentencing a criminal.
+  - If the governor calls and says, “I tell you today, you will be pardoned,” he means the pardon is certified *today*.
+  - The prisoner may not walk out until next week, but the guarantee is secure.
+  - Jesus certified the thief’s pardon on that dark Friday, guaranteeing a future glory.

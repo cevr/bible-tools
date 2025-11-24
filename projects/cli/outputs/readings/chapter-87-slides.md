@@ -1,195 +1,310 @@
-Study Title: Resting in Him: The Manner of Observing the Sabbath
+## Slide 1 – Q1: The Command to Keep Holy
+
+- **Question:** How are all commanded to keep the Sabbath?
+- **Key Text:** Exodus 20:8 – “Remember the sabbath day, to keep it holy.”
+
+## Slide 2 – Q1: Source of Holiness
+
+- **Meaning of "Remember"**
+  - This implies the institution was already known but in danger of being forgotten.
+  - To keep it "holy" is to preserve the distinction God placed on it at Creation.
+- **The Source of Holiness**
+  - God alone is holy (Isaiah 6:3 – “And one cried unto another, and said, Holy, holy, holy, is the LORD of hosts: the whole earth is full of his glory.”).
+  - Man cannot *make* a day holy; he can only *keep* holy what God has already sanctified.
+  - **Sanctification:** The act of setting something apart for sacred use (Genesis 2:3).
+
+## Slide 3 – Q1: Faith and Sanctuary
+
+- **Righteousness by Faith Connection**
+  - Just as we cannot create a holy day, we cannot create a holy character.
+  - We "keep" the Sabbath by faith, entering into God’s finished work of Creation (Hebrews 4:3-4).
+  - We enter His rest just as we rely on His finished work of Redemption.
+- **The Sanctuary in Time**
+  - The Sabbath is a "sanctuary in time."
+  - Just as the tabernacle was a holy *space* set apart for God (Exodus 25:8), the Sabbath is holy *time* set apart for communion with the Creator.
 
----
-
-Slide 1 Question: How are we commanded to treat the Sabbath day?
-
-[IMG] Warm classical biblical painting of an Israelite family standing together in a moment of pause, looking expectantly toward a sunset, soft light highlighting their faces.
-
----
-
-Slide 2 Biblical Answer: “Remember the Sabbath day, to keep it holy.” (Exodus 20:8)
-
-[IMG] Warm classical biblical painting of the stone tablets of the Ten Commandments, with a soft glow emphasizing the fourth commandment.
-
----
-
-Slide 3 Explanation: The command is two-fold: to "remember" a day easily forgotten in the rush of life, and to "keep it holy." We do not *make* it holy; God made it holy at Creation.
-
-[IMG] Warm classical biblical painting of the Creation week, specifically the seventh day, depicting a serene and sanctified earth at rest.
-
----
-
-Slide 4 Explanation (Continued): Our duty is to preserve that holiness by refraining from common labor and dedicating the time to God.
-
-[IMG] Warm classical biblical painting of tools of trade—hammers, plows, and baskets—set aside and resting against a wall, unused.
-
----
-
-Slide 5 Question: When does the Sabbath actually begin and end according to the Bible?
-
-[IMG] Warm classical biblical painting of a horizon with the sun just dipping below, casting long shadows and a golden twilight hue.
-
----
-
-Slide 6 Biblical Answer: “From even unto even, shall ye celebrate your sabbath.” (Leviticus 23:32)
-“...at even, at the going down of the sun.” (Deuteronomy 16:6)
-
-[IMG] Warm classical biblical painting of a quiet village at dusk, with lamps beginning to be lit in windows as the sky turns deep blue.
-
----
-
-Slide 7 Explanation: In Scripture, a day does not begin at midnight. It begins at sunset ("even"). Just as in Creation, "the evening and the morning were the first day" (Genesis 1:5).
-
-[IMG] Warm classical biblical painting of the separation of light and darkness during Creation, historically respectful and ethereal.
-
----
-
-Slide 8 Conclusion on Time: Therefore, the Sabbath begins Friday evening at sunset and concludes Saturday evening at sunset.
-
-[IMG] Warm classical biblical painting of a family gathering around a table for a meal as the sun sets through an open window.
-
----
-
-Slide 9 [DYK]: In Mark 1:32, the people waited until "at even, when the sun did set" to bring the sick to Jesus for healing, because they understood the Sabbath ended at sunset.
-
-[IMG] Warm classical biblical painting of a crowd waiting anxiously by a city gate at twilight, looking toward Jesus.
-
----
-
-Slide 10 [SN] The Theological Rhythm of Time: God reckons the day starting with evening (rest/darkness) followed by morning (activity/light). This suggests that we rest in God first before we can work effectively. We begin our day by resting in His provision.
-
-[IMG] Warm classical biblical painting of a figure sleeping peacefully under a starry sky, symbolizing trust and rest in God's care.
-
----
-
-Slide 11 Question: What kind of work is appropriate for the six working days, and what is excluded from the Sabbath?
-
-[IMG] Warm classical biblical painting of a busy marketplace scene with merchants and craftsmen active in the daylight.
-
----
-
-Slide 12 Biblical Answer: “Six days shall thou labor, and do all thy work.” (Exodus 20:9)
-
-[IMG] Warm classical biblical painting of a carpenter planing wood, focusing on the dignity of labor during the week.
-
----
-
-Slide 13 Explanation: The command distinguishes between "thy work" (secular labor, career, housework, personal gain) and God's work. "Thy work" is to be done during the six days.
-
-[IMG] Warm classical biblical painting contrasting two scenes: one of a man ploughing a field, and another of the same man praying in a temple.
-
----
-
-Slide 14 Question: Is all activity forbidden on the Sabbath?
-
-[IMG] Warm classical biblical painting of a figure pausing on a road, looking at someone in need, contemplating action.
-
----
-
-Slide 15 Biblical Answer: “Wherefore it is lawful to do well on the Sabbath days.” (Matthew 12:12)
-
-[IMG] Warm classical biblical painting of Jesus Christ gently healing a man with a withered hand, surrounded by onlookers.
-
----
-
-Slide 16 Explanation: Jesus clarified that the Sabbath was not meant to stop acts of mercy. Helping the sick, relieving suffering, or caring for basic needs (like an ox in a ditch) is "doing well."
-
-[IMG] Warm classical biblical painting of a man pulling a sheep out of a pit, portraying kindness and necessity.
-
----
-
-Slide 17 [ILL]: Think of the difference between a doctor running a clinic for profit (business) and a doctor stopping to help an injured person on the roadside (mercy). The first is "thy work"; the second is the work of God, which is lawful on the Sabbath.
-
-[IMG] Warm classical biblical painting of a Good Samaritan figure binding the wounds of a traveler on a dusty road.
-
----
-
-Slide 18 Question: How should we handle food and household duties?
-
-[IMG] Warm classical biblical painting of a kitchen area with stone jars, grain, and a fire for cooking.
-
----
-
-Slide 19 Biblical Answer: “Bake that which ye will bake today, and seethe that ye will seethe; and that which remaineth over lay up for you to be kept until the morning.” (Exodus 16:23)
-
-[IMG] Warm classical biblical painting of Israelite women busily preparing food near their tents while the sun is still high.
-
----
-
-Slide 20 Term Definition: **"Seethe"** is an older English term meaning to boil or stew.
-
-[IMG] Warm classical biblical painting of a large clay pot simmering over an open fire.
-
----
-
-Slide 21 Explanation: God instructed the Israelites to prepare their food on the sixth day (Friday) so that the Sabbath would not be spent in cooking and cleaning. This renders the Sabbath a day of freedom from household burdens.
-
-[IMG] Warm classical biblical painting of a prepared table set with food, with no fire burning, signifying readiness and rest.
-
----
-
-Slide 22 [DYK]: The manna provided a weekly double-miracle: On Fridays, they gathered double, and on Sabbath, the leftovers did not spoil—something that happened on no other day of the week.
-
-[IMG] Warm classical biblical painting of baskets overflowing with clean white manna, sitting unspoiled in a tent.
-
----
-
-Slide 23 Question: Is the Sabbath merely for staying home, or is it a time for gathering?
-
-[IMG] Warm classical biblical painting of a path leading toward a building, with families walking together.
-
----
-
-Slide 24 Biblical Answer: “The seventh day is the Sabbath of rest, a holy convocation.” (Leviticus 23:3)
-“And He came to Nazareth... and, as His custom was, He went into the synagogue on the Sabbath day...” (Luke 4:16)
-
-[IMG] Warm classical biblical painting of Jesus standing in a synagogue, holding an open scroll, preparing to read.
-
----
-
-Slide 25 Term Definition & Explanation: **"Convocation"** means a commanded assembly. While it is a day of rest, it is also a day for community worship. Jesus set the example by making it His "custom" to be in God's house.
-
-[IMG] Warm classical biblical painting of a congregation sitting and listening to the reading of Scripture, historically respectful.
-
----
-
-Slide 26 Question: What should be our heart attitude while observing the Sabbath?
-
-[IMG] Warm classical biblical painting of a person looking upward with a peaceful, joyful expression, soft light illuminating their face.
-
----
-
-Slide 27 Biblical Answer: “If thou turn away thy foot from the Sabbath, from doing thy pleasure on My holy day; and call the Sabbath a delight, the holy of the Lord, honorable...” (Isaiah 58:13)
-
-[IMG] Warm classical biblical painting of a scroll of Isaiah open, with golden light highlighting the text.
-
----
-
-Slide 28 Explanation: This verse describes a shift in focus. We turn away from "our pleasure" (hobbies, business) to find "delight" in God's presence. It is not a day of gloom, but an "honorable" appointment with the Creator.
-
-[IMG] Warm classical biblical painting of a family walking in a garden or nature, looking happy and connected with God.
-
----
-
-Slide 29 [SN] "Turn away thy foot": This idiom suggests that in our daily walk, we are treading on common ground. When we reach the Sabbath hours, we must stop and realize we are stepping onto holy ground—much like Moses at the burning bush.
-
-[IMG] Warm classical biblical painting of Moses removing his sandals before the burning bush, showing reverence.
-
----
-
-Slide 30 Deeper Insight: The Sabbath is the bridge between the spiritual and the physical. By observing a specific time in a specific manner, we acknowledge that God is the owner of our time and the sustainer of our lives.
-
-[IMG] Warm classical biblical painting of a metaphorical bridge of light connecting an earthly landscape to the heavens.
-
----
-
-Slide 31 Practical Application: How can we make the Sabbath a delight today?
-• **Preparation:** Finish tasks on Friday to ensure peace.
-• **Nature:** Spend time in God's creation.
-• **Service:** Visit the sick or discouraged.
-• **Disconnect:** Turn off secular media to tune into God.
-
-[IMG] Warm classical biblical painting collage: a peaceful home, a nature scene, and a person comforting another, blended softly together.
-
----
+## Slide 4 – Q1: Illustration
+
+- **The King's Cup**
+  - Imagine a king sets out a golden cup and says, "This cup is dedicated only for my use."
+  - If a servant uses it to drink common water or scrubs it with dirty rags, he has not "kept it holy."
+  - To keep it holy, he must treat it differently than common cups, using it only for the King's intended purpose.
+- **Application**
+  - We keep the Sabbath holy by using it for God's purposes—worship, rest, and ministry—rather than our common business.
+
+## Slide 5 – Q2: Defining the Day
+
+- **Question:** What constitutes a day?
+- **Key Text:** Genesis 1:5 – “And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day.”
+- **Key Text:** Genesis 1:8 – “And God called the firmament Heaven. And the evening and the morning were the second day.”
+
+## Slide 6 – Q2: Key Points
+
+- **Biblical Definition**
+  - In God's reckoning, the day begins with the dark part (evening) and ends with the light part (morning).
+  - A biblical day is a twenty-four-hour period beginning at sunset.
+- **Countering Tradition**
+  - Modern reckoning begins at midnight (a Roman custom).
+  - The Bible student follows God’s clock, not man’s.
+- **Spiritual Lesson**
+  - We often begin in the darkness of sin or trial, but God brings us into the light.
+  - Psalm 30:5 – “...weeping may endure for a night, but joy cometh in the morning.”
+
+## Slide 7 – Q3: Timing of the Evening
+
+- **Question:** When does the evening begin?
+- **Key Text:** Deuteronomy 16:6 – “But at the place which the LORD thy God shall choose to place his name in, there thou shalt sacrifice the passover at even, at the going down of the sun.”
+
+## Slide 8 – Q3: Key Points
+
+- **Objective Standard**
+  - Scripture defines "even" as the precise moment of the "going down of the sun."
+  - God gave the sun to rule the day (Genesis 1:16).
+  - The Sabbath boundary is marked by heavenly bodies, not mechanical clocks.
+- **Reverence**
+  - As the sun nears the horizon on the sixth day, the believer lays aside secular cares.
+  - It is a call to shift focus from the work of the hands to the work of the heart.
+
+## Slide 9 – Q3: Illustration
+
+- **The King's Appointment**
+  - If a loyal subject has an appointment with the King at a specific signal, he watches for that signal intently.
+  - He does not delay until he "feels like it."
+  - When the sun sets, God’s appointment begins.
+  - To continue common labor past this point is to steal time that belongs to the King of kings.
+
+## Slide 10 – Q4: New Testament Confirmation
+
+- **Question:** How does the New Testament state this point?
+- **Key Text:** Mark 1:32 – “And at even, when the sun did set, they brought unto him all that were diseased, and them that were possessed with devils.”
+
+## Slide 11 – Q4: Key Points
+
+- **Consistency of Scripture**
+  - The New Testament confirms the Old Testament timing.
+  - There is no change in the reckoning of time from the Old Testament to the New.
+- **Respect for Law**
+  - The people waited until "the sun did set" to bring burdens to Jesus.
+  - They understood the Sabbath hours ended at sunset.
+  - While Jesus taught that doing *good* is lawful on Sabbath, the people's actions show the common understanding of the day's end.
+
+## Slide 12 – Q5: The Day of Atonement
+
+- **Question:** When did the tenth day of the seventh month begin?
+- **Key Text:** Leviticus 23:32 – “It shall be unto you a sabbath of rest, and ye shall afflict your souls: in the ninth day of the month at even, from even unto even, shall ye celebrate your sabbath.”
+
+## Slide 13 – Q5: Key Points
+
+- **The "Even-to-Even" Principle**
+  - This text establishes that Sabbaths are kept from evening to evening.
+  - The Day of Atonement was the most solemn day of the year.
+- **Sanctuary Connection**
+  - **Atonement:** Reconciliation between God and man.
+  - **Type:** Cleansing of the earthly sanctuary.
+  - **Antitype:** Christ’s final work of judgment and blotting out sin (Daniel 8:14).
+- **Afflicting the Soul**
+  - Refers to deep searching of heart, repentance, and turning from sin.
+
+## Slide 14 – Q5: Application (Sanctuary & Faith)
+
+- **Living in the Antitypical Day**
+  - Ancient Israelites rested and afflicted their souls while the High Priest worked in the Most Holy Place.
+  - Today, we live in the great antitypical Day of Atonement.
+- **Righteousness by Faith**
+  - We rest in Christ’s merits (the Sabbath principle).
+  - Simultaneously, we cooperate with Him in the removal of sin from our lives (Sanctification).
+
+## Slide 15 – Q6: Permitted Labor
+
+- **Question:** What kind of labor is permitted through the week?
+- **Key Text:** Exodus 20:9 – “Six days shalt thou labour, and do all thy work.”
+
+## Slide 16 – Q6: Key Points
+
+- **The Dignity of Labor**
+  - The command to work is as binding as the command to rest.
+  - Idleness is not holiness; God Himself is a worker (John 5:17).
+- **Stewardship**
+  - We are to be diligent in business (Romans 12:11).
+  - We must provide for our own house (1 Timothy 5:8).
+- **Distinction**
+  - Secular labor is called "thy work"—work for our own profit.
+  - The Sabbath is reserved for "God's work."
+
+## Slide 17 – Q7: Lawful Sabbath Labor
+
+- **Question:** Is any kind of labor lawful on the Sabbath?
+- **Key Text:** Matthew 12:12 – “How much then is a man better than a sheep? Wherefore it is lawful to do well on the sabbath days.”
+
+## Slide 18 – Q7: Key Points
+
+- **"To Do Well"**
+  - Deeds of mercy, necessity, and ministry are lawful.
+  - Includes saving life, relieving suffering, and gospel work.
+- **Legalism vs. Love**
+  - Pharisees burdened the Sabbath with man-made rules (Legalism).
+  - Jesus restored its true intent: a day of freedom and blessing.
+- **Sanctuary Ministry**
+  - Priests in the temple worked harder on Sabbath offering double sacrifices (Numbers 28:9-10).
+  - Spiritual activity and service to God are not "secular labor."
+
+## Slide 19 – Q7: Illustration
+
+- **The Sheep in the Pit**
+  - If a sheep falls into a pit on the Sabbath, the owner pulls it out because the creature is suffering.
+  - The Sabbath is a day of restoration.
+  - If we can help a suffering neighbor or comfort a sorrowing heart, we are doing the work of Jesus.
+  - This is appropriate for the Lord's Day.
+
+## Slide 20 – Q8: Christ's Example of Power
+
+- **Question:** What example did the Saviour give to show the meaning of His words?
+- **Key Text:** Matthew 12:13 – “Then saith he to the man, Stretch forth thine hand. And he stretched it forth; and it was restored whole, like as the other.”
+
+## Slide 21 – Q8: Key Points (Faith & Restoration)
+
+- **Power to Obey**
+  - The man could not stretch out his hand by his own power.
+  - When Christ commanded, the man believed and willed to obey, and power was given.
+- **Righteousness by Faith**
+  - God commands the impossible (perfect obedience).
+  - In our own strength ("withered hand"), we cannot do it.
+  - When we claim His promise and choose to obey, He supplies the power.
+- **Restoration**
+  - Healing restores the body to its created intent.
+  - Therefore, healing honors the Creator of the Sabbath.
+
+## Slide 22 – Q9: The Preparation Day
+
+- **Question:** What is the day before the Sabbath called?
+- **Key Text:** Luke 23:54 – “And that day was the preparation, and the sabbath drew on.”
+
+## Slide 23 – Q9: Key Points
+
+- **Preparation for Holiness**
+  - We cannot enter Sabbath rest abruptly from the rush of business.
+  - The heart and home must be prepared on the sixth day (Friday).
+- **Sanctuary Type**
+  - Priests washed at the laver before entering the sanctuary (Exodus 30:19-21).
+  - We "wash" away secular cares before entering the holy time of Sabbath.
+- **Practical Godliness**
+  - Includes cooking, cleaning, and bathing.
+  - Ensures Sabbath hours are not consumed by common chores.
+
+## Slide 24 – Q9: Illustration
+
+- **The Bride and Groom**
+  - If a bride expects her groom at sunset, she does not wait until sunset to start dressing or cleaning.
+  - She prepares all day so she is free to enjoy his company when he arrives.
+  - Friday is the day we prepare to meet the Lord in His holy time.
+
+## Slide 25 – Q10: Manna and the Sixth Day
+
+- **Question:** On which day did the Israelites receive their Sabbath supply of manna?
+- **Key Text:** Exodus 16:22 – “And it came to pass, that on the sixth day they gathered twice as much bread, two omers for one man: and all the rulers of the congregation came and told Moses.”
+
+## Slide 26 – Q10: Key Points
+
+- **Weekly Miracle**
+  - God provided a double portion of manna on Friday.
+- **Providence**
+  - God takes responsibility for the needs of those who obey Him.
+  - If we stop working to keep the Sabbath, He ensures our needs are met.
+- **The Test of Faith**
+  - It required faith to gather double.
+  - A skeptic might fear it would rot, but faith trusts God's word.
+
+## Slide 27 – Q11: Instructions for Preparation
+
+- **Question:** What instruction did they receive regarding this double supply of food?
+- **Key Text:** Exodus 16:23 – “And he said unto them, This is that which the LORD hath said, To morrow is the rest of the holy sabbath unto the LORD: bake that which ye will bake to day, and seethe that ye will seethe; and that which remaineth over lay up for you to be kept until the morning.”
+
+## Slide 28 – Q11: Key Points
+
+- **Cooking and Baking**
+  - Heavy cooking was to be done on the preparation day.
+- **Relieving Burdens**
+  - This was an act of mercy to those who prepared food.
+  - God wanted *everyone* to rest.
+- **Sanctuary Order**
+  - God is a God of order.
+  - The "Showbread" in the sanctuary was replaced every Sabbath (Leviticus 24:8), having been prepared beforehand.
+
+## Slide 29 – Q12: The Sabbath Miracle
+
+- **Question:** Was there any day in which the manna did not fall?
+- **Key Text:** Exodus 16:26 – “Six days ye shall gather it; but on the seventh day, which is the sabbath, in it there shall be none.”
+
+## Slide 30 – Q12: Key Points
+
+- **The Miracle of the Sabbath**
+  - God reinforced the cycle with a threefold miracle every week for forty years:
+    1. Double manna on Friday.
+    2. Friday manna did not spoil overnight.
+    3. No manna fell on Sabbath.
+- **The Lesson**
+  - We cannot expect God's blessing if we seek for "manna" (secular gain) on His holy day.
+  - We must trust that His provision in six days is sufficient.
+
+## Slide 31 – Q13: Holy Convocation
+
+- **Question:** What were God's ancient people to do on the Sabbath?
+- **Key Text:** Leviticus 23:3 – “Six days shall work be done: but the seventh day is the sabbath of rest, an holy convocation; ye shall do no work therein: it is the sabbath of the LORD in all your dwellings.”
+
+## Slide 32 – Q13: Key Points
+
+- **"Holy Convocation"**
+  - A *convocation* is a calling together or an assembly.
+- **Corporate Worship**
+  - While private rest is essential, the Sabbath is designed for public worship.
+  - Hebrews 10:25 – “Not forsaking the assembling of ourselves together...”
+- **Foretaste of Heaven**
+  - Gathering to study God's Word is a rehearsal for the great gathering in the heavenly Canaan.
+
+## Slide 33 – Q14: The Saviour's Custom
+
+- **Question:** What example did the Saviour set in this matter?
+- **Key Text:** Luke 4:16 – “And he came to Nazareth, where he had been brought up: and, as his custom was, he went into the synagogue on the sabbath day, and stood up for to read.”
+
+## Slide 34 – Q14: Key Points
+
+- **Jesus' Example**
+  - It was His "custom" (habit) to attend public worship.
+- **Christ Our Righteousness**
+  - Jesus lived a perfect life to weave a robe of righteousness for us.
+  - Part of that righteousness includes faithful Sabbath observance.
+- **The Living Law**
+  - If the "Spirit of Christ" dwells in us, He will do what He did on earth.
+  - He will lead us to the house of God on the Sabbath.
+
+## Slide 35 – Q14: Illustration
+
+- **The Conductor**
+  - If a musician wants to play a symphony, they follow the conductor.
+  - Jesus is the Conductor of our faith.
+  - If He went to the synagogue on Sabbath, His followers who are "in tune" with Him will do the same.
+
+## Slide 36 – Q15: True Sabbath Observance
+
+- **Question:** How sacredly should the Sabbath be observed?
+- **Key Text:** Isaiah 58:13 – “If thou turn away thy foot from the sabbath, from doing thy pleasure on my holy day; and call the sabbath a delight, the holy of the LORD, honourable; and shalt honour him, not doing thine own ways, nor finding thine own pleasure, nor speaking thine own words:”
+
+## Slide 37 – Q15: Key Points
+
+- **"Turn away thy foot"**
+  - We are stepping onto holy ground; we tread reverently.
+- **"Not doing thine own pleasure"**
+  - We set aside hobbies and business to seek *God's* pleasure.
+- **"A Delight"**
+  - To the carnal mind, Sabbath is a burden; to the renewed heart, it is a joy.
+  - **RBF Key:** We do not keep Sabbath to *earn* salvation, but because we delight in the Savior.
+- **"Nor speaking thine own words"**
+  - Our conversation changes from politics and finance to the works of God and the blessed hope.
+
+## Slide 38 – Q15: Illustration
+
+- **The Child and the Father**
+  - Imagine a child who loves their father but rarely sees him due to travel.
+  - When the father returns, the child drops their toys and ignores the TV.
+  - The child wants only to walk and talk with the father.
+  - This is the "delight" of the Sabbath—dropping the toys of the world to walk with our Heavenly Father.

@@ -1,178 +1,309 @@
-Study Title: The Sabbath: History, Prophecy, and Change
-
----
-
-Slide 1 Question: When was the Sabbath established, and by whom?
-
-[IMG] Warm classical biblical painting of the Garden of Eden at twilight, soft golden light filtering through lush trees, conveying profound peace.
-
----
-
-Slide 2 Biblical Answer: “And on the seventh day God ended His work which He had made; and He rested on the seventh day from all His work which He had made. And God blessed the seventh day, and sanctified it...” (Genesis 2:2, 3)
-
-[IMG] Warm classical biblical painting of the Creator looking over a completed pristine world, resting in a moment of holy stillness.
-
----
-
-Slide 3 Explanation: The Sabbath was not an afterthought; it was the climax of Creation. God performed three distinct acts on this day:
-1.  He **rested**.
-2.  He **blessed** it.
-3.  He **sanctified** it (set it apart for holy use).
-
-[IMG] Warm classical biblical painting of three distinct rays of light descending from heaven onto a peaceful landscape, symbolizing the three acts of God.
-
----
-
-Slide 4 Insight: Because the Sabbath was established in Eden, before the existence of any distinct nation or Jewish people, it is a gift given to all humanity.
-
-[DYK] The "week" is the only major division of time with no astronomical basis. The year follows the sun, the month the moon, but the week is a standing monument to the creative cycle of God in Genesis.
-
-[IMG] Warm classical biblical painting of the night sky with moon and stars, contrasted with a scroll depicting the seven days of creation.
-
----
-
-Slide 5 Question: Why does the Commandment say God put His blessing on the Sabbath?
-
-[IMG] Warm classical biblical painting of Moses holding stone tablets, looking upward towards a divine light on a mountain.
-
----
-
-Slide 6 Biblical Answer: “For in six days the Lord made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the Lord blessed the Sabbath day, and hallowed it.” (Exodus 20:11)
-
-[IMG] Warm classical biblical painting of the ocean and land teeming with life, with a soft glow highlighting the harmony of creation.
-
----
-
-Slide 7 Term Definition: **Hallowed** means to keep holy or to treat with reverence.
-
-*   We do not *make* the Sabbath holy; God made it holy at Creation.
-*   We *keep* it holy by abstaining from labor and recognizing God as Creator.
-
-[IMG] Warm classical biblical painting of an Israelite family gathered reverently around a table, lighting a lamp for the Sabbath evening.
-
----
-
-Slide 8 Illustration: Imagine a birthday. You celebrate it not because of a law passed today, but because of an event that happened years ago.
-
-[ILL] The Commandment begins with the word "Remember" because it points backward to the "birthday" of the world.
-
-[IMG] Warm classical biblical painting of an ancient stone monument standing in a field, representing a memorial of time.
-
----
-
-Slide 9 Question: How did Jesus relate to the Sabbath during His life on earth?
-
-[IMG] Warm classical biblical painting of Jesus walking through the streets of Nazareth, gentle and determined.
-
----
-
-Slide 10 Biblical Answer: “And He came to Nazareth, where He had been brought up; and, as His custom was, He went into the synagogue on the Sabbath day, and stood up for to read.” (Luke 4:16)
-
-[IMG] Warm classical biblical painting of Jesus inside a synagogue, standing at a lectern and unrolling a parchment scroll.
-
----
-
-Slide 11 Explanation: Jesus is our example. He kept the Sabbath as a lifelong custom, treating it not as a burden, but as a day for worship and the Word.
-
-[SN] Some claim the Sabbath was only for the Jews. However, it was proclaimed at Sinai 2,500 years after Creation. It existed long before the Jewish people as part of God's moral law for mankind.
-
-[IMG] Warm classical biblical painting of Jesus sitting among a diverse group of people, teaching them with compassion.
-
----
-
-Slide 12 Question: Did Jesus expect His followers to stop keeping the Sabbath after His resurrection?
-
-[IMG] Warm classical biblical painting of Jesus sitting on the Mount of Olives, speaking seriously to His disciples about the future.
-
----
-
-Slide 13 Biblical Answer: “But pray ye that your flight be not in the winter, neither on the Sabbath day.” (Matthew 24:20)
-
-[IMG] Warm classical biblical painting of a family hurrying along a road in a wintry landscape, looking back with concern.
-
----
-
-Slide 14 Progressive Disclosure:
-*   Jesus is speaking here of the destruction of Jerusalem.
-*   This event occurred in **A.D. 70**, nearly 40 years after the Cross.
-*   Jesus expected His people to still be regarding the Sabbath as sacred long after His death.
-
-[IMG] Warm classical biblical painting of the walls of Jerusalem in the distance, with a focus on the timeline of history.
-
----
-
-Slide 15 Deeper Insight: If the Sabbath were to be abolished at the Cross, Jesus would not have instructed His disciples to pray about its observance forty years into the future. This indicates the continuity of the moral law in the Christian era.
-
-[IMG] Warm classical biblical painting of an ancient cross standing firm, with an open Bible at its base.
-
----
-
-Slide 16 Question: What acts does the Bible warn against regarding the Sabbath?
-
-[IMG] Warm classical biblical painting of a busy ancient marketplace gate, with merchants carrying heavy sacks.
-
----
-
-Slide 17 Biblical Answer: “But if ye will not hearken unto Me to hallow the Sabbath day, and not to bear a burden... then I will kindle a fire in the gates thereof...” (Jeremiah 17:27)
-
-[IMG] Warm classical biblical painting of a city gate at sunset, with a foreboding shadow cast across the entrance.
-
----
-
-Slide 18 Explanation: The prophet Jeremiah warned that carrying burdens—engaging in commerce and secular labor—on the Sabbath would lead to national ruin. Scripture connects the destruction of Jerusalem directly to the profaning of the Sabbath.
-
-[IMG] Warm classical biblical painting of merchants outside a closed city gate, waiting with their goods in the twilight.
-
----
-
-Slide 19 Question: Since the Bible supports the seventh day, on what authority was the change to Sunday made?
-
-[IMG] Warm classical biblical painting of an ancient library or council room, with scrolls being exchanged and debated.
-
----
-
-Slide 20 Historical Answer: “Had she [the Church] not such power, she could not have done that in which all modern religionists agree with her, she could not have substituted the observance of Sunday, the first day of the week, for the observance of Saturday, the seventh day, a change for which there is no scriptural authority.” (*Doctrinal Catechism*)
-
-[IMG] Warm classical biblical painting of a majestic cathedral interior, focusing on the seat of authority.
-
----
-
-Slide 21 History of the Change (Part 1): The shift was not commanded by Christ or the Apostles. It involved:
-
-1.  **Anti-Jewish Sentiment:** Early leaders sought to separate Christianity from "the rabble of the Jews."
-
-[IMG] Warm classical biblical painting of early Christians gathering in a Roman setting, distinct from the synagogue.
-
----
-
-Slide 22 History of the Change (Part 2):
-
-2.  **Pagan Influence:** The church adopted the "venerable day of the sun" (Sun worship) to make Christianity easier for pagans to accept.
-3.  **Human Authority:** Church councils (e.g., Laodicea, A.D. 364) eventually placed anathemas on those who rested on the Sabbath.
-
-[IMG] Warm classical biblical painting of Roman architecture blending with Christian symbols, sunlight streaming prominently through an arch.
-
----
-
-Slide 23 Illustration: Historian J.H. Robinson describes this process like two streams merging. Christianity and paganism met like armies in conflict, but eventually flowed together, blending the "day of the sun" with the worship of the Son of God.
-
-[SN] Daniel 7:25 predicted a power that would "think to change times and laws." Sunday is a plant sown by an "enemy" to lead people away from God's sign of authority.
-
-[IMG] Warm classical biblical painting of two distinct rivers merging into one large, powerful river flowing through a valley.
-
----
-
-Slide 24 Practical Application: The Sabbath is more than a day off; it is a test of loyalty.
-*   Will we follow the custom of Christ or the traditions of history?
-*   It offers rest from the stress of the world.
-*   It identifies the Creator.
-
-[IMG] Warm classical biblical painting of a believer standing at a fork in a path, looking toward a path lit by a lamp.
-
----
-
-Slide 25 Conclusion: God invites us to step out of the stream of tradition and onto the solid rock of Scripture. By keeping the Sabbath, we connect with the apostolic church and honor the Creator of the universe.
-
-[IMG] Warm classical biblical painting of a person standing on a solid rock foundation amidst flowing waters, holding a scroll.
-
----
+## Slide 1 – Q1: Creation and the Sabbath
+- Question: When and by what acts was the Sabbath made?
+- Key Text: Genesis 2:2, 3 – “And on the seventh day God ended His work which He had made; and He rested on the seventh day from all His work which He had made. And God blessed the seventh day, and sanctified it: because that in it He had rested from all His work which God created and made.”
+
+## Slide 2 – Q1: Three Divine Acts
+- The Sabbath was established before the entrance of sin.
+- It is not a Jewish institution but a divine gift to the human race (Mark 2:27 – “And he said unto them, The Sabbath was made for man, and not man for the Sabbath:”).
+- **1. God Rested:**
+  - Not due to fatigue (Isaiah 40:28 – “...the Creator of the ends of the earth, fainteth not, neither is weary...”).
+  - A rest of satisfaction and completion, just as Christ cried “It is finished” on the cross (John 19:30).
+- **2. God Blessed:**
+  - Endowed the day with the power to communicate life and well-being.
+- **3. God Sanctified:**
+  - To “sanctify” means to set apart for holy use.
+  - God placed a distinction between the holy and the common (Ezekiel 22:26 – “Her priests have violated my law, and have profaned mine holy things: they have put no difference between the holy and profane...”).
+
+## Slide 3 – Q1: Application (Righteousness by Faith)
+- The Sabbath is the first lesson in Righteousness by Faith.
+- Adam and Eve were created on the sixth day; their first full day was God’s Sabbath.
+- They did not work to earn the Sabbath; they entered into a rest God had already prepared.
+- **Justification:**
+  - We rest in the finished work of Christ, just as Adam rested in the finished work of Creation (Hebrews 4:10 – “For he that is entered into his rest, he also hath ceased from his own works, as God did from his.”).
+- **Sanctification:**
+  - We allow God to make us holy, just as He made the day holy.
+
+## Slide 4 – Q1: Illustration
+- **The Father’s House:**
+  - Imagine a wealthy father builds and fully furnishes a home for his child.
+  - When the child arrives, he does not pick up a hammer to "finish" the house.
+  - He simply enters and enjoys what the father has done.
+- **Lesson:**
+  - This is the Sabbath experience.
+  - We rest in what God has done, rather than striving to save ourselves by our own works.
+
+## Slide 5 – Q2: The Weekly Cycle
+- Question: What important division of time is marked off by the Sabbath?
+- Answer: The Sabbath marks off **the week**.
+
+## Slide 6 – Q2: God’s Fingerprint on Time
+- Other time divisions are governed by heavenly bodies:
+  - **The Year:** Earth’s orbit around the sun.
+  - **The Month:** Moon’s orbit around the earth.
+  - **The Day:** Earth’s rotation on its axis.
+- The seven-day week has no astronomical basis.
+- It stands solely on the authority of God’s Word and Creation history (Exodus 20:11 – “For in six days the LORD made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the LORD blessed the sabbath day, and hallowed it.”).
+- It is a memorial that God is the Sovereign of time.
+
+## Slide 7 – Q2: Illustration
+- **The Clock vs. The Cycle:**
+  - If you find a clock keeping time, you know a man designed it.
+  - But if you find a recurring cycle of seven days continuing for millennia without a star or planet to dictate it, you have found God’s fingerprint.
+- **Lesson:**
+  - The week is a monument to the Creator that no skeptic can explain away.
+
+## Slide 8 – Q3: The Law at Sinai
+- Question: Two thousand five hundred years after creation, the Sabbath was proclaimed, with the other moral commands, from Mount Sinai. Why did God say He had put His blessing upon that day?
+- Key Text: Exodus 20:11 – “For in six days the Lord made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the Lord blessed the Sabbath day, and hallowed it.”
+
+## Slide 9 – Q3: Key Points
+- **The Reason:** “For in six days the Lord made...”
+  - The Sabbath is the seal of God’s authority.
+  - It identifies the Lawgiver (Creator) and His territory (heaven and earth).
+- **The Command:** “Remember.”
+  - Implies the institution was already known but obscured by Egyptian bondage.
+- **The Nature of the Law:**
+  - The Ten Commandments are a transcript of God’s character (Psalm 119:172 – “My tongue shall speak of thy word: for all thy commandments are righteousness.”).
+  - Since God does not change (Malachi 3:6), His moral law is immutable.
+
+## Slide 10 – Q3: Sanctuary Connection
+- **Earthly Sanctuary:**
+  - The Ten Commandments were placed inside the Ark of the Covenant, beneath the Mercy Seat (Exodus 25:21).
+- **Heavenly Sanctuary:**
+  - John saw the “ark of his testament” in heaven (Revelation 11:19 – “And the temple of God was opened in heaven, and there was seen in his temple the ark of his testament...”).
+- **Lesson:**
+  - The Sabbath lies at the heart of the law in the Most Holy Place, protected by God’s presence.
+
+## Slide 11 – Q4: The Destruction of Jerusalem
+- Question: What befell the city of Jerusalem when it was captured by the king of Babylon?
+- Key Text: 2 Chronicles 36:18, 19 – “And all the vessels of the house of God... he brought to Babylon. And they burnt the house of God, and brake down the wall of Jerusalem, and burnt all the palaces thereof with fire.”
+
+## Slide 12 – Q4: Key Points
+- **Total Destruction:**
+  - The city was destroyed, the temple burned, and people taken captive.
+- **Spiritual Reality:**
+  - When God’s people remove themselves from His protection by disobedience, they are vulnerable.
+- **Captivity:**
+  - Spiritually, sin leads to captivity (Romans 7:23 – “...bringing me into captivity to the law of sin which is in my members.”).
+- **Vessels Removed:**
+  - Signified that the glory of God had departed because the covenant was broken.
+
+## Slide 13 – Q5: Prophecy of Sabbath Breaking
+- Question: Of what prophecy was this a fulfillment?
+- Key Text: Jeremiah 17:27 – “But if ye will not hearken unto Me to hallow the Sabbath day, and not to bear a burden, even entering in at the gates of Jerusalem on the Sabbath day; then I will kindle a fire in the gates thereof, and it shall not be quenched.”
+
+## Slide 14 – Q5: Key Points
+- **The Specific Sin:** Jeremiah warned that Sabbath-breaking would lead to national ruin.
+- **The Thermometer of Faith:**
+  - The Sabbath tests loyalty.
+  - Refusing to rest proved Israel did not trust God for their daily bread or security.
+- **The Unquenchable Fire:**
+  - A fire that cannot be put out until it has finished its work of destruction (Jude 7).
+
+## Slide 15 – Q5: Application (Faith & Rebellion)
+- Rejection of the Sabbath is a rejection of the sign of sanctification (Exodus 31:13 – “...for it is a sign between me and you throughout your generations; that ye may know that I am the LORD that doth sanctify you.”).
+- It says, “I will manage my own life; I do not need God’s rest.”
+- This is the spirit of self-righteousness.
+
+## Slide 16 – Q6: Restoration and Revival
+- Question: After the restoration of Israel from the Babylonian captivity, what was said to have been the reason of their punishment?
+- Key Text: Nehemiah 13:17, 18 – “Then I contended with the nobles of Judah, and said unto them, What evil thing is this that ye do, and profane the Sabbath day? Did not your fathers thus, and did not our God bring all this evil upon us, and upon this city? yet ye bring more wrath upon Israel by profaning the Sabbath.”
+
+## Slide 17 – Q6: Key Points
+- Nehemiah identified Sabbath profanation as the root cause of the Captivity.
+- **True Revival:**
+  - True Righteousness by Faith results in obedience.
+  - Nehemiah closed the gates on the Sabbath (Nehemiah 13:19).
+- **Grace and Law:**
+  - Grace does not invalidate the law (Romans 3:31 – “Do we then make void the law through faith? God forbid: yea, we establish the law.”).
+
+## Slide 18 – Q6: Illustration
+- **The Crash Survivor:**
+  - If a man crashes his car because he ignored traffic lights, and a doctor heals him (grace), does he have the right to ignore the lights again?
+  - No. His restoration obligates him to be even more careful.
+- **Lesson:**
+  - Since God graciously restored Israel, they should not return to the sin (Sabbath-breaking) that caused the crash.
+
+## Slide 19 – Q7: Jesus and the Sabbath
+- Question: How did Christ regard the Sabbath during His earthly ministry?
+- Key Text: Luke 4:16 – “And He came to Nazareth, where He had been brought up; and, as His custom was, He went into the synagogue on the Sabbath day, and stood up for to read.”
+
+## Slide 20 – Q7: Key Points
+- **"As His Custom Was":** It was His lifelong habit.
+- **Magnifying the Law:**
+  - Jesus rescued the Sabbath from burdensome traditions.
+  - He taught it is "lawful to do well on the Sabbath days" (Matthew 12:12).
+- **Imputed Righteousness:**
+  - Jesus kept the law perfectly *for us*.
+  - If He had broken the Sabbath, He would have been a sinner (1 John 3:4) and could not be our Savior.
+  - His perfect Sabbath-keeping is part of the righteousness He offers us.
+
+## Slide 21 – Q8: The Sabbath in the Future
+- Question: How did He wish to have it regarded by His disciples at the siege of Jerusalem, nearly forty years after His death?
+- Key Text: Matthew 24:20 – “But pray ye that your flight be not in the winter, neither on the Sabbath day.”
+
+## Slide 22 – Q8: Key Points
+- Jesus looked forward to the destruction of Jerusalem (A.D. 70).
+- **Enduring Validity:**
+  - If the Sabbath were to be abolished at the cross, Jesus would not have asked them to pray about it 40 years later.
+- **Practical Faith:**
+  - He wanted them free from the hindrance of winter.
+  - He wanted them free from the spiritual concern of fleeing on the holy day.
+- **Conclusion:** The Sabbath remained sacred to Christ's church long after the Cross.
+
+## Slide 23 – Q9: The Introduction of Sunday
+- Question: What was the first effort of the Roman Church in behalf of the recognition of Sunday?
+- Key Text: “In A.D. 196, Victor, Bishop of Rome, attempted to impose on all the churches the Roman custom of having Easter fall every year on Sunday.” (Bower's History of the Popes, vol.2, page 18)
+
+## Slide 24 – Q9: Key Points
+- The shift began by ecclesiastical authority, not divine command.
+- **The Issue:** The celebration of Easter.
+- **The Imposition:** Victor, Bishop of Rome, exerted authority to standardize a Sunday celebration.
+- **The Seed of Popery:**
+  - An early manifestation of the "mystery of iniquity" (2 Thessalonians 2:7).
+  - Human tradition began to supersede the Word of God.
+
+## Slide 25 – Q10: The Council of Nicaea
+- Question: What was one of the principal reasons for convoking the Council of Nice?
+- Key Text: “The question relating to the observance of Easter... was one of the principal reasons for convoking the Council of Nice...” (Boyle's Historical View of the Council of Nice, page 22)
+
+## Slide 26 – Q10: Key Points
+- **Council of Nicaea (A.D. 325):**
+  - Called to unify the church and the empire.
+  - Primary issue: Arian controversy (divinity of Christ).
+  - Secondary major issue: The Easter question.
+- **Motivation:**
+  - Uniformity and political stability, rather than biblical fidelity.
+
+## Slide 27 – Q11: The Easter Decision
+- Question: How was the matter finally decided?
+- Key Text: “Easter day was fixed on the Sunday immediately following the new moon which was nearest after the vernal equinox.” (Idem. page 23)
+- **Key Points:**
+  - The Council decreed the resurrection celebration must always be on **Sunday**.
+  - This strengthened the prestige of Sunday.
+  - It distanced the church from the biblical calendar used by the Jews.
+
+## Slide 28 – Q12: Constantine’s Reasoning
+- Question: In urging the observance of this decree on the churches, what reason did Constantine assign for it?
+- Key Text: “Let us then have nothing in common with the most hostile rabble of the Jews.” (Idem, page 52)
+
+## Slide 29 – Q12: Key Points
+- Constantine’s reasoning was based on **anti-Semitism**, not Scripture.
+- **Political:**
+  - He wanted a Christianity distinct from the rebellious Jewish subjects.
+- **Theological Error:**
+  - The Sabbath was made for "man" (Mark 2:27), not just Jews.
+  - Rejecting the Sabbath to spite the Jews meant rejecting a Creation ordinance.
+
+## Slide 30 – Q12: Illustration
+- **The Neighbor’s Fence:**
+  - If a man hates his neighbor and burns down the fence the neighbor built, he feels separated from his enemy.
+  - But if that fence was actually built by the King of the land, the man has not hurt the neighbor; he has insulted the King.
+- **Lesson:**
+  - In rejecting the Sabbath to spite the Jews, the church insulted the Creator.
+
+## Slide 31 – Q13: The First Sunday Law
+- Question: What had Constantine already done, in A.D. 321, to help forward Sunday to a place of prominence?
+- Key Text: He issued an edict forcing "the judges and town people and the occupation of all trades" to rest on the "venerable day of the sun." (See Encyclopedia Britannica, art. Sunday)
+
+## Slide 32 – Q13: Key Points
+- **A.D. 321:** The first civil Sunday Law.
+- **Pagan-Christian Synthesis:**
+  - Called "the venerable day of the sun" (*dies solis*), not the "Sabbath of the Lord."
+  - Constantine united pagan sun cults with Christianity.
+- **State Power:**
+  - The state began enforcing religious observance.
+  - This violates the character of God, who desires free-will service.
+
+## Slide 33 – Q14: The Claim of Authority
+- Question: Eusebius was bishop of Caesarea... Who did he say had changed the obligations of the Sabbath to Sunday?
+- Key Text: “All things whatsoever that it was duty to do on the Sabbath, these WE have transferred to the Lord's day.” (Eusebius's Commentary on the Psalms)
+
+## Slide 34 – Q14: Key Points
+- Eusebius openly admitted: **"WE have transferred."**
+  - He did not claim God or the Apostles did it.
+  - He claimed the prerogative for the church.
+- **Prophecy Fulfilled:**
+  - Daniel 7:25 – “And he shall speak great words against the most High... and think to change times and laws...”
+- **The Authority Crisis:**
+  - God says: "The seventh day."
+  - The Church says: "We transferred it."
+  - Righteousness by Faith means trusting God’s Word over human tradition.
+
+## Slide 35 – Q15: Prohibition of the Sabbath
+- Question: What did the Council of Laodicea decree in A.D. 364?
+- Key Text: "The Council of Laodicea... first settled the observation of the Lord's day, and prohibited the keeping of the Jewish Sabbath under an anathema." (Dissertation on the Lord's Day Sabbath, pages 33, 34, 44)
+
+## Slide 36 – Q15: Key Points
+- By A.D. 364, the church moved from encouraging Sunday to **prohibiting the Sabbath**.
+- **Anathema:**
+  - Faithful believers keeping the Fourth Commandment were declared enemies of the church (cursed).
+- **Persecution:**
+  - Marks the development of the forcing power seen in Revelation 13.
+
+## Slide 37 – Q16: Early Church Practice
+- Question: But did the Christians of the early church keep the Sabbath?
+- Key Text: “Down even to the fifth century, the observances of the Jewish Sabbath was continued in the Christian church.” (Coleman's Ancient Christianity Exemplified, chap. 26, sec. 2)
+
+## Slide 38 – Q16: Key Points
+- Yes, the Sabbath was kept for centuries.
+- Despite apostasy in Rome and Alexandria, the broad body of Christians (especially in the East) rested on the Sabbath.
+- God has always reserved a "remnant" who keep His commandments (Revelation 14:12 – “Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.”).
+
+## Slide 39 – Q17: The Wilderness Church
+- Question: What day was observed in the Dark Ages by some of the Waldenses?
+- Key Text: "They kept the Sabbath day, observed the ordinance of baptism according to the primitive church, instructed their children in the articles of the Christian faith and the commandments of God." (Jones's Church History, vol. 2, chap. 5, sec. 4)
+
+## Slide 40 – Q17: Key Points
+- During the 1260 years of papal supremacy ("Dark Ages"), truth was hidden in the wilderness.
+- The Waldenses (Vaudois) maintained the ancient faith.
+- They rejected Rome's authority to change God's law.
+- **Sanctuary Connection:**
+  - While earthly priests obscured the truth, these believers looked by faith to the heavenly sanctuary and the true Law of God.
+
+## Slide 41 – Q18: Roman Catholic Admissions
+- Question: What claim is now made by the Roman Church concerning the change of the Sabbath to Sunday?
+- Key Text: “Had she not such power, she could not have done that in which all modern religionists agree with her, she could not have substituted the observance of Sunday, the first day of the week, for the observance of Saturday, the seventh day, a change for which there is no scriptural authority.” (Doctrinal Catechism)
+
+## Slide 42 – Q18: Key Points
+- Rome openly admits:
+  1. There is **no Scriptural authority** for Sunday.
+  2. The change is a mark of **ecclesiastical power**.
+  3. Protestants keeping Sunday recognize the Church's authority over the Bible.
+- **Application:**
+  - To knowingly keep a man-made day is to pay homage to the power that changed it.
+  - True faith submits solely to Christ.
+
+## Slide 43 – Q19: The Reformers
+- Question: Among the early Reformers, were there any who observed the seventh day?
+- Key Text: “Carlstadt held to the divine authority of the Sabbath from the Old Testament.” (Life of Luther, page 402)
+
+## Slide 44 – Q19: Key Points
+- Yes, Dr. Andreas Carlstadt (colleague of Luther) argued for the Sabbath.
+- Logic: If we reject the Pope and cling to the Bible, we must keep the Bible Sabbath.
+- Anabaptists and others also saw this truth.
+- The mainstream Reformation failed to advance this far, clinging to tradition.
+
+## Slide 45 – Q20: Luther’s Admission
+- Question: What did Luther say of Carlstadt's Sabbath views?
+- Key Text: “Indeed, if Carlstadt were to write further about the Sabbath, Sunday would have to give way, and the Sabbath that is to say, Saturday must be kept holy.” (Luther, against the Celestial Prophets)
+
+## Slide 46 – Q20: Key Points
+- Luther admitted the logic: *Sola Scriptura* leads to the Sabbath.
+- **Repairing the Breach:**
+  - The Reformation is a progressive work.
+  - God calls us to "repair the breach" in His law (Isaiah 58:12).
+- **Grace and Obedience:**
+  - Saved by grace (Ephesians 2:8).
+  - Faith leads to love and obedience (Romans 3:31).
+  - Sabbath keeping is a sign we belong to the Creator.
+
+## Slide 47 – Q20: Illustration & Appeal
+- **The Soldier and the Flag:**
+  - A soldier in enemy territory is commanded to drop his King’s flag and carry the enemy’s banner.
+  - To a casual observer, it is "just cloth."
+  - To the soldier, it is a question of allegiance.
+- **Application:**
+  - The Sabbath is God’s flag (Ezekiel 20:12 – “Moreover also I gave them my sabbaths, to be a sign between me and them...”).
+  - Sunday is the banner of human tradition.
+  - Which flag will you carry?

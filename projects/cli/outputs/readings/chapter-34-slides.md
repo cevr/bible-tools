@@ -1,163 +1,208 @@
-Study Title: The Mystery of a Sinless Life
-
----
-
-Slide 1 Question: What testimony does Scripture give regarding the moral character of Jesus Christ?
-
-[IMG] Warm classical biblical painting of Jesus standing calmly in a crowded marketplace, soft light illuminating His face, contrasting with the shadows of the crowd, historically respectful.
-
----
-
-Slide 2 Biblical Answer: “Who did no sin, neither was guile found in His mouth.” (1 Peter 2:22)
-
-[IMG] Warm classical biblical painting of a close-up of Jesus speaking, His expression radiating absolute purity and truth, soft golden light, historically respectful.
-
----
-
-Slide 3 Explanation: While the Bible states that “all have sinned” (Romans 3:23), Jesus is the solitary exception. He challenged His enemies, “Which of you convinceth Me of sin?” (John 8:46), and they could find no flaw.
-
-[IMG] Warm classical biblical painting of Jesus standing tall amidst a group of accusing Pharisees, their faces in shadow while He remains serene and unblemished, soft light.
-
----
-
-Slide 4 Term Definition: “Guile” refers to deceit, cunning, or trickery. To have no guile means to be transparent, honest, and authentically pure in speech and intent.
-
-[DYK] In the Old Testament sacrificial system, a lamb had to be “without blemish” to be accepted (Exodus 12:5). Peter uses this imagery to show that Jesus is the perfect fulfillment of that symbol—spiritually spotless.
-
-[IMG] Warm classical biblical painting of a clear, pristine stream of water flowing from a rock, symbolizing transparency and lack of deceit, historically respectful.
-
----
-
-Slide 5 Question: Was Jesus’ sinlessness due to an inability to be tempted, or did He face the same struggles we do?
-
-[IMG] Warm classical biblical painting of Jesus in the wilderness, looking weary and human, sitting on a stone, soft light revealing the harsh environment.
-
----
-
-Slide 6 Biblical Answer: “[He] was in all points tempted like as we are, yet without sin.” (Hebrews 4:15)
-
-[IMG] Warm classical biblical painting of Jesus in deep prayer on a mountain, a subtle, shadowy suggestion of testing in the background, soft light focusing on His resolve.
-
----
-
-Slide 7 Explanation: Jesus felt the full weight of temptation. The difference was not in the *temptation*, but in the *response*. He remained sinless not because He couldn't sin, but because He chose not to.
-
-[IMG] Warm classical biblical painting of Jesus firmly turning His face away from a loaf of bread during his fast, expression resolute, soft light.
-
----
-
-Slide 8 Illustration: The Rock and the Leaf.
-
-[ILL] A strong wind blows against both a solid rock and a falling leaf. The leaf moves immediately, but the rock resists. The rock actually feels the force of the wind *more* than the leaf because it does not yield. Jesus, by resisting every temptation, felt the full weight of sin’s pressure more than any human ever has.
-
-[IMG] Warm classical biblical painting of a rugged cliffside enduring a storm, juxtaposed with leaves blowing away in the wind, dramatic lighting.
-
----
-
-Slide 9 Question: How fully did Jesus enter into our human experience?
-
-[IMG] Warm classical biblical painting of Jesus working with wood, His hands rough from labor, looking fully human and relatable, soft light.
-
----
-
-Slide 10 Biblical Answer: “Forasmuch then as the children are partakers of flesh and blood, He also Himself likewise took part of the same... Wherefore in all things it behooved Him to be made like unto His brethren...” (Hebrews 2:14, 17)
-
-[IMG] Warm classical biblical painting of Jesus sitting with a group of common people, perhaps holding a child, fully integrated into the human family, warm ambient light.
-
----
-
-Slide 11 Explanation: Jesus took upon Himself our actual nature—“flesh and blood.” He entered the human family to be a “merciful and faithful high priest.” He understands our weakness because He has lived inside it.
-
-[SN] Spirit-led Tangent: The nature of Christ during the Incarnation is a profound mystery. Historic Adventist theology emphasizes that Christ took upon Himself the nature of man *after* the fall—meaning He inherited the innocent infirmities and weaknesses of humanity (hunger, fatigue, the capacity to die), yet He possessed a sinless character. He met sin on its own territory—the flesh—and conquered it there.
-
-[IMG] Warm classical biblical painting of Jesus placing a comforting hand on a weary person's shoulder, expression full of empathy and understanding, soft light.
-
----
-
-Slide 12 Question: What did God accomplish through Christ taking on "sinful flesh"?
-
-[IMG] Warm classical biblical painting of a dark, heavy chain representing the law of sin, sitting on a stone floor, soft light highlighting a broken link.
-
----
-
-Slide 13 Biblical Answer: “For what the law could not do, in that it was weak through the flesh, God sending His own Son in the likeness of sinful flesh, and for sin, condemned sin in the flesh.” (Romans 8:3)
-
-[IMG] Warm classical biblical painting of a shaft of divine light breaking through dark storm clouds, illuminating a figure standing in victory, historically respectful.
-
----
-
-Slide 14 Explanation: The law points out sin but cannot fix it because our flesh is weak. Jesus entered that same weak flesh and “condemned sin.” He proved it is possible, through the Spirit, to live in human flesh without serving sin.
-
-[IMG] Warm classical biblical painting of a scroll of the law resting next to an olive branch, symbolizing the Spirit's power to fulfill the law, soft light.
-
----
-
-Slide 15 Question: If Jesus was human, by what power did He live this perfect life?
-
-[IMG] Warm classical biblical painting of Jesus kneeling in a garden, looking upward with total dependence, soft moonlight.
-
----
-
-Slide 16 Biblical Answer: “I can of Mine own self do nothing.” (John 5:30) “The words that I speak unto you I speak not of Myself: but the Father that dwelleth in Me, He doth the works.” (John 14:10)
-
-[IMG] Warm classical biblical painting of Jesus standing with open hands, receiving light from heaven, symbolizing reception of power, historically respectful.
-
----
-
-Slide 17 Explanation: This is the secret. Jesus did not use His own divine power to make His life easier. He lived as a man, totally dependent on the Father through faith, prayer, and surrender.
-
-[IMG] Warm classical biblical painting of Jesus asleep in the boat during the storm, showing His human need for rest and trust in the Father, soft light.
-
----
-
-Slide 18 Illustration: The Glove.
-
-[ILL] Imagine a glove. A glove cannot pick up a book by itself. But if a hand fills the glove, the glove moves and works. Jesus, in His humanity, was the vessel; the Father, through the Spirit, provided the power. He invites us to be filled with that same Spirit.
-
-[IMG] Warm classical biblical painting of a potter’s hand working clay, symbolizing the Father working through the vessel of humanity, soft warm light.
-
----
-
-Slide 19 Question: What was the singular purpose that drove Jesus?
-
-[IMG] Warm classical biblical painting of Jesus walking steadfastly on a road, His eyes fixed on a distant destination (Jerusalem), soft light.
-
----
-
-Slide 20 Biblical Answer: “For I came down from heaven, not to do Mine own will, but the will of Him that sent Me.” (John 6:38)
-
-[IMG] Warm classical biblical painting of Jesus in Gethsemane, face to the ground in submission, soft shadows and a beam of light.
-
----
-
-Slide 21 Progressive Disclosure:
-• Surrender of self
-• Alignment with God’s law
-• Trust in the Father’s plan
-
-[IMG] Warm classical biblical painting of an open Bible or scroll on a wooden table, illuminated by a simple oil lamp, representing alignment with God's will.
-
----
-
-Slide 22 Deeper Insight: Sin is selfishness—doing “mine own will.” Righteousness is love and submission—doing the "will of Him that sent Me." Jesus lived a life of total self-renunciation.
-
-[SN] Spirit-led Tangent: Consider the contrast with Lucifer. Lucifer said, "I will ascend," "I will be like the Most High" (Isaiah 14). Jesus said, "I can of Mine own self do nothing," and "Not my will, but Thine be done." The Great Controversy is a battle between the principle of Self-Exaltation and the principle of Self-Sacrificing Love.
-
-[IMG] Warm classical biblical painting of Jesus washing the disciples' feet, the ultimate act of humility and service, soft golden light.
-
----
-
-Slide 23 Practical Application: How does Christ's sinless life help us today?
-1. **Confidence:** A High Priest who understands.
-2. **Example:** Victory is possible through dependence.
-3. **Hope:** He can conquer sin in *our* flesh today.
-
-[IMG] Warm classical biblical painting of a believer in ancient robes looking upward with a face full of hope and peace, soft light.
-
----
-
-Slide 24 Conclusion: We are called to follow His method: "I can of mine own self do nothing." When we surrender fully to the Father as Jesus did, we step into His victory.
-
-[IMG] Warm classical biblical painting of a sunrise over a peaceful landscape, symbolizing a new day and spiritual victory, soft morning light.
-
----
+## Slide 1 – Q1: Christ’s Sinlessness
+- **Question:** What testimony is borne concerning Christ's life on earth?
+- **Key Text:** 1 Peter 2:22 – “Who did no sin, neither was guile found in His mouth.”
+
+## Slide 2 – Q1: Defining Sin and Guile
+- **The Definition of Sin:**
+  - Scripture defines sin as “the transgression of the law” (1 John 3:4 – “Whosoever committeth sin transgresseth also the law: for sin is the transgression of the law.”).
+  - Christ lived in perfect harmony with the Ten Commandments, in letter and spirit.
+- **Freedom from Guile:**
+  - “Guile” refers to deceit or hypocrisy.
+  - Jesus was transparent and honest; His outward life perfectly matched His inner purity.
+
+## Slide 3 – Q1: The Sanctuary and Righteousness by Faith
+- **The Sanctuary Type:**
+  - In the Old Testament sanctuary, the sacrificial lamb had to be “without blemish” (Leviticus 4:32).
+  - Christ, the Antitype, had to be morally perfect to offer Himself as a sacrifice for the world.
+- **Righteousness by Faith:**
+  - Because Christ lived a sinless life, He has perfect righteousness to offer us.
+  - **Justification:** God accepts Christ’s perfect life as if it were our own (2 Corinthians 5:21 – “For he hath made him to be sin for us, who knew no sin; that we might be made the righteousness of God in him.”).
+  - **Sanctification:** By the Holy Spirit, He imparts His sinless life to us, empowering us to overcome (Revelation 3:21).
+
+## Slide 4 – Q1: Illustration
+- **The Perfect Mold:**
+  - Imagine a potter trying to cast a vase. If the mold is cracked, every vase produced will be flawed.
+  - Adam, the first mold of humanity, was "cracked" by sin; we are all born with that flaw.
+  - Christ came as the "Second Adam" (1 Corinthians 15:45)—a new, perfect mold without a single crack of sin.
+  - By faith, we are "remolded" into His image.
+
+## Slide 5 – Q2: The Human Condition
+- **Question:** What is true of all other members of the human family?
+- **Key Text:** Romans 3:23 – “For all have sinned, and come short of the glory of God.”
+
+## Slide 6 – Q2: Key Doctrinal Points
+- **Universal Need:**
+  - Except for Christ, every human being has fallen into rebellion against God.
+  - We are born separated from God with a nature prone to selfishness (Psalm 51:5 – “Behold, I was shapen in iniquity; and in sin did my mother conceive me.”).
+- **Falling Short of Glory:**
+  - The “glory of God” refers to His character (Exodus 34:6–7).
+  - The Law is a transcript of that character; to fail the Law is to fall short of God’s glory.
+- **The Great Controversy:**
+  - Since *all* have sinned, no human can redeem another.
+  - We are bankrupt debtors in need of a Savior who stands outside the circle of condemnation.
+
+## Slide 7 – Q2: Illustration
+- **The Archer:**
+  - The New Testament word for sin (*hamartia*) often means "missing the mark."
+  - Imagine archers trying to hit a target representing God's perfect Law.
+  - Some may shoot further than others (moral people vs. criminals), but *all* fall short of the target.
+  - An arrow one inch short is just as useless as one ten yards short. Only Christ hit the bullseye for us.
+
+## Slide 8 – Q3: Christ’s Challenge
+- **Question:** With what question did Christ challenge His enemies?
+- **Key Text:** John 8:46 – “Which of you convinceth Me of sin?”
+
+## Slide 9 – Q3: Significance of the Challenge
+- **Public Scrutiny:**
+  - Jesus lived openly before Pharisees, Sadducees, and the common people.
+  - His enemies were desperate to condemn Him but could not name a single sin.
+- **Testimony of Enemies:**
+  - **Judas:** “I have betrayed the innocent blood” (Matthew 27:4).
+  - **Pilate:** “I find in him no fault at all” (John 18:38).
+- **The Foundation of Faith:**
+  - If Jesus had sinned once, He would have needed a Savior Himself.
+  - His unanswered challenge proves He is the qualified Redeemer.
+
+## Slide 10 – Q3: Illustration
+- **The Diamond:**
+  - If you claim to have a flawless diamond, you are not afraid to hand it to a jeweler with a magnifying glass.
+  - Jesus offered His life to the "magnifying glass" of His critics.
+  - They looked for flaws—pride, selfishness, impatience—but found only the pure light of God’s love.
+
+## Slide 11 – Q4: The Reality of Temptation
+- **Question:** To what extent was Christ tempted?
+- **Key Text:** Hebrews 4:15 – “[He] was in all points tempted like as we are, yet without sin.”
+
+## Slide 12 – Q4: Categories of Temptation
+- **Reality of the Struggle:**
+  - Christ felt the pull of hunger, rejection, and the pressure to use divine power for self.
+- **"In All Points":**
+  - He faced every *category* of temptation mentioned in 1 John 2:16:
+    - The lust of the flesh (appetite/passion).
+    - The lust of the eyes (presumption/vanity).
+    - The pride of life (love of power).
+- **Temptation vs. Sin:**
+  - Temptation is not sin; sin is the will consenting to temptation (James 1:15). Jesus never consented.
+
+## Slide 13 – Q4: Application and Hope
+- **Sympathetic High Priest:**
+  - Because He conquered temptation in human flesh, He can give us victory.
+  - He knows our weaknesses but offers His strength.
+- **Sanctuary Connection:**
+  - As our High Priest, He understands the struggle of the people He represents.
+
+## Slide 14 – Q4: Illustration
+- **The Fortress:**
+  - A fortress that surrenders at the first shot never knows the full pressure of a siege.
+  - Only a fortress that is attacked with full force and *never surrenders* knows the true weight of the battle.
+  - We often give in early; Christ bore the full pressure of every temptation and never broke.
+
+## Slide 15 – Q5: The Incarnation
+- **Question:** In His humanity, of what nature did Christ partake?
+- **Key Text:** Hebrews 2:14 – “Forasmuch then as the children are partakers of flesh and blood, He also Himself likewise took part of the same; that through death He might destroy him that had the power of death, that is, the devil.”
+
+## Slide 16 – Q5: Destroying the Power of Death
+- **Partaking of the Same:**
+  - Christ took the "same" flesh and blood as the children (us).
+  - He entered the human family with its hereditary weaknesses, yet did not sin.
+- **Defeating the Enemy:**
+  - Satan claimed God’s law could not be kept by humans.
+  - Jesus proved him a liar by living a perfect life in human flesh.
+- **Method of Victory:**
+  - Christ conquered not by using divine omnipotence to blast Satan away, but by using human weapons: faith, the Word, and prayer.
+
+## Slide 17 – Q5: Illustration
+- **The Rescue Swimmer:**
+  - To save a drowning man, a lifeguard cannot stay dry on the boat.
+  - He must dive into the same cold, dark water the victim is in and feel the same currents.
+  - Jesus dove into the deep waters of our humanity to pull us out; He took our nature to take our place.
+
+## Slide 18 – Q6: Sharing Our Humanity
+- **Question:** How fully did Christ share our common humanity?
+- **Key Text:** Hebrews 2:17 – “Wherefore in all things it behooved Him to be made like unto His brethren, that He might be a merciful and faithful high priest in things pertaining to God, to make reconciliation for the sins of the people.”
+
+## Slide 19 – Q6: Our Faithful High Priest
+- **"Like Unto His Brethren":**
+  - Jesus is not ashamed to call us brethren (Hebrews 2:11).
+  - He accepted human limitations: fatigue, thirst, hunger, and sorrow.
+- **Sanctuary Ministry:**
+  - To be a faithful High Priest, He must understand those He represents.
+  - Because He walked in our shoes, He pleads for us with perfect empathy.
+- **Reconciliation:**
+  - He bridges the gap between a holy God and sinful man because He is *both*.
+
+## Slide 20 – Q7: Victory in the Flesh
+- **Question:** Where did God, in Christ, condemn sin, and gain the victory for us over temptation and sin?
+- **Key Text:** Romans 8:3 – “For what the law could not do, in that it was weak through the flesh, God sending His own Son in the likeness of sinful flesh, and for sin, condemned sin in the flesh.”
+
+## Slide 21 – Q7: Condemning Sin
+- **Weakness of the Law:**
+  - The Law acts as a mirror; it reveals dirt but cannot wash it off.
+  - Our flesh is weak and cannot submit to the law without divine aid (Romans 8:7).
+- **Likeness of Sinful Flesh:**
+  - Christ took our nature and entered the enemy's territory.
+- **The Victory:**
+  - He condemned sin *in the flesh*—on our turf.
+  - He proved that humanity, united with Divinity, can keep God’s law.
+
+## Slide 22 – Q7: Application (Righteousness by Faith)
+- **Fulfilling the Law:**
+  - Because Christ defeated sin in the flesh, the "righteousness of the law" can be fulfilled in us (Romans 8:4).
+  - We walk not after the flesh, but after the Spirit.
+- **Assurance:**
+  - Sin is not a necessity of human nature; Christ has broken its power.
+
+## Slide 23 – Q7: Illustration
+- **The Invader:**
+  - Imagine a deadly virus (sin) infects a city.
+  - A great physician (Christ) enters the city, exposing himself to the infection.
+  - His immune system destroys the virus *within his own body*.
+  - He now offers those antibodies (Grace/Spirit) to everyone in the city. He conquered the virus from the inside.
+
+## Slide 24 – Q8: The Source of Power
+- **Question:** By whose power did Christ live the perfect life?
+- **Key Texts:**
+  - John 5:30 – “I can of Mine own self do nothing.”
+  - John 14:10 – “The words that I speak unto you I speak not of Myself: but the Father that dwelleth in Me, He doth the works.”
+
+## Slide 25 – Q8: Dependence vs. Independence
+- **Dependence on the Father:**
+  - Though fully God, Christ laid aside the independent use of His divinity (Philippians 2:5–7).
+  - He lived as a man, totally dependent on the Father for wisdom and strength.
+- **The Channel of Power:**
+  - Christ was the vessel; the Father was the source.
+  - He maintained connection through prayer and the Word.
+
+## Slide 26 – Q8: Application (Righteousness by Faith)
+- **Our Example:**
+  - We are not called to overcome by our own willpower.
+  - We must depend on Christ just as He depended on the Father.
+  - John 15:5 – “Without Me ye can do nothing.”
+  - Philippians 4:13 – “I can do all things through Christ which strengtheneth me.”
+
+## Slide 27 – Q8: Illustration
+- **The Glove:**
+  - A glove is lifeless on its own; it cannot turn a page or do work.
+  - When a living hand fills the glove, it becomes powerful.
+  - Jesus allowed the Father to "fill the glove" perfectly.
+  - Now, He asks us to be the glove and let *Him* be the hand living in us.
+
+## Slide 28 – Q9: Unselfish Purpose
+- **Question:** What unselfish purpose did Jesus ever have before Him?
+- **Key Text:** John 6:38 – “For I came down from heaven, not to do Mine own will, but the will of Him that sent Me.”
+
+## Slide 29 – Q9: Surrender of the Will
+- **The Battle of the Will:**
+  - Sin is selfishness ("my will"); Righteousness is love ("Thy will").
+  - Christ submitted fully: “Not my will, but thine, be done” (Luke 22:42).
+- **Service to Others:**
+  - Jesus lived entirely for others: “Even Christ pleased not Himself” (Romans 15:3).
+- **Sanctification:**
+  - True conversion is surrendering the will.
+  - When we ask, "Lord, what wilt thou have me to do?" (Acts 9:6), we begin to walk in His steps.
+
+## Slide 30 – Q9: Illustration
+- **The Ambassador:**
+  - An ambassador in a foreign land does not speak his own opinions.
+  - He speaks only what his King tells him to speak.
+  - Jesus was the faithful Ambassador of Heaven, perfectly representing the Father's character to a lost world.

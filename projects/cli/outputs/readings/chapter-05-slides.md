@@ -1,160 +1,356 @@
-Study Title: Christ in All the Bible
+## Slide 1 – Title Slide
 
----
+# Christ in All the Bible
+### Unveiling the Central Theme of Scripture
 
-Slide 1 Question: Whom does Jesus Himself say the Scriptures are really about?
+***
 
-[IMG] Warm classical biblical painting of Jesus standing in a synagogue holding an unrolled scroll, looking out with a gentle, inviting expression.
+## Slide 2 – Introduction
 
----
+- **The Central Theme:** The Bible is more than moral codes or history; it is a revelation of a Person.
+- **The Great Controversy:** From Eden to Revelation, the story focuses on the conflict between good and evil.
+- **The Solution:** The work of Jesus Christ to redeem a lost race.
 
-Slide 2 Biblical Answer: “Search the scriptures; for in them ye think ye have eternal life: and they are they which testify of Me.” (John 5:39)
+***
 
-[IMG] Warm classical biblical painting of an open ancient scroll on a wooden table, with a single ray of light illuminating Hebrew text.
+## Slide 3 – Q1: The Testimony of Scripture
 
----
+- **Question:** Of whom does Christ Himself tell us that the Scriptures speak about?
+- **Key Text:** John 5:39 – “Search the scriptures; for in them ye think ye have eternal life: and they are they which testify of Me.”
 
-Slide 3 Explanation: Jesus teaches that the Bible is not merely a history book or a collection of moral rules. It is a unified testimony about Himself. To understand the Old Testament properly, one must look for the Messiah on its pages.
+***
 
-[IMG] Warm classical biblical painting of a scholar studying a scroll, with a faint, spiritual vision of Christ appearing behind the text.
+## Slide 4 – Q1: Key Points
 
----
+- **Map vs. Treasure:** The Scriptures are the map, but Christ is the treasure.
+- **Purpose of the Word:**
+  - Given to reveal God’s character and the plan of salvation.
+  - Every ceremony, genealogy, and prophecy finds fulfillment in Jesus.
+- **Righteousness by Faith:**
+  - We do not search Scriptures to prove we are good (legalism).
+  - We search them to find the Savior who provides the righteousness we lack.
+  - Eternal life is knowing the Person the book reveals (John 17:3 – “And this is life eternal, that they might know thee the only true God, and Jesus Christ, whom thou hast sent.”).
 
-Slide 4 Did You Know? The word "Search" in this text implies a diligent investigation, like digging for hidden treasure. The religious leaders of Christ's day memorized the text but missed the Person the text pointed to.
+***
 
-[IMG] Warm classical biblical painting of a man digging in a field at sunset, discovering a glowing chest of treasure buried in the earth.
+## Slide 5 – Q1: Illustration
 
----
+- **The Love Letter:**
+  - Imagine a man receiving a love letter and a photo from his betrothed.
+  - If he studies the ink and grammar but refuses to look at the photo or prepare for the wedding, he misses the point.
+- **Application:**
+  - The Bible is God’s love letter.
+  - Its primary purpose is to introduce us to the Author.
 
-Slide 5 Question: How much of the Bible tells us about Jesus?
+***
 
-[IMG] Warm classical biblical painting of Jesus walking on a dusty road with two disciples (the Road to Emmaus), gesturing as He explains something profound.
+## Slide 6 – Q2: Moses and the Prophets
 
----
+- **Question:** About whom did Moses and the Old Testament prophets write?
+- **Key Text:** John 1:45 – “Philip findeth Nathanael, and saith unto him, We have found him of whom Moses in the law, and the prophets, did write, Jesus of Nazareth, the son of Joseph.”
 
-Slide 6 Biblical Answer: “And beginning at Moses and all the prophets, He expounded unto them in all the scriptures the things concerning Himself.” (Luke 24:27)
+***
 
-[IMG] Warm classical biblical painting of Moses holding stone tablets standing next to Isaiah holding a scroll, both looking toward a distant light.
+## Slide 7 – Q2: Key Points
 
----
+- **The Gospel in Anticipation:** The Old Testament is not a separate religion; it points to the New.
+- **Moses and the Law:**
+  - **Moral Law:** Reveals Christ’s perfect character (Psalm 40:8 – “I delight to do thy will, O my God: yea, thy law is within my heart.”).
+  - **Ceremonial Law:** The sacrificial system revealed Christ as the Lamb of God (John 1:29 – “Behold the Lamb of God, which taketh away the sin of the world.”).
+- **One Plan of Salvation:**
+  - Old Testament believers were saved by faith in the coming Messiah.
+  - They looked forward to the Cross; we look back to it.
 
-Slide 7 Explanation: Jesus revealed that "all the scriptures"—from the first books written by Moses through the prophets—contain truths concerning His mission. The Old Testament is the gospel in figure and prophecy; the New Testament is the gospel in fact and fulfillment.
+***
 
-[IMG] Warm classical biblical painting of a library of scrolls, where the arrangement of the scrolls subtly forms the shape of a cross.
+## Slide 8 – Q3: Prophecy of Suffering
 
----
+- **Question:** Who revealed beforehand the death and resurrection of Christ?
+- **Key Text:** Luke 24:25, 26 – “O fools, and slow of heart to believe all that the prophets have spoken: ought not Christ to have suffered these things, and to enter into His glory?”
 
-Slide 8 Illustration: Imagine a grand portrait covered by a curtain. The Old Testament prophecies are like lifting the corners of the curtain to reveal glimpses of the subject. When Jesus arrived, the curtain was fully pulled back to reveal the face that had been there all along.
+***
 
-[IMG] Warm classical biblical painting of a heavy velvet curtain being pulled back to reveal a radiant, majestic portrait of Christ.
+## Slide 9 – Q3: Key Points
 
----
+- **The Necessity of Suffering:**
+  - Sin has a cost: “The wages of sin is death” (Romans 6:23).
+  - For God to be just while justifying the sinner, the penalty had to be paid.
+- **The Pattern:**
+  - The prophets revealed the Messiah would be a Suffering Servant before being a Conquering King.
+  - The path to glory is through self-denial.
+- **Application:**
+  - We must guard against desiring a religion of power and prestige while rejecting the religion that crucifies pride and sin.
 
-Slide 9 Question: Where do we find the very first promise of a Saviour in the Bible?
+***
 
-[IMG] Warm classical biblical painting of the Garden of Eden, lush but with long shadows cast by the setting sun, evoking a sense of loss and hope.
+## Slide 10 – Q4: Christ in All Scripture
 
----
+- **Question:** Does all of Scripture tell us about Jesus?
+- **Key Text:** Luke 24:27 – “And beginning at Moses and all the prophets, He expounded unto them in all the scriptures the things concerning Himself.”
 
-Slide 10 Biblical Answer: “And I will put enmity between thee and the woman, and between thy seed and her seed; it shall bruise thy head, and thou shalt bruise his heel.” (Genesis 3:15)
+***
 
-[IMG] Warm classical biblical painting of a serpent slithering away into darkness while a divine light shines on Adam and Eve.
+## Slide 11 – Q4: Key Points & Sanctuary Connection
 
----
+- **The Key to Interpretation:** We must view history, Psalms, and services through the lens of Christ’s mission.
+- **Christ in the Doctrines:**
+  - **Law:** He is our Righteousness.
+  - **History:** He is the Deliverer.
+  - **Prophecy:** He is the Coming King.
+- **Sanctuary Connection:**
+  - The Levitical system was an object lesson.
+  - **Outer Court:** Represents His death on earth.
+  - **Holy Places:** Represents His intercession in heaven.
 
-Slide 11 Explanation: This verse, spoken in the Garden of Eden immediately after the fall of man, is often called the *Protoevangelium* (the first gospel). It promises a "Seed" (a Descendant) who would be wounded ("bruise his heel") but would ultimately crush the power of the serpent ("bruise thy head").
+***
 
-[IMG] Warm classical biblical painting allegorically showing a heel stepping on a serpent, while the foot is simultaneously pierced by a nail.
+## Slide 12 – Q5: The First Promise
 
----
+- **Question:** Where in the Bible is the first promise of the Redeemer?
+- **Key Text:** Genesis 3:14, 15 – “And the Lord God said unto the serpent, I will put enmity between thee and the woman, and between thy seed and her seed; it shall bruise thy head, and thou shalt bruise his heel.”
 
-Slide 12 Term Definition: "Seed" here refers specifically to Jesus Christ. While Abraham had many descendants, the promise of salvation centered on one specific Lineage bearer, the Messiah (see Galatians 3:16).
+***
 
-[IMG] Warm classical biblical painting of a genealogical tree, with the roots glowing and the main branch leading up to a shining star.
+## Slide 13 – Q5: Key Points
 
----
+- **The Protoevangelium (First Gospel):**
+  - **Enmity as Grace:** Humans are naturally captives to sin. God puts "enmity" (hatred of sin) in our hearts by His Spirit.
+  - **The Seed:** Refers specifically to Jesus Christ (Galatians 4:4).
+- **The Conflict:**
+  - **Bruised Heel:** Satan would cause Christ’s physical suffering and death.
+  - **Crushed Head:** Christ’s death guarantees Satan’s defeat and the destruction of sin.
+- **Victory:** Christ wins the victory and implants it in the believer.
 
-Slide 13 Question: Was Christ present with the children of Israel during their wilderness journey?
+***
 
-[IMG] Warm classical biblical painting of the vast encampment of Israel in the desert with the Pillar of Cloud hovering protectively over them.
+## Slide 14 – Q5: Illustration
 
----
+- **The Dungeon Liberator:**
+  - Imagine a prisoner chained to a tyrant, accustomed to the darkness.
+  - A Liberator enters—not just to unlock the door, but to change the prisoner's heart.
+  - The prisoner now hates the chains he once loved.
+- **Lesson:** This "enmity" against our chains (sin) is the first step of freedom.
 
-Slide 14 Biblical Answer: “And did all drink the same spiritual drink: for they drank of that spiritual Rock that followed them: and that Rock was Christ.” (1 Corinthians 10:4)
+***
 
-[IMG] Warm classical biblical painting of water gushing forcefully from a split rock in the desert, thirsty people gathering around to drink.
+## Slide 15 – Q6: Promise to Abraham
 
----
+- **Question:** In what words was this great truth explained to Abraham?
+- **Key Text:** Genesis 22:18 – “In thy seed shall all the nations of the earth be blessed.”
 
-Slide 15 Explanation: The Apostle Paul clarifies that the Provider and Protector of Israel in the Exodus was none other than Christ Himself. He was the "Angel" sent before them (Exodus 23:20) and the spiritual source of their life.
+***
 
-[IMG] Warm classical biblical painting of a shadowy, divine figure leading a multitude of people through a rocky canyon.
+## Slide 16 – Q6: Key Points
 
----
+- **Universal Gospel:** Abraham was chosen to be a channel of blessing for *all* nations.
+- **Justification by Faith:**
+  - Abraham believed God, and it was counted as righteousness (Genesis 15:6 – “And he believed in the Lord; and he counted it to him for righteousness.”).
+- **Nature of the Blessing:**
+  - Not merely material wealth.
+  - The turning away of “every one of you from his iniquities” (Acts 3:26 – “Unto you first God, having raised up his Son Jesus, sent him to bless you, in turning away every one of you from his iniquities.”).
 
-Slide 16 Speaker Note: Spirit-led tangent: This truth highlights the eternal pre-existence of Christ. He did not begin His existence at Bethlehem; His "goings forth have been from of old, from everlasting" (Micah 5:2). He has always been the active agent in the salvation of His people.
+***
 
-[IMG] Warm classical biblical painting of the Star of Bethlehem shining down, but with an ethereal reflection showing Christ existing before the stars were made.
+## Slide 17 – Q7: The Identity of the Seed
 
----
+- **Question:** To whom did this promised seed refer?
+- **Key Text:** Galatians 3:16 – “Now to Abraham and his seed were the promises made. He saith not, And to seeds, as of many; but as of one, And to thy seed, which is Christ.”
 
-Slide 17 Question: How specific were the Old Testament prophecies regarding Christ’s life and betrayal?
+***
 
-[IMG] Warm classical biblical painting of a prophet writing intently on parchment by candlelight, looking up as if hearing a voice.
+## Slide 18 – Q7: Key Points (Union with Christ)
 
----
+- **One Way of Salvation:** Salvation is found in one Person: Jesus Christ.
+- **Union with Christ:**
+  - We become "Abraham's seed" by being baptized *into* Christ (Galatians 3:29 – “And if ye be Christ's, then are ye Abraham's seed, and heirs according to the promise.”).
+- **Righteousness by Faith:**
+  - We do not inherit promises by genealogy or personal performance.
+  - When we are in Him, His history becomes our history; His obedience is credited as ours.
 
-Slide 18 Biblical Answer:
-*   **Birthplace:** “But thou, Bethlehem Ephratah... out of thee shall He come forth...” (Micah 5:2)
-*   **Betrayal Price:** “So they weighed for My price thirty pieces of silver.” (Zechariah 11:12)
-*   **Dying Words:** “My God, My God, why has Thou forsaken Me?” (Psalm 22:1)
+***
 
-[IMG] Warm classical biblical painting of a montage: a small village at night, silver coins scattered on a table, and a dark stormy sky.
+## Slide 19 – Q8: The Guide of Israel
 
----
+- **Question:** Whom did God promise would especially guide Israel to the Promised Land?
+- **Key Text:** Exodus 23:20 – “Behold, I send an Angel before thee, to keep thee in the way, and to bring thee into the place which I have prepared.”
 
-Slide 19 Explanation: God provided specific identifying marks for the Messiah centuries before His arrival. From the exact town of His birth to the precise amount of silver paid for His betrayal, these prophecies serve as a fingerprint that only Jesus of Nazareth could match.
+***
 
-[IMG] Warm classical biblical painting of a fingerprint where the lines of the print are made of tiny Hebrew text.
+## Slide 20 – Q8: Key Points
 
----
+- **The Angel of the Presence:**
+  - God said, “My name is in him” (Exodus 23:21).
+  - This is the pre-incarnate Christ, the “Messenger of the Covenant.”
+- **Continuous Care:**
+  - Jesus led Israel through the wilderness.
+  - He continues to lead His church today toward the heavenly Canaan.
+- **Keeping us in the Way:** He guides us in the path of obedience and faith.
 
-Slide 20 Question: How does the Old Testament describe the final kingdom of Christ?
+***
 
-[IMG] Warm classical biblical painting of the prophet Daniel standing on a balcony in Babylon, looking up at a vision in the clouds.
+## Slide 21 – Q9: The Spiritual Rock
 
----
+- **Question:** Who was the Rock that went with them?
+- **Key Text:** 1 Corinthians 10:4 – “And did all drink the same spiritual drink: for they drank of that spiritual Rock that followed them: and that Rock was Christ.”
 
-Slide 21 Biblical Answer: “...behold, One like the Son of man came with the clouds of heaven... And there was given Him dominion, and glory, and a kingdom... which shall not pass away...” (Daniel 7:13-14)
+***
 
-[IMG] Warm classical biblical painting of the Son of Man in royal robes surrounded by glorious clouds, approaching a blindingly bright throne.
+## Slide 22 – Q9: Key Points
 
----
+- **Source of Life:**
+  - The rock was smitten (Exodus 17:6) to provide water.
+  - Christ was smitten (Isaiah 53:4) so the water of life could flow to sinners.
+- **Spiritual Sustenance:**
+  - **Sanctification:** Drinking represents the daily intake of Christ’s Spirit.
+  - This sustains our spiritual life against temptation.
 
-Slide 22 Explanation: The story of Scripture does not end with the cross. The prophet Daniel was shown a vision of the judgment and the coronation of Christ. He receives an everlasting kingdom, assuring us that the plan of salvation concludes with the full restoration of God's authority.
+***
 
-[IMG] Warm classical biblical painting of a golden crown resting on a Bible, bathed in beams of heavenly light.
+## Slide 23 – Q9: Illustration
 
----
+- **The Diver’s Air Line:**
+  - A diver deep in the ocean relies entirely on the air line connected to the surface.
+  - If the line is cut, life ends.
+- **Lesson:**
+  - We live in the "deep waters" of a sinful world.
+  - Christ is the Rock; faith is the air line through which His life flows to us moment by moment.
 
-Slide 23 Deeper Insight: This passage in Daniel depicts the "Son of Man" coming to the "Ancient of Days" in the heavenly courts. It describes the work of Christ in the heavenly sanctuary, preparing to receive His kingdom before He returns to earth.
+***
 
-[IMG] Warm classical biblical painting of a grand heavenly court scene, full of majesty and awe, with myriads of angels.
+## Slide 24 – Q10: The Birthplace Prophecy
 
----
+- **Question:** Where was the promised Saviour to be born?
+- **Key Text:** Micah 5:2 – “But thou, Bethlehem Ephratah, though thou be little among the thousands of Judah, yet out of thee shall He come forth unto Me that is to be Ruler in Israel; whose goings forth have been from of old, from everlasting.”
 
-Slide 24 Practical Application: Why is it important to see Christ in all the Bible?
+***
 
-[IMG] Warm classical biblical painting of a modern believer sitting in a quiet room, reading a Bible with a look of peace and realization.
+## Slide 25 – Q10: Key Points
 
----
+- **Divine Credentials:** The prophecy specified the exact location (Bethlehem) hundreds of years in advance.
+- **Deity of Christ:**
+  - His goings forth are “from everlasting.”
+  - Jesus is the eternal Son of God who entered time and space.
+- **Humility:** The King of Glory chose a “little” town and a manger to reach the lowest of humanity.
 
-Slide 25 Application Points:
-*   It builds confidence that God directs history.
-*   It shows us that God has had a plan to save us from the very beginning (Genesis).
-*   It assures us that the same Jesus who guided Israel through the wilderness guides us today.
-*   It confirms that if the prophecies of His first coming were fulfilled exactly, the prophecies of His second coming are equally certain.
+***
 
-[IMG] Warm classical biblical painting of a path leading from a garden, past a cross, and toward a glorious city in the clouds, showing the continuity of the journey.
+## Slide 26 – Q11: Prophecy of Suffering
 
----
+- **Question:** In what Old Testament prophecy are the life, suffering, and death of Christ foretold?
+- **Answer Reference:** In the fifty-third chapter of Isaiah.
+- **Key Text:** Isaiah 53:5 – “But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed.”
+
+***
+
+## Slide 27 – Q11: Key Points (The Great Exchange)
+
+- **Vicarious Atonement:**
+  - Christ took our place.
+  - **Atonement:** Reconciliation of God and man through Jesus, satisfying the law.
+- **The Great Exchange:**
+  - We give Him our sins; He gives us His righteousness.
+  - “With his stripes we are healed” includes forgiveness (Justification) and power for a new life (Sanctification).
+- **Character:** He was like a lamb, meek under persecution (Isaiah 53:7).
+
+***
+
+## Slide 28 – Q12: The Betrayal Price
+
+- **Question:** Which passage of Scripture foretold the price of Christ's betrayal?
+- **Key Text:** Zechariah 11:12 – “So they weighed for My price thirty pieces of silver.”
+
+***
+
+## Slide 29 – Q12: Key Points
+
+- **Precision of Prophecy:** The exact amount paid to Judas was predicted (Matthew 26:15).
+- **The Price of a Slave:**
+  - Thirty pieces of silver was the value of a bondservant (Exodus 21:32).
+  - The Creator was valued by His people at the price of a common slave.
+  - This demonstrates the depth of His humiliation for us.
+
+***
+
+## Slide 30 – Q13: Dying Words Foretold
+
+- **Question:** Christ's dying words were written a thousand years before His death. Where are they found?
+- **Key Texts:**
+  - Psalm 22:1 – “My God, My God, why has Thou forsaken Me?”
+  - Psalm 31:5 – “Into Thy hands I commit My spirit.”
+
+***
+
+## Slide 31 – Q13: Key Points
+
+- **The Experience of Separation:**
+  - Jesus experienced the "second death"—total separation from the Father due to the world's sin.
+  - He bore the wrath of God so we wouldn't have to.
+- **The Triumph of Faith:**
+  - Even without feeling the Father’s presence, He cried “*My* God.”
+  - He died a Conqueror, entrusting His life to the Father.
+- **Application:** In darkness, we must trust the Word of God, not our feelings.
+
+***
+
+## Slide 32 – Q14: Resurrection Prophecy
+
+- **Question:** In what passage do the Psalms also foretell Christ's resurrection?
+- **Key Text:** Psalm 16:10 – “For Thou wilt not leave My soul in hell; neither wilt Thou suffer Thine Holy One to see corruption.”
+
+***
+
+## Slide 33 – Q14: Key Points
+
+- **Hell (Sheol):** In this context, it refers to the grave.
+- **Victory Over Decay:** Christ would not remain in the grave long enough for His body to decay.
+- **Our Guarantee:**
+  - Christ holds the keys of death (Revelation 1:18).
+  - His resurrection is the pledge that believers will also rise (1 Corinthians 15:20).
+
+***
+
+## Slide 34 – Q15: The Heavenly Judgment
+
+- **Question:** What words does Daniel use to describe Christ's receiving of His kingdom?
+- **Key Text:** Daniel 7:13-14 – “I saw in the night visions, and behold, One like the Son of man came with the clouds of heaven, and came to the Ancient of days, and they brought Him near before Him. And there was given Him dominion, and glory, and a kingdom...”
+
+***
+
+## Slide 35 – Q15: Key Points (Sanctuary & Judgment)
+
+- **Direction of Movement:** The Son of Man goes *up* to the Ancient of Days in heaven, not down to earth yet.
+- **Investigative Judgment:**
+  - corresponds to the High Priest entering the Most Holy Place.
+  - Christ blots out sins and receives His kingdom before returning.
+- **Advocacy:**
+  - Christ claims His people by His blood.
+  - **Safety:** We must be covered by His righteousness so the Father sees only the perfection of the Son.
+
+***
+
+## Slide 36 – Q16: The Second Advent
+
+- **Question:** How does the book of Psalms describe Christ's Second Advent?
+- **Key Text 1:** Psalm 98:9 – “...for He cometh to judge the earth: with righteousness shall He judge the world, and the people with equity.”
+- **Key Text 2:** Psalm 50:3 – “Our God shall come, and shall not keep silence: a fire shall devour before Him, and it shall be very tempestuous round about Him.”
+
+***
+
+## Slide 37 – Q16: Key Points
+
+- **Literal Return:** Not a secret rapture, but visible and audible (“shall not keep silence”).
+- **Creation Reacts:** Nature rejoices at the coming King who restores all things.
+- **Two Harvests:**
+  - For the rebellious: A devouring fire (glory consuming sin).
+  - For the loyal: The day of final deliverance.
+- **Conclusion:** The "Seed" has crushed the serpent's head; the controversy ends.
+
+***
+
+## Slide 38 – Q16: Illustration
+
+- **The King Returns:**
+  - When a King returns after a long war, the ground shakes with marching armies.
+  - To rebels, the sound is terror.
+  - To loyal citizens, it is sweet music.
+- **Blessed Hope:** Through faith in Jesus, we become loyal citizens who long for His appearing (Titus 2:13).

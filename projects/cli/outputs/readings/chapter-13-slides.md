@@ -1,167 +1,343 @@
-Study Title: Christ the Way of Life
-
----
-
-Slide 1 Question: What is the natural spiritual condition of all humanity?
-
-[IMG] Warm classical biblical painting of a multitude of people standing in a dim landscape, looking distant and separated from a source of light in the background.
-
----
-
-Slide 2 Biblical Answer: “For all have sinned, and come short of the glory of God.” (Romans 3:23)
-
-“But the Scripture hath concluded all under sin.” (Galatians 3:22)
-
-[IMG] Warm classical biblical painting of an ancient balance scale, one side weighed down heavily, the other empty, symbolizing falling short of the standard.
-
----
-
-Slide 3 Explanation: The Bible presents a universal diagnosis: everyone has missed the mark. To "come short" implies an inability to reach God's standard of perfection on our own. We are naturally "concluded" (shut up or imprisoned) under the power of sin.
-
-[IMG] Warm classical biblical painting of a person looking up at a massive, insurmountable stone wall, depicting the inability to reach God on one's own.
-
----
-
-Slide 4 Illustration: Imagine an archer trying to hit a target that is miles away. Whether the arrow lands ten feet away or a thousand feet away, everyone falls short of the target. Similarly, human effort cannot bridge the gap to God’s glory.
-
-[IMG] Warm classical biblical painting of an archer in a field releasing an arrow toward a target that is impossibly far on the horizon.
-
----
-
-Slide 5 Question: What is the result of sin, and what is God’s remedy?
-
-[IMG] Warm classical biblical painting depicting a contrast between a dark, shadowed valley on the left and a bright, sunlit pasture on the right.
-
----
-
-Slide 6 Biblical Answer: “The wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord.” (Romans 6:23)
-
-[IMG] Warm classical biblical painting of a hand offering a handful of dark coins, contrasted with another hand offering a glowing, pure white light.
-
----
-
-Slide 7 Explanation: Sin acts like an employer that pays a salary: death. In contrast, eternal life is not a wage we earn, but a "gift" we receive. You cannot work for a gift; you can only accept it with gratitude.
-
-[DYK] The Greek word for "wages" (*opsonion*) was often used for a soldier's stipend or ration money. It represents exactly what one has earned and deserves.
-
-[IMG] Warm classical biblical painting of ancient Roman silver coins scattered on a wooden table next to a soldier’s helmet.
-
----
-
-Slide 8 Question: Where is this eternal life found?
-
-[IMG] Warm classical biblical painting of a traveler consulting an ancient map or scroll at a crossroads.
-
----
-
-Slide 9 Biblical Answer: “This is the record, that God hath given to us eternal life, and this life is in His Son. He that hath the Son hath life; and he that hath not the Son of God hath not life.” (1 John 5:11-12)
-
-[IMG] Warm classical biblical painting of Jesus Christ standing with open arms, a gentle halo of light illuminating the space around Him.
-
----
-
-Slide 10 Explanation: Eternal life is not just a future destination or a philosophical concept; it is a Person. Possessing life means possessing Christ. If you have Him, you have the life immediately.
-
-**Term Definition:** “Record” refers to legal testimony or witness evidence. God has gone on record that life is found exclusively in Jesus.
-
-[IMG] Warm classical biblical painting of a scribe pointing to a significant entry on a large, open parchment scroll.
-
----
-
-Slide 11 Question: How does this new life transform the believer?
-
-[IMG] Warm classical biblical painting of a person sitting in quiet contemplation, a soft light seeming to glow from within their chest.
-
----
-
-Slide 12 Biblical Answer: “I live; yet not I, but Christ liveth in me; and the life which I now live in the flesh I live by the faith of the Son of God.” (Galatians 2:20)
-
-[IMG] Warm classical biblical painting of the Apostle Paul writing an epistle, looking upward with an expression of deep peace and inspiration.
-
----
-
-Slide 13 Explanation: The Christian life is a substitution. We lay down our old life, and Christ lives His life through us. We do not live by our own power, but by faith in His power.
-
-[SN] Spirit-led tangent: This verse highlights the "mystical union" between the believer and Christ. It is not merely imitating Jesus from the outside, but allowing His Spirit to animate our choices, thoughts, and actions from the inside.
-
-[IMG] Warm classical biblical painting of a grapevine, showing the sap flowing from the thick main vine into the branches, symbolizing shared life.
-
----
-
-Slide 14 Question: Was this plan of salvation an afterthought?
-
-[IMG] Warm classical biblical painting of the cosmos being formed, with a divine light piercing through the darkness of space.
-
----
-
-Slide 15 Biblical Answer: “...the Lamb slain from the foundation of the world.” (Revelation 13:8)
-
-“And I will put enmity between thee [the serpent] and the woman... it shall bruise thy head, and thou shalt bruise his heel.” (Genesis 3:15)
-
-[IMG] Warm classical biblical painting of a lamb standing peacefully in a garden setting, with a subtle foreshadowing of a cross in the background.
-
----
-
-Slide 16 Explanation: Before sin ever entered, God had a plan. The "Seed" (Christ) was promised to Adam and Eve immediately after the fall. This prophecy predicted that while Satan would wound Christ (bruise His heel at the cross), Christ would ultimately destroy sin and Satan (crush the head).
-
-[DYK] Genesis 3:15 is often called the *Protoevangelium*, or "First Gospel." It is the very first promise of a Savior found in the Bible.
-
-[IMG] Warm classical biblical painting of Adam and Eve in the Garden, listening to a beam of light from above, with a serpent retreating into the shadows.
-
----
-
-Slide 17 Question: How closely did Christ identify with humanity to save us?
-
-[IMG] Warm classical biblical painting of Jesus walking through a dusty village market, blending in with the crowd, looking weary yet compassionate.
-
----
-
-Slide 18 Biblical Answer: “Forasmuch then as the children are partakers of flesh and blood, He also Himself likewise took part of the same...” (Hebrews 2:14)
-
-[IMG] Warm classical biblical painting of the nativity scene or Jesus working in a carpenter shop, emphasizing His physical humanity.
-
----
-
-Slide 19 Explanation: To be a complete Savior, Christ had to meet us exactly where we are. He partook of our nature—inheriting the same physical liabilities and temptations common to the children of Adam—yet He remained sinless through reliance on the Spirit.
-
-[IMG] Warm classical biblical painting of Jesus in the wilderness, looking tired and hungry, yet steadfast in prayer.
-
----
-
-Slide 20 Deeper Insight: By taking on our nature, Christ demonstrated that humanity, when connected to God, can overcome. He did not overcome using powers unavailable to us; He overcame as a man trusting in God, setting a pattern for our own victory over sin.
-
-[SN] The pioneer perspective emphasizes that if Christ had a "super-human" nature different from ours, He could not fully be our Example. Because He fought the battle in our flesh, He can sympathize with our struggles and offer real help (Hebrews 4:15).
-
-[IMG] Warm classical biblical painting of a rugged mountain path, with footprints leading up the steep trail, illuminated by morning light.
-
----
-
-Slide 21 Question: How do we become children of God and heirs to this promise?
-
-[IMG] Warm classical biblical painting of a father placing a robe around the shoulders of a kneeling son.
-
----
-
-Slide 22 Biblical Answer: “For ye are all the children of God by faith in Christ Jesus.” (Galatians 3:26)
-
-[IMG] Warm classical biblical painting of a diverse group of people, men and women of different ages, looking upward with faces full of hope and belonging.
-
----
-
-Slide 23 Explanation: We are not born as children of God in the spiritual sense; we are adopted into the family through faith.
-
-[ILL] A legal heir receives an inheritance not because they worked for it, but because of their relationship to the father. By faith, we become "joint-heirs" with Christ.
-
-[IMG] Warm classical biblical painting of a signet ring being placed on a finger, symbolizing authority and inheritance.
-
----
-
-Slide 24 Practical Application:
-Since Christ is the "Way of Life," consider these steps for today:
-• **Admit:** Acknowledge that "coming short" is our natural state.
-• **Accept:** Receive the gift of life by inviting Christ to live in you (Gal 2:20).
-• **Trust:** Believe that just as Christ overcame in human flesh, He can give you victory over your specific struggles today.
-
-[IMG] Warm classical biblical painting of a person kneeling in a quiet room, hands clasped in prayer, bathed in a warm, golden beam of light.
-
----
+## Slide 1 – Q1: The Universal Condition
+- **Question:** In what condition are all men naturally?
+- **Key Text:** Galatians 3:22 – “But the scripture hath concluded all under sin, that the promise by faith of Jesus Christ might be given to them that believe.”
+- **Key Text:** Romans 3:23 – “For all have sinned, and come short of the glory of God.”
+
+## Slide 2 – Q1: Diagnosis of Humanity
+- **The Scope of Sin:**
+  - The diagnosis is universal; "all" have sinned.
+  - There are no naturally holy classes of people.
+  - Everyone is born with a fallen nature (Psalm 51:5 – “Behold, I was shapen in iniquity; and in sin did my mother conceive me.”).
+- **The Definition of Sin:**
+  - **Transgression:** Stepping across God's boundary (1 John 3:4 – “Whosoever committeth sin transgresseth also the law: for sin is the transgression of the law.”).
+  - **Falling Short:** Failure to reflect God’s glory, which is His character of love (Exodus 34:6-7).
+- **The Prisoner:**
+  - We are "concluded under sin"—held captive in a prison house.
+  - We are unable to free ourselves, preparing the way for a Deliverer.
+
+## Slide 3 – Q1: Illustration
+- **[ILL] The Debtors**
+  - Imagine a prison filled with debtors.
+  - One prisoner owes a million dollars; another owes ten dollars.
+  - Though the amounts differ, both are equally prisoners.
+  - Both are equally unable to pay their way out.
+  - **Lesson:** Whether sins seem great or small to human eyes, all are "under sin" and in need of a Savior.
+
+## Slide 4 – Q2: The Wages of Sin
+- **Question:** What is the wages of sin?
+- **Key Text:** Romans 6:23 – “For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord.”
+
+## Slide 5 – Q2: Death as Payment
+- **Wages:**
+  - A wage is payment earned for service.
+  - Sin is a master; when we serve sin, it pays us in death.
+- **The Nature of Death:**
+  - This refers not merely to the first death (sleep), but the "second death" (Revelation 20:14 – “And death and hell were cast into the lake of fire. This is the second death.”).
+  - It is eternal separation from the Life-giver.
+- **The Justice of God:**
+  - God’s law is a law of life.
+  - Transgression chooses disconnection from Life.
+  - Sin brings forth death naturally (James 1:15 – “Then when lust hath conceived, it bringeth forth sin: and sin, when it is finished, bringeth forth death.”).
+
+## Slide 6 – Q3: The Gift of God
+- **Question:** What is the gift of God?
+- **Key Text:** Romans 6:23 – “...but the gift of God is eternal life through Jesus Christ our Lord.”
+
+## Slide 7 – Q3: Grace and Restoration
+- **A Free Gift:**
+  - Eternal life is never earned; it is not a reward for good behavior.
+  - It is a gift of grace (Ephesians 2:8 – “For by grace are ye saved through faith; and that not of yourselves: it is the gift of God.”).
+- **Restoration:**
+  - Restores what was lost in Eden.
+  - Includes immortality and a life in harmony with God’s character.
+- **Definition of Grace:**
+  - The unmerited favor of God toward those who deserve the opposite.
+  - **G.R.A.C.E.** = **G**od’s **R**iches **A**t **C**hrist’s **E**xpense.
+
+## Slide 8 – Q4: The Location of Life
+- **Question:** In whom is now this gift?
+- **Key Text:** 1 John 5:11 – “And this is the record, that God hath given to us eternal life, and this life is in his Son.”
+
+## Slide 9 – Q4: Key Points (Righteousness by Faith)
+- **Life is in the Son:**
+  - God does not hand out eternal life as a separate package.
+  - We cannot possess life apart from Christ (John 14:6 – “Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.”).
+- **The Fountain:**
+  - Water stays in the fountain; to get water, you must go to the source.
+  - To have eternal life, we must be united with Jesus.
+- **Righteousness by Faith:**
+  - We do not have righteousness in ourselves.
+  - We have righteousness only by being *in Christ*.
+
+## Slide 10 – Q5: The Invitation
+- **Question:** How many may have this life?
+- **Key Text:** Revelation 22:17 – “And the Spirit and the bride say, Come. And let him that heareth say, Come. And let him that is athirst come. And whosoever will, let him take the water of life freely.”
+- **Key Text:** 1 John 5:12 – “He that hath the Son hath life; and he that hath not the Son of God hath not life.”
+
+## Slide 11 – Q5: Key Points & Sanctuary Imagery
+- **Whosoever Will:**
+  - The invitation is universal.
+  - Men are not excluded by God, but by their own refusal (John 5:40 – “And ye will not come to me, that ye might have life.”).
+- **The Sole Condition:**
+  - The judgment is simple: "He that hath the Son hath life."
+  - It does not demand a "good record" or superior knowledge, but possession of the Son.
+- **Sanctuary Connection:**
+  - As water flowed from the rock in the wilderness (1 Corinthians 10:4 – “And did all drink the same spiritual drink: for they drank of that spiritual Rock that followed them: and that Rock was Christ.”).
+  - The water of life flows freely from Christ to the thirsty.
+
+## Slide 12 – Q6: Possessing Christ
+- **Question:** How must one have Christ?
+- **Key Text:** 2 Corinthians 13:5 – “Examine yourselves, whether ye be in the faith; prove your own selves. Know ye not your own selves, how that Jesus Christ is in you, except ye be reprobates?”
+
+## Slide 13 – Q6: Indwelling Reality
+- **From Legal to Experiential:**
+  - It is not enough to know *about* Christ historically.
+  - He must dwell within.
+- **The Mystery of the Gospel:**
+  - Colossians 1:27 – “To whom God would make known what is the riches of the glory of this mystery among the Gentiles; which is Christ in you, the hope of glory.”
+- **Indwelling Spirit:**
+  - Not a metaphor; a spiritual reality where Christ's mind becomes ours (Philippians 2:5 – “Let this mind be in you, which was also in Christ Jesus.”).
+- **The Test:**
+  - If Christ is not ruling within, we are "reprobates" (disqualified/rejected).
+
+## Slide 14 – Q7: The Mechanism of Union
+- **Question:** How do we really have Christ in us unto eternal life?
+- **Key Text:** John 6:47 – “Verily, verily, I say unto you, He that believeth on me hath everlasting life.”
+
+## Slide 15 – Q7: Faith and the Heart
+- **Believing is Receiving:**
+  - To believe is to accept Him as Savior and Lord.
+- **Present Possession:**
+  - The text says "Hath" (present tense).
+  - Life begins the moment the soul casts itself on Christ.
+- **Heart Work:**
+  - Faith is a transaction of the will ("with the heart man believeth" - Romans 10:10).
+  - It opens the door (Revelation 3:20 – “Behold, I stand at the door, and knock: if any man hear my voice, and open the door, I will come in to him...”).
+- **Definition of Faith:**
+  - Taking God at His word (Hebrews 11:1).
+  - Surrendering emptiness to receive His fullness.
+
+## Slide 16 – Q8: The Result of Reception
+- **Question:** What follows the reception of Christ?
+- **Key Text:** Galatians 2:20 – “I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.”
+
+## Slide 17 – Q8: Sanctification & Obedience
+- **Death to Self:**
+  - The old nature is legally dead ("crucified") and experientially subdued.
+- **A New Occupant:**
+  - "Christ liveth in me."
+  - Jesus lives His life through the human vessel.
+- **Practical Obedience:**
+  - Faith does not lead to lawlessness.
+  - If Christ lives in me, He will keep the commandments in me just as He did in Galilee (John 15:10 – “If ye keep my commandments, ye shall abide in my love; even as I have kept my Father's commandments, and abide in his love.”).
+
+## Slide 18 – Q8: Illustration
+- **[ILL] The Glove**
+  - A glove lying on a table is powerless to lift even a penny.
+  - If a living hand enters the glove, it moves, lifts, and works.
+  - The glove could say, "I work, yet not I, but the hand works in me."
+  - **Lesson:** The Christian is the vessel; Christ is the Worker.
+
+## Slide 19 – Q9: State Before the New Birth
+- **Question:** How are all regarded before they are quickened with Christ?
+- **Key Text:** Ephesians 2:4-5 – “But God, who is rich in mercy, for his great love wherewith he loved us, Even when we were dead in sins, hath quickened us together with Christ, (by grace ye are saved;)”
+
+## Slide 20 – Q9: Dead in Sins
+- **Spiritual Death:**
+  - Like a corpse, the sinner is unresponsive to spiritual things.
+- **Quickened:**
+  - Old English for "made alive."
+- **Grace Initiative:**
+  - God loved us *while* we were dead.
+  - He did not wait for us to revive ourselves.
+  - He breathed life into us through the Gospel.
+
+## Slide 21 – Q10: The Transition
+- **Question:** What is this spiritual transition from death to life called?
+- **Key Text:** 1 Peter 1:23 – “Being born again, not of corruptible seed, but of incorruptible, by the word of God, which liveth and abideth for ever.”
+
+## Slide 22 – Q10: The New Birth
+- **Necessity:**
+  - No entry into the spiritual kingdom without a spiritual birth (John 3:3 – “Except a man be born again, he cannot see the kingdom of God.”).
+- **The Agent:**
+  - The "seed" is the Word of God.
+  - Produces a new, divine nature (2 Peter 1:4 – “Whereby are given unto us exceeding great and precious promises: that by these ye might be partakers of the divine nature...”).
+- **Victory:**
+  - The new nature does not practice sinning (1 John 3:9 – “Whosoever is born of God doth not commit sin; for his seed remaineth in him...”).
+
+## Slide 23 – Q11: God’s Action in Eden
+- **Question:** When our first parents transgressed, what was done to prevent them from living forever in sin?
+- **Key Text:** Genesis 3:22 – “...lest he put forth his hand, and take also of the tree of life, and eat, and live for ever.”
+- **Key Text:** Genesis 3:24 – “So he drove out the man; and he placed at the east of the garden of Eden cherubims, and a flaming sword which turned every way, to keep the way of the tree of life.”
+
+## Slide 24 – Q11: Severe Mercy
+- **Conditional Immortality:**
+  - Man is not naturally immortal; life depended on the Tree.
+- **Preventing Immortal Sinners:**
+  - Allowing a sinner to eat would immortalize sin and misery.
+  - God barred the physical way to open a spiritual way.
+- **The New Way:**
+  - We now access life through faith in Christ, the "new and living way" (Hebrews 10:20).
+
+## Slide 25 – Q12: The First Promise
+- **Question:** By whom did the Lord say that Satan, the originator of sin, should be destroyed?
+- **Key Text:** Genesis 3:15 – “And I will put enmity between thee and the woman, and between thy seed and her seed; it shall bruise thy head, and thou shalt bruise his heel.”
+
+## Slide 26 – Q12: The Protoevangelium
+- **The Enmity:**
+  - God puts a supernatural hatred for sin in the believer's heart.
+  - Without this, we would be content slaves of Satan.
+- **The Conflict:**
+  - A war between the seed of rebellion and the Seed of the woman (Christ).
+- **The Victory:**
+  - **Bruised Heel:** Christ’s suffering at the cross (painful but not final).
+  - **Crushed Head:** The total destruction of Satan and his kingdom.
+
+## Slide 27 – Q13: Purpose of Christ’s Death
+- **Question:** For what purpose did Christ die?
+- **Key Text:** Hebrews 2:14 – “Forasmuch then as the children are partakers of flesh and blood, he also himself likewise took part of the same; that through death he might destroy him that had the power of death, that is, the devil.”
+
+## Slide 28 – Q13: Destroying the Destroyer
+- **Identification:**
+  - Christ took on "flesh and blood" to save the children.
+  - He condemned sin in the flesh (Romans 8:3 – “...God sending his own Son in the likeness of sinful flesh, and for sin, condemned sin in the flesh.”).
+- **Breaking the Dominion:**
+  - By paying the wages of sin (death), He broke Satan's legal claim.
+- **Sanctuary Connection:**
+  - Christ was slain in the antitypical outer court (earth) to make atonement.
+
+## Slide 29 – Q14: The Eternal Plan
+- **Question:** How early was it determined that Christ should die?
+- **Key Text:** Revelation 13:8 – “And all that dwell upon the earth shall worship him, whose names are not written in the book of life of the Lamb slain from the foundation of the world.”
+
+## Slide 30 – Q14: Security in the Plan
+- **Eternal Purpose:**
+  - The plan of salvation was not an emergency afterthought.
+  - It is the "Everlasting Covenant" (Hebrews 13:20).
+- **Foreknowledge:**
+  - God foresaw sin and provided the remedy before creation.
+- **Confidence:**
+  - Our salvation rests on a foundation as old as eternity.
+
+## Slide 31 – Q15: The Promise to Abraham
+- **Question:** Through whom was Abraham to receive the promise of God?
+- **Key Text:** Genesis 12:7 – “And the LORD appeared unto Abram, and said, Unto thy seed will I give this land: and there builded he an altar unto the LORD, who appeared unto him.”
+
+## Slide 32 – Q15: The Seed Promise
+- **The Inheritance:**
+  - The land (and the earth made new) was promised to Abraham and his Seed.
+- **Faith, not Flesh:**
+  - The promise relied on God’s miraculous power, not Abraham’s natural capacity.
+
+## Slide 33 – Q16: Scope of the Promise
+- **Question:** How far was the promise to Abraham to extend?
+- **Key Text:** Acts 3:25 – “Ye are the children of the prophets, and of the covenant which God made with our fathers, saying unto Abraham, And in thy seed shall all the kindreds of the earth be blessed.”
+
+## Slide 34 – Q16: Universal Blessing
+- **Global Mission:**
+  - Abraham was called to be a channel of blessing to *all* families of the earth.
+  - No exclusion of Gentiles.
+- **The Gospel:**
+  - The gospel was preached to Abraham in this promise (Galatians 3:8 – “And the scripture, foreseeing that God would justify the heathen through faith, preached before the gospel unto Abraham, saying, In thee shall all nations be blessed.”).
+
+## Slide 35 – Q17: Identifying the Seed
+- **Question:** To whom does the "seed" of the Old Testament refer?
+- **Key Text:** Galatians 3:16 – “Now to Abraham and his seed were the promises made. He saith not, And to seeds, as of many; but as of one, And to thy seed, which is Christ.”
+
+## Slide 36 – Q17: Union with Christ
+- **Christ is the Seed:**
+  - He is the true Heir of the world.
+- **Our Access:**
+  - We share the promise only by being *in* Christ.
+  - Galatians 3:29 – “And if ye be Christ's, then are ye Abraham's seed, and heirs according to the promise.”
+
+## Slide 37 – Q18: Justification by Faith
+- **Question:** How did the Lord regard Abraham's faith?
+- **Key Text:** Romans 4:3 – “For what saith the scripture? Abraham believed God, and it was counted unto him for righteousness.”
+
+## Slide 38 – Q18: Key Points (Justification)
+- **Counted/Imputed:**
+  - Abraham had no righteousness of his own.
+  - God credited his faith as righteousness.
+- **The Exchange:**
+  - God treats the believing sinner as righteous because he trusts the Righteous One.
+- **Object of Faith:**
+  - Not faith in "faith," but faith in *God's promise* (the coming Seed).
+- **Definition:**
+  - **Justification:** God's legal declaration that a sinner is set right, solely through the merits of Jesus.
+
+## Slide 39 – Q19: Law vs. Grace
+- **Question:** Since man had sinned, if righteousness could come by the law, then what must we conclude?
+- **Key Text:** Galatians 2:21 – “I do not frustrate the grace of God: for if righteousness come by the law, then Christ is dead in vain.”
+
+## Slide 40 – Q19: The Limit of Law
+- **The Dilemma:**
+  - If obedience could save, Jesus’ sacrifice was a waste.
+- **Function of the Law:**
+  - It points out sin (Romans 3:20 – “...for by the law is the knowledge of sin.”).
+  - It cannot save, forgive, or change the heart.
+
+## Slide 41 – Q19: Illustration
+- **[ILL] The Mirror**
+  - If you see dirt on your face in a mirror, you do not wash with the mirror.
+  - The mirror reveals the dirt; the water washes it.
+  - **Lesson:** The Law is the mirror; Christ is the water.
+
+## Slide 42 – Q20: The Purpose of the Diagnosis
+- **Question:** Why have all been reckoned under sin?
+- **Key Text:** Galatians 3:22 – “But the scripture hath concluded all under sin, that the promise by faith of Jesus Christ might be given to them that believe.”
+
+## Slide 43 – Q20: Shut Up to Faith
+- **Strategic Diagnosis:**
+  - God reveals our terminal condition so we will accept the Cure.
+  - The law strips self-confidence.
+- **Reliance:**
+  - We must stop working *for* salvation and start trusting the Savior *for* it.
+  - The promise is given to "them that believe."
+
+## Slide 44 – Q21: Christ Our All
+- **Question:** What does Christ become to the true believer?
+- **Key Text:** John 14:6 – “Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.”
+
+## Slide 45 – Q21: Key Points & Sanctuary
+- **The Way:**
+  - Not just a signpost; He is the path itself.
+  - **Sanctuary:** He is the Door, the Sacrifice, the Priest, and the Veil.
+- **The Truth:**
+  - The reality of all God’s promises.
+- **The Life:**
+  - The source of new life that overcomes sin.
+- **Exclusivity:**
+  - No other ladder bridges the gap caused by sin.
+
+## Slide 46 – Q22: Becoming Children
+- **Question:** How then do all become children of God?
+- **Key Text:** Galatians 3:26 – “For ye are all the children of God by faith in Christ Jesus.”
+
+## Slide 47 – Q22: Adoption
+- **Relationship by Faith:**
+  - We are not naturally spiritual children of God; we are "children of wrath" by nature (Ephesians 2:3).
+  - We become children through adoption.
+- **Equality:**
+  - This privilege is open to "all"—Jew, Gentile, bond, or free.
+
+## Slide 48 – Q23: The Prospect
+- **Question:** If children of God, what is our prospect?
+- **Key Text:** Romans 8:17 – “And if children, then heirs; heirs of God, and joint-heirs with Christ; if so be that we suffer with him, that we may be also glorified together.”
+
+## Slide 49 – Q23: Inheritance & Glory
+- **Heirs of God:**
+  - We inherit the Kingdom.
+- **Joint-Heirs:**
+  - We share whatever Jesus has won: His throne, glory, and life (Revelation 3:21 – “To him that overcometh will I grant to sit with me in my throne...”).
+- **Suffering:**
+  - We share His sufferings against sin now to share His glory later.
+
+## Slide 50 – Conclusion: Victory in Christ
+- **Perfect Savior:**
+  - He was made "like unto his brethren" (Hebrews 2:17).
+  - He defeated sin in the flesh.
+- **Our Experience:**
+  - He imparts that victory to us through the new birth.
+  - He covers our past and empowers our present.
+  - He is not just a theory, but a living Person in the heart.

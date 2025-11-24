@@ -1,155 +1,337 @@
-Study Title: Understanding Saving Faith
+## Slide 1 – Q1: Defining Faith
+- **Question:** Give the Bible definition of faith.
+- **Key Text:** Hebrews 11:1 – “Now faith is the substance of things hoped for, the evidence of things not seen.”
+
+## Slide 2 – Q1: Key Points
+- **Not a Feeling:** Bible faith is not a guess, a feeling, or a "leap in the dark." It is a tangible spiritual reality.
+- **Substance (Assurance):**
+  - The Greek word *hypostasis* implies a title deed, foundation, or ground of confidence.
+  - Faith treats God's future promises as a present reality.
+- **Evidence (Proof):**
+  - Faith acts as the "eye of the soul" (2 Corinthians 4:18 – “While we look not at the things which are seen, but at the things which are not seen...”).
+  - It provides evidence for the invisible reality of God and the heavenly sanctuary.
+
+## Slide 3 – Q1: Application (Righteousness by Faith)
+- **The Hand of Faith:**
+  - Faith is the hand that lays hold of the merits of Christ.
+  - We cannot physically see our names in the Book of Life or see Christ's righteousness covering us.
+  - Faith accepts the "substance" of Christ’s perfect life as our own (Romans 4:5 – “But to him that worketh not, but believeth on him that justifieth the ungodly, his faith is counted for righteousness.”).
+
+## Slide 4 – Q1: Illustration
+- **The Title Deed:**
+  - Imagine holding a title deed to land in a distant country you have never visited.
+  - You have never seen the land, but the deed is the "substance" or legal proof of ownership.
+  - You can sell it or build on it because the deed makes it real.
+- **Lesson:** The Word of God is the title deed; faith accepts it as fact.
 
 ---
 
-Slide 1 Question: What is the Bible’s definition of faith?
+## Slide 5 – Q2: Believing God
+- **Question:** When coming to God, what is it necessary to believe concerning Him?
+- **Key Text:** Hebrews 11:6 – “But without faith it is impossible to please Him; for he that cometh to God must believe that He is, and that He is a rewarder of them that diligently seek Him.”
 
-[IMG] Warm classical biblical painting of a figure looking upward into a shaft of soft light, expression filled with anticipation and trust.
+## Slide 6 – Q2: Key Points
+- **That He Is (Existence):**
+  - We must believe in a personal, living God who created and sustains all things.
+  - This is the step away from atheism and idolatry.
+- **That He Is a Rewarder (Character):**
+  - It is not enough just to believe He exists; even devils believe that (James 2:19).
+  - We must trust His benevolent character—that He is a Father waiting to bless, not a tyrant waiting to condemn.
+- **Definition of Grace:**
+  - The unmerited favor of God toward the undeserving (Ephesians 2:8 – “For by grace are ye saved through faith; and that not of yourselves: it is the gift of God”).
 
----
-
-Slide 2 Biblical Answer: “Now faith is the substance of things hoped for, the evidence of things not seen.” (Hebrews 11:1)
-
-[IMG] Warm classical biblical painting of an ancient stone foundation or anchor, symbolizing solidity and substance amidst a misty background.
-
----
-
-Slide 3 Explanation: Faith is not merely a wish or a positive feeling. The Scripture defines it as “substance”—something tangible and real. It is treating God's promises as present realities, even when our physical eyes cannot yet see them.
-
-[IMG] Warm classical biblical painting of a believer looking at an empty field but seeing a harvest, soft golden light illuminating their vision.
-
----
-
-Slide 4 Term Definition: “Substance” comes from a Greek word meaning “standing under” or “foundation.” It implies that faith is the solid ground upon which our hope rests. It is the title-deed to the things God has promised.
-
-[ILL] Imagine you hold a property deed. You may not be standing on the land yet, nor have you seen the soil, but the deed is the "substance" or proof of your ownership. Faith acts as that deed for God's promises.
-
-[IMG] Warm classical biblical painting of hands holding a rolled ancient scroll with a royal seal, representing a title-deed.
+## Slide 7 – Q2: Illustration
+- **The Child and the Father:**
+  - A child asking a father for bread will approach with fear if they believe the father is cruel.
+  - If the child knows the father is loving and generous, they come with confidence.
+- **Lesson:** Our view of God's character determines how we approach the throne of grace.
 
 ---
 
-Slide 5 Question: How do we obtain this faith?
+## Slide 8 – Q3: Evidence of Existence
+- **Question:** How may we know that God exists?
+- **Key Text:** Psalm 19:1 – “The heavens declare the glory of God; and the firmament showeth His handiwork.”
 
-[IMG] Warm classical biblical painting of a young person sitting attentively, waiting to receive instruction.
+## Slide 9 – Q3: Key Points
+- **Two Great Books:** God reveals Himself through Scripture and Nature.
+- **General Revelation:**
+  - The intricate design of the universe testifies to a Designer (Romans 1:20).
+- **Law and Order:**
+  - Nature obeys physical laws; the moral universe obeys God's moral law.
+  - The order of the heavens declares God is not the author of confusion (1 Corinthians 14:33).
+- **The Sabbath Connection:**
+  - The Sabbath is the memorial of creation (Exodus 20:11).
+  - Keeping the Sabbath acknowledges the God whose handiwork the heavens declare.
 
----
-
-Slide 6 Biblical Answer: “So then faith cometh by hearing, and hearing by the word of God.” (Romans 10:17)
-
-[IMG] Warm classical biblical painting of a group of people leaning in to listen to a disciple reading from a scroll.
-
----
-
-Slide 7 Explanation: Faith is not something we conjure up from within our own imagination. It is a response to God’s revelation. We cannot trust a God we do not know; therefore, we learn of Him through His Word. As we digest Scripture, our confidence in His character grows.
-
-[IMG] Warm classical biblical painting of an open Bible on a wooden table, illuminated by a candle, signifying the source of faith.
-
----
-
-Slide 8 Did You Know? In the original Greek, "hearing" implies more than just audio processing; it implies understanding and taking heed. To have faith, one must not only listen to the Bible but let its message sink deep into the heart.
-
-[IMG] Warm classical biblical painting of a person in deep meditation, pressing a scroll against their chest.
-
----
-
-Slide 9 Question: Is it possible to please God without this faith?
-
-[IMG] Warm classical biblical painting of a solitary figure walking through a vast, empty landscape, looking toward the heavens.
+## Slide 10 – Q3: Illustration
+- **The Pocket Watch:**
+  - If you found a ticking watch in a field, you would not assume wind and rain assembled it by accident.
+  - The gears and springs prove there was a watchmaker.
+- **Lesson:** The universe is far more complex than a watch; it proves there is a Creator.
 
 ---
 
-Slide 10 Biblical Answer: “But without faith it is impossible to please Him; for he that cometh to God must believe that He is, and that He is a rewarder of them that diligently seek Him.” (Hebrews 11:6)
+## Slide 11 – Q4: Obtaining Faith
+- **Question:** How may we have faith in Him?
+- **Key Text:** Romans 10:17 – “So then faith cometh by hearing, and hearing by the word of God.”
 
-[IMG] Warm classical biblical painting of Abel offering a sacrifice, light shining down upon the altar to show acceptance.
+## Slide 12 – Q4: Key Points
+- **Source of Faith:**
+  - Faith is not manufactured by emotions; it is generated by contact with God's Word.
+  - God's Word carries the power to fulfill itself (Isaiah 55:11).
+- **Intellect and Will:**
+  - We "hear" (understand) and choose to accept the Word.
+  - Faith grows naturally as we feed on Bible promises.
+- **Righteousness by Faith:**
+  - Just as we receive righteousness as a gift, we receive faith as a gift through the Word.
+  - Studying the life of Christ produces confidence in God.
 
----
-
-Slide 11 Explanation: God is not merely a concept; He is a Person who interacts with those who seek Him. Coming to God requires two foundational beliefs:
-1. That He exists.
-2. That He is good and responds to those who pursue Him.
-
-[SN] The phrase "diligently seek" suggests an intense, earnest search. The SDA pioneers often emphasized that religion was not casual; it required the whole heart. Just as the Israelites gathered manna daily, we must seek God's presence with diligence every morning.
-
-[IMG] Warm classical biblical painting of Israelites gathering manna in the soft morning light, showing diligence.
-
----
-
-Slide 12 Question: Does true faith lead to action, or is it just a mental belief?
-
-[IMG] Warm classical biblical painting of two figures: one sitting idly, the other actively helping a neighbor, contrasting inaction with action.
-
----
-
-Slide 13 Biblical Answer: “For as the body without the spirit is dead, so faith without works is dead also.” (James 2:26)
-
-“Beloved, if our heart condemn us not, then have we confidence toward God... because we keep His commandments, and do those things that are pleasing in His sight.” (1 John 3:21, 22)
-
-[IMG] Warm classical biblical painting of a healthy fruit tree bearing abundant fruit, representing faith producing works.
+## Slide 13 – Q4: Illustration
+- **The Bridge:**
+  - A man does not try to "feel" trust before walking on a bridge.
+  - He examines the bridge's cables, concrete, and steel.
+  - The more he sees the strength of the bridge (the Word), the more his confidence (faith) grows.
 
 ---
 
-Slide 14 Explanation: There is a vital link between faith and obedience. A body that does not breathe is dead; likewise, a faith that does not result in obedience to God is dead. True saving faith always produces the fruit of a changed life. We do not obey *to be* saved; we obey because we *believe* and love the Saviour.
+## Slide 14 – Q5: Value of Promises
+- **Question:** Are the promises of God of any value to those who do not believe them?
+- **Key Text:** Jude 5 – “I will therefore put you in remembrance, though ye once knew this, how that the Lord, having saved the people out of the land of Egypt, afterward destroyed them that believed not.”
 
-[IMG] Warm classical biblical painting of a person gently tending to the poor or sick, soft light highlighting the act of service.
+## Slide 15 – Q5: Key Points
+- **Conditional Benefit:** God's promises are absolute, but we only benefit if we believe.
+- **Lesson of Israel:**
+  - Delivered from Egypt (Justification) but failed to enter Canaan (Glorification) due to unbelief (Hebrews 3:19).
+  - They did not believe God could give victory over "giants" (sin).
+- **Mixing Faith:**
+  - The word preached does not profit unless "mixed with faith" in the hearer (Hebrews 4:2).
 
----
-
-Slide 15 Deeper Insight: Notice the connection in 1 John: our confidence in prayer ("whatsoever we ask") is linked to a life that harmonizes with God’s will ("keep His commandments"). Disobedience creates a barrier of doubt, but a clear conscience strengthens our faith.
-
-[SN] This harmonizes with the 1888 message of Righteousness by Faith, which teaches that genuine faith in Christ's righteousness naturally empowers the believer to keep the law, not by their own power, but through His abiding Spirit.
-
-[IMG] Warm classical biblical painting of a believer kneeling in prayer with an expression of bold, peaceful confidence.
-
----
-
-Slide 16 Question: What happens when we let doubt enter our minds?
-
-[IMG] Warm classical biblical painting of a storm at sea, dark waves rising, creating a sense of instability.
-
----
-
-Slide 17 Biblical Answer: “And immediately Jesus stretched forth His hand, and caught him, and said unto him, O thou of little faith, wherefore didst thou doubt?” (Matthew 14:31)
-
-“Let not that man think that he shall receive anything of the Lord.” (James 1:7)
-
-[IMG] Warm classical biblical painting of Peter sinking into the waves, looking terrified, while Jesus stands firm on the water reaching out.
+## Slide 16 – Q5: Illustration
+- **The Unused Account:**
+  - A philanthropist deposits a million dollars in your name.
+  - If you do not believe the money is there, you will never write a check.
+  - You will live in poverty despite the provision made for you.
+- **Lesson:** Unbelief renders God’s infinite resources useless to us.
 
 ---
 
-Slide 18 Explanation: Peter began to sink when he took his eyes off Jesus and focused on the storm. Doubt disconnects us from the power of God. When we pray with a "doubtful mind," wavering between belief and unbelief, we cannot take hold of God's hand.
+## Slide 17 – Q6: The Object of Faith
+- **Question:** In whom must we believe in order to be saved?
+- **Key Text:** John 3:16 – “For God so loved the world, that He gave His only Son, that whosoever believeth in Him should not perish, but have everlasting life.”
 
-[ILL] A person trying to cross a chasm on a bridge must trust the bridge entirely. If they stand on the edge, trembling and refusing to step out, the bridge cannot help them. Doubt paralyzes our spiritual progress.
-
-[IMG] Warm classical biblical painting of a deep chasm bridged by a narrow path, with a figure hesitating at the edge.
-
----
-
-Slide 19 Question: What is the ultimate result of having saving faith?
-
-[IMG] Warm classical biblical painting of storm clouds breaking apart to reveal a calm, golden sunrise.
-
----
-
-Slide 20 Biblical Answer: “Therefore being justified by faith, we have peace with God through our Lord Jesus Christ.” (Romans 5:1)
-
-“Now the God of hope fill you with all joy and peace in believing...” (Romans 15:13)
-
-[IMG] Warm classical biblical painting of a face radiant with deep, unshakeable peace and joy.
+## Slide 18 – Q6: Key Points
+- **Believing in a Person:**
+  - Saving faith is not just believing a doctrine, but trusting Jesus Christ, the Lamb of God.
+- **The Great Exchange:**
+  - We give Him our sins; He gives us His righteousness.
+  - This is the essence of the Atonement (reconciliation).
+- **From Death to Life:**
+  - Sin causes separation (death).
+  - Faith in Christ reconnects the soul to the Source of life.
 
 ---
 
-Slide 21 Explanation: The fruit of faith is not anxiety or striving, but peace. When we rely entirely on the merits of Jesus for our salvation and trust His Word for our daily guidance, we enter into a rest that the world cannot understand.
+## Slide 19 – Q7: Evidence of Forgiveness
+- **Question:** When we believe on the Son of God, what evidence do we have that our sins are forgiven?
+- **Key Text:** 1 John 5:10 – “He that believeth on the Son of God hath the witness in himself: he that believeth not God hath made Him a liar; because he believeth not the record that God gave of His Son.”
 
-[IMG] Warm classical biblical painting of sheep resting safely in a green pasture, overseen by a Shepherd.
+## Slide 20 – Q7: Key Points
+- **The Record:**
+  - Evidence is found in God's Word, not our shifting emotions.
+  - If we confess, God *says* we are forgiven (1 John 1:9).
+- **Not Making God a Liar:**
+  - To doubt forgiveness after confession is to call God a liar.
+- **The Witness:**
+  - When we accept the Word as true, the Holy Spirit plants assurance in the heart.
+
+## Slide 21 – Q7: Illustration
+- **The Judge's Pardon:**
+  - If a prisoner receives a signed pardon from a judge, he is free.
+  - He may *feel* guilty or afraid, but his feelings do not change the fact of the pardon.
+  - Freedom depends on the "record" (signature), not the emotion.
 
 ---
 
-Slide 22 Practical Application: How can we exercise saving faith today?
+## Slide 22 – Q8: Nature of the Witness
+- **Question:** What is the nature of this witness?
+- **Key Text:** Romans 8:16 – “The Spirit itself beareth witness with our spirit, that we are the children of God.”
 
-1. **In Prayer:** Believe immediately that you are forgiven because God said it.
-2. **In Trials:** Trust that "all things work together for good."
-3. **In Obedience:** Step forward in keeping God's commandments, trusting He provides the power.
-
-[IMG] Warm classical biblical painting of a triptych (three scenes): a person praying, a person walking through a storm, and a person helping another, all bathed in soft light.
+## Slide 23 – Q8: Key Points
+- **Cooperative Witness:**
+  - The Holy Spirit interacts with our renewed mind/spirit.
+- **Adoption:**
+  - Assures us we are no longer slaves to fear, but adopted children of the King.
+- **Harmony:**
+  - When our conscience consents to God's law and trusts His promises, the Spirit confirms, "Yes, you are God's child."
 
 ---
+
+## Slide 24 – Q9: Result of the Witness
+- **Question:** When we have this witness, what does it do for us?
+- **Key Text:** Romans 5:1 – “Therefore being justified by faith, we have peace with God through our Lord Jesus Christ.”
+
+## Slide 25 – Q9: Key Points
+- **Peace:**
+  - The immediate fruit of justification is peace with God.
+  - Justification ends the war caused by sin (Isaiah 59:2).
+- **Sanctuary Imagery:**
+  - Christ is our Peace Offering.
+  - He restores fellowship and communion between the worshiper and God.
+- **Rest:**
+  - We stop trying to earn heaven by painful efforts and rest in Christ's finished work.
+
+---
+
+## Slide 26 – Q10: Conditions for Forgiveness
+- **Question:** Upon what conditions has God promised the forgiveness of sin?
+- **Key Text:** 1 John 1:9 – “If we confess our sins, He is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.”
+
+## Slide 27 – Q10: Key Points
+- **Confession:**
+  - Requires genuine repentance and turning away from specific sins.
+  - We cannot hold onto known sin and receive forgiveness simultaneously.
+- **Walking in the Light (1 John 1:7):**
+  - We must obey the truth God reveals.
+  - Rejecting new light (e.g., Sabbath, health reform) is choosing darkness.
+- **Two-Fold Cleansing:**
+  - **Forgive:** Justification (Imputed Righteousness).
+  - **Cleanse:** Sanctification (Imparted Righteousness/Transformation).
+
+---
+
+## Slide 28 – Q11: Believing Before Seeing
+- **Question:** Does the Bible warrant one in believing that he receives what he asks for, before he is conscious of possessing it?
+- **Key Text:** Mark 11:24 – “Therefore I say unto you, What things soever ye desire, when ye pray, believe that ye receive them, and ye shall have them.”
+
+## Slide 29 – Q11: Key Points
+- **The Order of Faith:**
+  - We do not receive then believe; we believe then receive.
+- **Claiming the Promise:**
+  - When praying according to God's will (e.g., for victory), we claim it immediately.
+  - "I have it because God promised it."
+- **Faith vs. Sight:**
+  - Waiting for proof before believing is walking by sight.
+
+## Slide 30 – Q11: Illustration
+- **The Online Order:**
+  - When you buy a product online, you pay and receive a confirmation.
+  - You do not have the box yet, but you "believe that you receive it."
+  - Faith trusts God’s delivery system.
+
+---
+
+## Slide 31 – Q12: Developing Patience
+- **Question:** How may one learn to develop patience in waiting on God?
+- **Key Text:** James 1:3 – “Knowing this, that the trying of your faith worketh patience.”
+
+## Slide 32 – Q12: Key Points
+- **Faith as a Muscle:**
+  - Faith grows strong only through resistance and exercise.
+- **Role of Trials:**
+  - Temptations are opportunities for the "trying of your faith."
+  - Trusting God despite delay produces endurance.
+- **End-Time Application:**
+  - God is preparing a people with the "patience of the saints" (Revelation 14:12).
+
+---
+
+## Slide 33 – Q13: Faith in Affliction
+- **Question:** When in affliction, what ought all to believe?
+- **Key Text:** Romans 8:28 – “And we know that all things work together for good to them that love God.”
+
+## Slide 34 – Q13: Key Points
+- **God's Sovereignty:**
+  - God overrules sickness, loss, and disappointment for our spiritual good.
+- **The Goal is Character:**
+  - The "good" is to be "conformed to the image of His Son" (Romans 8:29).
+  - Affliction burns away the dross of selfishness.
+
+## Slide 35 – Q13: Illustration
+- **The Weaver:**
+  - A tapestry looks like a tangled mess of dark threads from the back.
+  - The weaver knows the dark threads are needed to make the beautiful design on the front.
+  - Faith trusts the Weaver's design even when we only see the tangle.
+
+---
+
+## Slide 36 – Q14: Faith Without Works
+- **Question:** What kind of faith is that which is unaccompanied with works?
+- **Key Text:** James 2:26 – “For as the body without the spirit is dead, so faith without works is dead also.”
+
+## Slide 37 – Q14: Key Points
+- **Dead Faith:**
+  - Faith that does not lead to obedience is a counterfeit.
+- **Harmony of Scripture:**
+  - Paul: Justified by faith *apart* from works (preventing boasting).
+  - James: Saving faith *always* produces works (preventing cheap grace).
+- **The Vital Sign:**
+  - Obedience is the breath of living faith.
+  - True faith works by love (Galatians 5:6).
+
+---
+
+## Slide 38 – Q15: Disobedience and Confidence
+- **Question:** If one knows the he is constantly disobeying God, can he have real living faith?
+- **Key Text:** 1 John 3:22 – “And whatsoever we ask, we receive of Him, because we keep His commandments, and do those things that are pleasing in His sight.”
+
+## Slide 39 – Q15: Key Points
+- **Confidence Destroyed:**
+  - We cannot approach God with confidence while willfully rebelling.
+  - A guilty conscience separates us from God.
+- **Condition of Answered Prayer:**
+  - We receive answers *because* we keep His commandments.
+  - This is the relationship of a loyal child to a loving Father.
+- **Victory is Possible:**
+  - Through the indwelling Christ, we can do what is pleasing in His sight.
+
+## Slide 40 – Q15: Illustration
+- **The Disloyal Employee:**
+  - An employee who steals from the register cannot confidently ask the boss for a favor.
+  - Actions destroy the ground of confidence.
+  - Sin destroys our confidence in God (Isaiah 59:2).
+
+---
+
+## Slide 41 – Q16: The Doubtful Mind
+- **Question:** How much may one hope to receive, who asks with a doubtful mind?
+- **Key Text:** James 1:7 – “Let not that man think that he shall receive anything of the Lord.”
+
+## Slide 42 – Q16: Key Points
+- **Double-Mindedness:**
+  - The man who wavers between faith and the world receives nothing.
+- **Stability Required:**
+  - We cannot pray for victory while planning to sin.
+  - We must look to God with a "single eye," depending totally on Him.
+
+---
+
+## Slide 43 – Q17: Peter on the Water
+- **Question:** What was the cause of Peter's sinking after he had started to meet the Saviour on the stormy sea?
+- **Key Text:** Matthew 14:31 – “And immediately Jesus stretched forth His hand, and caught him, and said unto him, O thou of little faith, wherefore didst thou doubt?”
+
+## Slide 44 – Q17: Key Points
+- **Shifting Focus:**
+  - Peter walked on water while looking at Jesus.
+  - He sank when he looked at the wind and waves (circumstances).
+- **The Lesson:**
+  - Looking at our sins or weaknesses leads to despair.
+  - We must fix our eyes on Jesus, the Author and Finisher of our faith (Hebrews 12:2).
+- **Christ's Grip:**
+  - Even when faith failed, Jesus "caught him." Our Saviour is great.
+
+---
+
+## Slide 45 – Q18: Fullness of Faith
+- **Question:** What may one constantly have, by growing into the fullness of faith?
+- **Key Text:** Romans 15:13 – “Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.”
+
+## Slide 46 – Q18: Key Points
+- **Joy and Peace:**
+  - Found "in believing," not in worldly circumstances.
+  - The fruit of trusting God with our past, present, and future.
+- **Power of the Holy Ghost:**
+  - The engine of the Christian life.
+  - The Spirit makes the hope of the Second Coming real.
+- **Summary:**
+  - Saving faith is complete surrender to Jesus.
+  - It trusts His blood for pardon and His power for victory.
