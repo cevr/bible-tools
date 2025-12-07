@@ -49,3 +49,18 @@ export function matchEnum<T extends Record<string, string | number>>(
   })[0]?.value;
   return Option.fromNullable(matched);
 }
+
+export function matchArrayEnum<T extends readonly string[]>(
+  allowedValues: T,
+  values: string[],
+): Option.Option<T[number][]> {
+  const matched = values.map((v) => {
+    const result = matchSorter(allowedValues as unknown as string[], v)[0];
+    return result;
+  });
+
+  if (matched.some((m) => m === undefined)) {
+    return Option.none();
+  }
+  return Option.some(matched as T[number][]);
+}

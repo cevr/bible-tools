@@ -1,205 +1,372 @@
-### Q1. What assurance is given to every believer in Christ?
+# Righteousness and Life  
 
-**“For God so loved the world, that He gave His only begotten Son, that whosoever believeth in Him should not perish, but have everlasting life.” John 3:16.**
+## Introduction  
 
-**Answer:**
-This verse, often called the heart of the Bible, establishes the foundation of the plan of salvation. The assurance given here is absolute: salvation is not based on our human merit or social standing, but on the finished work of God through Jesus Christ.
+Righteousness and life cannot be separated in God’s plan. Wherever true righteousness is, there is life; wherever sin rules, there is death. This study traces how the Bible reveals that:  
 
-1.  **The Source of Salvation:** It begins with God’s love ("For God so loved"). The Father is not a harsh judge needing to be appeased by the Son; rather, the Father and Son are one in purpose to save humanity.
-2.  **The Gift:** The remedy for sin was an infinite gift. In the sanctuary service of old, an innocent lamb had to die for the guilty sinner. Here, God provides the "Lamb of God" (John 1:29)—His own Son.
-3.  **The Condition:** "Whosoever believeth."
-    *   **Definition—Faith (Belief):** In the Bible, "believing" is not merely an intellectual agreement that Jesus exists. It is a transaction of the heart where the sinner casts their helpless soul upon Christ, trusting fully in His merits for pardon and His power for cleansing (Acts 16:31).
-4.  **The Result:** "Everlasting life." This is not merely endless existence, but a quality of life connected to the Source of all life. It is the restoration of what Adam lost in Eden.
+- Eternal life is found only in Christ.  
+- The righteousness needed for that life is also only in Christ.  
+- This righteousness is both a gift (our title to heaven) and a transforming power (our fitness for heaven).  
 
-**[ILL] Illustration:** Imagine a man trapped in a burning building with no way out. A firefighter breaks through the flames, wraps the man in his own protective gear, and carries him to safety. The man is saved not because he was brave or strong, but because he trusted the firefighter enough to let himself be carried. Similarly, we are perishing in sin; Christ wraps us in His righteousness and carries us to life. Our part is to yield; His part is to save.
+We will move from the simple promise of John 3:16 to the deeper connection between God’s law, Christ’s righteousness, and the life He imparts.  
 
 ---
 
-### Q2. What wonderful truth is revealed in the gospel message?
+## Core Truths: The Simple Gospel of Life in Christ  
 
-**“For therein is the righteousness of God revealed from faith to faith: as it is written, The just shall live by faith.” Romans 1:17.**
+### 1. God’s love and the promise of eternal life  
 
-**Answer:**
-The "gospel" (Good News) is not just a story about Jesus; it is the vehicle through which the **Righteousness of God** is revealed and given to men.
+> “For God so loved the world, that He gave His only begotten Son, that whosoever believeth in Him should not perish, but have everlasting life.” (John 3:16)  
 
-*   **Righteousness of God:** This is the core of the Righteousness by Faith message. Man has no righteousness of his own (Isaiah 64:6). Therefore, the only righteousness that can save us is God's own righteousness—His perfect character and obedience—which He offers to us.
-*   **From Faith to Faith:** The Christian life is a progressive journey. We begin by faith (justification), and we continue to walk and grow by faith (sanctification).
-*   **The Just Shall Live by Faith:**
-    *   **Justification:** A legal declaration by God that the repentant sinner is accounted righteous because of Christ’s sacrifice.
-    *   **Living by Faith:** This speaks of the daily experience. The believer does not obey God *in order* to be saved, but lives a life of obedience *because* they are saved and indwelt by Christ. The life of Jesus is reproduced in the believer by the Holy Spirit.
+Key points:  
 
-**[ILL] Illustration:** A deep-sea diver relies entirely on the air line connected to the ship above. As long as the connection remains open, he lives. If he tries to breathe on his own, he dies. "Living by faith" means drawing every breath of spiritual life from Jesus, our High Priest in the heavenly sanctuary, moment by moment.
+- The **motive** of salvation is God’s love: “God so loved the world.”  
+- The **gift** is His “only begotten Son” – Christ given to live, die, and rise for us.  
+- The **condition** is simple: “whosoever believeth in Him.”  
+  - To “believe” in Bible sense means to trust, to personally rely on Christ, not merely to admit He exists.  
+- The **promise**: those who believe “should not perish, but have everlasting life.”  
 
----
+Eternal life is therefore not earned; it is a **gift in Christ** received by faith.  
 
-### Q3. What was brought to light through the gospel?
+### 2. The gospel reveals righteousness and life together  
 
-**“Who hath abolished death, and hath brought life and immortality to light through the gospel.” 2 Timothy 1:10.**
+> “For therein is the righteousness of God revealed from faith to faith: as it is written, The just shall live by faith.” (Romans 1:17)  
 
-**Answer:**
-The gospel solves the problem of death. Before the cross, death was an unconquered tyrant. Through Christ’s victory, the nature of death and the hope of immortality are clarified.
+Definitions:  
 
-1.  **Death Abolished:** Christ has broken the permanent power of death. For the believer, death is now merely a "sleep" (1 Thessalonians 4:13–14) awaiting the resurrection.
-2.  **Immortality to Light:** The Bible teaches that humans are mortal. We do not possess natural immortality (1 Timothy 6:16). Immortality is a gift brought to us *only* through the gospel.
-3.  **The Exchange:** In the Great Controversy, Satan claimed sin leads to freedom. The gospel reveals that sin leads to death, but Christ brings life.
+- **Gospel**: “good news” of what God has done and is doing for our salvation through Christ (1 Corinthians 15:1–4).  
+- **Righteousness of God**: God’s perfect rightness—His holy character and His right way of living, revealed in Christ and in His law (Psalms 119:172; John 14:9).  
+- **Just** (or justified): those whom God counts righteous because of Christ (Romans 3:24).  
+- **Live by faith**: day-by-day dependence on Christ, not on our own goodness (Galatians 2:20).  
 
-**Term Definition—Immortality:** The condition of being unable to die. The Bible teaches this is a gift bestowed upon the righteous at the second coming of Christ (1 Corinthians 15:53–54), not a current possession of the soul.
+The gospel does not just tell us how to escape punishment; it reveals **how God can make sinners truly righteous and give them life** at the same time.  
 
----
+### 3. The gospel brings life and immortality to light  
 
-### Q4. How closely are righteousness and life connected?
+> “[Christ] hath abolished death, and hath brought life and immortality to light through the gospel.” (2 Timothy 1:10)  
 
-**“In the way of righteousness is life; and in the pathway thereof there is no death.” Proverbs 12:28.**
+Through Christ’s death and resurrection:  
 
-**Answer:**
-Scripture presents an inseparable bond between righteousness (right doing/right being) and life. You cannot have one without the other.
+- Death is “abolished” in this sense: its **final** power over the believer is broken (Hebrews 2:14–15).  
+- **Life and immortality** are made clear—promised, revealed, and guaranteed in Christ (John 11:25–26).  
 
-*   **Sin is Self-Destruction:** Sin is, by definition, separation from God, the Source of life. Therefore, the "wages of sin is death" (Romans 6:23).
-*   **Righteousness is Life:** True righteousness is the life of God in the soul. When a person is justified (declared righteous) and sanctified (made holy), they are reconnected to the life-flow of heaven.
-*   **The Pathway:** This suggests a way of living. Righteousness by faith is not just a theory; it is a "pathway." As we walk in obedience to God’s law through the power of the Spirit, we are walking in the path of life.
-
-**[ILL] Illustration:** Consider a train. As long as it stays on the tracks (the pathway of righteousness), it moves forward and functions as designed. If it leaves the tracks, the result is a wreck and ruin (death). The tracks are not a burden to the train; they are the condition of its effective operation and safety.
+Without Christ, death is the end; in Christ, death is a sleep before resurrection and eternal life (1 Thessalonians 4:13–16).  
 
 ---
 
-### Q5. Finding righteousness, what else do we find?
+## Core Truths: Righteousness and Life Inseparably Joined  
 
-**“He that followeth after righteousness and mercy findeth life, righteousness, and honour.” Proverbs 21:21.**
+### 4. The Bible’s direct link: righteousness = life  
 
-**Answer:**
-This verse encourages an active pursuit. "Followeth after" implies hungering and thirsting (Matthew 5:6).
+> “In the way of righteousness is life; and in the pathway thereof there is no death.” (Proverbs 12:28)  
 
-1.  **The Pursuit:** The Christian does not sit idly by. Empowered by grace, we actively seek to reflect Christ’s character ("righteousness") and His compassion ("mercy").
-2.  **The Discovery:**
-    *   **Life:** Spiritual vitality now and eternal life hereafter.
-    *   **Righteousness:** We find what we seek—the very character of Christ becomes our own through the work of the Holy Spirit (imparted righteousness).
-    *   **Honour:** Not worldly fame, but the honor of being called "sons of God" (1 John 3:1).
+Wherever the “way of righteousness” is followed, the result is **life**, and “no death” in the ultimate sense.  
 
-**Term Definition—Imparted Righteousness:** The work of the Holy Spirit *inside* the believer, changing their heart and empowering them to obey God's law. It follows *Imputed Righteousness* (the credit of Christ’s merits).
+> “He that followeth after righteousness and mercy findeth life, righteousness, and honour.” (Proverbs 21:21)  
 
----
+Those who “follow after” (pursue) righteousness and mercy find:  
 
-### Q6. Who alone can give us the grace that leads to eternal life?
+- Life  
+- Righteousness  
+- Honour  
 
-**“That as sin hath reigned unto death, even so might grace reign through righteousness unto eternal life by Jesus Christ our Lord.” Romans 5:21.**
+This is not about human self-righteousness, but about **seeking God’s righteousness** (Matthew 6:33).  
 
-**Answer:**
-Only Jesus Christ serves as the channel for this saving grace. This verse presents two opposing kingdoms:
+### 5. Sin and grace: two kingdoms, two outcomes  
 
-1.  **The Reign of Sin:** Sin is depicted as a tyrant king whose rule results in death. Every human being is naturally born into this kingdom.
-2.  **The Reign of Grace:** Grace also reigns like a monarch. It is mightier than sin.
-    *   **"Through Righteousness":** Grace does not ignore the law. It does not set aside justice. Instead, grace provides the righteousness the law demands. Christ fulfilled the law for us (life) and paid its penalty for us (death). Now, He offers His victory to us.
-3.  **Sanctuary Insight:** In the earthly sanctuary, the mercy seat (grace) was placed *above* the ark containing the Ten Commandments (righteousness). This shows that grace rests upon a foundation of righteousness and leads the believer to keep the law, not break it.
+> “That as sin hath reigned unto death, even so might grace reign through righteousness unto eternal life by Jesus Christ our Lord.” (Romans 5:21)  
 
-**[ILL] Illustration:** If a king pardons a criminal, that is an act of grace. But if the king then adopts the criminal, pays his debts, educates him, and gives him a position in the court, that is "grace reigning." God does not just forgive (pardon); He transforms us to be fit for His kingdom (reign).
+Definitions:  
 
----
+- **Sin**: breaking God’s law in thought, word, or deed (1 John 3:4; Romans 3:23).  
+- **Grace**: God’s undeserved favor and active power to save from sin (Ephesians 2:8–9; Titus 2:11–12).  
 
-### Q7. What do the Psalms declare God's commandments to be?
+Two “reigns” are contrasted:  
 
-**“All Thy commandments are righteousness.” Psalms 119:172.**
+- When **sin reigns**, the result is **death**.  
+- When **grace reigns**, it is **through righteousness** and leads to **eternal life**.  
 
-**Answer:**
-This is a crucial definition. If we want to know what "righteousness" looks like in action, we look at God's law (the Ten Commandments).
-
-*   **The Standard:** The law is a transcript of God’s character. Since God is righteous, His law is righteous.
-*   **The Impossibility for Man:** Because the law requires perfect righteousness, fallen man cannot keep it in his own strength (Romans 8:7).
-*   **The Provision of Christ:** This is why we need Righteousness by Faith. We need Christ (who is the Living Law) to dwell in our hearts. When He enters, He brings the righteousness that the law requires. He fulfills the law in us (Romans 8:4).
+Grace does not reign by excusing sin while we continue in it, but by **establishing righteousness** in us through Christ (Romans 6:14–18).  
 
 ---
 
-### Q8. What does Jesus say that those commandments are?
+## Deeper Truths: The Law, Christ, and the Gift of Righteousness  
 
-**“And I know that His commandment is life everlasting.” John 12:50.**
+### 6. God’s commandments are righteousness and life  
 
-**Answer:**
-Jesus links the law directly to life. Far from being a burden or a "yoke of bondage," the commandments are the operating instructions for eternal happiness.
+> “All Thy commandments are righteousness.” (Psalms 119:172)  
 
-*   **Original Design:** In Eden, obedience to God's command was the condition of remaining in the tree of life.
-*   **New Covenant:** In the New Covenant, God writes these commandments on the heart (Hebrews 8:10). When the law is internal—loved and obeyed through the Spirit—it results in life everlasting.
-*   **Harmony:** You cannot be at war with the Source of Life (God) and expect to have eternal life. Harmony with His will (His commandment) is the very atmosphere of heaven.
+The law (God’s commandments):  
+
+- Is a written expression of His righteous character (Romans 7:12).  
+- Shows what righteousness looks like in practical life (Romans 3:20).  
+
+Jesus adds:  
+
+> “And I know that His commandment is life everlasting.” (John 12:50)  
+
+God’s commandment is **not** a way of death; it is the pathway of life:  
+
+- To walk in the commandments is to walk in the way of life.  
+- But we, in our fallen state, **cannot** keep that law in our own strength (Romans 8:7–8).  
+
+So the law shows us our need; Christ provides the righteousness the law demands.  
+
+### 7. Christ—our righteousness and our life  
+
+> “And this is His name whereby He shall be called, THE LORD OUR RIGHTEOUSNESS.” (Jeremiah 23:6)  
+
+Christ is not only righteous; He is **“our righteousness.”**  
+
+- **Justification**: God counts Christ’s perfect obedience and sacrifice as ours when we believe (Romans 5:1, 18–19). This is **imputed righteousness**—credited to us as a gift.  
+- **Sanctification**: Christ, living in the believer by the Holy Spirit, reproduces His character in us (Galatians 2:20). This is **imparted righteousness**—actually worked into our lives.  
+
+Jesus says:  
+
+> “I am the way, the truth, and the life.” (John 14:6)  
+
+He is:  
+
+- The **Way**: the only road back to God and to obedience (Hebrews 10:19–20).  
+- The **Truth**: the full revelation of God’s character (John 1:14, 18).  
+- The **Life**: the source and fountain of both physical and spiritual life (John 1:4; 1 John 5:11–12).  
+
+You cannot have life without Christ, and you cannot have true righteousness without Christ—He is both.  
+
+### 8. The law, life, and Christ’s answer to the rich young ruler  
+
+> “And He said unto him, Why callest thou Me good? there is none good but One, that is, God: but if thou wilt enter into life, keep the commandments.” (Matthew 19:17)  
+
+Here Jesus connects:  
+
+- **Entering into life**  
+- With **keeping the commandments**  
+
+But other Scriptures make clear:  
+
+- We are not justified (counted righteous) by law-keeping (Galatians 2:16; Romans 3:20).  
+- We are saved by grace through faith in Christ alone (Ephesians 2:8–9).  
+
+So what does Jesus mean?  
+
+- The commandments describe the **life of love and obedience** that belongs to those who are saved (Romans 8:4).  
+- No one actually keeps the law in truth until Christ dwells in the heart (John 15:5).  
+- Thus, to “enter into life” involves entering into a relationship with Christ where His righteousness is both **counted** to us and **worked** in us, resulting in a life of obedience.  
+
+### 9. The gift of righteousness and reigning in life  
+
+> “For if by one man's offence death reigned by one; much more they which receive abundance of grace and of the gift of righteousness shall reign in life by One, Jesus Christ.” (Romans 5:17)  
+
+Notice:  
+
+- Adam’s sin brought **death** and a reign of sin over the human family.  
+- Through Christ, God offers:  
+  - “Abundance of grace”  
+  - “The gift of righteousness”  
+
+Those who **receive** this gift “shall reign in life” by Christ, not merely exist.  
+
+“Reign in life” means:  
+
+- No longer slaves to sin (Romans 6:12–14).  
+- A life where Christ’s victory is shared with us.  
+- Anticipating eternal life now by a life of fellowship with Him (John 17:3).  
+
+### 10. Eternal life as a pure gift  
+
+> “For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord.” (Romans 6:23)  
+
+- **Wages** are earned; **death** is exactly what sin earns.  
+- **Eternal life** is never earned; it is “the gift of God.”  
+- This gift comes “through Jesus Christ our Lord”—no other channel.  
+
+This keeps us from two errors:  
+
+1. **Legalism** – thinking we can earn life by our good works.  
+2. **Lawlessness** – thinking God gives life while leaving us in cherished sin.  
+
+In Christ, the gift of eternal life includes the gift of righteousness, which restores obedience (Hebrews 8:10; Titus 2:11–14).  
 
 ---
 
-### Q9. What does the prophet Jeremiah declare Christ to be?
+## Deeper / Hidden Truths: How Christ Draws and Transforms  
 
-**“And this is His name whereby He shall be called, THE LORD OUR RIGHTEOUSNESS.” Jeremiah 23:6.**
+The Ellen White passage (Happiness Digest, p. 30) helps us see **how** this righteousness and life become ours in experience.  
 
-**Answer:**
-This represents one of the most powerful titles of Jesus in the Old Testament (*Yahweh Tsidkenu*). It is the summary of the Advent message of Righteousness by Faith.
+### 11. Christ the source of every right impulse  
 
-1.  **Our Deficiency:** We have no righteousness. Our "best" deeds are like filthy rags (Isaiah 64:6).
-2.  **His Sufficiency:** He is the LORD (divine, infinite). He is Righteousness (perfect).
-3.  **The Exchange:** He does not keep this righteousness to Himself; He becomes *OUR* righteousness.
-    *   He takes our sin (at the cross).
-    *   He gives us His righteousness (by faith).
-    *   When the Father looks at the believing sinner in the judgment, He sees the perfect life of His Son.
+> “Christ is the source of every right impulse. He is the only one that can implant in the heart enmity against sin.”  
 
-**[ILL] Illustration:** A pauper is invited to a royal wedding but has only dirty rags. The Prince takes off His own royal robe and places it on the pauper. The pauper is now dressed suitably for the king's presence. The robe is not the pauper's weave; it is the Prince's. This is Christ covering us with His character.
+This tells us:  
+
+- Every genuine desire you have to be clean, honest, and pure is already the working of Christ’s Spirit (John 16:8).  
+- **Enmity against sin** (a hatred of what is evil) is not naturally in the human heart (Romans 8:7); it must be planted there by Christ.  
+
+Whenever you long for something better, that is evidence that:  
+
+> “His Spirit is moving upon [your] heart.”  
+
+### 12. The cross and the drawing power of love  
+
+> “Jesus has said, ‘And I, if I be lifted up from the earth, will draw all men unto Me.’” (John 12:32)  
+
+When Christ is “lifted up”:  
+
+- On the cross in history.  
+- In the preaching and sharing of the gospel now.  
+
+He **draws** all people to Himself by His love.  
+
+As we behold “the Lamb of God upon the cross of Calvary”:  
+
+- “The mystery of redemption begins to unfold.”  
+- “The goodness of God” leads us to repentance (Romans 2:4).  
+- The love revealed in His suffering “softens the heart, impresses the mind, and inspires contrition in the soul.”  
+
+Repentance is not working ourselves into sorrow; it is **responding to Christ’s love** as we see Him crucified for our sins.  
+
+### 13. Awakening, conviction, and the commandment coming home  
+
+The passage explains that sometimes:  
+
+- People become ashamed of their sinful ways.  
+- They give up certain bad habits.  
+
+They may not realize that this is Christ drawing them. But if these reforms arise from a **sincere desire to do right**, then:  
+
+- “It is the power of Christ that is drawing them.”  
+- An unseen influence is working; conscience is “quickened” (made alive).  
+
+As Christ draws them to look upon His cross:  
+
+- They behold “Him whom their sins have pierced” (Zechariah 12:10).  
+- “The commandment comes home to the conscience.”  
+
+This is crucial:  
+
+- The law (commandment) is no longer just words; it now convicts the heart.  
+- They see both:  
+  - The **wickedness** of their life.  
+  - The **deep-seated sin** of the soul—selfishness, pride, unbelief.  
+
+They begin to ask:  
+
+> “What is sin, that it should require such a sacrifice…? Was all this love, all this suffering… demanded, that we might not perish, but have everlasting life?”  
+
+This leads to:  
+
+- **Real repentance** (2 Corinthians 7:9–10).  
+- **Real faith** in Christ as the only sufficient Saviour (Acts 4:12).  
+
+Here righteousness and life meet: Christ’s death for us reveals the **deadly nature of sin** and the **boundless love** of God, drawing us to surrender and trust.  
 
 ---
 
-### Q10. What did Christ tell us was essential to eternal life?
+[ILL]  
 
-**“I am the way, the truth, and the life.” John 14:6.**
+Imagine a man dying of a deadly poison. He feels a little sick, but thinks it will pass. A friend rushes to him with an antidote.  
 
-**Answer:**
-Christ does not merely *teach* the way; He *is* the way. He does not just *tell* the truth; He *is* the truth. He does not just *give* life; He *is* the life.
+At first, the man refuses. “I’m not so bad; I’ll get better.” But the friend shows him an X‑ray: the poison is spreading through his whole body. Then the friend says, “I drank that same poison once. Someone gave His life to produce the antidote I now offer you.”  
 
-*   **Exclusivity:** "No man cometh unto the Father, but by me." There is no other ladder to heaven. Good works, philosophy, or ancestry cannot bridge the gap caused by sin.
-*   **Personhood:** Christianity is a relationship with a Person. Righteousness is not an abstract concept; it is the presence of Jesus in the life. To possess Christ is to possess life (1 John 5:12).
+Now the sick man sees two things at once:  
 
----
+1. How deadly the poison really is.  
+2. How costly the cure was.  
 
-### Q11. How do we receive righteousness?
+His pride breaks. He takes the antidote with gratitude.  
 
-**“And He said unto him, Why callest thou Me good? there is none good but One, that is, God: but if thou wilt enter into life, keep the commandments.” Matthew 19:17.**
-
-**Answer:**
-At first glance, this answer seems to contradict salvation by faith. But Jesus was leading the rich young ruler to a deeper realization.
-
-1.  **The Standard:** Jesus upholds the law: "Keep the commandments." The requirement for entering life has never changed—it is perfect obedience to God's law. God cannot lower His standard of righteousness to accommodate our sin.
-2.  **The Problem:** The young man thought he had kept them (v. 20), but he lacked the love of God (v. 21). He was legally "correct" but spiritually dead.
-3.  **The Solution (Received by Faith):** Since we have all sinned and cannot keep the commandments perfectly on our own, we must receive the "One who is good"—God in the flesh, Jesus Christ.
-    *   We receive righteousness by receiving Him.
-    *   When we receive Him by faith, His Spirit empowers us to truly "keep the commandments"—not just outwardly, but from a heart of love (Romans 13:10).
-
-**Term Definition—Sanctification:** The process of being made holy. It is the result of Christ living out His life of obedience in the believer. We "keep" the law because the Lawgiver lives in us.
+So the law (like the X‑ray) shows us how deep sin goes. The cross (like the Friend’s sacrifice) shows how much it cost God to save us. Seeing both together leads us to accept the only cure: Christ Himself.  
 
 ---
 
-### Q12. How do we receive eternal life?
+## Principles and Great Controversy Themes  
 
-**“For if by one man's offence death reigned by one; much more they which receive abundance of grace and of the gift of righteousness shall reign in life by one, Jesus Christ.” Romans 5:17.**
+### 14. The character of God: love, law, and life  
 
-**Answer:**
-This verse emphasizes that salvation is a transaction of **receiving**, not earning.
+- God is love (1 John 4:8), and His law is the law of love (Matthew 22:37–40).  
+- His commandments are “righteousness” (Psalms 119:172) and “life everlasting” (John 12:50).  
+- Satan’s charge is that God’s law is harsh and life‑destroying (Genesis 3:1–5).  
 
-*   **The Two Adams:** Adam's sin ("one man's offence") brought death to all. Christ (the second Adam) brings life to all who receive Him.
-*   **Receiving the Gift:** Note the phrasing—"the gift of righteousness." Righteousness is a gift we accept. We cannot manufacture it.
-*   **Abundance of Grace:** God does not give just enough grace to barely scrape by; He gives an "abundance." This grace is sufficient to overcome every cultivated tendency to sin and to "reign in life" over the power of the enemy.
-*   **Reigning:** We are not just survivors; we are made kings and priests. Victory over sin is promised to those who receive this gift.
+The gospel answers this lie:  
+
+- Sin, not obedience, brings death (Romans 6:23).  
+- The way of righteousness is the way of life (Proverbs 12:28).  
+- Christ demonstrates that full loyalty to God’s law is both loving and life‑giving (John 15:10–11).  
+
+### 15. The sanctuary connection: righteousness and life in three phases  
+
+The earthly sanctuary pointed to Christ’s work:  
+
+1. **Outer court (altar)** – Christ’s sacrifice on the cross (John 1:29; Hebrews 9:22).  
+   - Here the **penalty of sin** is borne by the Substitute.  
+   - Righteousness is **imputed** (counted) to the believer who trusts in the blood.  
+
+2. **Holy place (daily ministry)** – Christ’s continuing ministry as Priest (Hebrews 7:25; 8:1–2).  
+   - Here Christ sends the Holy Spirit, gives power to obey, and maintains our spiritual life through Word, prayer, and witness.  
+   - Righteousness is **imparted** (communicated) to the believer’s life, forming a holy character.  
+
+3. **Most holy place (day of atonement)** – The investigative judgment and final atonement (Daniel 8:14; Hebrews 9:23–28).  
+   - Here sins are blotted out from the record (Acts 3:19).  
+   - God prepares a people who “keep the commandments of God, and the faith of Jesus” (Revelation 14:12)—righteousness and life united fully.  
+
+In all this, eternal life is always and only “through Jesus Christ our Lord” (Romans 6:23).  
+
+### 16. End-time relevance: righteousness by faith and the last message  
+
+The last message to the world includes:  
+
+- **The everlasting gospel** (Revelation 14:6).  
+- A call to “fear God, and give glory to Him” (verse 7)—honor His character and law.  
+- A remnant who “keep the commandments of God, and the faith of Jesus” (verse 12).  
+
+Here again:  
+
+- **Righteousness** (commandment keeping)  
+- **Faith** (the faith of Jesus)  
+- **Life** (everlasting gospel)  
+
+are united. This is righteousness by faith in an end‑time setting: a people who live by Christ’s faith, manifest His obedience, and are ready for eternal life.  
 
 ---
 
-### Q13. How do we obtain eternal life?
+## Practical Application: Entering into Righteousness and Life  
 
-**"For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord." Romans 6:23.**
+### 17. How to personally receive this gift  
 
-**Answer:**
-The contrast is stark: Sin pays a wage (death), but God offers a gift (life).
+1. **Look to Christ crucified**  
+   - Spend time contemplating His sacrifice (John 3:14–16).  
+   - Ask God to show you both the ugliness of sin and the beauty of His love.  
 
-1.  **The Wages:** A wage is something you earn; it is what you deserve. We have earned death by our rebellion.
-2.  **The Gift:** Eternal life is unearned. It comes "through Jesus Christ our Lord." It flows from the cross where He paid the wage of sin for us.
-3.  **The Experience of Transformation:** As the outline's closing quote explains, this gift changes us.
-    *   **The Drawing:** Jesus said, "And I, if I be lifted up... will draw all men unto me" (John 12:32). The cross is the magnet.
-    *   **Repentance:** We do not repent *in order* for God to love us; we repent because we see His love. The goodness of God leads to repentance (Romans 2:4).
-    *   **Conviction:** As we look at the cross, we realize what sin did to the innocent Son of God. This breaks the heart. We see the law (the standard) and the cross (the remedy).
-    *   **Reformation:** This produces true reformation—not a forced change of habits to earn heaven, but a change of heart motivated by love for the One who died for us.
+2. **Respond to His drawing**  
+   - When you feel conviction or a desire to change, recognize: Christ is drawing you.  
+   - Do not resist; surrender your will (Hebrews 3:7–8).  
 
-**[ILL] Illustration:** A child rebels against a loving father and breaks a valuable heirloom. He expects punishment (wages). Instead, the father pays for the damage himself and embraces the child (gift). The child’s heart melts. He no longer wants to rebel; he wants to please the father who showed such mercy. This is how the "gift of God" produces a righteous life.
+3. **Confess and forsake sin**  
+   - Admit your sins plainly to God (1 John 1:9).  
+   - Ask for both pardon and power to turn from them (Proverbs 28:13).  
 
-> **Note from "Happiness Digest" (Steps to Christ):**
-> "Christ must be revealed to the sinner as the Saviour dying for the sins of the world... As the sinner beholds this love, it softens the heart, impresses the mind, and inspires contrition in the soul... They begin to comprehend something of the righteousness of Christ, and exclaim, What is sin, that it should require such a sacrifice...?"
->
-> This confirms that our journey to righteousness begins with a vision of the Cross. We look, we believe, we receive, and we live.
+4. **Believe His promise of righteousness and life**  
+   - Take God at His word that Christ is **your righteousness** (Jeremiah 23:6; 1 Corinthians 1:30).  
+   - Believe that eternal life is already yours in Christ (1 John 5:11–13), even as He continues to change you.  
+
+5. **Walk in newness of life**  
+   - Yield yourself daily to Christ (Romans 6:11–13).  
+   - Let His Spirit write the law in your heart (Hebrews 8:10).  
+   - Obedience becomes the fruit of love, not the price of life (John 14:15).  
+
+---
+
+## Appeal  
+
+God has united righteousness and life in one Person—Jesus Christ.  
+
+- The law shows what righteousness is.  
+- The cross shows how much our unrighteousness cost.  
+- The gospel shows how, through Christ, God freely gives both righteousness and eternal life to all who believe.  
+
+You do not need to make yourself righteous before coming to Him. Every right desire you feel is already His Spirit drawing you. Come just as you are, look to the crucified and risen Saviour, and accept Him as:  
+
+- **Your righteousness** – your only hope of acceptance with God.  
+- **Your life** – the source of power to live in obedience and love.  
+
+Will you today choose to step onto “the way of righteousness” where “there is no death,” and let Christ be to you “THE LORD OUR RIGHTEOUSNESS”?
