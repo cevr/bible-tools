@@ -51,8 +51,8 @@ const extractModel = Effect.fn('extractModel')(
             const modelProvider = createOpenAI({ apiKey: openaiKey });
             return {
               models: {
-                high: modelProvider('gpt-5.1'),
-                low: modelProvider('gpt-5-nano'),
+                high: modelProvider('gpt-5.2'),
+                low: modelProvider('gpt-4.1-nano'),
               },
               provider: Provider.OpenAI,
             };
@@ -71,7 +71,7 @@ const extractModel = Effect.fn('extractModel')(
             const modelProvider = createAnthropic({ apiKey: anthropicKey });
             return {
               models: {
-                high: modelProvider('claude-sonnet-4-5'),
+                high: modelProvider('claude-opus-4-5'),
                 low: modelProvider('claude-haiku-4-5'),
               },
               provider: Provider.Anthropic,
