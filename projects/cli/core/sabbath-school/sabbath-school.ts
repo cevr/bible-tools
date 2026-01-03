@@ -135,7 +135,7 @@ const findQuarterUrls = Effect.fn('findQuarterUrls')(function* (
 
     if (!href) return;
 
-    if (text === 'Lesson PDF') {
+    if (text === 'Teachers PDF') {
       currentFiles.lessonPdf = href;
     } else if (text === 'EGW Notes PDF') {
       currentFiles.egwPdf = href;
@@ -218,9 +218,8 @@ const reviseOutline = Effect.fn('reviseOutline')(function* (
             ),
           comments: z
             .string()
-            .optional()
             .describe(
-              'Optional: Brief overall comment on the adherence or specific strengths/weaknesses, but keep it concise',
+              'Brief overall comment on the adherence or specific strengths/weaknesses, keep it concise. Use empty string if no comments.',
             ),
         }),
       }),
