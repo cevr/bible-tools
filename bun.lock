@@ -41,7 +41,6 @@
       },
       "dependencies": {
         "@bible/core": "workspace:*",
-        "@clack/prompts": "^0.11.0",
         "@effect/cli": "catalog:",
         "@effect/platform": "catalog:",
         "@effect/platform-bun": "catalog:",
@@ -200,10 +199,6 @@
     "@bible/scripts": ["@bible/scripts@workspace:projects/scripts"],
 
     "@bible/web": ["@bible/web@workspace:projects/web"],
-
-    "@clack/core": ["@clack/core@0.5.0", "", { "dependencies": { "picocolors": "^1.0.0", "sisteransi": "^1.0.5" } }, "sha512-p3y0FIOwaYRUPRcMO7+dlmLh8PSRcrjuTndsiA0WAFbWES0mLZlrjVoBRZ9DzkPFJZG6KGkJmoEAY0ZcVWTkow=="],
-
-    "@clack/prompts": ["@clack/prompts@0.11.0", "", { "dependencies": { "@clack/core": "0.5.0", "picocolors": "^1.0.0", "sisteransi": "^1.0.5" } }, "sha512-pMN5FcrEw9hUkZA4f+zLlzivQSeQf5dRGJjSUbvVYDLvpKCdQx5OaknvKzgbtXOizhP+SJJJjqEbOe55uKKfAw=="],
 
     "@cvr/config": ["@cvr/config@0.5.2", "", { "dependencies": { "@ianvs/prettier-plugin-sort-imports": "^4.7.0", "@total-typescript/ts-reset": "^0.6.1", "eslint-plugin-import-x": "^4.16.1", "eslint-plugin-jest-dom": "^5.5.0", "eslint-plugin-react": "^7.37.5", "eslint-plugin-react-hooks": "^5.2.0", "eslint-plugin-tailwindcss": "^3.18.2", "eslint-plugin-testing-library": "^7.13.3", "eslint-plugin-vitest": "^0.5.4", "globals": "^16.5.0", "prettier-plugin-tailwindcss": "^0.6.14", "tslib": "^2.8.1", "typescript-eslint": "^8.46.4" } }, "sha512-IowZEUeUz8unBrb1dFEVPVuCNL7+be+z4RWC7x27o3enDL5htzz5ubW9dCTuHcSzNe5htwwll+pfC1SYoWE2jg=="],
 
@@ -1518,8 +1513,6 @@
     "signal-exit": ["signal-exit@4.1.0", "", {}, "sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw=="],
 
     "simple-xml-to-json": ["simple-xml-to-json@1.2.3", "", {}, "sha512-kWJDCr9EWtZ+/EYYM5MareWj2cRnZGF93YDNpH4jQiHB+hBIZnfPFSQiVMzZOdk+zXWqTZ/9fTeQNu2DqeiudA=="],
-
-    "sisteransi": ["sisteransi@1.0.5", "", {}, "sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg=="],
 
     "slash": ["slash@3.0.0", "", {}, "sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q=="],
 

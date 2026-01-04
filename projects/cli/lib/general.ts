@@ -1,4 +1,3 @@
-import { spinner } from '@clack/prompts';
 import { Effect, Option } from 'effect';
 import { matchSorter } from 'match-sorter';
 
@@ -7,23 +6,16 @@ export const spin = Effect.fn('prelude/spin')(function* <V, E, R>(
   job: Effect.Effect<V, E, R>,
 ) {
   const start = Date.now();
-  const s = yield* Effect.sync(() => spinner());
-  yield* Effect.sync(() => s.start(message + '...'));
+  yield* Effect.log(`${message}...`);
   const result = yield* job.pipe(
     Effect.tap(() =>
-      Effect.sync(() =>
-        s.stop(`${message} done! (${msToMinutes(Date.now() - start)})`),
-      ),
+      Effect.log(`${message} done (${msToMinutes(Date.now() - start)})`),
     ),
     Effect.tapError(() =>
-      Effect.sync(() =>
-        s.stop(`${message} failed! (${msToMinutes(Date.now() - start)})`),
-      ),
+      Effect.log(`${message} failed (${msToMinutes(Date.now() - start)})`),
     ),
     Effect.tapDefect(() =>
-      Effect.sync(() =>
-        s.stop(`${message} failed! (${msToMinutes(Date.now() - start)})`),
-      ),
+      Effect.log(`${message} failed (${msToMinutes(Date.now() - start)})`),
     ),
   );
 

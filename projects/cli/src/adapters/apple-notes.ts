@@ -2,6 +2,7 @@ import Bun from 'bun';
 import { Effect, Layer, Option, pipe, Schema } from 'effect';
 import { marked } from 'marked';
 
+import type { ExportOptions } from '@bible/core/adapters';
 import { ExportAdapter, ExportError } from '@bible/core/adapters';
 
 /**
@@ -66,6 +67,7 @@ export const AppleNotesExportLayer = Layer.succeed(
     export: Effect.fn('AppleNotesExport.export')(function* (
       content: string,
       title: string,
+      options?: ExportOptions,
     ) {
       yield* Effect.log('Converting Markdown to HTML...');
 
@@ -77,6 +79,9 @@ export const AppleNotesExportLayer = Layer.succeed(
       );
 
       yield* Effect.log(`Using note title: "${finalNoteTitle}"`);
+      if (options?.folder) {
+        yield* Effect.log(`Target folder: "${options.folder}"`);
+      }
 
       // Remove the H1 heading from content if we're using it as the title
       const contentToParse = content.replace(/^\s*#\s+.*?(\s+#*)?$/m, '').trim();
@@ -133,9 +138,27 @@ export const AppleNotesExportLayer = Layer.succeed(
       const escapedHtmlBody = escapeAppleScriptString(styledHtmlContent);
       const escapedNoteTitle = escapeAppleScriptString(finalNoteTitle);
 
-      // Construct AppleScript command
+      // Construct AppleScript command - with or without folder
       yield* Effect.log('Constructing AppleScript command...');
-      const appleScriptCommand = `
+
+      const appleScriptCommand = options?.folder
+        ? `
+        tell application "Notes"
+          set targetFolder to missing value
+          repeat with f in folders
+            if name of f is "${escapeAppleScriptString(options.folder)}" then
+              set targetFolder to f
+              exit repeat
+            end if
+          end repeat
+          if targetFolder is missing value then
+            make new folder with properties {name:"${escapeAppleScriptString(options.folder)}"}
+            set targetFolder to folder "${escapeAppleScriptString(options.folder)}"
+          end if
+          make new note at targetFolder with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
+        end tell
+      `
+        : `
         tell application "Notes"
           make new note with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
         end tell
@@ -154,8 +177,9 @@ export const AppleNotesExportLayer = Layer.succeed(
         ),
       );
 
+      const folderInfo = options?.folder ? ` in folder "${options.folder}"` : '';
       yield* Effect.log(
-        `Success! Note "${finalNoteTitle}" created in Apple Notes.`,
+        `Success! Note "${finalNoteTitle}" created in Apple Notes${folderInfo}.`,
       );
     }),
   }),

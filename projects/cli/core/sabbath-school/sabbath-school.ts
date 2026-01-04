@@ -534,6 +534,7 @@ const exportQuarter = Command.make(
           yield* Effect.log(`Exporting outline to Apple Notes...`);
           yield* makeAppleNoteFromMarkdown(outlineText, {
             activateNotesApp: false,
+            folder: 'sabbath school',
           });
           yield* Effect.log(`Outline exported to Apple Notes`);
         }).pipe(

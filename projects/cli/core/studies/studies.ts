@@ -49,7 +49,10 @@ const generateStudy = Command.make('generate', { topic, model }, (args) =>
       fs.writeFile(filePath, new TextEncoder().encode(response)),
     );
 
-    yield* spin('Adding study to notes', makeAppleNoteFromMarkdown(response));
+    yield* spin(
+      'Adding study to notes',
+      makeAppleNoteFromMarkdown(response, { folder: 'studies' }),
+    );
 
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(
@@ -136,7 +139,10 @@ const generateFromNoteStudy = Command.make('from-note', { model, noteId }, (args
       fs.writeFile(filePath, new TextEncoder().encode(response)),
     );
 
-    yield* spin('Adding study to notes', makeAppleNoteFromMarkdown(response));
+    yield* spin(
+      'Adding study to notes',
+      makeAppleNoteFromMarkdown(response, { folder: 'studies' }),
+    );
 
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(

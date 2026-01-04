@@ -30,6 +30,8 @@ export interface CreateSimpleNoteOptions {
   title?: string;
   /** Set to true to bring the Notes application to the foreground after creation. Defaults to false. */
   activateNotesApp?: boolean;
+  /** Target folder name in Apple Notes. If the folder doesn't exist, it will be created. */
+  folder?: string;
 }
 
 const execCommand = Effect.fn('execCommand')(function* (command: string[]) {
@@ -217,28 +219,45 @@ export const makeAppleNoteFromMarkdown = Effect.fn('makeAppleNoteFromMarkdown')(
     yield* Effect.log(
       '🔨 Constructing AppleScript command for default location...',
     );
-    const scriptTarget = 'application "Notes"'; // Simplified target
     const activateCommand = options.activateNotesApp ? 'activate' : '';
 
-    const appleScriptCommand = `
-      tell ${scriptTarget}
+    const appleScriptCommand = options.folder
+      ? `
+      tell application "Notes"
+        set targetFolder to missing value
+        repeat with f in folders
+          if name of f is "${escapeAppleScriptString(options.folder)}" then
+            set targetFolder to f
+            exit repeat
+          end if
+        end repeat
+        if targetFolder is missing value then
+          make new folder with properties {name:"${escapeAppleScriptString(options.folder)}"}
+          set targetFolder to folder "${escapeAppleScriptString(options.folder)}"
+        end if
+        make new note at targetFolder with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
+        ${activateCommand}
+      end tell
+    `
+      : `
+      tell application "Notes"
         make new note with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
         ${activateCommand}
       end tell
     `;
 
     // Execute the AppleScript
-    yield* Effect.log(
-      '🚀 Executing AppleScript to create note in default location...',
-    );
+    const locationInfo = options.folder
+      ? `folder "${options.folder}"`
+      : 'default location';
+    yield* Effect.log(`🚀 Executing AppleScript to create note in ${locationInfo}...`);
 
-    // for now just copy to clipboard
     const res = yield* execCommand(['osascript', '-e', appleScriptCommand]);
     yield* Effect.log(res);
 
     // Success
     yield* Effect.log(
-      `✅ Success! Note "${finalNoteTitle}" created in Apple Notes (default location).`,
+      `✅ Success! Note "${finalNoteTitle}" created in Apple Notes (${locationInfo}).`,
     );
     return finalNoteTitle; // Resolve with the title used
   },

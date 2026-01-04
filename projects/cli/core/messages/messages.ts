@@ -51,7 +51,10 @@ const generateMessage = Command.make('generate', { topic, model }, (args) =>
       fs.writeFile(filePath, new TextEncoder().encode(response)),
     );
 
-    yield* spin('Adding message to notes', makeAppleNoteFromMarkdown(response));
+    yield* spin(
+      'Adding message to notes',
+      makeAppleNoteFromMarkdown(response, { folder: 'messages' }),
+    );
 
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(
@@ -150,7 +153,7 @@ const generateFromNoteMessage = Command.make(
 
       yield* spin(
         'Adding message to notes',
-        makeAppleNoteFromMarkdown(response),
+        makeAppleNoteFromMarkdown(response, { folder: 'messages' }),
       );
 
       const totalTime = msToMinutes(Date.now() - startTime);

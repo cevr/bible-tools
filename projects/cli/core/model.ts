@@ -1,11 +1,9 @@
 import { createAnthropic } from '@ai-sdk/anthropic';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { createGroq } from '@ai-sdk/groq';
 import { createOpenAI } from '@ai-sdk/openai';
-import { Options, ValidationError } from '@effect/cli';
-import { select } from '@effect/cli/Prompt';
+import { HelpDoc, Options, ValidationError } from '@effect/cli';
 import { type LanguageModel } from 'ai';
-import { Context, Effect, Match, Option, Schema } from 'effect';
+import { Context, Effect, Option, Schema } from 'effect';
 
 import { matchEnum } from '../lib/general';
 
@@ -13,7 +11,6 @@ export enum Provider {
   Gemini = 'gemini',
   OpenAI = 'openai',
   Anthropic = 'anthropic',
-  Kimi = 'kimi',
 }
 
 const extractModel = Effect.fn('extractModel')(
@@ -80,36 +77,8 @@ const extractModel = Effect.fn('extractModel')(
         ),
       ),
     );
-    const kimi = yield* Schema.Config(
-      'GROQ_API_KEY',
-      Schema.NonEmptyString,
-    ).pipe(
-      Effect.option,
-      Effect.map((groqKey) =>
-        groqKey.pipe(
-          Option.map((groqKey) => {
-            const modelProvider = createGroq({ apiKey: groqKey });
-            return {
-              models: {
-                high: modelProvider('moonshotai/kimi-k2-instruct'),
-                low: modelProvider('moonshotai/kimi-k2-instruct'),
-              },
-              provider: Provider.Kimi,
-            };
-          }),
-        ),
-      ),
-    );
     const models = Option.reduceCompact(
-      [
-        google,
-        openai,
-        anthropic,
-        kimi as unknown as Option.Option<{
-          models: { high: LanguageModel; low: LanguageModel };
-          provider: Provider;
-        }>,
-      ],
+      [google, openai, anthropic],
       [] as {
         models: { high: LanguageModel; low: LanguageModel };
         provider: Provider;
@@ -130,19 +99,13 @@ const extractModel = Effect.fn('extractModel')(
 
     return yield* Option.match(model, {
       onNone: () =>
-        select({
-          message: 'Select a model',
-          choices: models.map((model) => ({
-            value: model.models,
-            title: Match.value(model.provider).pipe(
-              Match.when(Provider.Gemini, () => 'Gemini'),
-              Match.when(Provider.OpenAI, () => 'OpenAI'),
-              Match.when(Provider.Anthropic, () => 'Anthropic'),
-              Match.when(Provider.Kimi, () => 'Kimi'),
-              Match.exhaustive,
+        Effect.fail(
+          ValidationError.invalidValue(
+            HelpDoc.p(
+              `--model is required. Available: ${models.map((m) => m.provider).join(', ')}`,
             ),
-          })),
-        }),
+          ),
+        ),
       onSome: Effect.succeed,
     });
   },

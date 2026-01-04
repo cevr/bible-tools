@@ -16,7 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "@bible/core": "workspace:*",
-    "@clack/prompts": "^0.11.0",
     "@effect/cli": "catalog:",
     "@effect/platform": "catalog:",
     "@effect/platform-bun": "catalog:",
