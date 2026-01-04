@@ -61,7 +61,7 @@ const folderFields = {
  * Folder - Type interface for recursive schema
  */
 export interface Folder extends Schema.Struct.Type<typeof folderFields> {
-  readonly children?: ReadonlyArray<Folder>;
+  readonly children?: ReadonlyArray<Folder> | undefined;
 }
 
 /**

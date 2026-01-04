@@ -1,36 +1,28 @@
-import { Args, Command } from '@effect/cli';
-import { select, text } from '@effect/cli/Prompt';
+import { Command, Options } from '@effect/cli';
 import { FileSystem, Path } from '@effect/platform';
 import { format } from 'date-fns';
-import { Effect, Option } from 'effect';
+import { Effect } from 'effect';
 
 import { generate } from '~/lib/generate';
 import { makeAppleNoteFromMarkdown } from '~/lib/markdown-to-notes';
-import { getNoteContent, listNotes } from '~/lib/notes-utils';
+import { getNoteContent } from '~/lib/notes-utils';
 import { revise } from '~/lib/revise';
 
 import { msToMinutes, spin } from '../../lib/general';
 import { Model, model } from '../model';
 
-const topic = Args.text({
-  name: 'topic',
-}).pipe(Args.optional);
+const topic = Options.text('topic').pipe(
+  Options.withAlias('t'),
+  Options.withDescription('Topic for the study'),
+);
 
 const generateStudy = Command.make('generate', { topic, model }, (args) =>
-  Effect.gen(function* (_) {
+  Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
     const path = yield* Path.Path;
     const startTime = Date.now();
 
-    const topic = yield* Option.match(args.topic, {
-      onSome: (topic) => Effect.succeed(topic),
-      onNone: () =>
-        text({
-          message: 'What would you like the study to be about?',
-        }),
-    });
-
-    yield* Effect.log(`topic: ${topic}`);
+    yield* Effect.log(`topic: ${args.topic}`);
 
     const systemPrompt = yield* fs
       .readFile(
@@ -38,7 +30,7 @@ const generateStudy = Command.make('generate', { topic, model }, (args) =>
       )
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const { filename, response } = yield* generate(systemPrompt, topic).pipe(
+    const { filename, response } = yield* generate(systemPrompt, args.topic).pipe(
       Effect.provideService(Model, args.model),
     );
 
@@ -63,32 +55,27 @@ const generateStudy = Command.make('generate', { topic, model }, (args) =>
     yield* Effect.log(
       `Study generated successfully! (Total time: ${totalTime})`,
     );
+    yield* Effect.log(`Output: ${filePath}`);
   }),
 );
 
-const reviseMessage = Command.make('revise', { model }, (args) =>
-  Effect.gen(function* (_) {
+const file = Options.file('file').pipe(
+  Options.withAlias('f'),
+  Options.withDescription('Path to the study file to revise'),
+);
+
+const instructions = Options.text('instructions').pipe(
+  Options.withAlias('i'),
+  Options.withDescription('Revision instructions'),
+);
+
+const reviseStudy = Command.make('revise', { model, file, instructions }, (args) =>
+  Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
     const path = yield* Path.Path;
 
-    const studiesDir = path.join(process.cwd(), 'outputs', 'studies');
-    const files = yield* fs.readDirectory(studiesDir);
-
-    const filePaths = files
-      .map((file) => path.join(studiesDir, file))
-      .sort((a, b) => a.localeCompare(b));
-
-    const filePath = yield* select({
-      message: 'Which study would you like to revise?',
-      choices: filePaths.map((filePath) => ({
-        title: path.basename(filePath),
-        value: filePath,
-      })),
-      maxPerPage: 5,
-    });
-
     const study = yield* fs
-      .readFile(filePath)
+      .readFile(args.file)
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
     const systemMessagePrompt = yield* fs
@@ -105,39 +92,29 @@ const reviseMessage = Command.make('revise', { model }, (args) =>
         },
       ],
       systemPrompt: systemMessagePrompt,
+      instructions: args.instructions,
     }).pipe(Effect.provideService(Model, args.model));
 
-    if (Option.isNone(revisedStudy)) {
-      return;
-    }
+    yield* fs.writeFile(args.file, new TextEncoder().encode(revisedStudy));
 
-    yield* fs.writeFile(filePath, new TextEncoder().encode(revisedStudy.value));
+    yield* Effect.log(`Study revised successfully!`);
+    yield* Effect.log(`Output: ${args.file}`);
   }),
 );
 
-const getNote = Effect.gen(function* (_) {
-  const notes = yield* listNotes();
+const noteId = Options.text('note-id').pipe(
+  Options.withAlias('n'),
+  Options.withDescription('Apple Note ID to generate from'),
+);
 
-  const noteId = yield* select({
-    message: 'Which note would you like to generate a message from?',
-    choices: notes.map((note) => ({
-      title: note.name,
-      value: note.id,
-    })),
-    maxPerPage: 5,
-  });
-
-  return yield* getNoteContent(noteId);
-});
-
-const generateFromNoteMessage = Command.make('from-note', { model }, (args) =>
-  Effect.gen(function* (_) {
+const generateFromNoteStudy = Command.make('from-note', { model, noteId }, (args) =>
+  Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
     const path = yield* Path.Path;
 
     const startTime = Date.now();
 
-    const note = yield* getNote;
+    const note = yield* getNoteContent(args.noteId);
 
     const systemPrompt = yield* fs
       .readFile(
@@ -159,19 +136,56 @@ const generateFromNoteMessage = Command.make('from-note', { model }, (args) =>
       fs.writeFile(filePath, new TextEncoder().encode(response)),
     );
 
-    yield* spin('Adding message to notes', makeAppleNoteFromMarkdown(response));
+    yield* spin('Adding study to notes', makeAppleNoteFromMarkdown(response));
 
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(
       `Study generated successfully! (Total time: ${totalTime})`,
     );
+    yield* Effect.log(`Output: ${filePath}`);
+  }),
+);
+
+const json = Options.boolean('json').pipe(
+  Options.withDefault(false),
+  Options.withDescription('Output as JSON'),
+);
+
+const listStudies = Command.make('list', { json }, (args) =>
+  Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+    const path = yield* Path.Path;
+
+    const studiesDir = path.join(process.cwd(), 'outputs', 'studies');
+    const files = yield* fs.readDirectory(studiesDir).pipe(
+      Effect.catchAll(() => Effect.succeed([] as string[])),
+    );
+
+    const filePaths = files
+      .filter((f) => f.endsWith('.md'))
+      .map((file) => path.join(studiesDir, file))
+      .sort((a, b) => b.localeCompare(a));
+
+    if (args.json) {
+      yield* Effect.log(JSON.stringify(filePaths, null, 2));
+    } else {
+      if (filePaths.length === 0) {
+        yield* Effect.log('No studies found.');
+      } else {
+        yield* Effect.log('Studies:');
+        for (const filePath of filePaths) {
+          yield* Effect.log(`  ${path.basename(filePath)}`);
+        }
+      }
+    }
   }),
 );
 
 export const studies = Command.make('studies').pipe(
   Command.withSubcommands([
     generateStudy,
-    reviseMessage,
-    generateFromNoteMessage,
+    reviseStudy,
+    generateFromNoteStudy,
+    listStudies,
   ]),
 );

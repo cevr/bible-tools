@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Skill(effect)",
+      "Bash(effect-solutions show:*)",
+      "Skill(repo-explorer)",
+      "Bash(git clone:*)",
+      "Bash(git -C ~/Developer/lib/anomalyco/opencode fetch --all --prune)",
+      "Bash(git -C ~/Developer/lib/anomalyco/opencode reset --hard origin/HEAD)",
+      "Bash(bun run:*)",
+      "Bash(bun install:*)",
+      "Bash(taze latest:*)"
+    ]
+  }
+}

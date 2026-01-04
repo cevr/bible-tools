@@ -447,12 +447,20 @@ export class EGWGeminiService extends Effect.Service<EGWGeminiService>()(
                     );
                   }
 
-                  const uploadResult = yield* uploadBook({
-                    storeDisplayName: options.storeDisplayName,
-                    book,
-                    toc,
-                    customMetadata: options.customMetadata,
-                  });
+                  const uploadResult = yield* uploadBook(
+                    options.customMetadata
+                      ? {
+                          storeDisplayName: options.storeDisplayName,
+                          book,
+                          toc,
+                          customMetadata: options.customMetadata,
+                        }
+                      : {
+                          storeDisplayName: options.storeDisplayName,
+                          book,
+                          toc,
+                        },
+                  );
 
                   return Option.some(uploadResult);
                 }).pipe(

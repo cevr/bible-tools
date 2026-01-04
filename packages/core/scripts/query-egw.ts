@@ -79,21 +79,25 @@ const cli = Command.make(
       yield* Effect.log(`Querying store: ${args.store}`);
       yield* Effect.log(`Query: ${query}`);
 
-      const metadataFilter = yield* Option.match(args.metadataFilter, {
-        onSome: (f) => Effect.succeed(f),
-        onNone: () => Effect.succeed(undefined),
-      });
+      const metadataFilter = Option.getOrUndefined(args.metadataFilter);
 
       if (metadataFilter) {
         yield* Effect.log(`Metadata filter: ${metadataFilter}`);
       }
 
       // Query the store
-      const result = yield* service.queryStore({
-        storeDisplayName: args.store,
-        query,
-        metadataFilter,
-      });
+      const result = yield* service.queryStore(
+        metadataFilter
+          ? {
+              storeDisplayName: args.store,
+              query,
+              metadataFilter,
+            }
+          : {
+              storeDisplayName: args.store,
+              query,
+            },
+      );
 
       // Display query information
       yield* Effect.log('\n═══════════════════════════════════════════════════════');

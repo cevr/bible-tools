@@ -316,7 +316,7 @@ const processQuarter = Command.make(
   'process',
   { year, quarter, week, model },
   ({ year, quarter, week, model }) =>
-    Effect.gen(function* (_) {
+    Effect.gen(function* () {
       yield* Effect.log(
         `Starting download for Q${quarter} ${year}${
           Option.isSome(week) ? ` Week ${week.value}` : ''
@@ -425,7 +425,7 @@ const reviseQuarter = Command.make(
   'revise',
   { year, quarter, week, model },
   ({ year, quarter, week, model }) =>
-    Effect.gen(function* (_) {
+    Effect.gen(function* () {
       const startTime = Date.now();
 
       yield* Effect.log(
@@ -499,7 +499,7 @@ const exportQuarter = Command.make(
   'export',
   { year, quarter, week },
   ({ year, quarter, week }) =>
-    Effect.gen(function* (_) {
+    Effect.gen(function* () {
       yield* Effect.log(
         `Starting outline export for Q${quarter} ${year}${
           Option.isSome(week) ? ` Week ${week.value}` : ''

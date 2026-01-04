@@ -1,6 +1,5 @@
-import { confirm, text } from '@effect/cli/Prompt';
 import { generateText } from 'ai';
-import { Array, Data, Effect, Option } from 'effect';
+import { Data, Effect } from 'effect';
 import type { NonEmptyArray } from 'effect/Array';
 
 import { Model } from '~/core/model';
@@ -15,64 +14,48 @@ class ReviewError extends Data.TaggedError('ReviewError')<{
 interface ReviserContext {
   systemPrompt: string;
   cycles: NonEmptyArray<{ prompt: string; response: string }>;
+  instructions: string;
 }
 
+/**
+ * Single-shot revision function.
+ * Takes the current content and revision instructions, returns revised content.
+ * For multi-round revisions, call this function multiple times with updated cycles.
+ */
 export const revise = Effect.fn('revise')(function* ({
   cycles,
   systemPrompt,
+  instructions,
 }: ReviserContext) {
   const models = yield* Model;
-  let revisions = [...cycles];
 
-  while (true) {
-    let shouldRevise = yield* confirm({
-      message: 'Revise?',
-      initial: false,
-    });
+  const reviseResponse = yield* spin(
+    'Revising text',
+    Effect.tryPromise({
+      try: () =>
+        generateText({
+          model: models.high,
+          messages: [
+            {
+              role: 'system',
+              content: systemPrompt,
+            },
+            {
+              role: 'user',
+              content: userRevisePrompt(cycles, instructions),
+            },
+          ],
+        }),
+      catch: (cause: unknown) =>
+        new ReviewError({
+          cause,
+        }),
+    }),
+  );
 
-    if (!shouldRevise) {
-      if (revisions.length === 1) {
-        return Option.none<string>();
-      }
-      return Array.last(revisions).pipe(Option.map((i) => i.response));
-    }
+  yield* doneChime;
 
-    const userRevision = yield* text({
-      message: 'What are the revisions to be made?',
-    });
-
-    const reviseResponse = yield* spin(
-      'Revising text',
-      Effect.tryPromise({
-        try: () =>
-          generateText({
-            model: models.high,
-            messages: [
-              {
-                role: 'system',
-                content: systemPrompt,
-              },
-              {
-                role: 'user',
-                content: userRevisePrompt(revisions, userRevision),
-              },
-            ],
-          }),
-        catch: (cause: unknown) =>
-          new ReviewError({
-            cause,
-          }),
-      }),
-    );
-
-    yield* doneChime;
-
-    yield* Effect.log(`reviseResponse: ${reviseResponse.text}`);
-    revisions.push({
-      prompt: userRevision,
-      response: reviseResponse.text,
-    });
-  }
+  return reviseResponse.text;
 });
 
 export const userRevisePrompt = (

@@ -2,17 +2,32 @@
   "name": "@bible/core",
   "private": true,
   "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./adapters": "./src/adapters/index.ts",
+    "./ai": "./src/ai/index.ts",
+    "./sabbath-school": "./src/sabbath-school/index.ts",
+    "./egw": "./src/egw/index.ts",
+    "./gemini": "./src/gemini/index.ts"
+  },
   "scripts": {
+    "prepare": "effect-language-service patch",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@effect/cli": "catalog:",
+    "@ai-sdk/anthropic": "^3.0.2",
+    "@ai-sdk/google": "^3.0.2",
+    "@ai-sdk/groq": "^3.0.2",
+    "@ai-sdk/openai": "^3.0.2",
     "@effect/platform": "catalog:",
-    "@effect/platform-bun": "catalog:",
     "@google/genai": "^1.34.0",
-    "effect": "catalog:"
+    "ai": "^6.0.5",
+    "cheerio": "^1.1.2",
+    "effect": "catalog:",
+    "zod": "^4.3.4"
   },
   "devDependencies": {
+    "@effect/language-service": "catalog:",
     "@types/bun": "catalog:",
     "typescript": "catalog:"
   }

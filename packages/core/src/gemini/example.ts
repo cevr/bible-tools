@@ -4,7 +4,7 @@
  */
 
 import { Path } from '@effect/platform';
-import { Effect } from 'effect';
+import { Effect, Layer } from 'effect';
 
 import { GeminiFileSearchClient } from './client.js';
 import * as Schemas from './schemas.js';
@@ -64,8 +64,7 @@ export const uploadFilesExample = (
     Effect.catchAll((error) =>
       Effect.logError('Failed to upload files:', error),
     ),
-    Effect.provide(GeminiFileSearchClient.Default),
-    Effect.provide(Path.layer),
+    Effect.provide(Layer.merge(GeminiFileSearchClient.Default, Path.layer)),
   );
 
 /**

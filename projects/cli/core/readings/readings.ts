@@ -1,5 +1,4 @@
 import { Args, Command, Options } from '@effect/cli';
-import { select } from '@effect/cli/Prompt';
 import { FileSystem, Path } from '@effect/platform';
 import { Effect, Option, pipe } from 'effect';
 
@@ -26,7 +25,7 @@ const processChapters = Command.make(
   'process',
   { model, chapter, target },
   (args) =>
-    Effect.gen(function* (_) {
+    Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
       const path = yield* Path.Path;
       const startTime = Date.now();
@@ -228,10 +227,7 @@ const processChapters = Command.make(
                 const { response } = yield* generate(
                   studyPrompt,
                   chapterContent,
-                  {
-                    skipRevisions: true,
-                    skipChime: true,
-                  },
+                  { skipChime: true },
                 ).pipe(Effect.provideService(Model, args.model));
                 studyContent = response;
 
@@ -275,7 +271,7 @@ const processChapters = Command.make(
                 const { response } = yield* generate(
                   slidesPrompt,
                   studyContent,
-                  { skipRevisions: true, skipChime: true },
+                  { skipChime: true },
                 ).pipe(Effect.provideService(Model, args.model));
                 slidesContent = response;
 
@@ -305,7 +301,7 @@ const processChapters = Command.make(
                 const { response: speakerNotesContent } = yield* generate(
                   speakerNotesPrompt,
                   combinedInput,
-                  { skipRevisions: true, skipChime: true },
+                  { skipChime: true },
                 ).pipe(Effect.provideService(Model, args.model));
 
                 yield* spin(
@@ -340,40 +336,28 @@ const processChapters = Command.make(
     }),
 );
 
-const reviseReading = Command.make('revise', { model }, (args) =>
-  Effect.gen(function* (_) {
+const file = Options.file('file').pipe(
+  Options.withAlias('f'),
+  Options.withDescription('Path to the reading file to revise'),
+);
+
+const instructions = Options.text('instructions').pipe(
+  Options.withAlias('i'),
+  Options.withDescription('Revision instructions'),
+);
+
+const reviseReading = Command.make('revise', { model, file, instructions }, (args) =>
+  Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
     const path = yield* Path.Path;
 
-    const outputDir = path.join(process.cwd(), 'outputs', 'readings');
-    const files = yield* fs.readDirectory(outputDir);
-
-    // Filter to only markdown files and sort them
-    const readingFiles = files
-      .filter((file) => file.endsWith('.md'))
-      .sort((a, b) => {
-        // Extract chapter numbers and compare
-        const numA = parseInt(a.match(/chapter-(\d+)/)?.[1] || '0', 10);
-        const numB = parseInt(b.match(/chapter-(\d+)/)?.[1] || '0', 10);
-        return numA - numB;
-      });
-
-    const filePath = yield* select({
-      message: 'Which reading would you like to revise?',
-      choices: readingFiles.map((file) => ({
-        title: file,
-        value: path.join(outputDir, file),
-      })),
-      maxPerPage: 10,
-    });
-
     const reading = yield* fs
-      .readFile(filePath)
+      .readFile(args.file)
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
     // Determine which prompt to use based on file type
-    const isSlides = filePath.includes('-slides');
-    const isSpeakerNotes = filePath.includes('-speaker-notes');
+    const isSlides = args.file.includes('-slides');
+    const isSpeakerNotes = args.file.includes('-speaker-notes');
     const promptFile = isSpeakerNotes
       ? 'generate-speaker-notes.md'
       : isSlides
@@ -394,21 +378,58 @@ const reviseReading = Command.make('revise', { model }, (args) =>
         },
       ],
       systemPrompt,
+      instructions: args.instructions,
     }).pipe(Effect.provideService(Model, args.model));
 
-    if (Option.isNone(revisedReading)) {
-      return;
-    }
-
     yield* fs.writeFile(
-      filePath,
-      new TextEncoder().encode(revisedReading.value),
+      args.file,
+      new TextEncoder().encode(revisedReading),
     );
 
     yield* Effect.log(`Reading revised successfully!`);
+    yield* Effect.log(`Output: ${args.file}`);
+  }),
+);
+
+const json = Options.boolean('json').pipe(
+  Options.withDefault(false),
+  Options.withDescription('Output as JSON'),
+);
+
+const listReadings = Command.make('list', { json }, (args) =>
+  Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+    const path = yield* Path.Path;
+
+    const outputDir = path.join(process.cwd(), 'outputs', 'readings');
+    const files = yield* fs.readDirectory(outputDir).pipe(
+      Effect.catchAll(() => Effect.succeed([] as string[])),
+    );
+
+    const filePaths = files
+      .filter((f) => f.endsWith('.md'))
+      .map((file) => path.join(outputDir, file))
+      .sort((a, b) => {
+        const numA = parseInt(a.match(/chapter-(\d+)/)?.[1] || '0', 10);
+        const numB = parseInt(b.match(/chapter-(\d+)/)?.[1] || '0', 10);
+        return numA - numB;
+      });
+
+    if (args.json) {
+      yield* Effect.log(JSON.stringify(filePaths, null, 2));
+    } else {
+      if (filePaths.length === 0) {
+        yield* Effect.log('No readings found.');
+      } else {
+        yield* Effect.log('Readings:');
+        for (const filePath of filePaths) {
+          yield* Effect.log(`  ${path.basename(filePath)}`);
+        }
+      }
+    }
   }),
 );
 
 export const readings = Command.make('readings').pipe(
-  Command.withSubcommands([processChapters, reviseReading]),
+  Command.withSubcommands([processChapters, reviseReading, listReadings]),
 );

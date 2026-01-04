@@ -1,38 +1,30 @@
-import { Args, Command } from '@effect/cli';
-import { select, text } from '@effect/cli/Prompt';
+import { Command, Options } from '@effect/cli';
 import { FileSystem, Path } from '@effect/platform';
 import { generateText } from 'ai';
 import { format } from 'date-fns';
-import { Data, Effect, Option, Schedule } from 'effect';
+import { Data, Effect, Schedule } from 'effect';
 
 import { generate } from '~/lib/generate';
 import { makeAppleNoteFromMarkdown } from '~/lib/markdown-to-notes';
-import { getNoteContent, listNotes } from '~/lib/notes-utils';
+import { getNoteContent } from '~/lib/notes-utils';
 import { revise } from '~/lib/revise';
 
 import { msToMinutes, spin } from '../../lib/general';
 import { Model, model } from '../model';
 import { generateTopicPrompt } from './prompts/generate-topic';
 
-const topic = Args.text({
-  name: 'topic',
-}).pipe(Args.optional);
+const topic = Options.text('topic').pipe(
+  Options.withAlias('t'),
+  Options.withDescription('Topic for the message'),
+);
 
 const generateMessage = Command.make('generate', { topic, model }, (args) =>
-  Effect.gen(function* (_) {
+  Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
     const path = yield* Path.Path;
     const startTime = Date.now();
 
-    const topic = yield* Option.match(args.topic, {
-      onSome: (topic) => Effect.succeed(topic),
-      onNone: () =>
-        text({
-          message: 'What would you like the message to be about?',
-        }),
-    });
-
-    yield* Effect.log(`topic: ${topic}`);
+    yield* Effect.log(`topic: ${args.topic}`);
 
     const systemPrompt = yield* fs
       .readFile(
@@ -40,7 +32,7 @@ const generateMessage = Command.make('generate', { topic, model }, (args) =>
       )
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const { filename, response } = yield* generate(systemPrompt, topic).pipe(
+    const { filename, response } = yield* generate(systemPrompt, args.topic).pipe(
       Effect.provideService(Model, args.model),
     );
 
@@ -65,34 +57,29 @@ const generateMessage = Command.make('generate', { topic, model }, (args) =>
     yield* Effect.log(
       `Message generated successfully! (Total time: ${totalTime})`,
     );
+    yield* Effect.log(`Output: ${filePath}`);
   }),
 );
 
-const reviseMessage = Command.make('revise', { model }, (args) =>
-  Effect.gen(function* (_) {
+const file = Options.file('file').pipe(
+  Options.withAlias('f'),
+  Options.withDescription('Path to the message file to revise'),
+);
+
+const instructions = Options.text('instructions').pipe(
+  Options.withAlias('i'),
+  Options.withDescription('Revision instructions'),
+);
+
+const reviseMessage = Command.make('revise', { model, file, instructions }, (args) =>
+  Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
     const path = yield* Path.Path;
 
-    const messagesDir = path.join(process.cwd(), 'outputs', 'messages');
-    const files = yield* fs.readDirectory(messagesDir);
-
-    const filePaths = files
-      .map((file) => path.join(messagesDir, file))
-      // most are named with the date (YYYY-MM-DD), so sort descending
-      .sort((a, b) => b.localeCompare(a));
-
-    const filePath = yield* select({
-      message: 'Which message would you like to revise?',
-      choices: filePaths.map((filePath) => ({
-        title: path.basename(filePath),
-        value: filePath,
-      })),
-      maxPerPage: 5,
-    });
-
     const message = yield* fs
-      .readFile(filePath)
+      .readFile(args.file)
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
+
     const systemMessagePrompt = yield* fs
       .readFile(
         path.join(process.cwd(), 'core', 'messages', 'prompts', 'generate.md'),
@@ -107,46 +94,33 @@ const reviseMessage = Command.make('revise', { model }, (args) =>
         },
       ],
       systemPrompt: systemMessagePrompt,
+      instructions: args.instructions,
     }).pipe(Effect.provideService(Model, args.model));
 
-    if (Option.isNone(revisedMessage)) {
-      yield* Effect.logError('No message to revise.');
-      return;
-    }
-
     yield* fs.writeFile(
-      filePath,
-      new TextEncoder().encode(revisedMessage.value),
+      args.file,
+      new TextEncoder().encode(revisedMessage),
     );
+
+    yield* Effect.log(`Message revised successfully!`);
+    yield* Effect.log(`Output: ${args.file}`);
   }),
 );
 
-const getNote = Effect.gen(function* (_) {
-  const notes = yield* listNotes();
-
-  const noteId = yield* select({
-    message: 'Which note would you like to generate a message from?',
-    choices: notes.map((note) => ({
-      title: note.name,
-      value: note.id,
-    })),
-    maxPerPage: 5,
-  });
-
-  return yield* getNoteContent(noteId);
-});
+const noteId = Options.text('note-id').pipe(
+  Options.withAlias('n'),
+  Options.withDescription('Apple Note ID to generate from'),
+);
 
 const generateFromNoteMessage = Command.make(
   'from-note',
-  {
-    model,
-  },
+  { model, noteId },
   (args) =>
-    Effect.gen(function* (_) {
+    Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
       const path = yield* Path.Path;
       const startTime = Date.now();
-      const note = yield* getNote;
+      const note = yield* getNoteContent(args.noteId);
 
       const systemPrompt = yield* fs
         .readFile(
@@ -183,6 +157,7 @@ const generateFromNoteMessage = Command.make(
       yield* Effect.log(
         `Message generated successfully! (Total time: ${totalTime})`,
       );
+      yield* Effect.log(`Output: ${filePath}`);
     }),
 );
 
@@ -193,7 +168,7 @@ class GenerateTopicResponseError extends Data.TaggedError(
 }> {}
 
 const generateTopic = Command.make('generate-topic', { model }, (args) =>
-  Effect.gen(function* (_) {
+  Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
     const path = yield* Path.Path;
 
@@ -233,11 +208,47 @@ const generateTopic = Command.make('generate-topic', { model }, (args) =>
   }),
 );
 
+const json = Options.boolean('json').pipe(
+  Options.withDefault(false),
+  Options.withDescription('Output as JSON'),
+);
+
+const listMessages = Command.make('list', { json }, (args) =>
+  Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+    const path = yield* Path.Path;
+
+    const messagesDir = path.join(process.cwd(), 'outputs', 'messages');
+    const files = yield* fs.readDirectory(messagesDir).pipe(
+      Effect.catchAll(() => Effect.succeed([] as string[])),
+    );
+
+    const filePaths = files
+      .filter((f) => f.endsWith('.md'))
+      .map((file) => path.join(messagesDir, file))
+      .sort((a, b) => b.localeCompare(a));
+
+    if (args.json) {
+      yield* Effect.log(JSON.stringify(filePaths, null, 2));
+    } else {
+      if (filePaths.length === 0) {
+        yield* Effect.log('No messages found.');
+      } else {
+        yield* Effect.log('Messages:');
+        for (const filePath of filePaths) {
+          yield* Effect.log(`  ${path.basename(filePath)}`);
+        }
+      }
+    }
+  }),
+);
+
 export const messages = Command.make('messages').pipe(
   Command.withSubcommands([
     generateMessage,
     reviseMessage,
     generateFromNoteMessage,
     generateTopic,
+    listMessages,
   ]),
 );

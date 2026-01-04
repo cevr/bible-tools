@@ -1,11 +1,10 @@
 import { generateText } from 'ai';
-import { Data, Effect, Option, Schedule } from 'effect';
+import { Data, Effect, Schedule } from 'effect';
 
 import { Model } from '~/core/model';
 
 import { doneChime } from './done-chime';
 import { spin } from './general';
-import { revise } from './revise';
 
 class GenerateResponseError extends Data.TaggedError('GenerateResponseError')<{
   cause: unknown;
@@ -15,10 +14,15 @@ class GenerateFilenameError extends Data.TaggedError('GenerateFilenameError')<{
   cause: unknown;
 }> {}
 
+/**
+ * Generate content using AI.
+ * Returns the generated content and a filename suggestion.
+ * Note: This function no longer handles revisions - use the revise function separately if needed.
+ */
 export const generate = Effect.fn('generate')(function* (
   systemPrompt: string,
   prompt: string,
-  options?: { skipRevisions?: boolean; skipChime?: boolean },
+  options?: { skipChime?: boolean },
 ) {
   const models = yield* Model;
 
@@ -78,25 +82,8 @@ export const generate = Effect.fn('generate')(function* (
     yield* doneChime;
   }
 
-  if (options?.skipRevisions) {
-    return {
-      filename: filename.text,
-      response: response.text,
-    };
-  }
-
-  const revisedResponse = yield* revise({
-    cycles: [
-      {
-        prompt: prompt,
-        response: response.text,
-      },
-    ],
-    systemPrompt: systemPrompt,
-  });
-
   return {
     filename: filename.text,
-    response: Option.getOrElse(revisedResponse, () => response.text),
+    response: response.text,
   };
 });

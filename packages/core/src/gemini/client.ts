@@ -242,17 +242,27 @@ export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClien
             // and ensures all values are in the correct format for the API
             const apiMetadata = Schemas.toCustomMetadata(config.customMetadata);
 
+            // Build config object, only including chunkingConfig if it has whiteSpaceConfig
+            const uploadConfig: {
+              displayName: string;
+              customMetadata: CustomMetadata[];
+              chunkingConfig?: { whiteSpaceConfig: { maxTokensPerChunk: number; maxOverlapTokens: number } };
+            } = {
+              displayName: config.displayName,
+              customMetadata: apiMetadata as CustomMetadata[],
+            };
+            if (config.chunkingConfig?.whiteSpaceConfig) {
+              uploadConfig.chunkingConfig = {
+                whiteSpaceConfig: config.chunkingConfig.whiteSpaceConfig,
+              };
+            }
+
             const operation = yield* Effect.tryPromise({
               try: () =>
                 ai.fileSearchStores.uploadToFileSearchStore({
                   file: filePath,
                   fileSearchStoreName,
-                  config: {
-                    displayName: config.displayName,
-                    // API expects CustomMetadata[] format
-                    customMetadata: apiMetadata as CustomMetadata[],
-                    chunkingConfig: config.chunkingConfig,
-                  },
+                  config: uploadConfig,
                 }),
               catch: (error) =>
                 new GeminiFileSearchError({
@@ -305,17 +315,27 @@ export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClien
               `Uploading content (${contentLength} bytes) to store: ${fileSearchStoreName} with displayName: ${config.displayName}`,
             );
 
+            // Build config object, only including chunkingConfig if it has whiteSpaceConfig
+            const uploadConfig: {
+              displayName: string;
+              customMetadata: CustomMetadata[];
+              chunkingConfig?: { whiteSpaceConfig: { maxTokensPerChunk: number; maxOverlapTokens: number } };
+            } = {
+              displayName: config.displayName,
+              customMetadata: apiMetadata as CustomMetadata[],
+            };
+            if (config.chunkingConfig?.whiteSpaceConfig) {
+              uploadConfig.chunkingConfig = {
+                whiteSpaceConfig: config.chunkingConfig.whiteSpaceConfig,
+              };
+            }
+
             const operation = yield* Effect.tryPromise({
               try: () =>
                 ai.fileSearchStores.uploadToFileSearchStore({
                   file: file,
                   fileSearchStoreName,
-                  config: {
-                    displayName: config.displayName,
-                    // API expects CustomMetadata[] format
-                    customMetadata: apiMetadata as CustomMetadata[],
-                    chunkingConfig: config.chunkingConfig,
-                  },
+                  config: uploadConfig,
                 }),
               catch: (error) =>
                 new GeminiFileSearchError({

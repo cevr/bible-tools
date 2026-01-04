@@ -1,9 +1,11 @@
 {
   "name": "@bible/cli",
   "version": "1.0.0",
-  "description": "",
+  "description": "Bible Tools CLI",
+  "type": "module",
   "scripts": {
-    "build": "bun build core/main.ts --outfile bin/bible --compile && cp bin/bible node_modules/.bin/bible",
+    "build": "bun build src/main.ts --outfile bin/bible --compile && cp bin/bible node_modules/.bin/bible",
+    "prepare": "effect-language-service patch",
     "typecheck": "tsc --noEmit"
   },
   "bin": {
@@ -13,30 +15,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ai-sdk/anthropic": "^3.0.2",
-    "@ai-sdk/google": "^3.0.2",
-    "@ai-sdk/groq": "^3.0.2",
-    "@ai-sdk/openai": "^3.0.2",
+    "@bible/core": "workspace:*",
     "@clack/prompts": "^0.11.0",
-    "@effect/cli": "^0.73.0",
-    "@effect/cluster": "^0.56.0",
-    "@effect/language-service": "^0.63.2",
-    "@effect/platform": "^0.94.1",
-    "@effect/platform-bun": "^0.87.0",
-    "@effect/platform-node": "^0.104.0",
-    "@effect/rpc": "^0.73.0",
-    "ai": "^6.0.5",
-    "cheerio": "^1.1.2",
+    "@effect/cli": "catalog:",
+    "@effect/platform": "catalog:",
+    "@effect/platform-bun": "catalog:",
+    "@opentui/core": "^0.1.68",
+    "@opentui/react": "^0.1.68",
     "date-fns": "^4.1.0",
-    "effect": "^3.19.14",
+    "effect": "catalog:",
     "marked": "^17.0.1",
     "match-sorter": "^8.2.0",
-    "prettier": "^3.7.4",
-    "zod": "^4.3.4"
+    "react": "^19.0.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.3.5",
+    "@effect/language-service": "catalog:",
+    "@types/bun": "catalog:",
+    "@types/react": "^19.0.0",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "catalog:"
   }
 }
