@@ -2,8 +2,8 @@ import { Args, Command } from '@effect/cli';
 import { Console, Effect } from 'effect';
 
 import { BibleData, BibleDataLive } from '~/src/bible/data';
-import { parseVerseQuery, getVersesForQuery, type ParsedQuery } from '~/src/bible/parse';
-import { formatReference, getBook, type Verse } from '~/src/bible/types';
+import { parseVerseQuery, getVersesForQuery } from '~/src/bible/parse';
+import { getBook, type Verse } from '~/src/bible/types';
 
 // Variadic args to capture "john 3:16" or "john" "3:16" etc.
 const query = Args.text({ name: 'query' }).pipe(Args.repeated);
