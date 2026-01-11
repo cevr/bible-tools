@@ -1,17 +1,25 @@
-import { createEffect, For, Show } from 'solid-js';
+import { createEffect, createMemo, For, Show } from 'solid-js';
 import type { ScrollBoxRenderable } from '@opentui/core';
 
 import { useBibleData } from '../context/bible.js';
 import { useNavigation } from '../context/navigation.js';
 import { useDisplay } from '../context/display.js';
 import { useTheme } from '../context/theme.js';
+import { useSearch } from '../context/search.js';
 import { Verse, VerseParagraph } from './verse.js';
 
 export function ChapterView() {
   const { theme } = useTheme();
   const { position, selectedVerse, highlightedVerse } = useNavigation();
   const { mode } = useDisplay();
+  const { query, matches, isActive } = useSearch();
   const data = useBibleData();
+
+  // Get search match verse numbers for highlighting
+  const searchMatchVerses = createMemo(() => {
+    if (!isActive() || !query()) return [];
+    return matches().map(m => m.verse);
+  });
 
   let scrollRef: ScrollBoxRenderable | undefined;
 
@@ -94,7 +102,12 @@ export function ChapterView() {
         <Show
           when={mode() === 'verse'}
           fallback={
-            <VerseParagraph verses={verses()} highlightedVerse={selectedVerse()} />
+            <VerseParagraph
+              verses={verses()}
+              highlightedVerse={selectedVerse()}
+              searchQuery={isActive() ? query() : undefined}
+              searchMatchVerses={searchMatchVerses()}
+            />
           }
         >
           <For each={verses()}>
@@ -103,6 +116,8 @@ export function ChapterView() {
                 id={`verse-${verse.verse}`}
                 verse={verse}
                 isHighlighted={selectedVerse() === verse.verse || highlightedVerse() === verse.verse}
+                isSearchMatch={searchMatchVerses().includes(verse.verse)}
+                searchQuery={isActive() ? query() : undefined}
               />
             )}
           </For>

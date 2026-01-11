@@ -6,6 +6,7 @@ import { BibleProvider } from './context/bible.js';
 import { ThemeProvider, useTheme } from './context/theme.js';
 import { NavigationProvider } from './context/navigation.js';
 import { DisplayProvider } from './context/display.js';
+import { SearchProvider } from './context/search.js';
 import { ModelProvider, type ModelService } from './context/model.js';
 import { ExitProvider } from './context/exit.js';
 import { BibleView } from './routes/bible.js';
@@ -54,41 +55,52 @@ function AppContent(props: AppProps) {
 
   return (
     <NavigationProvider initialRef={props.initialRef}>
-      <DisplayProvider>
-        <ExitProvider onExit={handleExit}>
-          <box
-            width={dimensions().width}
-            height={dimensions().height}
-            flexDirection="column"
-            backgroundColor={theme().background}
-          >
-            <Show when={route() === 'bible'}>
-              <BibleView onNavigateToRoute={handleNavigateToRoute} />
-            </Show>
-            <Show when={route() === 'messages'}>
-              <MessagesView onBack={() => setRoute('bible')} />
-            </Show>
-            <Show when={route() === 'sabbath-school'}>
-              <SabbathSchoolView onBack={() => setRoute('bible')} />
-            </Show>
-            <Show when={route() === 'studies'}>
-              <StudiesView onBack={() => setRoute('bible')} />
-            </Show>
-          </box>
-        </ExitProvider>
-      </DisplayProvider>
+      <SearchProvider>
+        <DisplayProvider>
+          <ExitProvider onExit={handleExit}>
+            <box
+              width={dimensions().width}
+              height={dimensions().height}
+              flexDirection="column"
+              backgroundColor={theme().background}
+            >
+              <Show when={route() === 'bible'}>
+                <BibleView onNavigateToRoute={handleNavigateToRoute} />
+              </Show>
+              <Show when={route() === 'messages'}>
+                <MessagesView onBack={() => setRoute('bible')} />
+              </Show>
+              <Show when={route() === 'sabbath-school'}>
+                <SabbathSchoolView onBack={() => setRoute('bible')} />
+              </Show>
+              <Show when={route() === 'studies'}>
+                <StudiesView onBack={() => setRoute('bible')} />
+              </Show>
+            </box>
+          </ExitProvider>
+        </DisplayProvider>
+      </SearchProvider>
     </NavigationProvider>
+  );
+}
+
+// Wrapper that provides ThemeProvider with renderer access
+function AppWithTheme(props: AppProps) {
+  const renderer = useRenderer();
+
+  return (
+    <ThemeProvider renderer={renderer}>
+      <ModelProvider model={props.model ?? null}>
+        <AppContent initialRef={props.initialRef} model={props.model} />
+      </ModelProvider>
+    </ThemeProvider>
   );
 }
 
 function App(props: AppProps) {
   return (
     <BibleProvider>
-      <ThemeProvider>
-        <ModelProvider model={props.model ?? null}>
-          <AppContent initialRef={props.initialRef} model={props.model} />
-        </ModelProvider>
-      </ThemeProvider>
+      <AppWithTheme initialRef={props.initialRef} model={props.model} />
     </BibleProvider>
   );
 }

@@ -42,16 +42,61 @@ const GROUP_CONFIG: Record<GroupType, { label: string; order: number }> = {
   recent: { label: 'Recent', order: 6 },
 };
 
-// Sub-modes for the command palette
-type PaletteMode = 'main' | 'theme';
-
 interface CommandPaletteProps {
   onClose: () => void;
   onNavigateToRoute?: (route: string) => void;
 }
 
+// Main entry point - just handles which sub-component to show
 export function CommandPalette(props: CommandPaletteProps) {
-  const { theme, themeName, setTheme, availableThemes } = useTheme();
+  const { themeName, setTheme, availableThemes } = useTheme();
+
+  // Simple state: either showing main search or theme picker
+  const [showThemePicker, setShowThemePicker] = createSignal(false);
+
+  const handleSelectTheme = () => {
+    setShowThemePicker(true);
+  };
+
+  const handleThemeSelected = (name: string) => {
+    setTheme(name);
+    props.onClose();
+  };
+
+  const handleThemeBack = () => {
+    setShowThemePicker(false);
+  };
+
+  return (
+    <Show
+      when={!showThemePicker()}
+      fallback={
+        <ThemePicker
+          currentTheme={themeName()}
+          availableThemes={availableThemes()}
+          onSelect={handleThemeSelected}
+          onBack={handleThemeBack}
+        />
+      }
+    >
+      <MainPalette
+        onClose={props.onClose}
+        onNavigateToRoute={props.onNavigateToRoute}
+        onSelectTheme={handleSelectTheme}
+      />
+    </Show>
+  );
+}
+
+// Main search palette - completely isolated keyboard handling
+interface MainPaletteProps {
+  onClose: () => void;
+  onNavigateToRoute?: (route: string) => void;
+  onSelectTheme: () => void;
+}
+
+function MainPalette(props: MainPaletteProps) {
+  const { theme, themeName } = useTheme();
   const { toggleMode, mode } = useDisplay();
   const data = useBibleData();
   const state = useBibleState();
@@ -63,7 +108,6 @@ export function CommandPalette(props: CommandPaletteProps) {
   const [aiResults, setAiResults] = createSignal<Reference[]>([]);
   const [aiLoading, setAiLoading] = createSignal(false);
   const [aiError, setAiError] = createSignal<string | null>(null);
-  const [paletteMode, setPaletteMode] = createSignal<PaletteMode>('main');
 
   let inputRef: InputRenderable | undefined;
   let aiSearchTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -117,13 +161,6 @@ export function CommandPalette(props: CommandPaletteProps) {
         setAiLoading(false);
       }
     }, 500);
-  });
-
-  // Reset selection when mode changes
-  createEffect(() => {
-    paletteMode(); // track
-    setSelectedIndex(0);
-    setQuery('');
   });
 
   // Build grouped command options based on query
@@ -362,7 +399,7 @@ export function CommandPalette(props: CommandPaletteProps) {
     } else if (option.type === 'setting') {
       switch (option.value) {
         case 'theme':
-          setPaletteMode('theme');
+          props.onSelectTheme();
           break;
         case 'display':
           toggleMode();
@@ -425,128 +462,111 @@ export function CommandPalette(props: CommandPaletteProps) {
   const maxVisible = 12;
   const visibleItems = () => renderItems().slice(0, maxVisible);
 
-  // Theme picker mode
   return (
-    <Show
-      when={paletteMode() === 'main'}
-      fallback={
-        <ThemePicker
-          theme={theme}
-          currentTheme={themeName()}
-          availableThemes={availableThemes()}
-          onSelect={(name) => {
-            setTheme(name);
-            props.onClose();
-          }}
-          onBack={() => setPaletteMode('main')}
-          onClose={props.onClose}
-        />
-      }
+    <box
+      flexDirection="column"
+      border
+      borderColor={theme().borderFocused}
+      backgroundColor={theme().backgroundPanel}
+      padding={1}
+      minWidth={60}
+      maxHeight={22}
     >
-      <box
-        flexDirection="column"
-        border
-        borderColor={theme().borderFocused}
-        backgroundColor={theme().backgroundPanel}
-        padding={1}
-        minWidth={60}
-        maxHeight={22}
-      >
-        {/* Search input */}
-        <box height={3} border borderColor={theme().border} marginBottom={1}>
-          <input
-            ref={inputRef}
-            placeholder="Search verses, books, or commands..."
-            focused
-            onInput={setQuery}
-          />
-        </box>
-
-        {/* Results with groups */}
-        <box flexDirection="column" flexGrow={1}>
-          <Show
-            when={visibleItems().length > 0}
-            fallback={
-              <text fg={theme().textMuted} style={{ padding: 1 }}>
-                No results found
-              </text>
-            }
-          >
-            <For each={visibleItems()}>
-              {(item, idx) => (
-                <Show
-                  when={item.type === 'option'}
-                  fallback={
-                    <box paddingLeft={1} marginTop={idx() > 0 ? 1 : 0}>
-                      <text fg={theme().textMuted}>
-                        <strong>{item.label}</strong>
-                      </text>
-                    </box>
-                  }
-                >
-                  {(() => {
-                    const option = item.option!;
-                    const isSelected = () => item.flatIndex === selectedIndex();
-
-                    return (
-                      <box
-                        flexDirection="row"
-                        justifyContent="space-between"
-                        paddingLeft={2}
-                        paddingRight={1}
-                        backgroundColor={isSelected() ? theme().accent : undefined}
-                      >
-                        <text fg={isSelected() ? theme().background : theme().text}>
-                          {option.label}
-                        </text>
-                        <Show when={option.description}>
-                          <text fg={isSelected() ? theme().background : theme().textMuted}>
-                            {option.description!.slice(0, 35)}
-                          </text>
-                        </Show>
-                      </box>
-                    );
-                  })()}
-                </Show>
-              )}
-            </For>
-          </Show>
-        </box>
-
-        {/* Footer hints */}
-        <box height={1} marginTop={1}>
-          <text fg={theme().textMuted}>
-            <span style={{ fg: theme().accent }}>Enter</span> select
-            <span>  </span>
-            <span style={{ fg: theme().accent }}>↑↓</span> navigate
-            <span>  </span>
-            <Show when={model}>
-              <span style={{ fg: theme().accent }}>?</span> AI search
-              <span>  </span>
-            </Show>
-            <span style={{ fg: theme().accent }}>Esc</span> close
-          </text>
-        </box>
+      {/* Search input */}
+      <box height={3} border borderColor={theme().border} marginBottom={1}>
+        <input
+          ref={inputRef}
+          placeholder="Search verses, books, or commands..."
+          focused
+          onInput={setQuery}
+        />
       </box>
-    </Show>
+
+      {/* Results with groups */}
+      <box flexDirection="column" flexGrow={1}>
+        <Show
+          when={visibleItems().length > 0}
+          fallback={
+            <text fg={theme().textMuted} style={{ padding: 1 }}>
+              No results found
+            </text>
+          }
+        >
+          <For each={visibleItems()}>
+            {(item, idx) => (
+              <Show
+                when={item.type === 'option'}
+                fallback={
+                  <box paddingLeft={1} marginTop={idx() > 0 ? 1 : 0}>
+                    <text fg={theme().textMuted}>
+                      <strong>{item.label}</strong>
+                    </text>
+                  </box>
+                }
+              >
+                {(() => {
+                  const option = item.option!;
+                  const isSelected = () => item.flatIndex === selectedIndex();
+
+                  return (
+                    <box
+                      flexDirection="row"
+                      justifyContent="space-between"
+                      paddingLeft={2}
+                      paddingRight={1}
+                      backgroundColor={isSelected() ? theme().accent : undefined}
+                    >
+                      <text fg={isSelected() ? theme().background : theme().text}>
+                        {option.label}
+                      </text>
+                      <Show when={option.description}>
+                        <text fg={isSelected() ? theme().background : theme().textMuted}>
+                          {option.description!.slice(0, 35)}
+                        </text>
+                      </Show>
+                    </box>
+                  );
+                })()}
+              </Show>
+            )}
+          </For>
+        </Show>
+      </box>
+
+      {/* Footer hints */}
+      <box height={1} marginTop={1}>
+        <text fg={theme().textMuted}>
+          <span style={{ fg: theme().accent }}>Enter</span> select
+          <span>  </span>
+          <span style={{ fg: theme().accent }}>↑↓</span> navigate
+          <span>  </span>
+          <Show when={model}>
+            <span style={{ fg: theme().accent }}>?</span> AI search
+            <span>  </span>
+          </Show>
+          <span style={{ fg: theme().accent }}>Esc</span> close
+        </text>
+      </box>
+    </box>
   );
 }
 
-// Theme picker component
+// Theme picker - completely isolated component with its own keyboard handling
 interface ThemePickerProps {
-  theme: () => ReturnType<typeof useTheme>['theme'] extends () => infer T ? T : never;
   currentTheme: string;
   availableThemes: string[];
   onSelect: (name: string) => void;
   onBack: () => void;
-  onClose: () => void;
 }
 
 function ThemePicker(props: ThemePickerProps) {
-  const [selectedIndex, setSelectedIndex] = createSignal(() => {
+  const { theme } = useTheme();
+
+  const initialIndex = () => {
     const idx = props.availableThemes.indexOf(props.currentTheme);
     return idx >= 0 ? idx : 0;
-  });
+  };
+  const [selectedIndex, setSelectedIndex] = createSignal(initialIndex());
 
   useKeyboard((key) => {
     if (key.name === 'escape') {
@@ -555,7 +575,7 @@ function ThemePicker(props: ThemePickerProps) {
     }
 
     if (key.name === 'return') {
-      const selected = props.availableThemes[selectedIndex()()];
+      const selected = props.availableThemes[selectedIndex()];
       if (selected) {
         props.onSelect(selected);
       }
@@ -563,12 +583,12 @@ function ThemePicker(props: ThemePickerProps) {
     }
 
     if (key.name === 'up' || key.name === 'k') {
-      setSelectedIndex(() => () => Math.max(0, selectedIndex()() - 1));
+      setSelectedIndex((i) => Math.max(0, i - 1));
       return;
     }
 
     if (key.name === 'down' || key.name === 'j') {
-      setSelectedIndex(() => () => Math.min(props.availableThemes.length - 1, selectedIndex()() + 1));
+      setSelectedIndex((i) => Math.min(props.availableThemes.length - 1, i + 1));
       return;
     }
   });
@@ -577,15 +597,15 @@ function ThemePicker(props: ThemePickerProps) {
     <box
       flexDirection="column"
       border
-      borderColor={props.theme().borderFocused}
-      backgroundColor={props.theme().backgroundPanel}
+      borderColor={theme().borderFocused}
+      backgroundColor={theme().backgroundPanel}
       padding={1}
       minWidth={40}
       maxHeight={18}
     >
       {/* Header */}
       <box paddingLeft={1} marginBottom={1}>
-        <text fg={props.theme().textHighlight}>
+        <text fg={theme().textHighlight}>
           <strong>Select Theme</strong>
         </text>
       </box>
@@ -594,7 +614,7 @@ function ThemePicker(props: ThemePickerProps) {
       <box flexDirection="column" flexGrow={1}>
         <For each={props.availableThemes}>
           {(name, index) => {
-            const isSelected = () => index() === selectedIndex()();
+            const isSelected = () => index() === selectedIndex();
             const isCurrent = name === props.currentTheme;
 
             return (
@@ -603,13 +623,13 @@ function ThemePicker(props: ThemePickerProps) {
                 justifyContent="space-between"
                 paddingLeft={2}
                 paddingRight={1}
-                backgroundColor={isSelected() ? props.theme().accent : undefined}
+                backgroundColor={isSelected() ? theme().accent : undefined}
               >
-                <text fg={isSelected() ? props.theme().background : props.theme().text}>
+                <text fg={isSelected() ? theme().background : theme().text}>
                   {name}
                 </text>
                 <Show when={isCurrent}>
-                  <text fg={isSelected() ? props.theme().background : props.theme().textMuted}>
+                  <text fg={isSelected() ? theme().background : theme().textMuted}>
                     (current)
                   </text>
                 </Show>
@@ -621,12 +641,12 @@ function ThemePicker(props: ThemePickerProps) {
 
       {/* Footer hints */}
       <box height={1} marginTop={1}>
-        <text fg={props.theme().textMuted}>
-          <span style={{ fg: props.theme().accent }}>Enter</span> select
+        <text fg={theme().textMuted}>
+          <span style={{ fg: theme().accent }}>Enter</span> select
           <span>  </span>
-          <span style={{ fg: props.theme().accent }}>↑↓</span> navigate
+          <span style={{ fg: theme().accent }}>↑↓</span> navigate
           <span>  </span>
-          <span style={{ fg: props.theme().accent }}>Esc</span> back
+          <span style={{ fg: theme().accent }}>Esc</span> back
         </text>
       </box>
     </box>

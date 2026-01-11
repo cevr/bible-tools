@@ -56,6 +56,13 @@ function initDatabase(db: Database) {
       cached_at INTEGER NOT NULL
     );
 
+    CREATE TABLE IF NOT EXISTS terminal_palette (
+      id INTEGER PRIMARY KEY CHECK (id = 1),
+      palette TEXT NOT NULL,
+      is_dark INTEGER NOT NULL,
+      cached_at INTEGER NOT NULL
+    );
+
     -- Initialize default position if not exists
     INSERT OR IGNORE INTO position (id, book, chapter, verse) VALUES (1, 1, 1, 1);
 
@@ -65,6 +72,12 @@ function initDatabase(db: Database) {
     -- Create index for history queries
     CREATE INDEX IF NOT EXISTS idx_history_visited_at ON history(visited_at DESC);
   `);
+}
+
+// Terminal palette cache
+export interface CachedPalette {
+  palette: string[];
+  isDark: boolean;
 }
 
 // Service interface
@@ -81,6 +94,8 @@ export interface BibleStateService {
   readonly setPreferences: (prefs: Partial<Preferences>) => void;
   readonly getCachedAISearch: (query: string) => Reference[] | undefined;
   readonly setCachedAISearch: (query: string, results: Reference[]) => void;
+  readonly getCachedPalette: () => CachedPalette | undefined;
+  readonly setCachedPalette: (palette: CachedPalette) => void;
   readonly close: () => void;
 }
 
@@ -123,8 +138,17 @@ function createBibleStateService(): BibleStateService {
     'INSERT OR REPLACE INTO ai_search_cache (query, results, cached_at) VALUES (?, ?, ?)'
   );
 
-  // Cache expiry: 24 hours
+  const getPaletteStmt = db.prepare<{ palette: string; is_dark: number; cached_at: number }, []>(
+    'SELECT palette, is_dark, cached_at FROM terminal_palette WHERE id = 1'
+  );
+  const setPaletteStmt = db.prepare(
+    'INSERT OR REPLACE INTO terminal_palette (id, palette, is_dark, cached_at) VALUES (1, ?, ?, ?)'
+  );
+
+  // Cache expiry: 24 hours for AI search
   const CACHE_EXPIRY_MS = 24 * 60 * 60 * 1000;
+  // Palette cache: 7 days (terminal colors rarely change)
+  const PALETTE_CACHE_EXPIRY_MS = 7 * 24 * 60 * 60 * 1000;
 
   return {
     getLastPosition(): Position {
@@ -217,6 +241,29 @@ function createBibleStateService(): BibleStateService {
 
     setCachedAISearch(query: string, results: Reference[]): void {
       setCacheStmt.run(query.toLowerCase().trim(), JSON.stringify(results), Date.now());
+    },
+
+    getCachedPalette(): CachedPalette | undefined {
+      const row = getPaletteStmt.get();
+      if (!row) return undefined;
+
+      // Check if cache is expired
+      if (Date.now() - row.cached_at > PALETTE_CACHE_EXPIRY_MS) {
+        return undefined;
+      }
+
+      try {
+        return {
+          palette: JSON.parse(row.palette) as string[],
+          isDark: row.is_dark === 1,
+        };
+      } catch {
+        return undefined;
+      }
+    },
+
+    setCachedPalette(cached: CachedPalette): void {
+      setPaletteStmt.run(JSON.stringify(cached.palette), cached.isDark ? 1 : 0, Date.now());
     },
 
     close(): void {

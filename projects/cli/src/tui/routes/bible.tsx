@@ -4,10 +4,12 @@ import { useKeyboard, useTerminalDimensions } from '@opentui/solid';
 import { useNavigation } from '../context/navigation.js';
 import { useDisplay } from '../context/display.js';
 import { useTheme } from '../context/theme.js';
+import { useSearch } from '../context/search.js';
 import { Topbar } from '../components/topbar.js';
 import { Footer } from '../components/footer.js';
 import { ChapterView } from '../components/chapter-view.js';
 import { CommandPalette } from '../components/command-palette.js';
+import { SearchBox } from '../components/search-box.js';
 
 interface BibleViewProps {
   onNavigateToRoute?: (route: string) => void;
@@ -18,6 +20,7 @@ export function BibleView(props: BibleViewProps) {
   const { theme } = useTheme();
   const { nextChapter, prevChapter, nextVerse, prevVerse, goToVerse, goToFirstVerse, goToLastVerse } = useNavigation();
   const { toggleMode } = useDisplay();
+  const { isActive: isSearchActive, setActive: setSearchActive, clearSearch, nextMatch, prevMatch } = useSearch();
   const [showPalette, setShowPalette] = createSignal(false);
   const [showToolsPalette, setShowToolsPalette] = createSignal(false);
 
@@ -27,6 +30,9 @@ export function BibleView(props: BibleViewProps) {
   useKeyboard((key) => {
     // Skip if palette is open
     if (showPalette() || showToolsPalette()) return;
+
+    // Skip if search is active (SearchBox handles its own input)
+    if (isSearchActive()) return;
 
     const pending = pendingGoto();
 
@@ -124,6 +130,24 @@ export function BibleView(props: BibleViewProps) {
       setShowToolsPalette(true);
       return;
     }
+
+    // Search: Ctrl+F or /
+    if ((key.ctrl && key.name === 'f') || key.name === '/') {
+      setSearchActive(true);
+      return;
+    }
+
+    // n - next search match (vim style)
+    if (key.name === 'n' && !key.ctrl) {
+      nextMatch();
+      return;
+    }
+
+    // N - previous search match (vim style)
+    if (key.sequence === 'N') {
+      prevMatch();
+      return;
+    }
     // Note: Ctrl+C exit is handled globally in AppContent
   });
 
@@ -133,6 +157,11 @@ export function BibleView(props: BibleViewProps) {
   const closePalette = () => {
     setShowPalette(false);
     setShowToolsPalette(false);
+  };
+
+  const closeSearch = () => {
+    setSearchActive(false);
+    // Keep the query so highlights remain visible and n/N still work
   };
 
   return (
@@ -169,6 +198,18 @@ export function BibleView(props: BibleViewProps) {
           width={50}
         >
           <ToolsPalette onClose={closePalette} onNavigateToRoute={props.onNavigateToRoute} />
+        </box>
+      </Show>
+
+      {/* Search Box - top right */}
+      <Show when={isSearchActive()}>
+        <box
+          position="absolute"
+          top={1}
+          right={2}
+          width={40}
+        >
+          <SearchBox onClose={closeSearch} />
         </box>
       </Show>
     </box>
