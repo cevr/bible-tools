@@ -4,9 +4,11 @@
   "description": "Bible Tools CLI",
   "type": "module",
   "scripts": {
-    "build": "bun build src/main.ts --outfile bin/bible --compile && cp bin/bible node_modules/.bin/bible",
+    "build": "bun scripts/build.ts",
     "prepare": "effect-language-service patch",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "bin": {
     "bible": "bin/bible"
@@ -19,19 +21,21 @@
     "@effect/cli": "catalog:",
     "@effect/platform": "catalog:",
     "@effect/platform-bun": "catalog:",
-    "@opentui/core": "^0.1.68",
-    "@opentui/react": "^0.1.68",
+    "@opentui/core": "^0.1.72",
+    "@opentui/core-darwin-arm64": "^0.1.72",
+    "@opentui/solid": "^0.1.72",
     "date-fns": "^4.1.0",
     "effect": "catalog:",
     "marked": "^17.0.1",
     "match-sorter": "^8.2.0",
-    "react": "^19.0.0"
+    "solid-js": "^1.9.5"
   },
   "devDependencies": {
     "@effect/language-service": "catalog:",
+    "@effect/vitest": "^0.27.0",
     "@types/bun": "catalog:",
-    "@types/react": "^19.0.0",
     "tsx": "^4.21.0",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "^4.0.16"
   }
 }

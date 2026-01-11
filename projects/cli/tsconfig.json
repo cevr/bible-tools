@@ -23,9 +23,9 @@
       "~/*": ["./*"]
     },
 
-    /* JSX for OpenTUI React */
-    "jsx": "react-jsx",
-    "jsxImportSource": "@opentui/react",
+    /* JSX for OpenTUI Solid */
+    "jsx": "preserve",
+    "jsxImportSource": "@opentui/solid",
 
     /* If NOT transpiling with TypeScript: */
     "module": "Preserve",

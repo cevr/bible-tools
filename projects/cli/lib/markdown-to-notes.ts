@@ -1,6 +1,7 @@
-import Bun from 'bun';
 import { Data, Effect, Option, pipe, Schema } from 'effect';
 import { marked } from 'marked';
+
+import { AppleScript } from '~/core/apple-script';
 
 // --- Helper Function: Escape string for AppleScript ---
 function escapeAppleScriptString(str: string): string {
@@ -33,18 +34,6 @@ export interface CreateSimpleNoteOptions {
   /** Target folder name in Apple Notes. If the folder doesn't exist, it will be created. */
   folder?: string;
 }
-
-const execCommand = Effect.fn('execCommand')(function* (command: string[]) {
-  const result = yield* Effect.try(() => {
-    const child = Bun.spawn(command);
-    return child;
-  });
-
-  return yield* Effect.tryPromise(async () => {
-    const text = await new Response(result.stdout).text();
-    return text;
-  });
-});
 
 const parseMarkdown = Effect.fn('parseMarkdown')(function* (content: string) {
   const result = yield* Effect.try({
@@ -252,7 +241,8 @@ export const makeAppleNoteFromMarkdown = Effect.fn('makeAppleNoteFromMarkdown')(
       : 'default location';
     yield* Effect.log(`🚀 Executing AppleScript to create note in ${locationInfo}...`);
 
-    const res = yield* execCommand(['osascript', '-e', appleScriptCommand]);
+    const appleScript = yield* AppleScript;
+    const res = yield* appleScript.exec(appleScriptCommand);
     yield* Effect.log(res);
 
     // Success

@@ -1,11 +1,12 @@
-import { Path } from '@effect/platform';
-import { $ } from 'bun';
 import { Effect } from 'effect';
 
-// this is playing on the terminal
-export const doneChime = Effect.gen(function* () {
-  const path = yield* Path.Path;
-  const assetPath = path.join(process.cwd(), 'assets', 'notification.mp3');
+import { Chime } from '~/core/chime';
 
-  yield* Effect.tryPromise(async () => await $`afplay ${assetPath} -v 0.15`);
+/**
+ * Play the done/notification chime.
+ * Uses the Chime service for proper dependency injection.
+ */
+export const doneChime = Effect.gen(function* () {
+  const chime = yield* Chime;
+  yield* chime.play;
 });

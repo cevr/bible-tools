@@ -1,7 +1,9 @@
 import { Command } from '@effect/cli';
 import { BunContext, BunRuntime } from '@effect/platform-bun';
-import { Effect } from 'effect';
+import { Effect, Layer } from 'effect';
 
+import { AppleScriptLive } from './apple-script';
+import { ChimeLive } from './chime';
 import { exportOutput } from './export-output';
 import { messages } from './messages/messages';
 import { readings } from './readings/readings';
@@ -23,4 +25,9 @@ const cli = Command.run(command, {
   version: 'v1.0.0',
 });
 
-cli(process.argv).pipe(Effect.provide(BunContext.layer), BunRuntime.runMain);
+const ServicesLayer = Layer.mergeAll(AppleScriptLive, ChimeLive, BunContext.layer);
+
+cli(process.argv).pipe(
+  Effect.provide(ServicesLayer),
+  BunRuntime.runMain,
+);

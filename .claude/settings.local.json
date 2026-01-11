@@ -12,7 +12,9 @@
       "Bash(bun install:*)",
       "Bash(taze latest:*)",
       "Bash(bun unlink:*)",
-      "Bash(bun pm cache rm:*)"
+      "Bash(bun pm cache rm:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)"
     ]
   }
 }
