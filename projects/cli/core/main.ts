@@ -3,6 +3,7 @@ import { BunContext, BunRuntime } from '@effect/platform-bun';
 import { Effect, Layer } from 'effect';
 
 import { AppleScriptLive } from './apple-script';
+import { bible } from './bible/bible';
 import { ChimeLive } from './chime';
 import { exportOutput } from './export-output';
 import { messages } from './messages/messages';
@@ -12,7 +13,7 @@ import { studies } from './studies/studies';
 
 const command = Command.make('church-tools').pipe(
   Command.withSubcommands([
-    //
+    bible,
     messages,
     sabbathSchool,
     studies,
