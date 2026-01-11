@@ -8,6 +8,9 @@ interface NavigationContextValue {
   position: () => Position;
   // Navigation methods
   goTo: (ref: Reference) => void;
+  goToVerse: (verse: number) => void;
+  goToFirstVerse: () => void;
+  goToLastVerse: () => void;
   nextChapter: () => void;
   prevChapter: () => void;
   nextVerse: () => void;
@@ -99,11 +102,8 @@ export function NavigationProvider(props: ParentProps<NavigationProviderProps>) 
     const pos = position();
     const prev = data.getPrevChapter(pos.book, pos.chapter);
     if (prev) {
-      // Go to last verse of previous chapter
-      const prevVerses = data.getChapter(prev.book, prev.chapter);
-      const lastVerse = prevVerses.length;
-      setPosition({ book: prev.book, chapter: prev.chapter, verse: lastVerse });
-      setSelectedVerse(lastVerse);
+      setPosition({ book: prev.book, chapter: prev.chapter, verse: 1 });
+      setSelectedVerse(1);
       setHighlightedVerse(null);
     }
   };
@@ -142,9 +142,33 @@ export function NavigationProvider(props: ParentProps<NavigationProviderProps>) 
     setHighlightedVerse(null);
   };
 
+  const goToVerse = (verse: number) => {
+    const total = totalVerses();
+    const targetVerse = Math.max(1, Math.min(verse, total));
+    setSelectedVerse(targetVerse);
+    setPosition((p) => ({ ...p, verse: targetVerse }));
+    setHighlightedVerse(null);
+  };
+
+  const goToFirstVerse = () => {
+    setSelectedVerse(1);
+    setPosition((p) => ({ ...p, verse: 1 }));
+    setHighlightedVerse(null);
+  };
+
+  const goToLastVerse = () => {
+    const total = totalVerses();
+    setSelectedVerse(total);
+    setPosition((p) => ({ ...p, verse: total }));
+    setHighlightedVerse(null);
+  };
+
   const value: NavigationContextValue = {
     position,
     goTo,
+    goToVerse,
+    goToFirstVerse,
+    goToLastVerse,
     nextChapter,
     prevChapter,
     nextVerse,

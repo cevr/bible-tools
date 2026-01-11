@@ -1,5 +1,4 @@
 import { For } from 'solid-js';
-import type { BoxRenderable } from '@opentui/core';
 
 import type { Verse as VerseType } from '../../bible/types.js';
 import { useTheme } from '../context/theme.js';
@@ -7,7 +6,7 @@ import { useTheme } from '../context/theme.js';
 interface VerseProps {
   verse: VerseType;
   isHighlighted?: boolean;
-  ref?: (el: BoxRenderable) => void;
+  id?: string;
 }
 
 export function Verse(props: VerseProps) {
@@ -20,7 +19,7 @@ export function Verse(props: VerseProps) {
 
   return (
     <box
-      ref={props.ref}
+      id={props.id}
       flexDirection="row"
       paddingLeft={2}
       paddingRight={2}

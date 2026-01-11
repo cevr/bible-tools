@@ -12,19 +12,18 @@ export function Topbar() {
 
   return (
     <box
-      height={3}
-      borderColor={theme().border}
-      border={['bottom']}
+      height={1}
       paddingLeft={2}
       paddingRight={2}
       flexDirection="row"
       alignItems="center"
+      justifyContent="center"
       backgroundColor={theme().backgroundPanel}
     >
       <text fg={theme().textHighlight}>
         <strong>{bookName()}</strong>
-        <span style={{ fg: theme().textMuted }}> - </span>
-        <strong>Chapter {position().chapter}</strong>
+        <span style={{ fg: theme().textMuted }}> </span>
+        <strong>{position().chapter}</strong>
       </text>
     </box>
   );

@@ -16,14 +16,76 @@ interface BibleViewProps {
 export function BibleView(props: BibleViewProps) {
   const dimensions = useTerminalDimensions();
   const { theme } = useTheme();
-  const { nextChapter, prevChapter, nextVerse, prevVerse } = useNavigation();
+  const { nextChapter, prevChapter, nextVerse, prevVerse, goToVerse, goToFirstVerse, goToLastVerse } = useNavigation();
   const { toggleMode } = useDisplay();
   const [showPalette, setShowPalette] = createSignal(false);
   const [showToolsPalette, setShowToolsPalette] = createSignal(false);
 
+  // Vim-style motion: accumulate digits after 'g' press
+  const [pendingGoto, setPendingGoto] = createSignal<string | null>(null);
+
   useKeyboard((key) => {
     // Skip if palette is open
     if (showPalette() || showToolsPalette()) return;
+
+    const pending = pendingGoto();
+
+    // If we're in pending goto mode, handle digits or execute
+    if (pending !== null) {
+      // Digit - accumulate
+      if (key.name && /^[0-9]$/.test(key.name)) {
+        setPendingGoto(pending + key.name);
+        return;
+      }
+
+      // Enter - execute the goto
+      if (key.name === 'return') {
+        const verseNum = parseInt(pending, 10);
+        if (verseNum > 0) {
+          goToVerse(verseNum);
+        }
+        setPendingGoto(null);
+        return;
+      }
+
+      // gg - go to first verse (vim style)
+      if (key.name === 'g' && pending === '') {
+        goToFirstVerse();
+        setPendingGoto(null);
+        return;
+      }
+
+      // g after digits - execute goto
+      if (key.name === 'g' && pending !== '') {
+        const verseNum = parseInt(pending, 10);
+        if (verseNum > 0) {
+          goToVerse(verseNum);
+        }
+        setPendingGoto(null);
+        return;
+      }
+
+      // Escape - cancel
+      if (key.name === 'escape') {
+        setPendingGoto(null);
+        return;
+      }
+
+      // Any other key - cancel and process normally
+      setPendingGoto(null);
+    }
+
+    // Start goto mode with 'g'
+    if (key.name === 'g' && !key.ctrl && !key.meta) {
+      setPendingGoto('');
+      return;
+    }
+
+    // G - go to last verse (vim style)
+    if (key.sequence === 'G') {
+      goToLastVerse();
+      return;
+    }
 
     // Verse navigation: j/k or up/down
     if (key.name === 'j' || key.name === 'down') {
@@ -65,6 +127,9 @@ export function BibleView(props: BibleViewProps) {
     // Note: Ctrl+C exit is handled globally in AppContent
   });
 
+  // Handle 'gg' for first verse when pending is empty and g pressed again
+  // This is handled in the pending logic above
+
   const closePalette = () => {
     setShowPalette(false);
     setShowToolsPalette(false);
@@ -81,7 +146,7 @@ export function BibleView(props: BibleViewProps) {
 
       <ChapterView />
 
-      <Footer />
+      <Footer pendingGoto={pendingGoto()} />
 
       {/* Command Palette Overlay */}
       <Show when={showPalette()}>
