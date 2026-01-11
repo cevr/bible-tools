@@ -9,6 +9,7 @@ import { DisplayProvider } from './context/display.js';
 import { SearchProvider } from './context/search.js';
 import { ModelProvider, type ModelService } from './context/model.js';
 import { ExitProvider } from './context/exit.js';
+import { OverlayProvider } from './context/overlay.js';
 import { BibleView } from './routes/bible.js';
 import { MessagesView } from './routes/messages.js';
 import { SabbathSchoolView } from './routes/sabbath-school.js';
@@ -57,8 +58,9 @@ function AppContent(props: AppProps) {
     <NavigationProvider initialRef={props.initialRef}>
       <SearchProvider>
         <DisplayProvider>
-          <ExitProvider onExit={handleExit}>
-            <box
+          <OverlayProvider>
+            <ExitProvider onExit={handleExit}>
+              <box
               width={dimensions().width}
               height={dimensions().height}
               flexDirection="column"
@@ -76,8 +78,9 @@ function AppContent(props: AppProps) {
               <Show when={route() === 'studies'}>
                 <StudiesView onBack={() => setRoute('bible')} />
               </Show>
-            </box>
-          </ExitProvider>
+              </box>
+            </ExitProvider>
+          </OverlayProvider>
         </DisplayProvider>
       </SearchProvider>
     </NavigationProvider>

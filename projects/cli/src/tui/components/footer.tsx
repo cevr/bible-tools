@@ -2,10 +2,11 @@ import { For, Show } from 'solid-js';
 
 import { useNavigation } from '../context/navigation.js';
 import { useTheme } from '../context/theme.js';
+import type { GotoModeState } from '../types/goto-mode.js';
 
 interface FooterProps {
   hints?: Array<{ key: string; action: string }>;
-  pendingGoto?: string | null;
+  gotoMode?: GotoModeState;
 }
 
 const DEFAULT_HINTS = [
@@ -35,10 +36,10 @@ export function Footer(props: FooterProps) {
         <text fg={theme().textMuted}>
           <span style={{ fg: theme().accent }}>{selectedVerse()}</span>/{totalVerses()}
         </text>
-        <Show when={props.pendingGoto !== null && props.pendingGoto !== undefined}>
+        <Show when={props.gotoMode?._tag === 'awaiting'}>
           <text fg={theme().textHighlight}>
             <span style={{ fg: theme().accent }}>g</span>
-            <strong>{props.pendingGoto || '_'}</strong>
+            <strong>{props.gotoMode?._tag === 'awaiting' ? props.gotoMode.digits || '_' : ''}</strong>
           </text>
         </Show>
       </box>

@@ -2,13 +2,26 @@ import { createContext, useContext, createSignal, createMemo, type ParentProps }
 
 import { useBibleData } from './bible.js';
 import { useNavigation } from './navigation.js';
+import {
+  SearchState,
+  isSearchActive,
+  getSearchQuery,
+  getSearchMatches,
+  getCurrentMatchIndex,
+  nextMatch as nextMatchTransition,
+  prevMatch as prevMatchTransition,
+  openSearch,
+  closeSearch,
+  clearSearch as clearSearchTransition,
+  updateQuery,
+  type SearchMatch,
+} from '../types/search-state.js';
 
-interface SearchMatch {
-  verse: number;
-  indices: Array<[number, number]>; // Start and end positions of matches in text
-}
+// Re-export SearchMatch for consumers
+export type { SearchMatch };
 
 interface SearchContextValue {
+  // State accessors (backward compatible interface)
   query: () => string;
   setQuery: (q: string) => void;
   isActive: () => boolean;
@@ -19,6 +32,9 @@ interface SearchContextValue {
   nextMatch: () => void;
   prevMatch: () => void;
   clearSearch: () => void;
+
+  // Direct state access (for components that want full state machine)
+  state: () => SearchState;
 }
 
 const SearchContext = createContext<SearchContextValue>();
@@ -27,101 +43,112 @@ export function SearchProvider(props: ParentProps) {
   const data = useBibleData();
   const { position, goToVerse } = useNavigation();
 
-  const [query, setQuery] = createSignal('');
-  const [isActive, setActive] = createSignal(false);
-  const [currentMatchIndex, setCurrentMatchIndex] = createSignal(0);
+  // Single state signal using discriminated union
+  const [state, setState] = createSignal<SearchState>(SearchState.closed());
 
-  // Find all matches in current chapter
-  const matches = createMemo(() => {
-    const q = query().toLowerCase();
-    if (!q || q.length < 2) return [];
+  // Find all matches in current chapter based on query
+  const computeMatches = (query: string): SearchMatch[] => {
+    if (!query || query.length < 2) return [];
 
+    const q = query.toLowerCase();
     const verses = data.getChapter(position().book, position().chapter);
     const results: SearchMatch[] = [];
 
     for (const verse of verses) {
       const text = verse.text.toLowerCase();
-      const indices: Array<[number, number]> = [];
+      let startIndex = 0;
       let pos = 0;
 
-      while ((pos = text.indexOf(q, pos)) !== -1) {
-        indices.push([pos, pos + q.length]);
-        pos += 1;
-      }
-
-      if (indices.length > 0) {
-        results.push({ verse: verse.verse, indices });
+      while ((pos = text.indexOf(q, startIndex)) !== -1) {
+        results.push({
+          verse: verse.verse,
+          startIndex: pos,
+          endIndex: pos + q.length,
+        });
+        startIndex = pos + 1;
       }
     }
 
     return results;
-  });
+  };
+
+  // Derived state accessors (backward compatible)
+  const query = () => getSearchQuery(state());
+  const isActiveAccessor = () => isSearchActive(state());
+  const matches = () => getSearchMatches(state());
+  const currentMatchIndexAccessor = () => getCurrentMatchIndex(state());
 
   const totalMatches = createMemo(() => {
-    return matches().reduce((sum, m) => sum + m.indices.length, 0);
+    return matches().length;
   });
 
-  const nextMatch = () => {
-    const m = matches();
-    if (m.length === 0) return;
+  // Actions
+  const setQueryAction = (q: string) => {
+    const currentState = state();
+    if (currentState._tag === 'closed') return;
 
-    const newIndex = (currentMatchIndex() + 1) % m.length;
-    setCurrentMatchIndex(newIndex);
-
-    // Navigate to the verse with this match
-    const match = m[newIndex];
-    if (match) {
-      goToVerse(match.verse);
-    }
+    const newMatches = computeMatches(q);
+    setState(updateQuery(currentState, q, newMatches));
   };
 
-  const prevMatch = () => {
-    const m = matches();
-    if (m.length === 0) return;
-
-    const newIndex = (currentMatchIndex() - 1 + m.length) % m.length;
-    setCurrentMatchIndex(newIndex);
-
-    // Navigate to the verse with this match
-    const match = m[newIndex];
-    if (match) {
-      goToVerse(match.verse);
-    }
-  };
-
-  const clearSearch = () => {
-    setQuery('');
-    setActive(false);
-    setCurrentMatchIndex(0);
-  };
-
-  // When activating search, optionally clear the query
-  const activateSearch = (active: boolean) => {
+  const setActiveAction = (active: boolean) => {
     if (active) {
-      // Clear query when opening fresh search
-      setQuery('');
-      setCurrentMatchIndex(0);
+      setState(openSearch(state()));
+    } else {
+      setState(closeSearch(state()));
     }
-    setActive(active);
   };
 
-  // Reset match index when query changes
-  const setQueryAndReset = (q: string) => {
-    setQuery(q);
-    setCurrentMatchIndex(0);
+  const nextMatchAction = () => {
+    const currentState = state();
+    const newState = nextMatchTransition(currentState);
+
+    if (newState !== currentState) {
+      setState(newState);
+
+      // Navigate to the match
+      const matchList = getSearchMatches(newState);
+      const idx = getCurrentMatchIndex(newState);
+      const match = matchList[idx];
+      if (match) {
+        goToVerse(match.verse);
+      }
+    }
+  };
+
+  const prevMatchAction = () => {
+    const currentState = state();
+    const newState = prevMatchTransition(currentState);
+
+    if (newState !== currentState) {
+      setState(newState);
+
+      // Navigate to the match
+      const matchList = getSearchMatches(newState);
+      const idx = getCurrentMatchIndex(newState);
+      const match = matchList[idx];
+      if (match) {
+        goToVerse(match.verse);
+      }
+    }
+  };
+
+  const clearSearchAction = () => {
+    setState(clearSearchTransition());
   };
 
   const value: SearchContextValue = {
     query,
-    setQuery: setQueryAndReset,
-    isActive,
-    setActive: activateSearch,
+    setQuery: setQueryAction,
+    isActive: isActiveAccessor,
+    setActive: setActiveAction,
     matches,
-    currentMatchIndex,
+    currentMatchIndex: currentMatchIndexAccessor,
     totalMatches,
-    nextMatch,
-    prevMatch,
-    clearSearch,
+    nextMatch: nextMatchAction,
+    prevMatch: prevMatchAction,
+    clearSearch: clearSearchAction,
+    state,
   };
 
   return <SearchContext.Provider value={value}>{props.children}</SearchContext.Provider>;

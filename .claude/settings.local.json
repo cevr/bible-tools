@@ -14,7 +14,13 @@
       "Bash(bun unlink:*)",
       "Bash(bun pm cache rm:*)",
       "Bash(cat:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(repo path:*)",
+      "Bash(repo list:*)",
+      "WebFetch(domain:anthropic.com)",
+      "Bash(bun --filter '@bible/cli' typecheck:*)",
+      "Skill(react)",
+      "Skill(cleanup)"
     ]
   }
 }

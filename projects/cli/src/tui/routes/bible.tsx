@@ -5,11 +5,19 @@ import { useNavigation } from '../context/navigation.js';
 import { useDisplay } from '../context/display.js';
 import { useTheme } from '../context/theme.js';
 import { useSearch } from '../context/search.js';
+import { useOverlay } from '../context/overlay.js';
 import { Topbar } from '../components/topbar.js';
 import { Footer } from '../components/footer.js';
 import { ChapterView } from '../components/chapter-view.js';
 import { CommandPalette } from '../components/command-palette.js';
 import { SearchBox } from '../components/search-box.js';
+import {
+  GotoModeState,
+  gotoModeTransition,
+  keyToGotoEvent,
+  type GotoModeAction,
+} from '../types/goto-mode.js';
+import { match } from '../utils/match.js';
 
 interface BibleViewProps {
   onNavigateToRoute?: (route: string) => void;
@@ -20,77 +28,52 @@ export function BibleView(props: BibleViewProps) {
   const { theme } = useTheme();
   const { nextChapter, prevChapter, nextVerse, prevVerse, goToVerse, goToFirstVerse, goToLastVerse } = useNavigation();
   const { toggleMode } = useDisplay();
-  const { isActive: isSearchActive, setActive: setSearchActive, clearSearch, nextMatch, prevMatch } = useSearch();
-  const [showPalette, setShowPalette] = createSignal(false);
-  const [showToolsPalette, setShowToolsPalette] = createSignal(false);
+  const { isActive: isSearchActive, setActive: setSearchActive, nextMatch, prevMatch } = useSearch();
+  const { isOpen: isOverlayOpen, isOverlayOpen: isSpecificOverlayOpen, open: openOverlay, close: closeOverlay } = useOverlay();
 
-  // Vim-style motion: accumulate digits after 'g' press
-  const [pendingGoto, setPendingGoto] = createSignal<string | null>(null);
+  // Vim-style goto mode using state machine
+  const [gotoMode, setGotoMode] = createSignal<GotoModeState>(GotoModeState.normal());
+
+  // Execute actions from goto mode transitions
+  const executeGotoAction = (action: GotoModeAction) => {
+    match(action, {
+      goToFirst: () => goToFirstVerse(),
+      goToLast: () => goToLastVerse(),
+      goToVerse: ({ verse }) => goToVerse(verse),
+    });
+  };
 
   useKeyboard((key) => {
-    // Skip if palette is open
-    if (showPalette() || showToolsPalette()) return;
+    // Skip if any overlay is open
+    if (isOverlayOpen()) return;
 
     // Skip if search is active (SearchBox handles its own input)
     if (isSearchActive()) return;
 
-    const pending = pendingGoto();
-
-    // If we're in pending goto mode, handle digits or execute
-    if (pending !== null) {
-      // Digit - accumulate
-      if (key.name && /^[0-9]$/.test(key.name)) {
-        setPendingGoto(pending + key.name);
-        return;
-      }
-
-      // Enter - execute the goto
-      if (key.name === 'return') {
-        const verseNum = parseInt(pending, 10);
-        if (verseNum > 0) {
-          goToVerse(verseNum);
-        }
-        setPendingGoto(null);
-        return;
-      }
-
-      // gg - go to first verse (vim style)
-      if (key.name === 'g' && pending === '') {
-        goToFirstVerse();
-        setPendingGoto(null);
-        return;
-      }
-
-      // g after digits - execute goto
-      if (key.name === 'g' && pending !== '') {
-        const verseNum = parseInt(pending, 10);
-        if (verseNum > 0) {
-          goToVerse(verseNum);
-        }
-        setPendingGoto(null);
-        return;
-      }
-
-      // Escape - cancel
-      if (key.name === 'escape') {
-        setPendingGoto(null);
-        return;
-      }
-
-      // Any other key - cancel and process normally
-      setPendingGoto(null);
+    // Handle goto mode state machine
+    const currentGotoMode = gotoMode();
+    if (currentGotoMode._tag === 'awaiting') {
+      const event = keyToGotoEvent(key);
+      const { state: newState, action } = gotoModeTransition(currentGotoMode, event);
+      setGotoMode(newState);
+      if (action) executeGotoAction(action);
+      // If we handled a goto event (state changed or action fired), don't process further
+      if (newState._tag !== currentGotoMode._tag || action) return;
     }
 
-    // Start goto mode with 'g'
-    if (key.name === 'g' && !key.ctrl && !key.meta) {
-      setPendingGoto('');
-      return;
-    }
-
-    // G - go to last verse (vim style)
-    if (key.sequence === 'G') {
-      goToLastVerse();
-      return;
+    // Handle 'g' to enter goto mode (only when in normal mode)
+    if (currentGotoMode._tag === 'normal') {
+      const event = keyToGotoEvent(key);
+      if (event._tag === 'pressG') {
+        const { state: newState } = gotoModeTransition(currentGotoMode, event);
+        setGotoMode(newState);
+        return;
+      }
+      if (event._tag === 'pressShiftG') {
+        const { action } = gotoModeTransition(currentGotoMode, event);
+        if (action) executeGotoAction(action);
+        return;
+      }
     }
 
     // Verse navigation: j/k or up/down
@@ -121,13 +104,13 @@ export function BibleView(props: BibleViewProps) {
 
     // Command palette: Ctrl+P
     if (key.ctrl && key.name === 'p') {
-      setShowPalette(true);
+      openOverlay('command-palette');
       return;
     }
 
     // Tools palette: Ctrl+T
     if (key.ctrl && key.name === 't') {
-      setShowToolsPalette(true);
+      openOverlay('tools-palette');
       return;
     }
 
@@ -151,14 +134,6 @@ export function BibleView(props: BibleViewProps) {
     // Note: Ctrl+C exit is handled globally in AppContent
   });
 
-  // Handle 'gg' for first verse when pending is empty and g pressed again
-  // This is handled in the pending logic above
-
-  const closePalette = () => {
-    setShowPalette(false);
-    setShowToolsPalette(false);
-  };
-
   const closeSearch = () => {
     setSearchActive(false);
     // Keep the query so highlights remain visible and n/N still work
@@ -175,29 +150,29 @@ export function BibleView(props: BibleViewProps) {
 
       <ChapterView />
 
-      <Footer pendingGoto={pendingGoto()} />
+      <Footer gotoMode={gotoMode()} />
 
       {/* Command Palette Overlay */}
-      <Show when={showPalette()}>
+      <Show when={isSpecificOverlayOpen('command-palette')}>
         <box
           position="absolute"
           top={Math.floor(dimensions().height / 6)}
           left={Math.floor((dimensions().width - 70) / 2)}
           width={70}
         >
-          <CommandPalette onClose={closePalette} onNavigateToRoute={props.onNavigateToRoute} />
+          <CommandPalette onClose={closeOverlay} onNavigateToRoute={props.onNavigateToRoute} />
         </box>
       </Show>
 
       {/* Tools Palette Overlay */}
-      <Show when={showToolsPalette()}>
+      <Show when={isSpecificOverlayOpen('tools-palette')}>
         <box
           position="absolute"
           top={Math.floor(dimensions().height / 6)}
           left={Math.floor((dimensions().width - 50) / 2)}
           width={50}
         >
-          <ToolsPalette onClose={closePalette} onNavigateToRoute={props.onNavigateToRoute} />
+          <ToolsPalette onClose={closeOverlay} onNavigateToRoute={props.onNavigateToRoute} />
         </box>
       </Show>
 
