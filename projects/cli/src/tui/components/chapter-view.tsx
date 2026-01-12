@@ -1,4 +1,4 @@
-import { createEffect, createMemo, For, Show } from 'solid-js';
+import { createMemo, For, Show } from 'solid-js';
 import type { ScrollBoxRenderable } from '@opentui/core';
 
 import { useBibleData } from '../context/bible.js';
@@ -6,14 +6,19 @@ import { useNavigation } from '../context/navigation.js';
 import { useDisplay } from '../context/display.js';
 import { useTheme } from '../context/theme.js';
 import { useSearch } from '../context/search.js';
+import { useWordMode } from '../context/word-mode.js';
+import { useStudyData } from '../context/study-data.js';
+import { useScrollSync } from '../hooks/use-scroll-sync.js';
 import { Verse, VerseParagraph } from './verse.js';
 
 export function ChapterView() {
   const { theme } = useTheme();
   const { position, selectedVerse, highlightedVerse } = useNavigation();
-  const { mode } = useDisplay();
+  const { mode, marginMode } = useDisplay();
   const { query, matches, isActive } = useSearch();
+  const wordMode = useWordMode();
   const data = useBibleData();
+  const studyData = useStudyData();
 
   // Get search match verse numbers for highlighting
   const searchMatchVerses = createMemo(() => {
@@ -26,41 +31,11 @@ export function ChapterView() {
   // Get verses for current chapter
   const verses = () => data.getChapter(position().book, position().chapter);
 
-  // Find verse element and sync scroll position
-  const syncScroll = (verseNum: number) => {
-    if (!scrollRef) return false;
-
-    const children = scrollRef.getChildren();
-    const target = children.find((child) => child.id === `verse-${verseNum}`);
-    if (!target) return false;
-
-    const relativeY = target.y - scrollRef.y;
-    const viewportHeight = scrollRef.height;
-
-    // Scroll if verse is outside viewport
-    if (relativeY < 0) {
-      scrollRef.scrollBy(relativeY);
-    } else if (relativeY + target.height > viewportHeight) {
-      scrollRef.scrollBy(relativeY + target.height - viewportHeight);
-    }
-    return true;
-  };
-
-  // Retry sync until children are ready
-  const syncScrollWithRetry = (verseNum: number, retries: number = 15) => {
-    if (syncScroll(verseNum)) return;
-    if (retries > 0) {
-      setTimeout(() => syncScrollWithRetry(verseNum, retries - 1), 30);
-    }
-  };
-
-  // Single effect: whenever selected verse changes, sync scroll
-  // The verse number IS the source of truth - we just ensure it's visible
-  createEffect(() => {
-    const verse = selectedVerse();
-    // Small delay to let render complete
-    setTimeout(() => syncScrollWithRetry(verse), 10);
-  });
+  // Sync scroll to selected verse
+  useScrollSync(
+    () => `verse-${selectedVerse()}`,
+    { getRef: () => scrollRef }
+  );
 
   return (
     <Show
@@ -111,15 +86,36 @@ export function ChapterView() {
           }
         >
           <For each={verses()}>
-            {(verse) => (
-              <Verse
-                id={`verse-${verse.verse}`}
-                verse={verse}
-                isHighlighted={selectedVerse() === verse.verse || highlightedVerse() === verse.verse}
-                isSearchMatch={searchMatchVerses().includes(verse.verse)}
-                searchQuery={isActive() ? query() : undefined}
-              />
-            )}
+            {(verse) => {
+              const isWordModeVerse = () => {
+                const s = wordMode.state();
+                return s._tag === 'active' && s.verseRef.verse === verse.verse;
+              };
+              const words = () => {
+                const s = wordMode.state();
+                return s._tag === 'active' && s.verseRef.verse === verse.verse ? s.words : undefined;
+              };
+              const selectedWordIndex = () => {
+                const s = wordMode.state();
+                return s._tag === 'active' && s.verseRef.verse === verse.verse ? s.wordIndex : undefined;
+              };
+              const marginNotes = () => studyData.getMarginNotes(position().book, position().chapter, verse.verse);
+
+              return (
+                <Verse
+                  id={`verse-${verse.verse}`}
+                  verse={verse}
+                  isHighlighted={selectedVerse() === verse.verse || highlightedVerse() === verse.verse}
+                  isSearchMatch={searchMatchVerses().includes(verse.verse)}
+                  searchQuery={isActive() ? query() : undefined}
+                  wordModeActive={isWordModeVerse()}
+                  words={words()}
+                  selectedWordIndex={selectedWordIndex()}
+                  marginMode={marginMode()}
+                  marginNotes={marginNotes()}
+                />
+              );
+            }}
           </For>
         </Show>
       </scrollbox>

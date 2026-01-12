@@ -1,4 +1,4 @@
-import { createContext, useContext, createSignal, createMemo, createEffect, type ParentProps } from 'solid-js';
+import { createContext, useContext, createSignal, createMemo, createEffect, onCleanup, type ParentProps } from 'solid-js';
 
 import type { Reference, Position } from '../../bible/types.js';
 import { useBibleData, useBibleState } from './bible.js';
@@ -58,6 +58,9 @@ export function NavigationProvider(props: ParentProps<NavigationProviderProps>) 
     props.initialRef?.verse ?? null
   );
 
+  // Track highlight timeout for cleanup
+  let highlightTimeout: Timer | undefined;
+
   // Get total verses in current chapter
   const totalVerses = createMemo(() => {
     const pos = position();
@@ -84,9 +87,15 @@ export function NavigationProvider(props: ParentProps<NavigationProviderProps>) 
     });
     setSelectedVerse(verse);
     setHighlightedVerse(verse);
-    // Clear highlight after a short delay
-    setTimeout(() => setHighlightedVerse(null), 2000);
+    // Clear highlight after a short delay (with cleanup)
+    if (highlightTimeout) clearTimeout(highlightTimeout);
+    highlightTimeout = setTimeout(() => setHighlightedVerse(null), 2000);
   };
+
+  // Cleanup timeout on unmount
+  onCleanup(() => {
+    if (highlightTimeout) clearTimeout(highlightTimeout);
+  });
 
   const nextChapter = () => {
     const pos = position();

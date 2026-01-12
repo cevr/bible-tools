@@ -15,6 +15,7 @@ import { useNavigation } from '../../context/navigation.js';
 import { useTheme } from '../../context/theme.js';
 import { useDisplay } from '../../context/display.js';
 import { useModel } from '../../context/model.js';
+import { useOverlay } from '../../context/overlay.js';
 import { BOOKS, formatReference, type Reference } from '../../../bible/types.js';
 import { searchBibleByTopic } from '../../../bible/ai-search.js';
 import { AiSearchState } from '../../types/ai-search.js';
@@ -41,14 +42,14 @@ export interface CommandGroup {
   options: CommandOption[];
 }
 
-// Group labels and order
+// Group labels and order (tools/settings first for stability, then dynamic results)
 const GROUP_CONFIG: Record<GroupType, { label: string; order: number }> = {
-  navigation: { label: 'Navigation', order: 1 },
-  search: { label: 'Search Results', order: 2 },
-  ai: { label: 'AI Results', order: 3 },
-  tools: { label: 'Tools', order: 4 },
-  settings: { label: 'Settings', order: 5 },
-  recent: { label: 'Recent', order: 6 },
+  tools: { label: 'Tools', order: 1 },
+  settings: { label: 'Settings', order: 2 },
+  navigation: { label: 'Navigation', order: 3 },
+  ai: { label: 'AI Results', order: 4 },
+  recent: { label: 'Recent', order: 5 },
+  search: { label: 'Search Results', order: 6 },
 };
 
 // Context Interface
@@ -91,6 +92,7 @@ export function PaletteProvider(props: PaletteProviderProps) {
   const state = useBibleState();
   const model = useModel();
   const { goTo } = useNavigation();
+  const { open: openOverlay } = useOverlay();
 
   // Core state
   const [query, setQuery] = createSignal('');
@@ -232,6 +234,7 @@ export function PaletteProvider(props: PaletteProviderProps) {
     if (!q) {
       // Tools
       allOptions.push(
+        { type: 'tool', group: 'tools', label: 'Concordance', description: "Search by Strong's number (Ctrl+S)", value: 'concordance' },
         { type: 'tool', group: 'tools', label: 'Messages', description: 'Generate sermon messages', value: 'messages' },
         {
           type: 'tool',
@@ -298,11 +301,13 @@ export function PaletteProvider(props: PaletteProviderProps) {
         });
       }
 
-      // Navigation: book matches
+      // Navigation: book matches (skip if we already have a parsed reference for that book)
       const bookMatches = matchSorter(BOOKS, q, {
         keys: ['name'],
         threshold: matchSorter.rankings.WORD_STARTS_WITH,
-      }).slice(0, 5);
+      })
+        .filter((book) => !ref || book.number !== ref.book)
+        .slice(0, 5);
 
       for (const book of bookMatches) {
         allOptions.push({
@@ -315,25 +320,9 @@ export function PaletteProvider(props: PaletteProviderProps) {
         });
       }
 
-      // Search: full-text search (if query is 3+ characters)
-      if (q.length >= 3) {
-        const searchResults = data.searchVerses(q, 8);
-        for (const result of searchResults) {
-          const label = formatReference(result.reference);
-          const preview = result.verse.text.slice(0, 50) + (result.verse.text.length > 50 ? '...' : '');
-          allOptions.push({
-            type: 'search',
-            group: 'search',
-            label,
-            description: preview,
-            value: `search:${label}`,
-            reference: result.reference,
-          });
-        }
-      }
-
       // Tools
       const tools: CommandOption[] = [
+        { type: 'tool', group: 'tools', label: 'Concordance', description: "Search by Strong's number (Ctrl+S)", value: 'concordance' },
         { type: 'tool', group: 'tools', label: 'Messages', description: 'Generate sermon messages', value: 'messages' },
         {
           type: 'tool',
@@ -424,6 +413,10 @@ export function PaletteProvider(props: PaletteProviderProps) {
       props.onClose();
     } else if (option.type === 'tool') {
       switch (option.value) {
+        case 'concordance':
+          openOverlay('concordance');
+          props.onClose();
+          break;
         case 'messages':
         case 'sabbath-school':
         case 'studies':

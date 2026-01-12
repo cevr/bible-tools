@@ -1,25 +1,89 @@
+/**
+ * Bible Tools CLI Entry Point
+ *
+ * Supports two modes:
+ * - CLI mode: Fast, lightweight commands (concordance, verse, etc.)
+ * - TUI mode: Interactive terminal UI (default)
+ *
+ * CLI mode lazy-loads TUI and AI dependencies for faster startup.
+ */
+
+import { trace, traceSync, traceAsync, printSummary } from './instrumentation/trace.js';
+
+trace('process start');
+
+// Core imports needed for both CLI and TUI
 import { BunContext, BunRuntime } from '@effect/platform-bun';
 import { Command } from '@effect/cli';
 import { Effect, Layer } from 'effect';
-import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { createOpenAI } from '@ai-sdk/openai';
-import { createAnthropic } from '@ai-sdk/anthropic';
 
+trace('core imports complete');
+
+// Lightweight CLI command imports (no TUI dependencies)
 import { AppleScriptLive } from '../core/apple-script.js';
+import { concordance, verse } from '../core/bible/bible.js';
 import { ChimeLive } from '../core/chime.js';
 import { exportOutput } from '../core/export-output.js';
 import { messages } from '../core/messages/messages.js';
 import { readings } from '../core/readings/readings.js';
 import { sabbathSchool } from '../core/sabbath-school/sabbath-school.js';
 import { studies } from '../core/studies/studies.js';
-import { tui } from './tui/app.js';
-import { BibleDataLive, BibleData } from './bible/data.js';
+
+trace('CLI command imports complete');
+
+// Types only (no runtime cost)
 import type { Reference } from './bible/types.js';
 import type { ModelService } from './tui/context/model.js';
-import { detectSystemThemeAsync } from './tui/themes/index.js';
 
-// Try to create model service from environment variables
-function tryCreateModelService(): ModelService | null {
+// Check if any CLI subcommand is specified
+const cliSubcommands = ['concordance', 'verse', 'messages', 'sabbath-school', 'studies', 'readings', 'export'];
+const args = process.argv.slice(2);
+const hasSubcommand = args.some((arg) => cliSubcommands.includes(arg));
+const isOpenCommand = args[0] === 'open';
+const isTuiMode = !hasSubcommand && !isOpenCommand || isOpenCommand;
+
+trace('arg parsing complete', { mode: hasSubcommand ? 'cli' : isTuiMode ? 'tui' : 'unknown' });
+
+// Lazy imports for TUI mode only
+async function loadTuiDependencies() {
+  trace('loading TUI dependencies');
+
+  const [
+    { tui },
+    { BibleDataLive, BibleData },
+    { detectSystemThemeAsync },
+    aiSdk,
+  ] = await Promise.all([
+    traceAsync('import tui', () => import('./tui/app.js')),
+    traceAsync('import bible/data', () => import('./bible/data.js')),
+    traceAsync('import themes', () => import('./tui/themes/index.js')),
+    traceAsync('import AI SDKs', () => loadAiSdks()),
+  ]);
+
+  trace('TUI dependencies loaded');
+
+  return { tui, BibleDataLive, BibleData, detectSystemThemeAsync, ...aiSdk };
+}
+
+// Lazy load AI SDKs
+async function loadAiSdks() {
+  const [
+    { createGoogleGenerativeAI },
+    { createOpenAI },
+    { createAnthropic },
+  ] = await Promise.all([
+    import('@ai-sdk/google'),
+    import('@ai-sdk/openai'),
+    import('@ai-sdk/anthropic'),
+  ]);
+
+  return { createGoogleGenerativeAI, createOpenAI, createAnthropic };
+}
+
+// Create model service from environment variables
+function tryCreateModelService(aiSdk: Awaited<ReturnType<typeof loadAiSdks>>): ModelService | null {
+  const { createGoogleGenerativeAI, createOpenAI, createAnthropic } = aiSdk;
+
   // Try Gemini first
   const geminiKey = process.env.GEMINI_API_KEY;
   if (geminiKey) {
@@ -59,57 +123,72 @@ function tryCreateModelService(): ModelService | null {
   return null;
 }
 
-// Parse a verse reference from the command line
-function parseReferenceFromArgs(args: string[]): Reference | undefined {
+// Parse a verse reference from the command line (lazy loads BibleData)
+async function parseReferenceFromArgs(args: string[]): Promise<Reference | undefined> {
   if (args.length === 0) return undefined;
 
-  // Join all args to handle "john 3:16" or "1 cor 13:1"
   const refString = args.join(' ');
 
-  // Use the BibleData service to parse
-  const result = Effect.runSync(
-    Effect.provide(BibleData, BibleDataLive)
-  ).parseReference(refString);
+  const { BibleDataLive, BibleData } = await traceAsync(
+    'import bible/data for parsing',
+    () => import('./bible/data.js')
+  );
+
+  const result = traceSync('parseReference', () =>
+    Effect.runSync(Effect.provide(BibleData, BibleDataLive)).parseReference(refString)
+  );
 
   return result;
 }
 
-// Check if any CLI subcommand is specified
-const cliSubcommands = ['messages', 'sabbath-school', 'studies', 'readings', 'export'];
-const args = process.argv.slice(2);
-const hasSubcommand = args.some((arg) => cliSubcommands.includes(arg));
-
-// Check for 'open' command
-const isOpenCommand = args[0] === 'open';
-
 async function main() {
+  trace('main() start');
+
   if (hasSubcommand) {
-    // CLI mode - run the Effect CLI commands
-    const command = Command.make('bible-tools').pipe(
-      Command.withSubcommands([
-        messages,
-        sabbathSchool,
-        studies,
-        readings,
-        exportOutput,
-      ]),
+    // CLI mode - fast path, no TUI/AI dependencies
+    trace('CLI mode');
+
+    const command = traceSync('Command.make', () =>
+      Command.make('bible').pipe(
+        Command.withSubcommands([
+          concordance,
+          verse,
+          messages,
+          sabbathSchool,
+          studies,
+          readings,
+          exportOutput,
+        ]),
+      )
     );
 
-    const cli = Command.run(command, {
-      name: 'Bible Tools',
-      version: 'v1.0.0',
-    });
+    const cli = traceSync('Command.run', () =>
+      Command.run(command, {
+        name: 'Bible Tools',
+        version: 'v1.0.0',
+      })
+    );
 
-    const ServicesLayer = Layer.mergeAll(AppleScriptLive, ChimeLive, BunContext.layer);
+    const ServicesLayer = Layer.mergeAll(
+      AppleScriptLive,
+      ChimeLive,
+      BunContext.layer,
+    );
+
+    trace('starting Effect execution');
 
     cli(process.argv).pipe(
+      Effect.tap(() => Effect.sync(() => trace('Effect execution complete'))),
       Effect.provide(ServicesLayer),
+      Effect.ensuring(Effect.sync(() => printSummary())),
       BunRuntime.runMain,
     );
   } else if (isOpenCommand) {
-    // bible open <reference> - open Bible at specific verse
-    const refArgs = args.slice(1); // Remove 'open' from args
-    const ref = parseReferenceFromArgs(refArgs);
+    // TUI mode with specific reference
+    trace('TUI mode (open command)');
+
+    const refArgs = args.slice(1);
+    const ref = await parseReferenceFromArgs(refArgs);
 
     if (refArgs.length > 0 && !ref) {
       console.error(`Could not parse reference: "${refArgs.join(' ')}"`);
@@ -117,16 +196,24 @@ async function main() {
       process.exit(1);
     }
 
-    // Detect system theme before launching TUI (warms cache)
-    await detectSystemThemeAsync();
-    const model = tryCreateModelService();
-    await tui({ initialRef: ref, model });
+    const deps = await loadTuiDependencies();
+
+    await traceAsync('detectSystemTheme', deps.detectSystemThemeAsync);
+    const model = traceSync('createModelService', () => tryCreateModelService(deps));
+
+    await traceAsync('tui', () => deps.tui({ initialRef: ref, model }));
+    printSummary();
   } else {
-    // Default TUI mode - open at last position or Genesis 1
-    // Detect system theme before launching TUI (warms cache)
-    await detectSystemThemeAsync();
-    const model = tryCreateModelService();
-    await tui({ model });
+    // Default TUI mode
+    trace('TUI mode (default)');
+
+    const deps = await loadTuiDependencies();
+
+    await traceAsync('detectSystemTheme', deps.detectSystemThemeAsync);
+    const model = traceSync('createModelService', () => tryCreateModelService(deps));
+
+    await traceAsync('tui', () => deps.tui({ model }));
+    printSummary();
   }
 }
 

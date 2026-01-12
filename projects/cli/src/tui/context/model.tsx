@@ -24,5 +24,6 @@ export function useModel(): ModelService | null {
 }
 
 export function useModelAvailable(): boolean {
-  return useContext(ModelContext) !== undefined && useContext(ModelContext) !== null;
+  const ctx = useContext(ModelContext);
+  return ctx !== undefined && ctx !== null;
 }

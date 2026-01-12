@@ -3,6 +3,7 @@ import { createSignal, Show } from 'solid-js';
 
 import type { Reference } from '../bible/types.js';
 import { BibleProvider } from './context/bible.js';
+import { StudyDataProvider } from './context/study-data.js';
 import { ThemeProvider, useTheme } from './context/theme.js';
 import { NavigationProvider } from './context/navigation.js';
 import { DisplayProvider } from './context/display.js';
@@ -10,6 +11,7 @@ import { SearchProvider } from './context/search.js';
 import { ModelProvider, type ModelService } from './context/model.js';
 import { ExitProvider } from './context/exit.js';
 import { OverlayProvider } from './context/overlay.js';
+import { WordModeProvider } from './context/word-mode.js';
 import { BibleView } from './routes/bible.js';
 import { MessagesView } from './routes/messages.js';
 import { SabbathSchoolView } from './routes/sabbath-school.js';
@@ -59,6 +61,8 @@ function AppContent(props: AppProps) {
       <SearchProvider>
         <DisplayProvider>
           <OverlayProvider>
+            <StudyDataProvider>
+            <WordModeProvider>
             <ExitProvider onExit={handleExit}>
               <box
               width={dimensions().width}
@@ -80,6 +84,8 @@ function AppContent(props: AppProps) {
               </Show>
               </box>
             </ExitProvider>
+            </WordModeProvider>
+            </StudyDataProvider>
           </OverlayProvider>
         </DisplayProvider>
       </SearchProvider>

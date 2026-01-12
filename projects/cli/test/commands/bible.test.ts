@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { parseVerseQuery, getVersesForQuery, ParsedQuery } from '../../src/bible/parse.js';
+import { isStrongsNumber } from '../../core/bible/bible.js';
 import type { BibleDataService } from '../../src/bible/data.js';
 import type { Verse, Book } from '../../src/bible/types.js';
 
@@ -167,6 +168,42 @@ describe('bible verse parsing', () => {
       const query = ParsedQuery.search('test');
       const verses = getVersesForQuery(query, data);
       expect(verses).toHaveLength(0);
+    });
+  });
+});
+
+describe('bible concordance', () => {
+  describe('isStrongsNumber', () => {
+    it('should detect Hebrew Strong\'s number (uppercase)', () => {
+      expect(isStrongsNumber('H1234')).toBe(true);
+    });
+
+    it('should detect Hebrew Strong\'s number (lowercase)', () => {
+      expect(isStrongsNumber('h1234')).toBe(true);
+    });
+
+    it('should detect Greek Strong\'s number (uppercase)', () => {
+      expect(isStrongsNumber('G5678')).toBe(true);
+    });
+
+    it('should detect Greek Strong\'s number (lowercase)', () => {
+      expect(isStrongsNumber('g26')).toBe(true);
+    });
+
+    it('should reject plain numbers', () => {
+      expect(isStrongsNumber('1234')).toBe(false);
+    });
+
+    it('should reject English words', () => {
+      expect(isStrongsNumber('love')).toBe(false);
+    });
+
+    it('should reject mixed content', () => {
+      expect(isStrongsNumber('H1234abc')).toBe(false);
+    });
+
+    it('should reject other prefixes', () => {
+      expect(isStrongsNumber('A1234')).toBe(false);
     });
   });
 });

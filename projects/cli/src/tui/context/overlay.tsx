@@ -4,7 +4,13 @@ import { createContext, useContext, createSignal, type ParentProps, type Accesso
  * Overlay types that can be displayed.
  * Using a discriminated union ensures only one overlay can be active at a time.
  */
-export type OverlayType = 'command-palette' | 'tools-palette' | 'theme-picker';
+export type OverlayType =
+  | 'command-palette'
+  | 'tools-palette'
+  | 'theme-picker'
+  | 'cross-refs'
+  | 'strongs'
+  | 'concordance';
 
 /**
  * Overlay state using discriminated union.

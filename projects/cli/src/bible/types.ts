@@ -44,6 +44,7 @@ export interface Reference {
   book: number;
   chapter: number;
   verse?: number;
+  verseEnd?: number; // For verse ranges like "Psalm 89:11-12"
 }
 
 // Search result
