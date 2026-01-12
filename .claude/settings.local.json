@@ -20,7 +20,11 @@
       "WebFetch(domain:anthropic.com)",
       "Bash(bun --filter '@bible/cli' typecheck:*)",
       "Skill(react)",
-      "Skill(cleanup)"
+      "Skill(cleanup)",
+      "Bash(bun scripts/process-bible-data.ts:*)",
+      "Bash(sqlite3:*)",
+      "Bash(bun --eval:*)",
+      "Bash(bun test:*)"
     ]
   }
 }

@@ -36,45 +36,49 @@ export interface ProviderConfig {
  * Returns all providers that have valid API keys configured.
  */
 export const discoverProviders = Effect.fn('discoverProviders')(function* () {
-  const google = yield* Schema.Config('GEMINI_API_KEY', Schema.NonEmptyString)
-    .pipe(
-      Effect.option,
-      Effect.map((googleKey) =>
-        googleKey.pipe(
-          Option.map((googleKey) => {
-            const modelProvider = createGoogleGenerativeAI({
-              apiKey: googleKey,
-            });
-            return {
-              models: {
-                high: modelProvider('gemini-3-pro-preview'),
-                low: modelProvider('gemini-2.5-flash-lite'),
-              },
-              provider: Provider.Gemini,
-            } satisfies ProviderConfig;
-          }),
-        ),
+  const google = yield* Schema.Config(
+    'GEMINI_API_KEY',
+    Schema.NonEmptyString,
+  ).pipe(
+    Effect.option,
+    Effect.map((googleKey) =>
+      googleKey.pipe(
+        Option.map((googleKey) => {
+          const modelProvider = createGoogleGenerativeAI({
+            apiKey: googleKey,
+          });
+          return {
+            models: {
+              high: modelProvider('gemini-3-pro-preview'),
+              low: modelProvider('gemini-2.5-flash-lite'),
+            },
+            provider: Provider.Gemini,
+          } satisfies ProviderConfig;
+        }),
       ),
-    );
+    ),
+  );
 
-  const openai = yield* Schema.Config('OPENAI_API_KEY', Schema.NonEmptyString)
-    .pipe(
-      Effect.option,
-      Effect.map((openaiKey) =>
-        openaiKey.pipe(
-          Option.map((openaiKey) => {
-            const modelProvider = createOpenAI({ apiKey: openaiKey });
-            return {
-              models: {
-                high: modelProvider('gpt-5.2'),
-                low: modelProvider('gpt-4.1-nano'),
-              },
-              provider: Provider.OpenAI,
-            } satisfies ProviderConfig;
-          }),
-        ),
+  const openai = yield* Schema.Config(
+    'OPENAI_API_KEY',
+    Schema.NonEmptyString,
+  ).pipe(
+    Effect.option,
+    Effect.map((openaiKey) =>
+      openaiKey.pipe(
+        Option.map((openaiKey) => {
+          const modelProvider = createOpenAI({ apiKey: openaiKey });
+          return {
+            models: {
+              high: modelProvider('gpt-5.2'),
+              low: modelProvider('gpt-4.1-nano'),
+            },
+            provider: Provider.OpenAI,
+          } satisfies ProviderConfig;
+        }),
       ),
-    );
+    ),
+  );
 
   const anthropic = yield* Schema.Config(
     'ANTHROPIC_API_KEY',

@@ -131,7 +131,7 @@ export function BibleView(props: BibleViewProps) {
   const dimensions = useTerminalDimensions();
   const { theme } = useTheme();
   const { position, nextChapter, prevChapter, nextVerse, prevVerse, goTo, goToVerse, goToFirstVerse, goToLastVerse, selectedVerse } = useNavigation();
-  const { toggleMode, cycleMarginMode } = useDisplay();
+  const { toggleMode } = useDisplay();
   const { isActive: isSearchActive, setActive: setSearchActive, nextMatch, prevMatch } = useSearch();
   const { isOpen: isOverlayOpen, isOverlayOpen: isSpecificOverlayOpen, open: openOverlay, close: closeOverlay } = useOverlay();
   const wordMode = useWordMode();
@@ -211,12 +211,6 @@ export function BibleView(props: BibleViewProps) {
     // Display mode toggle: v
     if (key.name === 'v') {
       toggleMode();
-      return;
-    }
-
-    // Margin notes toggle: m
-    if (key.name === 'm') {
-      cycleMarginMode();
       return;
     }
 

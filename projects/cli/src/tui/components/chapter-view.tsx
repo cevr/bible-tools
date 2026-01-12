@@ -14,7 +14,7 @@ import { Verse, VerseParagraph } from './verse.js';
 export function ChapterView() {
   const { theme } = useTheme();
   const { position, selectedVerse, highlightedVerse } = useNavigation();
-  const { mode, marginMode } = useDisplay();
+  const { mode } = useDisplay();
   const { query, matches, isActive } = useSearch();
   const wordMode = useWordMode();
   const data = useBibleData();
@@ -111,7 +111,6 @@ export function ChapterView() {
                   wordModeActive={isWordModeVerse()}
                   words={words()}
                   selectedWordIndex={selectedWordIndex()}
-                  marginMode={marginMode()}
                   marginNotes={marginNotes()}
                 />
               );

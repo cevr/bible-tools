@@ -204,73 +204,74 @@ export class SabbathSchool extends Context.Tag('@bible/SabbathSchool')<
           return response.text;
         }).pipe(Effect.withSpan('SabbathSchool.generateOutline'));
 
-      const reviseOutline = Effect.fn('SabbathSchool.reviseOutline')(
-        function* (context: LessonContext, outline: string) {
-          yield* Effect.log('Checking if revision is needed...');
+      const reviseOutline = Effect.fn('SabbathSchool.reviseOutline')(function* (
+        context: LessonContext,
+        outline: string,
+      ) {
+        yield* Effect.log('Checking if revision is needed...');
 
-          const reviewResponse = yield* Effect.tryPromise({
-            try: () =>
-              generateObject({
-                model: ai.high,
-                messages: [
-                  { role: 'system', content: reviewCheckSystemPrompt },
-                  { role: 'user', content: reviewCheckUserPrompt(outline) },
-                ],
-                schema: z.object({
-                  needsRevision: z
-                    .boolean()
-                    .describe('Whether the outline needs revision'),
-                  revisionPoints: z
-                    .array(z.string())
-                    .describe(
-                      'Specific points where the outline FAILS to meet the prompt requirements',
-                    ),
-                  comments: z
-                    .string()
-                    .describe(
-                      'Brief overall comment on the adherence or specific strengths/weaknesses, keep it concise. Use empty string if no comments.',
-                    ),
-                }),
+        const reviewResponse = yield* Effect.tryPromise({
+          try: () =>
+            generateObject({
+              model: ai.high,
+              messages: [
+                { role: 'system', content: reviewCheckSystemPrompt },
+                { role: 'user', content: reviewCheckUserPrompt(outline) },
+              ],
+              schema: z.object({
+                needsRevision: z
+                  .boolean()
+                  .describe('Whether the outline needs revision'),
+                revisionPoints: z
+                  .array(z.string())
+                  .describe(
+                    'Specific points where the outline FAILS to meet the prompt requirements',
+                  ),
+                comments: z
+                  .string()
+                  .describe(
+                    'Brief overall comment on the adherence or specific strengths/weaknesses, keep it concise. Use empty string if no comments.',
+                  ),
               }),
-            catch: (cause: unknown) =>
-              new ReviewError({
-                context,
-                cause,
-              }),
-          });
+            }),
+          catch: (cause: unknown) =>
+            new ReviewError({
+              context,
+              cause,
+            }),
+        });
 
-          const needsRevision = reviewResponse.object.needsRevision;
+        const needsRevision = reviewResponse.object.needsRevision;
 
-          yield* Effect.log(`Revision needed: ${needsRevision}`);
-          if (!needsRevision) {
-            return Option.none<string>();
-          }
+        yield* Effect.log(`Revision needed: ${needsRevision}`);
+        if (!needsRevision) {
+          return Option.none<string>();
+        }
 
-          yield* Effect.log('Revising outline...');
+        yield* Effect.log('Revising outline...');
 
-          const revisedOutline = yield* Effect.tryPromise({
-            try: () =>
-              generateText({
-                model: ai.high,
-                messages: [
-                  { role: 'system', content: outlineSystemPrompt },
-                  { role: 'system', content: reviseSystemPrompt },
-                  {
-                    role: 'user',
-                    content: reviseUserPrompt(reviewResponse.object, outline),
-                  },
-                ],
-              }),
-            catch: (cause: unknown) =>
-              new ReviseError({
-                context,
-                cause,
-              }),
-          });
+        const revisedOutline = yield* Effect.tryPromise({
+          try: () =>
+            generateText({
+              model: ai.high,
+              messages: [
+                { role: 'system', content: outlineSystemPrompt },
+                { role: 'system', content: reviseSystemPrompt },
+                {
+                  role: 'user',
+                  content: reviseUserPrompt(reviewResponse.object, outline),
+                },
+              ],
+            }),
+          catch: (cause: unknown) =>
+            new ReviseError({
+              context,
+              cause,
+            }),
+        });
 
-          return Option.some(revisedOutline.text);
-        },
-      );
+        return Option.some(revisedOutline.text);
+      });
 
       return SabbathSchool.of({
         findQuarterUrls,

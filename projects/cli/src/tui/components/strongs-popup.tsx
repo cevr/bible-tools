@@ -83,19 +83,16 @@ export function StrongsPopup(props: StrongsPopupProps) {
                   </text>
                 </box>
 
-                {/* Original Word */}
-                <Show when={entry.lemma}>
+                {/* Original Word with Transliteration */}
+                <Show when={entry.xlit || entry.lemma}>
                   <box>
                     <text fg={theme().textMuted}>Word: </text>
-                    <text fg={theme().text}><strong>{entry.lemma}</strong></text>
-                  </box>
-                </Show>
-
-                {/* Transliteration */}
-                <Show when={entry.xlit}>
-                  <box>
-                    <text fg={theme().textMuted}>Transliteration: </text>
-                    <text fg={theme().text}>{entry.xlit}</text>
+                    <text fg={theme().text}>
+                      <strong>{entry.xlit || entry.lemma}</strong>
+                      <Show when={entry.xlit && entry.lemma}>
+                        <span style={{ fg: theme().textMuted }}> ({entry.lemma})</span>
+                      </Show>
+                    </text>
                   </box>
                 </Show>
 

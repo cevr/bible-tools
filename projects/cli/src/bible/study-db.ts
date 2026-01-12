@@ -66,14 +66,15 @@ export interface VerseStrongs {
 }
 
 export interface MarginNote {
-  type: 'hebrew' | 'greek' | 'alternate' | 'other';
+  type: 'hebrew' | 'greek' | 'alternate' | 'name' | 'other';
+  phrase: string;
   text: string;
 }
 
 // Database path
 const DB_DIR = join(homedir(), '.bible');
 const DB_PATH = join(DB_DIR, 'study.db');
-const DB_VERSION = 2;
+const DB_VERSION = 3; // v3: added phrase column to margin_notes
 
 // Singleton database instance
 let db: Database | null = null;
@@ -180,6 +181,7 @@ async function initDatabaseAsync(): Promise<void> {
       verse INTEGER NOT NULL,
       note_index INTEGER NOT NULL,
       note_type TEXT NOT NULL,
+      note_phrase TEXT NOT NULL,
       note_text TEXT NOT NULL,
       PRIMARY KEY (book, chapter, verse, note_index)
     )
@@ -234,15 +236,16 @@ async function initDatabaseAsync(): Promise<void> {
 
   // Load margin notes
   const insertMarginNote = db.prepare(`
-    INSERT OR REPLACE INTO margin_notes (book, chapter, verse, note_index, note_type, note_text)
-    VALUES (?, ?, ?, ?, ?, ?)
+    INSERT OR REPLACE INTO margin_notes (book, chapter, verse, note_index, note_type, note_phrase, note_text)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
   `);
 
   db.run('BEGIN TRANSACTION');
   for (const [key, notes] of Object.entries(marginNotesData!)) {
     const [book, chapter, verse] = key.split('.').map(Number) as [number, number, number];
     for (let i = 0; i < notes.length; i++) {
-      insertMarginNote.run(book, chapter, verse, i, notes[i]!.type, notes[i]!.text);
+      const note = notes[i]!;
+      insertMarginNote.run(book, chapter, verse, i, note.type, note.phrase, note.text);
     }
   }
   db.run('COMMIT');
@@ -392,9 +395,10 @@ export function getMarginNotes(book: number, chapter: number, verse: number): Ma
 
   const rows = db.query<{
     note_type: string;
+    note_phrase: string;
     note_text: string;
   }, [number, number, number]>(`
-    SELECT note_type, note_text
+    SELECT note_type, note_phrase, note_text
     FROM margin_notes
     WHERE book = ? AND chapter = ? AND verse = ?
     ORDER BY note_index
@@ -402,6 +406,7 @@ export function getMarginNotes(book: number, chapter: number, verse: number): Ma
 
   return rows.map(row => ({
     type: row.note_type as MarginNote['type'],
+    phrase: row.note_phrase,
     text: row.note_text,
   }));
 }

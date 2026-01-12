@@ -246,7 +246,12 @@ export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClien
             const uploadConfig: {
               displayName: string;
               customMetadata: CustomMetadata[];
-              chunkingConfig?: { whiteSpaceConfig: { maxTokensPerChunk: number; maxOverlapTokens: number } };
+              chunkingConfig?: {
+                whiteSpaceConfig: {
+                  maxTokensPerChunk: number;
+                  maxOverlapTokens: number;
+                };
+              };
             } = {
               displayName: config.displayName,
               customMetadata: apiMetadata as CustomMetadata[],
@@ -319,7 +324,12 @@ export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClien
             const uploadConfig: {
               displayName: string;
               customMetadata: CustomMetadata[];
-              chunkingConfig?: { whiteSpaceConfig: { maxTokensPerChunk: number; maxOverlapTokens: number } };
+              chunkingConfig?: {
+                whiteSpaceConfig: {
+                  maxTokensPerChunk: number;
+                  maxOverlapTokens: number;
+                };
+              };
             } = {
               displayName: config.displayName,
               customMetadata: apiMetadata as CustomMetadata[],

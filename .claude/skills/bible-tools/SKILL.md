@@ -1,12 +1,16 @@
 ---
 name: bible-tools
-description: Orchestrate Bible study tools for generating messages, Sabbath School outlines, and studies. Use when asked about sermons, messages, Sabbath School lessons, Bible studies, or church content generation.
+description:
+  Orchestrate Bible study tools for generating messages, Sabbath School
+  outlines, and studies. Use when asked about sermons, messages, Sabbath School
+  lessons, Bible studies, or church content generation.
 allowed-tools: [Bash, Read, Glob]
 ---
 
 # Bible Tools Skill
 
-This skill helps you use the Bible Tools CLI to generate and manage church-related content.
+This skill helps you use the Bible Tools CLI to generate and manage
+church-related content.
 
 ## Capabilities
 
@@ -21,7 +25,8 @@ This skill helps you use the Bible Tools CLI to generate and manage church-relat
 
 The CLI is available as `bible` (symlinked to `projects/cli/bin/bible`).
 
-**Important:** The `--model` flag is required for all generation/revision commands.
+**Important:** The `--model` flag is required for all generation/revision
+commands.
 
 ### Messages
 
@@ -100,13 +105,15 @@ All outputs are stored in `projects/cli/outputs/`:
 
 1. Calculate current year, quarter, and week from today's date
 2. Check if outline exists: `ls projects/cli/outputs/sabbath-school/`
-3. If missing: `bible sabbath-school process --model anthropic --year YYYY --quarter Q --week W`
+3. If missing:
+   `bible sabbath-school process --model anthropic --year YYYY --quarter Q --week W`
 4. Read the generated file and summarize for the user
 
 ### Revise Content (Agent-Orchestrated Loop)
 
 1. User provides feedback on content
-2. Run: `bible <type> revise --model anthropic --file <path> --instructions "<feedback>"`
+2. Run:
+   `bible <type> revise --model anthropic --file <path> --instructions "<feedback>"`
 3. Read the updated file and show to user
 4. Ask if further revisions needed
 5. Repeat until satisfied

@@ -100,12 +100,20 @@ const cli = Command.make(
       );
 
       // Display query information
-      yield* Effect.log('\n═══════════════════════════════════════════════════════');
+      yield* Effect.log(
+        '\n═══════════════════════════════════════════════════════',
+      );
       yield* Effect.log('QUERY RESULTS');
-      yield* Effect.log('═══════════════════════════════════════════════════════');
-      yield* Effect.log(`Store: ${result.store.displayName} (${result.store.name})`);
+      yield* Effect.log(
+        '═══════════════════════════════════════════════════════',
+      );
+      yield* Effect.log(
+        `Store: ${result.store.displayName} (${result.store.name})`,
+      );
       yield* Effect.log(`Query: ${result.query}`);
-      yield* Effect.log(`Candidates: ${result.response.candidates?.length || 0}`);
+      yield* Effect.log(
+        `Candidates: ${result.response.candidates?.length || 0}`,
+      );
       yield* Effect.log('');
 
       // Display all candidates
@@ -143,7 +151,9 @@ const cli = Command.make(
             const metadata = candidate.groundingMetadata;
 
             if (metadata.searchEntryPoint) {
-              yield* Effect.log(`  Search Entry Point: ${metadata.searchEntryPoint}`);
+              yield* Effect.log(
+                `  Search Entry Point: ${metadata.searchEntryPoint}`,
+              );
             }
 
             if (metadata.retrievalMetadata) {
@@ -162,7 +172,9 @@ const cli = Command.make(
                 yield* Effect.log(
                   `    Retrieved Chunk (${retrieval.chunk.length} chars):`,
                 );
-                yield* Effect.log(`    ${chunkPreview.split('\n').join('\n    ')}`);
+                yield* Effect.log(
+                  `    ${chunkPreview.split('\n').join('\n    ')}`,
+                );
               }
             } else {
               yield* Effect.log('  (no retrieval metadata)');

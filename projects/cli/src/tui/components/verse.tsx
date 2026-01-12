@@ -3,7 +3,6 @@ import { For, Show, createMemo } from 'solid-js';
 import type { Verse as VerseType } from '../../bible/types.js';
 import type { WordWithStrongs, MarginNote } from '../../bible/study-db.js';
 import { useTheme } from '../context/theme.js';
-import type { MarginMode } from '../context/display.js';
 
 interface VerseProps {
   verse: VerseType;
@@ -11,54 +10,127 @@ interface VerseProps {
   isSearchMatch?: boolean;
   searchQuery?: string;
   id?: string;
-  // Word mode props
   wordModeActive?: boolean;
   words?: WordWithStrongs[];
   selectedWordIndex?: number;
-  // Margin notes props
-  marginMode?: MarginMode;
   marginNotes?: MarginNote[];
 }
 
-// Split text into segments with search highlights
-function splitBySearch(text: string, query: string): Array<{ text: string; highlight: boolean }> {
-  if (!query || query.length < 2) {
-    return [{ text, highlight: false }];
-  }
-
-  const segments: Array<{ text: string; highlight: boolean }> = [];
-  const lowerText = text.toLowerCase();
-  const lowerQuery = query.toLowerCase();
-  let lastIndex = 0;
-
-  let pos = 0;
-  while ((pos = lowerText.indexOf(lowerQuery, pos)) !== -1) {
-    // Add text before match
-    if (pos > lastIndex) {
-      segments.push({ text: text.slice(lastIndex, pos), highlight: false });
-    }
-    // Add matched text
-    segments.push({ text: text.slice(pos, pos + query.length), highlight: true });
-    lastIndex = pos + query.length;
-    pos += 1;
-  }
-
-  // Add remaining text
-  if (lastIndex < text.length) {
-    segments.push({ text: text.slice(lastIndex), highlight: false });
-  }
-
-  return segments.length > 0 ? segments : [{ text, highlight: false }];
-}
-
 // Format margin note type prefix
-function formatNoteType(type: MarginNote['type']): string {
+export function formatNoteType(type: MarginNote['type']): string {
   switch (type) {
     case 'hebrew': return 'Heb.';
     case 'greek': return 'Gr.';
     case 'alternate': return 'Or,';
+    case 'name': return '';
     case 'other': return '';
   }
+}
+
+// Convert number to superscript
+function toSuperscript(n: number): string {
+  const superscripts = ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹'];
+  return String(n).split('').map(d => superscripts[parseInt(d)]!).join('');
+}
+
+type TextSegment =
+  | { type: 'text'; text: string }
+  | { type: 'highlight'; text: string }
+  | { type: 'margin'; noteIndex: number };
+
+/**
+ * Split verse text into segments with margin note superscripts inserted after matching phrases.
+ * Also handles search highlighting.
+ */
+function segmentVerseText(
+  text: string,
+  marginNotes: MarginNote[],
+  searchQuery?: string
+): TextSegment[] {
+  // First, find all phrase matches and their positions
+  const phraseMatches: Array<{ start: number; end: number; noteIndex: number }> = [];
+
+  for (let i = 0; i < marginNotes.length; i++) {
+    const note = marginNotes[i]!;
+    const phrase = note.phrase.toLowerCase();
+    const lowerText = text.toLowerCase();
+
+    // Find phrase in text (case-insensitive)
+    const pos = lowerText.indexOf(phrase);
+    if (pos !== -1) {
+      phraseMatches.push({
+        start: pos,
+        end: pos + phrase.length,
+        noteIndex: i + 1, // 1-indexed for display
+      });
+    }
+  }
+
+  // Sort by position (end position, so superscript appears after phrase)
+  phraseMatches.sort((a, b) => a.end - b.end);
+
+  // Build segments
+  const segments: TextSegment[] = [];
+  let lastIndex = 0;
+
+  for (const match of phraseMatches) {
+    // Add text before this phrase's end (including the phrase itself)
+    if (match.end > lastIndex) {
+      const textBefore = text.slice(lastIndex, match.end);
+      segments.push({ type: 'text', text: textBefore });
+    }
+    // Add superscript
+    segments.push({ type: 'margin', noteIndex: match.noteIndex });
+    lastIndex = match.end;
+  }
+
+  // Add remaining text
+  if (lastIndex < text.length) {
+    segments.push({ type: 'text', text: text.slice(lastIndex) });
+  }
+
+  // If no margin matches, just return the whole text
+  if (segments.length === 0) {
+    segments.push({ type: 'text', text });
+  }
+
+  // Now apply search highlighting within text segments
+  if (searchQuery && searchQuery.length >= 2) {
+    const finalSegments: TextSegment[] = [];
+    const lowerQuery = searchQuery.toLowerCase();
+
+    for (const segment of segments) {
+      if (segment.type !== 'text') {
+        finalSegments.push(segment);
+        continue;
+      }
+
+      // Split text segment by search query
+      const segText = segment.text;
+      const lowerSegText = segText.toLowerCase();
+      let pos = 0;
+      let searchPos = 0;
+
+      while ((searchPos = lowerSegText.indexOf(lowerQuery, pos)) !== -1) {
+        // Text before match
+        if (searchPos > pos) {
+          finalSegments.push({ type: 'text', text: segText.slice(pos, searchPos) });
+        }
+        // Highlighted match
+        finalSegments.push({ type: 'highlight', text: segText.slice(searchPos, searchPos + searchQuery.length) });
+        pos = searchPos + searchQuery.length;
+      }
+
+      // Remaining text
+      if (pos < segText.length) {
+        finalSegments.push({ type: 'text', text: segText.slice(pos) });
+      }
+    }
+
+    return finalSegments;
+  }
+
+  return segments;
 }
 
 export function Verse(props: VerseProps) {
@@ -66,10 +138,12 @@ export function Verse(props: VerseProps) {
 
   // Clean up verse text (remove pilcrow and brackets)
   const cleanText = () => props.verse.text
-    .replace(/^\u00b6\s*/, '') // Remove pilcrow at start
-    .replace(/\[([^\]]+)\]/g, '$1'); // Remove brackets around italicized words
+    .replace(/^\u00b6\s*/, '')
+    .replace(/\[([^\]]+)\]/g, '$1');
 
-  const segments = createMemo(() => splitBySearch(cleanText(), props.searchQuery ?? ''));
+  const segments = createMemo(() =>
+    segmentVerseText(cleanText(), props.marginNotes ?? [], props.searchQuery)
+  );
 
   // Render content based on word mode
   const renderContent = () => {
@@ -96,51 +170,27 @@ export function Verse(props: VerseProps) {
       );
     }
 
-    // Normal mode: render with search highlights
+    // Normal mode: render with margin superscripts and search highlights
     return (
       <For each={segments()}>
-        {(segment) => (
-          <Show
-            when={segment.highlight}
-            fallback={<span>{segment.text}</span>}
-          >
-            <span style={{ fg: theme().background, bg: theme().warning }}>
-              <strong>{segment.text}</strong>
-            </span>
-          </Show>
-        )}
+        {(segment) => {
+          if (segment.type === 'margin') {
+            return (
+              <span style={{ fg: theme().accentMuted }}>
+                {toSuperscript(segment.noteIndex)}
+              </span>
+            );
+          }
+          if (segment.type === 'highlight') {
+            return (
+              <span style={{ fg: theme().background, bg: theme().warning }}>
+                <strong>{segment.text}</strong>
+              </span>
+            );
+          }
+          return <span>{segment.text}</span>;
+        }}
       </For>
-    );
-  };
-
-  const hasMarginNotes = () => props.marginNotes && props.marginNotes.length > 0;
-  const showInline = () => props.marginMode === 'inline' && hasMarginNotes();
-  const showFooter = () => props.marginMode === 'footer' && hasMarginNotes();
-
-  // Render inline margin indicator (small superscript-style marker)
-  const renderInlineMargin = () => {
-    if (!showInline()) return null;
-    return (
-      <span style={{ fg: theme().accentMuted }}>
-        {' '}[m]
-      </span>
-    );
-  };
-
-  // Render footer margin notes
-  const renderFooterMargin = () => {
-    if (!showFooter()) return null;
-    return (
-      <box paddingLeft={5} paddingTop={0}>
-        <For each={props.marginNotes}>
-          {(note) => (
-            <text fg={theme().textMuted} wrapMode="word">
-              <span style={{ fg: theme().accentMuted }}>{formatNoteType(note.type)}</span>
-              {formatNoteType(note.type) ? ' ' : ''}{note.text}
-            </text>
-          )}
-        </For>
-      </box>
     );
   };
 
@@ -151,19 +201,17 @@ export function Verse(props: VerseProps) {
       paddingLeft={2}
       paddingRight={2}
       paddingTop={0}
-      paddingBottom={showFooter() ? 1 : 0}
+      paddingBottom={0}
       backgroundColor={props.isHighlighted ? theme().verseHighlight : props.isSearchMatch ? theme().backgroundPanel : undefined}
     >
       <box flexDirection="row">
-        <text fg={theme().verseNumber} marginRight={1} minWidth={4}>
+        <text fg={theme().verseNumber} marginRight={1} minWidth={3}>
           <strong>{props.verse.verse}</strong>
         </text>
         <text fg={theme().verseText} wrapMode="word">
           {renderContent()}
-          {renderInlineMargin()}
         </text>
       </box>
-      {renderFooterMargin()}
     </box>
   );
 }
@@ -179,7 +227,33 @@ export function VerseParagraph(props: VerseParagraphProps) {
   const { theme } = useTheme();
 
   const renderTextWithHighlights = (text: string, query: string | undefined) => {
-    const segments = splitBySearch(text, query ?? '');
+    if (!query || query.length < 2) {
+      return <span>{text}</span>;
+    }
+
+    const segments: Array<{ text: string; highlight: boolean }> = [];
+    const lowerText = text.toLowerCase();
+    const lowerQuery = query.toLowerCase();
+    let lastIndex = 0;
+    let pos = 0;
+
+    while ((pos = lowerText.indexOf(lowerQuery, pos)) !== -1) {
+      if (pos > lastIndex) {
+        segments.push({ text: text.slice(lastIndex, pos), highlight: false });
+      }
+      segments.push({ text: text.slice(pos, pos + query.length), highlight: true });
+      lastIndex = pos + query.length;
+      pos += 1;
+    }
+
+    if (lastIndex < text.length) {
+      segments.push({ text: text.slice(lastIndex), highlight: false });
+    }
+
+    if (segments.length === 0) {
+      return <span>{text}</span>;
+    }
+
     return (
       <For each={segments}>
         {(segment) => (
@@ -201,7 +275,6 @@ export function VerseParagraph(props: VerseParagraphProps) {
       <text fg={theme().verseText} wrapMode="word">
         <For each={props.verses}>
           {(verse, index) => {
-            // Clean up verse text
             const cleanText = verse.text
               .replace(/^\u00b6\s*/, '')
               .replace(/\[([^\]]+)\]/g, '$1');

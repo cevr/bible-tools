@@ -1,7 +1,7 @@
 /**
  * Cross-References Popup
  *
- * Shows cross-references for the currently selected verse.
+ * Shows cross-references and margin notes for the currently selected verse.
  * Navigate with j/k or up/down, select with Enter, close with Escape.
  */
 
@@ -15,6 +15,7 @@ import { useBibleData } from '../context/bible.js';
 import { useStudyData } from '../context/study-data.js';
 import { useTheme } from '../context/theme.js';
 import { useScrollSync } from '../hooks/use-scroll-sync.js';
+import { formatNoteType } from './verse.js';
 
 interface CrossRefsPopupProps {
   verseRef: Reference;
@@ -33,6 +34,12 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
   const crossRefs = createMemo(() => {
     const verse = props.verseRef.verse ?? 1;
     return studyData.getCrossRefs(props.verseRef.book, props.verseRef.chapter, verse);
+  });
+
+  // Get margin notes for this verse
+  const marginNotes = createMemo(() => {
+    const verse = props.verseRef.verse ?? 1;
+    return studyData.getMarginNotes(props.verseRef.book, props.verseRef.chapter, verse);
   });
 
   // Get preview text for each reference
@@ -100,6 +107,10 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
     ? `${sourceBook.name} ${props.verseRef.chapter}:${props.verseRef.verse ?? 1}`
     : 'Unknown';
 
+  const hasMarginNotes = () => marginNotes().length > 0;
+  const hasCrossRefs = () => refsWithPreviews().length > 0;
+  const hasContent = () => hasMarginNotes() || hasCrossRefs();
+
   return (
     <box
       flexDirection="column"
@@ -107,73 +118,99 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
       borderColor={theme().border}
       backgroundColor={theme().backgroundPanel}
       width={65}
-      maxHeight={18}
+      maxHeight={20}
       padding={1}
     >
       {/* Header */}
       <box marginBottom={1}>
         <text fg={theme().text}>
-          <strong>Cross-References for {sourceLabel}</strong>
+          <strong>{sourceLabel}</strong>
         </text>
       </box>
 
-      {/* Results */}
       <Show
-        when={refsWithPreviews().length > 0}
+        when={hasContent()}
         fallback={
-          <text fg={theme().textMuted}>No cross-references found</text>
+          <text fg={theme().textMuted}>No cross-references or margin notes</text>
         }
       >
-        <scrollbox
-          ref={scrollRef}
-          focused={false}
-          style={{
-            height: 10,
-            rootOptions: {
-              backgroundColor: theme().backgroundPanel,
-            },
-            wrapperOptions: {
-              backgroundColor: theme().backgroundPanel,
-            },
-            viewportOptions: {
-              backgroundColor: theme().backgroundPanel,
-            },
-            contentOptions: {
-              backgroundColor: theme().backgroundPanel,
-            },
-            scrollbarOptions: {
-              showArrows: false,
-              trackOptions: {
-                foregroundColor: theme().accent,
-                backgroundColor: theme().border,
-              },
-            },
-          }}
-        >
-          <For each={refsWithPreviews()}>
-            {(item, index) => {
-              const isSelected = () => index() === selectedIndex();
-              const refText = formatReference(item.ref);
-              // Pad reference to fixed width for alignment
-              const paddedRef = refText.padEnd(25, ' ');
-              return (
-                <text id={`crossref-${index()}`} fg={isSelected() ? theme().accent : theme().textMuted}>
-                  {isSelected() ? '▶ ' : '  '}
-                  <span style={{ fg: isSelected() ? theme().accent : theme().text }}>
-                    {isSelected() ? <strong>{paddedRef}</strong> : paddedRef}
-                  </span>
-                  {item.preview}
+        {/* Margin Notes Section */}
+        <Show when={hasMarginNotes()}>
+          <box flexDirection="column" marginBottom={1}>
+            <text fg={theme().textMuted} marginBottom={0}>
+              <strong>Margin Notes</strong>
+            </text>
+            <For each={marginNotes()}>
+              {(note, index) => (
+                <text fg={theme().text} wrapMode="word">
+                  <span style={{ fg: theme().accent }}>{index() + 1}.</span>{' '}
+                  <span style={{ fg: theme().accentMuted }}>{formatNoteType(note.type)}</span>
+                  {formatNoteType(note.type) ? ' ' : ''}{note.text}
                 </text>
-              );
-            }}
-          </For>
-        </scrollbox>
+              )}
+            </For>
+          </box>
+        </Show>
+
+        {/* Cross-References Section */}
+        <Show when={hasCrossRefs()}>
+          <box flexDirection="column">
+            <text fg={theme().textMuted} marginBottom={0}>
+              <strong>Cross-References</strong>
+            </text>
+            <scrollbox
+              ref={scrollRef}
+              focused={false}
+              style={{
+                height: hasMarginNotes() ? 6 : 10,
+                rootOptions: {
+                  backgroundColor: theme().backgroundPanel,
+                },
+                wrapperOptions: {
+                  backgroundColor: theme().backgroundPanel,
+                },
+                viewportOptions: {
+                  backgroundColor: theme().backgroundPanel,
+                },
+                contentOptions: {
+                  backgroundColor: theme().backgroundPanel,
+                },
+                scrollbarOptions: {
+                  showArrows: false,
+                  trackOptions: {
+                    foregroundColor: theme().accent,
+                    backgroundColor: theme().border,
+                  },
+                },
+              }}
+            >
+              <For each={refsWithPreviews()}>
+                {(item, index) => {
+                  const isSelected = () => index() === selectedIndex();
+                  const refText = formatReference(item.ref);
+                  const paddedRef = refText.padEnd(25, ' ');
+                  return (
+                    <text id={`crossref-${index()}`} fg={isSelected() ? theme().accent : theme().textMuted}>
+                      {isSelected() ? '▶ ' : '  '}
+                      <span style={{ fg: isSelected() ? theme().accent : theme().text }}>
+                        {isSelected() ? <strong>{paddedRef}</strong> : paddedRef}
+                      </span>
+                      {item.preview}
+                    </text>
+                  );
+                }}
+              </For>
+            </scrollbox>
+          </box>
+        </Show>
       </Show>
 
       {/* Footer */}
       <box marginTop={1}>
         <text fg={theme().textMuted}>
-          ↑↓ navigate • Enter select • Esc close
+          <Show when={hasCrossRefs()} fallback="Esc close">
+            ↑↓ navigate • Enter select • Esc close
+          </Show>
         </text>
       </box>
     </box>
