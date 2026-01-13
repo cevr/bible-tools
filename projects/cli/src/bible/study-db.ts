@@ -2,11 +2,17 @@
  * Bible Study Database Service
  *
  * Uses SQLite for fast indexed lookups of:
- * - Cross-references
- * - Strong's concordance
+ * - Cross-references (with preview text)
+ * - Strong's concordance (with FTS5 search)
  * - KJV verses with Strong's word mappings
+ * - Normalized Strong's-to-verse mapping for fast concordance
  *
  * The database is created in ~/.bible/ on first run from bundled JSON data.
+ *
+ * Schema v4 changes:
+ * - Added strongs_verses table for O(1) concordance lookup
+ * - Added strongs_fts FTS5 virtual table for definition search
+ * - Added preview_text to cross_refs for single-query lookups
  */
 
 import { existsSync, mkdirSync } from 'fs';
@@ -15,28 +21,54 @@ import { join } from 'path';
 
 import { Database } from 'bun:sqlite';
 
-import type { Reference } from './types.js';
+import type { Reference, Verse } from './types.js';
 
 // Lazy-loaded data - only loaded when database initialization is needed
 let crossRefsData: Record<string, CrossRefEntry> | null = null;
 let strongsData: Record<string, Omit<StrongsEntry, 'number'>> | null = null;
 let kjvStrongsData: VerseStrongs[] | null = null;
 let marginNotesData: Record<string, MarginNote[]> | null = null;
+let kjvData: { verses: Verse[] } | null = null;
+let kjvVerseMap: Map<string, string> | null = null;
 
 async function loadJsonData() {
   if (crossRefsData) return; // Already loaded
 
-  const [crossRefs, strongs, kjvStrongs, marginNotes] = await Promise.all([
+  const [crossRefs, strongs, kjvStrongs, marginNotes, kjv] = await Promise.all([
     import('../../assets/cross-refs.json').then((m) => m.default),
     import('../../assets/strongs.json').then((m) => m.default),
     import('../../assets/kjv-strongs.json').then((m) => m.default),
     import('../../assets/margin-notes.json').then((m) => m.default),
+    import('../../assets/kjv.json').then((m) => m.default),
   ]);
 
   crossRefsData = crossRefs as Record<string, CrossRefEntry>;
   strongsData = strongs as Record<string, Omit<StrongsEntry, 'number'>>;
   kjvStrongsData = kjvStrongs as VerseStrongs[];
   marginNotesData = marginNotes as Record<string, MarginNote[]>;
+  kjvData = kjv as { verses: Verse[] };
+
+  // Build verse text lookup map for preview text
+  kjvVerseMap = new Map();
+  for (const verse of kjvData.verses) {
+    const key = `${verse.book}.${verse.chapter}.${verse.verse}`;
+    kjvVerseMap.set(key, verse.text);
+  }
+}
+
+/**
+ * Get preview text for a verse (first ~100 chars)
+ */
+function getVersePreview(
+  book: number,
+  chapter: number,
+  verse: number,
+): string | null {
+  if (!kjvVerseMap) return null;
+  const key = `${book}.${chapter}.${verse}`;
+  const text = kjvVerseMap.get(key);
+  if (!text) return null;
+  return text.length > 100 ? text.slice(0, 100) + '...' : text;
 }
 
 // Types
@@ -75,7 +107,7 @@ export interface MarginNote {
 // Database path
 const DB_DIR = join(homedir(), '.bible');
 const DB_PATH = join(DB_DIR, 'study.db');
-const DB_VERSION = 3; // v3: added phrase column to margin_notes
+const DB_VERSION = 4; // v4: strongs_verses table, strongs_fts, preview_text in cross_refs
 
 // Singleton database instance
 let db: Database | null = null;
@@ -142,6 +174,7 @@ async function initDatabaseAsync(): Promise<void> {
     )
   `);
 
+  // Cross-references with preview text for single-query lookups
   db.run(`
     CREATE TABLE IF NOT EXISTS cross_refs (
       book INTEGER NOT NULL,
@@ -151,10 +184,12 @@ async function initDatabaseAsync(): Promise<void> {
       ref_chapter INTEGER NOT NULL,
       ref_verse INTEGER,
       ref_verse_end INTEGER,
+      preview_text TEXT,
       PRIMARY KEY (book, chapter, verse, ref_book, ref_chapter, ref_verse)
     )
   `);
 
+  // Strong's definitions
   db.run(`
     CREATE TABLE IF NOT EXISTS strongs (
       number TEXT PRIMARY KEY,
@@ -166,6 +201,7 @@ async function initDatabaseAsync(): Promise<void> {
     )
   `);
 
+  // Verse-level Strong's word mappings (for word rendering)
   db.run(`
     CREATE TABLE IF NOT EXISTS verse_strongs (
       book INTEGER NOT NULL,
@@ -178,6 +214,20 @@ async function initDatabaseAsync(): Promise<void> {
     )
   `);
 
+  // Normalized Strong's-to-verse mapping for O(1) concordance lookups
+  db.run(`
+    CREATE TABLE IF NOT EXISTS strongs_verses (
+      strongs_number TEXT NOT NULL,
+      book INTEGER NOT NULL,
+      chapter INTEGER NOT NULL,
+      verse INTEGER NOT NULL,
+      word_text TEXT,
+      word_index INTEGER,
+      PRIMARY KEY (strongs_number, book, chapter, verse, word_index)
+    )
+  `);
+
+  // Margin notes with phrase positions
   db.run(`
     CREATE TABLE IF NOT EXISTS margin_notes (
       book INTEGER NOT NULL,
@@ -193,19 +243,41 @@ async function initDatabaseAsync(): Promise<void> {
 
   // Create indexes
   db.run(
+    'CREATE INDEX IF NOT EXISTS idx_cross_refs_from ON cross_refs(book, chapter, verse)',
+  );
+  db.run(
     'CREATE INDEX IF NOT EXISTS idx_cross_refs_ref ON cross_refs(ref_book, ref_chapter, ref_verse)',
   );
   db.run(
     'CREATE INDEX IF NOT EXISTS idx_verse_strongs ON verse_strongs(book, chapter, verse)',
   );
   db.run(
+    'CREATE INDEX IF NOT EXISTS idx_strongs_verses_num ON strongs_verses(strongs_number)',
+  );
+  db.run(
+    'CREATE INDEX IF NOT EXISTS idx_strongs_verses_verse ON strongs_verses(book, chapter, verse)',
+  );
+  db.run(
     'CREATE INDEX IF NOT EXISTS idx_margin_notes ON margin_notes(book, chapter, verse)',
   );
+  db.run('CREATE INDEX IF NOT EXISTS idx_strongs_number ON strongs(number)');
+  db.run('CREATE INDEX IF NOT EXISTS idx_strongs_lemma ON strongs(lemma)');
 
-  // Load cross-references
+  // FTS5 virtual table for Strong's definition search
+  db.run(`
+    CREATE VIRTUAL TABLE IF NOT EXISTS strongs_fts USING fts5(
+      number,
+      lemma,
+      def,
+      content=strongs,
+      content_rowid=rowid
+    )
+  `);
+
+  // Load cross-references with preview text
   const insertCrossRef = db.prepare(`
-    INSERT OR REPLACE INTO cross_refs (book, chapter, verse, ref_book, ref_chapter, ref_verse, ref_verse_end)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
+    INSERT OR REPLACE INTO cross_refs (book, chapter, verse, ref_book, ref_chapter, ref_verse, ref_verse_end, preview_text)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   db.run('BEGIN TRANSACTION');
@@ -216,6 +288,10 @@ async function initDatabaseAsync(): Promise<void> {
       number,
     ];
     for (const ref of entry.refs) {
+      // Get preview text for the referenced verse
+      const preview = ref.verse
+        ? getVersePreview(ref.book, ref.chapter, ref.verse)
+        : null;
       insertCrossRef.run(
         book,
         chapter,
@@ -224,6 +300,7 @@ async function initDatabaseAsync(): Promise<void> {
         ref.chapter,
         ref.verse ?? null,
         ref.verseEnd ?? null,
+        preview,
       );
     }
   }
@@ -248,9 +325,19 @@ async function initDatabaseAsync(): Promise<void> {
   }
   db.run('COMMIT');
 
-  // Load verse-Strong's mappings
+  // Populate FTS5 index for Strong's definitions
+  db.run(`
+    INSERT INTO strongs_fts(strongs_fts) VALUES('rebuild')
+  `);
+
+  // Load verse-Strong's mappings and normalized strongs_verses table
   const insertVerseStrongs = db.prepare(`
     INSERT OR REPLACE INTO verse_strongs (book, chapter, verse, word_index, word_text, strongs_nums)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `);
+
+  const insertStrongsVerse = db.prepare(`
+    INSERT OR IGNORE INTO strongs_verses (strongs_number, book, chapter, verse, word_text, word_index)
     VALUES (?, ?, ?, ?, ?, ?)
   `);
 
@@ -266,6 +353,20 @@ async function initDatabaseAsync(): Promise<void> {
         word.text,
         word.strongs ? JSON.stringify(word.strongs) : null,
       );
+
+      // Populate normalized strongs_verses table for each Strong's number
+      if (word.strongs) {
+        for (const strongsNum of word.strongs) {
+          insertStrongsVerse.run(
+            strongsNum.toUpperCase(),
+            v.book,
+            v.chapter,
+            v.verse,
+            word.text,
+            i,
+          );
+        }
+      }
     }
   }
   db.run('COMMIT');
@@ -342,14 +443,19 @@ export function initInBackground(): void {
 
 // Public API
 
+/** Cross-reference with optional preview text */
+export interface CrossRef extends Reference {
+  previewText?: string;
+}
+
 /**
- * Get cross-references for a verse
+ * Get cross-references for a verse (includes preview text)
  */
 export function getCrossRefs(
   book: number,
   chapter: number,
   verse: number,
-): Reference[] {
+): CrossRef[] {
   ensureInitialized();
   const db = getDatabase();
 
@@ -360,11 +466,12 @@ export function getCrossRefs(
         ref_chapter: number;
         ref_verse: number | null;
         ref_verse_end: number | null;
+        preview_text: string | null;
       },
       [number, number, number]
     >(
       `
-    SELECT ref_book, ref_chapter, ref_verse, ref_verse_end
+    SELECT ref_book, ref_chapter, ref_verse, ref_verse_end, preview_text
     FROM cross_refs
     WHERE book = ? AND chapter = ? AND verse = ?
   `,
@@ -376,6 +483,7 @@ export function getCrossRefs(
     chapter: row.ref_chapter,
     verse: row.ref_verse ?? undefined,
     verseEnd: row.ref_verse_end ?? undefined,
+    previewText: row.preview_text ?? undefined,
   }));
 }
 
@@ -522,6 +630,7 @@ export interface ConcordanceResult {
 
 /**
  * Search for all verses containing a Strong's number
+ * Uses normalized strongs_verses table for O(1) index lookup
  */
 export function searchByStrongs(strongsNumber: string): ConcordanceResult[] {
   ensureInitialized();
@@ -530,7 +639,7 @@ export function searchByStrongs(strongsNumber: string): ConcordanceResult[] {
   // Normalize to uppercase (H1234 or G5678)
   const normalized = strongsNumber.toUpperCase();
 
-  // Search using JSON contains pattern - SQLite LIKE on the JSON array
+  // Use normalized strongs_verses table for fast index lookup
   const rows = db
     .query<
       {
@@ -543,12 +652,12 @@ export function searchByStrongs(strongsNumber: string): ConcordanceResult[] {
     >(
       `
     SELECT DISTINCT book, chapter, verse, word_text
-    FROM verse_strongs
-    WHERE strongs_nums LIKE ?
+    FROM strongs_verses
+    WHERE strongs_number = ?
     ORDER BY book, chapter, verse
   `,
     )
-    .all(`%"${normalized}"%`);
+    .all(normalized);
 
   return rows.map((row) => ({
     book: row.book,
@@ -560,6 +669,7 @@ export function searchByStrongs(strongsNumber: string): ConcordanceResult[] {
 
 /**
  * Get the count of occurrences for a Strong's number
+ * Uses normalized strongs_verses table for O(1) index lookup
  */
 export function getStrongsOccurrenceCount(strongsNumber: string): number {
   ensureInitialized();
@@ -571,11 +681,11 @@ export function getStrongsOccurrenceCount(strongsNumber: string): number {
     .query<{ count: number }, [string]>(
       `
     SELECT COUNT(DISTINCT book || '.' || chapter || '.' || verse) as count
-    FROM verse_strongs
-    WHERE strongs_nums LIKE ?
+    FROM strongs_verses
+    WHERE strongs_number = ?
   `,
     )
-    .get(`%"${normalized}"%`);
+    .get(normalized);
 
   return row?.count ?? 0;
 }
@@ -620,12 +730,17 @@ export function searchStrongsByLemma(lemma: string): StrongsEntry[] {
 }
 
 /**
- * Search Strong's entries by definition
+ * Search Strong's entries by definition using FTS5
  */
 export function searchStrongsByDefinition(query: string): StrongsEntry[] {
   ensureInitialized();
   const db = getDatabase();
 
+  // Escape special FTS5 characters and prepare query
+  const escapedQuery = query.replace(/['"*]/g, '');
+  if (!escapedQuery.trim()) return [];
+
+  // Use FTS5 for fast full-text search
   const rows = db
     .query<
       {
@@ -636,17 +751,18 @@ export function searchStrongsByDefinition(query: string): StrongsEntry[] {
         def: string;
         kjv_def: string | null;
       },
-      [string, string]
+      [string]
     >(
       `
-    SELECT number, lemma, xlit, pron, def, kjv_def
-    FROM strongs
-    WHERE def LIKE ? OR kjv_def LIKE ?
-    ORDER BY number
+    SELECT s.number, s.lemma, s.xlit, s.pron, s.def, s.kjv_def
+    FROM strongs s
+    JOIN strongs_fts fts ON s.rowid = fts.rowid
+    WHERE strongs_fts MATCH ?
+    ORDER BY s.number
     LIMIT 50
   `,
     )
-    .all(`%${query}%`, `%${query}%`);
+    .all(`def:${escapedQuery}* OR lemma:${escapedQuery}*`);
 
   return rows.map((row) => ({
     number: row.number,

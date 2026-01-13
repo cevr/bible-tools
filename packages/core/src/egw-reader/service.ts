@@ -93,19 +93,28 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
         );
 
       /**
-       * Get a book by its code
+       * Get a book by its code (O(1) index lookup)
        */
       const getBookByCode = (
         bookCode: string,
-        author: string = 'Ellen Gould White',
       ): Effect.Effect<Option.Option<EGWBookInfo>, ReaderError> =>
-        getBooks(author).pipe(
-          Effect.map((books) => {
-            const book = books.find(
-              (b) => b.bookCode.toUpperCase() === bookCode.toUpperCase(),
-            );
-            return book ? Option.some(book) : Option.none();
-          }),
+        db.getBookByCode(bookCode).pipe(
+          Effect.map((opt) =>
+            Option.map(
+              opt,
+              (row): EGWBookInfo => ({
+                bookId: row.book_id,
+                bookCode: row.book_code,
+                title: row.book_title,
+                author: row.book_author,
+                pageCount: undefined,
+              }),
+            ),
+          ),
+          Effect.mapError(
+            (e) =>
+              new EGWReaderError({ message: 'Failed to get book', cause: e }),
+          ),
         );
 
       /**
@@ -132,9 +141,8 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
        */
       const getParagraphsByBookCode = (
         bookCode: string,
-        author: string = 'Ellen Gould White',
       ): Effect.Effect<readonly EGWParagraph[], ReaderError> =>
-        getBookByCode(bookCode, author).pipe(
+        getBookByCode(bookCode).pipe(
           Effect.flatMap((optBook) =>
             Option.match(optBook, {
               onNone: () => Effect.fail(new BookNotFoundError({ bookCode })),
@@ -162,22 +170,31 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
         );
 
       /**
-       * Get paragraphs matching a page number (e.g., "351" from "PP 351.1")
-       * Returns all paragraphs where refcode starts with "BOOK PAGE."
+       * Get paragraphs matching a page number (O(log n) index lookup)
+       * Uses pre-computed page_number column for fast lookup
        */
       const getParagraphsByPage = (
         bookCode: string,
         page: number,
-        author: string = 'Ellen Gould White',
       ): Effect.Effect<readonly EGWParagraph[], ReaderError> =>
-        getParagraphsByBookCode(bookCode, author).pipe(
-          Effect.map((paragraphs) => {
-            const pagePrefix = `${bookCode} ${page}.`;
-            return paragraphs.filter((p) => {
-              const ref = p.refcodeShort ?? p.refcodeLong ?? '';
-              return ref.toUpperCase().startsWith(pagePrefix.toUpperCase());
-            });
-          }),
+        getBookByCode(bookCode).pipe(
+          Effect.flatMap((optBook) =>
+            Option.match(optBook, {
+              onNone: () =>
+                Effect.fail<ReaderError>(new BookNotFoundError({ bookCode })),
+              onSome: (book) =>
+                db.getParagraphsByPage(book.bookId, page).pipe(
+                  Effect.map((paras) => paras.map(schemaParagraphToEGWParagraph)),
+                  Effect.mapError(
+                    (e): ReaderError =>
+                      new EGWReaderError({
+                        message: 'Failed to get paragraphs by page',
+                        cause: e,
+                      }),
+                  ),
+                ),
+            }),
+          ),
         );
 
       /**
@@ -219,26 +236,68 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
       };
 
       /**
-       * Search paragraphs by content
+       * Search paragraphs by content (FTS5 full-text search)
        */
       const searchParagraphs = (
         query: string,
-        author: string = 'Ellen Gould White',
         limit: number = 50,
-      ): Effect.Effect<readonly EGWParagraph[], ReaderError> =>
-        db.getParagraphsByAuthor(author).pipe(
-          Stream.filter((para) => {
-            const content = para.content ?? '';
-            return content.toLowerCase().includes(query.toLowerCase());
-          }),
-          Stream.take(limit),
-          Stream.map(schemaParagraphToEGWParagraph),
-          Stream.runCollect,
-          Effect.map((chunk) => [...chunk]),
+      ): Effect.Effect<readonly (EGWParagraph & { bookCode: string })[], ReaderError> =>
+        db.searchParagraphs(query, limit).pipe(
+          Effect.map((results) =>
+            results.map((r) => ({
+              ...schemaParagraphToEGWParagraph(r),
+              bookCode: r.bookCode,
+            })),
+          ),
           Effect.mapError(
             (e) =>
               new EGWReaderError({
                 message: 'Failed to search paragraphs',
+                cause: e,
+              }),
+          ),
+        );
+
+      /**
+       * Get chapter headings for a book (for TOC/navigation)
+       */
+      const getChapterHeadings = (
+        bookId: number,
+      ): Effect.Effect<readonly EGWParagraph[], ReaderError> =>
+        db.getChapterHeadings(bookId).pipe(
+          Effect.map((paras) => paras.map(schemaParagraphToEGWParagraph)),
+          Effect.mapError(
+            (e) =>
+              new EGWReaderError({
+                message: 'Failed to get chapter headings',
+                cause: e,
+              }),
+          ),
+        );
+
+      /**
+       * Get EGW paragraphs that cite a specific Bible verse
+       */
+      const getCommentaryForVerse = (
+        bibleBook: number,
+        bibleChapter: number,
+        bibleVerse?: number,
+      ): Effect.Effect<
+        readonly (EGWParagraph & { bookCode: string; bookTitle: string })[],
+        ReaderError
+      > =>
+        db.getParagraphsByBibleRef(bibleBook, bibleChapter, bibleVerse).pipe(
+          Effect.map((results) =>
+            results.map((r) => ({
+              ...schemaParagraphToEGWParagraph(r),
+              bookCode: r.bookCode,
+              bookTitle: r.bookTitle,
+            })),
+          ),
+          Effect.mapError(
+            (e) =>
+              new EGWReaderError({
+                message: 'Failed to get commentary',
                 cause: e,
               }),
           ),
@@ -251,8 +310,10 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
         getParagraphsByBookCode,
         getParagraphByRefcode,
         getParagraphsByPage,
+        getChapterHeadings,
         findParagraphByPosition,
         searchParagraphs,
+        getCommentaryForVerse,
       } as const;
     }),
     dependencies: [EGWParagraphDatabase.Default],

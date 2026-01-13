@@ -80,11 +80,7 @@ function createEGWService(): EGWContextValue {
       runService(
         Effect.gen(function* () {
           const service = yield* EGWReaderService;
-          return yield* service.searchParagraphs(
-            query,
-            'Ellen Gould White',
-            limit,
-          );
+          return yield* service.searchParagraphs(query, limit);
         }),
       ),
   };

@@ -3,27 +3,24 @@
  *
  * This service stores EGW paragraphs in a SQLite database for local caching,
  * avoiding repeated HTTP calls to the EGW API.
- * Follows the same conventions as upload-status.ts
  *
- * Stores paragraphs with their content, linked to books via book_id.
+ * Schema v2 changes:
+ * - Normalized books table (eliminates denormalized book metadata)
+ * - Pre-computed page_number, paragraph_number, is_chapter_heading columns
+ * - paragraph_bible_refs table for indexed Bible reference lookup
+ * - FTS5 virtual table for content search
+ *
  * Essential fields:
- * - book_id (foreign key to book)
+ * - book_id (foreign key to books table)
  * - ref_code (refcode_short or refcode_long, primary identifier)
  * - para_id, content, puborder (paragraph data)
- * - book metadata (code, title, author) for quick lookups
+ * - page_number, paragraph_number (extracted from refcode)
+ * - is_chapter_heading (for fast chapter navigation)
  */
 
 import { FileSystem, Path } from '@effect/platform';
 import { Database } from 'bun:sqlite';
-import {
-  Config,
-  Data,
-  Effect,
-  Option,
-  ParseResult,
-  Schema,
-  Stream,
-} from 'effect';
+import { Config, Data, Effect, Option, Schema, Stream } from 'effect';
 
 import * as EGWSchemas from '../egw/schemas.js';
 
@@ -76,6 +73,20 @@ export type ParagraphDatabaseError =
   | SchemaInitializationError;
 
 /**
+ * Book Row type - normalized book metadata
+ */
+export const BookRow = Schema.Struct({
+  book_id: Schema.Number,
+  book_code: Schema.String,
+  book_title: Schema.String,
+  book_author: Schema.String,
+  paragraph_count: Schema.Number,
+  created_at: Schema.String,
+});
+
+export type BookRow = Schema.Schema.Type<typeof BookRow>;
+
+/**
  * Paragraph Row type - stores paragraphs with book reference
  * Uses Schema.pick to select fields from the existing Paragraph schema,
  * then extends with book reference and database-specific fields
@@ -87,16 +98,18 @@ export const ParagraphRow = EGWSchemas.Paragraph.pipe(
     'refcode_long',
     'content',
     'puborder',
+    'element_type',
+    'element_subtype',
   ),
   Schema.extend(
     Schema.Struct({
       book_id: Schema.Number,
-      // Store book metadata for quick lookups (denormalized)
-      book_code: Schema.String,
-      book_title: Schema.String,
-      book_author: Schema.String,
       // Computed ref_code (refcode_short or refcode_long, used as primary identifier)
       ref_code: Schema.String,
+      // Pre-computed navigation fields (extracted from refcode)
+      page_number: Schema.NullOr(Schema.Number),
+      paragraph_number: Schema.NullOr(Schema.Number),
+      is_chapter_heading: Schema.Number, // 1 if element_type in ('chapter','heading','title')
       created_at: Schema.String,
       updated_at: Schema.String,
     }),
@@ -104,6 +117,51 @@ export const ParagraphRow = EGWSchemas.Paragraph.pipe(
 );
 
 export type ParagraphRow = Schema.Schema.Type<typeof ParagraphRow>;
+
+/**
+ * Bible Reference Row type - for indexed Bible reference lookups
+ */
+export const BibleRefRow = Schema.Struct({
+  para_book_id: Schema.Number,
+  para_ref_code: Schema.String,
+  bible_book: Schema.Number,
+  bible_chapter: Schema.Number,
+  bible_verse: Schema.NullOr(Schema.Number),
+});
+
+export type BibleRefRow = Schema.Schema.Type<typeof BibleRefRow>;
+
+/**
+ * Parse page and paragraph numbers from refcode
+ * e.g., "PP 351.1" -> { page: 351, paragraph: 1 }
+ */
+function parseRefcodeNumbers(refcode: string | null): {
+  page: number | null;
+  paragraph: number | null;
+} {
+  if (!refcode) return { page: null, paragraph: null };
+  const match = refcode.match(/\s(\d+)\.(\d+)$/);
+  if (match) {
+    return {
+      page: parseInt(match[1]!, 10),
+      paragraph: parseInt(match[2]!, 10),
+    };
+  }
+  // Try page-only pattern (e.g., "PP 351")
+  const pageMatch = refcode.match(/\s(\d+)$/);
+  if (pageMatch) {
+    return { page: parseInt(pageMatch[1]!, 10), paragraph: null };
+  }
+  return { page: null, paragraph: null };
+}
+
+/**
+ * Check if element type is a chapter heading
+ */
+function isChapterHeading(elementType: string | null): boolean {
+  if (!elementType) return false;
+  return ['chapter', 'heading', 'title'].includes(elementType.toLowerCase());
+}
 
 /**
  * EGW Paragraph Database Service
@@ -140,9 +198,30 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
           }),
       });
 
-      // Initialize schema - paragraphs table
+      // Initialize schema - books table (normalized)
       yield* Effect.try({
         try: () => {
+          // Books table - normalized book metadata
+          db.run(`
+            CREATE TABLE IF NOT EXISTS books (
+              book_id INTEGER PRIMARY KEY,
+              book_code TEXT NOT NULL UNIQUE,
+              book_title TEXT NOT NULL,
+              book_author TEXT NOT NULL,
+              paragraph_count INTEGER DEFAULT 0,
+              created_at TEXT NOT NULL
+            )
+          `);
+          db.run(`
+            CREATE INDEX IF NOT EXISTS idx_books_author
+            ON books(book_author)
+          `);
+          db.run(`
+            CREATE INDEX IF NOT EXISTS idx_books_code
+            ON books(book_code)
+          `);
+
+          // Paragraphs table - with pre-computed navigation fields
           db.run(`
             CREATE TABLE IF NOT EXISTS paragraphs (
               book_id INTEGER NOT NULL,
@@ -152,12 +231,15 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
               refcode_long TEXT,
               content TEXT,
               puborder INTEGER NOT NULL,
-              book_code TEXT NOT NULL,
-              book_title TEXT NOT NULL,
-              book_author TEXT NOT NULL,
+              element_type TEXT,
+              element_subtype TEXT,
+              page_number INTEGER,
+              paragraph_number INTEGER,
+              is_chapter_heading INTEGER DEFAULT 0,
               created_at TEXT NOT NULL,
               updated_at TEXT NOT NULL,
-              PRIMARY KEY (book_id, ref_code)
+              PRIMARY KEY (book_id, ref_code),
+              FOREIGN KEY (book_id) REFERENCES books(book_id)
             )
           `);
           db.run(`
@@ -169,12 +251,45 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
             ON paragraphs(ref_code)
           `);
           db.run(`
-            CREATE INDEX IF NOT EXISTS idx_paragraphs_book_author
-            ON paragraphs(book_author)
-          `);
-          db.run(`
             CREATE INDEX IF NOT EXISTS idx_paragraphs_puborder
             ON paragraphs(book_id, puborder)
+          `);
+          db.run(`
+            CREATE INDEX IF NOT EXISTS idx_paragraphs_page
+            ON paragraphs(book_id, page_number)
+          `);
+          db.run(`
+            CREATE INDEX IF NOT EXISTS idx_paragraphs_chapter
+            ON paragraphs(book_id, is_chapter_heading)
+            WHERE is_chapter_heading = 1
+          `);
+
+          // Bible reference index for fast commentary lookup
+          db.run(`
+            CREATE TABLE IF NOT EXISTS paragraph_bible_refs (
+              para_book_id INTEGER NOT NULL,
+              para_ref_code TEXT NOT NULL,
+              bible_book INTEGER NOT NULL,
+              bible_chapter INTEGER NOT NULL,
+              bible_verse INTEGER,
+              PRIMARY KEY (para_book_id, para_ref_code, bible_book, bible_chapter, bible_verse),
+              FOREIGN KEY (para_book_id, para_ref_code) REFERENCES paragraphs(book_id, ref_code)
+            )
+          `);
+          db.run(`
+            CREATE INDEX IF NOT EXISTS idx_pbr_bible
+            ON paragraph_bible_refs(bible_book, bible_chapter, bible_verse)
+          `);
+
+          // FTS5 virtual table for content search
+          db.run(`
+            CREATE VIRTUAL TABLE IF NOT EXISTS paragraphs_fts USING fts5(
+              content,
+              refcode_short,
+              book_id UNINDEXED,
+              content=paragraphs,
+              content_rowid=rowid
+            )
           `);
         },
         catch: (error) =>
@@ -185,14 +300,34 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
       });
 
       // Prepared statements for better performance
+      const insertOrUpdateBookQuery = db.query(`
+        INSERT INTO books (
+          book_id, book_code, book_title, book_author, paragraph_count, created_at
+        ) VALUES (
+          $bookId, $bookCode, $bookTitle, $bookAuthor, $paragraphCount, $createdAt
+        )
+        ON CONFLICT(book_id) DO UPDATE SET
+          book_code = excluded.book_code,
+          book_title = excluded.book_title,
+          book_author = excluded.book_author
+      `);
+
+      const updateBookParagraphCount = db.query(`
+        UPDATE books SET paragraph_count = (
+          SELECT COUNT(*) FROM paragraphs WHERE book_id = $bookId
+        ) WHERE book_id = $bookId
+      `);
+
       const insertOrUpdateParagraphQuery = db.query(`
         INSERT INTO paragraphs (
           book_id, ref_code, para_id, refcode_short, refcode_long,
-          content, puborder, book_code, book_title, book_author,
+          content, puborder, element_type, element_subtype,
+          page_number, paragraph_number, is_chapter_heading,
           created_at, updated_at
         ) VALUES (
           $bookId, $refCode, $paraId, $refcodeShort, $refcodeLong,
-          $content, $puborder, $bookCode, $bookTitle, $bookAuthor,
+          $content, $puborder, $elementType, $elementSubtype,
+          $pageNumber, $paragraphNumber, $isChapterHeading,
           $createdAt, $updatedAt
         )
         ON CONFLICT(book_id, ref_code) DO UPDATE SET
@@ -201,9 +336,11 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
           refcode_long = excluded.refcode_long,
           content = excluded.content,
           puborder = excluded.puborder,
-          book_code = excluded.book_code,
-          book_title = excluded.book_title,
-          book_author = excluded.book_author,
+          element_type = excluded.element_type,
+          element_subtype = excluded.element_subtype,
+          page_number = excluded.page_number,
+          paragraph_number = excluded.paragraph_number,
+          is_chapter_heading = excluded.is_chapter_heading,
           updated_at = excluded.updated_at
       `);
 
@@ -225,93 +362,170 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
       `);
 
       const getParagraphsByAuthorQuery = db.query<
-        ParagraphRow,
+        ParagraphRow & { book_code: string; book_title: string; book_author: string },
         { $author: string }
       >(`
-        SELECT * FROM paragraphs
-        WHERE book_author = $author
-        ORDER BY book_id, puborder
+        SELECT p.*, b.book_code, b.book_title, b.book_author
+        FROM paragraphs p
+        JOIN books b ON p.book_id = b.book_id
+        WHERE b.book_author = $author
+        ORDER BY p.book_id, p.puborder
       `);
 
       const getDistinctBooksByAuthorQuery = db.query<
         { book_id: number; book_code: string; book_title: string },
         { $author: string }
       >(`
-        SELECT DISTINCT book_id, book_code, book_title
-        FROM paragraphs
+        SELECT book_id, book_code, book_title
+        FROM books
         WHERE book_author = $author
         ORDER BY book_id
       `);
 
+      const getBookByIdQuery = db.query<
+        BookRow,
+        { $bookId: number }
+      >(`
+        SELECT * FROM books WHERE book_id = $bookId
+      `);
+
+      const getBookByCodeQuery = db.query<
+        BookRow,
+        { $bookCode: string }
+      >(`
+        SELECT * FROM books WHERE book_code = $bookCode COLLATE NOCASE
+      `);
+
+      const getChapterHeadingsQuery = db.query<
+        ParagraphRow,
+        { $bookId: number }
+      >(`
+        SELECT * FROM paragraphs
+        WHERE book_id = $bookId AND is_chapter_heading = 1
+        ORDER BY puborder
+      `);
+
+      const getParagraphsByPageQuery = db.query<
+        ParagraphRow,
+        { $bookId: number; $pageNumber: number }
+      >(`
+        SELECT * FROM paragraphs
+        WHERE book_id = $bookId AND page_number = $pageNumber
+        ORDER BY puborder
+      `);
+
+      const searchParagraphsQuery = db.query<
+        ParagraphRow & { book_code: string },
+        { $query: string; $limit: number }
+      >(`
+        SELECT p.*, b.book_code
+        FROM paragraphs p
+        JOIN paragraphs_fts fts ON p.rowid = fts.rowid
+        JOIN books b ON p.book_id = b.book_id
+        WHERE paragraphs_fts MATCH $query
+        LIMIT $limit
+      `);
+
       /**
-       * Convert Paragraph schema to database row format using Effect Schema
-       * Computes ref_code from refcode_short or refcode_long
+       * Convert Paragraph schema to database row format
+       * Computes ref_code, page_number, paragraph_number, is_chapter_heading
        */
       const paragraphToRow = (
         paragraph: EGWSchemas.Paragraph,
-        book: EGWSchemas.Book,
-        now: string,
-      ): Effect.Effect<ParagraphRow, ParseResult.ParseError> => {
+        bookId: number,
+        createdAt: string,
+        updatedAt: string,
+      ): ParagraphRow => {
         const refCode =
           paragraph.refcode_short ??
           paragraph.refcode_long ??
           paragraph.para_id ??
-          `book-${book.book_id}-para-${paragraph.puborder}`;
+          `book-${bookId}-para-${paragraph.puborder}`;
 
-        return Schema.encode(ParagraphRow)({
+        // Pre-compute navigation fields
+        const { page, paragraph: paraNum } = parseRefcodeNumbers(
+          paragraph.refcode_short ?? paragraph.refcode_long ?? null,
+        );
+        const chapterHeading = isChapterHeading(paragraph.element_type ?? null);
+
+        return {
           para_id: paragraph.para_id ?? null,
           refcode_short: paragraph.refcode_short ?? null,
           refcode_long: paragraph.refcode_long ?? null,
           content: paragraph.content ?? null,
           puborder: paragraph.puborder,
-          book_id: book.book_id,
-          book_code: book.code,
-          book_title: book.title,
-          book_author: book.author,
+          element_type: paragraph.element_type ?? null,
+          element_subtype: paragraph.element_subtype ?? null,
+          book_id: bookId,
           ref_code: refCode,
-          created_at: now,
-          updated_at: now,
-        });
+          page_number: page,
+          paragraph_number: paraNum,
+          is_chapter_heading: chapterHeading ? 1 : 0,
+          created_at: createdAt,
+          updated_at: updatedAt,
+        };
       };
 
       /**
        * Convert database row to Paragraph schema
        * Note: This returns a paragraph object excluding database-specific fields
        */
-      const rowToParagraph = (
-        row: ParagraphRow,
-      ): Effect.Effect<EGWSchemas.Paragraph, ParseResult.ParseError> =>
-        Schema.decode(ParagraphRow)(row).pipe(
-          Effect.map(
-            (paragraphRow): EGWSchemas.Paragraph => ({
-              para_id: paragraphRow.para_id ?? null,
-              id_prev: null,
-              id_next: null,
-              refcode_1: null,
-              refcode_2: null,
-              refcode_3: null,
-              refcode_4: null,
-              refcode_short: paragraphRow.refcode_short ?? null,
-              refcode_long: paragraphRow.refcode_long ?? null,
-              element_type: null,
-              element_subtype: null,
-              content: paragraphRow.content ?? null,
-              puborder: paragraphRow.puborder,
+      const rowToParagraph = (row: ParagraphRow): EGWSchemas.Paragraph => ({
+        para_id: row.para_id ?? null,
+        id_prev: null,
+        id_next: null,
+        refcode_1: null,
+        refcode_2: null,
+        refcode_3: null,
+        refcode_4: null,
+        refcode_short: row.refcode_short ?? null,
+        refcode_long: row.refcode_long ?? null,
+        element_type: row.element_type ?? null,
+        element_subtype: row.element_subtype ?? null,
+        content: row.content ?? null,
+        puborder: row.puborder,
+      });
+
+      /**
+       * Store or update a book in the database
+       */
+      const storeBook = (
+        book: EGWSchemas.Book,
+      ): Effect.Effect<void, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            insertOrUpdateBookQuery.run({
+              $bookId: book.book_id,
+              $bookCode: book.code,
+              $bookTitle: book.title,
+              $bookAuthor: book.author,
+              $paragraphCount: 0,
+              $createdAt: new Date().toISOString(),
+            });
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'storeBook',
+              bookId: book.book_id,
+              cause: error,
             }),
-          ),
-        );
+        });
 
       /**
        * Store or update a paragraph in the database
+       * Ensures book is stored first (normalized schema)
        */
       const storeParagraph = (
         paragraph: EGWSchemas.Paragraph,
         book: EGWSchemas.Book,
-      ): Effect.Effect<void, ParagraphDatabaseError | ParseResult.ParseError> =>
+      ): Effect.Effect<void, ParagraphDatabaseError> =>
         Effect.gen(function* () {
           const now = new Date().toISOString();
 
-          // Compute ref_code
+          // Ensure book exists first (upsert)
+          yield* storeBook(book);
+
+          // Compute ref_code to check for existing
           const refCode =
             paragraph.refcode_short ??
             paragraph.refcode_long ??
@@ -333,11 +547,12 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
               }),
           });
 
-          // Convert paragraph to row using Schema
-          const row = yield* paragraphToRow(
+          // Convert paragraph to row
+          const row = paragraphToRow(
             paragraph,
-            book,
-            existing?.created_at || now,
+            book.book_id,
+            existing?.created_at ?? now,
+            now,
           );
 
           yield* Effect.try({
@@ -350,9 +565,11 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
                 $refcodeLong: row.refcode_long ?? null,
                 $content: row.content ?? null,
                 $puborder: row.puborder,
-                $bookCode: row.book_code,
-                $bookTitle: row.book_title,
-                $bookAuthor: row.book_author,
+                $elementType: row.element_type ?? null,
+                $elementSubtype: row.element_subtype ?? null,
+                $pageNumber: row.page_number,
+                $paragraphNumber: row.paragraph_number,
+                $isChapterHeading: row.is_chapter_heading,
                 $createdAt: row.created_at,
                 $updatedAt: row.updated_at,
               });
@@ -367,36 +584,44 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
         });
 
       /**
+       * Update book paragraph count (call after bulk insert)
+       */
+      const updateBookCount = (
+        bookId: number,
+      ): Effect.Effect<void, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            updateBookParagraphCount.run({ $bookId: bookId });
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'updateBookCount',
+              bookId,
+              cause: error,
+            }),
+        });
+
+      /**
        * Get a paragraph by book_id and ref_code
        */
       const getParagraph = (
         bookId: number,
         refCode: string,
-      ): Effect.Effect<
-        Option.Option<EGWSchemas.Paragraph>,
-        ParagraphDatabaseError | ParseResult.ParseError
-      > =>
-        Effect.gen(function* () {
-          const row = yield* Effect.try({
-            try: () =>
-              getParagraphByRefCodeQuery.get({
-                $bookId: bookId,
-                $refCode: refCode,
-              }),
-            catch: (error) =>
-              new DatabaseQueryError({
-                operation: 'getParagraph',
-                bookId: bookId,
-                cause: error,
-              }),
-          });
-
-          if (!row) {
-            return yield* Effect.succeed(Option.none());
-          }
-
-          const paragraph = yield* rowToParagraph(row);
-          return yield* Effect.succeed(Option.some(paragraph));
+      ): Effect.Effect<Option.Option<EGWSchemas.Paragraph>, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            const row = getParagraphByRefCodeQuery.get({
+              $bookId: bookId,
+              $refCode: refCode,
+            });
+            return row ? Option.some(rowToParagraph(row)) : Option.none();
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'getParagraph',
+              bookId: bookId,
+              cause: error,
+            }),
         });
 
       /**
@@ -404,10 +629,7 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
        */
       const getParagraphsByBook = (
         bookId: number,
-      ): Stream.Stream<
-        EGWSchemas.Paragraph,
-        ParagraphDatabaseError | ParseResult.ParseError
-      > =>
+      ): Stream.Stream<EGWSchemas.Paragraph, ParagraphDatabaseError> =>
         Stream.fromEffect(
           Effect.try({
             try: () =>
@@ -423,7 +645,7 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
           }),
         ).pipe(
           Stream.flatMap((rows) => Stream.fromIterable(rows)),
-          Stream.mapEffect((row) => rowToParagraph(row)),
+          Stream.map(rowToParagraph),
         );
 
       /**
@@ -431,10 +653,7 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
        */
       const getParagraphsByAuthor = (
         author: string,
-      ): Stream.Stream<
-        EGWSchemas.Paragraph,
-        ParagraphDatabaseError | ParseResult.ParseError
-      > =>
+      ): Stream.Stream<EGWSchemas.Paragraph, ParagraphDatabaseError> =>
         Stream.fromEffect(
           Effect.try({
             try: () =>
@@ -449,23 +668,16 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
           }),
         ).pipe(
           Stream.flatMap((rows) => Stream.fromIterable(rows)),
-          Stream.mapEffect((row) => rowToParagraph(row)),
+          Stream.map(rowToParagraph),
         );
 
       /**
        * Get distinct books by author (for listing books)
-       * Returns simplified book info extracted from paragraphs
+       * Returns full book info from normalized books table
        */
       const getBooksByAuthor = (
         author: string,
-      ): Stream.Stream<
-        {
-          readonly book_id: number;
-          readonly book_code: string;
-          readonly book_title: string;
-        },
-        ParagraphDatabaseError
-      > =>
+      ): Stream.Stream<BookRow, ParagraphDatabaseError> =>
         Stream.fromEffect(
           Effect.try({
             try: () =>
@@ -478,7 +690,221 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
                 cause: error,
               }),
           }),
-        ).pipe(Stream.flatMap((rows) => Stream.fromIterable(rows)));
+        ).pipe(
+          Stream.flatMap((rows) =>
+            Stream.fromIterable(
+              rows.map((r) => ({
+                book_id: r.book_id,
+                book_code: r.book_code,
+                book_title: r.book_title,
+                book_author: author,
+                paragraph_count: 0,
+                created_at: '',
+              })),
+            ),
+          ),
+        );
+
+      /**
+       * Get a book by ID
+       */
+      const getBookById = (
+        bookId: number,
+      ): Effect.Effect<Option.Option<BookRow>, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            const row = getBookByIdQuery.get({ $bookId: bookId });
+            return row ? Option.some(row) : Option.none();
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'getBookById',
+              bookId,
+              cause: error,
+            }),
+        });
+
+      /**
+       * Get a book by code (case-insensitive)
+       */
+      const getBookByCode = (
+        bookCode: string,
+      ): Effect.Effect<Option.Option<BookRow>, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            const row = getBookByCodeQuery.get({ $bookCode: bookCode });
+            return row ? Option.some(row) : Option.none();
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'getBookByCode',
+              cause: error,
+            }),
+        });
+
+      /**
+       * Get all chapter headings for a book (fast navigation)
+       */
+      const getChapterHeadings = (
+        bookId: number,
+      ): Effect.Effect<readonly EGWSchemas.Paragraph[], ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            const rows = getChapterHeadingsQuery.all({ $bookId: bookId });
+            return rows.map(rowToParagraph);
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'getChapterHeadings',
+              bookId,
+              cause: error,
+            }),
+        });
+
+      /**
+       * Get all paragraphs on a specific page
+       */
+      const getParagraphsByPage = (
+        bookId: number,
+        pageNumber: number,
+      ): Effect.Effect<readonly EGWSchemas.Paragraph[], ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            const rows = getParagraphsByPageQuery.all({
+              $bookId: bookId,
+              $pageNumber: pageNumber,
+            });
+            return rows.map(rowToParagraph);
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'getParagraphsByPage',
+              bookId,
+              cause: error,
+            }),
+        });
+
+      /**
+       * Search paragraphs using FTS5 full-text search
+       */
+      const searchParagraphs = (
+        query: string,
+        limit = 50,
+      ): Effect.Effect<
+        readonly (EGWSchemas.Paragraph & { bookCode: string })[],
+        ParagraphDatabaseError
+      > =>
+        Effect.try({
+          try: () => {
+            const rows = searchParagraphsQuery.all({
+              $query: query,
+              $limit: limit,
+            });
+            return rows.map((row) => ({
+              ...rowToParagraph(row),
+              bookCode: row.book_code,
+            }));
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'searchParagraphs',
+              cause: error,
+            }),
+        });
+
+      /**
+       * Store a Bible reference for a paragraph (for commentary lookup)
+       */
+      const storeBibleRef = (
+        bookId: number,
+        refCode: string,
+        bibleBook: number,
+        bibleChapter: number,
+        bibleVerse: number | null,
+      ): Effect.Effect<void, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            db.run(
+              `INSERT OR IGNORE INTO paragraph_bible_refs
+               (para_book_id, para_ref_code, bible_book, bible_chapter, bible_verse)
+               VALUES (?, ?, ?, ?, ?)`,
+              [bookId, refCode, bibleBook, bibleChapter, bibleVerse],
+            );
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'storeBibleRef',
+              bookId,
+              cause: error,
+            }),
+        });
+
+      /**
+       * Get paragraphs that cite a specific Bible verse
+       */
+      const getParagraphsByBibleRef = (
+        bibleBook: number,
+        bibleChapter: number,
+        bibleVerse?: number,
+      ): Effect.Effect<
+        readonly (EGWSchemas.Paragraph & { bookCode: string; bookTitle: string })[],
+        ParagraphDatabaseError
+      > =>
+        Effect.try({
+          try: () => {
+            const query = bibleVerse
+              ? `SELECT p.*, b.book_code, b.book_title
+                 FROM paragraphs p
+                 JOIN paragraph_bible_refs pbr ON p.book_id = pbr.para_book_id
+                   AND p.ref_code = pbr.para_ref_code
+                 JOIN books b ON p.book_id = b.book_id
+                 WHERE pbr.bible_book = ? AND pbr.bible_chapter = ? AND pbr.bible_verse = ?
+                 ORDER BY b.book_code, p.puborder`
+              : `SELECT p.*, b.book_code, b.book_title
+                 FROM paragraphs p
+                 JOIN paragraph_bible_refs pbr ON p.book_id = pbr.para_book_id
+                   AND p.ref_code = pbr.para_ref_code
+                 JOIN books b ON p.book_id = b.book_id
+                 WHERE pbr.bible_book = ? AND pbr.bible_chapter = ?
+                 ORDER BY b.book_code, p.puborder`;
+
+            const rows = bibleVerse
+              ? (db.query(query).all(bibleBook, bibleChapter, bibleVerse) as (ParagraphRow & {
+                  book_code: string;
+                  book_title: string;
+                })[])
+              : (db.query(query).all(bibleBook, bibleChapter) as (ParagraphRow & {
+                  book_code: string;
+                  book_title: string;
+                })[]);
+
+            return rows.map((row) => ({
+              ...rowToParagraph(row),
+              bookCode: row.book_code,
+              bookTitle: row.book_title,
+            }));
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'getParagraphsByBibleRef',
+              cause: error,
+            }),
+        });
+
+      /**
+       * Rebuild FTS5 index (call after bulk inserts)
+       */
+      const rebuildFtsIndex = (): Effect.Effect<void, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            db.run(`INSERT INTO paragraphs_fts(paragraphs_fts) VALUES('rebuild')`);
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'rebuildFtsIndex',
+              cause: error,
+            }),
+        });
 
       // Cleanup: close database when scope ends
       yield* Effect.addFinalizer(() =>
@@ -495,11 +921,25 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
       );
 
       return {
+        // Book operations
+        storeBook,
+        getBookById,
+        getBookByCode,
+        getBooksByAuthor,
+        updateBookCount,
+        // Paragraph operations
         storeParagraph,
         getParagraph,
         getParagraphsByBook,
         getParagraphsByAuthor,
-        getBooksByAuthor,
+        getParagraphsByPage,
+        getChapterHeadings,
+        searchParagraphs,
+        // Bible reference operations
+        storeBibleRef,
+        getParagraphsByBibleRef,
+        // Maintenance
+        rebuildFtsIndex,
       } as const;
     }),
     dependencies: [],

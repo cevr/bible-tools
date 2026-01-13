@@ -125,6 +125,9 @@ const program = Effect.gen(function* () {
             Stream.runDrain,
           );
 
+          // Update the book's paragraph count after processing all paragraphs
+          yield* paragraphDb.updateBookCount(book.book_id);
+
           yield* Ref.update(booksProcessedRef, (n) => n + 1);
           const completedCount = yield* Ref.get(booksProcessedRef);
           const totalCount = yield* Ref.get(totalBooksRef);
@@ -136,6 +139,10 @@ const program = Effect.gen(function* () {
     ),
     Stream.runDrain,
   );
+
+  // Rebuild FTS5 index after all paragraphs are inserted
+  yield* Effect.log('Rebuilding FTS5 search index...');
+  yield* paragraphDb.rebuildFtsIndex();
 
   // Get final statistics from Refs
   const totalBooks = yield* Ref.get(totalBooksRef);

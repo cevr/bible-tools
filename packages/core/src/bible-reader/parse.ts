@@ -226,127 +226,37 @@ export interface ExtractedReference {
 }
 
 /**
- * Build regex pattern for Bible book names
- * Matches book names like "John", "1 Cor.", "Genesis", etc.
+ * Two-phase Bible reference extraction for performance.
+ *
+ * Phase 1: Simple regex finds candidates (no alternation backtracking)
+ * Phase 2: O(1) hash map validates book names
+ *
+ * This is much faster than a single regex with 120+ book name alternations.
  */
-function buildBookPattern(): string {
-  // Collect all unique book name patterns
-  const patterns = new Set<string>();
 
-  // Add full book names
-  for (const book of BIBLE_BOOKS) {
-    patterns.add(book.name);
-  }
+// Phase 1: Simple pattern to find potential references
+// Matches: optional number prefix + word(s) + chapter:verse with optional range
+// Examples: "John 3:16", "1 Cor. 13:1-3", "Song of Solomon 1:1"
+const CANDIDATE_PATTERN =
+  /([123]?\s*[A-Za-z]+(?:\s+of\s+[A-Za-z]+)?\.?)\s*(\d+)\s*:\s*(\d+)(?:\s*[-–]\s*(\d+))?/g;
 
-  // Add common abbreviations with optional period
-  const abbreviations = [
-    'Gen',
-    'Exod?',
-    'Lev',
-    'Num',
-    'Deut',
-    'Josh',
-    'Judg',
-    'Ruth',
-    'Sam',
-    'Kgs',
-    'Kings',
-    'Chr',
-    'Chron',
-    'Chronicles',
-    'Ezra',
-    'Neh',
-    'Esth',
-    'Job',
-    'Ps',
-    'Psa',
-    'Psalm',
-    'Psalms',
-    'Prov',
-    'Eccl?',
-    'Song',
-    'Isa',
-    'Jer',
-    'Lam',
-    'Ezek',
-    'Dan',
-    'Hos',
-    'Joel',
-    'Amos',
-    'Obad',
-    'Jonah',
-    'Mic',
-    'Nah',
-    'Hab',
-    'Zeph',
-    'Hag',
-    'Zech',
-    'Mal',
-    'Matt?',
-    'Mark',
-    'Luke',
-    'John',
-    'Jn',
-    'Acts',
-    'Rom',
-    'Cor',
-    'Gal',
-    'Eph',
-    'Phil',
-    'Col',
-    'Thess?',
-    'Tim',
-    'Tit',
-    'Philem',
-    'Heb',
-    'Jas',
-    'James',
-    'Pet',
-    'Peter',
-    'Jude',
-    'Rev',
-  ];
-
-  for (const abbr of abbreviations) {
-    patterns.add(abbr);
-  }
-
-  // Sort by length descending to match longer patterns first
-  const sortedPatterns = Array.from(patterns).sort(
-    (a, b) => b.length - a.length,
-  );
-
-  // Build alternation pattern with optional period after abbreviations
-  return sortedPatterns.map((p) => `${p}\\.?`).join('|');
-}
-
-// Cached patterns
-let _bookPattern: string | null = null;
-function getBookPattern(): string {
-  if (!_bookPattern) {
-    _bookPattern = buildBookPattern();
-  }
-  return _bookPattern;
-}
-
-// Cached compiled regex for Bible reference extraction
-let _refRegex: RegExp | null = null;
-function getRefRegex(): RegExp {
-  if (!_refRegex) {
-    const bookPattern = getBookPattern();
-    // Pattern: optional number + book name + chapter:verse (with optional range)
-    _refRegex = new RegExp(
-      `(?:([123])\\s*)?(${bookPattern})\\s*(\\d+)\\s*:\\s*(\\d+)(?:\\s*[-–]\\s*(\\d+))?`,
-      'gi',
-    );
-  }
-  // Reset lastIndex since we're reusing the regex (global flag)
-  _refRegex.lastIndex = 0;
-  return _refRegex;
+/**
+ * Normalize a book name for lookup in BIBLE_BOOK_ALIASES
+ */
+function normalizeBookName(name: string): string {
+  return name
+    .replace(/\.$/, '') // Remove trailing period
+    .replace(/\s+/g, ' ') // Normalize multiple spaces to single
+    .trim()
+    .toLowerCase();
 }
 
 /**
  * Extract all Bible references from text
+ *
+ * Uses a two-phase approach for performance:
+ * 1. Simple regex finds candidates without alternation backtracking
+ * 2. Hash map lookup validates book names in O(1)
  *
  * Matches patterns like:
  * - "John 3:16"
@@ -357,17 +267,32 @@ function getRefRegex(): RegExp {
  */
 export function extractBibleReferences(text: string): ExtractedReference[] {
   const results: ExtractedReference[] = [];
-  const refPattern = getRefRegex();
 
-  let match: RegExpExecArray | null;
-  while ((match = refPattern.exec(text)) !== null) {
-    const [fullMatch, numPrefix, bookPart, chapterStr, verseStr] = match;
+  // Reset lastIndex for reuse (global flag)
+  CANDIDATE_PATTERN.lastIndex = 0;
 
-    // Build book name with optional number prefix
-    const bookName = numPrefix ? `${numPrefix} ${bookPart}` : bookPart!;
+  for (const match of text.matchAll(CANDIDATE_PATTERN)) {
+    const [fullMatch, bookPart, chapterStr, verseStr] = match;
 
-    // Try to resolve book
-    const bookNum = resolveBook(bookName.replace(/\.$/, '')); // Remove trailing period
+    // Normalize and look up book name
+    const normalized = normalizeBookName(bookPart!);
+
+    // Try direct lookup first (O(1))
+    let bookNum = BIBLE_BOOK_ALIASES[normalized];
+
+    // If not found, try variations
+    if (!bookNum) {
+      // Try without spaces (e.g., "1cor" for "1 cor")
+      const noSpaces = normalized.replace(/\s+/g, '');
+      bookNum = BIBLE_BOOK_ALIASES[noSpaces];
+    }
+
+    if (!bookNum) {
+      // Try adding space after number prefix (e.g., "1cor" -> "1 cor")
+      const withSpace = normalized.replace(/^(\d)([a-z])/, '$1 $2');
+      bookNum = BIBLE_BOOK_ALIASES[withSpace];
+    }
+
     if (!bookNum) continue;
 
     const chapter = parseInt(chapterStr!, 10);
@@ -378,8 +303,8 @@ export function extractBibleReferences(text: string): ExtractedReference[] {
 
     results.push({
       text: fullMatch!,
-      start: match.index,
-      end: match.index + fullMatch!.length,
+      start: match.index!,
+      end: match.index! + fullMatch!.length,
       ref: { book: bookNum, chapter, verse },
     });
   }
