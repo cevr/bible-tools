@@ -1,30 +1,45 @@
+import { matchSorter } from 'match-sorter';
 import {
   createContext,
-  useContext,
-  createSignal,
-  createMemo,
   createEffect,
+  createMemo,
+  createSignal,
   onCleanup,
-  type ParentProps,
+  useContext,
   type Accessor,
+  type ParentProps,
 } from 'solid-js';
-import { matchSorter } from 'match-sorter';
 
-import { useBibleData, useBibleState } from '../../context/bible.js';
-import { useNavigation } from '../../context/navigation.js';
-import { useTheme } from '../../context/theme.js';
-import { useDisplay } from '../../context/display.js';
-import { useModel } from '../../context/model.js';
-import { useOverlay } from '../../context/overlay.js';
-import { BOOKS, formatReference, type Reference } from '../../../bible/types.js';
 import { searchBibleByTopic } from '../../../bible/ai-search.js';
+import {
+  BOOKS,
+  formatReference,
+  type Reference,
+} from '../../../bible/types.js';
+import { useBibleData, useBibleState } from '../../context/bible.js';
+import { useModel } from '../../context/model.js';
+import { useNavigation } from '../../context/navigation.js';
+import { useOverlay } from '../../context/overlay.js';
 import { AiSearchState } from '../../types/ai-search.js';
 
 // Types
 
-export type GroupType = 'navigation' | 'search' | 'tools' | 'settings' | 'recent' | 'ai';
+export type GroupType =
+  | 'navigation'
+  | 'search'
+  | 'tools'
+  | 'settings'
+  | 'recent'
+  | 'ai';
 
-export type CommandType = 'verse' | 'book' | 'search' | 'ai' | 'tool' | 'setting' | 'history';
+export type CommandType =
+  | 'verse'
+  | 'book'
+  | 'search'
+  | 'ai'
+  | 'tool'
+  | 'setting'
+  | 'history';
 
 export interface CommandOption {
   type: CommandType;
@@ -42,14 +57,14 @@ export interface CommandGroup {
   options: CommandOption[];
 }
 
-// Group labels and order (tools/settings first for stability, then dynamic results)
+// Group labels and order (navigation first, then dynamic results)
 const GROUP_CONFIG: Record<GroupType, { label: string; order: number }> = {
-  tools: { label: 'Tools', order: 1 },
-  settings: { label: 'Settings', order: 2 },
-  navigation: { label: 'Navigation', order: 3 },
-  ai: { label: 'AI Results', order: 4 },
-  recent: { label: 'Recent', order: 5 },
-  search: { label: 'Search Results', order: 6 },
+  navigation: { label: 'Navigation', order: 1 },
+  ai: { label: 'AI Results', order: 2 },
+  recent: { label: 'Recent', order: 3 },
+  search: { label: 'Search Results', order: 4 },
+  tools: { label: 'Tools', order: 5 },
+  settings: { label: 'Settings', order: 6 },
 };
 
 // Context Interface
@@ -78,16 +93,12 @@ const PaletteContext = createContext<PaletteContextValue>();
 
 interface PaletteProviderProps extends ParentProps {
   onClose: () => void;
-  onNavigateToRoute?: (route: string) => void;
-  onSelectTheme: () => void;
 }
 
 // Provider Implementation
 
 export function PaletteProvider(props: PaletteProviderProps) {
   // Dependencies from other contexts
-  const { themeName } = useTheme();
-  const { toggleMode, mode } = useDisplay();
   const data = useBibleData();
   const state = useBibleState();
   const model = useModel();
@@ -97,7 +108,9 @@ export function PaletteProvider(props: PaletteProviderProps) {
   // Core state
   const [query, setQuery] = createSignal('');
   const [selectedIndex, setSelectedIndex] = createSignal(0);
-  const [aiState, setAiState] = createSignal<AiSearchState>(AiSearchState.idle());
+  const [aiState, setAiState] = createSignal<AiSearchState>(
+    AiSearchState.idle(),
+  );
 
   let aiSearchTimeout: ReturnType<typeof setTimeout> | null = null;
 
@@ -132,7 +145,12 @@ export function PaletteProvider(props: PaletteProviderProps) {
     }
 
     if (!model) {
-      setAiState(AiSearchState.error(currentAiQuery, 'AI search unavailable (no API key configured)'));
+      setAiState(
+        AiSearchState.error(
+          currentAiQuery,
+          'AI search unavailable (no API key configured)',
+        ),
+      );
       return;
     }
 
@@ -140,14 +158,24 @@ export function PaletteProvider(props: PaletteProviderProps) {
 
     aiSearchTimeout = setTimeout(async () => {
       try {
-        const refs = await searchBibleByTopic(currentAiQuery, model, data, state);
+        const refs = await searchBibleByTopic(
+          currentAiQuery,
+          model,
+          data,
+          state,
+        );
         if (refs.length === 0) {
           setAiState(AiSearchState.empty(currentAiQuery));
         } else {
           setAiState(AiSearchState.success(currentAiQuery, refs));
         }
       } catch (err) {
-        setAiState(AiSearchState.error(currentAiQuery, err instanceof Error ? err.message : 'AI search failed'));
+        setAiState(
+          AiSearchState.error(
+            currentAiQuery,
+            err instanceof Error ? err.message : 'AI search failed',
+          ),
+        );
       }
     }, 500);
   });
@@ -206,7 +234,9 @@ export function PaletteProvider(props: PaletteProviderProps) {
           for (const ref of currentState.results) {
             const label = formatReference(ref);
             const verse = data.getVerse(ref.book, ref.chapter, ref.verse ?? 1);
-            const preview = verse ? verse.text.slice(0, 50) + (verse.text.length > 50 ? '...' : '') : '';
+            const preview = verse
+              ? verse.text.slice(0, 50) + (verse.text.length > 50 ? '...' : '')
+              : '';
             allOptions.push({
               type: 'ai',
               group: 'ai',
@@ -230,34 +260,16 @@ export function PaletteProvider(props: PaletteProviderProps) {
       return { groups, flatOptions: allOptions };
     }
 
-    // Default state (no query) - show tools, settings, and recent
+    // Default state (no query) - show concordance, AI hint, and recent
     if (!q) {
-      // Tools
-      allOptions.push(
-        { type: 'tool', group: 'tools', label: 'Concordance', description: "Search by Strong's number (Ctrl+S)", value: 'concordance' },
-        { type: 'tool', group: 'tools', label: 'Messages', description: 'Generate sermon messages', value: 'messages' },
-        {
-          type: 'tool',
-          group: 'tools',
-          label: 'Sabbath School',
-          description: 'Process lesson outlines',
-          value: 'sabbath-school',
-        },
-        { type: 'tool', group: 'tools', label: 'Studies', description: 'Create Bible studies', value: 'studies' }
-      );
-
-      // Settings
-      allOptions.push(
-        { type: 'setting', group: 'settings', label: 'Theme', description: `Current: ${themeName()}`, value: 'theme' },
-        {
-          type: 'setting',
-          group: 'settings',
-          label: 'Display Mode',
-          description: `Current: ${mode()}`,
-          value: 'display',
-        },
-        { type: 'setting', group: 'settings', label: 'Bookmarks', description: 'View saved bookmarks', value: 'bookmarks' }
-      );
+      // Concordance (keep as it's Bible-specific)
+      allOptions.push({
+        type: 'tool',
+        group: 'tools',
+        label: 'Concordance',
+        description: "Search by Strong's number (Ctrl+S)",
+        value: 'concordance',
+      });
 
       // AI hint
       if (model) {
@@ -320,18 +332,15 @@ export function PaletteProvider(props: PaletteProviderProps) {
         });
       }
 
-      // Tools
+      // Concordance only (other tools moved to global Tools palette)
       const tools: CommandOption[] = [
-        { type: 'tool', group: 'tools', label: 'Concordance', description: "Search by Strong's number (Ctrl+S)", value: 'concordance' },
-        { type: 'tool', group: 'tools', label: 'Messages', description: 'Generate sermon messages', value: 'messages' },
         {
           type: 'tool',
           group: 'tools',
-          label: 'Sabbath School',
-          description: 'Process lesson outlines',
-          value: 'sabbath-school',
+          label: 'Concordance',
+          description: "Search by Strong's number (Ctrl+S)",
+          value: 'concordance',
         },
-        { type: 'tool', group: 'tools', label: 'Studies', description: 'Create Bible studies', value: 'studies' },
       ];
 
       const toolMatches = matchSorter(tools, q, {
@@ -339,25 +348,6 @@ export function PaletteProvider(props: PaletteProviderProps) {
         threshold: matchSorter.rankings.CONTAINS,
       });
       allOptions.push(...toolMatches);
-
-      // Settings
-      const settings: CommandOption[] = [
-        { type: 'setting', group: 'settings', label: 'Theme', description: `Current: ${themeName()}`, value: 'theme' },
-        {
-          type: 'setting',
-          group: 'settings',
-          label: 'Display Mode',
-          description: `Current: ${mode()}`,
-          value: 'display',
-        },
-        { type: 'setting', group: 'settings', label: 'Bookmarks', description: 'View saved bookmarks', value: 'bookmarks' },
-      ];
-
-      const settingMatches = matchSorter(settings, q, {
-        keys: ['label', 'description'],
-        threshold: matchSorter.rankings.CONTAINS,
-      });
-      allOptions.push(...settingMatches);
     }
 
     // Group the options
@@ -404,7 +394,10 @@ export function PaletteProvider(props: PaletteProviderProps) {
     if (!option) return;
 
     // Skip non-selectable items
-    if (option.type === 'ai' && ['ai-loading', 'ai-error', 'ai-empty', 'ai-hint'].includes(option.value)) {
+    if (
+      option.type === 'ai' &&
+      ['ai-loading', 'ai-error', 'ai-empty', 'ai-hint'].includes(option.value)
+    ) {
       return;
     }
 
@@ -415,26 +408,6 @@ export function PaletteProvider(props: PaletteProviderProps) {
       switch (option.value) {
         case 'concordance':
           openOverlay('concordance');
-          props.onClose();
-          break;
-        case 'messages':
-        case 'sabbath-school':
-        case 'studies':
-          props.onNavigateToRoute?.(option.value);
-          props.onClose();
-          break;
-      }
-    } else if (option.type === 'setting') {
-      switch (option.value) {
-        case 'theme':
-          props.onSelectTheme();
-          break;
-        case 'display':
-          toggleMode();
-          props.onClose();
-          break;
-        case 'bookmarks':
-          // TODO: implement bookmarks view
           props.onClose();
           break;
       }
@@ -454,7 +427,11 @@ export function PaletteProvider(props: PaletteProviderProps) {
     selectCurrent,
   };
 
-  return <PaletteContext.Provider value={value}>{props.children}</PaletteContext.Provider>;
+  return (
+    <PaletteContext.Provider value={value}>
+      {props.children}
+    </PaletteContext.Provider>
+  );
 }
 
 // Hook

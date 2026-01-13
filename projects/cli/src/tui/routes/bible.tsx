@@ -1,21 +1,21 @@
-import { createSignal, onCleanup, Show } from 'solid-js';
 import { useKeyboard, useTerminalDimensions } from '@opentui/solid';
+import { createSignal, onCleanup, Show } from 'solid-js';
 
-import { useNavigation } from '../context/navigation.js';
-import { useDisplay } from '../context/display.js';
-import { useTheme } from '../context/theme.js';
-import { useSearch } from '../context/search.js';
-import { useOverlay } from '../context/overlay.js';
-import { useWordMode } from '../context/word-mode.js';
-import { useStudyData } from '../context/study-data.js';
-import { Topbar } from '../components/topbar.js';
-import { Footer } from '../components/footer.js';
+import { BibleCommandPalette } from '../components/bible-command-palette.js';
 import { ChapterView } from '../components/chapter-view.js';
-import { CommandPalette } from '../components/command-palette.js';
-import { SearchBox } from '../components/search-box.js';
-import { CrossRefsPopup } from '../components/cross-refs-popup.js';
-import { StrongsPopup } from '../components/strongs-popup.js';
 import { ConcordanceSearch } from '../components/concordance-search.js';
+import { CrossRefsPopup } from '../components/cross-refs-popup.js';
+import { Footer } from '../components/footer.js';
+import { SearchBox } from '../components/search-box.js';
+import { StrongsPopup } from '../components/strongs-popup.js';
+import { Topbar } from '../components/topbar.js';
+import { useDisplay } from '../context/display.js';
+import { useNavigation } from '../context/navigation.js';
+import { useOverlay } from '../context/overlay.js';
+import { useSearch } from '../context/search.js';
+import { useStudyData } from '../context/study-data.js';
+import { useTheme } from '../context/theme.js';
+import { useWordMode } from '../context/word-mode.js';
 import {
   GotoModeState,
   gotoModeTransition,
@@ -30,7 +30,7 @@ type KeyEvent = { name?: string; sequence?: string; ctrl?: boolean };
 function handleWordModeKeys(
   key: KeyEvent,
   wordMode: ReturnType<typeof useWordMode>,
-  openOverlay: (type: 'strongs') => void
+  openOverlay: (type: 'strongs') => void,
 ): boolean {
   if (!wordMode.isActive()) return false;
 
@@ -66,7 +66,7 @@ function handleGotoModeKeys(
   key: KeyEvent,
   gotoMode: GotoModeState,
   setGotoMode: (state: GotoModeState) => void,
-  executeAction: (action: GotoModeAction) => void
+  executeAction: (action: GotoModeAction) => void,
 ): boolean {
   const event = keyToGotoEvent(key);
 
@@ -102,7 +102,7 @@ function handleNavigationKeys(
     prevVerse: () => void;
     nextChapter: () => void;
     prevChapter: () => void;
-  }
+  },
 ): boolean {
   if (key.name === 'j' || key.name === 'down') {
     nav.nextVerse();
@@ -130,15 +130,38 @@ interface BibleViewProps {
 export function BibleView(props: BibleViewProps) {
   const dimensions = useTerminalDimensions();
   const { theme } = useTheme();
-  const { position, nextChapter, prevChapter, nextVerse, prevVerse, goTo, goToVerse, goToFirstVerse, goToLastVerse, selectedVerse } = useNavigation();
+  const {
+    position,
+    nextChapter,
+    prevChapter,
+    nextVerse,
+    prevVerse,
+    goTo,
+    goToVerse,
+    goToFirstVerse,
+    goToLastVerse,
+    selectedVerse,
+  } = useNavigation();
   const { toggleMode } = useDisplay();
-  const { isActive: isSearchActive, setActive: setSearchActive, nextMatch, prevMatch } = useSearch();
-  const { isOpen: isOverlayOpen, isOverlayOpen: isSpecificOverlayOpen, open: openOverlay, close: closeOverlay } = useOverlay();
+  const {
+    isActive: isSearchActive,
+    setActive: setSearchActive,
+    nextMatch,
+    prevMatch,
+  } = useSearch();
+  const {
+    isOpen: isOverlayOpen,
+    isOverlayOpen: isSpecificOverlayOpen,
+    open: openOverlay,
+    close: closeOverlay,
+  } = useOverlay();
   const wordMode = useWordMode();
   const studyData = useStudyData();
 
   // Vim-style goto mode using state machine
-  const [gotoMode, setGotoMode] = createSignal<GotoModeState>(GotoModeState.normal());
+  const [gotoMode, setGotoMode] = createSignal<GotoModeState>(
+    GotoModeState.normal(),
+  );
 
   // Toast message for loading/status feedback
   const [toast, setToast] = createSignal<string | null>(null);
@@ -148,7 +171,9 @@ export function BibleView(props: BibleViewProps) {
     setToast(msg);
     toastTimer = setTimeout(() => setToast(null), duration);
   };
-  onCleanup(() => { if (toastTimer) clearTimeout(toastTimer); });
+  onCleanup(() => {
+    if (toastTimer) clearTimeout(toastTimer);
+  });
 
   // Execute actions from goto mode transitions
   const executeGotoAction = (action: GotoModeAction) => {
@@ -167,14 +192,19 @@ export function BibleView(props: BibleViewProps) {
   });
 
   // Handle navigation from cross-refs popup
-  const handleCrossRefNavigate = (ref: { book: number; chapter: number; verse?: number }) => {
+  const handleCrossRefNavigate = (ref: {
+    book: number;
+    chapter: number;
+    verse?: number;
+  }) => {
     goTo(ref);
     closeOverlay();
   };
 
   useKeyboard((key) => {
     // Skip if popups are open (they handle their own keyboard input)
-    if (isSpecificOverlayOpen('cross-refs') || isSpecificOverlayOpen('strongs')) return;
+    if (isSpecificOverlayOpen('cross-refs') || isSpecificOverlayOpen('strongs'))
+      return;
 
     // Skip if other overlays are open (command palette, etc.)
     if (isOverlayOpen()) return;
@@ -197,16 +227,25 @@ export function BibleView(props: BibleViewProps) {
     if (key.name === 'return') {
       const result = wordMode.enter(currentVerseRef());
       if (result === 'loading') {
-        showToast('Loading Strong\'s data...');
+        showToast("Loading Strong's data...");
       }
       return;
     }
 
     // Goto mode state machine (g, gg, G, g{number})
-    if (handleGotoModeKeys(key, gotoMode(), setGotoMode, executeGotoAction)) return;
+    if (handleGotoModeKeys(key, gotoMode(), setGotoMode, executeGotoAction))
+      return;
 
     // Verse/chapter navigation (j/k/h/l, arrows)
-    if (handleNavigationKeys(key, { nextVerse, prevVerse, nextChapter, prevChapter })) return;
+    if (
+      handleNavigationKeys(key, {
+        nextVerse,
+        prevVerse,
+        nextChapter,
+        prevChapter,
+      })
+    )
+      return;
 
     // Display mode toggle: v
     if (key.name === 'v') {
@@ -217,12 +256,6 @@ export function BibleView(props: BibleViewProps) {
     // Command palette: Ctrl+P
     if (key.ctrl && key.name === 'p') {
       openOverlay('command-palette');
-      return;
-    }
-
-    // Tools palette: Ctrl+T
-    if (key.ctrl && key.name === 't') {
-      openOverlay('tools-palette');
       return;
     }
 
@@ -280,19 +313,7 @@ export function BibleView(props: BibleViewProps) {
           left={Math.floor((dimensions().width - 70) / 2)}
           width={70}
         >
-          <CommandPalette onClose={closeOverlay} onNavigateToRoute={props.onNavigateToRoute} />
-        </box>
-      </Show>
-
-      {/* Tools Palette Overlay */}
-      <Show when={isSpecificOverlayOpen('tools-palette')}>
-        <box
-          position="absolute"
-          top={Math.floor(dimensions().height / 6)}
-          left={Math.floor((dimensions().width - 50) / 2)}
-          width={50}
-        >
-          <ToolsPalette onClose={closeOverlay} onNavigateToRoute={props.onNavigateToRoute} />
+          <BibleCommandPalette onClose={closeOverlay} />
         </box>
       </Show>
 
@@ -364,107 +385,6 @@ export function BibleView(props: BibleViewProps) {
           <text fg={theme().accent}>{toast()}</text>
         </box>
       </Show>
-    </box>
-  );
-}
-
-interface ToolsPaletteProps {
-  onClose: () => void;
-  onNavigateToRoute?: (route: string) => void;
-}
-
-function ToolsPalette(props: ToolsPaletteProps) {
-  const { theme, themeName, cycleTheme } = useTheme();
-  const [selectedIndex, setSelectedIndex] = createSignal(0);
-
-  const tools = () => [
-    { label: 'Messages', description: 'Generate sermon messages', route: 'messages' },
-    { label: 'Sabbath School', description: 'Process lesson outlines', route: 'sabbath-school' },
-    { label: 'Studies', description: 'Create Bible studies', route: 'studies' },
-    { label: 'Cycle Theme', description: `Current: ${themeName()}`, action: () => cycleTheme() },
-  ];
-
-  useKeyboard((key) => {
-    if (key.name === 'escape') {
-      props.onClose();
-      return;
-    }
-
-    if (key.name === 'return') {
-      const tool = tools()[selectedIndex()];
-      if (tool) {
-        if (tool.route) {
-          props.onNavigateToRoute?.(tool.route);
-          props.onClose();
-        } else if (tool.action) {
-          tool.action();
-        }
-      }
-      return;
-    }
-
-    if (key.name === 'up' || key.name === 'k') {
-      setSelectedIndex((i) => Math.max(0, i - 1));
-      return;
-    }
-
-    if (key.name === 'down' || key.name === 'j') {
-      setSelectedIndex((i) => Math.min(tools().length - 1, i + 1));
-      return;
-    }
-
-    // Number keys for quick select
-    const num = parseInt(key.name, 10);
-    if (num >= 1 && num <= tools().length) {
-      const tool = tools()[num - 1];
-      if (tool) {
-        if (tool.route) {
-          props.onNavigateToRoute?.(tool.route);
-          props.onClose();
-        } else if (tool.action) {
-          tool.action();
-        }
-      }
-    }
-  });
-
-  return (
-    <box
-      flexDirection="column"
-      border
-      borderColor={theme().borderFocused}
-      backgroundColor={theme().backgroundPanel}
-      padding={1}
-    >
-      <text fg={theme().textHighlight} marginBottom={1}>
-        <strong>Tools</strong>
-      </text>
-
-      {tools().map((tool, index) => (
-        <box
-          flexDirection="row"
-          justifyContent="space-between"
-          paddingLeft={1}
-          paddingRight={1}
-          backgroundColor={index === selectedIndex() ? theme().accent : undefined}
-        >
-          <text fg={index === selectedIndex() ? theme().background : theme().text}>
-            <span style={{ fg: index === selectedIndex() ? theme().background : theme().textMuted }}>{index + 1}. </span>
-            {tool.label}
-          </text>
-          <text fg={index === selectedIndex() ? theme().background : theme().textMuted}>
-            {tool.description}
-          </text>
-        </box>
-      ))}
-
-      <box height={1} marginTop={1}>
-        <text fg={theme().textMuted}>
-          <span style={{ fg: theme().accent }}>1-{tools().length}</span> select
-          {'  '}
-          <span style={{ fg: theme().accent }}>Esc</span> close
-        </text>
-      </box>
     </box>
   );
 }
