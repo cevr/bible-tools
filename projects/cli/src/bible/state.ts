@@ -1,10 +1,17 @@
-import { Context, Effect, Layer } from 'effect';
-import { Database } from 'bun:sqlite';
+import { existsSync, mkdirSync } from 'fs';
 import { homedir } from 'os';
 import { join } from 'path';
-import { mkdirSync, existsSync } from 'fs';
 
-import type { Bookmark, HistoryEntry, Position, Preferences, Reference } from './types.js';
+import { Database } from 'bun:sqlite';
+import { Context, Effect, Layer } from 'effect';
+
+import type {
+  Bookmark,
+  HistoryEntry,
+  Position,
+  Preferences,
+  Reference,
+} from './types.js';
 
 // State storage directory
 const STATE_DIR = join(homedir(), '.bible-tools');
@@ -63,6 +70,14 @@ function initDatabase(db: Database) {
       cached_at INTEGER NOT NULL
     );
 
+    CREATE TABLE IF NOT EXISTS egw_position (
+      id INTEGER PRIMARY KEY CHECK (id = 1),
+      book_code TEXT NOT NULL,
+      page INTEGER,
+      paragraph INTEGER,
+      puborder INTEGER
+    );
+
     -- Initialize default position if not exists
     INSERT OR IGNORE INTO position (id, book, chapter, verse) VALUES (1, 1, 1, 1);
 
@@ -78,6 +93,14 @@ function initDatabase(db: Database) {
 export interface CachedPalette {
   palette: string[];
   isDark: boolean;
+}
+
+// EGW position
+export interface EGWPosition {
+  bookCode: string;
+  page?: number;
+  paragraph?: number;
+  puborder?: number;
 }
 
 // Service interface
@@ -96,11 +119,16 @@ export interface BibleStateService {
   readonly setCachedAISearch: (query: string, results: Reference[]) => void;
   readonly getCachedPalette: () => CachedPalette | undefined;
   readonly setCachedPalette: (palette: CachedPalette) => void;
+  readonly getLastEGWPosition: () => EGWPosition | undefined;
+  readonly setLastEGWPosition: (pos: EGWPosition) => void;
   readonly close: () => void;
 }
 
 // Effect service tag
-export class BibleState extends Context.Tag('BibleState')<BibleState, BibleStateService>() {}
+export class BibleState extends Context.Tag('BibleState')<
+  BibleState,
+  BibleStateService
+>() {}
 
 // Create the service implementation
 function createBibleStateService(): BibleStateService {
@@ -109,40 +137,79 @@ function createBibleStateService(): BibleStateService {
   initDatabase(db);
 
   // Prepare statements for performance
-  const getPositionStmt = db.prepare<Position, []>('SELECT book, chapter, verse FROM position WHERE id = 1');
-  const setPositionStmt = db.prepare('UPDATE position SET book = ?, chapter = ?, verse = ? WHERE id = 1');
+  const getPositionStmt = db.prepare<Position, []>(
+    'SELECT book, chapter, verse FROM position WHERE id = 1',
+  );
+  const setPositionStmt = db.prepare(
+    'UPDATE position SET book = ?, chapter = ?, verse = ? WHERE id = 1',
+  );
 
   const getBookmarksStmt = db.prepare<
-    { id: string; book: number; chapter: number; verse: number | null; note: string | null; created_at: number },
+    {
+      id: string;
+      book: number;
+      chapter: number;
+      verse: number | null;
+      note: string | null;
+      created_at: number;
+    },
     []
-  >('SELECT id, book, chapter, verse, note, created_at FROM bookmarks ORDER BY created_at DESC');
-  const addBookmarkStmt = db.prepare('INSERT INTO bookmarks (id, book, chapter, verse, note, created_at) VALUES (?, ?, ?, ?, ?, ?)');
+  >(
+    'SELECT id, book, chapter, verse, note, created_at FROM bookmarks ORDER BY created_at DESC',
+  );
+  const addBookmarkStmt = db.prepare(
+    'INSERT INTO bookmarks (id, book, chapter, verse, note, created_at) VALUES (?, ?, ?, ?, ?, ?)',
+  );
   const removeBookmarkStmt = db.prepare('DELETE FROM bookmarks WHERE id = ?');
 
   const getHistoryStmt = db.prepare<
     { book: number; chapter: number; verse: number | null; visited_at: number },
     [number]
-  >('SELECT book, chapter, verse, visited_at FROM history ORDER BY visited_at DESC LIMIT ?');
-  const addHistoryStmt = db.prepare('INSERT INTO history (book, chapter, verse, visited_at) VALUES (?, ?, ?, ?)');
+  >(
+    'SELECT book, chapter, verse, visited_at FROM history ORDER BY visited_at DESC LIMIT ?',
+  );
+  const addHistoryStmt = db.prepare(
+    'INSERT INTO history (book, chapter, verse, visited_at) VALUES (?, ?, ?, ?)',
+  );
   const clearHistoryStmt = db.prepare('DELETE FROM history');
 
-  const getPreferencesStmt = db.prepare<{ theme: string; display_mode: string }, []>(
-    'SELECT theme, display_mode FROM preferences WHERE id = 1'
+  const getPreferencesStmt = db.prepare<
+    { theme: string; display_mode: string },
+    []
+  >('SELECT theme, display_mode FROM preferences WHERE id = 1');
+  const setPreferencesStmt = db.prepare(
+    'UPDATE preferences SET theme = ?, display_mode = ? WHERE id = 1',
   );
-  const setPreferencesStmt = db.prepare('UPDATE preferences SET theme = ?, display_mode = ? WHERE id = 1');
 
-  const getCacheStmt = db.prepare<{ results: string; cached_at: number }, [string]>(
-    'SELECT results, cached_at FROM ai_search_cache WHERE query = ?'
-  );
+  const getCacheStmt = db.prepare<
+    { results: string; cached_at: number },
+    [string]
+  >('SELECT results, cached_at FROM ai_search_cache WHERE query = ?');
   const setCacheStmt = db.prepare(
-    'INSERT OR REPLACE INTO ai_search_cache (query, results, cached_at) VALUES (?, ?, ?)'
+    'INSERT OR REPLACE INTO ai_search_cache (query, results, cached_at) VALUES (?, ?, ?)',
   );
 
-  const getPaletteStmt = db.prepare<{ palette: string; is_dark: number; cached_at: number }, []>(
-    'SELECT palette, is_dark, cached_at FROM terminal_palette WHERE id = 1'
-  );
+  const getPaletteStmt = db.prepare<
+    { palette: string; is_dark: number; cached_at: number },
+    []
+  >('SELECT palette, is_dark, cached_at FROM terminal_palette WHERE id = 1');
   const setPaletteStmt = db.prepare(
-    'INSERT OR REPLACE INTO terminal_palette (id, palette, is_dark, cached_at) VALUES (1, ?, ?, ?)'
+    'INSERT OR REPLACE INTO terminal_palette (id, palette, is_dark, cached_at) VALUES (1, ?, ?, ?)',
+  );
+
+  const getEGWPositionStmt = db.prepare<
+    {
+      book_code: string;
+      page: number | null;
+      paragraph: number | null;
+      puborder: number | null;
+    },
+    []
+  >(
+    'SELECT book_code, page, paragraph, puborder FROM egw_position WHERE id = 1',
+  );
+  const setEGWPositionStmt = db.prepare(
+    'INSERT OR REPLACE INTO egw_position (id, book_code, page, paragraph, puborder) VALUES (1, ?, ?, ?, ?)',
   );
 
   // Cache expiry: 24 hours for AI search
@@ -177,7 +244,14 @@ function createBibleStateService(): BibleStateService {
     addBookmark(ref: Reference, note?: string): Bookmark {
       const id = crypto.randomUUID();
       const createdAt = Date.now();
-      addBookmarkStmt.run(id, ref.book, ref.chapter, ref.verse ?? null, note ?? null, createdAt);
+      addBookmarkStmt.run(
+        id,
+        ref.book,
+        ref.chapter,
+        ref.verse ?? null,
+        note ?? null,
+        createdAt,
+      );
       return {
         id,
         reference: ref,
@@ -220,7 +294,10 @@ function createBibleStateService(): BibleStateService {
 
     setPreferences(prefs: Partial<Preferences>): void {
       const current = this.getPreferences();
-      setPreferencesStmt.run(prefs.theme ?? current.theme, prefs.displayMode ?? current.displayMode);
+      setPreferencesStmt.run(
+        prefs.theme ?? current.theme,
+        prefs.displayMode ?? current.displayMode,
+      );
     },
 
     getCachedAISearch(query: string): Reference[] | undefined {
@@ -240,7 +317,11 @@ function createBibleStateService(): BibleStateService {
     },
 
     setCachedAISearch(query: string, results: Reference[]): void {
-      setCacheStmt.run(query.toLowerCase().trim(), JSON.stringify(results), Date.now());
+      setCacheStmt.run(
+        query.toLowerCase().trim(),
+        JSON.stringify(results),
+        Date.now(),
+      );
     },
 
     getCachedPalette(): CachedPalette | undefined {
@@ -263,7 +344,31 @@ function createBibleStateService(): BibleStateService {
     },
 
     setCachedPalette(cached: CachedPalette): void {
-      setPaletteStmt.run(JSON.stringify(cached.palette), cached.isDark ? 1 : 0, Date.now());
+      setPaletteStmt.run(
+        JSON.stringify(cached.palette),
+        cached.isDark ? 1 : 0,
+        Date.now(),
+      );
+    },
+
+    getLastEGWPosition(): EGWPosition | undefined {
+      const row = getEGWPositionStmt.get();
+      if (!row) return undefined;
+      return {
+        bookCode: row.book_code,
+        page: row.page ?? undefined,
+        paragraph: row.paragraph ?? undefined,
+        puborder: row.puborder ?? undefined,
+      };
+    },
+
+    setLastEGWPosition(pos: EGWPosition): void {
+      setEGWPositionStmt.run(
+        pos.bookCode,
+        pos.page ?? null,
+        pos.paragraph ?? null,
+        pos.puborder ?? null,
+      );
     },
 
     close(): void {
@@ -277,9 +382,12 @@ export const BibleStateLive = Layer.scoped(
   BibleState,
   Effect.acquireRelease(
     Effect.sync(() => createBibleStateService()),
-    (service) => Effect.sync(() => service.close())
-  )
+    (service) => Effect.sync(() => service.close()),
+  ),
 );
 
 // Simpler non-scoped layer for TUI usage (manages its own lifecycle)
-export const BibleStateLayer = Layer.succeed(BibleState, createBibleStateService());
+export const BibleStateLayer = Layer.succeed(
+  BibleState,
+  createBibleStateService(),
+);

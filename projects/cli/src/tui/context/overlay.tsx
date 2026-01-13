@@ -1,4 +1,10 @@
-import { createContext, useContext, createSignal, type ParentProps, type Accessor } from 'solid-js';
+import {
+  createContext,
+  createSignal,
+  useContext,
+  type Accessor,
+  type ParentProps,
+} from 'solid-js';
 
 /**
  * Overlay types that can be displayed.
@@ -82,7 +88,11 @@ export function OverlayProvider(props: ParentProps) {
     toggle,
   };
 
-  return <OverlayContext.Provider value={value}>{props.children}</OverlayContext.Provider>;
+  return (
+    <OverlayContext.Provider value={value}>
+      {props.children}
+    </OverlayContext.Provider>
+  );
 }
 
 export function useOverlay(): OverlayContextValue {

@@ -1,12 +1,12 @@
-import { describe, expect, beforeEach, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { sabbathSchool } from '../../core/sabbath-school/sabbath-school.js';
 import {
-  runCli,
-  expectSequence,
-  expectContains,
   expectCallCount,
+  expectContains,
   expectNoCalls,
+  expectSequence,
+  runCli,
 } from '../lib/run-cli.js';
 
 describe('sabbath-school commands', () => {
@@ -18,7 +18,17 @@ describe('sabbath-school commands', () => {
     it('should skip already processed weeks', async () => {
       const result = await runCli(
         sabbathSchool,
-        ['process', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
+        [
+          'process',
+          '--year',
+          '2024',
+          '--quarter',
+          '1',
+          '--week',
+          '1',
+          '--model',
+          'gemini',
+        ],
         {
           files: {
             files: {
@@ -60,7 +70,17 @@ describe('sabbath-school commands', () => {
 
       const result = await runCli(
         sabbathSchool,
-        ['process', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
+        [
+          'process',
+          '--year',
+          '2024',
+          '--quarter',
+          '1',
+          '--week',
+          '1',
+          '--model',
+          'gemini',
+        ],
         {
           files: {
             files: {},
@@ -116,7 +136,17 @@ describe('sabbath-school commands', () => {
 
       const result = await runCli(
         sabbathSchool,
-        ['process', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
+        [
+          'process',
+          '--year',
+          '2024',
+          '--quarter',
+          '1',
+          '--week',
+          '1',
+          '--model',
+          'gemini',
+        ],
         {
           files: {
             files: {},
@@ -170,7 +200,17 @@ describe('sabbath-school commands', () => {
     it('should revise existing outline', async () => {
       const result = await runCli(
         sabbathSchool,
-        ['revise', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
+        [
+          'revise',
+          '--year',
+          '2024',
+          '--quarter',
+          '1',
+          '--week',
+          '1',
+          '--model',
+          'gemini',
+        ],
         {
           files: {
             files: {
@@ -210,7 +250,17 @@ describe('sabbath-school commands', () => {
     it('should skip revision when not needed', async () => {
       const result = await runCli(
         sabbathSchool,
-        ['revise', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
+        [
+          'revise',
+          '--year',
+          '2024',
+          '--quarter',
+          '1',
+          '--week',
+          '1',
+          '--model',
+          'gemini',
+        ],
         {
           files: {
             files: {
@@ -249,7 +299,17 @@ describe('sabbath-school commands', () => {
     it('should handle missing outline file', async () => {
       const result = await runCli(
         sabbathSchool,
-        ['revise', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
+        [
+          'revise',
+          '--year',
+          '2024',
+          '--quarter',
+          '1',
+          '--week',
+          '1',
+          '--model',
+          'gemini',
+        ],
         {
           files: {
             files: {},

@@ -1,11 +1,11 @@
-import { describe, expect, beforeEach, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { studies } from '../../core/studies/studies.js';
 import {
-  runCli,
-  expectSequence,
   expectContains,
   expectNoCalls,
+  expectSequence,
+  runCli,
 } from '../lib/run-cli.js';
 
 describe('studies commands', () => {

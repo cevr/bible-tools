@@ -9,7 +9,7 @@
  * Output files are placed in assets/ for bundling with the CLI.
  */
 
-import { readFileSync, writeFileSync, readdirSync } from 'fs';
+import { readdirSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 const DATA_RAW = join(import.meta.dir, '../assets/data-raw');
@@ -17,38 +17,142 @@ const ASSETS = join(import.meta.dir, '../assets');
 
 // Book abbreviation mapping (OpenBible format -> our book numbers)
 const BOOK_MAP: Record<string, number> = {
-  Gen: 1, Exod: 2, Lev: 3, Num: 4, Deut: 5,
-  Josh: 6, Judg: 7, Ruth: 8, '1Sam': 9, '2Sam': 10,
-  '1Kgs': 11, '2Kgs': 12, '1Chr': 13, '2Chr': 14, Ezra: 15,
-  Neh: 16, Esth: 17, Job: 18, Ps: 19, Prov: 20,
-  Eccl: 21, Song: 22, Isa: 23, Jer: 24, Lam: 25,
-  Ezek: 26, Dan: 27, Hos: 28, Joel: 29, Amos: 30,
-  Obad: 31, Jonah: 32, Mic: 33, Nah: 34, Hab: 35,
-  Zeph: 36, Hag: 37, Zech: 38, Mal: 39,
-  Matt: 40, Mark: 41, Luke: 42, John: 43, Acts: 44,
-  Rom: 45, '1Cor': 46, '2Cor': 47, Gal: 48, Eph: 49,
-  Phil: 50, Col: 51, '1Thess': 52, '2Thess': 53, '1Tim': 54,
-  '2Tim': 55, Titus: 56, Phlm: 57, Heb: 58, Jas: 59,
-  '1Pet': 60, '2Pet': 61, '1John': 62, '2John': 63, '3John': 64,
-  Jude: 65, Rev: 66,
+  Gen: 1,
+  Exod: 2,
+  Lev: 3,
+  Num: 4,
+  Deut: 5,
+  Josh: 6,
+  Judg: 7,
+  Ruth: 8,
+  '1Sam': 9,
+  '2Sam': 10,
+  '1Kgs': 11,
+  '2Kgs': 12,
+  '1Chr': 13,
+  '2Chr': 14,
+  Ezra: 15,
+  Neh: 16,
+  Esth: 17,
+  Job: 18,
+  Ps: 19,
+  Prov: 20,
+  Eccl: 21,
+  Song: 22,
+  Isa: 23,
+  Jer: 24,
+  Lam: 25,
+  Ezek: 26,
+  Dan: 27,
+  Hos: 28,
+  Joel: 29,
+  Amos: 30,
+  Obad: 31,
+  Jonah: 32,
+  Mic: 33,
+  Nah: 34,
+  Hab: 35,
+  Zeph: 36,
+  Hag: 37,
+  Zech: 38,
+  Mal: 39,
+  Matt: 40,
+  Mark: 41,
+  Luke: 42,
+  John: 43,
+  Acts: 44,
+  Rom: 45,
+  '1Cor': 46,
+  '2Cor': 47,
+  Gal: 48,
+  Eph: 49,
+  Phil: 50,
+  Col: 51,
+  '1Thess': 52,
+  '2Thess': 53,
+  '1Tim': 54,
+  '2Tim': 55,
+  Titus: 56,
+  Phlm: 57,
+  Heb: 58,
+  Jas: 59,
+  '1Pet': 60,
+  '2Pet': 61,
+  '1John': 62,
+  '2John': 63,
+  '3John': 64,
+  Jude: 65,
+  Rev: 66,
 };
 
 // KJV-Strongs book abbreviation mapping
 const KJV_STRONGS_BOOK_MAP: Record<string, number> = {
-  Gen: 1, Exo: 2, Lev: 3, Num: 4, Deu: 5,
-  Jos: 6, Jdg: 7, Rth: 8, '1Sa': 9, '2Sa': 10,
-  '1Ki': 11, '2Ki': 12, '1Ch': 13, '2Ch': 14, Ezr: 15,
-  Neh: 16, Est: 17, Job: 18, Psa: 19, Pro: 20,
-  Ecc: 21, Sng: 22, Isa: 23, Jer: 24, Lam: 25,
-  Eze: 26, Dan: 27, Hos: 28, Joe: 29, Amo: 30,
-  Oba: 31, Jon: 32, Mic: 33, Nah: 34, Hab: 35,
-  Zep: 36, Hag: 37, Zec: 38, Mal: 39,
-  Mat: 40, Mar: 41, Luk: 42, Jhn: 43, Act: 44,
-  Rom: 45, '1Co': 46, '2Co': 47, Gal: 48, Eph: 49,
-  Phl: 50, Col: 51, '1Th': 52, '2Th': 53, '1Ti': 54,
-  '2Ti': 55, Tit: 56, Phm: 57, Heb: 58, Jas: 59,
-  '1Pe': 60, '2Pe': 61, '1Jo': 62, '2Jo': 63, '3Jo': 64,
-  Jde: 65, Rev: 66,
+  Gen: 1,
+  Exo: 2,
+  Lev: 3,
+  Num: 4,
+  Deu: 5,
+  Jos: 6,
+  Jdg: 7,
+  Rth: 8,
+  '1Sa': 9,
+  '2Sa': 10,
+  '1Ki': 11,
+  '2Ki': 12,
+  '1Ch': 13,
+  '2Ch': 14,
+  Ezr: 15,
+  Neh: 16,
+  Est: 17,
+  Job: 18,
+  Psa: 19,
+  Pro: 20,
+  Ecc: 21,
+  Sng: 22,
+  Isa: 23,
+  Jer: 24,
+  Lam: 25,
+  Eze: 26,
+  Dan: 27,
+  Hos: 28,
+  Joe: 29,
+  Amo: 30,
+  Oba: 31,
+  Jon: 32,
+  Mic: 33,
+  Nah: 34,
+  Hab: 35,
+  Zep: 36,
+  Hag: 37,
+  Zec: 38,
+  Mal: 39,
+  Mat: 40,
+  Mar: 41,
+  Luk: 42,
+  Jhn: 43,
+  Act: 44,
+  Rom: 45,
+  '1Co': 46,
+  '2Co': 47,
+  Gal: 48,
+  Eph: 49,
+  Phl: 50,
+  Col: 51,
+  '1Th': 52,
+  '2Th': 53,
+  '1Ti': 54,
+  '2Ti': 55,
+  Tit: 56,
+  Phm: 57,
+  Heb: 58,
+  Jas: 59,
+  '1Pe': 60,
+  '2Pe': 61,
+  '1Jo': 62,
+  '2Jo': 63,
+  '3Jo': 64,
+  Jde: 65,
+  Rev: 66,
 };
 
 interface Reference {
@@ -76,15 +180,17 @@ interface StrongsEntry {
 function cleanHtmlEntities(str: string): string {
   return str
     .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(parseInt(code, 10)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, code) =>
+      String.fromCharCode(parseInt(code, 16)),
+    )
     .replace(/&quot;/g, '"')
     .replace(/&apos;/g, "'")
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&nbsp;/g, ' ')
-    .replace(/&#8212;?-?/g, '—')  // em-dash with potential trailing dash
-    .replace(/&quot-/g, '"')  // Fix malformed entities
+    .replace(/&#8212;?-?/g, '—') // em-dash with potential trailing dash
+    .replace(/&quot-/g, '"') // Fix malformed entities
     .replace(/-&quot/g, '"');
 }
 
@@ -188,7 +294,7 @@ function processCrossRefs(): Record<string, CrossRefEntry> {
  * Process Strong's dictionaries from multiple sources
  */
 function processStrongs(): Record<string, StrongsEntry> {
-  console.log('Processing Strong\'s dictionaries...');
+  console.log("Processing Strong's dictionaries...");
 
   const strongs: Record<string, StrongsEntry> = {};
 
@@ -211,16 +317,23 @@ function processStrongs(): Record<string, StrongsEntry> {
         def: cleanHtmlEntities(v.strongs_def || v.outline_usage || ''),
       };
     }
-    console.log(`  Loaded ${Object.keys(lexiconData).length} entries from lexicon.json`);
+    console.log(
+      `  Loaded ${Object.keys(lexiconData).length} entries from lexicon.json`,
+    );
   } catch (e) {
     console.log(`  WARNING: Could not load lexicon.json: ${e}`);
   }
 
   // Then supplement with OpenScriptures Hebrew data (has more detail)
-  const hebrewPath = join(DATA_RAW, 'strongs/hebrew/strongs-hebrew-dictionary.js');
+  const hebrewPath = join(
+    DATA_RAW,
+    'strongs/hebrew/strongs-hebrew-dictionary.js',
+  );
   try {
     const hebrewContent = readFileSync(hebrewPath, 'utf-8');
-    const hebrewMatch = hebrewContent.match(/var strongsHebrewDictionary = (\{[\s\S]*?\n\});/);
+    const hebrewMatch = hebrewContent.match(
+      /var strongsHebrewDictionary = (\{[\s\S]*?\n\});/,
+    );
 
     if (hebrewMatch) {
       const hebrewData = JSON.parse(hebrewMatch[1]);
@@ -246,10 +359,14 @@ function processStrongs(): Record<string, StrongsEntry> {
         } else if (v.pron && !strongs[key].pron) {
           // Add pronunciation if missing
           strongs[key].pron = v.pron;
-          strongs[key].kjvDef = v.kjv_def ? cleanHtmlEntities(v.kjv_def) : undefined;
+          strongs[key].kjvDef = v.kjv_def
+            ? cleanHtmlEntities(v.kjv_def)
+            : undefined;
         }
       }
-      console.log(`  Added/updated ${added} Hebrew entries from OpenScriptures`);
+      console.log(
+        `  Added/updated ${added} Hebrew entries from OpenScriptures`,
+      );
     }
   } catch (e) {
     console.log(`  WARNING: Could not parse Hebrew dictionary: ${e}`);
@@ -259,7 +376,9 @@ function processStrongs(): Record<string, StrongsEntry> {
   const greekPath = join(DATA_RAW, 'strongs/greek/strongs-greek-dictionary.js');
   try {
     const greekContent = readFileSync(greekPath, 'utf-8');
-    const greekMatch = greekContent.match(/var strongsGreekDictionary = (\{.*\});/);
+    const greekMatch = greekContent.match(
+      /var strongsGreekDictionary = (\{.*\});/,
+    );
 
     if (greekMatch) {
       const greekData = JSON.parse(greekMatch[1]);
@@ -285,7 +404,9 @@ function processStrongs(): Record<string, StrongsEntry> {
           added++;
         } else if (v.pron && !strongs[key].pron) {
           strongs[key].pron = v.pron;
-          strongs[key].kjvDef = v.kjv_def ? cleanHtmlEntities(v.kjv_def) : undefined;
+          strongs[key].kjvDef = v.kjv_def
+            ? cleanHtmlEntities(v.kjv_def)
+            : undefined;
         }
       }
       console.log(`  Added/updated ${added} Greek entries from OpenScriptures`);
@@ -326,15 +447,20 @@ function parseWordWithStrongs(text: string): WordWithStrongs {
  * Process KJV with Strong's numbers
  */
 function processKjvStrongs(): VerseWithStrongs[] {
-  console.log('Processing KJV with Strong\'s numbers...');
+  console.log("Processing KJV with Strong's numbers...");
 
   const kjvDir = join(DATA_RAW, 'kjv-strongs');
   const verses: VerseWithStrongs[] = [];
 
   // Get all book files (exclude metadata files and non-JSON)
-  const excludeFiles = ['books.json', 'chapter_count.json', 'lexicon.json', 'README.md'];
-  const files = readdirSync(kjvDir).filter(f =>
-    f.endsWith('.json') && !excludeFiles.includes(f)
+  const excludeFiles = [
+    'books.json',
+    'chapter_count.json',
+    'lexicon.json',
+    'README.md',
+  ];
+  const files = readdirSync(kjvDir).filter(
+    (f) => f.endsWith('.json') && !excludeFiles.includes(f),
   );
 
   for (const file of files) {
@@ -362,7 +488,9 @@ function processKjvStrongs(): VerseWithStrongs[] {
     for (const [chapterKey, chapterContent] of Object.entries(bookContent)) {
       const chapterNum = parseInt(chapterKey.split('|')[1], 10);
 
-      for (const [verseKey, verseContent] of Object.entries(chapterContent as Record<string, unknown>)) {
+      for (const [verseKey, verseContent] of Object.entries(
+        chapterContent as Record<string, unknown>,
+      )) {
         const verseNum = parseInt(verseKey.split('|')[2], 10);
         const englishText = (verseContent as { en: string }).en;
 
@@ -409,23 +537,21 @@ const crossRefs = processCrossRefs();
 writeFileSync(
   join(ASSETS, 'cross-refs.json'),
   JSON.stringify(crossRefs),
-  'utf-8'
+  'utf-8',
 );
-console.log(`  Wrote cross-refs.json (${Object.keys(crossRefs).length} verses with refs)\n`);
+console.log(
+  `  Wrote cross-refs.json (${Object.keys(crossRefs).length} verses with refs)\n`,
+);
 
 const strongs = processStrongs();
-writeFileSync(
-  join(ASSETS, 'strongs.json'),
-  JSON.stringify(strongs),
-  'utf-8'
-);
+writeFileSync(join(ASSETS, 'strongs.json'), JSON.stringify(strongs), 'utf-8');
 console.log(`  Wrote strongs.json (${Object.keys(strongs).length} entries)\n`);
 
 const kjvStrongs = processKjvStrongs();
 writeFileSync(
   join(ASSETS, 'kjv-strongs.json'),
   JSON.stringify(kjvStrongs),
-  'utf-8'
+  'utf-8',
 );
 console.log(`  Wrote kjv-strongs.json (${kjvStrongs.length} verses)\n`);
 

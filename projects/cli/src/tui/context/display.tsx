@@ -1,4 +1,9 @@
-import { createContext, useContext, createSignal, type ParentProps } from 'solid-js';
+import {
+  createContext,
+  createSignal,
+  useContext,
+  type ParentProps,
+} from 'solid-js';
 
 import { useBibleState } from './bible.js';
 
@@ -19,7 +24,9 @@ interface DisplayProviderProps {
 export function DisplayProvider(props: ParentProps<DisplayProviderProps>) {
   const state = useBibleState();
   const prefs = state.getPreferences();
-  const [mode, setModeState] = createSignal<DisplayMode>(props.initialMode ?? prefs.displayMode);
+  const [mode, setModeState] = createSignal<DisplayMode>(
+    props.initialMode ?? prefs.displayMode,
+  );
 
   const setMode = (newMode: DisplayMode) => {
     setModeState(newMode);
@@ -36,7 +43,11 @@ export function DisplayProvider(props: ParentProps<DisplayProviderProps>) {
     toggleMode,
   };
 
-  return <DisplayContext.Provider value={value}>{props.children}</DisplayContext.Provider>;
+  return (
+    <DisplayContext.Provider value={value}>
+      {props.children}
+    </DisplayContext.Provider>
+  );
 }
 
 export function useDisplay(): DisplayContextValue {

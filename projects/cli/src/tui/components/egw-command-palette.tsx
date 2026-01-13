@@ -18,6 +18,7 @@ import {
   For,
   onMount,
   Show,
+  untrack,
 } from 'solid-js';
 
 import { useEGWNavigation } from '../context/egw-navigation.js';
@@ -65,23 +66,33 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
   const [selectedIndex, setSelectedIndex] = createSignal(0);
 
   // Default to chapters if in a book, otherwise books
+  // Use untrack to avoid reactive subscription during signal initialization
+  const hasBook = untrack(() => currentBook() !== null);
   const [mode, setMode] = createSignal<PaletteMode>(
-    currentBook() ? 'chapters' : 'books',
+    hasBook ? 'chapters' : 'books',
   );
   const [selectedChapterIndex, setSelectedChapterIndex] = createSignal(0);
 
   let scrollRef: ScrollBoxRenderable | undefined;
 
   // Scroll sync - keep selected item visible
-  useScrollSync(() => `item-${selectedIndex()}`, { getRef: () => scrollRef });
+  // Only sync when mode is stable (not during initial render)
+  const [isMounted, setIsMounted] = createSignal(false);
+  onMount(() => setIsMounted(true));
 
-  // Extract chapters from paragraphs
+  useScrollSync(() => (isMounted() ? `item-${selectedIndex()}` : ''), {
+    getRef: () => scrollRef,
+  });
+
+  // Extract chapters from paragraphs (cached to avoid recomputation)
   const chapters = createMemo((): ChapterInfo[] => {
     const paras = paragraphs();
-    const result: ChapterInfo[] = [];
+    if (paras.length === 0) return [];
 
+    const result: ChapterInfo[] = [];
     for (let i = 0; i < paras.length; i++) {
-      const para = paras[i]!;
+      const para = paras[i];
+      if (!para) continue;
       const type = para.elementType;
       if (type === 'chapter' || type === 'heading' || type === 'title') {
         const title = stripHtml(para.content ?? '').slice(0, 60);
@@ -402,24 +413,24 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
       </box>
 
       {/* Content */}
-      <Show
-        when={!isLoading()}
-        fallback={
-          <box padding={1}>
-            <text fg={theme().textMuted}>Loading...</text>
-          </box>
-        }
-      >
+      {/* Books list - may need to load */}
+      <Show when={mode() === 'books'}>
         <Show
-          when={!hasError()}
+          when={!isLoading()}
           fallback={
             <box padding={1}>
-              <text fg={theme().error}>Error loading data</text>
+              <text fg={theme().textMuted}>Loading books...</text>
             </box>
           }
         >
-          {/* Books list */}
-          <Show when={mode() === 'books'}>
+          <Show
+            when={!hasError()}
+            fallback={
+              <box padding={1}>
+                <text fg={theme().error}>Error loading books</text>
+              </box>
+            }
+          >
             <scrollbox
               ref={scrollRef}
               focused={false}
@@ -477,121 +488,116 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
               </Show>
             </scrollbox>
           </Show>
+        </Show>
+      </Show>
 
-          {/* Chapters list */}
-          <Show when={mode() === 'chapters'}>
-            <scrollbox
-              ref={scrollRef}
-              focused={false}
-              style={scrollboxStyle()}
-            >
-              <For each={filteredChapters().slice(0, 50)}>
-                {(chapter, index) => (
-                  <box
-                    id={`item-${index()}`}
-                    paddingLeft={1}
-                    paddingRight={1}
-                    backgroundColor={
-                      index() === selectedIndex() ? theme().accent : undefined
-                    }
-                  >
-                    <text
-                      fg={
+      {/* Chapters list - uses already loaded paragraphs */}
+      <Show when={mode() === 'chapters'}>
+        <scrollbox
+          ref={scrollRef}
+          focused={false}
+          style={scrollboxStyle()}
+        >
+          <For each={filteredChapters().slice(0, 50)}>
+            {(chapter, index) => (
+              <box
+                id={`item-${index()}`}
+                paddingLeft={1}
+                paddingRight={1}
+                backgroundColor={
+                  index() === selectedIndex() ? theme().accent : undefined
+                }
+              >
+                <text
+                  fg={
+                    index() === selectedIndex()
+                      ? theme().background
+                      : theme().text
+                  }
+                >
+                  <span
+                    style={{
+                      fg:
                         index() === selectedIndex()
                           ? theme().background
-                          : theme().text
-                      }
+                          : theme().textMuted,
+                    }}
+                  >
+                    {chapter.elementType === 'title' ? '§' : ''}
+                    {chapter.elementType === 'chapter' ? '◆' : ''}
+                    {chapter.elementType === 'heading' ? '•' : ''}
+                  </span>{' '}
+                  {chapter.title}
+                </text>
+              </box>
+            )}
+          </For>
+          <Show when={filteredChapters().length === 0}>
+            <box padding={1}>
+              <text fg={theme().textMuted}>
+                {currentBook() ? 'No chapters found' : 'No book selected'}
+              </text>
+            </box>
+          </Show>
+        </scrollbox>
+      </Show>
+
+      {/* Paragraphs list */}
+      <Show when={mode() === 'paragraphs'}>
+        <scrollbox
+          ref={scrollRef}
+          focused={false}
+          style={scrollboxStyle()}
+        >
+          <For each={filteredParagraphs().slice(0, 50)}>
+            {(item, index) => {
+              const isSelected = () => index() === selectedIndex();
+              // Cache selectedParagraphIndex to avoid repeated reactive access
+              const currentParaIndex = selectedParagraphIndex();
+              const isCurrent = item.index === currentParaIndex;
+              const content = stripHtml(item.para.content ?? '').slice(0, 55);
+              const refcode = item.para.refcodeShort ?? '';
+
+              return (
+                <box
+                  id={`item-${index()}`}
+                  paddingLeft={1}
+                  paddingRight={1}
+                  backgroundColor={isSelected() ? theme().accent : undefined}
+                >
+                  <text fg={isSelected() ? theme().background : theme().text}>
+                    <span
+                      style={{
+                        fg: isSelected()
+                          ? theme().background
+                          : isCurrent
+                            ? theme().accent
+                            : theme().textMuted,
+                      }}
                     >
-                      <span
-                        style={{
-                          fg:
-                            index() === selectedIndex()
-                              ? theme().background
-                              : theme().textMuted,
-                        }}
-                      >
-                        {chapter.elementType === 'title' ? '§' : ''}
-                        {chapter.elementType === 'chapter' ? '◆' : ''}
-                        {chapter.elementType === 'heading' ? '•' : ''}
-                      </span>{' '}
-                      {chapter.title}
-                    </text>
-                  </box>
-                )}
-              </For>
-              <Show when={filteredChapters().length === 0}>
-                <box padding={1}>
-                  <text fg={theme().textMuted}>
-                    {currentBook() ? 'No chapters found' : 'No book selected'}
+                      {refcode.padEnd(12, ' ')}
+                    </span>{' '}
+                    <span
+                      style={{
+                        fg: isSelected()
+                          ? theme().background
+                          : theme().textMuted,
+                      }}
+                    >
+                      {content}
+                      {content.length >= 55 ? '...' : ''}
+                    </span>
                   </text>
                 </box>
-              </Show>
-            </scrollbox>
+              );
+            }}
+          </For>
+          <Show when={filteredParagraphs().length === 0}>
+            <box padding={1}>
+              <text fg={theme().textMuted}>No paragraphs found</text>
+            </box>
           </Show>
-
-          {/* Paragraphs list */}
-          <Show when={mode() === 'paragraphs'}>
-            <scrollbox
-              ref={scrollRef}
-              focused={false}
-              style={scrollboxStyle()}
-            >
-              <For each={filteredParagraphs().slice(0, 50)}>
-                {(item, index) => {
-                  const isSelected = () => index() === selectedIndex();
-                  const isCurrent = item.index === selectedParagraphIndex();
-                  const content = stripHtml(item.para.content ?? '').slice(
-                    0,
-                    55,
-                  );
-                  const refcode = item.para.refcodeShort ?? '';
-
-                  return (
-                    <box
-                      id={`item-${index()}`}
-                      paddingLeft={1}
-                      paddingRight={1}
-                      backgroundColor={
-                        isSelected() ? theme().accent : undefined
-                      }
-                    >
-                      <text
-                        fg={isSelected() ? theme().background : theme().text}
-                      >
-                        <span
-                          style={{
-                            fg: isSelected()
-                              ? theme().background
-                              : isCurrent
-                                ? theme().accent
-                                : theme().textMuted,
-                          }}
-                        >
-                          {refcode.padEnd(12, ' ')}
-                        </span>{' '}
-                        <span
-                          style={{
-                            fg: isSelected()
-                              ? theme().background
-                              : theme().textMuted,
-                          }}
-                        >
-                          {content}
-                          {content.length >= 55 ? '...' : ''}
-                        </span>
-                      </text>
-                    </box>
-                  );
-                }}
-              </For>
-              <Show when={filteredParagraphs().length === 0}>
-                <box padding={1}>
-                  <text fg={theme().textMuted}>No paragraphs found</text>
-                </box>
-              </Show>
-            </scrollbox>
-          </Show>
-        </Show>
+        </scrollbox>
       </Show>
 
       {/* Footer */}

@@ -1,10 +1,10 @@
-import { Context, Data, Effect, Layer } from 'effect';
 import { generateText } from 'ai';
+import { Context, Data, Effect, Layer } from 'effect';
 
 import { Model } from '../../core/model.js';
+import { BibleData, type BibleDataService } from './data.js';
 import { BibleState, type BibleStateService } from './state.js';
 import type { Reference } from './types.js';
-import { BibleData, type BibleDataService } from './data.js';
 
 // Tagged error for AI search failures
 export class AISearchError extends Data.TaggedError('AISearchError')<{
@@ -14,11 +14,16 @@ export class AISearchError extends Data.TaggedError('AISearchError')<{
 
 // AI Search service interface
 export interface AISearchService {
-  readonly searchByTopic: (query: string) => Effect.Effect<Reference[], AISearchError>;
+  readonly searchByTopic: (
+    query: string,
+  ) => Effect.Effect<Reference[], AISearchError>;
 }
 
 // Effect service tag
-export class AISearch extends Context.Tag('AISearch')<AISearch, AISearchService>() {}
+export class AISearch extends Context.Tag('AISearch')<
+  AISearch,
+  AISearchService
+>() {}
 
 // System prompt for Bible verse search
 const SYSTEM_PROMPT = `You are a Bible verse search assistant. Given a topic or question, return the most relevant Bible verses.
@@ -38,7 +43,7 @@ Rules:
 // Parse AI response to references
 function parseAIResponse(
   response: string,
-  dataService: BibleDataService
+  dataService: BibleDataService,
 ): Reference[] {
   try {
     // Extract JSON from response (in case there's extra text)
@@ -72,7 +77,7 @@ function parseAIResponse(
 function createAISearchService(
   modelService: { models: { low: any } },
   dataService: BibleDataService,
-  stateService: BibleStateService
+  stateService: BibleStateService,
 ): AISearchService {
   return {
     searchByTopic(query: string): Effect.Effect<Reference[], AISearchError> {
@@ -102,7 +107,11 @@ function createAISearchService(
 
           return refs;
         },
-        catch: (error) => new AISearchError({ message: `AI search failed: ${error}`, cause: error }),
+        catch: (error) =>
+          new AISearchError({
+            message: `AI search failed: ${error}`,
+            cause: error,
+          }),
       });
     },
   };
@@ -117,7 +126,7 @@ export const AISearchLive = Layer.effect(
     const state = yield* BibleState;
     // Model service from Effect gives us { high, low } directly
     return createAISearchService({ models: model }, data, state);
-  })
+  }),
 );
 
 // Standalone function for use outside Effect context
@@ -125,7 +134,7 @@ export async function searchBibleByTopic(
   query: string,
   modelService: { models: { low: any } },
   dataService: BibleDataService,
-  stateService: BibleStateService
+  stateService: BibleStateService,
 ): Promise<Reference[]> {
   // Check cache first
   const cached = stateService.getCachedAISearch(query);

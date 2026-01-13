@@ -9,10 +9,11 @@
  * The database is created in ~/.bible/ on first run from bundled JSON data.
  */
 
-import { Database } from 'bun:sqlite';
-import { mkdirSync, existsSync } from 'fs';
+import { existsSync, mkdirSync } from 'fs';
 import { homedir } from 'os';
 import { join } from 'path';
+
+import { Database } from 'bun:sqlite';
 
 import type { Reference } from './types.js';
 
@@ -26,10 +27,10 @@ async function loadJsonData() {
   if (crossRefsData) return; // Already loaded
 
   const [crossRefs, strongs, kjvStrongs, marginNotes] = await Promise.all([
-    import('../../assets/cross-refs.json').then(m => m.default),
-    import('../../assets/strongs.json').then(m => m.default),
-    import('../../assets/kjv-strongs.json').then(m => m.default),
-    import('../../assets/margin-notes.json').then(m => m.default),
+    import('../../assets/cross-refs.json').then((m) => m.default),
+    import('../../assets/strongs.json').then((m) => m.default),
+    import('../../assets/kjv-strongs.json').then((m) => m.default),
+    import('../../assets/margin-notes.json').then((m) => m.default),
   ]);
 
   crossRefsData = crossRefs as Record<string, CrossRefEntry>;
@@ -105,9 +106,12 @@ function needsInit(): boolean {
   const db = getDatabase();
 
   try {
-    const result = db.query<{ version: number }, []>(
-      'SELECT version FROM meta WHERE key = "db_version"'
-    ).get();
+    const result = db
+      .query<
+        { version: number },
+        []
+      >('SELECT version FROM meta WHERE key = "db_version"')
+      .get();
     return !result || result.version < DB_VERSION;
   } catch {
     // Table doesn't exist
@@ -188,9 +192,15 @@ async function initDatabaseAsync(): Promise<void> {
   `);
 
   // Create indexes
-  db.run('CREATE INDEX IF NOT EXISTS idx_cross_refs_ref ON cross_refs(ref_book, ref_chapter, ref_verse)');
-  db.run('CREATE INDEX IF NOT EXISTS idx_verse_strongs ON verse_strongs(book, chapter, verse)');
-  db.run('CREATE INDEX IF NOT EXISTS idx_margin_notes ON margin_notes(book, chapter, verse)');
+  db.run(
+    'CREATE INDEX IF NOT EXISTS idx_cross_refs_ref ON cross_refs(ref_book, ref_chapter, ref_verse)',
+  );
+  db.run(
+    'CREATE INDEX IF NOT EXISTS idx_verse_strongs ON verse_strongs(book, chapter, verse)',
+  );
+  db.run(
+    'CREATE INDEX IF NOT EXISTS idx_margin_notes ON margin_notes(book, chapter, verse)',
+  );
 
   // Load cross-references
   const insertCrossRef = db.prepare(`
@@ -200,9 +210,21 @@ async function initDatabaseAsync(): Promise<void> {
 
   db.run('BEGIN TRANSACTION');
   for (const [key, entry] of Object.entries(crossRefsData!)) {
-    const [book, chapter, verse] = key.split('.').map(Number) as [number, number, number];
+    const [book, chapter, verse] = key.split('.').map(Number) as [
+      number,
+      number,
+      number,
+    ];
     for (const ref of entry.refs) {
-      insertCrossRef.run(book, chapter, verse, ref.book, ref.chapter, ref.verse ?? null, ref.verseEnd ?? null);
+      insertCrossRef.run(
+        book,
+        chapter,
+        verse,
+        ref.book,
+        ref.chapter,
+        ref.verse ?? null,
+        ref.verseEnd ?? null,
+      );
     }
   }
   db.run('COMMIT');
@@ -215,7 +237,14 @@ async function initDatabaseAsync(): Promise<void> {
 
   db.run('BEGIN TRANSACTION');
   for (const [number, entry] of Object.entries(strongsData!)) {
-    insertStrongs.run(number, entry.lemma, entry.xlit, entry.pron ?? null, entry.def, entry.kjvDef ?? null);
+    insertStrongs.run(
+      number,
+      entry.lemma,
+      entry.xlit,
+      entry.pron ?? null,
+      entry.def,
+      entry.kjvDef ?? null,
+    );
   }
   db.run('COMMIT');
 
@@ -229,7 +258,14 @@ async function initDatabaseAsync(): Promise<void> {
   for (const v of kjvStrongsData!) {
     for (let i = 0; i < v.words.length; i++) {
       const word = v.words[i]!;
-      insertVerseStrongs.run(v.book, v.chapter, v.verse, i, word.text, word.strongs ? JSON.stringify(word.strongs) : null);
+      insertVerseStrongs.run(
+        v.book,
+        v.chapter,
+        v.verse,
+        i,
+        word.text,
+        word.strongs ? JSON.stringify(word.strongs) : null,
+      );
     }
   }
   db.run('COMMIT');
@@ -242,16 +278,31 @@ async function initDatabaseAsync(): Promise<void> {
 
   db.run('BEGIN TRANSACTION');
   for (const [key, notes] of Object.entries(marginNotesData!)) {
-    const [book, chapter, verse] = key.split('.').map(Number) as [number, number, number];
+    const [book, chapter, verse] = key.split('.').map(Number) as [
+      number,
+      number,
+      number,
+    ];
     for (let i = 0; i < notes.length; i++) {
       const note = notes[i]!;
-      insertMarginNote.run(book, chapter, verse, i, note.type, note.phrase, note.text);
+      insertMarginNote.run(
+        book,
+        chapter,
+        verse,
+        i,
+        note.type,
+        note.phrase,
+        note.text,
+      );
     }
   }
   db.run('COMMIT');
 
   // Update version
-  db.run('INSERT OR REPLACE INTO meta (key, version) VALUES ("db_version", ?)', [DB_VERSION]);
+  db.run(
+    'INSERT OR REPLACE INTO meta (key, version) VALUES ("db_version", ?)',
+    [DB_VERSION],
+  );
 
   initialized = true;
 }
@@ -262,7 +313,9 @@ async function initDatabaseAsync(): Promise<void> {
  */
 function ensureInitialized(): void {
   if (!initialized) {
-    throw new Error('Study database not initialized. Call initStudyDatabase() first.');
+    throw new Error(
+      'Study database not initialized. Call initStudyDatabase() first.',
+    );
   }
 }
 
@@ -292,22 +345,33 @@ export function initInBackground(): void {
 /**
  * Get cross-references for a verse
  */
-export function getCrossRefs(book: number, chapter: number, verse: number): Reference[] {
+export function getCrossRefs(
+  book: number,
+  chapter: number,
+  verse: number,
+): Reference[] {
   ensureInitialized();
   const db = getDatabase();
 
-  const rows = db.query<{
-    ref_book: number;
-    ref_chapter: number;
-    ref_verse: number | null;
-    ref_verse_end: number | null;
-  }, [number, number, number]>(`
+  const rows = db
+    .query<
+      {
+        ref_book: number;
+        ref_chapter: number;
+        ref_verse: number | null;
+        ref_verse_end: number | null;
+      },
+      [number, number, number]
+    >(
+      `
     SELECT ref_book, ref_chapter, ref_verse, ref_verse_end
     FROM cross_refs
     WHERE book = ? AND chapter = ? AND verse = ?
-  `).all(book, chapter, verse);
+  `,
+    )
+    .all(book, chapter, verse);
 
-  return rows.map(row => ({
+  return rows.map((row) => ({
     book: row.ref_book,
     chapter: row.ref_chapter,
     verse: row.ref_verse ?? undefined,
@@ -322,18 +386,25 @@ export function getStrongsEntry(number: string): StrongsEntry | null {
   ensureInitialized();
   const db = getDatabase();
 
-  const row = db.query<{
-    number: string;
-    lemma: string;
-    xlit: string;
-    pron: string | null;
-    def: string;
-    kjv_def: string | null;
-  }, [string]>(`
+  const row = db
+    .query<
+      {
+        number: string;
+        lemma: string;
+        xlit: string;
+        pron: string | null;
+        def: string;
+        kjv_def: string | null;
+      },
+      [string]
+    >(
+      `
     SELECT number, lemma, xlit, pron, def, kjv_def
     FROM strongs
     WHERE number = ?
-  `).get(number);
+  `,
+    )
+    .get(number);
 
   if (!row) return null;
 
@@ -350,21 +421,32 @@ export function getStrongsEntry(number: string): StrongsEntry | null {
 /**
  * Get words with Strong's numbers for a verse
  */
-export function getVerseWords(book: number, chapter: number, verse: number): WordWithStrongs[] {
+export function getVerseWords(
+  book: number,
+  chapter: number,
+  verse: number,
+): WordWithStrongs[] {
   ensureInitialized();
   const db = getDatabase();
 
-  const rows = db.query<{
-    word_text: string;
-    strongs_nums: string | null;
-  }, [number, number, number]>(`
+  const rows = db
+    .query<
+      {
+        word_text: string;
+        strongs_nums: string | null;
+      },
+      [number, number, number]
+    >(
+      `
     SELECT word_text, strongs_nums
     FROM verse_strongs
     WHERE book = ? AND chapter = ? AND verse = ?
     ORDER BY word_index
-  `).all(book, chapter, verse);
+  `,
+    )
+    .all(book, chapter, verse);
 
-  return rows.map(row => ({
+  return rows.map((row) => ({
     text: row.word_text,
     strongs: row.strongs_nums ? JSON.parse(row.strongs_nums) : undefined,
   }));
@@ -373,15 +455,23 @@ export function getVerseWords(book: number, chapter: number, verse: number): Wor
 /**
  * Check if a verse has Strong's word mapping
  */
-export function hasStrongsMapping(book: number, chapter: number, verse: number): boolean {
+export function hasStrongsMapping(
+  book: number,
+  chapter: number,
+  verse: number,
+): boolean {
   ensureInitialized();
   const db = getDatabase();
 
-  const row = db.query<{ count: number }, [number, number, number]>(`
+  const row = db
+    .query<{ count: number }, [number, number, number]>(
+      `
     SELECT COUNT(*) as count
     FROM verse_strongs
     WHERE book = ? AND chapter = ? AND verse = ?
-  `).get(book, chapter, verse);
+  `,
+    )
+    .get(book, chapter, verse);
 
   return (row?.count ?? 0) > 0;
 }
@@ -389,22 +479,33 @@ export function hasStrongsMapping(book: number, chapter: number, verse: number):
 /**
  * Get margin notes for a verse (1611 KJV marginal readings)
  */
-export function getMarginNotes(book: number, chapter: number, verse: number): MarginNote[] {
+export function getMarginNotes(
+  book: number,
+  chapter: number,
+  verse: number,
+): MarginNote[] {
   ensureInitialized();
   const db = getDatabase();
 
-  const rows = db.query<{
-    note_type: string;
-    note_phrase: string;
-    note_text: string;
-  }, [number, number, number]>(`
+  const rows = db
+    .query<
+      {
+        note_type: string;
+        note_phrase: string;
+        note_text: string;
+      },
+      [number, number, number]
+    >(
+      `
     SELECT note_type, note_phrase, note_text
     FROM margin_notes
     WHERE book = ? AND chapter = ? AND verse = ?
     ORDER BY note_index
-  `).all(book, chapter, verse);
+  `,
+    )
+    .all(book, chapter, verse);
 
-  return rows.map(row => ({
+  return rows.map((row) => ({
     type: row.note_type as MarginNote['type'],
     phrase: row.note_phrase,
     text: row.note_text,
@@ -430,19 +531,26 @@ export function searchByStrongs(strongsNumber: string): ConcordanceResult[] {
   const normalized = strongsNumber.toUpperCase();
 
   // Search using JSON contains pattern - SQLite LIKE on the JSON array
-  const rows = db.query<{
-    book: number;
-    chapter: number;
-    verse: number;
-    word_text: string;
-  }, [string]>(`
+  const rows = db
+    .query<
+      {
+        book: number;
+        chapter: number;
+        verse: number;
+        word_text: string;
+      },
+      [string]
+    >(
+      `
     SELECT DISTINCT book, chapter, verse, word_text
     FROM verse_strongs
     WHERE strongs_nums LIKE ?
     ORDER BY book, chapter, verse
-  `).all(`%"${normalized}"%`);
+  `,
+    )
+    .all(`%"${normalized}"%`);
 
-  return rows.map(row => ({
+  return rows.map((row) => ({
     book: row.book,
     chapter: row.chapter,
     verse: row.verse,
@@ -459,11 +567,15 @@ export function getStrongsOccurrenceCount(strongsNumber: string): number {
 
   const normalized = strongsNumber.toUpperCase();
 
-  const row = db.query<{ count: number }, [string]>(`
+  const row = db
+    .query<{ count: number }, [string]>(
+      `
     SELECT COUNT(DISTINCT book || '.' || chapter || '.' || verse) as count
     FROM verse_strongs
     WHERE strongs_nums LIKE ?
-  `).get(`%"${normalized}"%`);
+  `,
+    )
+    .get(`%"${normalized}"%`);
 
   return row?.count ?? 0;
 }
@@ -475,22 +587,29 @@ export function searchStrongsByLemma(lemma: string): StrongsEntry[] {
   ensureInitialized();
   const db = getDatabase();
 
-  const rows = db.query<{
-    number: string;
-    lemma: string;
-    xlit: string;
-    pron: string | null;
-    def: string;
-    kjv_def: string | null;
-  }, [string]>(`
+  const rows = db
+    .query<
+      {
+        number: string;
+        lemma: string;
+        xlit: string;
+        pron: string | null;
+        def: string;
+        kjv_def: string | null;
+      },
+      [string]
+    >(
+      `
     SELECT number, lemma, xlit, pron, def, kjv_def
     FROM strongs
     WHERE lemma LIKE ?
     ORDER BY number
     LIMIT 50
-  `).all(`%${lemma}%`);
+  `,
+    )
+    .all(`%${lemma}%`);
 
-  return rows.map(row => ({
+  return rows.map((row) => ({
     number: row.number,
     lemma: row.lemma,
     xlit: row.xlit,
@@ -507,22 +626,29 @@ export function searchStrongsByDefinition(query: string): StrongsEntry[] {
   ensureInitialized();
   const db = getDatabase();
 
-  const rows = db.query<{
-    number: string;
-    lemma: string;
-    xlit: string;
-    pron: string | null;
-    def: string;
-    kjv_def: string | null;
-  }, [string, string]>(`
+  const rows = db
+    .query<
+      {
+        number: string;
+        lemma: string;
+        xlit: string;
+        pron: string | null;
+        def: string;
+        kjv_def: string | null;
+      },
+      [string, string]
+    >(
+      `
     SELECT number, lemma, xlit, pron, def, kjv_def
     FROM strongs
     WHERE def LIKE ? OR kjv_def LIKE ?
     ORDER BY number
     LIMIT 50
-  `).all(`%${query}%`, `%${query}%`);
+  `,
+    )
+    .all(`%${query}%`, `%${query}%`);
 
-  return rows.map(row => ({
+  return rows.map((row) => ({
     number: row.number,
     lemma: row.lemma,
     xlit: row.xlit,

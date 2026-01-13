@@ -1,11 +1,11 @@
-import { describe, expect, beforeEach, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { exportOutput } from '../../core/export-output.js';
 import {
-  runCli,
-  expectSequence,
   expectCallCount,
   expectNoCalls,
+  expectSequence,
+  runCli,
 } from '../lib/run-cli.js';
 
 describe('export command', () => {
@@ -21,7 +21,8 @@ describe('export command', () => {
         {
           files: {
             files: {
-              '/path/to/message.md': '# Test Message\n\nThis is a test message.',
+              '/path/to/message.md':
+                '# Test Message\n\nThis is a test message.',
             },
           },
           bun: {

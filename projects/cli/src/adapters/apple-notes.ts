@@ -1,9 +1,8 @@
+import type { ExportOptions } from '@bible/core/adapters';
+import { ExportAdapter, ExportError } from '@bible/core/adapters';
 import Bun from 'bun';
 import { Effect, Layer, Option, pipe, Schema } from 'effect';
 import { marked } from 'marked';
-
-import type { ExportOptions } from '@bible/core/adapters';
-import { ExportAdapter, ExportError } from '@bible/core/adapters';
 
 /**
  * Escape string for AppleScript.
@@ -84,7 +83,9 @@ export const AppleNotesExportLayer = Layer.succeed(
       }
 
       // Remove the H1 heading from content if we're using it as the title
-      const contentToParse = content.replace(/^\s*#\s+.*?(\s+#*)?$/m, '').trim();
+      const contentToParse = content
+        .replace(/^\s*#\s+.*?(\s+#*)?$/m, '')
+        .trim();
 
       // Add extra line breaks between sections
       const contentWithBreaks = contentToParse
@@ -177,7 +178,9 @@ export const AppleNotesExportLayer = Layer.succeed(
         ),
       );
 
-      const folderInfo = options?.folder ? ` in folder "${options.folder}"` : '';
+      const folderInfo = options?.folder
+        ? ` in folder "${options.folder}"`
+        : '';
       yield* Effect.log(
         `Success! Note "${finalNoteTitle}" created in Apple Notes${folderInfo}.`,
       );

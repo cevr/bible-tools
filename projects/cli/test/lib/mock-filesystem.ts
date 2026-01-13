@@ -154,7 +154,11 @@ export const createMockFileSystemLayer = (config: MockFileSystemConfig) => {
 
     writeFileString: (path, content) =>
       Effect.gen(function* () {
-        yield* recordCall({ _tag: 'FileSystem.writeFileString', path, content });
+        yield* recordCall({
+          _tag: 'FileSystem.writeFileString',
+          path,
+          content,
+        });
         state.files.set(path, content);
         // Ensure parent directories exist
         const parts = path.split('/');

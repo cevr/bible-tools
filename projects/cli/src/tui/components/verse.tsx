@@ -1,7 +1,7 @@
-import { For, Show, createMemo } from 'solid-js';
+import { createMemo, For, Show } from 'solid-js';
 
+import type { MarginNote, WordWithStrongs } from '../../bible/study-db.js';
 import type { Verse as VerseType } from '../../bible/types.js';
-import type { WordWithStrongs, MarginNote } from '../../bible/study-db.js';
 import { useTheme } from '../context/theme.js';
 
 interface VerseProps {
@@ -19,18 +19,26 @@ interface VerseProps {
 // Format margin note type prefix
 export function formatNoteType(type: MarginNote['type']): string {
   switch (type) {
-    case 'hebrew': return 'Heb.';
-    case 'greek': return 'Gr.';
-    case 'alternate': return 'Or,';
-    case 'name': return '';
-    case 'other': return '';
+    case 'hebrew':
+      return 'Heb.';
+    case 'greek':
+      return 'Gr.';
+    case 'alternate':
+      return 'Or,';
+    case 'name':
+      return '';
+    case 'other':
+      return '';
   }
 }
 
 // Convert number to superscript
 function toSuperscript(n: number): string {
   const superscripts = ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹'];
-  return String(n).split('').map(d => superscripts[parseInt(d)]!).join('');
+  return String(n)
+    .split('')
+    .map((d) => superscripts[parseInt(d)]!)
+    .join('');
 }
 
 type TextSegment =
@@ -45,10 +53,14 @@ type TextSegment =
 function segmentVerseText(
   text: string,
   marginNotes: MarginNote[],
-  searchQuery?: string
+  searchQuery?: string,
 ): TextSegment[] {
   // First, find all phrase matches and their positions
-  const phraseMatches: Array<{ start: number; end: number; noteIndex: number }> = [];
+  const phraseMatches: Array<{
+    start: number;
+    end: number;
+    noteIndex: number;
+  }> = [];
 
   for (let i = 0; i < marginNotes.length; i++) {
     const note = marginNotes[i]!;
@@ -114,10 +126,16 @@ function segmentVerseText(
       while ((searchPos = lowerSegText.indexOf(lowerQuery, pos)) !== -1) {
         // Text before match
         if (searchPos > pos) {
-          finalSegments.push({ type: 'text', text: segText.slice(pos, searchPos) });
+          finalSegments.push({
+            type: 'text',
+            text: segText.slice(pos, searchPos),
+          });
         }
         // Highlighted match
-        finalSegments.push({ type: 'highlight', text: segText.slice(searchPos, searchPos + searchQuery.length) });
+        finalSegments.push({
+          type: 'highlight',
+          text: segText.slice(searchPos, searchPos + searchQuery.length),
+        });
         pos = searchPos + searchQuery.length;
       }
 
@@ -137,12 +155,11 @@ export function Verse(props: VerseProps) {
   const { theme } = useTheme();
 
   // Clean up verse text (remove pilcrow and brackets)
-  const cleanText = () => props.verse.text
-    .replace(/^\u00b6\s*/, '')
-    .replace(/\[([^\]]+)\]/g, '$1');
+  const cleanText = () =>
+    props.verse.text.replace(/^\u00b6\s*/, '').replace(/\[([^\]]+)\]/g, '$1');
 
   const segments = createMemo(() =>
-    segmentVerseText(cleanText(), props.marginNotes ?? [], props.searchQuery)
+    segmentVerseText(cleanText(), props.marginNotes ?? [], props.searchQuery),
   );
 
   // Render content based on word mode
@@ -156,10 +173,16 @@ export function Verse(props: VerseProps) {
             const hasStrongs = () => word.strongs && word.strongs.length > 0;
             return (
               <span>
-                <span style={{
-                  fg: isSelected() ? theme().accent : hasStrongs() ? theme().text : theme().textMuted,
-                  textDecoration: isSelected() ? 'underline' : undefined,
-                }}>
+                <span
+                  style={{
+                    fg: isSelected()
+                      ? theme().accent
+                      : hasStrongs()
+                        ? theme().text
+                        : theme().textMuted,
+                    textDecoration: isSelected() ? 'underline' : undefined,
+                  }}
+                >
                   {isSelected() ? <strong>{word.text}</strong> : word.text}
                 </span>
                 {index() < props.words!.length - 1 ? ' ' : ''}
@@ -202,13 +225,26 @@ export function Verse(props: VerseProps) {
       paddingRight={2}
       paddingTop={0}
       paddingBottom={0}
-      backgroundColor={props.isHighlighted ? theme().verseHighlight : props.isSearchMatch ? theme().backgroundPanel : undefined}
+      backgroundColor={
+        props.isHighlighted
+          ? theme().verseHighlight
+          : props.isSearchMatch
+            ? theme().backgroundPanel
+            : undefined
+      }
     >
       <box flexDirection="row">
-        <text fg={theme().verseNumber} marginRight={1} minWidth={3}>
+        <text
+          fg={theme().verseNumber}
+          marginRight={1}
+          minWidth={3}
+        >
           <strong>{props.verse.verse}</strong>
         </text>
-        <text fg={theme().verseText} wrapMode="word">
+        <text
+          fg={theme().verseText}
+          wrapMode="word"
+        >
           {renderContent()}
         </text>
       </box>
@@ -226,7 +262,10 @@ interface VerseParagraphProps {
 export function VerseParagraph(props: VerseParagraphProps) {
   const { theme } = useTheme();
 
-  const renderTextWithHighlights = (text: string, query: string | undefined) => {
+  const renderTextWithHighlights = (
+    text: string,
+    query: string | undefined,
+  ) => {
     if (!query || query.length < 2) {
       return <span>{text}</span>;
     }
@@ -241,7 +280,10 @@ export function VerseParagraph(props: VerseParagraphProps) {
       if (pos > lastIndex) {
         segments.push({ text: text.slice(lastIndex, pos), highlight: false });
       }
-      segments.push({ text: text.slice(pos, pos + query.length), highlight: true });
+      segments.push({
+        text: text.slice(pos, pos + query.length),
+        highlight: true,
+      });
       lastIndex = pos + query.length;
       pos += 1;
     }
@@ -271,8 +313,14 @@ export function VerseParagraph(props: VerseParagraphProps) {
   };
 
   return (
-    <box paddingLeft={2} paddingRight={2}>
-      <text fg={theme().verseText} wrapMode="word">
+    <box
+      paddingLeft={2}
+      paddingRight={2}
+    >
+      <text
+        fg={theme().verseText}
+        wrapMode="word"
+      >
         <For each={props.verses}>
           {(verse, index) => {
             const cleanText = verse.text
@@ -280,18 +328,34 @@ export function VerseParagraph(props: VerseParagraphProps) {
               .replace(/\[([^\]]+)\]/g, '$1');
 
             const isHighlighted = () => props.highlightedVerse === verse.verse;
-            const isSearchMatch = () => props.searchMatchVerses?.includes(verse.verse) ?? false;
+            const isSearchMatch = () =>
+              props.searchMatchVerses?.includes(verse.verse) ?? false;
 
             return (
               <span>
-                <strong style={{
-                  fg: theme().verseNumber,
-                  bg: isHighlighted() ? theme().verseHighlight : isSearchMatch() ? theme().backgroundPanel : undefined
-                }}>
+                <strong
+                  style={{
+                    fg: theme().verseNumber,
+                    bg: isHighlighted()
+                      ? theme().verseHighlight
+                      : isSearchMatch()
+                        ? theme().backgroundPanel
+                        : undefined,
+                  }}
+                >
                   {verse.verse}
                 </strong>
-                <span style={{ bg: isHighlighted() ? theme().verseHighlight : isSearchMatch() ? theme().backgroundPanel : undefined }}>
-                  {' '}{renderTextWithHighlights(cleanText, props.searchQuery)}
+                <span
+                  style={{
+                    bg: isHighlighted()
+                      ? theme().verseHighlight
+                      : isSearchMatch()
+                        ? theme().backgroundPanel
+                        : undefined,
+                  }}
+                >
+                  {' '}
+                  {renderTextWithHighlights(cleanText, props.searchQuery)}
                 </span>
                 {index() < props.verses.length - 1 ? ' ' : ''}
               </span>

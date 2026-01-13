@@ -1,4 +1,5 @@
 import path from 'path';
+
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
@@ -9,8 +10,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '~': path.resolve(__dirname, './'),
-      // Mock bun module for vitest
+      // Mock bun modules for vitest
       bun: path.resolve(__dirname, './test/lib/bun-shim.ts'),
+      'bun:sqlite': path.resolve(__dirname, './test/lib/bun-sqlite-shim.ts'),
     },
   },
 });

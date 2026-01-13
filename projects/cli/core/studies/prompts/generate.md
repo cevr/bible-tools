@@ -201,8 +201,7 @@ scripture and practical application.
 2. **Application** (how to live it)
 3. **Growth** (next steps in spiritual development)
 
-_Final scripture quote for inspiration_
-</output-format>
+_Final scripture quote for inspiration_ </output-format>
 
 ## 10. Prefilled Replies
 

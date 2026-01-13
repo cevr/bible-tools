@@ -1,8 +1,8 @@
-import { createSignal, onMount, Show } from 'solid-js';
 import { useKeyboard } from '@opentui/solid';
+import { createSignal, onMount, Show } from 'solid-js';
 
-import { useTheme } from '../context/theme.js';
 import { useSearch } from '../context/search.js';
+import { useTheme } from '../context/theme.js';
 
 interface SearchBoxProps {
   onClose: () => void;
@@ -10,7 +10,15 @@ interface SearchBoxProps {
 
 export function SearchBox(props: SearchBoxProps) {
   const { theme } = useTheme();
-  const { query, setQuery, matches, currentMatchIndex, totalMatches, nextMatch, prevMatch } = useSearch();
+  const {
+    query,
+    setQuery,
+    matches,
+    currentMatchIndex,
+    totalMatches,
+    nextMatch,
+    prevMatch,
+  } = useSearch();
 
   // Delay rendering the input until after the triggering keystroke is processed
   const [ready, setReady] = createSignal(false);
@@ -73,13 +81,17 @@ export function SearchBox(props: SearchBoxProps) {
       gap={1}
     >
       {/* Search icon/label */}
-      <text fg={theme().accent}>
-        /
-      </text>
+      <text fg={theme().accent}>/</text>
 
       {/* Input - delayed render to skip trigger keystroke */}
-      <box flexGrow={1} height={1}>
-        <Show when={ready()} fallback={<text fg={theme().textMuted}>Search...</text>}>
+      <box
+        flexGrow={1}
+        height={1}
+      >
+        <Show
+          when={ready()}
+          fallback={<text fg={theme().textMuted}>Search...</text>}
+        >
           <input
             placeholder="Search..."
             focused
@@ -89,9 +101,7 @@ export function SearchBox(props: SearchBoxProps) {
       </box>
 
       {/* Status */}
-      <text fg={theme().textMuted}>
-        {statusText()}
-      </text>
+      <text fg={theme().textMuted}>{statusText()}</text>
     </box>
   );
 }

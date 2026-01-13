@@ -1,5 +1,5 @@
-import { createContext, useContext, type ParentProps } from 'solid-js';
 import type { LanguageModel } from 'ai';
+import { createContext, useContext, type ParentProps } from 'solid-js';
 
 // Model service interface for TUI
 export interface ModelService {
@@ -16,7 +16,11 @@ interface ModelProviderProps {
 }
 
 export function ModelProvider(props: ParentProps<ModelProviderProps>) {
-  return <ModelContext.Provider value={props.model}>{props.children}</ModelContext.Provider>;
+  return (
+    <ModelContext.Provider value={props.model}>
+      {props.children}
+    </ModelContext.Provider>
+  );
 }
 
 export function useModel(): ModelService | null {

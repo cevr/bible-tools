@@ -15,11 +15,15 @@ export const exportOutput = Command.make('export', { files }, (args) =>
     const fileSystem = yield* FileSystem.FileSystem;
 
     if (args.files.length === 0) {
-      yield* Effect.logError('No files specified. Use --files or -f to specify files to export.');
+      yield* Effect.logError(
+        'No files specified. Use --files or -f to specify files to export.',
+      );
       return;
     }
 
-    yield* Effect.log(`Exporting ${args.files.length} file(s) to Apple Notes...`);
+    yield* Effect.log(
+      `Exporting ${args.files.length} file(s) to Apple Notes...`,
+    );
 
     const contents = yield* Effect.forEach(args.files, (filePath) =>
       fileSystem.readFile(filePath),
@@ -32,6 +36,8 @@ export const exportOutput = Command.make('export', { files }, (args) =>
       }),
     );
 
-    yield* Effect.log(`Successfully exported ${args.files.length} file(s) to Apple Notes.`);
+    yield* Effect.log(
+      `Successfully exported ${args.files.length} file(s) to Apple Notes.`,
+    );
   }),
 );

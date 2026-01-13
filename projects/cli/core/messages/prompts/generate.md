@@ -88,9 +88,8 @@ Design each outline to move through **increasing levels of clarity and weight**:
    - Deliver the strongest truth last
    - Call for covenant‑level response
 
-Do not front‑load complexity.
-Do not resolve tension early.
-Allow truth to **build and press**.
+Do not front‑load complexity. Do not resolve tension early. Allow truth to
+**build and press**.
 
 ---
 

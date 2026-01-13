@@ -346,49 +346,49 @@ const instructions = Options.text('instructions').pipe(
   Options.withDescription('Revision instructions'),
 );
 
-const reviseReading = Command.make('revise', { model, file, instructions }, (args) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
-    const path = yield* Path.Path;
+const reviseReading = Command.make(
+  'revise',
+  { model, file, instructions },
+  (args) =>
+    Effect.gen(function* () {
+      const fs = yield* FileSystem.FileSystem;
+      const path = yield* Path.Path;
 
-    const reading = yield* fs
-      .readFile(args.file)
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
+      const reading = yield* fs
+        .readFile(args.file)
+        .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    // Determine which prompt to use based on file type
-    const isSlides = args.file.includes('-slides');
-    const isSpeakerNotes = args.file.includes('-speaker-notes');
-    const promptFile = isSpeakerNotes
-      ? 'generate-speaker-notes.md'
-      : isSlides
-        ? 'generate-slides.md'
-        : 'generate-study.md';
+      // Determine which prompt to use based on file type
+      const isSlides = args.file.includes('-slides');
+      const isSpeakerNotes = args.file.includes('-speaker-notes');
+      const promptFile = isSpeakerNotes
+        ? 'generate-speaker-notes.md'
+        : isSlides
+          ? 'generate-slides.md'
+          : 'generate-study.md';
 
-    const systemPrompt = yield* fs
-      .readFile(
-        path.join(process.cwd(), 'core', 'readings', 'prompts', promptFile),
-      )
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
+      const systemPrompt = yield* fs
+        .readFile(
+          path.join(process.cwd(), 'core', 'readings', 'prompts', promptFile),
+        )
+        .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const revisedReading = yield* revise({
-      cycles: [
-        {
-          prompt: '',
-          response: reading,
-        },
-      ],
-      systemPrompt,
-      instructions: args.instructions,
-    }).pipe(Effect.provideService(Model, args.model));
+      const revisedReading = yield* revise({
+        cycles: [
+          {
+            prompt: '',
+            response: reading,
+          },
+        ],
+        systemPrompt,
+        instructions: args.instructions,
+      }).pipe(Effect.provideService(Model, args.model));
 
-    yield* fs.writeFile(
-      args.file,
-      new TextEncoder().encode(revisedReading),
-    );
+      yield* fs.writeFile(args.file, new TextEncoder().encode(revisedReading));
 
-    yield* Effect.log(`Reading revised successfully!`);
-    yield* Effect.log(`Output: ${args.file}`);
-  }),
+      yield* Effect.log(`Reading revised successfully!`);
+      yield* Effect.log(`Output: ${args.file}`);
+    }),
 );
 
 const json = Options.boolean('json').pipe(
@@ -402,9 +402,9 @@ const listReadings = Command.make('list', { json }, (args) =>
     const path = yield* Path.Path;
 
     const outputDir = path.join(process.cwd(), 'outputs', 'readings');
-    const files = yield* fs.readDirectory(outputDir).pipe(
-      Effect.catchAll(() => Effect.succeed([] as string[])),
-    );
+    const files = yield* fs
+      .readDirectory(outputDir)
+      .pipe(Effect.catchAll(() => Effect.succeed([] as string[])));
 
     const filePaths = files
       .filter((f) => f.endsWith('.md'))

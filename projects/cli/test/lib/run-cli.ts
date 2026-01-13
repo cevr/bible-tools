@@ -77,7 +77,10 @@ export const runCli = async <Name extends string, R, E>(
 
     // Log failure details for debugging
     if (!success) {
-      console.error('CLI command failed:', Exit.isFailure(exit) ? exit.cause : 'unknown');
+      console.error(
+        'CLI command failed:',
+        Exit.isFailure(exit) ? exit.cause : 'unknown',
+      );
     }
 
     return {
@@ -126,7 +129,11 @@ export const expectSequence = (
             typeof value === 'object' &&
             'asymmetricMatch' in value
           ) {
-            if (!(value as { asymmetricMatch: (v: unknown) => boolean }).asymmetricMatch(actualValue)) {
+            if (
+              !(
+                value as { asymmetricMatch: (v: unknown) => boolean }
+              ).asymmetricMatch(actualValue)
+            ) {
               matches = false;
               break;
             }
@@ -169,7 +176,10 @@ export const expectCallCount = (
 /**
  * Assert that no calls of a specific type were made.
  */
-export const expectNoCalls = (calls: ServiceCall[], tag: ServiceCall['_tag']) => {
+export const expectNoCalls = (
+  calls: ServiceCall[],
+  tag: ServiceCall['_tag'],
+) => {
   expectCallCount(calls, tag, 0);
 };
 
@@ -197,7 +207,9 @@ export const expectContains = (
         // Handle expect.stringContaining and other matchers
         if (value && typeof value === 'object' && 'asymmetricMatch' in value) {
           if (
-            !(value as { asymmetricMatch: (v: unknown) => boolean }).asymmetricMatch(actualValue)
+            !(
+              value as { asymmetricMatch: (v: unknown) => boolean }
+            ).asymmetricMatch(actualValue)
           ) {
             return false;
           }
@@ -216,7 +228,8 @@ export const expectContains = (
           ? `Matching calls: ${JSON.stringify(matchingCalls, null, 2)}`
           : `All calls: ${JSON.stringify(actual.map((c) => c._tag))}`;
       expect.fail(
-        `Expected call ${JSON.stringify(expectedCall)} not found in calls.\n` + actualSummary,
+        `Expected call ${JSON.stringify(expectedCall)} not found in calls.\n` +
+          actualSummary,
       );
     }
   }

@@ -1,15 +1,14 @@
-import { Options, ValidationError } from '@effect/cli';
-import { select } from '@effect/cli/Prompt';
-import { Context, Effect, Option } from 'effect';
-import { matchSorter } from 'match-sorter';
-
 import {
   AiService,
   discoverProviders,
   getProviderName,
-  type ModelConfig,
   Provider,
+  type ModelConfig,
 } from '@bible/core/ai';
+import { Options, ValidationError } from '@effect/cli';
+import { select } from '@effect/cli/Prompt';
+import { Context, Effect, Option } from 'effect';
+import { matchSorter } from 'match-sorter';
 
 /**
  * Match a string value against an enum.
@@ -94,5 +93,4 @@ export class Model extends Context.Tag('Model')<
 /**
  * Create an AiService layer from the selected model configuration.
  */
-export const makeAiServiceLayer = (config: ModelConfig) =>
-  AiService.of(config);
+export const makeAiServiceLayer = (config: ModelConfig) => AiService.of(config);

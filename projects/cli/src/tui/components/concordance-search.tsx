@@ -5,9 +5,9 @@
  * Enter a Strong's number (H1234 or G5678) to see all occurrences.
  */
 
-import { createSignal, createMemo, For, Show } from 'solid-js';
-import { useKeyboard } from '@opentui/solid';
 import type { ScrollBoxRenderable } from '@opentui/core';
+import { useKeyboard } from '@opentui/solid';
+import { createMemo, createSignal, For, Show } from 'solid-js';
 
 import type { Reference } from '../../bible/types.js';
 import { formatReference } from '../../bible/types.js';
@@ -70,26 +70,30 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
 
     if (isStrongsQuery()) {
       // Concordance results - verses containing the Strong's number
-      return (res as ReturnType<typeof studyData.searchByStrongs>).map(r => {
-        const verse = data.getVerse(r.book, r.chapter, r.verse);
-        let preview = '';
-        if (verse) {
-          preview = verse.text
-            .replace(/\u00b6\s*/, '')
-            .replace(/\[.*?\]/g, '')
-            .slice(0, 40);
-          if (verse.text.length > 40) preview += '...';
-        }
-        return {
-          type: 'verse' as const,
-          ref: { book: r.book, chapter: r.chapter, verse: r.verse },
-          word: r.word,
-          preview,
-        };
-      }).slice(0, 100); // Limit to 100 results for performance
+      return (res as ReturnType<typeof studyData.searchByStrongs>)
+        .map((r) => {
+          const verse = data.getVerse(r.book, r.chapter, r.verse);
+          let preview = '';
+          if (verse) {
+            preview = verse.text
+              .replace(/\u00b6\s*/, '')
+              .replace(/\[.*?\]/g, '')
+              .slice(0, 40);
+            if (verse.text.length > 40) preview += '...';
+          }
+          return {
+            type: 'verse' as const,
+            ref: { book: r.book, chapter: r.chapter, verse: r.verse },
+            word: r.word,
+            preview,
+          };
+        })
+        .slice(0, 100); // Limit to 100 results for performance
     } else {
       // Strong's definition search results
-      return (res as ReturnType<typeof studyData.searchStrongsByDefinition>).map(entry => ({
+      return (
+        res as ReturnType<typeof studyData.searchStrongsByDefinition>
+      ).map((entry) => ({
         type: 'strongs' as const,
         number: entry.number,
         lemma: entry.lemma,
@@ -99,7 +103,7 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
   });
 
   const moveSelection = (delta: number) => {
-    setSelectedIndex(i => {
+    setSelectedIndex((i) => {
       const maxIndex = formattedResults().length - 1;
       const newIndex = i + delta;
       return Math.max(0, Math.min(maxIndex, newIndex));
@@ -107,10 +111,7 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
   };
 
   // Scroll to keep selected item visible
-  useScrollSync(
-    () => `result-${selectedIndex()}`,
-    { getRef: () => scrollRef }
-  );
+  useScrollSync(() => `result-${selectedIndex()}`, { getRef: () => scrollRef });
 
   const selectCurrent = () => {
     const res = formattedResults();
@@ -127,12 +128,12 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
   };
 
   const handleInput = (char: string) => {
-    setQuery(q => q + char);
+    setQuery((q) => q + char);
     setSelectedIndex(0);
   };
 
   const handleBackspace = () => {
-    setQuery(q => q.slice(0, -1));
+    setQuery((q) => q.slice(0, -1));
     setSelectedIndex(0);
   };
 
@@ -195,7 +196,11 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
         marginBottom={1}
       >
         <text fg={theme().text}>
-          {query() || <span style={{ fg: theme().textMuted }}>Type H1234, G5678, or English word...</span>}
+          {query() || (
+            <span style={{ fg: theme().textMuted }}>
+              Type H1234, G5678, or English word...
+            </span>
+          )}
           <span style={{ fg: theme().accent }}>_</span>
         </text>
       </box>
@@ -204,10 +209,11 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
       <Show when={isStrongsQuery() && strongsInfo()}>
         <box marginBottom={1}>
           <text fg={theme().textMuted}>
-            <span style={{ fg: theme().accent }}>{strongsInfo()?.number}</span>
-            {' '}<span style={{ fg: theme().text }}>{strongsInfo()?.lemma}</span>
-            {' - '}{strongsInfo()?.def.slice(0, 40)}...
-            {' '}({occurrenceCount()} occurrences)
+            <span style={{ fg: theme().accent }}>{strongsInfo()?.number}</span>{' '}
+            <span style={{ fg: theme().text }}>{strongsInfo()?.lemma}</span>
+            {' - '}
+            {strongsInfo()?.def.slice(0, 40)}... ({occurrenceCount()}{' '}
+            occurrences)
           </text>
         </box>
       </Show>
@@ -254,24 +260,46 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
               if (item.type === 'verse') {
                 const refText = formatReference(item.ref).padEnd(20);
                 return (
-                  <text id={`result-${index()}`} fg={isSelected() ? theme().accent : theme().textMuted}>
+                  <text
+                    id={`result-${index()}`}
+                    fg={isSelected() ? theme().accent : theme().textMuted}
+                  >
                     {isSelected() ? '▶ ' : '  '}
-                    <span style={{ fg: isSelected() ? theme().accent : theme().text }}>
+                    <span
+                      style={{
+                        fg: isSelected() ? theme().accent : theme().text,
+                      }}
+                    >
                       {isSelected() ? <strong>{refText}</strong> : refText}
                     </span>
-                    <span style={{ fg: theme().textMuted }}>{item.word.padEnd(12)}</span>
+                    <span style={{ fg: theme().textMuted }}>
+                      {item.word.padEnd(12)}
+                    </span>
                     {item.preview}
                   </text>
                 );
               } else {
                 // Strong's entry result
                 return (
-                  <text id={`result-${index()}`} fg={isSelected() ? theme().accent : theme().textMuted}>
+                  <text
+                    id={`result-${index()}`}
+                    fg={isSelected() ? theme().accent : theme().textMuted}
+                  >
                     {isSelected() ? '▶ ' : '  '}
-                    <span style={{ fg: isSelected() ? theme().accent : theme().text }}>
-                      {isSelected() ? <strong>{item.number.padEnd(8)}</strong> : item.number.padEnd(8)}
+                    <span
+                      style={{
+                        fg: isSelected() ? theme().accent : theme().text,
+                      }}
+                    >
+                      {isSelected() ? (
+                        <strong>{item.number.padEnd(8)}</strong>
+                      ) : (
+                        item.number.padEnd(8)
+                      )}
                     </span>
-                    <span style={{ fg: theme().text }}>{item.lemma.padEnd(15)}</span>
+                    <span style={{ fg: theme().text }}>
+                      {item.lemma.padEnd(15)}
+                    </span>
                     {item.def}
                   </text>
                 );

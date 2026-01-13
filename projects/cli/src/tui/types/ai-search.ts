@@ -36,7 +36,11 @@ export const AiSearchState = {
     results,
   }),
   empty: (query: string): AiSearchState => ({ _tag: 'empty', query }),
-  error: (query: string, error: string): AiSearchState => ({ _tag: 'error', query, error }),
+  error: (query: string, error: string): AiSearchState => ({
+    _tag: 'error',
+    query,
+    error,
+  }),
 } as const;
 
 // Helper predicates

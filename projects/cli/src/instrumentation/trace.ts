@@ -58,7 +58,11 @@ export function trace(label: string, metadata?: Record<string, unknown>): void {
 /**
  * Time a synchronous operation
  */
-export function traceSync<T>(label: string, fn: () => T, metadata?: Record<string, unknown>): T {
+export function traceSync<T>(
+  label: string,
+  fn: () => T,
+  metadata?: Record<string, unknown>,
+): T {
   if (!ENABLED) return fn();
 
   const startMs = elapsed();
@@ -68,12 +72,21 @@ export function traceSync<T>(label: string, fn: () => T, metadata?: Record<strin
     entries.push({ label, timestampMs: startMs, durationMs, metadata });
 
     const metaStr = metadata ? ` ${JSON.stringify(metadata)}` : '';
-    console.error(`[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms)${metaStr}`);
+    console.error(
+      `[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms)${metaStr}`,
+    );
     return result;
   } catch (error) {
     const durationMs = elapsed() - startMs;
-    entries.push({ label, timestampMs: startMs, durationMs, metadata: { ...metadata, error: true } });
-    console.error(`[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms) [ERROR]`);
+    entries.push({
+      label,
+      timestampMs: startMs,
+      durationMs,
+      metadata: { ...metadata, error: true },
+    });
+    console.error(
+      `[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms) [ERROR]`,
+    );
     throw error;
   }
 }
@@ -84,7 +97,7 @@ export function traceSync<T>(label: string, fn: () => T, metadata?: Record<strin
 export async function traceAsync<T>(
   label: string,
   fn: () => Promise<T>,
-  metadata?: Record<string, unknown>
+  metadata?: Record<string, unknown>,
 ): Promise<T> {
   if (!ENABLED) return fn();
 
@@ -95,12 +108,21 @@ export async function traceAsync<T>(
     entries.push({ label, timestampMs: startMs, durationMs, metadata });
 
     const metaStr = metadata ? ` ${JSON.stringify(metadata)}` : '';
-    console.error(`[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms)${metaStr}`);
+    console.error(
+      `[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms)${metaStr}`,
+    );
     return result;
   } catch (error) {
     const durationMs = elapsed() - startMs;
-    entries.push({ label, timestampMs: startMs, durationMs, metadata: { ...metadata, error: true } });
-    console.error(`[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms) [ERROR]`);
+    entries.push({
+      label,
+      timestampMs: startMs,
+      durationMs,
+      metadata: { ...metadata, error: true },
+    });
+    console.error(
+      `[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms) [ERROR]`,
+    );
     throw error;
   }
 }
@@ -108,7 +130,10 @@ export async function traceAsync<T>(
 /**
  * Create a trace span that can be ended later
  */
-export function startSpan(label: string, metadata?: Record<string, unknown>): () => void {
+export function startSpan(
+  label: string,
+  metadata?: Record<string, unknown>,
+): () => void {
   if (!ENABLED) return () => {};
 
   const startMs = elapsed();
@@ -117,7 +142,9 @@ export function startSpan(label: string, metadata?: Record<string, unknown>): ()
     entries.push({ label, timestampMs: startMs, durationMs, metadata });
 
     const metaStr = metadata ? ` ${JSON.stringify(metadata)}` : '';
-    console.error(`[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms)${metaStr}`);
+    console.error(
+      `[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms)${metaStr}`,
+    );
   };
 }
 
@@ -137,9 +164,11 @@ export function printSummary(): void {
   console.error('');
 
   // Find slowest operations (with duration)
-  const withDuration = entries.filter(e => e.durationMs !== undefined);
+  const withDuration = entries.filter((e) => e.durationMs !== undefined);
   if (withDuration.length > 0) {
-    const sorted = [...withDuration].sort((a, b) => (b.durationMs ?? 0) - (a.durationMs ?? 0));
+    const sorted = [...withDuration].sort(
+      (a, b) => (b.durationMs ?? 0) - (a.durationMs ?? 0),
+    );
     const top10 = sorted.slice(0, 10);
 
     console.error('Slowest operations:');
@@ -155,8 +184,13 @@ export function printSummary(): void {
   for (const entry of entries) {
     const gap = entry.timestampMs - lastTs;
     const gapStr = gap > 1 ? ` (+${gap.toFixed(0)}ms)` : '';
-    const durStr = entry.durationMs !== undefined ? ` [${entry.durationMs.toFixed(2)}ms]` : '';
-    console.error(`  ${entry.timestampMs.toFixed(2)}ms${gapStr} - ${entry.label}${durStr}`);
+    const durStr =
+      entry.durationMs !== undefined
+        ? ` [${entry.durationMs.toFixed(2)}ms]`
+        : '';
+    console.error(
+      `  ${entry.timestampMs.toFixed(2)}ms${gapStr} - ${entry.label}${durStr}`,
+    );
     lastTs = entry.timestampMs + (entry.durationMs ?? 0);
   }
 
@@ -167,14 +201,18 @@ export function printSummary(): void {
  * Get trace data as JSON (for programmatic analysis)
  */
 export function getTraceJson(): string {
-  return JSON.stringify({
-    totalMs: elapsed(),
-    entries,
-    slowest: [...entries]
-      .filter(e => e.durationMs !== undefined)
-      .sort((a, b) => (b.durationMs ?? 0) - (a.durationMs ?? 0))
-      .slice(0, 20),
-  }, null, 2);
+  return JSON.stringify(
+    {
+      totalMs: elapsed(),
+      entries,
+      slowest: [...entries]
+        .filter((e) => e.durationMs !== undefined)
+        .sort((a, b) => (b.durationMs ?? 0) - (a.durationMs ?? 0))
+        .slice(0, 20),
+    },
+    null,
+    2,
+  );
 }
 
 /**

@@ -1,8 +1,16 @@
-import { createContext, useContext, type ParentProps } from 'solid-js';
 import { Effect } from 'effect';
+import { createContext, useContext, type ParentProps } from 'solid-js';
 
-import { BibleData, BibleDataLive, type BibleDataService } from '../../bible/data.js';
-import { BibleState, BibleStateLayer, type BibleStateService } from '../../bible/state.js';
+import {
+  BibleData,
+  BibleDataLive,
+  type BibleDataService,
+} from '../../bible/data.js';
+import {
+  BibleState,
+  BibleStateLayer,
+  type BibleStateService,
+} from '../../bible/state.js';
 
 // Combined services for the Bible viewer
 interface BibleContextValue {
@@ -15,12 +23,10 @@ const BibleContext = createContext<BibleContextValue>();
 // Create services synchronously
 function createServices(): BibleContextValue {
   // Access the service implementations directly from the layers
-  const dataService = Effect.runSync(
-    Effect.provide(BibleData, BibleDataLive)
-  );
+  const dataService = Effect.runSync(Effect.provide(BibleData, BibleDataLive));
 
   const stateService = Effect.runSync(
-    Effect.provide(BibleState, BibleStateLayer)
+    Effect.provide(BibleState, BibleStateLayer),
   );
 
   return {
@@ -42,7 +48,11 @@ function getServices(): BibleContextValue {
 export function BibleProvider(props: ParentProps) {
   const value = getServices();
 
-  return <BibleContext.Provider value={value}>{props.children}</BibleContext.Provider>;
+  return (
+    <BibleContext.Provider value={value}>
+      {props.children}
+    </BibleContext.Provider>
+  );
 }
 
 export function useBible(): BibleContextValue {

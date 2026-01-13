@@ -1,9 +1,13 @@
 import { describe, expect, it } from 'vitest';
 
-import { parseVerseQuery, getVersesForQuery, ParsedQuery } from '../../src/bible/parse.js';
 import { isStrongsNumber } from '../../core/bible/bible.js';
 import type { BibleDataService } from '../../src/bible/data.js';
-import type { Verse, Book } from '../../src/bible/types.js';
+import {
+  getVersesForQuery,
+  ParsedQuery,
+  parseVerseQuery,
+} from '../../src/bible/parse.js';
+import type { Book, Verse } from '../../src/bible/types.js';
 
 // Minimal mock BibleDataService for testing parsing logic
 function createMockBibleData(): BibleDataService {
@@ -16,26 +20,86 @@ function createMockBibleData(): BibleDataService {
 
   const verses: Record<string, Verse[]> = {
     '43-3': [
-      { book_name: 'John', book: 43, chapter: 3, verse: 16, text: 'For God so loved the world...' },
-      { book_name: 'John', book: 43, chapter: 3, verse: 17, text: 'For God sent not his Son...' },
-      { book_name: 'John', book: 43, chapter: 3, verse: 18, text: 'He that believeth...' },
+      {
+        book_name: 'John',
+        book: 43,
+        chapter: 3,
+        verse: 16,
+        text: 'For God so loved the world...',
+      },
+      {
+        book_name: 'John',
+        book: 43,
+        chapter: 3,
+        verse: 17,
+        text: 'For God sent not his Son...',
+      },
+      {
+        book_name: 'John',
+        book: 43,
+        chapter: 3,
+        verse: 18,
+        text: 'He that believeth...',
+      },
     ],
     '8-1': [
-      { book_name: 'Ruth', book: 8, chapter: 1, verse: 1, text: 'Now it came to pass...' },
-      { book_name: 'Ruth', book: 8, chapter: 1, verse: 2, text: 'And the name of the man...' },
+      {
+        book_name: 'Ruth',
+        book: 8,
+        chapter: 1,
+        verse: 1,
+        text: 'Now it came to pass...',
+      },
+      {
+        book_name: 'Ruth',
+        book: 8,
+        chapter: 1,
+        verse: 2,
+        text: 'And the name of the man...',
+      },
     ],
     '8-2': [
-      { book_name: 'Ruth', book: 8, chapter: 2, verse: 1, text: 'And Naomi had a kinsman...' },
+      {
+        book_name: 'Ruth',
+        book: 8,
+        chapter: 2,
+        verse: 1,
+        text: 'And Naomi had a kinsman...',
+      },
     ],
     '19-1': [
-      { book_name: 'Psalms', book: 19, chapter: 1, verse: 1, text: 'Blessed is the man...' },
-      { book_name: 'Psalms', book: 19, chapter: 1, verse: 2, text: 'But his delight...' },
+      {
+        book_name: 'Psalms',
+        book: 19,
+        chapter: 1,
+        verse: 1,
+        text: 'Blessed is the man...',
+      },
+      {
+        book_name: 'Psalms',
+        book: 19,
+        chapter: 1,
+        verse: 2,
+        text: 'But his delight...',
+      },
     ],
     '19-2': [
-      { book_name: 'Psalms', book: 19, chapter: 2, verse: 1, text: 'Why do the heathen rage...' },
+      {
+        book_name: 'Psalms',
+        book: 19,
+        chapter: 2,
+        verse: 1,
+        text: 'Why do the heathen rage...',
+      },
     ],
     '19-3': [
-      { book_name: 'Psalms', book: 19, chapter: 3, verse: 1, text: 'LORD, how are they increased...' },
+      {
+        book_name: 'Psalms',
+        book: 19,
+        chapter: 3,
+        verse: 1,
+        text: 'LORD, how are they increased...',
+      },
     ],
   };
 
@@ -174,19 +238,19 @@ describe('bible verse parsing', () => {
 
 describe('bible concordance', () => {
   describe('isStrongsNumber', () => {
-    it('should detect Hebrew Strong\'s number (uppercase)', () => {
+    it("should detect Hebrew Strong's number (uppercase)", () => {
       expect(isStrongsNumber('H1234')).toBe(true);
     });
 
-    it('should detect Hebrew Strong\'s number (lowercase)', () => {
+    it("should detect Hebrew Strong's number (lowercase)", () => {
       expect(isStrongsNumber('h1234')).toBe(true);
     });
 
-    it('should detect Greek Strong\'s number (uppercase)', () => {
+    it("should detect Greek Strong's number (uppercase)", () => {
       expect(isStrongsNumber('G5678')).toBe(true);
     });
 
-    it('should detect Greek Strong\'s number (lowercase)', () => {
+    it("should detect Greek Strong's number (lowercase)", () => {
       expect(isStrongsNumber('g26')).toBe(true);
     });
 

@@ -1,16 +1,28 @@
+import path from 'path';
+
 import { Path } from '@effect/platform';
 import { Layer } from 'effect';
-import path from 'path';
 
 import {
   createMockAppleScriptLayer,
   type MockAppleScriptConfig,
   type MockAppleScriptState,
 } from './mock-apple-script.js';
-import { createMockBunShell, createMockBunSpawn, type MockBunConfig } from './mock-bun.js';
+import {
+  createMockBunShell,
+  createMockBunSpawn,
+  type MockBunConfig,
+} from './mock-bun.js';
 import { createMockChimeLayer, type MockChimeState } from './mock-chime.js';
-import { createMockFileSystemLayer, type MockFileSystemConfig } from './mock-filesystem.js';
-import { installMockFetch, type MockHttpConfig, type MockHttpState } from './mock-http.js';
+import {
+  createMockFileSystemLayer,
+  type MockFileSystemConfig,
+} from './mock-filesystem.js';
+import {
+  installMockFetch,
+  type MockHttpConfig,
+  type MockHttpState,
+} from './mock-http.js';
 import { createMockModelLayer, type MockModelConfig } from './mock-model.js';
 import { CallSequenceLayer, type ServiceCall } from './sequence-recorder.js';
 
@@ -58,7 +70,9 @@ export interface TestLayerState {
  * This follows the Effect testing pattern of providing mock layers
  * for all external dependencies while running actual command logic.
  */
-export const createTestLayer = (config: TestLayerConfig = {}): TestLayerState => {
+export const createTestLayer = (
+  config: TestLayerConfig = {},
+): TestLayerState => {
   const cleanupFns: Array<() => void> = [];
 
   // Shared state for service calls
@@ -67,13 +81,20 @@ export const createTestLayer = (config: TestLayerConfig = {}): TestLayerState =>
   let httpState: MockHttpState | null = null;
 
   // Create mock file system
-  const mockFs = createMockFileSystemLayer(config.files ?? { files: {}, directories: [] });
+  const mockFs = createMockFileSystemLayer(
+    config.files ?? { files: {}, directories: [] },
+  );
 
   // Create mock model
-  const mockModel = createMockModelLayer(config.model ?? { responses: { high: [], low: [] } });
+  const mockModel = createMockModelLayer(
+    config.model ?? { responses: { high: [], low: [] } },
+  );
 
   // Create mock AppleScript service
-  const mockAppleScript = createMockAppleScriptLayer(config.appleScript ?? {}, appleScriptState);
+  const mockAppleScript = createMockAppleScriptLayer(
+    config.appleScript ?? {},
+    appleScriptState,
+  );
 
   // Create mock Chime service
   const mockChime = createMockChimeLayer(chimeState);

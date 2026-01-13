@@ -16,12 +16,17 @@
  */
 
 // State types
-export type GotoModeState = { _tag: 'normal' } | { _tag: 'awaiting'; digits: string };
+export type GotoModeState =
+  | { _tag: 'normal' }
+  | { _tag: 'awaiting'; digits: string };
 
 // State constructors
 export const GotoModeState = {
   normal: (): GotoModeState => ({ _tag: 'normal' }),
-  awaiting: (digits: string = ''): GotoModeState => ({ _tag: 'awaiting', digits }),
+  awaiting: (digits: string = ''): GotoModeState => ({
+    _tag: 'awaiting',
+    digits,
+  }),
 } as const;
 
 // Event types
@@ -66,14 +71,20 @@ export type GotoModeResult = {
  * Pure state transition function for goto mode.
  * Returns the new state and optionally an action to perform.
  */
-export function gotoModeTransition(state: GotoModeState, event: GotoModeEvent): GotoModeResult {
+export function gotoModeTransition(
+  state: GotoModeState,
+  event: GotoModeEvent,
+): GotoModeResult {
   switch (state._tag) {
     case 'normal':
       switch (event._tag) {
         case 'pressG':
           return { state: GotoModeState.awaiting('') };
         case 'pressShiftG':
-          return { state: GotoModeState.normal(), action: GotoModeAction.goToLast() };
+          return {
+            state: GotoModeState.normal(),
+            action: GotoModeAction.goToLast(),
+          };
         default:
           return { state };
       }
@@ -84,15 +95,24 @@ export function gotoModeTransition(state: GotoModeState, event: GotoModeEvent): 
           return { state: GotoModeState.awaiting(state.digits + event.digit) };
         case 'pressG':
           if (state.digits === '') {
-            return { state: GotoModeState.normal(), action: GotoModeAction.goToFirst() };
+            return {
+              state: GotoModeState.normal(),
+              action: GotoModeAction.goToFirst(),
+            };
           }
           const verse = parseInt(state.digits, 10);
-          return { state: GotoModeState.normal(), action: GotoModeAction.goToVerse(verse) };
+          return {
+            state: GotoModeState.normal(),
+            action: GotoModeAction.goToVerse(verse),
+          };
         case 'pressEnter':
           if (state.digits !== '') {
             const verse = parseInt(state.digits, 10);
             if (verse > 0) {
-              return { state: GotoModeState.normal(), action: GotoModeAction.goToVerse(verse) };
+              return {
+                state: GotoModeState.normal(),
+                action: GotoModeAction.goToVerse(verse),
+              };
             }
           }
           return { state: GotoModeState.normal() };
@@ -109,11 +129,15 @@ export function gotoModeTransition(state: GotoModeState, event: GotoModeEvent): 
  * Convert a key event to a GotoModeEvent.
  * Use with ink's useInput key object.
  */
-export function keyToGotoEvent(key: { name?: string; sequence?: string }): GotoModeEvent {
+export function keyToGotoEvent(key: {
+  name?: string;
+  sequence?: string;
+}): GotoModeEvent {
   if (key.sequence === 'G') return GotoModeEvent.pressShiftG();
   if (key.name === 'g') return GotoModeEvent.pressG();
   if (key.name === 'return') return GotoModeEvent.pressEnter();
   if (key.name === 'escape') return GotoModeEvent.pressEscape();
-  if (key.name && /^[0-9]$/.test(key.name)) return GotoModeEvent.pressDigit(key.name);
+  if (key.name && /^[0-9]$/.test(key.name))
+    return GotoModeEvent.pressDigit(key.name);
   return GotoModeEvent.other();
 }

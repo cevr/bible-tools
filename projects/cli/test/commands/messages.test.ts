@@ -1,12 +1,12 @@
-import { describe, expect, beforeEach, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { messages } from '../../core/messages/messages.js';
 import {
-  runCli,
-  expectSequence,
-  expectContains,
   expectCallCount,
+  expectContains,
   expectNoCalls,
+  expectSequence,
+  runCli,
 } from '../lib/run-cli.js';
 
 describe('messages commands', () => {
@@ -94,14 +94,17 @@ describe('messages commands', () => {
         {
           files: {
             files: {
-              '/path/to/message.md': '# Original Message\n\nOriginal content...',
+              '/path/to/message.md':
+                '# Original Message\n\nOriginal content...',
               [`${process.cwd()}/core/messages/prompts/generate.md`]:
                 'System prompt...',
             },
           },
           model: {
             responses: {
-              high: ['# Revised Message\n\nImproved content with scriptures...'],
+              high: [
+                '# Revised Message\n\nImproved content with scriptures...',
+              ],
               low: [],
             },
           },
@@ -149,23 +152,29 @@ describe('messages commands', () => {
 
   describe('generate-topic command', () => {
     it('should generate topic suggestions', async () => {
-      const result = await runCli(messages, ['generate-topic', '--model', 'gemini'], {
-        files: {
+      const result = await runCli(
+        messages,
+        ['generate-topic', '--model', 'gemini'],
+        {
           files: {
-            [`${process.cwd()}/outputs/messages/2024-01-01-faith.md`]: 'content',
-            [`${process.cwd()}/outputs/messages/2024-01-02-hope.md`]: 'content',
+            files: {
+              [`${process.cwd()}/outputs/messages/2024-01-01-faith.md`]:
+                'content',
+              [`${process.cwd()}/outputs/messages/2024-01-02-hope.md`]:
+                'content',
+            },
+            directories: [`${process.cwd()}/outputs/messages`],
           },
-          directories: [`${process.cwd()}/outputs/messages`],
-        },
-        model: {
-          responses: {
-            high: [
-              '1. The Power of Prayer\n2. Walking in the Spirit\n3. Biblical Stewardship',
-            ],
-            low: [],
+          model: {
+            responses: {
+              high: [
+                '1. The Power of Prayer\n2. Walking in the Spirit\n3. Biblical Stewardship',
+              ],
+              low: [],
+            },
           },
         },
-      });
+      );
 
       expect(result.success).toBe(true);
       expectContains(result.calls, [
@@ -180,7 +189,8 @@ describe('messages commands', () => {
       const result = await runCli(messages, ['list'], {
         files: {
           files: {
-            [`${process.cwd()}/outputs/messages/2024-01-01-faith.md`]: 'content',
+            [`${process.cwd()}/outputs/messages/2024-01-01-faith.md`]:
+              'content',
             [`${process.cwd()}/outputs/messages/2024-01-02-hope.md`]: 'content',
             [`${process.cwd()}/outputs/messages/2024-01-03-love.md`]: 'content',
           },
@@ -208,7 +218,8 @@ describe('messages commands', () => {
       const result = await runCli(messages, ['list', '--json'], {
         files: {
           files: {
-            [`${process.cwd()}/outputs/messages/2024-01-01-faith.md`]: 'content',
+            [`${process.cwd()}/outputs/messages/2024-01-01-faith.md`]:
+              'content',
           },
           directories: [`${process.cwd()}/outputs/messages`],
         },

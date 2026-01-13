@@ -32,9 +32,10 @@ const generateMessage = Command.make('generate', { topic, model }, (args) =>
       )
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const { filename, response } = yield* generate(systemPrompt, args.topic).pipe(
-      Effect.provideService(Model, args.model),
-    );
+    const { filename, response } = yield* generate(
+      systemPrompt,
+      args.topic,
+    ).pipe(Effect.provideService(Model, args.model));
 
     const messagesDir = path.join(process.cwd(), 'outputs', 'messages');
 
@@ -74,40 +75,46 @@ const instructions = Options.text('instructions').pipe(
   Options.withDescription('Revision instructions'),
 );
 
-const reviseMessage = Command.make('revise', { model, file, instructions }, (args) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
-    const path = yield* Path.Path;
+const reviseMessage = Command.make(
+  'revise',
+  { model, file, instructions },
+  (args) =>
+    Effect.gen(function* () {
+      const fs = yield* FileSystem.FileSystem;
+      const path = yield* Path.Path;
 
-    const message = yield* fs
-      .readFile(args.file)
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
+      const message = yield* fs
+        .readFile(args.file)
+        .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const systemMessagePrompt = yield* fs
-      .readFile(
-        path.join(process.cwd(), 'core', 'messages', 'prompts', 'generate.md'),
-      )
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
+      const systemMessagePrompt = yield* fs
+        .readFile(
+          path.join(
+            process.cwd(),
+            'core',
+            'messages',
+            'prompts',
+            'generate.md',
+          ),
+        )
+        .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const revisedMessage = yield* revise({
-      cycles: [
-        {
-          prompt: '',
-          response: message,
-        },
-      ],
-      systemPrompt: systemMessagePrompt,
-      instructions: args.instructions,
-    }).pipe(Effect.provideService(Model, args.model));
+      const revisedMessage = yield* revise({
+        cycles: [
+          {
+            prompt: '',
+            response: message,
+          },
+        ],
+        systemPrompt: systemMessagePrompt,
+        instructions: args.instructions,
+      }).pipe(Effect.provideService(Model, args.model));
 
-    yield* fs.writeFile(
-      args.file,
-      new TextEncoder().encode(revisedMessage),
-    );
+      yield* fs.writeFile(args.file, new TextEncoder().encode(revisedMessage));
 
-    yield* Effect.log(`Message revised successfully!`);
-    yield* Effect.log(`Output: ${args.file}`);
-  }),
+      yield* Effect.log(`Message revised successfully!`);
+      yield* Effect.log(`Output: ${args.file}`);
+    }),
 );
 
 const noteId = Options.text('note-id').pipe(
@@ -222,9 +229,9 @@ const listMessages = Command.make('list', { json }, (args) =>
     const path = yield* Path.Path;
 
     const messagesDir = path.join(process.cwd(), 'outputs', 'messages');
-    const files = yield* fs.readDirectory(messagesDir).pipe(
-      Effect.catchAll(() => Effect.succeed([] as string[])),
-    );
+    const files = yield* fs
+      .readDirectory(messagesDir)
+      .pipe(Effect.catchAll(() => Effect.succeed([] as string[])));
 
     const filePaths = files
       .filter((f) => f.endsWith('.md'))

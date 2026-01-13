@@ -7,28 +7,28 @@
 
 import {
   createContext,
-  useContext,
   createResource,
+  useContext,
   type ParentProps,
   type Resource,
 } from 'solid-js';
 
-import type { Reference } from '../../bible/types.js';
 import {
-  initStudyDatabase,
   getCrossRefs as getCrossRefsSync,
-  getStrongsEntry as getStrongsEntrySync,
-  getVerseWords as getVerseWordsSync,
   getMarginNotes as getMarginNotesSync,
-  searchByStrongs as searchByStrongsSync,
+  getStrongsEntry as getStrongsEntrySync,
   getStrongsOccurrenceCount as getStrongsOccurrenceCountSync,
-  searchStrongsByLemma as searchStrongsByLemmaSync,
+  getVerseWords as getVerseWordsSync,
+  initStudyDatabase,
+  searchByStrongs as searchByStrongsSync,
   searchStrongsByDefinition as searchStrongsByDefinitionSync,
+  searchStrongsByLemma as searchStrongsByLemmaSync,
+  type ConcordanceResult,
+  type MarginNote,
   type StrongsEntry,
   type WordWithStrongs,
-  type MarginNote,
-  type ConcordanceResult,
 } from '../../bible/study-db.js';
+import type { Reference } from '../../bible/types.js';
 
 interface StudyDataContextValue {
   /** Resource that tracks database initialization */
@@ -47,10 +47,18 @@ interface StudyDataContextValue {
   getStrongsEntry: (number: string) => StrongsEntry | null;
 
   /** Get words with Strong's numbers for a verse (returns empty array if not ready) */
-  getVerseWords: (book: number, chapter: number, verse: number) => WordWithStrongs[];
+  getVerseWords: (
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => WordWithStrongs[];
 
   /** Get margin notes for a verse (returns empty array if not ready) */
-  getMarginNotes: (book: number, chapter: number, verse: number) => MarginNote[];
+  getMarginNotes: (
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => MarginNote[];
 
   /** Search for all verses containing a Strong's number */
   searchByStrongs: (strongsNumber: string) => ConcordanceResult[];
@@ -79,16 +87,27 @@ export function StudyDataProvider(props: ParentProps) {
     ready() ? fn() : defaultValue;
 
   // Wrap sync functions to handle loading state
-  const getCrossRefs = (book: number, chapter: number, verse: number): Reference[] =>
-    withReady(() => getCrossRefsSync(book, chapter, verse), []);
+  const getCrossRefs = (
+    book: number,
+    chapter: number,
+    verse: number,
+  ): Reference[] => withReady(() => getCrossRefsSync(book, chapter, verse), []);
 
   const getStrongsEntry = (number: string): StrongsEntry | null =>
     withReady(() => getStrongsEntrySync(number), null);
 
-  const getVerseWords = (book: number, chapter: number, verse: number): WordWithStrongs[] =>
+  const getVerseWords = (
+    book: number,
+    chapter: number,
+    verse: number,
+  ): WordWithStrongs[] =>
     withReady(() => getVerseWordsSync(book, chapter, verse), []);
 
-  const getMarginNotes = (book: number, chapter: number, verse: number): MarginNote[] =>
+  const getMarginNotes = (
+    book: number,
+    chapter: number,
+    verse: number,
+  ): MarginNote[] =>
     withReady(() => getMarginNotesSync(book, chapter, verse), []);
 
   const searchByStrongs = (strongsNumber: string): ConcordanceResult[] =>

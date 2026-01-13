@@ -115,9 +115,12 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
       const fs = yield* FileSystem.FileSystem;
       const path = yield* Path.Path;
 
-      // Get database file path from config or use default
+      // Get database file path from config or use default (~/.bible/egw-paragraphs.db)
+      const homeDir = process.env.HOME ?? process.env.USERPROFILE ?? '.';
+      const defaultDbPath = path.join(homeDir, '.bible', 'egw-paragraphs.db');
+
       const dbFile = yield* Config.string('EGW_PARAGRAPH_DB').pipe(
-        Config.withDefault('data/egw-paragraphs.db'),
+        Config.withDefault(defaultDbPath),
       );
 
       const dbPath = path.resolve(dbFile);

@@ -28,9 +28,10 @@ const cli = Command.run(command, {
   version: 'v1.0.0',
 });
 
-const ServicesLayer = Layer.mergeAll(AppleScriptLive, ChimeLive, BunContext.layer);
-
-cli(process.argv).pipe(
-  Effect.provide(ServicesLayer),
-  BunRuntime.runMain,
+const ServicesLayer = Layer.mergeAll(
+  AppleScriptLive,
+  ChimeLive,
+  BunContext.layer,
 );
+
+cli(process.argv).pipe(Effect.provide(ServicesLayer), BunRuntime.runMain);

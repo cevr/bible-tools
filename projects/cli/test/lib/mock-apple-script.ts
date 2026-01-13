@@ -1,7 +1,9 @@
 import { Effect, Layer } from 'effect';
 
-import { AppleScript, type AppleScriptService } from '../../core/apple-script.js';
-
+import {
+  AppleScript,
+  type AppleScriptService,
+} from '../../core/apple-script.js';
 import type { ServiceCall } from './sequence-recorder.js';
 
 /**

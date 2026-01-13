@@ -6,9 +6,14 @@
     ".": "./src/index.ts",
     "./adapters": "./src/adapters/index.ts",
     "./ai": "./src/ai/index.ts",
-    "./sabbath-school": "./src/sabbath-school/index.ts",
+    "./app": "./src/app/index.ts",
     "./egw": "./src/egw/index.ts",
-    "./gemini": "./src/gemini/index.ts"
+    "./egw-db": "./src/egw-db/index.ts",
+    "./egw-reader": "./src/egw-reader/index.ts",
+    "./egw-commentary": "./src/egw-commentary/index.ts",
+    "./bible-reader": "./src/bible-reader/index.ts",
+    "./gemini": "./src/gemini/index.ts",
+    "./sabbath-school": "./src/sabbath-school/index.ts"
   },
   "scripts": {
     "prepare": "effect-language-service patch",

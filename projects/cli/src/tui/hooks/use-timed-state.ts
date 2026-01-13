@@ -25,7 +25,7 @@ import { createSignal, onCleanup, type Accessor } from 'solid-js';
 export function createTimedSignal<T>(
   initialValue: T,
   resetValue: T,
-  delayMs: number
+  delayMs: number,
 ): [Accessor<T>, (value: T) => void] {
   const [value, setValue] = createSignal<T>(initialValue);
   let timeoutId: Timer | undefined;

@@ -1,12 +1,12 @@
-import { describe, expect, beforeEach, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { readings } from '../../core/readings/readings.js';
 import {
-  runCli,
-  expectSequence,
-  expectContains,
   expectCallCount,
+  expectContains,
   expectNoCalls,
+  expectSequence,
+  runCli,
 } from '../lib/run-cli.js';
 
 describe('readings commands', () => {
@@ -165,7 +165,8 @@ describe('readings commands', () => {
         files: {
           files: {
             [`${process.cwd()}/outputs/readings/chapter-1-study.md`]: 'content',
-            [`${process.cwd()}/outputs/readings/chapter-1-slides.md`]: 'content',
+            [`${process.cwd()}/outputs/readings/chapter-1-slides.md`]:
+              'content',
             [`${process.cwd()}/outputs/readings/chapter-2-study.md`]: 'content',
           },
           directories: [`${process.cwd()}/outputs/readings`],

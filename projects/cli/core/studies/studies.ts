@@ -30,9 +30,10 @@ const generateStudy = Command.make('generate', { topic, model }, (args) =>
       )
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const { filename, response } = yield* generate(systemPrompt, args.topic).pipe(
-      Effect.provideService(Model, args.model),
-    );
+    const { filename, response } = yield* generate(
+      systemPrompt,
+      args.topic,
+    ).pipe(Effect.provideService(Model, args.model));
 
     const studiesDir = path.join(process.cwd(), 'outputs', 'studies');
 
@@ -72,37 +73,40 @@ const instructions = Options.text('instructions').pipe(
   Options.withDescription('Revision instructions'),
 );
 
-const reviseStudy = Command.make('revise', { model, file, instructions }, (args) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
-    const path = yield* Path.Path;
+const reviseStudy = Command.make(
+  'revise',
+  { model, file, instructions },
+  (args) =>
+    Effect.gen(function* () {
+      const fs = yield* FileSystem.FileSystem;
+      const path = yield* Path.Path;
 
-    const study = yield* fs
-      .readFile(args.file)
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
+      const study = yield* fs
+        .readFile(args.file)
+        .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const systemMessagePrompt = yield* fs
-      .readFile(
-        path.join(process.cwd(), 'core', 'studies', 'prompts', 'generate.md'),
-      )
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
+      const systemMessagePrompt = yield* fs
+        .readFile(
+          path.join(process.cwd(), 'core', 'studies', 'prompts', 'generate.md'),
+        )
+        .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const revisedStudy = yield* revise({
-      cycles: [
-        {
-          prompt: '',
-          response: study,
-        },
-      ],
-      systemPrompt: systemMessagePrompt,
-      instructions: args.instructions,
-    }).pipe(Effect.provideService(Model, args.model));
+      const revisedStudy = yield* revise({
+        cycles: [
+          {
+            prompt: '',
+            response: study,
+          },
+        ],
+        systemPrompt: systemMessagePrompt,
+        instructions: args.instructions,
+      }).pipe(Effect.provideService(Model, args.model));
 
-    yield* fs.writeFile(args.file, new TextEncoder().encode(revisedStudy));
+      yield* fs.writeFile(args.file, new TextEncoder().encode(revisedStudy));
 
-    yield* Effect.log(`Study revised successfully!`);
-    yield* Effect.log(`Output: ${args.file}`);
-  }),
+      yield* Effect.log(`Study revised successfully!`);
+      yield* Effect.log(`Output: ${args.file}`);
+    }),
 );
 
 const noteId = Options.text('note-id').pipe(
@@ -110,46 +114,49 @@ const noteId = Options.text('note-id').pipe(
   Options.withDescription('Apple Note ID to generate from'),
 );
 
-const generateFromNoteStudy = Command.make('from-note', { model, noteId }, (args) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
-    const path = yield* Path.Path;
+const generateFromNoteStudy = Command.make(
+  'from-note',
+  { model, noteId },
+  (args) =>
+    Effect.gen(function* () {
+      const fs = yield* FileSystem.FileSystem;
+      const path = yield* Path.Path;
 
-    const startTime = Date.now();
+      const startTime = Date.now();
 
-    const note = yield* getNoteContent(args.noteId);
+      const note = yield* getNoteContent(args.noteId);
 
-    const systemPrompt = yield* fs
-      .readFile(
-        path.join(process.cwd(), 'core', 'studies', 'prompts', 'generate.md'),
-      )
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
+      const systemPrompt = yield* fs
+        .readFile(
+          path.join(process.cwd(), 'core', 'studies', 'prompts', 'generate.md'),
+        )
+        .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const { filename, response } = yield* generate(systemPrompt, note).pipe(
-      Effect.provideService(Model, args.model),
-    );
+      const { filename, response } = yield* generate(systemPrompt, note).pipe(
+        Effect.provideService(Model, args.model),
+      );
 
-    const studiesDir = path.join(process.cwd(), 'outputs', 'studies');
+      const studiesDir = path.join(process.cwd(), 'outputs', 'studies');
 
-    const fileName = `${format(new Date(), 'yyyy-MM-dd')}-${filename}.md`;
-    const filePath = path.join(studiesDir, fileName);
+      const fileName = `${format(new Date(), 'yyyy-MM-dd')}-${filename}.md`;
+      const filePath = path.join(studiesDir, fileName);
 
-    yield* spin(
-      'Writing study to file: ' + fileName,
-      fs.writeFile(filePath, new TextEncoder().encode(response)),
-    );
+      yield* spin(
+        'Writing study to file: ' + fileName,
+        fs.writeFile(filePath, new TextEncoder().encode(response)),
+      );
 
-    yield* spin(
-      'Adding study to notes',
-      makeAppleNoteFromMarkdown(response, { folder: 'studies' }),
-    );
+      yield* spin(
+        'Adding study to notes',
+        makeAppleNoteFromMarkdown(response, { folder: 'studies' }),
+      );
 
-    const totalTime = msToMinutes(Date.now() - startTime);
-    yield* Effect.log(
-      `Study generated successfully! (Total time: ${totalTime})`,
-    );
-    yield* Effect.log(`Output: ${filePath}`);
-  }),
+      const totalTime = msToMinutes(Date.now() - startTime);
+      yield* Effect.log(
+        `Study generated successfully! (Total time: ${totalTime})`,
+      );
+      yield* Effect.log(`Output: ${filePath}`);
+    }),
 );
 
 const json = Options.boolean('json').pipe(
@@ -163,9 +170,9 @@ const listStudies = Command.make('list', { json }, (args) =>
     const path = yield* Path.Path;
 
     const studiesDir = path.join(process.cwd(), 'outputs', 'studies');
-    const files = yield* fs.readDirectory(studiesDir).pipe(
-      Effect.catchAll(() => Effect.succeed([] as string[])),
-    );
+    const files = yield* fs
+      .readDirectory(studiesDir)
+      .pipe(Effect.catchAll(() => Effect.succeed([] as string[])));
 
     const filePaths = files
       .filter((f) => f.endsWith('.md'))

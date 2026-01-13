@@ -2,13 +2,13 @@ import { Args, Command } from '@effect/cli';
 import { Console, Effect } from 'effect';
 
 import { BibleData, BibleDataLive } from '~/src/bible/data';
-import { parseVerseQuery, getVersesForQuery } from '~/src/bible/parse';
+import { getVersesForQuery, parseVerseQuery } from '~/src/bible/parse';
 import {
+  getStrongsEntry,
   searchByStrongs,
   searchStrongsByDefinition,
-  getStrongsEntry,
-  type StrongsEntry,
   type ConcordanceResult,
+  type StrongsEntry,
 } from '~/src/bible/study-db';
 import { getBook, type Verse } from '~/src/bible/types';
 
@@ -18,7 +18,9 @@ const query = Args.text({ name: 'query' }).pipe(Args.repeated);
 // Format a single verse for output
 function formatVerse(verse: Verse): string {
   const book = getBook(verse.book);
-  const ref = book ? `${book.name} ${verse.chapter}:${verse.verse}` : `${verse.book} ${verse.chapter}:${verse.verse}`;
+  const ref = book
+    ? `${book.name} ${verse.chapter}:${verse.verse}`
+    : `${verse.book} ${verse.chapter}:${verse.verse}`;
   return `${ref}\n${verse.text}`;
 }
 
@@ -32,7 +34,10 @@ function printVerses(verses: Verse[]): Effect.Effect<void> {
 }
 
 // Print search results
-function printSearchResults(query: string, verses: Verse[]): Effect.Effect<void> {
+function printSearchResults(
+  query: string,
+  verses: Verse[],
+): Effect.Effect<void> {
   if (verses.length === 0) {
     return Console.log(`No verses found matching "${query}".`);
   }
@@ -71,7 +76,7 @@ export const verse = Command.make('verse', { query }, (args) =>
       const verses = getVersesForQuery(parsed, data);
       yield* printVerses(verses);
     }
-  }).pipe(Effect.provide(BibleDataLive))
+  }).pipe(Effect.provide(BibleDataLive)),
 );
 
 // --- Concordance Command ---
@@ -99,12 +104,20 @@ export const concordance = Command.make('concordance', { query }, (args) =>
     const queryStr = args.query.join(' ').trim();
 
     if (!queryStr) {
-      yield* Console.log("Usage: bible concordance <Strong's number or English word>");
+      yield* Console.log(
+        "Usage: bible concordance <Strong's number or English word>",
+      );
       yield* Console.log('');
       yield* Console.log('Examples:');
-      yield* Console.log("  bible concordance H157      # Hebrew word by Strong's number");
-      yield* Console.log("  bible concordance G26       # Greek word by Strong's number");
-      yield* Console.log('  bible concordance love      # Search definitions for "love"');
+      yield* Console.log(
+        "  bible concordance H157      # Hebrew word by Strong's number",
+      );
+      yield* Console.log(
+        "  bible concordance G26       # Greek word by Strong's number",
+      );
+      yield* Console.log(
+        '  bible concordance love      # Search definitions for "love"',
+      );
       return;
     }
 
@@ -125,7 +138,9 @@ export const concordance = Command.make('concordance', { query }, (args) =>
       if (results.length === 0) {
         yield* Console.log('No verses found with this word.');
       } else {
-        yield* Console.log(`Found in ${results.length} verse${results.length === 1 ? '' : 's'}:`);
+        yield* Console.log(
+          `Found in ${results.length} verse${results.length === 1 ? '' : 's'}:`,
+        );
         yield* Console.log('');
         // Limit output to first 50 results for readability
         const displayResults = results.slice(0, 50);
@@ -145,14 +160,18 @@ export const concordance = Command.make('concordance', { query }, (args) =>
         return;
       }
 
-      yield* Console.log(`Found ${entries.length} Strong's entr${entries.length === 1 ? 'y' : 'ies'} matching "${queryStr}":`);
+      yield* Console.log(
+        `Found ${entries.length} Strong's entr${entries.length === 1 ? 'y' : 'ies'} matching "${queryStr}":`,
+      );
       yield* Console.log('');
       for (const entry of entries) {
         yield* Console.log(formatStrongsEntry(entry));
         yield* Console.log('');
       }
     }
-  })
+  }),
 );
 
-export const bible = Command.make('bible').pipe(Command.withSubcommands([verse, concordance]));
+export const bible = Command.make('bible').pipe(
+  Command.withSubcommands([verse, concordance]),
+);

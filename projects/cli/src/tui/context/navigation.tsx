@@ -1,6 +1,14 @@
-import { createContext, useContext, createSignal, createMemo, createEffect, onCleanup, type ParentProps } from 'solid-js';
+import {
+  createContext,
+  createEffect,
+  createMemo,
+  createSignal,
+  onCleanup,
+  useContext,
+  type ParentProps,
+} from 'solid-js';
 
-import type { Reference, Position } from '../../bible/types.js';
+import type { Position, Reference } from '../../bible/types.js';
 import { useBibleData, useBibleState } from './bible.js';
 
 interface NavigationContextValue {
@@ -30,7 +38,9 @@ interface NavigationProviderProps {
   initialRef?: Reference;
 }
 
-export function NavigationProvider(props: ParentProps<NavigationProviderProps>) {
+export function NavigationProvider(
+  props: ParentProps<NavigationProviderProps>,
+) {
   const data = useBibleData();
   const state = useBibleState();
 
@@ -50,12 +60,12 @@ export function NavigationProvider(props: ParentProps<NavigationProviderProps>) 
 
   // Selected verse - persistent highlight for keyboard navigation
   const [selectedVerse, setSelectedVerse] = createSignal<number>(
-    props.initialRef?.verse ?? getInitialPosition().verse
+    props.initialRef?.verse ?? getInitialPosition().verse,
   );
 
   // Temporary highlight after goTo (flashes then clears)
   const [highlightedVerse, setHighlightedVerse] = createSignal<number | null>(
-    props.initialRef?.verse ?? null
+    props.initialRef?.verse ?? null,
   );
 
   // Track highlight timeout for cleanup
@@ -188,7 +198,11 @@ export function NavigationProvider(props: ParentProps<NavigationProviderProps>) 
     totalVerses,
   };
 
-  return <NavigationContext.Provider value={value}>{props.children}</NavigationContext.Provider>;
+  return (
+    <NavigationContext.Provider value={value}>
+      {props.children}
+    </NavigationContext.Provider>
+  );
 }
 
 export function useNavigation(): NavigationContextValue {

@@ -7,22 +7,46 @@ import { BOOK_ALIASES, BOOKS, type Reference, type Verse } from './types.js';
 export type ParsedQuery =
   | { _tag: 'single'; ref: Reference }
   | { _tag: 'chapter'; book: number; chapter: number }
-  | { _tag: 'verseRange'; book: number; chapter: number; startVerse: number; endVerse: number }
-  | { _tag: 'chapterRange'; book: number; startChapter: number; endChapter: number }
+  | {
+      _tag: 'verseRange';
+      book: number;
+      chapter: number;
+      startVerse: number;
+      endVerse: number;
+    }
+  | {
+      _tag: 'chapterRange';
+      book: number;
+      startChapter: number;
+      endChapter: number;
+    }
   | { _tag: 'fullBook'; book: number }
   | { _tag: 'search'; query: string };
 
 export const ParsedQuery = {
   single: (ref: Reference): ParsedQuery => ({ _tag: 'single', ref }),
-  chapter: (book: number, chapter: number): ParsedQuery => ({ _tag: 'chapter', book, chapter }),
-  verseRange: (book: number, chapter: number, startVerse: number, endVerse: number): ParsedQuery => ({
+  chapter: (book: number, chapter: number): ParsedQuery => ({
+    _tag: 'chapter',
+    book,
+    chapter,
+  }),
+  verseRange: (
+    book: number,
+    chapter: number,
+    startVerse: number,
+    endVerse: number,
+  ): ParsedQuery => ({
     _tag: 'verseRange',
     book,
     chapter,
     startVerse,
     endVerse,
   }),
-  chapterRange: (book: number, startChapter: number, endChapter: number): ParsedQuery => ({
+  chapterRange: (
+    book: number,
+    startChapter: number,
+    endChapter: number,
+  ): ParsedQuery => ({
     _tag: 'chapterRange',
     book,
     startChapter,
@@ -63,15 +87,21 @@ function resolveBook(bookPart: string): number | undefined {
 }
 
 // Parse a verse query into a structured result
-export function parseVerseQuery(query: string, data: BibleDataService): ParsedQuery {
+export function parseVerseQuery(
+  query: string,
+  data: BibleDataService,
+): ParsedQuery {
   const input = query.trim();
   if (!input) return ParsedQuery.search(query);
 
   // Regex patterns for different formats
   // "john 3:16-18" - verse range
-  const verseRangeMatch = input.match(/^(.+?)\s*(\d+)\s*:\s*(\d+)\s*-\s*(\d+)$/i);
+  const verseRangeMatch = input.match(
+    /^(.+?)\s*(\d+)\s*:\s*(\d+)\s*-\s*(\d+)$/i,
+  );
   if (verseRangeMatch) {
-    const [, bookPart, chapterStr, startVerseStr, endVerseStr] = verseRangeMatch;
+    const [, bookPart, chapterStr, startVerseStr, endVerseStr] =
+      verseRangeMatch;
     const bookNum = resolveBook(bookPart!);
     if (bookNum) {
       const chapter = parseInt(chapterStr!, 10);
@@ -142,10 +172,17 @@ export function parseVerseQuery(query: string, data: BibleDataService): ParsedQu
 }
 
 // Get verses for a parsed query
-export function getVersesForQuery(query: ParsedQuery, data: BibleDataService): Verse[] {
+export function getVersesForQuery(
+  query: ParsedQuery,
+  data: BibleDataService,
+): Verse[] {
   switch (query._tag) {
     case 'single': {
-      const verse = data.getVerse(query.ref.book, query.ref.chapter, query.ref.verse!);
+      const verse = data.getVerse(
+        query.ref.book,
+        query.ref.chapter,
+        query.ref.verse!,
+      );
       return verse ? [verse] : [];
     }
 
@@ -155,7 +192,9 @@ export function getVersesForQuery(query: ParsedQuery, data: BibleDataService): V
 
     case 'verseRange': {
       const chapter = data.getChapter(query.book, query.chapter);
-      return chapter.filter((v) => v.verse >= query.startVerse && v.verse <= query.endVerse);
+      return chapter.filter(
+        (v) => v.verse >= query.startVerse && v.verse <= query.endVerse,
+      );
     }
 
     case 'chapterRange': {

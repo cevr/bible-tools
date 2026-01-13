@@ -7,21 +7,26 @@
 
 import {
   createContext,
-  useContext,
-  createSignal,
   createMemo,
-  type ParentProps,
+  createSignal,
+  useContext,
   type Accessor,
+  type ParentProps,
 } from 'solid-js';
 
-import type { Reference } from '../../bible/types.js';
 import type { WordWithStrongs } from '../../bible/study-db.js';
+import type { Reference } from '../../bible/types.js';
 import { useStudyData } from './study-data.js';
 
 // State type using discriminated union pattern
 export type WordModeState =
   | { _tag: 'inactive' }
-  | { _tag: 'active'; verseRef: Reference; wordIndex: number; words: WordWithStrongs[] };
+  | {
+      _tag: 'active';
+      verseRef: Reference;
+      wordIndex: number;
+      words: WordWithStrongs[];
+    };
 
 interface WordModeContextValue {
   // State
@@ -51,10 +56,14 @@ export function WordModeProvider(props: ParentProps) {
   const isActive = createMemo(() => state()._tag === 'active');
 
   // Helper to check if a word has Strong's numbers
-  const hasStrongs = (word: WordWithStrongs) => word.strongs && word.strongs.length > 0;
+  const hasStrongs = (word: WordWithStrongs) =>
+    word.strongs && word.strongs.length > 0;
 
   // Find next word index with Strong's (or -1 if none)
-  const findNextWithStrongs = (words: WordWithStrongs[], fromIndex: number): number => {
+  const findNextWithStrongs = (
+    words: WordWithStrongs[],
+    fromIndex: number,
+  ): number => {
     for (let i = fromIndex + 1; i < words.length; i++) {
       if (hasStrongs(words[i]!)) return i;
     }
@@ -62,7 +71,10 @@ export function WordModeProvider(props: ParentProps) {
   };
 
   // Find previous word index with Strong's (or -1 if none)
-  const findPrevWithStrongs = (words: WordWithStrongs[], fromIndex: number): number => {
+  const findPrevWithStrongs = (
+    words: WordWithStrongs[],
+    fromIndex: number,
+  ): number => {
     for (let i = fromIndex - 1; i >= 0; i--) {
       if (hasStrongs(words[i]!)) return i;
     }

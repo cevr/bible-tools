@@ -263,7 +263,9 @@ async function queryTerminalBackground(): Promise<'dark' | 'light' | null> {
       const bgMatch = str.match(/\x1b\]11;(?:rgb:)?([^\x07\x1b]+)/);
       if (bgMatch) {
         const colorStr = bgMatch[1];
-        let r = 0, g = 0, b = 0;
+        let r = 0,
+          g = 0,
+          b = 0;
 
         if (colorStr?.startsWith('rgb:') || colorStr?.includes('/')) {
           // Format: rgb:RRRR/GGGG/BBBB (16-bit) or RRRR/GGGG/BBBB

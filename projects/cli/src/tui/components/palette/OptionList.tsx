@@ -3,7 +3,7 @@ import { createMemo, For, Show } from 'solid-js';
 import { useTheme } from '../../context/theme.js';
 import { is } from '../../utils/match.js';
 import { usePalette, type CommandOption } from './context.js';
-import { PaletteOption, PaletteGroupHeader } from './Option.js';
+import { PaletteGroupHeader, PaletteOption } from './Option.js';
 
 type RenderItem =
   | { _tag: 'header'; label: string; isFirst: boolean }
@@ -39,11 +39,17 @@ export function PaletteOptionList(props: PaletteOptionListProps) {
   const visibleItems = () => renderItems().slice(0, maxVisible());
 
   return (
-    <box flexDirection="column" flexGrow={1}>
+    <box
+      flexDirection="column"
+      flexGrow={1}
+    >
       <Show
         when={visibleItems().length > 0}
         fallback={
-          <text fg={theme().textMuted} style={{ padding: 1 }}>
+          <text
+            fg={theme().textMuted}
+            style={{ padding: 1 }}
+          >
             No results found
           </text>
         }
@@ -51,7 +57,12 @@ export function PaletteOptionList(props: PaletteOptionListProps) {
         <For each={visibleItems()}>
           {(item) => {
             if (is(item, 'header')) {
-              return <PaletteGroupHeader label={item.label} isFirst={item.isFirst} />;
+              return (
+                <PaletteGroupHeader
+                  label={item.label}
+                  isFirst={item.isFirst}
+                />
+              );
             }
             return (
               <PaletteOption

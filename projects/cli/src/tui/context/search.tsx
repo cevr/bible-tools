@@ -1,21 +1,27 @@
-import { createContext, useContext, createSignal, createMemo, type ParentProps } from 'solid-js';
-
-import { useBibleData } from './bible.js';
-import { useNavigation } from './navigation.js';
 import {
-  SearchState,
-  isSearchActive,
-  getSearchQuery,
-  getSearchMatches,
-  getCurrentMatchIndex,
-  nextMatch as nextMatchTransition,
-  prevMatch as prevMatchTransition,
-  openSearch,
-  closeSearch,
+  createContext,
+  createMemo,
+  createSignal,
+  useContext,
+  type ParentProps,
+} from 'solid-js';
+
+import {
   clearSearch as clearSearchTransition,
+  closeSearch,
+  getCurrentMatchIndex,
+  getSearchMatches,
+  getSearchQuery,
+  isSearchActive,
+  nextMatch as nextMatchTransition,
+  openSearch,
+  prevMatch as prevMatchTransition,
+  SearchState,
   updateQuery,
   type SearchMatch,
 } from '../types/search-state.js';
+import { useBibleData } from './bible.js';
+import { useNavigation } from './navigation.js';
 
 // Re-export SearchMatch for consumers
 export type { SearchMatch };
@@ -151,7 +157,11 @@ export function SearchProvider(props: ParentProps) {
     state,
   };
 
-  return <SearchContext.Provider value={value}>{props.children}</SearchContext.Provider>;
+  return (
+    <SearchContext.Provider value={value}>
+      {props.children}
+    </SearchContext.Provider>
+  );
 }
 
 export function useSearch(): SearchContextValue {

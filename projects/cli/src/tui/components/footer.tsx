@@ -32,20 +32,32 @@ export function Footer(props: FooterProps) {
       backgroundColor={theme().backgroundPanel}
     >
       {/* Top row: verse position and pending goto */}
-      <box flexDirection="row" justifyContent="space-between" alignItems="center">
+      <box
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <text fg={theme().textMuted}>
-          <span style={{ fg: theme().accent }}>{selectedVerse()}</span>/{totalVerses()}
+          <span style={{ fg: theme().accent }}>{selectedVerse()}</span>/
+          {totalVerses()}
         </text>
         <Show when={props.gotoMode?._tag === 'awaiting'}>
           <text fg={theme().textHighlight}>
             <span style={{ fg: theme().accent }}>g</span>
-            <strong>{props.gotoMode?._tag === 'awaiting' ? props.gotoMode.digits || '_' : ''}</strong>
+            <strong>
+              {props.gotoMode?._tag === 'awaiting'
+                ? props.gotoMode.digits || '_'
+                : ''}
+            </strong>
           </text>
         </Show>
       </box>
 
       {/* Bottom row: key hints */}
-      <box flexDirection="row" gap={3}>
+      <box
+        flexDirection="row"
+        gap={3}
+      >
         <For each={hints()}>
           {(hint) => (
             <text fg={theme().textMuted}>

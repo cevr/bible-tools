@@ -5,8 +5,8 @@
  * Displays Hebrew/Greek word, transliteration, pronunciation, and definition.
  */
 
-import { createMemo, For, Show } from 'solid-js';
 import { useKeyboard } from '@opentui/solid';
+import { createMemo, For, Show } from 'solid-js';
 
 import type { WordWithStrongs } from '../../bible/study-db.js';
 import { useStudyData } from '../context/study-data.js';
@@ -25,7 +25,7 @@ export function StrongsPopup(props: StrongsPopupProps) {
   const entries = createMemo(() => {
     if (!props.word.strongs) return [];
     return props.word.strongs
-      .map(num => studyData.getStrongsEntry(num))
+      .map((num) => studyData.getStrongsEntry(num))
       .filter((e): e is NonNullable<typeof e> => e !== null);
   });
 
@@ -55,7 +55,8 @@ export function StrongsPopup(props: StrongsPopupProps) {
         </text>
         <Show when={props.word.strongs}>
           <text fg={theme().textMuted}>
-            {' '}({props.word.strongs?.join(', ')})
+            {' '}
+            ({props.word.strongs?.join(', ')})
           </text>
         </Show>
       </box>
@@ -75,11 +76,16 @@ export function StrongsPopup(props: StrongsPopupProps) {
               <box flexDirection="column">
                 {/* Strong's Number and Language */}
                 <box>
-                  <text fg={isHebrew(entry.number) ? theme().warning : theme().accent}>
+                  <text
+                    fg={
+                      isHebrew(entry.number) ? theme().warning : theme().accent
+                    }
+                  >
                     <strong>{entry.number}</strong>
                   </text>
                   <text fg={theme().textMuted}>
-                    {' '}({isHebrew(entry.number) ? 'Hebrew' : 'Greek'})
+                    {' '}
+                    ({isHebrew(entry.number) ? 'Hebrew' : 'Greek'})
                   </text>
                 </box>
 
@@ -90,7 +96,10 @@ export function StrongsPopup(props: StrongsPopupProps) {
                     <text fg={theme().text}>
                       <strong>{entry.xlit || entry.lemma}</strong>
                       <Show when={entry.xlit && entry.lemma}>
-                        <span style={{ fg: theme().textMuted }}> ({entry.lemma})</span>
+                        <span style={{ fg: theme().textMuted }}>
+                          {' '}
+                          ({entry.lemma})
+                        </span>
                       </Show>
                     </text>
                   </box>
@@ -110,7 +119,10 @@ export function StrongsPopup(props: StrongsPopupProps) {
                     <text fg={theme().textMuted}>Definition: </text>
                   </box>
                   <box paddingLeft={2}>
-                    <text fg={theme().text} wrapMode="word">
+                    <text
+                      fg={theme().text}
+                      wrapMode="word"
+                    >
                       {entry.def}
                     </text>
                   </box>
@@ -122,7 +134,10 @@ export function StrongsPopup(props: StrongsPopupProps) {
                     <text fg={theme().textMuted}>KJV Usage: </text>
                   </box>
                   <box paddingLeft={2}>
-                    <text fg={theme().text} wrapMode="word">
+                    <text
+                      fg={theme().text}
+                      wrapMode="word"
+                    >
                       {entry.kjvDef}
                     </text>
                   </box>
@@ -135,9 +150,7 @@ export function StrongsPopup(props: StrongsPopupProps) {
 
       {/* Footer */}
       <box marginTop={1}>
-        <text fg={theme().textMuted}>
-          Esc/Enter close
-        </text>
+        <text fg={theme().textMuted}>Esc/Enter close</text>
       </box>
     </box>
   );

@@ -2,47 +2,66 @@
  * Bible Tools CLI Entry Point
  *
  * Supports two modes:
- * - CLI mode: Fast, lightweight commands (concordance, verse, etc.)
+ * - CLI mode: Fast, lightweight commands (concordance, verse, egw, etc.)
  * - TUI mode: Interactive terminal UI (default)
  *
  * CLI mode lazy-loads TUI and AI dependencies for faster startup.
  */
 
-import { trace, traceSync, traceAsync, printSummary } from './instrumentation/trace.js';
-
-trace('process start');
-
+import type { EGWReference } from '@bible/core/app';
+import { isSearchQuery, parseEGWRef } from '@bible/core/egw';
+import { Command } from '@effect/cli';
 // Core imports needed for both CLI and TUI
 import { BunContext, BunRuntime } from '@effect/platform-bun';
-import { Command } from '@effect/cli';
 import { Effect, Layer } from 'effect';
-
-trace('core imports complete');
 
 // Lightweight CLI command imports (no TUI dependencies)
 import { AppleScriptLive } from '../core/apple-script.js';
 import { concordance, verse } from '../core/bible/bible.js';
 import { ChimeLive } from '../core/chime.js';
+import { egwWithSubcommands } from '../core/egw/egw.js';
 import { exportOutput } from '../core/export-output.js';
 import { messages } from '../core/messages/messages.js';
 import { readings } from '../core/readings/readings.js';
 import { sabbathSchool } from '../core/sabbath-school/sabbath-school.js';
 import { studies } from '../core/studies/studies.js';
+// Types only (no runtime cost)
+import type { Reference } from './bible/types.js';
+import {
+  printSummary,
+  trace,
+  traceAsync,
+  traceSync,
+} from './instrumentation/trace.js';
+import type { ModelService } from './tui/context/model.js';
+
+trace('process start');
+
+trace('core imports complete');
 
 trace('CLI command imports complete');
 
-// Types only (no runtime cost)
-import type { Reference } from './bible/types.js';
-import type { ModelService } from './tui/context/model.js';
-
 // Check if any CLI subcommand is specified
-const cliSubcommands = ['concordance', 'verse', 'messages', 'sabbath-school', 'studies', 'readings', 'export'];
+const cliSubcommands = [
+  'concordance',
+  'verse',
+  'egw',
+  'messages',
+  'sabbath-school',
+  'studies',
+  'readings',
+  'export',
+];
 const args = process.argv.slice(2);
 const hasSubcommand = args.some((arg) => cliSubcommands.includes(arg));
 const isOpenCommand = args[0] === 'open';
-const isTuiMode = !hasSubcommand && !isOpenCommand || isOpenCommand;
+const isEgwOpenCommand = args[0] === 'egw' && args[1] === 'open';
+const isTuiMode =
+  (!hasSubcommand && !isOpenCommand) || isOpenCommand || isEgwOpenCommand;
 
-trace('arg parsing complete', { mode: hasSubcommand ? 'cli' : isTuiMode ? 'tui' : 'unknown' });
+trace('arg parsing complete', {
+  mode: hasSubcommand ? 'cli' : isTuiMode ? 'tui' : 'unknown',
+});
 
 // Lazy imports for TUI mode only
 async function loadTuiDependencies() {
@@ -67,21 +86,20 @@ async function loadTuiDependencies() {
 
 // Lazy load AI SDKs
 async function loadAiSdks() {
-  const [
-    { createGoogleGenerativeAI },
-    { createOpenAI },
-    { createAnthropic },
-  ] = await Promise.all([
-    import('@ai-sdk/google'),
-    import('@ai-sdk/openai'),
-    import('@ai-sdk/anthropic'),
-  ]);
+  const [{ createGoogleGenerativeAI }, { createOpenAI }, { createAnthropic }] =
+    await Promise.all([
+      import('@ai-sdk/google'),
+      import('@ai-sdk/openai'),
+      import('@ai-sdk/anthropic'),
+    ]);
 
   return { createGoogleGenerativeAI, createOpenAI, createAnthropic };
 }
 
 // Create model service from environment variables
-function tryCreateModelService(aiSdk: Awaited<ReturnType<typeof loadAiSdks>>): ModelService | null {
+function tryCreateModelService(
+  aiSdk: Awaited<ReturnType<typeof loadAiSdks>>,
+): ModelService | null {
   const { createGoogleGenerativeAI, createOpenAI, createAnthropic } = aiSdk;
 
   // Try Gemini first
@@ -124,25 +142,87 @@ function tryCreateModelService(aiSdk: Awaited<ReturnType<typeof loadAiSdks>>): M
 }
 
 // Parse a verse reference from the command line (lazy loads BibleData)
-async function parseReferenceFromArgs(args: string[]): Promise<Reference | undefined> {
+async function parseReferenceFromArgs(
+  args: string[],
+): Promise<Reference | undefined> {
   if (args.length === 0) return undefined;
 
   const refString = args.join(' ');
 
   const { BibleDataLive, BibleData } = await traceAsync(
     'import bible/data for parsing',
-    () => import('./bible/data.js')
+    () => import('./bible/data.js'),
   );
 
   const result = traceSync('parseReference', () =>
-    Effect.runSync(Effect.provide(BibleData, BibleDataLive)).parseReference(refString)
+    Effect.runSync(Effect.provide(BibleData, BibleDataLive)).parseReference(
+      refString,
+    ),
   );
 
   return result;
 }
 
+// Parse an EGW reference from the command line
+function parseEgwReferenceFromArgs(args: string[]): EGWReference | undefined {
+  if (args.length === 0) return undefined;
+
+  const refString = args.join(' ');
+  const parsed = parseEGWRef(refString);
+
+  if (isSearchQuery(parsed)) {
+    return undefined;
+  }
+
+  // Convert parsed reference to EGWReference for router
+  return {
+    bookCode: parsed.bookCode,
+    page:
+      'page' in parsed
+        ? parsed.page
+        : 'pageStart' in parsed
+          ? parsed.pageStart
+          : undefined,
+    paragraph:
+      'paragraph' in parsed
+        ? parsed.paragraph
+        : 'paragraphStart' in parsed
+          ? parsed.paragraphStart
+          : undefined,
+  };
+}
+
 async function main() {
   trace('main() start');
+
+  // Handle egw open command - launches TUI at EGW location
+  if (isEgwOpenCommand) {
+    trace('TUI mode (egw open command)');
+
+    const refArgs = args.slice(2); // Skip "egw" and "open"
+    const egwRef = parseEgwReferenceFromArgs(refArgs);
+
+    if (refArgs.length > 0 && !egwRef) {
+      console.error(`Could not parse EGW reference: "${refArgs.join(' ')}"`);
+      console.error('Examples: PP 351.1, DA 1, GC 100');
+      process.exit(1);
+    }
+
+    const deps = await loadTuiDependencies();
+
+    await traceAsync('detectSystemTheme', deps.detectSystemThemeAsync);
+    const model = traceSync('createModelService', () =>
+      tryCreateModelService(deps),
+    );
+
+    // Pass empty object to signal "go to EGW route" even without a specific reference
+    // The EGW navigation context will load from saved state if no ref is provided
+    await traceAsync('tui', () =>
+      deps.tui({ initialEgwRef: egwRef ?? {}, model }),
+    );
+    printSummary();
+    return;
+  }
 
   if (hasSubcommand) {
     // CLI mode - fast path, no TUI/AI dependencies
@@ -153,20 +233,21 @@ async function main() {
         Command.withSubcommands([
           concordance,
           verse,
+          egwWithSubcommands,
           messages,
           sabbathSchool,
           studies,
           readings,
           exportOutput,
         ]),
-      )
+      ),
     );
 
     const cli = traceSync('Command.run', () =>
       Command.run(command, {
         name: 'Bible Tools',
         version: 'v1.0.0',
-      })
+      }),
     );
 
     const ServicesLayer = Layer.mergeAll(
@@ -184,7 +265,7 @@ async function main() {
       BunRuntime.runMain,
     );
   } else if (isOpenCommand) {
-    // TUI mode with specific reference
+    // TUI mode with specific Bible reference
     trace('TUI mode (open command)');
 
     const refArgs = args.slice(1);
@@ -199,7 +280,9 @@ async function main() {
     const deps = await loadTuiDependencies();
 
     await traceAsync('detectSystemTheme', deps.detectSystemThemeAsync);
-    const model = traceSync('createModelService', () => tryCreateModelService(deps));
+    const model = traceSync('createModelService', () =>
+      tryCreateModelService(deps),
+    );
 
     await traceAsync('tui', () => deps.tui({ initialRef: ref, model }));
     printSummary();
@@ -210,7 +293,9 @@ async function main() {
     const deps = await loadTuiDependencies();
 
     await traceAsync('detectSystemTheme', deps.detectSystemThemeAsync);
-    const model = traceSync('createModelService', () => tryCreateModelService(deps));
+    const model = traceSync('createModelService', () =>
+      tryCreateModelService(deps),
+    );
 
     await traceAsync('tui', () => deps.tui({ model }));
     printSummary();

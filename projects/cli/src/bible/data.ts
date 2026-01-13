@@ -3,9 +3,9 @@ import { matchSorter } from 'match-sorter';
 
 import kjvData from '../../assets/kjv.json';
 import {
-  type Book,
   BOOK_ALIASES,
   BOOKS,
+  type Book,
   type Reference,
   type SearchResult,
   type Verse,
@@ -38,15 +38,28 @@ export interface BibleDataService {
   readonly getBooks: () => Book[];
   readonly getBook: (bookNumber: number) => Book | undefined;
   readonly getChapter: (book: number, chapter: number) => Verse[];
-  readonly getVerse: (book: number, chapter: number, verse: number) => Verse | undefined;
+  readonly getVerse: (
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => Verse | undefined;
   readonly searchVerses: (query: string, limit?: number) => SearchResult[];
   readonly parseReference: (ref: string) => Reference | undefined;
-  readonly getNextChapter: (book: number, chapter: number) => Reference | undefined;
-  readonly getPrevChapter: (book: number, chapter: number) => Reference | undefined;
+  readonly getNextChapter: (
+    book: number,
+    chapter: number,
+  ) => Reference | undefined;
+  readonly getPrevChapter: (
+    book: number,
+    chapter: number,
+  ) => Reference | undefined;
 }
 
 // Effect service tag
-export class BibleData extends Context.Tag('BibleData')<BibleData, BibleDataService>() {}
+export class BibleData extends Context.Tag('BibleData')<
+  BibleData,
+  BibleDataService
+>() {}
 
 // Create the service implementation
 function createBibleDataService(): BibleDataService {

@@ -27,3 +27,20 @@
 export { EGWApiClient, EGWApiError } from './client.js';
 export { EGWAuth, EGWAuthError, AccessToken } from './auth.js';
 export * as Schemas from './schemas.js';
+export {
+  parseEGWRef,
+  parseEGWRefEffect,
+  formatEGWRef,
+  isReference,
+  isSearchQuery,
+  getBookCode,
+  buildRefcodePattern,
+  EGWParseError,
+  type EGWParsedRef,
+  type EGWParagraphRef,
+  type EGWParagraphRangeRef,
+  type EGWPageRef,
+  type EGWPageRangeRef,
+  type EGWBookRef,
+  type EGWSearchQuery,
+} from './parse.js';

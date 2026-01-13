@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { notes } from '../../core/notes/notes.js';
-import { runCli, expectContains } from '../lib/run-cli.js';
+import { expectContains, runCli } from '../lib/run-cli.js';
 
 describe('notes commands', () => {
   describe('list command', () => {
@@ -24,7 +24,8 @@ describe('notes commands', () => {
     });
 
     it('should output JSON when --json flag is used', async () => {
-      const mockNotesResponse = 'note-id-1|Test Note|January 1, 2026|January 2, 2026\n';
+      const mockNotesResponse =
+        'note-id-1|Test Note|January 1, 2026|January 2, 2026\n';
 
       const result = await runCli(notes, ['list', '--json'], {
         bun: {
@@ -53,17 +54,21 @@ describe('notes commands', () => {
     it('should create a new note from markdown file', async () => {
       const markdownContent = '# Test Message\n\nThis is test content.';
 
-      const result = await runCli(notes, ['export', '--file', '/path/to/message.md'], {
-        files: {
+      const result = await runCli(
+        notes,
+        ['export', '--file', '/path/to/message.md'],
+        {
           files: {
-            '/path/to/message.md': markdownContent,
+            files: {
+              '/path/to/message.md': markdownContent,
+            },
+          },
+          bun: {
+            appleScriptSuccess: true,
+            appleScriptResponse: 'note-id-new-123',
           },
         },
-        bun: {
-          appleScriptSuccess: true,
-          appleScriptResponse: 'note-id-new-123',
-        },
-      });
+      );
 
       expect(result.success).toBe(true);
       expectContains(result.calls, [
@@ -103,7 +108,13 @@ describe('notes commands', () => {
 
       const result = await runCli(
         notes,
-        ['export', '--file', '/path/to/message.md', '--note-id', 'existing-note-id-456'],
+        [
+          'export',
+          '--file',
+          '/path/to/message.md',
+          '--note-id',
+          'existing-note-id-456',
+        ],
         {
           files: {
             files: {

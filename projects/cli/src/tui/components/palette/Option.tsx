@@ -49,7 +49,10 @@ export function PaletteGroupHeader(props: PaletteGroupHeaderProps) {
   const { theme } = useTheme();
 
   return (
-    <box paddingLeft={1} marginTop={props.isFirst ? 0 : 1}>
+    <box
+      paddingLeft={1}
+      marginTop={props.isFirst ? 0 : 1}
+    >
       <text fg={theme().textMuted}>
         <strong>{props.label}</strong>
       </text>

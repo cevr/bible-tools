@@ -15,7 +15,7 @@
  */
 export function match<T extends { _tag: string }, R>(
   value: T,
-  handlers: { [K in T['_tag']]: (v: Extract<T, { _tag: K }>) => R }
+  handlers: { [K in T['_tag']]: (v: Extract<T, { _tag: K }>) => R },
 ): R {
   const handler = handlers[value._tag as T['_tag']];
   return handler(value as Extract<T, { _tag: T['_tag'] }>);
@@ -31,7 +31,7 @@ export function match<T extends { _tag: string }, R>(
  */
 export function is<T extends { _tag: string }, K extends T['_tag']>(
   value: T,
-  tag: K
+  tag: K,
 ): value is Extract<T, { _tag: K }> {
   return value._tag === tag;
 }

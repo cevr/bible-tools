@@ -5,8 +5,8 @@
  * Finds elements by ID and scrolls to keep them visible in the viewport.
  */
 
-import { createEffect, type Accessor } from 'solid-js';
 import type { ScrollBoxRenderable } from '@opentui/core';
+import { createEffect, type Accessor } from 'solid-js';
 
 interface ScrollSyncOptions {
   /** The scrollbox ref getter */
@@ -22,7 +22,7 @@ interface ScrollSyncOptions {
  */
 export function useScrollSync(
   selectedId: Accessor<string>,
-  options: ScrollSyncOptions
+  options: ScrollSyncOptions,
 ) {
   const { getRef, retries = 15, retryDelay = 30 } = options;
 
@@ -46,10 +46,16 @@ export function useScrollSync(
     return true;
   };
 
-  const syncScrollWithRetry = (id: string, remainingRetries: number = retries) => {
+  const syncScrollWithRetry = (
+    id: string,
+    remainingRetries: number = retries,
+  ) => {
     if (syncScroll(id)) return;
     if (remainingRetries > 0) {
-      setTimeout(() => syncScrollWithRetry(id, remainingRetries - 1), retryDelay);
+      setTimeout(
+        () => syncScrollWithRetry(id, remainingRetries - 1),
+        retryDelay,
+      );
     }
   };
 
