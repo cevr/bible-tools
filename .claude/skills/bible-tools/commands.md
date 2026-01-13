@@ -222,7 +222,7 @@ Models are configured via environment variables:
 ## Output Directory Structure
 
 ```
-projects/cli/outputs/
+packages/cli/outputs/
 ├── messages/
 │   └── 2025-01-04-hope-in-christ.md
 ├── sabbath-school/

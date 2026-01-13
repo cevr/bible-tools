@@ -23,7 +23,7 @@ church-related content.
 
 ## CLI Commands
 
-The CLI is available as `bible` (symlinked to `projects/cli/bin/bible`).
+The CLI is available as `bible` (symlinked to `packages/cli/bin/bible`).
 
 **Important:** The `--model` flag is required for all generation/revision
 commands.
@@ -92,7 +92,7 @@ Each quarter starts on the first Saturday of the quarter's first month.
 
 ### Output Locations
 
-All outputs are stored in `projects/cli/outputs/`:
+All outputs are stored in `packages/cli/outputs/`:
 
 - `outputs/messages/` - Generated messages (YYYY-MM-DD-slug.md)
 - `outputs/sabbath-school/` - Sabbath School outlines (YYYY-QX-WY.md)
@@ -104,7 +104,7 @@ All outputs are stored in `projects/cli/outputs/`:
 ### Generate Sabbath School Outline for This Week
 
 1. Calculate current year, quarter, and week from today's date
-2. Check if outline exists: `ls projects/cli/outputs/sabbath-school/`
+2. Check if outline exists: `ls packages/cli/outputs/sabbath-school/`
 3. If missing:
    `bible sabbath-school process --model anthropic --year YYYY --quarter Q --week W`
 4. Read the generated file and summarize for the user

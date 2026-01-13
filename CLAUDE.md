@@ -7,11 +7,10 @@ A monorepo for Bible study tools with CLI and web interfaces.
 ```
 bible-tools/
 ├── packages/
-│   └── core/           # Shared business logic (@bible/core)
-│       ├── adapters/   # Platform abstraction (storage, export)
-│       ├── ai/         # AI model providers and service
-│       └── sabbath-school/  # Sabbath School outline generation
-├── projects/
+│   ├── core/           # Shared business logic (@bible/core)
+│   │   ├── adapters/   # Platform abstraction (storage, export)
+│   │   ├── ai/         # AI model providers and service
+│   │   └── sabbath-school/  # Sabbath School outline generation
 │   ├── cli/            # CLI application (@bible/cli)
 │   └── web/            # Web application (@bible/web)
 ```
