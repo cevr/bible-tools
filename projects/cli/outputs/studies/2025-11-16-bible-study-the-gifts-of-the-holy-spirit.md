@@ -43,8 +43,7 @@ distributed as the Spirit wills, and no single gift is given to all.
 _All these are bestowed by the same Spirit for one purpose:_
 
 > “But the manifestation of the Spirit is given to every man **to profit
-> withal**.”
-> — 1 Corinthians 12:7
+> withal**.” — 1 Corinthians 12:7
 
 **Core idea**: Gifts are for **edification**, not entertainment; for
 **service**, not status.
@@ -69,10 +68,8 @@ Jesus warned plainly:
 
 > “Many will say to me in that day, Lord, Lord, have we not **prophesied in thy
 > name?** and in thy name have cast out devils? and in thy name done many
-> wonderful works?
-> And then will I profess unto them, **I never knew you**: depart from me, ye
-> that work iniquity.”
-> — Matthew 7:22–23
+> wonderful works? And then will I profess unto them, **I never knew you**:
+> depart from me, ye that work iniquity.” — Matthew 7:22–23
 
 They had gifts (or at least powerful religious experiences), but **no
 relationship**.
@@ -83,8 +80,7 @@ The **true sign** that we are under the control of the Holy Spirit is the
 **fruit of the Spirit**, not primarily the gifts:
 
 > “But the fruit of the Spirit is **love, joy, peace, longsuffering, gentleness,
-> goodness, faith, meekness, temperance**…”
-> — Galatians 5:22–23
+> goodness, faith, meekness, temperance**…” — Galatians 5:22–23
 
 - **Gifts = what we can do in ministry.**
 - **Fruit = what we are in character.**
@@ -101,8 +97,8 @@ So:
   love for truth (2 Thessalonians 2:10).
 - **Gifts** are tools God gives to such people, as He sees best.
 
-[Q] **“So are gifts irrelevant to knowing if the Spirit is present?”**
-Not irrelevant—but secondary. Gifts show the Spirit is active to bless **the
+[Q] **“So are gifts irrelevant to knowing if the Spirit is present?”** Not
+irrelevant—but secondary. Gifts show the Spirit is active to bless **the
 church’s mission**. Fruit shows the Spirit is ruling **the heart**. We must not
 reverse the order.
 
@@ -115,19 +111,16 @@ reverse the order.
 Paul settles this very directly with a series of rhetorical questions:
 
 > “Are all apostles? are all prophets? are all teachers? are all workers of
-> miracles?
-> Have all the gifts of healing? do all speak with tongues? do all interpret?”
-> — 1 Corinthians 12:29–30
+> miracles? Have all the gifts of healing? do all speak with tongues? do all
+> interpret?” — 1 Corinthians 12:29–30
 
 The implied answer in Greek and in context is: **No** to every question.
 
 Paul’s main analogy:
 
-> “For as the body is one, and hath many members…so also is Christ.”
-> — 1 Corinthians 12:12
-> “If the whole body were an eye, where were the hearing? If the whole were
-> hearing, where were the smelling?”
-> — 1 Corinthians 12:17
+> “For as the body is one, and hath many members…so also is Christ.” — 1
+> Corinthians 12:12 “If the whole body were an eye, where were the hearing? If
+> the whole were hearing, where were the smelling?” — 1 Corinthians 12:17
 
 **Key points:**
 
@@ -170,15 +163,12 @@ basics to more detail.
 - The Spirit descended, and:
 
 > “They were all filled with the Holy Ghost, and began to **speak with other
-> tongues**, as the Spirit gave them utterance.”
-> — Acts 2:4
+> tongues**, as the Spirit gave them utterance.” — Acts 2:4
 
 Crucial detail:
 
-> “Every man heard them speak in **his own language**.”
-> — Acts 2:6
-> “How hear we every man in **our own tongue, wherein we were born?**”
-> — Acts 2:8
+> “Every man heard them speak in **his own language**.” — Acts 2:6 “How hear we
+> every man in **our own tongue, wherein we were born?**” — Acts 2:8
 
 So at Pentecost:
 
@@ -204,8 +194,8 @@ Combine Acts 2 and 1 Corinthians 12–14:
 Paul’s summary principle:
 
 > “Except ye utter by the tongue **words easy to be understood**, how shall it
-> be known what is spoken? for ye shall speak into the air.”
-> — 1 Corinthians 14:9
+> be known what is spoken? for ye shall speak into the air.” — 1 Corinthians
+> 14:9
 
 ### 4.3. What the Gift of Tongues Is Not
 
@@ -240,10 +230,10 @@ From Scripture:
      understanding also**.” (1 Corinthians 14:15)
    - Genuine spiritual experience does not ask us to **turn off** the mind.
 
-[Q] **“But what about ‘unknown tongue’ in 1 Corinthians 14?”**
-The word “unknown” is in italics in the KJV, meaning it was **added by
-translators** to make the English flow. Paul is simply talking about a **foreign
-language** not understood by the local congregation. That’s why he insists on
+[Q] **“But what about ‘unknown tongue’ in 1 Corinthians 14?”** The word
+“unknown” is in italics in the KJV, meaning it was **added by translators** to
+make the English flow. Paul is simply talking about a **foreign language** not
+understood by the local congregation. That’s why he insists on
 **interpretation** (1 Corinthians 14:27–28).
 
 ---
@@ -254,8 +244,7 @@ language** not understood by the local congregation. That’s why he insists on
 
 - **Sign for unbelievers** (especially those who speak another language):
   > “Wherefore tongues are for a sign, **not to them that believe, but to them
-  > that believe not**…”
-  > — 1 Corinthians 14:22
+  > that believe not**…” — 1 Corinthians 14:22
 - **Practical missionary aid** to reach people of other tongues more quickly,
   especially where language barriers would hinder the spread of the gospel.
 
@@ -351,8 +340,8 @@ This truth calls us to:
 - Keep Christ central; the Spirit’s role is to **glorify Christ** (John 16:14),
   not to draw attention to spectacular displays for their own sake.
 
-[Q] **“If I don’t have tongues, am I missing something essential?”**
-No. The essential evidence of the Spirit is:
+[Q] **“If I don’t have tongues, am I missing something essential?”** No. The
+essential evidence of the Spirit is:
 
 - New birth (John 3:3–5)
 - Victory over sin (Romans 8:13–14)
@@ -395,5 +384,4 @@ is secondary and subject to God’s wise choice.
 _Final encouragement:_
 
 > “Follow after charity, and desire spiritual gifts, but rather that ye may
-> prophesy.”
-> — 1 Corinthians 14:1
+> prophesy.” — 1 Corinthians 14:1

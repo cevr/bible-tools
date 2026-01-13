@@ -1,7 +1,10 @@
 ## Slide 1 – Q1: The Scope of the Commandment
 
 - **Question:** How much is included in the seventh commandment?
-- **Key Text:** Matthew 5:27, 28 – “Ye have heard that it was said by them of old time, Thou shalt not commit adultery; but I say unto you, That whosoever looketh on a woman to lust after her hath committed adultery with her already in his heart.”
+- **Key Text:** Matthew 5:27, 28 – “Ye have heard that it was said by them of
+  old time, Thou shalt not commit adultery; but I say unto you, That whosoever
+  looketh on a woman to lust after her hath committed adultery with her already
+  in his heart.”
 
 ## Slide 2 – Q1: Key Points (Law and Heart)
 
@@ -9,17 +12,20 @@
   - Christ acts as the great Lawgiver (Isaiah 42:21).
   - He dispels the idea that God’s law regulates only outward actions.
 - **The Spirituality of the Law:**
-  - The commandment extends beyond physical acts to the “secret chambers of the soul.”
+  - The commandment extends beyond physical acts to the “secret chambers of the
+    soul.”
   - It judges motives, desires, and the imagination.
 - **The Seat of Sin:**
   - The heart is the true battleground.
-  - Cherishing the desire to sin makes one guilty, even if the physical act does not occur.
+  - Cherishing the desire to sin makes one guilty, even if the physical act does
+    not occur.
 
 ## Slide 3 – Q1: Application (The New Covenant)
 
 - **The Need for a New Heart:**
   - A heart that naturally produces lust cannot simply “try harder” to be pure.
-  - We need the New Covenant promise: “I will put my laws into their mind, and write them in their hearts” (Hebrews 8:10).
+  - We need the New Covenant promise: “I will put my laws into their mind, and
+    write them in their hearts” (Hebrews 8:10).
 - **Righteousness by Faith:**
   - **Justification:** Forgives past acts and sinful thoughts.
   - **Sanctification:** Changes the heart so it no longer loves impurity.
@@ -27,7 +33,8 @@
 ## Slide 4 – Q1: Illustration
 
 - **The Garden of Weeds:**
-  - A man may mow the tops of weeds in his garden (outward behavior modification).
+  - A man may mow the tops of weeds in his garden (outward behavior
+    modification).
   - The garden looks clean for a day, but the roots remain, and weeds return.
 - **The Root of Lust:**
   - The seventh commandment demands digging out the root.
@@ -36,16 +43,21 @@
 ## Slide 5 – Q2: Behaviors to Omit
 
 - **Question:** What are the people of God exhorted to omit?
-- **Key Text:** Ephesians 5:3, 4 – “But fornication, and all uncleanness, or covetousness, let it not be once named among you, as becometh saints; neither filthiness, nor foolish talking, nor jesting, which are not convenient; but rather giving of thanks.”
+- **Key Text:** Ephesians 5:3, 4 – “But fornication, and all uncleanness, or
+  covetousness, let it not be once named among you, as becometh saints; neither
+  filthiness, nor foolish talking, nor jesting, which are not convenient; but
+  rather giving of thanks.”
 
 ## Slide 6 – Q2: Key Points (Specific Sins)
 
-- **Fornication (*Porneia*):**
+- **Fornication (_Porneia_):**
   - Covers all illicit sexual activity outside the marriage covenant.
 - **All Uncleanness:**
-  - Moral impurity in thought, word, or action that defiles the temple of the Spirit (1 Corinthians 6:19).
+  - Moral impurity in thought, word, or action that defiles the temple of the
+    Spirit (1 Corinthians 6:19).
 - **Covetousness:**
-  - Paul links impurity with idolatry—a greedy desire to possess what God has not given.
+  - Paul links impurity with idolatry—a greedy desire to possess what God has
+    not given.
 - **Foolish Talking and Jesting:**
   - Coarse humor or levity that lowers Christian dignity.
   - Speech should minister grace, not cheapen the soul.
@@ -54,7 +66,8 @@
 
 - **"Not Once Named":**
   - The standard is absolute purity.
-  - These topics should not be casual conversation or entertainment for God’s remnant.
+  - These topics should not be casual conversation or entertainment for God’s
+    remnant.
 - **Defining Sanctification:**
   - The process of being made holy.
   - Separation from the world’s low standards.
@@ -63,59 +76,74 @@
 ## Slide 8 – Q3: The Nature of Impurity
 
 - **Question:** What does the apostle class this inclination?
-- **Key Text:** Galatians 5:19 – “Now the works of the flesh are manifest, which are these: Adultery, fornication, uncleanness, lasciviousness.”
+- **Key Text:** Galatians 5:19 – “Now the works of the flesh are manifest, which
+  are these: Adultery, fornication, uncleanness, lasciviousness.”
 
 ## Slide 9 – Q3: Key Points (Two Natures)
 
 - **The Conflict:**
-  - **The Flesh:** Our fallen nature inherited from Adam; gravitates toward self-indulgence.
-  - **The Spirit:** The new nature imparted by Christ; gravitates toward holiness (Romans 8:7).
+  - **The Flesh:** Our fallen nature inherited from Adam; gravitates toward
+    self-indulgence.
+  - **The Spirit:** The new nature imparted by Christ; gravitates toward
+    holiness (Romans 8:7).
 - **Manifest Works:**
   - These sins are visible fruit proving the self-life is still on the throne.
 - **Righteousness by Faith:**
   - We cannot overcome the “flesh” by the energy of the flesh (willpower alone).
-  - Victory comes by being “crucified with Christ” (Galatians 2:20) and letting His Spirit live through us.
+  - Victory comes by being “crucified with Christ” (Galatians 2:20) and letting
+    His Spirit live through us.
 
 ## Slide 10 – Q3: Illustration
 
 - **The Stone and Gravity:**
   - A heavy stone naturally falls due to gravity.
-  - You can hold it up by hand (human effort), but your arm will tire, and it will fall.
+  - You can hold it up by hand (human effort), but your arm will tire, and it
+    will fall.
   - If placed on a strong table, it stays up without effort.
 - **Resting on Christ:**
   - The "table" is Christ.
-  - Resting on Him by faith breaks the law of gravity (sin) with the law of the Spirit of life.
+  - Resting on Him by faith breaks the law of gravity (sin) with the law of the
+    Spirit of life.
 
 ## Slide 11 – Q4: The Consequence of Impurity
 
 - **Question:** Of what will those who are guilty in this direction be deprived?
-- **Key Text:** Galatians 5:21 – “I have also told you in time past, that they which do such things shall not inherit the kingdom of God.”
+- **Key Text:** Galatians 5:21 – “I have also told you in time past, that they
+  which do such things shall not inherit the kingdom of God.”
 
 ## Slide 12 – Q4: Key Points (The Kingdom)
 
 - **A Solemn Warning:**
-  - Those who *practice* these sins (without repentance) are excluded from heaven.
+  - Those who _practice_ these sins (without repentance) are excluded from
+    heaven.
 - **Character of the Kingdom:**
   - The New Jerusalem allows nothing that defiles (Revelation 21:27).
-  - Someone who loves filthiness would be miserable in the pure atmosphere of heaven.
+  - Someone who loves filthiness would be miserable in the pure atmosphere of
+    heaven.
 - **Self-Examination:**
-  - A profession of faith that does not lead to departing from iniquity is false.
+  - A profession of faith that does not lead to departing from iniquity is
+    false.
 
 ## Slide 13 – Q4: Application (Sanctuary Cleansing)
 
 - **The Necessity of Cleansing:**
-  - Because no impurity can inherit the kingdom, we need the work of our High Priest.
-  - He must blot out not only the *record* of sins in the heavenly sanctuary but the *love* of sin in our hearts.
+  - Because no impurity can inherit the kingdom, we need the work of our High
+    Priest.
+  - He must blot out not only the _record_ of sins in the heavenly sanctuary but
+    the _love_ of sin in our hearts.
 
 ## Slide 14 – Q5: Church Discipline
 
-- **Question:** If one professing godliness is known to be impure, what is our duty regarding Him?
-- **Key Text:** 1 Corinthians 5:11 – “But now I have written unto you not to keep company, if any man that is called a brother be a fornicator.”
+- **Question:** If one professing godliness is known to be impure, what is our
+  duty regarding Him?
+- **Key Text:** 1 Corinthians 5:11 – “But now I have written unto you not to
+  keep company, if any man that is called a brother be a fornicator.”
 
 ## Slide 15 – Q5: Key Points (Separation)
 
 - **"Called a Brother":**
-  - Applies to those within the church who profess Christ but live in open rebellion.
+  - Applies to those within the church who profess Christ but live in open
+    rebellion.
 - **Not to Keep Company:**
   - We must not treat such a person with intimate fellowship.
   - Why?
@@ -124,12 +152,14 @@
     - It leavens the church with their influence (1 Corinthians 5:6).
 - **Purpose of Discipline:**
   - Not cruelty, but restoration.
-  - The goal is that the sinner realizes their condition and repents (1 Corinthians 5:5).
+  - The goal is that the sinner realizes their condition and repents (1
+    Corinthians 5:5).
 
 ## Slide 16 – Q6: Evil Communications
 
 - **Question:** If one received evil communications, how will they affect him?
-- **Key Text:** 1 Corinthians 15:33 – “Be not deceived: evil communications corrupt good manners.”
+- **Key Text:** 1 Corinthians 15:33 – “Be not deceived: evil communications
+  corrupt good manners.”
 
 ## Slide 17 – Q6: Key Points (Assimilation)
 
@@ -146,14 +176,19 @@
 ## Slide 18 – Q6: Illustration
 
 - **The Rotten Apple:**
-  - If you place one rotten apple in a basket of fresh apples, the healthy ones do not heal the rotten one.
+  - If you place one rotten apple in a basket of fresh apples, the healthy ones
+    do not heal the rotten one.
   - The rot spreads to the healthy ones.
   - Social impurity spreads by contagion.
 
 ## Slide 19 – Q7: Sowing and Reaping
 
-- **Question:** When a person allows corrupt thoughts to be sown in his heart, what may he expect to reap?
-- **Key Text:** Galatians 6:7, 8 – “Be not deceived; God is not mocked; for whatsoever a man soweth, that shall he also reap. For he that soweth to his flesh shall of the flesh reap corruption; but he that soweth to the Spirit shall of the Spirit reap life everlasting.”
+- **Question:** When a person allows corrupt thoughts to be sown in his heart,
+  what may he expect to reap?
+- **Key Text:** Galatians 6:7, 8 – “Be not deceived; God is not mocked; for
+  whatsoever a man soweth, that shall he also reap. For he that soweth to his
+  flesh shall of the flesh reap corruption; but he that soweth to the Spirit
+  shall of the Spirit reap life everlasting.”
 
 ## Slide 20 – Q7: Key Points (The Law of Harvest)
 
@@ -193,7 +228,9 @@
 ## Slide 24 – Q9: Conditions for Acceptance
 
 - **Question:** On what condition does God accept the sinner?
-- **Key Text:** Isaiah 55:7 – “Let the wicked forsake his way, and the unrighteous man his thoughts: and let him return unto the Lord, and He will have mercy upon him; and to our God, for He will abundantly pardon.”
+- **Key Text:** Isaiah 55:7 – “Let the wicked forsake his way, and the
+  unrighteous man his thoughts: and let him return unto the Lord, and He will
+  have mercy upon him; and to our God, for He will abundantly pardon.”
 
 ## Slide 25 – Q9: Key Points (Repentance & Pardon)
 
@@ -203,23 +240,27 @@
   - God will "abundantly pardon." He runs to meet the returning sinner.
 - **Justification by Faith:**
   - The accumulated guilt of impure thoughts is washed away by Jesus’ blood.
-  - There is no stain so deep that Christ cannot wash it white as snow (Isaiah 1:18).
+  - There is no stain so deep that Christ cannot wash it white as snow (Isaiah
+    1:18).
 
 ## Slide 26 – Q10: Captivity of Thoughts
 
 - **Question:** Where should one's thoughts be held?
-- **Key Text:** 2 Corinthians 10:5 – “And bringing into captivity every thought to the obedience of Christ.”
+- **Key Text:** 2 Corinthians 10:5 – “And bringing into captivity every thought
+  to the obedience of Christ.”
 
 ## Slide 27 – Q10: Key Points (Mental Warfare)
 
 - **Captivity:**
   - We must actively seize wandering thoughts.
 - **Obedience of Christ:**
-  - Compare every thought with the life of Jesus. If it is not Christ-like, it is an enemy.
+  - Compare every thought with the life of Jesus. If it is not Christ-like, it
+    is an enemy.
 - **How to Fight:**
   - **Sword of the Spirit:** Quote Scripture as Jesus did.
   - **Prayer:** Cry out for help at the moment of temptation.
-  - **Displacement:** Drive out bad thoughts by bringing in thoughts of Christ’s love.
+  - **Displacement:** Drive out bad thoughts by bringing in thoughts of Christ’s
+    love.
 
 ## Slide 28 – Q10: Illustration
 
@@ -232,23 +273,29 @@
 ## Slide 29 – Q11: God’s Omniscience
 
 - **Question:** Does God know the thoughts?
-- **Key Text:** Psalm 139:2 – “Thou knowest my down sitting and mine uprising, thou understandest my thought afar off.”
+- **Key Text:** Psalm 139:2 – “Thou knowest my down sitting and mine uprising,
+  thou understandest my thought afar off.”
 
 ## Slide 30 – Q11: Key Points (Judgment & Comfort)
 
 - **Omniscience:**
-  - Nothing is hidden; God sees the secret fantasy as clearly as the public deed (Hebrews 4:13).
+  - Nothing is hidden; God sees the secret fantasy as clearly as the public deed
+    (Hebrews 4:13).
 - **The Investigative Judgment:**
   - The High Priest examines the heart.
-  - We should never invite a guest (thought) into our minds that we would be ashamed for Jesus to see.
+  - We should never invite a guest (thought) into our minds that we would be
+    ashamed for Jesus to see.
 - **Comfort for the Struggling:**
-  - God knows when we *reject* a bad thought.
+  - God knows when we _reject_ a bad thought.
   - He sympathizes with our struggle to be pure.
 
 ## Slide 31 – Q12: Treating Impure Conversation
 
-- **Question:** Then how should one treat him who indulges in low, impure conversation?
-- **Key Text:** Ephesians 5:11, 12 – “And have no fellowship with the unfruitful works of darkness, but rather reprove them. For it is a shame even to speak of those things which are done of them in secret.”
+- **Question:** Then how should one treat him who indulges in low, impure
+  conversation?
+- **Key Text:** Ephesians 5:11, 12 – “And have no fellowship with the unfruitful
+  works of darkness, but rather reprove them. For it is a shame even to speak of
+  those things which are done of them in secret.”
 
 ## Slide 32 – Q12: Key Points (Reproof)
 
@@ -264,7 +311,9 @@
 ## Slide 33 – Q13: Guarding Our Speech
 
 - **Question:** In conversation, against what should one be strenuously guarded?
-- **Key Text:** Ephesians 4:29 – “Let no corrupt communication proceed out of your mouth, but that which is good to the use of edifying, that it may minister grace unto the hearers.”
+- **Key Text:** Ephesians 4:29 – “Let no corrupt communication proceed out of
+  your mouth, but that which is good to the use of edifying, that it may
+  minister grace unto the hearers.”
 
 ## Slide 34 – Q13: Key Points (Edifying Speech)
 
@@ -280,7 +329,11 @@
 ## Slide 35 – Q14: Engaging the Mind
 
 - **Question:** What are the proper things to engage one's mind?
-- **Key Text:** Philippians 4:8 – “Finally, brethren, whatsoever things are true, whatsoever things are honest, whatsoever things are just, whatsoever things are pure, whatsoever things are lovely, whatsoever things are of good report; if there be any virtue, and if there be any praise, think on these things.”
+- **Key Text:** Philippians 4:8 – “Finally, brethren, whatsoever things are
+  true, whatsoever things are honest, whatsoever things are just, whatsoever
+  things are pure, whatsoever things are lovely, whatsoever things are of good
+  report; if there be any virtue, and if there be any praise, think on these
+  things.”
 
 ## Slide 36 – Q14: Key Points (Replacement Principle)
 
@@ -301,14 +354,15 @@
 ## Slide 38 – Q15: The Promise to the Pure
 
 - **Question:** What is promised to the pure in heart?
-- **Key Text:** Matthew 5:8 – “Blessed are the pure in heart; for they shall see God.”
+- **Key Text:** Matthew 5:8 – “Blessed are the pure in heart; for they shall see
+  God.”
 
 ## Slide 39 – Q15: Key Points (Seeing God)
 
 - **The Beatific Vision:**
   - The ultimate reward is seeing God’s face (Revelation 22:4).
 - **Fitness for Heaven:**
-  - Only the pure *can* see God; His presence is a consuming fire to sin.
+  - Only the pure _can_ see God; His presence is a consuming fire to sin.
   - Purity is the essential qualification for heaven.
 - **Present Experience:**
   - The pure see God now in nature, providence, and the Word.
@@ -324,7 +378,8 @@
 ## Slide 41 – Q16: The Source of Words
 
 - **Question:** From what source come our words?
-- **Key Text:** Matthew 12:34 – “O generation of vipers, how can ye, being evil, speak good things? for out of the abundance of the heart the mouth speaketh.”
+- **Key Text:** Matthew 12:34 – “O generation of vipers, how can ye, being evil,
+  speak good things? for out of the abundance of the heart the mouth speaketh.”
 
 ## Slide 42 – Q16: Key Points (The Heart)
 
@@ -340,7 +395,10 @@
 ## Slide 43 – Q17: The Final Account
 
 - **Question:** Of what will all give account in the day of judgment?
-- **Key Text:** Matthew 12:36, 37 – “But I say unto you, That every idle word that men shall speak, they shall give account thereof in the day of judgment. For by thy words thou shalt be justified, and by thy words thou shalt be condemned.”
+- **Key Text:** Matthew 12:36, 37 – “But I say unto you, That every idle word
+  that men shall speak, they shall give account thereof in the day of judgment.
+  For by thy words thou shalt be justified, and by thy words thou shalt be
+  condemned.”
 
 ## Slide 44 – Q17: Key Points (Judgment)
 
@@ -350,7 +408,8 @@
 - **Evidence of Character:**
   - Words testify whether we serve Christ or self.
 - **Justification:**
-  - Our words provide evidence of whether we have truly accepted Christ's righteousness.
+  - Our words provide evidence of whether we have truly accepted Christ's
+    righteousness.
   - A justified man, indwelt by the Spirit, has a transformed tongue.
 
 ## Slide 45 – Q17: Illustration & Hope

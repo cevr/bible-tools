@@ -11,19 +11,21 @@
 
 ## Opening Hymns
 
-- #73 — *Holy, Holy, Holy*
-- #88 — *I Sing the Mighty Power of God*
-- #518 — *Standing on the Promises*
+- #73 — _Holy, Holy, Holy_
+- #88 — _I Sing the Mighty Power of God_
+- #518 — _Standing on the Promises_
 
 ## Closing Hymns
 
-- #614 — *Sound the Battle Cry*
-- #608 — *Faith Is the Victory*
-- #337 — *Redeemed!*
+- #614 — _Sound the Battle Cry_
+- #608 — _Faith Is the Victory_
+- #337 — _Redeemed!_
 
 ## Central Bible Verse
 
-- **Ephesians 3:10 (KJV)** — "To the intent that now unto the principalities and powers in heavenly places might be known by the church the manifold wisdom of God."
+- **Ephesians 3:10 (KJV)** — "To the intent that now unto the principalities and
+  powers in heavenly places might be known by the church the manifold wisdom of
+  God."
 
 ## Key Supporting Verses
 
@@ -55,7 +57,8 @@
   - Humanity exists to display God's character
   - [WB]: Write "CREATED FOR HIS GLORY" (Isa 43:7)
 - Creation was not divine hobby; it served eternal purpose
-- [RQ]: If God needed nothing, why does Scripture say we *reveal* something to watching beings? (Eph 3:10)
+- [RQ]: If God needed nothing, why does Scripture say we _reveal_ something to
+  watching beings? (Eph 3:10)
 - Human existence connected to something larger than Earth
 
 ---
@@ -79,7 +82,8 @@
   - [WB]: List the five "I wills" of Satan (Isa 14:13–14)
   - Exalt throne, ascend above stars, be like Most High
 - [RQ]: What does Lucifer's fall teach about the origin of sin? (Ezek 28:15)
-- [EGW]: "Little by little Lucifer came to indulge the desire for self-exaltation." (PP 35.1)
+- [EGW]: "Little by little Lucifer came to indulge the desire for
+  self-exaltation." (PP 35.1)
 
 ### C. War, Not Merely Rebellion
 
@@ -100,15 +104,18 @@
   - [WB]: Write "CHARGE: God is selfish" (Isa 14:14)
 - Genesis 3:5 — "God doth know… ye shall be as gods"
   - Serpent frames prohibition as divine jealousy
-- [RQ]: How did Satan twist God's protective command into evidence of selfishness? (Gen 3:5)
-- [EGW]: "Satan represented to the holy pair that they would be gainers by breaking the law of God." (PP 54.1)
+- [RQ]: How did Satan twist God's protective command into evidence of
+  selfishness? (Gen 3:5)
+- [EGW]: "Satan represented to the holy pair that they would be gainers by
+  breaking the law of God." (PP 54.1)
 
 ### B. Charge 2: God's Law Is Arbitrary and Impossible
 
 - Genesis 3:1 — "Yea, hath God said…?"
   - Questions whether God's word is trustworthy
   - Implies divine commands are unreasonable
-- Romans 8:7 — Carnal mind "not subject to the law of God, neither indeed can be"
+- Romans 8:7 — Carnal mind "not subject to the law of God, neither indeed can
+  be"
   - Satan claims obedience is impossible—God demands what cannot be given
   - [WB]: Write "CHARGE: Law is arbitrary/impossible" (Gen 3:1)
 - [EB]: Psalm 19:7–8 — Law is perfect, right, pure—contrary to Satan's claim
@@ -120,8 +127,10 @@
   - Remove blessing, worship vanishes
   - [WB]: Write "CHARGE: God bribes for loyalty" (Job 1:9)
 - Job 2:4–5 — Escalation: "Touch his bone and flesh, and he will curse thee"
-- [RQ]: What does Satan's accusation against Job reveal about his view of all worship? (Job 1:9)
-- [Aside]: A prosecutor doesn't attack one witness—he attacks the principle. Satan indicts all who serve God.
+- [RQ]: What does Satan's accusation against Job reveal about his view of all
+  worship? (Job 1:9)
+- [Aside]: A prosecutor doesn't attack one witness—he attacks the principle.
+  Satan indicts all who serve God.
 
 ### D. Charge 4: God Is Unjust and Vengeful
 
@@ -131,7 +140,8 @@
 - Jonah 4:2 — Jonah angry that God shows mercy
   - Satan's twist: God's justice is inconsistent
 - [EB]: Genesis 18:25 — "Shall not the Judge of all the earth do right?"
-- [EGW]: "Satan declared that the law of God was faulty, and that the good of the universe required a change in its requirements." (GC 498.2)
+- [EGW]: "Satan declared that the law of God was faulty, and that the good of
+  the universe required a change in its requirements." (GC 498.2)
 
 ---
 
@@ -152,21 +162,25 @@
   - [WB]: Write "ANGELS → HUMANS" with "NEW WITNESSES" (Heb 2:16)
 - 1 Corinthians 4:9 — "A spectacle unto the world, and to angels, and to men"
   - Human life is courtroom evidence
-- [EB]: Hebrews 2:14 — Through humanity, Christ destroys him that had the power of death
+- [EB]: Hebrews 2:14 — Through humanity, Christ destroys him that had the power
+  of death
 
 ### C. Humans as Living Evidence for God's Glory
 
 - Isaiah 43:7 — Created for God's glory
   - Glory = character revealed and vindicated
   - [WB]: Write "GLORY = CHARACTER DISPLAYED" (Isa 43:7)
-- Isaiah 43:21 — "This people have I formed for myself; they shall shew forth my praise"
+- Isaiah 43:21 — "This people have I formed for myself; they shall shew forth my
+  praise"
   - Purpose: demonstrate God's goodness before all creation
 - Ephesians 3:10 — Church demonstrates God's wisdom to principalities
   - Not theology alone—**lives lived**
 - Romans 3:4 — "That thou mightest be justified in thy sayings"
   - God permits examination; He will be vindicated
-- [EGW]: "It is the purpose of God to manifest through His people the principles of His kingdom." (COL 296.1)
-- [Aside]: A defendant who destroys accusers looks guilty. A defendant who presents evidence wins in the open.
+- [EGW]: "It is the purpose of God to manifest through His people the principles
+  of His kingdom." (COL 296.1)
+- [Aside]: A defendant who destroys accusers looks guilty. A defendant who
+  presents evidence wins in the open.
 
 ---
 
@@ -182,14 +196,18 @@
 
 ### B. How the Saints Overcome
 
-- Revelation 12:11 — "They overcame him by the blood of the Lamb, and by the word of their testimony"
+- Revelation 12:11 — "They overcame him by the blood of the Lamb, and by the
+  word of their testimony"
   - Blood provides standing; testimony provides evidence
   - [WB]: Write "BLOOD + TESTIMONY = VICTORY" (Rev 12:11)
 - Lives of loyalty answer Satan's charges:
   - God's law can be kept through grace
   - Obedience flows from love, not bribery
   - God's character is just and merciful
-- [EGW]: "Those who are living upon the earth when the intercession of Christ shall cease in the sanctuary above are to stand in the sight of a holy God without a mediator. Their robes must be spotless, their characters must be purified from sin by the blood of sprinkling." (GC 425.1)
+- [EGW]: "Those who are living upon the earth when the intercession of Christ
+  shall cease in the sanctuary above are to stand in the sight of a holy God
+  without a mediator. Their robes must be spotless, their characters must be
+  purified from sin by the blood of sprinkling." (GC 425.1)
 
 ### C. You Were Created for This Hour
 
@@ -200,7 +218,11 @@
 
 ### Call to Action — Take Your Place as Witness
 
-- Accept that you were created to glorify God and vindicate His character (Isa 43:7; Eph 3:10)
-- Surrender fully to Christ, letting Him reproduce His character in you (Gal 2:20)
-- Stand as living evidence that God's law is just, His love is real, and loyalty to Him is worth everything (Rev 12:11)
-- Resolve today: *My life will answer the accuser and bring glory to God* (Rom 3:4; Isa 43:21)
+- Accept that you were created to glorify God and vindicate His character (Isa
+  43:7; Eph 3:10)
+- Surrender fully to Christ, letting Him reproduce His character in you (Gal
+  2:20)
+- Stand as living evidence that God's law is just, His love is real, and loyalty
+  to Him is worth everything (Rev 12:11)
+- Resolve today: _My life will answer the accuser and bring glory to God_ (Rom
+  3:4; Isa 43:21)

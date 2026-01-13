@@ -24,7 +24,8 @@
       "Bash(bun scripts/process-bible-data.ts:*)",
       "Bash(sqlite3:*)",
       "Bash(bun --eval:*)",
-      "Bash(bun test:*)"
+      "Bash(bun test:*)",
+      "Bash(bun --filter '@bible/core' typecheck:*)"
     ]
   }
 }
