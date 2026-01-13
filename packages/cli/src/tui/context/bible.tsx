@@ -5,12 +5,12 @@ import {
   BibleData,
   BibleDataLive,
   type BibleDataService,
-} from '../../bible/data.js';
+} from '../../data/bible/data.js';
 import {
   BibleState,
   BibleStateLayer,
   type BibleStateService,
-} from '../../bible/state.js';
+} from '../../data/bible/state.js';
 
 // Combined services for the Bible viewer
 interface BibleContextValue {

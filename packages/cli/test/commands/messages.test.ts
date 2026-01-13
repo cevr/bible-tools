@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { messages } from '../../commands/messages/messages.js';
+import { messages } from '../../src/commands/messages.js';
 import {
   expectCallCount,
   expectContains,

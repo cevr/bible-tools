@@ -1,0 +1,470 @@
+import { Data, Effect, Option, pipe, Schema } from 'effect';
+import { marked } from 'marked';
+
+import { AppleScript } from '~/src/services/apple-script';
+
+// --- Helper Function: Escape string for AppleScript ---
+function escapeAppleScriptString(str: string): string {
+  return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+}
+
+// --- Helper Function: Extract Title from Markdown ---
+// Tries to find the first H1 heading
+function extractTitleFromMarkdown(
+  markdownContent: string,
+): Option.Option<string> {
+  const h1Match = markdownContent.match(/^\s*#\s+(.*?)(\s+#*)?$/m); // Match lines starting with # (H1)
+  return Option.fromNullable(h1Match?.[1]?.trim());
+}
+
+class MarkdownParseError extends Data.TaggedError('MarkdownParseError')<{
+  message: string;
+  cause: unknown;
+  content: string;
+}> {}
+
+/**
+ * Options for creating the Apple Note.
+ */
+export interface CreateSimpleNoteOptions {
+  /** Override the title automatically extracted from Markdown H1. Defaults to 'Untitled Note' if no H1 found. */
+  title?: string;
+  /** Set to true to bring the Notes application to the foreground after creation. Defaults to false. */
+  activateNotesApp?: boolean;
+  /** Target folder name in Apple Notes. If the folder doesn't exist, it will be created. */
+  folder?: string;
+}
+
+const parseMarkdown = Effect.fn('parseMarkdown')(function* (content: string) {
+  const result = yield* Effect.try({
+    try: () => marked.parse(content),
+    catch: (cause: unknown) =>
+      new MarkdownParseError({
+        message: `Markdown parsing failed`,
+        cause,
+        content,
+      }),
+  }).pipe(Effect.flatMap(Schema.decodeUnknown(Schema.String)));
+
+  return result;
+});
+
+/**
+ * Converts Markdown content to HTML and creates a new note in the default
+ * account and folder of Apple Notes.
+ * Requires macOS and potentially Automation permissions for Notes.
+ *
+ * @param markdownContent The raw Markdown string to convert.
+ * @param options Optional configuration for the note title and activation behavior.
+ * @returns An Effect that resolves with the final title used for the note upon successful creation.
+ * @throws An error if the AppleScript execution fails (e.g., permissions issues).
+ */
+export const makeAppleNoteFromMarkdown = Effect.fn('makeAppleNoteFromMarkdown')(
+  function* (markdownContent: string, options: CreateSimpleNoteOptions = {}) {
+    yield* Effect.log('🔄 Converting Markdown to HTML...');
+
+    // Determine the note title
+    const finalNoteTitle =
+      options.title ??
+      pipe(
+        extractTitleFromMarkdown(markdownContent),
+        Option.getOrElse(() => 'Untitled Note'),
+      );
+    yield* Effect.log(`ℹ️  Using note title: "${finalNoteTitle}"`);
+
+    // Remove the H1 heading from content if we're using it as the title
+    const contentToParse = options.title
+      ? markdownContent
+      : markdownContent.replace(/^\s*#\s+.*?(\s+#*)?$/m, '').trim();
+
+    // Add extra line breaks between sections
+    const contentWithBreaks = contentToParse
+      .replace(/(?=#{2,4}\s)/g, '\n\n\n') // Add breaks before h2-h4
+      .replace(/(?<=#{2,4}.*\n)/g, '\n\n'); // Add breaks after h2-h4
+
+    const htmlContent = yield* parseMarkdown(contentWithBreaks);
+
+    // Prepare HTML for AppleScript (basic structure and styling)
+    const styledHtmlContent = `
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <style>
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 24px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+          }
+          h1 {
+            font-size: 36px;
+            margin-bottom: 48px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+          }
+          h2 {
+            font-size: 32px;
+            margin-top: 64px;
+            margin-bottom: 40px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e9ecef;
+          }
+          h3 {
+            font-size: 30px;
+            margin-top: 56px;
+            margin-bottom: 32px;
+          }
+          h4 {
+            font-size: 28px;
+            margin-top: 48px;
+            margin-bottom: 28px;
+          }
+          p {
+            font-size: 24px;
+            margin-bottom: 32px;
+            line-height: 1.7;
+          }
+          pre {
+            background-color: #f8f9fa;
+            padding: 28px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+            white-space: pre;
+            font-size: 22px;
+            line-height: 1.6;
+            margin: 40px 0;
+            border: 1px solid #e9ecef;
+          }
+          code {
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+            font-size: 22px;
+            background-color: #f8f9fa;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+          }
+          ul, ol {
+            font-size: 24px;
+            margin: 40px 0;
+            padding-left: 40px;
+          }
+          li {
+            margin-bottom: 24px;
+            line-height: 1.7;
+          }
+          blockquote {
+            font-size: 24px;
+            border-left: 4px solid #e9ecef;
+            margin: 48px 0;
+            padding: 24px 32px;
+            background-color: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+          }
+          hr {
+            border: none;
+            border-top: 2px solid #e9ecef;
+            margin: 64px 0;
+          }
+          img {
+            max-width: 100%;
+            height: auto;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+          }
+          th, td {
+            padding: 16px;
+            border: 1px solid #e9ecef;
+            text-align: left;
+          }
+          th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+          }
+          tr:nth-child(even) {
+            background-color: #f8f9fa;
+          }
+        </style>
+      </head>
+      <body>
+        ${htmlContent}
+      </body>
+      </html>
+    `;
+
+    // Escape content for AppleScript embedding
+    const escapedHtmlBody = escapeAppleScriptString(styledHtmlContent);
+    const escapedNoteTitle = escapeAppleScriptString(finalNoteTitle);
+
+    // Construct the AppleScript command (always targets the main Notes application)
+    yield* Effect.log(
+      '🔨 Constructing AppleScript command for default location...',
+    );
+    const activateCommand = options.activateNotesApp ? 'activate' : '';
+
+    const appleScriptCommand = options.folder
+      ? `
+      tell application "Notes"
+        set targetFolder to missing value
+        repeat with f in folders
+          if name of f is "${escapeAppleScriptString(options.folder)}" then
+            set targetFolder to f
+            exit repeat
+          end if
+        end repeat
+        if targetFolder is missing value then
+          make new folder with properties {name:"${escapeAppleScriptString(options.folder)}"}
+          set targetFolder to folder "${escapeAppleScriptString(options.folder)}"
+        end if
+        make new note at targetFolder with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
+        ${activateCommand}
+      end tell
+    `
+      : `
+      tell application "Notes"
+        make new note with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
+        ${activateCommand}
+      end tell
+    `;
+
+    // Execute the AppleScript
+    const locationInfo = options.folder
+      ? `folder "${options.folder}"`
+      : 'default location';
+    yield* Effect.log(
+      `🚀 Executing AppleScript to create note in ${locationInfo}...`,
+    );
+
+    const appleScript = yield* AppleScript;
+    const res = yield* appleScript.exec(appleScriptCommand);
+    yield* Effect.log(res);
+
+    // Success
+    yield* Effect.log(
+      `✅ Success! Note "${finalNoteTitle}" created in Apple Notes (${locationInfo}).`,
+    );
+    return finalNoteTitle; // Resolve with the title used
+  },
+);
+
+/**
+ * Options for updating an existing Apple Note.
+ */
+export interface UpdateNoteOptions {
+  /** Override the title. If not provided, uses the H1 from markdown or keeps existing title. */
+  title?: string;
+  /** Set to true to bring the Notes application to the foreground after update. Defaults to false. */
+  activateNotesApp?: boolean;
+}
+
+/**
+ * Converts Markdown content to HTML and updates an existing note in Apple Notes.
+ * Requires macOS and potentially Automation permissions for Notes.
+ *
+ * @param noteId The ID of the note to update.
+ * @param markdownContent The raw Markdown string to convert.
+ * @param options Optional configuration for the note title and activation behavior.
+ * @returns An Effect that resolves with the final title used for the note upon successful update.
+ * @throws An error if the AppleScript execution fails (e.g., permissions issues, note not found).
+ */
+export const updateAppleNoteFromMarkdown = Effect.fn(
+  'updateAppleNoteFromMarkdown',
+)(function* (
+  noteId: string,
+  markdownContent: string,
+  options: UpdateNoteOptions = {},
+) {
+  yield* Effect.log('🔄 Converting Markdown to HTML for update...');
+
+  // Determine the note title
+  const finalNoteTitle =
+    options.title ??
+    pipe(
+      extractTitleFromMarkdown(markdownContent),
+      Option.getOrElse(() => 'Untitled Note'),
+    );
+  yield* Effect.log(`ℹ️  Using note title: "${finalNoteTitle}"`);
+
+  // Remove the H1 heading from content if we're using it as the title
+  const contentToParse = options.title
+    ? markdownContent
+    : markdownContent.replace(/^\s*#\s+.*?(\s+#*)?$/m, '').trim();
+
+  // Add extra line breaks between sections
+  const contentWithBreaks = contentToParse
+    .replace(/(?=#{2,4}\s)/g, '\n\n\n') // Add breaks before h2-h4
+    .replace(/(?<=#{2,4}.*\n)/g, '\n\n'); // Add breaks after h2-h4
+
+  const htmlContent = yield* parseMarkdown(contentWithBreaks);
+
+  // Prepare HTML for AppleScript (basic structure and styling)
+  const styledHtmlContent = `
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <style>
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 24px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+          }
+          h1 {
+            font-size: 36px;
+            margin-bottom: 48px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+          }
+          h2 {
+            font-size: 32px;
+            margin-top: 64px;
+            margin-bottom: 40px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e9ecef;
+          }
+          h3 {
+            font-size: 30px;
+            margin-top: 56px;
+            margin-bottom: 32px;
+          }
+          h4 {
+            font-size: 28px;
+            margin-top: 48px;
+            margin-bottom: 28px;
+          }
+          p {
+            font-size: 24px;
+            margin-bottom: 32px;
+            line-height: 1.7;
+          }
+          pre {
+            background-color: #f8f9fa;
+            padding: 28px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+            white-space: pre;
+            font-size: 22px;
+            line-height: 1.6;
+            margin: 40px 0;
+            border: 1px solid #e9ecef;
+          }
+          code {
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+            font-size: 22px;
+            background-color: #f8f9fa;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+          }
+          ul, ol {
+            font-size: 24px;
+            margin: 40px 0;
+            padding-left: 40px;
+          }
+          li {
+            margin-bottom: 24px;
+            line-height: 1.7;
+          }
+          blockquote {
+            font-size: 24px;
+            border-left: 4px solid #e9ecef;
+            margin: 48px 0;
+            padding: 24px 32px;
+            background-color: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+          }
+          hr {
+            border: none;
+            border-top: 2px solid #e9ecef;
+            margin: 64px 0;
+          }
+          img {
+            max-width: 100%;
+            height: auto;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+          }
+          th, td {
+            padding: 16px;
+            border: 1px solid #e9ecef;
+            text-align: left;
+          }
+          th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+          }
+          tr:nth-child(even) {
+            background-color: #f8f9fa;
+          }
+        </style>
+      </head>
+      <body>
+        ${htmlContent}
+      </body>
+      </html>
+    `;
+
+  // Escape content for AppleScript embedding
+  const escapedHtmlBody = escapeAppleScriptString(styledHtmlContent);
+  const escapedNoteTitle = escapeAppleScriptString(finalNoteTitle);
+  const escapedNoteId = escapeAppleScriptString(noteId);
+
+  // Construct the AppleScript command to update existing note
+  yield* Effect.log(
+    `🔨 Constructing AppleScript command to update note ID: ${noteId}...`,
+  );
+  const activateCommand = options.activateNotesApp ? 'activate' : '';
+
+  const appleScriptCommand = `
+      tell application "Notes"
+        try
+          set theNote to note id "${escapedNoteId}"
+          set name of theNote to "${escapedNoteTitle}"
+          set body of theNote to "${escapedHtmlBody.trim()}"
+          ${activateCommand}
+          return "Success"
+        on error errMsg number errNum
+          return "Error: " & errMsg & " (" & errNum & ")"
+        end try
+      end tell
+    `;
+
+  // Execute the AppleScript
+  yield* Effect.log(`🚀 Executing AppleScript to update note...`);
+
+  const appleScript = yield* AppleScript;
+  const res = yield* appleScript.exec(appleScriptCommand);
+
+  if (res.startsWith('Error:')) {
+    return yield* Effect.fail(
+      new MarkdownParseError({
+        message: `Failed to update note: ${res}`,
+        cause: res,
+        content: markdownContent,
+      }),
+    );
+  }
+
+  // Success
+  yield* Effect.log(
+    `✅ Success! Note "${finalNoteTitle}" updated in Apple Notes.`,
+  );
+  return finalNoteTitle; // Resolve with the title used
+});

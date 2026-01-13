@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { egw, egwOpen, egwWithSubcommands } from '../../commands/egw/egw.js';
+import { egw, egwOpen, egwWithSubcommands } from '../../src/commands/egw.js';
 import { expectSequence, runCli } from '../lib/run-cli.js';
 
 describe('egw commands', () => {

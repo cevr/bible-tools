@@ -27,8 +27,8 @@ import {
   type MarginNote,
   type StrongsEntry,
   type WordWithStrongs,
-} from '../../bible/study-db.js';
-import type { Reference } from '../../bible/types.js';
+} from '../../data/study/study-db.js';
+import type { Reference } from '../../data/bible/types.js';
 
 interface StudyDataContextValue {
   /** Resource that tracks database initialization */

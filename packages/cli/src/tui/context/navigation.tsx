@@ -8,7 +8,7 @@ import {
   type ParentProps,
 } from 'solid-js';
 
-import type { Position, Reference } from '../../bible/types.js';
+import type { Position, Reference } from '../../data/bible/types.js';
 import { useBibleData, useBibleState } from './bible.js';
 
 interface NavigationContextValue {

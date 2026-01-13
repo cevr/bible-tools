@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { readings } from '../../commands/readings/readings.js';
+import { readings } from '../../src/commands/readings.js';
 import {
   expectCallCount,
   expectContains,

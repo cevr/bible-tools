@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { notes } from '../../commands/notes/notes.js';
+import { notes } from '../../src/commands/notes.js';
 import { expectContains, runCli } from '../lib/run-cli.js';
 
 describe('notes commands', () => {

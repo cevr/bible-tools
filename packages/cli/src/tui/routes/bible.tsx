@@ -1,14 +1,14 @@
 import { useKeyboard, useTerminalDimensions } from '@opentui/solid';
 import { createSignal, onCleanup, Show } from 'solid-js';
 
-import { BibleCommandPalette } from '../components/bible-command-palette.js';
-import { ChapterView } from '../components/chapter-view.js';
-import { ConcordanceSearch } from '../components/concordance-search.js';
-import { CrossRefsPopup } from '../components/cross-refs-popup.js';
-import { Footer } from '../components/footer.js';
-import { SearchBox } from '../components/search-box.js';
-import { StrongsPopup } from '../components/strongs-popup.js';
-import { Topbar } from '../components/topbar.js';
+import { ChapterView } from '../components/bible/chapter-view.js';
+import { BibleCommandPalette } from '../components/bible/command-palette.js';
+import { Footer } from '../components/shared/footer.js';
+import { SearchBox } from '../components/shared/search-box.js';
+import { Topbar } from '../components/shared/topbar.js';
+import { ConcordanceSearch } from '../components/study/concordance-search.js';
+import { CrossRefsPopup } from '../components/study/cross-refs-popup.js';
+import { StrongsPopup } from '../components/study/strongs-popup.js';
 import { useDisplay } from '../context/display.js';
 import { useNavigation } from '../context/navigation.js';
 import { useOverlay } from '../context/overlay.js';

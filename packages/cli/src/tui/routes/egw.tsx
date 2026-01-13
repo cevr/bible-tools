@@ -8,11 +8,11 @@
 import { useKeyboard, useTerminalDimensions } from '@opentui/solid';
 import { createSignal, Show } from 'solid-js';
 
-import { EGWBibleRefsPopup } from '../components/egw-bible-refs-popup.js';
-import { EGWChapterView } from '../components/egw-chapter-view.js';
-import { EGWCommandPalette } from '../components/egw-command-palette.js';
-import { EGWFooter } from '../components/egw-footer.js';
-import { EGWTopbar } from '../components/egw-topbar.js';
+import { EGWBibleRefsPopup } from '../components/egw/bible-refs-popup.js';
+import { EGWChapterView } from '../components/egw/chapter-view.js';
+import { EGWCommandPalette } from '../components/egw/command-palette.js';
+import { EGWFooter } from '../components/egw/footer.js';
+import { EGWTopbar } from '../components/egw/topbar.js';
 import { useEGWNavigation } from '../context/egw-navigation.js';
 import { useRouter } from '../context/router.js';
 import { useTheme } from '../context/theme.js';

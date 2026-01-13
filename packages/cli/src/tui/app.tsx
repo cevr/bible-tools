@@ -8,8 +8,8 @@ import {
 } from '@opentui/solid';
 import { createSignal, Match, Show, Switch } from 'solid-js';
 
-import type { Reference } from '../bible/types.js';
-import { ToolsPalette } from './components/tools-palette.js';
+import type { Reference } from '../data/bible/types.js';
+import { ToolsPalette } from './components/shared/tools-palette.js';
 import { BibleProvider } from './context/bible.js';
 import { DisplayProvider } from './context/display.js';
 import { EGWNavigationProvider } from './context/egw-navigation.js';

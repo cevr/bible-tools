@@ -14,8 +14,8 @@ import {
   type ParentProps,
 } from 'solid-js';
 
-import type { WordWithStrongs } from '../../bible/study-db.js';
-import type { Reference } from '../../bible/types.js';
+import type { WordWithStrongs } from '../../data/study/study-db.js';
+import type { Reference } from '../../data/bible/types.js';
 import { useStudyData } from './study-data.js';
 
 // State type using discriminated union pattern

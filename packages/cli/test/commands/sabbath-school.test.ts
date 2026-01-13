@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { sabbathSchool } from '../../commands/sabbath-school/sabbath-school.js';
+import { sabbathSchool } from '../../src/commands/sabbath-school.js';
 import {
   expectCallCount,
   expectContains,

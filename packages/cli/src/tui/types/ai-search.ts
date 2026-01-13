@@ -1,4 +1,4 @@
-import type { Reference } from '../../bible/types.js';
+import type { Reference } from '../../data/bible/types.js';
 
 /**
  * AI search state machine for command palette.

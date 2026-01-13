@@ -21,7 +21,7 @@ import {
   getMarginNotes,
   searchByStrongs,
   searchStrongsByDefinition,
-} from '../../src/bible/study-db.js';
+} from '../../src/data/study/study-db.js';
 
 const DB_PATH = join(homedir(), '.bible', 'study.db');
 

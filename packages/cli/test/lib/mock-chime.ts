@@ -1,6 +1,6 @@
 import { Effect, Layer } from 'effect';
 
-import { Chime, type ChimeService } from '../../commands/chime.js';
+import { Chime, type ChimeService } from '../../src/services/chime.js';
 import type { ServiceCall } from './sequence-recorder.js';
 
 /**

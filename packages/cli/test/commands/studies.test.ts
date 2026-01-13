@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { studies } from '../../commands/studies/studies.js';
+import { studies } from '../../src/commands/studies.js';
 import {
   expectContains,
   expectNoCalls,
