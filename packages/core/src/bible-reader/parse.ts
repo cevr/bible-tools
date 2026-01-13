@@ -1,0 +1,423 @@
+/**
+ * Bible Reference Parser
+ *
+ * Parses Bible references from strings like "john 3:16", "gen 1", "1 cor 13:1-5".
+ * Renderer-agnostic - can be used by TUI, Web, or CLI.
+ */
+
+import { BIBLE_BOOK_ALIASES, BIBLE_BOOKS, getBibleBook } from './books.js';
+import type { BibleReference } from './types.js';
+
+/**
+ * Parsed query result - discriminated union
+ */
+export type ParsedBibleQuery =
+  | { readonly _tag: 'single'; readonly ref: BibleReference }
+  | {
+      readonly _tag: 'chapter';
+      readonly book: number;
+      readonly chapter: number;
+    }
+  | {
+      readonly _tag: 'verseRange';
+      readonly book: number;
+      readonly chapter: number;
+      readonly startVerse: number;
+      readonly endVerse: number;
+    }
+  | {
+      readonly _tag: 'chapterRange';
+      readonly book: number;
+      readonly startChapter: number;
+      readonly endChapter: number;
+    }
+  | { readonly _tag: 'fullBook'; readonly book: number }
+  | { readonly _tag: 'search'; readonly query: string };
+
+/**
+ * Constructors for ParsedBibleQuery
+ */
+export const ParsedBibleQuery = {
+  single: (ref: BibleReference): ParsedBibleQuery => ({ _tag: 'single', ref }),
+  chapter: (book: number, chapter: number): ParsedBibleQuery => ({
+    _tag: 'chapter',
+    book,
+    chapter,
+  }),
+  verseRange: (
+    book: number,
+    chapter: number,
+    startVerse: number,
+    endVerse: number,
+  ): ParsedBibleQuery => ({
+    _tag: 'verseRange',
+    book,
+    chapter,
+    startVerse,
+    endVerse,
+  }),
+  chapterRange: (
+    book: number,
+    startChapter: number,
+    endChapter: number,
+  ): ParsedBibleQuery => ({
+    _tag: 'chapterRange',
+    book,
+    startChapter,
+    endChapter,
+  }),
+  fullBook: (book: number): ParsedBibleQuery => ({ _tag: 'fullBook', book }),
+  search: (query: string): ParsedBibleQuery => ({ _tag: 'search', query }),
+} as const;
+
+/**
+ * Try to resolve a book name to a book number
+ */
+function resolveBook(bookPart: string): number | undefined {
+  const normalized = bookPart.trim().toLowerCase();
+
+  // Direct alias lookup
+  let bookNum = BIBLE_BOOK_ALIASES[normalized];
+  if (bookNum) return bookNum;
+
+  // Try removing spaces
+  const noSpaces = normalized.replace(/\s+/g, '');
+  bookNum = BIBLE_BOOK_ALIASES[noSpaces];
+  if (bookNum) return bookNum;
+
+  // Try adding space after number (e.g., "1cor" -> "1 cor")
+  const withSpace = normalized.replace(/^(\d)([a-z])/, '$1 $2');
+  bookNum = BIBLE_BOOK_ALIASES[withSpace];
+  if (bookNum) return bookNum;
+
+  // Partial match on book names
+  const lowerNormalized = normalized.toLowerCase();
+  for (const book of BIBLE_BOOKS) {
+    if (book.name.toLowerCase().startsWith(lowerNormalized)) {
+      return book.number;
+    }
+  }
+
+  return undefined;
+}
+
+/**
+ * Parse a Bible reference string
+ *
+ * Supported formats:
+ * - "john 3:16" - single verse
+ * - "john 3:16-18" - verse range
+ * - "john 3" - single chapter
+ * - "john 3-5" - chapter range
+ * - "ruth" - full book
+ * - "faith hope love" - search query (fallback)
+ */
+export function parseBibleQuery(query: string): ParsedBibleQuery {
+  const input = query.trim();
+  if (!input) return ParsedBibleQuery.search(query);
+
+  // "john 3:16-18" - verse range
+  const verseRangeMatch = input.match(
+    /^(.+?)\s*(\d+)\s*:\s*(\d+)\s*-\s*(\d+)$/i,
+  );
+  if (verseRangeMatch) {
+    const [, bookPart, chapterStr, startVerseStr, endVerseStr] =
+      verseRangeMatch;
+    const bookNum = resolveBook(bookPart!);
+    if (bookNum) {
+      const chapter = parseInt(chapterStr!, 10);
+      const startVerse = parseInt(startVerseStr!, 10);
+      const endVerse = parseInt(endVerseStr!, 10);
+      const book = getBibleBook(bookNum);
+      if (book && chapter >= 1 && chapter <= book.chapters) {
+        return ParsedBibleQuery.verseRange(
+          bookNum,
+          chapter,
+          startVerse,
+          endVerse,
+        );
+      }
+    }
+  }
+
+  // "john 3-5" - chapter range
+  const chapterRangeMatch = input.match(/^(.+?)\s*(\d+)\s*-\s*(\d+)$/i);
+  if (chapterRangeMatch) {
+    const [, bookPart, startChapterStr, endChapterStr] = chapterRangeMatch;
+    const bookNum = resolveBook(bookPart!);
+    if (bookNum) {
+      const startChapter = parseInt(startChapterStr!, 10);
+      const endChapter = parseInt(endChapterStr!, 10);
+      const book = getBibleBook(bookNum);
+      if (book && startChapter >= 1 && endChapter <= book.chapters) {
+        return ParsedBibleQuery.chapterRange(bookNum, startChapter, endChapter);
+      }
+    }
+  }
+
+  // "john 3:16" - single verse
+  const singleVerseMatch = input.match(/^(.+?)\s*(\d+)\s*:\s*(\d+)$/i);
+  if (singleVerseMatch) {
+    const [, bookPart, chapterStr, verseStr] = singleVerseMatch;
+    const bookNum = resolveBook(bookPart!);
+    if (bookNum) {
+      const chapter = parseInt(chapterStr!, 10);
+      const verse = parseInt(verseStr!, 10);
+      const book = getBibleBook(bookNum);
+      if (book && chapter >= 1 && chapter <= book.chapters) {
+        return ParsedBibleQuery.single({ book: bookNum, chapter, verse });
+      }
+    }
+  }
+
+  // "john 3" - single chapter
+  const singleChapterMatch = input.match(/^(.+?)\s*(\d+)$/i);
+  if (singleChapterMatch) {
+    const [, bookPart, chapterStr] = singleChapterMatch;
+    const bookNum = resolveBook(bookPart!);
+    if (bookNum) {
+      const chapter = parseInt(chapterStr!, 10);
+      const book = getBibleBook(bookNum);
+      if (book && chapter >= 1 && chapter <= book.chapters) {
+        return ParsedBibleQuery.chapter(bookNum, chapter);
+      }
+    }
+  }
+
+  // "ruth" - full book (just a book name with no numbers)
+  const bookOnlyMatch = input.match(/^([a-z\s]+)$/i);
+  if (bookOnlyMatch) {
+    const bookNum = resolveBook(bookOnlyMatch[1]!);
+    if (bookNum) {
+      return ParsedBibleQuery.fullBook(bookNum);
+    }
+  }
+
+  // Fallback: search
+  return ParsedBibleQuery.search(query);
+}
+
+/**
+ * Check if a parsed query is a reference (not a search)
+ */
+export function isReference(query: ParsedBibleQuery): boolean {
+  return query._tag !== 'search';
+}
+
+/**
+ * Check if a parsed query is a search
+ */
+export function isSearch(query: ParsedBibleQuery): boolean {
+  return query._tag === 'search';
+}
+
+/**
+ * Extracted Bible reference with position in text
+ */
+export interface ExtractedReference {
+  /** The matched text */
+  text: string;
+  /** Start position in original text */
+  start: number;
+  /** End position in original text */
+  end: number;
+  /** Parsed reference */
+  ref: BibleReference;
+}
+
+/**
+ * Build regex pattern for Bible book names
+ * Matches book names like "John", "1 Cor.", "Genesis", etc.
+ */
+function buildBookPattern(): string {
+  // Collect all unique book name patterns
+  const patterns = new Set<string>();
+
+  // Add full book names
+  for (const book of BIBLE_BOOKS) {
+    patterns.add(book.name);
+  }
+
+  // Add common abbreviations with optional period
+  const abbreviations = [
+    'Gen',
+    'Exod?',
+    'Lev',
+    'Num',
+    'Deut',
+    'Josh',
+    'Judg',
+    'Ruth',
+    'Sam',
+    'Kgs',
+    'Kings',
+    'Chr',
+    'Chron',
+    'Chronicles',
+    'Ezra',
+    'Neh',
+    'Esth',
+    'Job',
+    'Ps',
+    'Psa',
+    'Psalm',
+    'Psalms',
+    'Prov',
+    'Eccl?',
+    'Song',
+    'Isa',
+    'Jer',
+    'Lam',
+    'Ezek',
+    'Dan',
+    'Hos',
+    'Joel',
+    'Amos',
+    'Obad',
+    'Jonah',
+    'Mic',
+    'Nah',
+    'Hab',
+    'Zeph',
+    'Hag',
+    'Zech',
+    'Mal',
+    'Matt?',
+    'Mark',
+    'Luke',
+    'John',
+    'Jn',
+    'Acts',
+    'Rom',
+    'Cor',
+    'Gal',
+    'Eph',
+    'Phil',
+    'Col',
+    'Thess?',
+    'Tim',
+    'Tit',
+    'Philem',
+    'Heb',
+    'Jas',
+    'James',
+    'Pet',
+    'Peter',
+    'Jude',
+    'Rev',
+  ];
+
+  for (const abbr of abbreviations) {
+    patterns.add(abbr);
+  }
+
+  // Sort by length descending to match longer patterns first
+  const sortedPatterns = Array.from(patterns).sort(
+    (a, b) => b.length - a.length,
+  );
+
+  // Build alternation pattern with optional period after abbreviations
+  return sortedPatterns.map((p) => `${p}\\.?`).join('|');
+}
+
+// Cached patterns
+let _bookPattern: string | null = null;
+function getBookPattern(): string {
+  if (!_bookPattern) {
+    _bookPattern = buildBookPattern();
+  }
+  return _bookPattern;
+}
+
+// Cached compiled regex for Bible reference extraction
+let _refRegex: RegExp | null = null;
+function getRefRegex(): RegExp {
+  if (!_refRegex) {
+    const bookPattern = getBookPattern();
+    // Pattern: optional number + book name + chapter:verse (with optional range)
+    _refRegex = new RegExp(
+      `(?:([123])\\s*)?(${bookPattern})\\s*(\\d+)\\s*:\\s*(\\d+)(?:\\s*[-–]\\s*(\\d+))?`,
+      'gi',
+    );
+  }
+  // Reset lastIndex since we're reusing the regex (global flag)
+  _refRegex.lastIndex = 0;
+  return _refRegex;
+}
+
+/**
+ * Extract all Bible references from text
+ *
+ * Matches patterns like:
+ * - "John 3:16"
+ * - "Gen. 1:1"
+ * - "1 Cor. 13:1-3"
+ * - "Psalm 23:1, 2"
+ * - "Matt. 5:3-12"
+ */
+export function extractBibleReferences(text: string): ExtractedReference[] {
+  const results: ExtractedReference[] = [];
+  const refPattern = getRefRegex();
+
+  let match: RegExpExecArray | null;
+  while ((match = refPattern.exec(text)) !== null) {
+    const [fullMatch, numPrefix, bookPart, chapterStr, verseStr] = match;
+
+    // Build book name with optional number prefix
+    const bookName = numPrefix ? `${numPrefix} ${bookPart}` : bookPart!;
+
+    // Try to resolve book
+    const bookNum = resolveBook(bookName.replace(/\.$/, '')); // Remove trailing period
+    if (!bookNum) continue;
+
+    const chapter = parseInt(chapterStr!, 10);
+    const verse = parseInt(verseStr!, 10);
+    const book = getBibleBook(bookNum);
+
+    if (!book || chapter < 1 || chapter > book.chapters) continue;
+
+    results.push({
+      text: fullMatch!,
+      start: match.index,
+      end: match.index + fullMatch!.length,
+      ref: { book: bookNum, chapter, verse },
+    });
+  }
+
+  return results;
+}
+
+/**
+ * Segment text with Bible references highlighted
+ * Returns segments in order, with type indicating if it's a reference or plain text
+ */
+export type TextSegmentWithRefs =
+  | { type: 'text'; text: string }
+  | { type: 'ref'; text: string; ref: BibleReference };
+
+export function segmentTextWithReferences(text: string): TextSegmentWithRefs[] {
+  const refs = extractBibleReferences(text);
+  if (refs.length === 0) {
+    return [{ type: 'text', text }];
+  }
+
+  const segments: TextSegmentWithRefs[] = [];
+  let lastEnd = 0;
+
+  for (const ref of refs) {
+    // Add text before this reference
+    if (ref.start > lastEnd) {
+      segments.push({ type: 'text', text: text.slice(lastEnd, ref.start) });
+    }
+    // Add the reference
+    segments.push({ type: 'ref', text: ref.text, ref: ref.ref });
+    lastEnd = ref.end;
+  }
+
+  // Add remaining text
+  if (lastEnd < text.length) {
+    segments.push({ type: 'text', text: text.slice(lastEnd) });
+  }
+
+  return segments;
+}
