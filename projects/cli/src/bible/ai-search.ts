@@ -1,7 +1,7 @@
 import { generateText } from 'ai';
 import { Context, Data, Effect, Layer } from 'effect';
 
-import { Model } from '../../core/model.js';
+import { Model } from '../../commands/model.js';
 import { BibleData, type BibleDataService } from './data.js';
 import { BibleState, type BibleStateService } from './state.js';
 import type { Reference } from './types.js';

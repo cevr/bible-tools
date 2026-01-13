@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { isStrongsNumber } from '../../core/bible/bible.js';
+import { isStrongsNumber } from '../../commands/bible/bible.js';
 import type { BibleDataService } from '../../src/bible/data.js';
 import {
   getVersesForQuery,

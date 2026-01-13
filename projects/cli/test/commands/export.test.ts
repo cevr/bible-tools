@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { exportOutput } from '../../core/export-output.js';
+import { exportOutput } from '../../commands/export-output.js';
 import {
   expectCallCount,
   expectNoCalls,

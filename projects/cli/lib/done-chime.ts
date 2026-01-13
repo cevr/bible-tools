@@ -1,6 +1,6 @@
 import { Effect } from 'effect';
 
-import { Chime } from '~/core/chime';
+import { Chime } from '~/commands/chime';
 
 /**
  * Play the done/notification chime.

@@ -3,7 +3,7 @@ import { generateObject, generateText } from 'ai';
 import { Layer } from 'effect';
 import { vi } from 'vitest';
 
-import { Model } from '../../core/model.js';
+import { Model } from '../../commands/model.js';
 import type { ServiceCall } from './sequence-recorder.js';
 
 /**

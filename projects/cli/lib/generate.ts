@@ -1,7 +1,7 @@
 import { generateText } from 'ai';
 import { Data, Effect, Schedule } from 'effect';
 
-import { Model } from '~/core/model';
+import { Model } from '~/commands/model';
 
 import { doneChime } from './done-chime';
 import { spin } from './general';

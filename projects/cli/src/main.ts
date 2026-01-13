@@ -16,15 +16,15 @@ import { BunContext, BunRuntime } from '@effect/platform-bun';
 import { Effect, Layer } from 'effect';
 
 // Lightweight CLI command imports (no TUI dependencies)
-import { AppleScriptLive } from '../core/apple-script.js';
-import { concordance, verse } from '../core/bible/bible.js';
-import { ChimeLive } from '../core/chime.js';
-import { egwWithSubcommands } from '../core/egw/egw.js';
-import { exportOutput } from '../core/export-output.js';
-import { messages } from '../core/messages/messages.js';
-import { readings } from '../core/readings/readings.js';
-import { sabbathSchool } from '../core/sabbath-school/sabbath-school.js';
-import { studies } from '../core/studies/studies.js';
+import { AppleScriptLive } from '../commands/apple-script.js';
+import { concordance, verse } from '../commands/bible/bible.js';
+import { ChimeLive } from '../commands/chime.js';
+import { egwWithSubcommands } from '../commands/egw/egw.js';
+import { exportOutput } from '../commands/export-output.js';
+import { messages } from '../commands/messages/messages.js';
+import { readings } from '../commands/readings/readings.js';
+import { sabbathSchool } from '../commands/sabbath-school/sabbath-school.js';
+import { studies } from '../commands/studies/studies.js';
 // Types only (no runtime cost)
 import type { Reference } from './bible/types.js';
 import {

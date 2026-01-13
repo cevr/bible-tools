@@ -1,7 +1,7 @@
 import { Data, Effect, Option, pipe, Schema } from 'effect';
 import { marked } from 'marked';
 
-import { AppleScript } from '~/core/apple-script';
+import { AppleScript } from '~/commands/apple-script';
 
 // --- Helper Function: Escape string for AppleScript ---
 function escapeAppleScriptString(str: string): string {
