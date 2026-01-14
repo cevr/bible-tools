@@ -11,12 +11,13 @@ import {
 } from '@bible/core/bible-reader';
 import type { EGWParagraph } from '@bible/core/egw-reader';
 import type { ScrollBoxRenderable } from '@opentui/core';
-import { useKeyboard } from '@opentui/solid';
 import { createMemo, createSignal, For, Show } from 'solid-js';
 
 import { useBibleData } from '../../context/bible.js';
 import { useTheme } from '../../context/theme.js';
 import { useScrollSync } from '../../hooks/use-scroll-sync.js';
+
+type KeyEvent = { name?: string; sequence?: string; ctrl?: boolean };
 
 /**
  * Strip HTML tags from content
@@ -39,6 +40,7 @@ interface EGWBibleRefsPopupProps {
   paragraph: EGWParagraph;
   onClose: () => void;
   onNavigate: (ref: { book: number; chapter: number; verse?: number }) => void;
+  onKeyboard: (handler: (key: KeyEvent) => boolean) => void;
 }
 
 export function EGWBibleRefsPopup(props: EGWBibleRefsPopupProps) {
@@ -94,26 +96,29 @@ export function EGWBibleRefsPopup(props: EGWBibleRefsPopupProps) {
     }
   };
 
-  useKeyboard((key) => {
+  // Register keyboard handler with parent
+  props.onKeyboard((key) => {
     if (key.name === 'escape') {
       props.onClose();
-      return;
+      return true;
     }
 
     if (key.name === 'return') {
       selectCurrent();
-      return;
+      return true;
     }
 
     if (key.name === 'up' || key.name === 'k') {
       moveSelection(-1);
-      return;
+      return true;
     }
 
     if (key.name === 'down' || key.name === 'j') {
       moveSelection(1);
-      return;
+      return true;
     }
+
+    return false;
   });
 
   const refcode = () =>

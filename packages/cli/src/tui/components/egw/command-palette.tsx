@@ -10,7 +10,6 @@
 
 import type { EGWBookInfo, EGWParagraph } from '@bible/core/egw-reader';
 import type { ScrollBoxRenderable } from '@opentui/core';
-import { useKeyboard } from '@opentui/solid';
 import {
   createEffect,
   createMemo,
@@ -25,8 +24,11 @@ import { useEGWNavigation } from '../../context/egw-navigation.js';
 import { useTheme } from '../../context/theme.js';
 import { useScrollSync } from '../../hooks/use-scroll-sync.js';
 
+type KeyEvent = { name?: string; sequence?: string; ctrl?: boolean };
+
 interface EGWCommandPaletteProps {
   onClose: () => void;
+  onKeyboard: (handler: (key: KeyEvent) => boolean) => void;
 }
 
 type PaletteMode = 'books' | 'chapters' | 'paragraphs';
@@ -226,10 +228,11 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
     props.onClose();
   };
 
-  useKeyboard((key) => {
+  // Register keyboard handler with parent
+  props.onKeyboard((key) => {
     if (key.name === 'escape') {
       props.onClose();
-      return;
+      return true;
     }
 
     if (key.name === 'return') {
@@ -249,7 +252,7 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
           handleSelectParagraph(para.index);
         }
       }
-      return;
+      return true;
     }
 
     // Left to go back a tier
@@ -270,7 +273,7 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
           setSelectedIndex(0);
         }
       }
-      return;
+      return true;
     }
 
     // Right to drill into next tier
@@ -293,29 +296,32 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
           }
         }
       }
-      return;
+      return true;
     }
 
     if (key.name === 'up' || (key.ctrl && key.name === 'p')) {
       setSelectedIndex((i) => Math.max(0, i - 1));
-      return;
+      return true;
     }
 
     if (key.name === 'down' || (key.ctrl && key.name === 'n')) {
       const maxIndex = currentItems().length - 1;
       setSelectedIndex((i) => Math.min(maxIndex, i + 1));
-      return;
+      return true;
     }
 
     if (key.name === 'backspace') {
       setQuery((q) => q.slice(0, -1));
-      return;
+      return true;
     }
 
     // Type characters into query
     if (key.sequence && key.sequence.length === 1 && !key.ctrl) {
       setQuery((q) => q + key.sequence);
+      return true;
     }
+
+    return false;
   });
 
   const isLoading = () => loadingState()._tag === 'loading';

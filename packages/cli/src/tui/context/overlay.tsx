@@ -16,7 +16,9 @@ export type OverlayType =
   | 'theme-picker'
   | 'cross-refs'
   | 'strongs'
-  | 'concordance';
+  | 'concordance'
+  | 'egw-command-palette'
+  | 'egw-bible-refs';
 
 /**
  * Overlay state using discriminated union.

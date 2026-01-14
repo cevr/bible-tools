@@ -3,6 +3,10 @@
  *
  * Main view for the EGW Library reader.
  * Similar to BibleView but adapted for EGW paragraph structure.
+ *
+ * Keyboard handling is colocated here to avoid conflicts between
+ * multiple useKeyboard hooks. Overlay components register handlers
+ * that the parent calls when appropriate.
  */
 
 import { useKeyboard, useTerminalDimensions } from '@opentui/solid';
@@ -14,6 +18,7 @@ import { EGWCommandPalette } from '../components/egw/command-palette.js';
 import { EGWFooter } from '../components/egw/footer.js';
 import { EGWTopbar } from '../components/egw/topbar.js';
 import { useEGWNavigation } from '../context/egw-navigation.js';
+import { useOverlay } from '../context/overlay.js';
 import { useRouter } from '../context/router.js';
 import { useTheme } from '../context/theme.js';
 import {
@@ -24,7 +29,12 @@ import {
 } from '../types/goto-mode.js';
 import { match } from '../utils/match.js';
 
-type KeyEvent = { name?: string; sequence?: string; ctrl?: boolean };
+type KeyEvent = {
+  name?: string;
+  sequence?: string;
+  ctrl?: boolean;
+  shift?: boolean;
+};
 
 /** Handle goto mode state machine. Returns true if key was handled. */
 function handleGotoModeKeys(
@@ -79,9 +89,12 @@ export function EGWView(props: EGWViewProps) {
     currentParagraph,
   } = useEGWNavigation();
 
-  // Overlay state
-  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = createSignal(false);
-  const [isBibleRefsOpen, setIsBibleRefsOpen] = createSignal(false);
+  // Use global overlay context for proper coordination with app.tsx
+  const { isOpen: isOverlayOpen, isOverlayOpen: isSpecificOverlayOpen, open: openOverlay, close: closeOverlay } = useOverlay();
+
+  // Overlay keyboard handlers (registered by child components)
+  let commandPaletteHandler: ((key: KeyEvent) => boolean) | null = null;
+  let bibleRefsHandler: ((key: KeyEvent) => boolean) | null = null;
 
   // Vim-style goto mode
   const [gotoMode, setGotoMode] = createSignal<GotoModeState>(
@@ -97,11 +110,24 @@ export function EGWView(props: EGWViewProps) {
     });
   };
 
+  // Single keyboard handler - delegates to overlay handlers when open
   useKeyboard((key) => {
-    // Skip if overlay is open
-    if (isCommandPaletteOpen() || isBibleRefsOpen()) return;
+    // Command palette is open - delegate to its handler
+    if (isSpecificOverlayOpen('egw-command-palette') && commandPaletteHandler) {
+      commandPaletteHandler(key);
+      return;
+    }
 
-    // ESC to go back
+    // Bible refs popup is open - delegate to its handler
+    if (isSpecificOverlayOpen('egw-bible-refs') && bibleRefsHandler) {
+      bibleRefsHandler(key);
+      return;
+    }
+
+    // Skip if any overlay is open (handled above or by other components)
+    if (isOverlayOpen()) return;
+
+    // ESC to go back (only if no overlays open)
     if (key.name === 'escape') {
       props.onBack?.();
       return;
@@ -111,14 +137,14 @@ export function EGWView(props: EGWViewProps) {
     if (key.name === 'space') {
       const para = currentParagraph();
       if (para) {
-        setIsBibleRefsOpen(true);
+        openOverlay('egw-bible-refs');
       }
       return;
     }
 
     // Ctrl+P to open command palette
     if (key.ctrl && key.name === 'p') {
-      setIsCommandPaletteOpen(true);
+      openOverlay('egw-command-palette');
       return;
     }
 
@@ -172,18 +198,23 @@ export function EGWView(props: EGWViewProps) {
       <EGWFooter gotoMode={gotoMode()} />
 
       {/* Command Palette Overlay */}
-      <Show when={isCommandPaletteOpen()}>
+      <Show when={isSpecificOverlayOpen('egw-command-palette')}>
         <box
           position="absolute"
           top={Math.floor(dimensions().height / 6)}
           left={Math.floor((dimensions().width - 70) / 2)}
         >
-          <EGWCommandPalette onClose={() => setIsCommandPaletteOpen(false)} />
+          <EGWCommandPalette
+            onClose={closeOverlay}
+            onKeyboard={(handler) => {
+              commandPaletteHandler = handler;
+            }}
+          />
         </box>
       </Show>
 
       {/* Bible References Popup */}
-      <Show when={isBibleRefsOpen() && currentParagraph()}>
+      <Show when={isSpecificOverlayOpen('egw-bible-refs') && currentParagraph()}>
         <box
           position="absolute"
           top={Math.floor(dimensions().height / 6)}
@@ -191,10 +222,13 @@ export function EGWView(props: EGWViewProps) {
         >
           <EGWBibleRefsPopup
             paragraph={currentParagraph()!}
-            onClose={() => setIsBibleRefsOpen(false)}
+            onClose={closeOverlay}
             onNavigate={(ref) => {
-              setIsBibleRefsOpen(false);
+              closeOverlay();
               navigateToBible(ref);
+            }}
+            onKeyboard={(handler) => {
+              bibleRefsHandler = handler;
             }}
           />
         </box>

@@ -17,7 +17,7 @@ import { EGWProvider } from './context/egw.js';
 import { ExitProvider } from './context/exit.js';
 import { ModelProvider, type ModelService } from './context/model.js';
 import { NavigationProvider } from './context/navigation.js';
-import { OverlayProvider } from './context/overlay.js';
+import { OverlayProvider, useOverlay } from './context/overlay.js';
 import { RouterProvider, useRouter } from './context/router.js';
 import { SearchProvider } from './context/search.js';
 import { StudyDataProvider } from './context/study-data.js';
@@ -39,6 +39,48 @@ interface AppProps {
   /** EGW reference. Pass empty object {} to open EGW reader without specific ref */
   initialEgwRef?: Partial<EGWReference>;
   model?: ModelService | null;
+}
+
+/**
+ * Global keyboard handler component.
+ * Must be inside OverlayProvider to access overlay state.
+ */
+function GlobalKeyboardHandler(props: {
+  isToolsPaletteOpen: () => boolean;
+  setIsToolsPaletteOpen: (v: boolean) => void;
+  back: () => boolean;
+  canGoBack: () => boolean;
+  handleExit: () => void;
+}) {
+  const { isOpen: isOverlayOpen } = useOverlay();
+
+  useKeyboard((key) => {
+    // Skip global handlers if tools palette is open
+    if (props.isToolsPaletteOpen()) return;
+
+    // Skip all global handlers if any overlay is open (let routes handle their overlays)
+    if (isOverlayOpen()) return;
+
+    // Global: ESC to go back (only if no overlays and has history)
+    if (key.name === 'escape') {
+      if (props.canGoBack()) {
+        props.back();
+      }
+      return;
+    }
+
+    // Global: Ctrl+C to exit
+    if (key.ctrl && key.name === 'c') {
+      props.handleExit();
+    }
+
+    // Global: Ctrl+T to open tools palette
+    if (key.ctrl && key.name === 't') {
+      props.setIsToolsPaletteOpen(true);
+    }
+  });
+
+  return null;
 }
 
 function AppContent(props: AppProps) {
@@ -63,27 +105,6 @@ function AppContent(props: AppProps) {
     renderer.destroy();
     process.exit(0);
   };
-
-  useKeyboard((key) => {
-    // Skip global handlers if tools palette is open
-    if (isToolsPaletteOpen()) return;
-
-    // Global: ESC to go back or stay at Bible if no history
-    if (key.name === 'escape') {
-      if (canGoBack()) {
-        back();
-      }
-      return;
-    }
-    // Global: Ctrl+C to exit
-    if (key.ctrl && key.name === 'c') {
-      handleExit();
-    }
-    // Global: Ctrl+T to open tools palette
-    if (key.ctrl && key.name === 't') {
-      setIsToolsPaletteOpen(true);
-    }
-  });
 
   const handleNavigateToRoute = (routeName: string) => {
     switch (routeName) {
@@ -113,6 +134,13 @@ function AppContent(props: AppProps) {
             <StudyDataProvider>
               <WordModeProvider>
                 <ExitProvider onExit={handleExit}>
+                  <GlobalKeyboardHandler
+                    isToolsPaletteOpen={isToolsPaletteOpen}
+                    setIsToolsPaletteOpen={setIsToolsPaletteOpen}
+                    back={back}
+                    canGoBack={canGoBack}
+                    handleExit={handleExit}
+                  />
                   <box
                     width={dimensions().width}
                     height={dimensions().height}
@@ -153,7 +181,12 @@ function AppContent(props: AppProps) {
                             }
                           >
                             <EGWView
-                              onBack={() => back() || navigateToBible()}
+                              onBack={() => {
+                                // Only go back if there's history, otherwise stay
+                                if (canGoBack()) {
+                                  back();
+                                }
+                              }}
                             />
                           </EGWNavigationProvider>
                         </EGWProvider>
