@@ -12,5 +12,9 @@ export {
   ParagraphNotFoundError,
   SchemaInitializationError,
 } from './book-database.js';
-export type { ParagraphDatabaseError } from './book-database.js';
-export type { ParagraphRow } from './book-database.js';
+export type {
+  ParagraphDatabaseError,
+  ParagraphRow,
+  SyncStatus,
+  SyncStatusRow,
+} from './book-database.js';

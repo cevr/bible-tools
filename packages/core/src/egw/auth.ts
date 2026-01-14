@@ -290,9 +290,16 @@ export class EGWAuth extends Effect.Service<EGWAuth>()('lib/EGW/Auth', {
         const now = yield* Clock.currentTimeMillis;
         // Refresh if expired or expiring within 5 minutes
         const fiveMinutes = Duration.minutes(5);
-        return yield* token.isExpired(now - Duration.toMillis(fiveMinutes))
-          ? refreshToken(token)
-          : Effect.succeed(token);
+        if (!token.isExpired(now - Duration.toMillis(fiveMinutes))) {
+          return token;
+        }
+        // Token is expired - try to refresh, or fetch new if no refresh token
+        if (token.refreshToken) {
+          return yield* refreshToken(token);
+        }
+        // No refresh token (e.g., client_credentials grant) - fetch new token
+        yield* Effect.logDebug('Token expired, fetching new token (no refresh token available)');
+        return yield* fetchToken();
       },
     );
 

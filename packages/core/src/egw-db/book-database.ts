@@ -132,6 +132,25 @@ export const BibleRefRow = Schema.Struct({
 export type BibleRefRow = Schema.Schema.Type<typeof BibleRefRow>;
 
 /**
+ * Sync status values
+ */
+export type SyncStatus = 'pending' | 'success' | 'failed';
+
+/**
+ * Sync Status Row type - for tracking incremental sync
+ */
+export const SyncStatusRow = Schema.Struct({
+  book_id: Schema.Number,
+  book_code: Schema.String,
+  status: Schema.String as Schema.Schema<SyncStatus>,
+  error_message: Schema.NullOr(Schema.String),
+  last_attempt: Schema.String,
+  paragraph_count: Schema.Number,
+});
+
+export type SyncStatusRow = Schema.Schema.Type<typeof SyncStatusRow>;
+
+/**
  * Parse page and paragraph numbers from refcode
  * e.g., "PP 351.1" -> { page: 351, paragraph: 1 }
  */
@@ -202,10 +221,12 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
       yield* Effect.try({
         try: () => {
           // Books table - normalized book metadata
+          // Note: book_code is NOT unique - API returns multiple books with same code
+          // (e.g., different volumes of periodicals). book_id is the true unique identifier.
           db.run(`
             CREATE TABLE IF NOT EXISTS books (
               book_id INTEGER PRIMARY KEY,
-              book_code TEXT NOT NULL UNIQUE,
+              book_code TEXT NOT NULL,
               book_title TEXT NOT NULL,
               book_author TEXT NOT NULL,
               paragraph_count INTEGER DEFAULT 0,
@@ -291,6 +312,22 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
               content_rowid=rowid
             )
           `);
+
+          // Sync status table for incremental sync
+          db.run(`
+            CREATE TABLE IF NOT EXISTS sync_status (
+              book_id INTEGER PRIMARY KEY,
+              book_code TEXT NOT NULL,
+              status TEXT NOT NULL DEFAULT 'pending',
+              error_message TEXT,
+              last_attempt TEXT NOT NULL,
+              paragraph_count INTEGER DEFAULT 0
+            )
+          `);
+          db.run(`
+            CREATE INDEX IF NOT EXISTS idx_sync_status
+            ON sync_status(status)
+          `);
         },
         catch: (error) =>
           new SchemaInitializationError({
@@ -342,6 +379,35 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
           paragraph_number = excluded.paragraph_number,
           is_chapter_heading = excluded.is_chapter_heading,
           updated_at = excluded.updated_at
+      `);
+
+      const insertBibleRefQuery = db.query(`
+        INSERT OR IGNORE INTO paragraph_bible_refs
+        (para_book_id, para_ref_code, bible_book, bible_chapter, bible_verse)
+        VALUES ($bookId, $refCode, $bibleBook, $bibleChapter, $bibleVerse)
+      `);
+
+      // Sync status queries
+      const upsertSyncStatusQuery = db.query(`
+        INSERT INTO sync_status (book_id, book_code, status, error_message, last_attempt, paragraph_count)
+        VALUES ($bookId, $bookCode, $status, $errorMessage, $lastAttempt, $paragraphCount)
+        ON CONFLICT(book_id) DO UPDATE SET
+          status = excluded.status,
+          error_message = excluded.error_message,
+          last_attempt = excluded.last_attempt,
+          paragraph_count = excluded.paragraph_count
+      `);
+
+      const getSyncStatusQuery = db.query<SyncStatusRow, { $bookId: number }>(`
+        SELECT * FROM sync_status WHERE book_id = $bookId
+      `);
+
+      const getSyncStatusByStatusQuery = db.query<SyncStatusRow, { $status: string }>(`
+        SELECT * FROM sync_status WHERE status = $status
+      `);
+
+      const getAllSyncStatusQuery = db.query<SyncStatusRow, Record<string, never>>(`
+        SELECT * FROM sync_status ORDER BY book_code
       `);
 
       const getParagraphByRefCodeQuery = db.query<
@@ -602,6 +668,108 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
         });
 
       /**
+       * Batch store paragraphs in a single transaction
+       * Much faster than individual inserts - use for bulk sync operations
+       */
+      const storeParagraphsBatch = (
+        paragraphs: readonly EGWSchemas.Paragraph[],
+        book: EGWSchemas.Book,
+      ): Effect.Effect<number, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            const now = new Date().toISOString();
+
+            // Use transaction for atomic batch insert
+            db.run('BEGIN IMMEDIATE');
+            try {
+              // Ensure book exists first
+              insertOrUpdateBookQuery.run({
+                $bookId: book.book_id,
+                $bookCode: book.code,
+                $bookTitle: book.title,
+                $bookAuthor: book.author,
+                $paragraphCount: 0,
+                $createdAt: now,
+              });
+
+              // Insert all paragraphs
+              for (const paragraph of paragraphs) {
+                const row = paragraphToRow(paragraph, book.book_id, now, now);
+                insertOrUpdateParagraphQuery.run({
+                  $bookId: row.book_id,
+                  $refCode: row.ref_code,
+                  $paraId: row.para_id ?? null,
+                  $refcodeShort: row.refcode_short ?? null,
+                  $refcodeLong: row.refcode_long ?? null,
+                  $content: row.content ?? null,
+                  $puborder: row.puborder,
+                  $elementType: row.element_type ?? null,
+                  $elementSubtype: row.element_subtype ?? null,
+                  $pageNumber: row.page_number,
+                  $paragraphNumber: row.paragraph_number,
+                  $isChapterHeading: row.is_chapter_heading,
+                  $createdAt: row.created_at,
+                  $updatedAt: row.updated_at,
+                });
+              }
+
+              db.run('COMMIT');
+              return paragraphs.length;
+            } catch (e) {
+              db.run('ROLLBACK');
+              throw e;
+            }
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'storeParagraphsBatch',
+              bookId: book.book_id,
+              cause: error,
+            }),
+        });
+
+      /**
+       * Batch store Bible references in a single transaction
+       */
+      const storeBibleRefsBatch = (
+        refs: readonly {
+          bookId: number;
+          refCode: string;
+          bibleBook: number;
+          bibleChapter: number;
+          bibleVerse: number | null;
+        }[],
+      ): Effect.Effect<number, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            if (refs.length === 0) return 0;
+
+            db.run('BEGIN IMMEDIATE');
+            try {
+              for (const ref of refs) {
+                insertBibleRefQuery.run({
+                  $bookId: ref.bookId,
+                  $refCode: ref.refCode,
+                  $bibleBook: ref.bibleBook,
+                  $bibleChapter: ref.bibleChapter,
+                  $bibleVerse: ref.bibleVerse,
+                });
+              }
+              db.run('COMMIT');
+              return refs.length;
+            } catch (e) {
+              db.run('ROLLBACK');
+              throw e;
+            }
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'storeBibleRefsBatch',
+              cause: error,
+            }),
+        });
+
+      /**
        * Get a paragraph by book_id and ref_code
        */
       const getParagraph = (
@@ -824,12 +992,13 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
       ): Effect.Effect<void, ParagraphDatabaseError> =>
         Effect.try({
           try: () => {
-            db.run(
-              `INSERT OR IGNORE INTO paragraph_bible_refs
-               (para_book_id, para_ref_code, bible_book, bible_chapter, bible_verse)
-               VALUES (?, ?, ?, ?, ?)`,
-              [bookId, refCode, bibleBook, bibleChapter, bibleVerse],
-            );
+            insertBibleRefQuery.run({
+              $bookId: bookId,
+              $refCode: refCode,
+              $bibleBook: bibleBook,
+              $bibleChapter: bibleChapter,
+              $bibleVerse: bibleVerse,
+            });
           },
           catch: (error) =>
             new DatabaseQueryError({
@@ -906,6 +1075,99 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
             }),
         });
 
+      // ========== Sync Status Operations ==========
+
+      /**
+       * Update sync status for a book
+       */
+      const setSyncStatus = (
+        bookId: number,
+        bookCode: string,
+        status: SyncStatus,
+        paragraphCount: number,
+        errorMessage?: string,
+      ): Effect.Effect<void, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            upsertSyncStatusQuery.run({
+              $bookId: bookId,
+              $bookCode: bookCode,
+              $status: status,
+              $errorMessage: errorMessage ?? null,
+              $lastAttempt: new Date().toISOString(),
+              $paragraphCount: paragraphCount,
+            });
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'setSyncStatus',
+              bookId,
+              cause: error,
+            }),
+        });
+
+      /**
+       * Get sync status for a specific book
+       */
+      const getSyncStatus = (
+        bookId: number,
+      ): Effect.Effect<Option.Option<SyncStatusRow>, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            const row = getSyncStatusQuery.get({ $bookId: bookId });
+            return row ? Option.some(row) : Option.none();
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'getSyncStatus',
+              bookId,
+              cause: error,
+            }),
+        });
+
+      /**
+       * Get all books with a specific sync status
+       */
+      const getBooksByStatus = (
+        status: SyncStatus,
+      ): Effect.Effect<readonly SyncStatusRow[], ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => getSyncStatusByStatusQuery.all({ $status: status }),
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'getBooksByStatus',
+              cause: error,
+            }),
+        });
+
+      /**
+       * Get all sync statuses
+       */
+      const getAllSyncStatus = (): Effect.Effect<
+        readonly SyncStatusRow[],
+        ParagraphDatabaseError
+      > =>
+        Effect.try({
+          try: () => getAllSyncStatusQuery.all({}),
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'getAllSyncStatus',
+              cause: error,
+            }),
+        });
+
+      /**
+       * Check if a book needs syncing (not success status)
+       */
+      const needsSync = (
+        bookId: number,
+      ): Effect.Effect<boolean, ParagraphDatabaseError> =>
+        getSyncStatus(bookId).pipe(
+          Effect.map((optStatus) =>
+            Option.isNone(optStatus) || optStatus.value.status !== 'success',
+          ),
+        );
+
       // Cleanup: close database when scope ends
       yield* Effect.addFinalizer(() =>
         Effect.try({
@@ -929,6 +1191,7 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
         updateBookCount,
         // Paragraph operations
         storeParagraph,
+        storeParagraphsBatch,
         getParagraph,
         getParagraphsByBook,
         getParagraphsByAuthor,
@@ -937,7 +1200,14 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
         searchParagraphs,
         // Bible reference operations
         storeBibleRef,
+        storeBibleRefsBatch,
         getParagraphsByBibleRef,
+        // Sync status operations
+        setSyncStatus,
+        getSyncStatus,
+        getBooksByStatus,
+        getAllSyncStatus,
+        needsSync,
         // Maintenance
         rebuildFtsIndex,
       } as const;

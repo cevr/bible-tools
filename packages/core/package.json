@@ -13,11 +13,17 @@
     "./egw-commentary": "./src/egw-commentary/index.ts",
     "./bible-reader": "./src/bible-reader/index.ts",
     "./gemini": "./src/gemini/index.ts",
-    "./sabbath-school": "./src/sabbath-school/index.ts"
+    "./sabbath-school": "./src/sabbath-school/index.ts",
+    "./sync": "./src/sync/index.ts"
   },
   "scripts": {
     "prepare": "effect-language-service patch",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "sync:egw": "bun run src/sync/cli.ts",
+    "sync:egw:status": "bun run src/sync/cli.ts --status",
+    "sync:egw:failed": "bun run src/sync/cli.ts --failed"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.9",
@@ -33,7 +39,10 @@
   },
   "devDependencies": {
     "@effect/language-service": "catalog:",
+    "@effect/platform-bun": "^0.87.0",
+    "@effect/vitest": "^0.27.0",
     "@types/bun": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "^4.0.17"
   }
 }
