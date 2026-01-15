@@ -8,51 +8,27 @@
 
 import { FileSystem, Path } from '@effect/platform';
 import { Database } from 'bun:sqlite';
-import { Config, Data, Effect, Option } from 'effect';
+import { Config, Effect, Option } from 'effect';
+
+import {
+  DatabaseConnectionError,
+  DatabaseQueryError,
+  RecordNotFoundError,
+  SchemaInitializationError,
+} from '../errors/index.js';
+
+// Re-export errors for backwards compatibility
+export {
+  DatabaseConnectionError,
+  DatabaseQueryError,
+  SchemaInitializationError,
+} from '../errors/index.js';
 
 /**
- * Upload Status Errors - Granular error types for different failure scenarios
+ * Paragraph upload not found error (domain-specific alias)
  */
-
-/**
- * Database connection or initialization error
- */
-export class DatabaseConnectionError extends Data.TaggedError(
-  'DatabaseConnectionError',
-)<{
-  readonly cause: unknown;
-  readonly message: string;
-}> {}
-
-/**
- * Database query execution error
- */
-export class DatabaseQueryError extends Data.TaggedError('DatabaseQueryError')<{
-  readonly cause: unknown;
-  readonly operation: string;
-  readonly storeDisplayName: string;
-  readonly refCode: string;
-}> {}
-
-/**
- * Paragraph upload record not found error
- */
-export class ParagraphUploadNotFoundError extends Data.TaggedError(
-  'ParagraphUploadNotFoundError',
-)<{
-  readonly storeDisplayName: string;
-  readonly refCode: string;
-}> {}
-
-/**
- * Database schema initialization error
- */
-export class SchemaInitializationError extends Data.TaggedError(
-  'SchemaInitializationError',
-)<{
-  readonly cause: unknown;
-  readonly message: string;
-}> {}
+export const ParagraphUploadNotFoundError = RecordNotFoundError;
+export type ParagraphUploadNotFoundError = RecordNotFoundError;
 
 /**
  * Union type for all upload status errors
@@ -60,7 +36,7 @@ export class SchemaInitializationError extends Data.TaggedError(
 export type UploadStatusError =
   | DatabaseConnectionError
   | DatabaseQueryError
-  | ParagraphUploadNotFoundError
+  | RecordNotFoundError
   | SchemaInitializationError;
 
 /**
@@ -112,7 +88,7 @@ interface ParagraphUploadRow {
  * EGW Upload Status Service
  */
 export class EGWUploadStatus extends Effect.Service<EGWUploadStatus>()(
-  'lib/EGWGemini/UploadStatus',
+  '@bible/egw-gemini/UploadStatus',
   {
     scoped: Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;

@@ -4,7 +4,7 @@
  *
  * Creates and populates the unified Bible database from JSON sources.
  *
- * Data sources (from packages/cli/assets/):
+ * Data sources (from packages/core/assets/):
  * - kjv.json: KJV verse text
  * - cross-refs.json: Cross-reference mappings
  * - strongs.json: Strong's concordance definitions
@@ -28,7 +28,7 @@ import * as path from 'node:path';
 // Configuration
 // ============================================================================
 
-const ASSETS_DIR = path.resolve(import.meta.dir, '../../../cli/assets');
+const ASSETS_DIR = path.resolve(import.meta.dir, '../../assets');
 const DATA_DIR = path.resolve(import.meta.dir, '../../data');
 const SCHEMA_PATH = path.resolve(import.meta.dir, '../bible-db/schema.sql');
 const DB_PATH = path.resolve(DATA_DIR, 'bible.db');

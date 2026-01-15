@@ -24,7 +24,7 @@ export interface ExportOptions {
  * CLI implements this with Apple Notes export.
  * Web could implement with download or cloud storage.
  */
-export class ExportAdapter extends Context.Tag('@bible/ExportAdapter')<
+export class ExportAdapter extends Context.Tag('@bible/adapters/Export')<
   ExportAdapter,
   {
     /**

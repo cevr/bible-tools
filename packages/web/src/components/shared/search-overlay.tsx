@@ -8,7 +8,7 @@ import {
 } from 'solid-js';
 import { Dialog } from '@kobalte/core/dialog';
 import { useNavigate, useParams } from '@solidjs/router';
-import { useBible } from '@/providers/bible-provider';
+import { useBible, useChapter, useSearch } from '@/providers/bible-provider';
 import { useOverlay } from '@/providers/overlay-provider';
 import { BOOK_ALIASES, type Reference } from '@/data/bible';
 
@@ -51,20 +51,30 @@ export const SearchOverlay: Component = () => {
     return isNaN(ch) ? 1 : ch;
   });
 
+  // Fetch current chapter verses (for chapter search)
+  const chapterVerses = useChapter(currentBookNumber, currentChapter);
+
+  // Fetch global search results
+  const globalResults = useSearch(
+    () => (searchScope() === 'global' ? query() : ''),
+    20
+  );
+
   // Unified result type for both chapter and global search
   interface DisplayResult {
     reference: Reference;
     text: string;
   }
 
-  // Search results
+  // Search results - unified view
   const results = createMemo((): DisplayResult[] => {
     const q = query().toLowerCase().trim();
     if (q.length < 2) return [];
 
     if (searchScope() === 'chapter') {
-      // Search current chapter only
-      const verses = bible.getChapter(currentBookNumber(), currentChapter());
+      // Search current chapter only (filter loaded verses)
+      const verses = chapterVerses();
+      if (!verses) return [];
       return verses
         .filter((v) => v.text.toLowerCase().includes(q))
         .map((v) => ({
@@ -77,12 +87,25 @@ export const SearchOverlay: Component = () => {
         }))
         .slice(0, 20);
     } else {
-      // Global search returns SearchResult[], map to DisplayResult
-      return bible.searchVerses(q, 20).map((sr) => ({
-        reference: sr.reference,
-        text: sr.verse.text,
+      // Global search returns SearchResult[] (flat structure from API)
+      const searchResults = globalResults();
+      if (!searchResults) return [];
+      return searchResults.map((sr) => ({
+        reference: {
+          book: sr.book,
+          chapter: sr.chapter,
+          verse: sr.verse,
+        },
+        text: sr.text,
       }));
     }
+  });
+
+  const isLoading = createMemo(() => {
+    if (searchScope() === 'chapter') {
+      return chapterVerses.loading;
+    }
+    return globalResults.loading;
   });
 
   const handleOpenChange = (open: boolean) => {
@@ -195,35 +218,42 @@ export const SearchOverlay: Component = () => {
                 </p>
               }
             >
-              <Show
-                when={results().length > 0}
-                fallback={
-                  <p class="px-4 py-6 text-center text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-                    No results found
-                  </p>
-                }
-              >
-                <div class="p-2 space-y-1">
-                  <For each={results()}>
-                    {(result) => {
-                      const book = bible.getBook(result.reference.book);
-                      return (
-                        <button
-                          class="w-full text-left px-3 py-2 rounded-lg hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] transition-colors"
-                          onClick={() => navigateToResult(result)}
-                        >
-                          <div class="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] mb-0.5">
-                            {book?.name} {result.reference.chapter}:
-                            {result.reference.verse}
-                          </div>
-                          <div class="text-sm text-[--color-ink] dark:text-[--color-ink-dark] line-clamp-2">
-                            {highlightMatch(result.text, query())}
-                          </div>
-                        </button>
-                      );
-                    }}
-                  </For>
-                </div>
+              <Show when={isLoading()}>
+                <p class="px-4 py-6 text-center text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+                  Searching...
+                </p>
+              </Show>
+              <Show when={!isLoading()}>
+                <Show
+                  when={results().length > 0}
+                  fallback={
+                    <p class="px-4 py-6 text-center text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+                      No results found
+                    </p>
+                  }
+                >
+                  <div class="p-2 space-y-1">
+                    <For each={results()}>
+                      {(result) => {
+                        const book = bible.getBook(result.reference.book);
+                        return (
+                          <button
+                            class="w-full text-left px-3 py-2 rounded-lg hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] transition-colors"
+                            onClick={() => navigateToResult(result)}
+                          >
+                            <div class="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] mb-0.5">
+                              {book?.name} {result.reference.chapter}:
+                              {result.reference.verse}
+                            </div>
+                            <div class="text-sm text-[--color-ink] dark:text-[--color-ink-dark] line-clamp-2">
+                              {highlightMatch(result.text, query())}
+                            </div>
+                          </button>
+                        );
+                      }}
+                    </For>
+                  </div>
+                </Show>
               </Show>
             </Show>
           </div>

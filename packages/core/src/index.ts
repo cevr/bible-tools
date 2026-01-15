@@ -9,6 +9,7 @@
  * import { SabbathSchool } from "@bible/core/sabbath-school";
  * import { AiService } from "@bible/core/ai";
  * import { StorageAdapter, ExportAdapter } from "@bible/core/adapters";
+ * import { BIBLE_BOOKS, getBibleBook } from "@bible/core/bible-reader";
  * ```
  */
 
@@ -16,3 +17,4 @@
 export * from './adapters/index.js';
 export * from './ai/index.js';
 export * from './sabbath-school/index.js';
+export * from './bible-reader/index.js';

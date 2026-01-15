@@ -17,7 +17,7 @@ export class StorageError extends Schema.TaggedError<StorageError>()(
  * CLI implements this with filesystem storage.
  * Web could implement with IndexedDB or server-side storage.
  */
-export class StorageAdapter extends Context.Tag('@bible/StorageAdapter')<
+export class StorageAdapter extends Context.Tag('@bible/adapters/Storage')<
   StorageAdapter,
   {
     /**

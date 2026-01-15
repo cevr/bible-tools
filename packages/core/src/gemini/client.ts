@@ -15,12 +15,12 @@ import type {
 import {
   Chunk,
   Config,
-  Data,
   Duration,
   Effect,
   Option,
   Redacted,
   Schedule,
+  Schema,
   Stream,
 } from 'effect';
 
@@ -34,18 +34,19 @@ type UploadOperation = UploadToFileSearchStoreOperation;
 /**
  * Gemini File Search Client Errors
  */
-export class GeminiFileSearchError extends Data.TaggedError(
+export class GeminiFileSearchError extends Schema.TaggedError<GeminiFileSearchError>()(
   'GeminiFileSearchError',
-)<{
-  readonly cause: unknown;
-  readonly message: string;
-}> {}
+  {
+    cause: Schema.Unknown,
+    message: Schema.String,
+  },
+) {}
 
 /**
  * Gemini File Search Client Service
  */
 export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClient>()(
-  'lib/Gemini/Client',
+  '@bible/gemini/Client',
   {
     effect: Effect.gen(function* () {
       const apiKey = yield* Config.redacted('GOOGLE_AI_API_KEY').pipe(

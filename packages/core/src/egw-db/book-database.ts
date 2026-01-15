@@ -20,48 +20,28 @@
 
 import { FileSystem, Path } from '@effect/platform';
 import { Database } from 'bun:sqlite';
-import { Config, Data, Effect, Option, Schema, Stream } from 'effect';
+import { Config, Effect, Option, Schema, Stream } from 'effect';
 
 import * as EGWSchemas from '../egw/schemas.js';
+import {
+  DatabaseConnectionError,
+  DatabaseQueryError,
+  RecordNotFoundError,
+  SchemaInitializationError,
+} from '../errors/index.js';
+
+// Re-export errors for backwards compatibility
+export {
+  DatabaseConnectionError,
+  DatabaseQueryError,
+  SchemaInitializationError,
+} from '../errors/index.js';
 
 /**
- * Database connection or initialization error
+ * Paragraph not found error (domain-specific alias)
  */
-export class DatabaseConnectionError extends Data.TaggedError(
-  'DatabaseConnectionError',
-)<{
-  readonly cause: unknown;
-  readonly message: string;
-}> {}
-
-/**
- * Database query execution error
- */
-export class DatabaseQueryError extends Data.TaggedError('DatabaseQueryError')<{
-  readonly cause: unknown;
-  readonly operation: string;
-  readonly bookId?: number;
-}> {}
-
-/**
- * Paragraph not found error
- */
-export class ParagraphNotFoundError extends Data.TaggedError(
-  'ParagraphNotFoundError',
-)<{
-  readonly bookId: number;
-  readonly refCode: string;
-}> {}
-
-/**
- * Database schema initialization error
- */
-export class SchemaInitializationError extends Data.TaggedError(
-  'SchemaInitializationError',
-)<{
-  readonly cause: unknown;
-  readonly message: string;
-}> {}
+export const ParagraphNotFoundError = RecordNotFoundError;
+export type ParagraphNotFoundError = RecordNotFoundError;
 
 /**
  * Union type for all paragraph database errors
@@ -69,7 +49,7 @@ export class SchemaInitializationError extends Data.TaggedError(
 export type ParagraphDatabaseError =
   | DatabaseConnectionError
   | DatabaseQueryError
-  | ParagraphNotFoundError
+  | RecordNotFoundError
   | SchemaInitializationError;
 
 /**
@@ -193,7 +173,7 @@ export function isChapterHeading(
  * EGW Paragraph Database Service
  */
 export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()(
-  'lib/EGWDB/ParagraphDatabase',
+  '@bible/egw-db/ParagraphDatabase',
   {
     scoped: Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;

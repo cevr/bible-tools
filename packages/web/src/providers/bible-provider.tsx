@@ -3,11 +3,14 @@ import {
   useContext,
   type ParentComponent,
   type Accessor,
-  createSignal,
   createMemo,
+  createResource,
+  type Resource,
 } from 'solid-js';
 import {
   bibleDataService,
+  fetchVerses,
+  searchVerses as searchVersesApi,
   type Book,
   type Reference,
   type SearchResult,
@@ -19,70 +22,52 @@ import {
 
 interface BibleContextValue {
   /**
-   * Get all books of the Bible
+   * Get all books of the Bible (sync - static data)
    */
-  books: Book[];
+  books: readonly Book[];
 
   /**
-   * Get a specific book by number
+   * Get a specific book by number (sync - static data)
    */
   getBook: (bookNumber: number) => Book | undefined;
 
   /**
-   * Get all verses in a chapter
-   */
-  getChapter: (book: number, chapter: number) => Verse[];
-
-  /**
-   * Get a specific verse
-   */
-  getVerse: (book: number, chapter: number, verse: number) => Verse | undefined;
-
-  /**
-   * Parse a reference string (e.g., "john 3:16")
+   * Parse a reference string (e.g., "john 3:16") (sync)
    */
   parseReference: (ref: string) => Reference | undefined;
 
   /**
-   * Format a reference for display
+   * Format a reference for display (sync)
    */
   formatReference: (ref: Reference) => string;
 
   /**
-   * Get the next chapter reference
+   * Get the next chapter reference (sync)
    */
   getNextChapter: (book: number, chapter: number) => Reference | undefined;
 
   /**
-   * Get the previous chapter reference
+   * Get the previous chapter reference (sync)
    */
   getPrevChapter: (book: number, chapter: number) => Reference | undefined;
-
-  /**
-   * Search verses by text query
-   */
-  searchVerses: (query: string, limit?: number) => SearchResult[];
 }
 
 const BibleContext = createContext<BibleContextValue>();
 
 /**
  * Provider for Bible data access.
+ * Book metadata is synchronous, verse/chapter data uses createResource.
  */
 export const BibleProvider: ParentComponent = (props) => {
   const value: BibleContextValue = {
     books: BOOKS,
     getBook: (bookNumber) => bibleDataService.getBook(bookNumber),
-    getChapter: (book, chapter) => bibleDataService.getChapter(book, chapter),
-    getVerse: (book, chapter, verse) =>
-      bibleDataService.getVerse(book, chapter, verse),
     parseReference: (ref) => bibleDataService.parseReference(ref),
     formatReference,
     getNextChapter: (book, chapter) =>
       bibleDataService.getNextChapter(book, chapter),
     getPrevChapter: (book, chapter) =>
       bibleDataService.getPrevChapter(book, chapter),
-    searchVerses: (query, limit) => bibleDataService.searchVerses(query, limit),
   };
 
   return (
@@ -103,13 +88,17 @@ export function useBible(): BibleContextValue {
 
 /**
  * Hook to get chapter data reactively based on book and chapter numbers.
+ * Returns a Resource that automatically fetches from the API.
  */
 export function useChapter(
   book: Accessor<number>,
-  chapter: Accessor<number>
-): Accessor<Verse[]> {
-  const bible = useBible();
-  return createMemo(() => bible.getChapter(book(), chapter()));
+  chapter: Accessor<number>,
+): Resource<readonly Verse[]> {
+  const [verses] = createResource(
+    () => ({ book: book(), chapter: chapter() }),
+    async ({ book, chapter }) => fetchVerses(book, chapter),
+  );
+  return verses;
 }
 
 /**
@@ -118,4 +107,19 @@ export function useChapter(
 export function useBook(bookNumber: Accessor<number>): Accessor<Book | undefined> {
   const bible = useBible();
   return createMemo(() => bible.getBook(bookNumber()));
+}
+
+/**
+ * Hook for searching verses.
+ * Returns a Resource that fetches search results from the API.
+ */
+export function useSearch(
+  query: Accessor<string>,
+  limit?: number,
+): Resource<readonly SearchResult[]> {
+  const [results] = createResource(
+    () => query(),
+    async (q) => searchVersesApi(q, limit),
+  );
+  return results;
 }

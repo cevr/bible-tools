@@ -1,7 +1,7 @@
 import { createMemo, For, Show } from 'solid-js';
 
 import { useTheme } from '../../context/theme.js';
-import { is } from '../../utils/match.js';
+import { is } from '@bible/core/utils';
 import { usePalette, type CommandOption } from './context.js';
 import { PaletteGroupHeader, PaletteOption } from './Option.js';
 

@@ -23,7 +23,7 @@ export interface ModelConfig {
  * AI Service for text generation operations.
  * This service provides the configured AI models to use for generation.
  */
-export class AiService extends Context.Tag('@bible/AiService')<
+export class AiService extends Context.Tag('@bible/ai/Service')<
   AiService,
   ModelConfig
 >() {}

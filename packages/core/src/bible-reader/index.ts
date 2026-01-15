@@ -32,6 +32,7 @@ export {
 // Parsing
 export type {
   ParsedBibleQuery,
+  ParseBibleQueryOptions,
   ExtractedReference,
   TextSegmentWithRefs,
 } from './parse.js';
@@ -43,3 +44,11 @@ export {
   extractBibleReferences,
   segmentTextWithReferences,
 } from './parse.js';
+
+// Navigation
+export {
+  getNextChapter,
+  getPrevChapter,
+  getNextChapterWithMap,
+  getPrevChapterWithMap,
+} from './navigation.js';

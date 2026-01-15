@@ -336,20 +336,26 @@ export function getBibleBookByName(name: string): BibleBook | undefined {
   if (bookNum) {
     return getBibleBook(bookNum);
   }
-  return undefined;
+  // Also check direct name match
+  return BIBLE_BOOKS.find((b) => b.name.toLowerCase() === normalized);
 }
 
 /**
  * Format a reference for display
+ * Supports optional verse ranges (e.g., "John 3:16-18")
  */
 export function formatBibleReference(ref: {
   book: number;
   chapter: number;
   verse?: number;
+  verseEnd?: number;
 }): string {
   const book = getBibleBook(ref.book);
   if (!book) return '';
   if (ref.verse !== undefined) {
+    if (ref.verseEnd !== undefined && ref.verseEnd !== ref.verse) {
+      return `${book.name} ${ref.chapter}:${ref.verse}-${ref.verseEnd}`;
+    }
     return `${book.name} ${ref.chapter}:${ref.verse}`;
   }
   return `${book.name} ${ref.chapter}`;

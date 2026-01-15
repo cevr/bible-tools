@@ -1,0 +1,109 @@
+/**
+ * Branded Types for Entity IDs
+ *
+ * These branded types help catch type mismatches at compile time.
+ * For example, passing a book ID where a chapter number is expected.
+ */
+
+import { Schema } from 'effect';
+
+// ============================================================================
+// Bible Types
+// ============================================================================
+
+/**
+ * Bible book number (1-66)
+ */
+export const BibleBookNumber = Schema.Number.pipe(
+  Schema.int(),
+  Schema.between(1, 66),
+  Schema.brand('BibleBookNumber'),
+);
+export type BibleBookNumber = typeof BibleBookNumber.Type;
+
+/**
+ * Bible chapter number (1-150, varies by book)
+ */
+export const BibleChapter = Schema.Number.pipe(
+  Schema.int(),
+  Schema.positive(),
+  Schema.brand('BibleChapter'),
+);
+export type BibleChapter = typeof BibleChapter.Type;
+
+/**
+ * Bible verse number (1-176, varies by chapter)
+ */
+export const BibleVerse = Schema.Number.pipe(
+  Schema.int(),
+  Schema.positive(),
+  Schema.brand('BibleVerse'),
+);
+export type BibleVerse = typeof BibleVerse.Type;
+
+// ============================================================================
+// EGW Types
+// ============================================================================
+
+/**
+ * EGW Book ID (numeric identifier)
+ */
+export const EGWBookId = Schema.Number.pipe(
+  Schema.int(),
+  Schema.positive(),
+  Schema.brand('EGWBookId'),
+);
+export type EGWBookId = typeof EGWBookId.Type;
+
+/**
+ * EGW Paragraph ID (string identifier)
+ */
+export const EGWParagraphId = Schema.String.pipe(Schema.brand('EGWParagraphId'));
+export type EGWParagraphId = typeof EGWParagraphId.Type;
+
+/**
+ * EGW Reference code (e.g., "DA 25.1")
+ */
+export const EGWRefCode = Schema.String.pipe(Schema.brand('EGWRefCode'));
+export type EGWRefCode = typeof EGWRefCode.Type;
+
+// ============================================================================
+// Utility Functions
+// ============================================================================
+
+/**
+ * Create a Bible book number from a raw number.
+ * Validates that the number is between 1 and 66.
+ */
+export const bibleBookNumber = (n: number): BibleBookNumber =>
+  Schema.decodeSync(BibleBookNumber)(n);
+
+/**
+ * Create a Bible chapter number from a raw number.
+ */
+export const bibleChapter = (n: number): BibleChapter =>
+  Schema.decodeSync(BibleChapter)(n);
+
+/**
+ * Create a Bible verse number from a raw number.
+ */
+export const bibleVerse = (n: number): BibleVerse =>
+  Schema.decodeSync(BibleVerse)(n);
+
+/**
+ * Create an EGW book ID from a raw number.
+ */
+export const egwBookId = (n: number): EGWBookId =>
+  Schema.decodeSync(EGWBookId)(n);
+
+/**
+ * Create an EGW paragraph ID from a raw string.
+ */
+export const egwParagraphId = (s: string): EGWParagraphId =>
+  Schema.decodeSync(EGWParagraphId)(s);
+
+/**
+ * Create an EGW reference code from a raw string.
+ */
+export const egwRefCode = (s: string): EGWRefCode =>
+  Schema.decodeSync(EGWRefCode)(s);

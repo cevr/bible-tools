@@ -11,7 +11,7 @@
  * This parser is renderer-agnostic and can be used by CLI, TUI, or Web.
  */
 
-import { Data, Effect, Option, Schema } from 'effect';
+import { Effect, Option, Schema } from 'effect';
 
 /**
  * Parsed EGW Reference - single paragraph
@@ -97,10 +97,13 @@ export type EGWParsedRef =
 /**
  * Parse error
  */
-export class EGWParseError extends Data.TaggedError('EGWParseError')<{
-  readonly input: string;
-  readonly message: string;
-}> {}
+export class EGWParseError extends Schema.TaggedError<EGWParseError>()(
+  'EGWParseError',
+  {
+    input: Schema.String,
+    message: Schema.String,
+  },
+) {}
 
 /**
  * Reference patterns

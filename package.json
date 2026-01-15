@@ -6,7 +6,8 @@
   "author": "cristian ramos <seeve.c@gmail.com>",
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "apps/*"
     ],
     "catalog": {
       "@effect/cli": "0.72.1",

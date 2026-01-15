@@ -4,12 +4,13 @@ import {
   createMemo,
   For,
   Show,
+  createResource,
 } from 'solid-js';
 import { Dialog } from '@kobalte/core/dialog';
 import { useNavigate } from '@solidjs/router';
 import { useBible } from '@/providers/bible-provider';
 import { useOverlay } from '@/providers/overlay-provider';
-import type { Book } from '@/data/bible';
+import { fetchVerses, type Book } from '@/data/bible';
 
 type CommandMode = 'book' | 'chapter' | 'verse';
 
@@ -60,12 +61,26 @@ export const CommandPalette: Component = () => {
     return chapters().filter((ch) => ch.toString().startsWith(q));
   });
 
-  // Get verses for selected chapter
+  // Fetch verses for selected chapter (async)
+  const [chapterVerses] = createResource(
+    () => {
+      const s = state();
+      if (s.mode !== 'verse' || !s.selectedBook || !s.selectedChapter) {
+        return null;
+      }
+      return { book: s.selectedBook.number, chapter: s.selectedChapter };
+    },
+    async (params) => {
+      if (!params) return [];
+      return fetchVerses(params.book, params.chapter);
+    }
+  );
+
+  // Get verse numbers
   const verses = createMemo(() => {
-    const s = state();
-    if (!s.selectedBook || !s.selectedChapter) return [];
-    const chapter = bible.getChapter(s.selectedBook.number, s.selectedChapter);
-    return chapter.map((v) => v.verse);
+    const v = chapterVerses();
+    if (!v) return [];
+    return v.map((verse) => verse.verse);
   });
 
   // Filter verses based on query
@@ -255,18 +270,25 @@ export const CommandPalette: Component = () => {
             </Show>
 
             <Show when={state().mode === 'verse'}>
-              <div class="grid grid-cols-8 gap-2">
-                <For each={filteredVerses()}>
-                  {(verse) => (
-                    <button
-                      class="px-3 py-2 rounded-lg text-center hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] transition-colors"
-                      onClick={() => selectVerse(verse)}
-                    >
-                      {verse}
-                    </button>
-                  )}
-                </For>
-              </div>
+              <Show when={chapterVerses.loading}>
+                <p class="px-3 py-2 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+                  Loading verses...
+                </p>
+              </Show>
+              <Show when={!chapterVerses.loading}>
+                <div class="grid grid-cols-8 gap-2">
+                  <For each={filteredVerses()}>
+                    {(verse) => (
+                      <button
+                        class="px-3 py-2 rounded-lg text-center hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] transition-colors"
+                        onClick={() => selectVerse(verse)}
+                      >
+                        {verse}
+                      </button>
+                    )}
+                  </For>
+                </div>
+              </Show>
             </Show>
           </div>
 

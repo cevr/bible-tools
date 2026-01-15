@@ -6,7 +6,7 @@
  */
 
 import { FileSystem } from '@effect/platform';
-import { Data, Effect, Option, Ref, Stream } from 'effect';
+import { Effect, Option, Ref, Schema, Stream } from 'effect';
 
 import { EGWParagraphDatabase } from '../egw-db/index.js';
 import type { ParagraphDatabaseError } from '../egw-db/index.js';
@@ -22,10 +22,13 @@ import { EGWUploadStatus } from './upload-status.js';
 /**
  * EGW-Gemini Service Errors
  */
-export class EGWGeminiError extends Data.TaggedError('EGWGeminiError')<{
-  readonly cause: unknown;
-  readonly message: string;
-}> {}
+export class EGWGeminiError extends Schema.TaggedError<EGWGeminiError>()(
+  'EGWGeminiError',
+  {
+    cause: Schema.Unknown,
+    message: Schema.String,
+  },
+) {}
 
 /**
  * Upload Book Options
@@ -64,7 +67,7 @@ export interface UploadAllEGWWritingsOptions {
  * EGW-Gemini Integration Service
  */
 export class EGWGeminiService extends Effect.Service<EGWGeminiService>()(
-  'lib/EGWGemini/Service',
+  '@bible/egw-gemini/Service',
   {
     effect: Effect.gen(function* () {
       const egwClient = yield* EGWApiClient;

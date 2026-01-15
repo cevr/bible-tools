@@ -14,37 +14,47 @@
 
 import { FileSystem, Path } from '@effect/platform';
 import { Database } from 'bun:sqlite';
-import { Config, Data, Effect, Option, Schema } from 'effect';
+import { Config, Effect, Option, Schema } from 'effect';
+
+import {
+  DatabaseConnectionError,
+  DatabaseQueryError,
+  RecordNotFoundError,
+} from '../errors/index.js';
 
 // ============================================================================
-// Error Types
+// Error Types (aliases for backwards compatibility)
 // ============================================================================
 
-export class BibleDatabaseConnectionError extends Data.TaggedError(
-  'BibleDatabaseConnectionError',
-)<{
-  readonly cause: unknown;
-  readonly message: string;
-}> {}
+/**
+ * @deprecated Use DatabaseConnectionError from @bible/core/errors
+ */
+export const BibleDatabaseConnectionError = DatabaseConnectionError;
+export type BibleDatabaseConnectionError = DatabaseConnectionError;
 
-export class BibleDatabaseQueryError extends Data.TaggedError(
-  'BibleDatabaseQueryError',
-)<{
-  readonly cause: unknown;
-  readonly operation: string;
-}> {}
+/**
+ * @deprecated Use DatabaseQueryError from @bible/core/errors
+ */
+export const BibleDatabaseQueryError = DatabaseQueryError;
+export type BibleDatabaseQueryError = DatabaseQueryError;
 
-export class BibleDatabaseNotFoundError extends Data.TaggedError(
-  'BibleDatabaseNotFoundError',
-)<{
-  readonly path: string;
-  readonly message: string;
-}> {}
+/**
+ * @deprecated Use RecordNotFoundError from @bible/core/errors
+ */
+export const BibleDatabaseNotFoundError = RecordNotFoundError;
+export type BibleDatabaseNotFoundError = RecordNotFoundError;
 
 export type BibleDatabaseError =
-  | BibleDatabaseConnectionError
-  | BibleDatabaseQueryError
-  | BibleDatabaseNotFoundError;
+  | DatabaseConnectionError
+  | DatabaseQueryError
+  | RecordNotFoundError;
+
+// Re-export for direct usage
+export {
+  DatabaseConnectionError,
+  DatabaseQueryError,
+  RecordNotFoundError,
+} from '../errors/index.js';
 
 // ============================================================================
 // Schema Types
@@ -201,7 +211,7 @@ export interface VerseSearchResult {
 // ============================================================================
 
 export class BibleDatabase extends Effect.Service<BibleDatabase>()(
-  'lib/BibleDB/BibleDatabase',
+  '@bible/bible-db/Database',
   {
     scoped: Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
@@ -222,9 +232,12 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
       const exists = yield* fs.exists(dbPath);
       if (!exists) {
         return yield* Effect.fail(
-          new BibleDatabaseNotFoundError({
-            path: dbPath,
-            message: `Bible database not found at ${dbPath}. Run 'bun run sync:bible' to create it.`,
+          new RecordNotFoundError({
+            entity: 'BibleDatabase',
+            id: dbPath,
+            context: {
+              message: `Bible database not found at ${dbPath}. Run 'bun run sync:bible' to create it.`,
+            },
           }),
         );
       }
@@ -233,9 +246,10 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
       const db = yield* Effect.try({
         try: () => new Database(dbPath, { readonly: true }),
         catch: (error) =>
-          new BibleDatabaseConnectionError({
+          new DatabaseConnectionError({
             message: `Failed to open database at ${dbPath}`,
             cause: error,
+            database: dbPath,
           }),
       });
 
@@ -258,7 +272,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
             }));
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({ operation: 'getBooks', cause: error }),
+            new DatabaseQueryError({ operation: 'getBooks', cause: error }),
         });
 
       const getBook = (
@@ -280,7 +294,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
               : Option.none();
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({ operation: 'getBook', cause: error }),
+            new DatabaseQueryError({ operation: 'getBook', cause: error }),
         });
 
       // ========================================================================
@@ -310,7 +324,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
             }));
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({ operation: 'getChapter', cause: error }),
+            new DatabaseQueryError({ operation: 'getChapter', cause: error }),
         });
 
       const getVerse = (
@@ -338,7 +352,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
               : Option.none();
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({ operation: 'getVerse', cause: error }),
+            new DatabaseQueryError({ operation: 'getVerse', cause: error }),
         });
 
       const searchVerses = (
@@ -370,7 +384,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
             }));
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({
+            new DatabaseQueryError({
               operation: 'searchVerses',
               cause: error,
             }),
@@ -404,7 +418,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
             }));
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({
+            new DatabaseQueryError({
               operation: 'getCrossRefs',
               cause: error,
             }),
@@ -438,7 +452,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
               : Option.none();
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({
+            new DatabaseQueryError({
               operation: 'getStrongsEntry',
               cause: error,
             }),
@@ -474,7 +488,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
             }));
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({
+            new DatabaseQueryError({
               operation: 'searchStrongs',
               cause: error,
             }),
@@ -502,7 +516,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
             }));
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({
+            new DatabaseQueryError({
               operation: 'getVersesWithStrongs',
               cause: error,
             }),
@@ -523,7 +537,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
             return row?.count ?? 0;
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({
+            new DatabaseQueryError({
               operation: 'getStrongsCount',
               cause: error,
             }),
@@ -557,7 +571,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
             }));
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({
+            new DatabaseQueryError({
               operation: 'getVerseWords',
               cause: error,
             }),
@@ -580,7 +594,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
             return (row?.count ?? 0) > 0;
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({
+            new DatabaseQueryError({
               operation: 'hasStrongsMapping',
               cause: error,
             }),
@@ -613,7 +627,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
             }));
           },
           catch: (error) =>
-            new BibleDatabaseQueryError({
+            new DatabaseQueryError({
               operation: 'getMarginNotes',
               cause: error,
             }),
@@ -624,7 +638,7 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
         Effect.try({
           try: () => db.close(false),
           catch: (error) =>
-            new BibleDatabaseConnectionError({
+            new DatabaseConnectionError({
               message: 'Failed to close database',
               cause: error,
             }),

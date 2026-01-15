@@ -27,7 +27,7 @@ import {
   keyToGotoEvent,
   type GotoModeAction,
 } from '../types/goto-mode.js';
-import { match } from '../utils/match.js';
+import { match } from '@bible/core/utils';
 
 type KeyEvent = {
   name?: string;

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from '@solidjs/router';
 import { createSignal, createEffect, createMemo, For, Show } from 'solid-js';
 import { useKeyboardAction } from '@/providers/keyboard-provider';
 import { useOverlay } from '@/providers/overlay-provider';
-import { useBible } from '@/providers/bible-provider';
+import { useBible, useChapter } from '@/providers/bible-provider';
 import { BOOK_ALIASES, type Verse } from '@/data/bible';
 
 /**
@@ -43,9 +43,9 @@ const BibleRoute: Component<ParentProps> = () => {
 
   // Get book and chapter data
   const book = createMemo(() => bible.getBook(bookNumber()));
-  const verses = createMemo(() =>
-    bible.getChapter(bookNumber(), chapterNumber())
-  );
+
+  // Use createResource for chapter verses (async)
+  const verses = useChapter(bookNumber, chapterNumber);
 
   // Selected verse state
   const [selectedVerse, setSelectedVerse] = createSignal(
@@ -84,7 +84,8 @@ const BibleRoute: Component<ParentProps> = () => {
   useKeyboardAction((action) => {
     switch (action) {
       case 'nextVerse': {
-        const max = verses().length;
+        const v = verses();
+        const max = v?.length ?? 0;
         setSelectedVerse((v) => Math.min(v + 1, max));
         break;
       }
@@ -146,23 +147,39 @@ const BibleRoute: Component<ParentProps> = () => {
 
       {/* Chapter content */}
       <div class="reading-text space-y-3">
+        <Show when={verses.loading}>
+          <p class="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
+            Loading verses...
+          </p>
+        </Show>
+        <Show when={verses.error}>
+          <p class="text-red-600 dark:text-red-400">
+            Failed to load verses: {String(verses.error)}
+          </p>
+        </Show>
         <Show
-          when={verses().length > 0}
-          fallback={
-            <p class="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
-              No verses found for this chapter.
-            </p>
-          }
+          when={!verses.loading && !verses.error && verses()}
         >
-          <For each={verses()}>
-            {(verse) => (
-              <VerseDisplay
-                verse={verse}
-                isSelected={selectedVerse() === verse.verse}
-                onClick={() => setSelectedVerse(verse.verse)}
-              />
-            )}
-          </For>
+          {(loadedVerses) => (
+            <Show
+              when={loadedVerses().length > 0}
+              fallback={
+                <p class="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
+                  No verses found for this chapter.
+                </p>
+              }
+            >
+              <For each={loadedVerses()}>
+                {(verse) => (
+                  <VerseDisplay
+                    verse={verse}
+                    isSelected={selectedVerse() === verse.verse}
+                    onClick={() => setSelectedVerse(verse.verse)}
+                  />
+                )}
+              </For>
+            </Show>
+          )}
         </Show>
       </div>
 

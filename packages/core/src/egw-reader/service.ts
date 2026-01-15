@@ -8,7 +8,7 @@
  * a higher-level API suitable for reader UIs.
  */
 
-import { Data, Effect, Option, Stream } from 'effect';
+import { Effect, Option, Schema, Stream } from 'effect';
 
 import { EGWParagraphDatabase } from '../egw-db/book-database.js';
 import type * as EGWSchemas from '../egw/schemas.js';
@@ -17,20 +17,27 @@ import type { EGWBookInfo, EGWParagraph, EGWReaderPosition } from './types.js';
 /**
  * Error types for the reader service
  */
-export class EGWReaderError extends Data.TaggedError('EGWReaderError')<{
-  readonly message: string;
-  readonly cause?: unknown;
-}> {}
+export class EGWReaderError extends Schema.TaggedError<EGWReaderError>()(
+  'EGWReaderError',
+  {
+    message: Schema.String,
+    cause: Schema.optional(Schema.Unknown),
+  },
+) {}
 
-export class BookNotFoundError extends Data.TaggedError('BookNotFoundError')<{
-  readonly bookCode: string;
-}> {}
+export class BookNotFoundError extends Schema.TaggedError<BookNotFoundError>()(
+  'BookNotFoundError',
+  {
+    bookCode: Schema.String,
+  },
+) {}
 
-export class DatabaseNotInitializedError extends Data.TaggedError(
+export class DatabaseNotInitializedError extends Schema.TaggedError<DatabaseNotInitializedError>()(
   'DatabaseNotInitializedError',
-)<{
-  readonly message: string;
-}> {}
+  {
+    message: Schema.String,
+  },
+) {}
 
 /**
  * Union of all reader errors
@@ -63,7 +70,7 @@ function schemaParagraphToEGWParagraph(
  * Provides high-level reading operations on EGW writings.
  */
 export class EGWReaderService extends Effect.Service<EGWReaderService>()(
-  'egw-reader/EGWReaderService',
+  '@bible/egw-reader/Service',
   {
     effect: Effect.gen(function* () {
       const db = yield* EGWParagraphDatabase;

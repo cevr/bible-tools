@@ -5,8 +5,23 @@
  * Renderer-agnostic - can be used by TUI, Web, or CLI.
  */
 
+import type { BibleBook, BibleReference } from './types.js';
 import { BIBLE_BOOK_ALIASES, BIBLE_BOOKS, getBibleBook } from './books.js';
-import type { BibleReference } from './types.js';
+
+/**
+ * Options for parsing Bible queries
+ */
+export interface ParseBibleQueryOptions {
+  /**
+   * Optional fuzzy matcher function for book names.
+   * If provided, will be used as a fallback when exact matching fails.
+   * Signature: (books: BibleBook[], query: string) => BibleBook | undefined
+   */
+  readonly fuzzyMatcher?: (
+    books: readonly BibleBook[],
+    query: string,
+  ) => BibleBook | undefined;
+}
 
 /**
  * Parsed query result - discriminated union
@@ -73,7 +88,10 @@ export const ParsedBibleQuery = {
 /**
  * Try to resolve a book name to a book number
  */
-function resolveBook(bookPart: string): number | undefined {
+function resolveBook(
+  bookPart: string,
+  options?: ParseBibleQueryOptions,
+): number | undefined {
   const normalized = bookPart.trim().toLowerCase();
 
   // Direct alias lookup
@@ -90,7 +108,13 @@ function resolveBook(bookPart: string): number | undefined {
   bookNum = BIBLE_BOOK_ALIASES[withSpace];
   if (bookNum) return bookNum;
 
-  // Partial match on book names
+  // Use fuzzy matcher if provided
+  if (options?.fuzzyMatcher) {
+    const matched = options.fuzzyMatcher(BIBLE_BOOKS, normalized);
+    if (matched) return matched.number;
+  }
+
+  // Fallback: Partial match on book names (prefix match)
   const lowerNormalized = normalized.toLowerCase();
   for (const book of BIBLE_BOOKS) {
     if (book.name.toLowerCase().startsWith(lowerNormalized)) {
@@ -111,8 +135,14 @@ function resolveBook(bookPart: string): number | undefined {
  * - "john 3-5" - chapter range
  * - "ruth" - full book
  * - "faith hope love" - search query (fallback)
+ *
+ * @param query - The query string to parse
+ * @param options - Optional parsing options (e.g., fuzzy matcher)
  */
-export function parseBibleQuery(query: string): ParsedBibleQuery {
+export function parseBibleQuery(
+  query: string,
+  options?: ParseBibleQueryOptions,
+): ParsedBibleQuery {
   const input = query.trim();
   if (!input) return ParsedBibleQuery.search(query);
 
@@ -123,7 +153,7 @@ export function parseBibleQuery(query: string): ParsedBibleQuery {
   if (verseRangeMatch) {
     const [, bookPart, chapterStr, startVerseStr, endVerseStr] =
       verseRangeMatch;
-    const bookNum = resolveBook(bookPart!);
+    const bookNum = resolveBook(bookPart!, options);
     if (bookNum) {
       const chapter = parseInt(chapterStr!, 10);
       const startVerse = parseInt(startVerseStr!, 10);
@@ -144,7 +174,7 @@ export function parseBibleQuery(query: string): ParsedBibleQuery {
   const chapterRangeMatch = input.match(/^(.+?)\s*(\d+)\s*-\s*(\d+)$/i);
   if (chapterRangeMatch) {
     const [, bookPart, startChapterStr, endChapterStr] = chapterRangeMatch;
-    const bookNum = resolveBook(bookPart!);
+    const bookNum = resolveBook(bookPart!, options);
     if (bookNum) {
       const startChapter = parseInt(startChapterStr!, 10);
       const endChapter = parseInt(endChapterStr!, 10);
@@ -159,7 +189,7 @@ export function parseBibleQuery(query: string): ParsedBibleQuery {
   const singleVerseMatch = input.match(/^(.+?)\s*(\d+)\s*:\s*(\d+)$/i);
   if (singleVerseMatch) {
     const [, bookPart, chapterStr, verseStr] = singleVerseMatch;
-    const bookNum = resolveBook(bookPart!);
+    const bookNum = resolveBook(bookPart!, options);
     if (bookNum) {
       const chapter = parseInt(chapterStr!, 10);
       const verse = parseInt(verseStr!, 10);
@@ -174,7 +204,7 @@ export function parseBibleQuery(query: string): ParsedBibleQuery {
   const singleChapterMatch = input.match(/^(.+?)\s*(\d+)$/i);
   if (singleChapterMatch) {
     const [, bookPart, chapterStr] = singleChapterMatch;
-    const bookNum = resolveBook(bookPart!);
+    const bookNum = resolveBook(bookPart!, options);
     if (bookNum) {
       const chapter = parseInt(chapterStr!, 10);
       const book = getBibleBook(bookNum);
@@ -187,7 +217,7 @@ export function parseBibleQuery(query: string): ParsedBibleQuery {
   // "ruth" - full book (just a book name with no numbers)
   const bookOnlyMatch = input.match(/^([a-z\s]+)$/i);
   if (bookOnlyMatch) {
-    const bookNum = resolveBook(bookOnlyMatch[1]!);
+    const bookNum = resolveBook(bookOnlyMatch[1]!, options);
     if (bookNum) {
       return ParsedBibleQuery.fullBook(bookNum);
     }

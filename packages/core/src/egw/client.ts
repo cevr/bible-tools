@@ -10,7 +10,6 @@ import {
 } from '@effect/platform';
 import {
   Config,
-  Data,
   Duration,
   Effect,
   Option,
@@ -26,16 +25,19 @@ import * as Schemas from './schemas.js';
 /**
  * EGW API Client Errors
  */
-export class EGWApiError extends Data.TaggedError('EGWApiError')<{
-  readonly cause: unknown;
-  readonly message: string;
-}> {}
+export class EGWApiError extends Schema.TaggedError<EGWApiError>()(
+  'EGWApiError',
+  {
+    cause: Schema.Unknown,
+    message: Schema.String,
+  },
+) {}
 
 /**
  * EGW API Client Service
  */
 export class EGWApiClient extends Effect.Service<EGWApiClient>()(
-  'lib/EGW/Client',
+  '@bible/egw/Client',
   {
     effect: Effect.gen(function* () {
       const baseUrl = yield* Config.string('EGW_API_BASE_URL').pipe(

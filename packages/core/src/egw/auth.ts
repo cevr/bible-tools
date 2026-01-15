@@ -15,7 +15,6 @@ import {
 import {
   Clock,
   Config,
-  Data,
   Duration,
   Effect,
   Option,
@@ -29,10 +28,13 @@ import {
 /**
  * EGW Auth Errors
  */
-export class EGWAuthError extends Data.TaggedError('EGWAuthError')<{
-  readonly cause: unknown;
-  readonly message: string;
-}> {}
+export class EGWAuthError extends Schema.TaggedError<EGWAuthError>()(
+  'EGWAuthError',
+  {
+    cause: Schema.Unknown,
+    message: Schema.String,
+  },
+) {}
 
 /**
  * OAuth Token Response from API
@@ -104,7 +106,7 @@ const AccessTokenFromOAuthResponse = Schema.transformOrFail(
 /**
  * EGW Authentication Service
  */
-export class EGWAuth extends Effect.Service<EGWAuth>()('lib/EGW/Auth', {
+export class EGWAuth extends Effect.Service<EGWAuth>()('@bible/egw/Auth', {
   scoped: Effect.gen(function* () {
     const authBaseUrl = yield* Config.string('EGW_AUTH_BASE_URL').pipe(
       Config.withDefault('https://cpanel.egwwritings.org'),

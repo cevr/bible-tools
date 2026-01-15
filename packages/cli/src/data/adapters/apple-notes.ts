@@ -4,22 +4,12 @@ import Bun from 'bun';
 import { Effect, Layer, Option, pipe, Schema } from 'effect';
 import { marked } from 'marked';
 
-/**
- * Escape string for AppleScript.
- */
-function escapeAppleScriptString(str: string): string {
-  return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-}
-
-/**
- * Extract title from Markdown content (first H1 heading).
- */
-function extractTitleFromMarkdown(
-  markdownContent: string,
-): Option.Option<string> {
-  const h1Match = markdownContent.match(/^\s*#\s+(.*?)(\s+#*)?$/m);
-  return Option.fromNullable(h1Match?.[1]?.trim());
-}
+import {
+  escapeAppleScriptString,
+  extractTitleFromMarkdown,
+  prepareMarkdownForAppleNotes,
+  wrapWithAppleNotesStyle,
+} from '~/src/lib/apple-notes-utils.js';
 
 class MarkdownParseError extends Schema.TaggedError<MarkdownParseError>()(
   'MarkdownParseError',
@@ -82,15 +72,8 @@ export const AppleNotesExportLayer = Layer.succeed(
         yield* Effect.log(`Target folder: "${options.folder}"`);
       }
 
-      // Remove the H1 heading from content if we're using it as the title
-      const contentToParse = content
-        .replace(/^\s*#\s+.*?(\s+#*)?$/m, '')
-        .trim();
-
-      // Add extra line breaks between sections
-      const contentWithBreaks = contentToParse
-        .replace(/(?=#{2,4}\s)/g, '\n\n\n')
-        .replace(/(?<=#{2,4}.*\n)/g, '\n\n');
+      // Prepare markdown content (removes H1 if using as title, adds section breaks)
+      const contentWithBreaks = prepareMarkdownForAppleNotes(content, false);
 
       const htmlContent = yield* parseMarkdown(contentWithBreaks).pipe(
         Effect.mapError(
@@ -102,38 +85,8 @@ export const AppleNotesExportLayer = Layer.succeed(
         ),
       );
 
-      // Prepare HTML for AppleScript
-      const styledHtmlContent = `
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <style>
-            body {
-              font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-              font-size: 24px;
-              line-height: 1.6;
-              max-width: 800px;
-              margin: 0 auto;
-              padding: 40px;
-            }
-            h1 { font-size: 36px; margin-bottom: 48px; padding-bottom: 20px; border-bottom: 2px solid #e9ecef; }
-            h2 { font-size: 32px; margin-top: 64px; margin-bottom: 40px; padding-bottom: 16px; border-bottom: 1px solid #e9ecef; }
-            h3 { font-size: 30px; margin-top: 56px; margin-bottom: 32px; }
-            h4 { font-size: 28px; margin-top: 48px; margin-bottom: 28px; }
-            p { font-size: 24px; margin-bottom: 32px; line-height: 1.7; }
-            pre { background-color: #f8f9fa; padding: 28px; border-radius: 8px; overflow-x: auto; font-family: Menlo, Monaco, Consolas, monospace; font-size: 22px; line-height: 1.6; margin: 40px 0; border: 1px solid #e9ecef; }
-            code { font-family: Menlo, Monaco, Consolas, monospace; font-size: 22px; background-color: #f8f9fa; padding: 4px 8px; border-radius: 4px; border: 1px solid #e9ecef; }
-            ul, ol { font-size: 24px; margin: 40px 0; padding-left: 40px; }
-            li { margin-bottom: 24px; line-height: 1.7; }
-            blockquote { font-size: 24px; border-left: 4px solid #e9ecef; margin: 48px 0; padding: 24px 32px; background-color: #f8f9fa; border-radius: 0 8px 8px 0; }
-            hr { border: none; border-top: 2px solid #e9ecef; margin: 64px 0; }
-          </style>
-        </head>
-        <body>
-          ${htmlContent}
-        </body>
-        </html>
-      `;
+      // Prepare HTML for AppleScript (basic structure and styling)
+      const styledHtmlContent = wrapWithAppleNotesStyle(htmlContent);
 
       // Escape content for AppleScript
       const escapedHtmlBody = escapeAppleScriptString(styledHtmlContent);

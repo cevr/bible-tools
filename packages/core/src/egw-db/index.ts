@@ -14,6 +14,7 @@ export {
   isChapterHeading,
 } from './book-database.js';
 export type {
+  BookRow,
   ParagraphDatabaseError,
   ParagraphRow,
   SyncStatus,

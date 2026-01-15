@@ -5,7 +5,7 @@
  * Uses the indexed paragraph_bible_refs table for fast O(1) lookups.
  */
 
-import { Data, Effect } from 'effect';
+import { Effect, Schema } from 'effect';
 
 import { EGWParagraphDatabase } from '../egw-db/book-database.js';
 import type * as EGWSchemas from '../egw/schemas.js';
@@ -18,10 +18,13 @@ import type {
 /**
  * Error types for the commentary service
  */
-export class CommentaryError extends Data.TaggedError('CommentaryError')<{
-  readonly message: string;
-  readonly cause?: unknown;
-}> {}
+export class CommentaryError extends Schema.TaggedError<CommentaryError>()(
+  'CommentaryError',
+  {
+    message: Schema.String,
+    cause: Schema.optional(Schema.Unknown),
+  },
+) {}
 
 /**
  * Union of all commentary errors
@@ -51,7 +54,7 @@ function paragraphToEntry(
  * Provides commentary lookup from EGW Bible Commentary volumes.
  */
 export class EGWCommentaryService extends Effect.Service<EGWCommentaryService>()(
-  'egw-commentary/EGWCommentaryService',
+  '@bible/egw-commentary/Service',
   {
     effect: Effect.gen(function* () {
       const db = yield* EGWParagraphDatabase;

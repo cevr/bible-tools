@@ -26,7 +26,7 @@ import { LessonContext, WeekUrls } from './schemas.js';
 /**
  * SabbathSchool service for scraping, generating, and revising lesson outlines.
  */
-export class SabbathSchool extends Context.Tag('@bible/SabbathSchool')<
+export class SabbathSchool extends Context.Tag('@bible/sabbath-school/Service')<
   SabbathSchool,
   {
     /**

@@ -1,45 +1,42 @@
+/**
+ * Effect Provider - Reserved for future Effect-based services.
+ *
+ * Currently the web app uses simple fetch with caching for Bible data,
+ * but this provider can be used for Effect-based services if needed.
+ */
 import {
   createContext,
   useContext,
-  onCleanup,
   type ParentComponent,
 } from 'solid-js';
-import { Layer, ManagedRuntime } from 'effect';
 
-// For now, we create an empty layer. Services will be added as we implement features.
-// This will eventually include BibleData, EGWReader, etc. from @bible/core
-const AppLayer = Layer.empty;
+interface EffectContextValue {
+  // Reserved for future Effect-based services
+}
 
-type AppRuntime = ManagedRuntime.ManagedRuntime<never, never>;
-
-const EffectContext = createContext<AppRuntime>();
+const EffectContext = createContext<EffectContextValue>();
 
 /**
- * Provides the Effect runtime to the component tree.
- * All Effect-based operations should use this runtime.
+ * Placeholder provider for Effect-based services.
+ * Currently unused - Bible data fetching uses simple fetch with caching.
  */
 export const EffectProvider: ParentComponent = (props) => {
-  const runtime = ManagedRuntime.make(AppLayer);
-
-  onCleanup(() => {
-    // Dispose of the runtime when the component unmounts
-    runtime.dispose();
-  });
+  const value: EffectContextValue = {};
 
   return (
-    <EffectContext.Provider value={runtime}>
+    <EffectContext.Provider value={value}>
       {props.children}
     </EffectContext.Provider>
   );
 };
 
 /**
- * Access the Effect runtime from any component.
+ * Access Effect-based services (when available).
  */
-export function useRuntime(): AppRuntime {
-  const runtime = useContext(EffectContext);
-  if (!runtime) {
-    throw new Error('useRuntime must be used within an EffectProvider');
+export function useEffect(): EffectContextValue {
+  const ctx = useContext(EffectContext);
+  if (!ctx) {
+    throw new Error('useEffect must be used within an EffectProvider');
   }
-  return runtime;
+  return ctx;
 }

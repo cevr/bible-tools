@@ -3,12 +3,13 @@ import {
   createMemo,
   For,
   Show,
+  createResource,
 } from 'solid-js';
 import { Dialog } from '@kobalte/core/dialog';
 import { useNavigate } from '@solidjs/router';
 import { useBible } from '@/providers/bible-provider';
 import { useOverlay } from '@/providers/overlay-provider';
-import type { Reference } from '@/data/bible';
+import { fetchVerses, type Reference, type Verse } from '@/data/bible';
 
 interface CrossRefsData {
   book: number;
@@ -28,11 +29,25 @@ export const CrossRefsPopup: Component = () => {
   const isOpen = () => overlay() === 'cross-refs';
   const data = () => overlayData() as CrossRefsData | null;
 
-  // Get current verse info
+  // Fetch chapter verses (async)
+  const [chapterVerses] = createResource(
+    () => {
+      const d = data();
+      if (!d) return null;
+      return { book: d.book, chapter: d.chapter };
+    },
+    async (params) => {
+      if (!params) return [];
+      return fetchVerses(params.book, params.chapter);
+    }
+  );
+
+  // Get current verse from fetched data
   const currentVerse = createMemo(() => {
     const d = data();
-    if (!d) return null;
-    return bible.getVerse(d.book, d.chapter, d.verse);
+    const verses = chapterVerses();
+    if (!d || !verses) return null;
+    return verses.find((v) => v.verse === d.verse) ?? null;
   });
 
   const currentBook = createMemo(() => {
@@ -43,11 +58,11 @@ export const CrossRefsPopup: Component = () => {
 
   // For now, show some contextual related verses (same chapter +/- 5 verses)
   // In a full implementation, this would use actual cross-reference data
-  const relatedVerses = createMemo(() => {
+  const relatedVerses = createMemo((): readonly Verse[] => {
     const d = data();
-    if (!d) return [];
+    const verses = chapterVerses();
+    if (!d || !verses) return [];
 
-    const verses = bible.getChapter(d.book, d.chapter);
     const currentIdx = verses.findIndex((v) => v.verse === d.verse);
     if (currentIdx === -1) return [];
 
@@ -92,7 +107,14 @@ export const CrossRefsPopup: Component = () => {
           </div>
 
           {/* Current verse text */}
-          <Show when={currentVerse()}>
+          <Show when={chapterVerses.loading}>
+            <div class="px-4 py-3 bg-[--color-highlight]/50 dark:bg-[--color-highlight-dark]/50">
+              <p class="reading-text text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
+                Loading...
+              </p>
+            </div>
+          </Show>
+          <Show when={!chapterVerses.loading && currentVerse()}>
             <div class="px-4 py-3 bg-[--color-highlight]/50 dark:bg-[--color-highlight-dark]/50">
               <p class="reading-text text-[--color-ink] dark:text-[--color-ink-dark]">
                 {currentVerse()!.text}
@@ -105,37 +127,44 @@ export const CrossRefsPopup: Component = () => {
             <h3 class="text-xs font-medium text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] uppercase tracking-wider mb-2">
               Context
             </h3>
-            <Show
-              when={relatedVerses().length > 0}
-              fallback={
-                <p class="text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-                  No related verses found.
-                </p>
-              }
-            >
-              <div class="space-y-2">
-                <For each={relatedVerses()}>
-                  {(verse) => (
-                    <button
-                      class="w-full text-left p-2 rounded-lg hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] transition-colors"
-                      onClick={() =>
-                        navigateToVerse({
-                          book: verse.book,
-                          chapter: verse.chapter,
-                          verse: verse.verse,
-                        })
-                      }
-                    >
-                      <span class="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-                        v{verse.verse}
-                      </span>
-                      <p class="text-sm text-[--color-ink] dark:text-[--color-ink-dark] line-clamp-2">
-                        {verse.text}
-                      </p>
-                    </button>
-                  )}
-                </For>
-              </div>
+            <Show when={chapterVerses.loading}>
+              <p class="text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+                Loading...
+              </p>
+            </Show>
+            <Show when={!chapterVerses.loading}>
+              <Show
+                when={relatedVerses().length > 0}
+                fallback={
+                  <p class="text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+                    No related verses found.
+                  </p>
+                }
+              >
+                <div class="space-y-2">
+                  <For each={relatedVerses()}>
+                    {(verse) => (
+                      <button
+                        class="w-full text-left p-2 rounded-lg hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] transition-colors"
+                        onClick={() =>
+                          navigateToVerse({
+                            book: verse.book,
+                            chapter: verse.chapter,
+                            verse: verse.verse,
+                          })
+                        }
+                      >
+                        <span class="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+                          v{verse.verse}
+                        </span>
+                        <p class="text-sm text-[--color-ink] dark:text-[--color-ink-dark] line-clamp-2">
+                          {verse.text}
+                        </p>
+                      </button>
+                    )}
+                  </For>
+                </div>
+              </Show>
             </Show>
           </div>
 

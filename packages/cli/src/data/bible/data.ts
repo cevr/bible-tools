@@ -9,6 +9,10 @@ import { Context, Effect, Layer, Option } from 'effect';
 import { matchSorter } from 'match-sorter';
 
 import { BibleDatabase } from '@bible/core/bible-db';
+import {
+  getNextChapterWithMap,
+  getPrevChapterWithMap,
+} from '@bible/core/bible-reader';
 
 import {
   BOOK_ALIASES,
@@ -222,36 +226,11 @@ const makeBibleDataService = Effect.gen(function* () {
     },
 
     getNextChapter(book: number, chapter: number): Reference | undefined {
-      const currentBook = bookMap.get(book);
-      if (!currentBook) return undefined;
-
-      if (chapter < currentBook.chapters) {
-        return { book, chapter: chapter + 1 };
-      }
-
-      const nextBook = bookMap.get(book + 1);
-      if (nextBook) {
-        return { book: book + 1, chapter: 1 };
-      }
-
-      return { book: 1, chapter: 1 };
+      return getNextChapterWithMap(bookMap, book, chapter);
     },
 
     getPrevChapter(book: number, chapter: number): Reference | undefined {
-      if (chapter > 1) {
-        return { book, chapter: chapter - 1 };
-      }
-
-      const prevBook = bookMap.get(book - 1);
-      if (prevBook) {
-        return { book: book - 1, chapter: prevBook.chapters };
-      }
-
-      const lastBook = BOOKS[BOOKS.length - 1];
-      if (lastBook) {
-        return { book: lastBook.number, chapter: lastBook.chapters };
-      }
-      return undefined;
+      return getPrevChapterWithMap(bookMap, book, chapter);
     },
   } satisfies BibleDataService;
 });
