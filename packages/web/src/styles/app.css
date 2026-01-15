@@ -1,0 +1,143 @@
+@import 'tailwindcss';
+
+/* Theme variables */
+@theme {
+  /* Typography */
+  --font-serif: 'Crimson Pro', Georgia, serif;
+  --font-sans: 'Source Sans 3', system-ui, sans-serif;
+
+  /* Colors - Warm neutral palette for reading */
+  --color-paper: #faf8f5;
+  --color-paper-dark: #1a1918;
+  --color-ink: #2d2a26;
+  --color-ink-dark: #e8e4df;
+  --color-ink-muted: #6b6560;
+  --color-ink-muted-dark: #9a9590;
+  --color-accent: #8b4513;
+  --color-accent-dark: #d4a574;
+  --color-highlight: #fff3cd;
+  --color-highlight-dark: #3d3520;
+  --color-border: #d4cfc7;
+  --color-border-dark: #3d3a36;
+
+  /* Spacing scale */
+  --spacing-reading: 2.5rem;
+  --spacing-gutter: 1.5rem;
+
+  /* Animation */
+  --duration-fast: 100ms;
+  --duration-normal: 200ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Base styles */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-paper-dark);
+    color: var(--color-ink-dark);
+  }
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-highlight);
+  color: var(--color-ink);
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background-color: var(--color-highlight-dark);
+    color: var(--color-ink-dark);
+  }
+}
+
+/* Reading text styles */
+.reading-text {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+/* Verse number styling */
+.verse-num {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  vertical-align: super;
+  margin-right: 0.25em;
+  user-select: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .verse-num {
+    color: var(--color-ink-muted-dark);
+  }
+}
+
+/* Dialog animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-top {
+  from {
+    transform: translate(-50%, -1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-duration: var(--duration-normal);
+  animation-timing-function: var(--ease-out);
+  animation-fill-mode: forwards;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.slide-in-from-top-4 {
+  animation-name: slide-in-from-top;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
