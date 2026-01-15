@@ -189,6 +189,8 @@ export const syncEgwBooks = (options: SyncOptions = {}) =>
         }
 
         // Filter valid TOC items and extract chapter IDs
+        // The chapter endpoint expects the para number (after the dot in para_id)
+        // e.g., para_id "84.68" → chapter ID "68"
         const chapterIds = toc
           .filter(
             (item) =>
@@ -197,7 +199,8 @@ export const syncEgwBooks = (options: SyncOptions = {}) =>
           )
           .map((tocItem) => {
             if (tocItem.para_id) {
-              const match = tocItem.para_id.match(/^(\d+)\./);
+              // Extract the paragraph number after the dot (e.g., "84.68" → "68")
+              const match = tocItem.para_id.match(/\.(\d+)$/);
               return match?.[1] ?? String(tocItem.puborder);
             }
             return String(tocItem.puborder);

@@ -4,14 +4,13 @@ import { generateText } from 'ai';
 import { format } from 'date-fns';
 import { Data, Effect, Schedule } from 'effect';
 
+import { msToMinutes, spin } from '~/src/lib/general';
 import { generate } from '~/src/lib/generate';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
 import { getNoteContent } from '~/src/lib/notes-utils';
 import { revise } from '~/src/lib/revise';
-
-import { msToMinutes, spin } from '~/src/lib/general';
-import { Model, model } from '~/src/services/model';
 import { generateTopicPrompt } from '~/src/prompts/messages/generate-topic';
+import { Model, model } from '~/src/services/model';
 
 const topic = Options.text('topic').pipe(
   Options.withAlias('t'),

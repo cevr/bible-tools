@@ -13,6 +13,7 @@ import {
   type Resource,
 } from 'solid-js';
 
+import type { Reference } from '../../data/bible/types.js';
 import {
   getCrossRefs as getCrossRefsSync,
   getMarginNotes as getMarginNotesSync,
@@ -28,7 +29,6 @@ import {
   type StrongsEntry,
   type WordWithStrongs,
 } from '../../data/study/study-db.js';
-import type { Reference } from '../../data/bible/types.js';
 
 interface StudyDataContextValue {
   /** Resource that tracks database initialization */

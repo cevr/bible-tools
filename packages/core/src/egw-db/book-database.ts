@@ -176,10 +176,17 @@ function parseRefcodeNumbers(refcode: string | null): {
 
 /**
  * Check if element type is a chapter heading
+ * The EGW API returns HTML element names: h1, h2, h3, etc. for headings
  */
-function isChapterHeading(elementType: string | null): boolean {
+export function isChapterHeading(
+  elementType: string | null | undefined,
+): boolean {
   if (!elementType) return false;
-  return ['chapter', 'heading', 'title'].includes(elementType.toLowerCase());
+  const type = elementType.toLowerCase();
+  // HTML heading elements (h1-h6) are chapter/section headings
+  if (/^h[1-6]$/.test(type)) return true;
+  // Legacy values (in case API changes)
+  return ['chapter', 'heading', 'title'].includes(type);
 }
 
 /**
@@ -402,11 +409,17 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
         SELECT * FROM sync_status WHERE book_id = $bookId
       `);
 
-      const getSyncStatusByStatusQuery = db.query<SyncStatusRow, { $status: string }>(`
+      const getSyncStatusByStatusQuery = db.query<
+        SyncStatusRow,
+        { $status: string }
+      >(`
         SELECT * FROM sync_status WHERE status = $status
       `);
 
-      const getAllSyncStatusQuery = db.query<SyncStatusRow, Record<string, never>>(`
+      const getAllSyncStatusQuery = db.query<
+        SyncStatusRow,
+        Record<string, never>
+      >(`
         SELECT * FROM sync_status ORDER BY book_code
       `);
 
@@ -428,7 +441,11 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
       `);
 
       const getParagraphsByAuthorQuery = db.query<
-        ParagraphRow & { book_code: string; book_title: string; book_author: string },
+        ParagraphRow & {
+          book_code: string;
+          book_title: string;
+          book_author: string;
+        },
         { $author: string }
       >(`
         SELECT p.*, b.book_code, b.book_title, b.book_author
@@ -448,17 +465,11 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
         ORDER BY book_id
       `);
 
-      const getBookByIdQuery = db.query<
-        BookRow,
-        { $bookId: number }
-      >(`
+      const getBookByIdQuery = db.query<BookRow, { $bookId: number }>(`
         SELECT * FROM books WHERE book_id = $bookId
       `);
 
-      const getBookByCodeQuery = db.query<
-        BookRow,
-        { $bookCode: string }
-      >(`
+      const getBookByCodeQuery = db.query<BookRow, { $bookCode: string }>(`
         SELECT * FROM books WHERE book_code = $bookCode COLLATE NOCASE
       `);
 
@@ -775,7 +786,10 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
       const getParagraph = (
         bookId: number,
         refCode: string,
-      ): Effect.Effect<Option.Option<EGWSchemas.Paragraph>, ParagraphDatabaseError> =>
+      ): Effect.Effect<
+        Option.Option<EGWSchemas.Paragraph>,
+        ParagraphDatabaseError
+      > =>
         Effect.try({
           try: () => {
             const row = getParagraphByRefCodeQuery.get({
@@ -915,7 +929,10 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
        */
       const getChapterHeadings = (
         bookId: number,
-      ): Effect.Effect<readonly EGWSchemas.Paragraph[], ParagraphDatabaseError> =>
+      ): Effect.Effect<
+        readonly EGWSchemas.Paragraph[],
+        ParagraphDatabaseError
+      > =>
         Effect.try({
           try: () => {
             const rows = getChapterHeadingsQuery.all({ $bookId: bookId });
@@ -935,7 +952,10 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
       const getParagraphsByPage = (
         bookId: number,
         pageNumber: number,
-      ): Effect.Effect<readonly EGWSchemas.Paragraph[], ParagraphDatabaseError> =>
+      ): Effect.Effect<
+        readonly EGWSchemas.Paragraph[],
+        ParagraphDatabaseError
+      > =>
         Effect.try({
           try: () => {
             const rows = getParagraphsByPageQuery.all({
@@ -1016,7 +1036,10 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
         bibleChapter: number,
         bibleVerse?: number,
       ): Effect.Effect<
-        readonly (EGWSchemas.Paragraph & { bookCode: string; bookTitle: string })[],
+        readonly (EGWSchemas.Paragraph & {
+          bookCode: string;
+          bookTitle: string;
+        })[],
         ParagraphDatabaseError
       > =>
         Effect.try({
@@ -1038,11 +1061,15 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
                  ORDER BY b.book_code, p.puborder`;
 
             const rows = bibleVerse
-              ? (db.query(query).all(bibleBook, bibleChapter, bibleVerse) as (ParagraphRow & {
+              ? (db
+                  .query(query)
+                  .all(bibleBook, bibleChapter, bibleVerse) as (ParagraphRow & {
                   book_code: string;
                   book_title: string;
                 })[])
-              : (db.query(query).all(bibleBook, bibleChapter) as (ParagraphRow & {
+              : (db
+                  .query(query)
+                  .all(bibleBook, bibleChapter) as (ParagraphRow & {
                   book_code: string;
                   book_title: string;
                 })[]);
@@ -1066,7 +1093,9 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
       const rebuildFtsIndex = (): Effect.Effect<void, ParagraphDatabaseError> =>
         Effect.try({
           try: () => {
-            db.run(`INSERT INTO paragraphs_fts(paragraphs_fts) VALUES('rebuild')`);
+            db.run(
+              `INSERT INTO paragraphs_fts(paragraphs_fts) VALUES('rebuild')`,
+            );
           },
           catch: (error) =>
             new DatabaseQueryError({
@@ -1163,8 +1192,9 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
         bookId: number,
       ): Effect.Effect<boolean, ParagraphDatabaseError> =>
         getSyncStatus(bookId).pipe(
-          Effect.map((optStatus) =>
-            Option.isNone(optStatus) || optStatus.value.status !== 'success',
+          Effect.map(
+            (optStatus) =>
+              Option.isNone(optStatus) || optStatus.value.status !== 'success',
           ),
         );
 

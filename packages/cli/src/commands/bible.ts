@@ -3,6 +3,7 @@ import { Console, Effect } from 'effect';
 
 import { BibleData, BibleDataLive } from '~/src/data/bible/data';
 import { getVersesForQuery, parseVerseQuery } from '~/src/data/bible/parse';
+import { getBook, type Verse } from '~/src/data/bible/types';
 import {
   getStrongsEntry,
   searchByStrongs,
@@ -10,7 +11,6 @@ import {
   type ConcordanceResult,
   type StrongsEntry,
 } from '~/src/data/study/study-db';
-import { getBook, type Verse } from '~/src/data/bible/types';
 
 // Variadic args to capture "john 3:16" or "john" "3:16" etc.
 const query = Args.text({ name: 'query' }).pipe(Args.repeated);

@@ -2,9 +2,11 @@
  * EGW Context
  *
  * Provides access to the EGW Reader service from core.
- * Wraps the Effect service for use in Solid.js components.
+ * Uses a promise cache for efficient data loading with
+ * synchronous reads when data is already cached.
  */
 
+import { createCache, type PromiseWithStatus } from '@bible/core/cache';
 import { EGWParagraphDatabase } from '@bible/core/egw-db';
 import {
   EGWReaderService,
@@ -13,93 +15,102 @@ import {
   type EGWReaderPosition,
 } from '@bible/core/egw-reader';
 import { BunContext } from '@effect/platform-bun';
-import { Effect, Layer } from 'effect';
+import { Effect, Layer, ManagedRuntime } from 'effect';
 import { createContext, useContext, type ParentProps } from 'solid-js';
 
 // Re-export types for convenience
 export type { EGWBookInfo, EGWParagraph, EGWReaderPosition };
 
-interface EGWContextValue {
-  getBooks: () => Promise<readonly EGWBookInfo[]>;
-  getBookByCode: (bookCode: string) => Promise<EGWBookInfo | undefined>;
-  getParagraphsByBookCode: (
-    bookCode: string,
-  ) => Promise<readonly EGWParagraph[]>;
-  searchParagraphs: (
-    query: string,
-    limit?: number,
-  ) => Promise<readonly EGWParagraph[]>;
-}
-
-const EGWContext = createContext<EGWContextValue>();
-
 // Create combined layer with all dependencies
-// BunContext provides FileSystem and Path needed by EGWParagraphDatabase
-// EGWParagraphDatabase is needed by EGWReaderService
 const EGWServicesLayer = EGWReaderService.Default.pipe(
   Layer.provideMerge(EGWParagraphDatabase.Default),
   Layer.provideMerge(BunContext.layer),
 );
 
-// Create service layer
-function createEGWService(): EGWContextValue {
-  const runService = <A, E>(
-    effect: Effect.Effect<A, E, EGWReaderService>,
-  ): Promise<A> =>
-    Effect.runPromise(
-      effect.pipe(Effect.provide(EGWServicesLayer), Effect.scoped),
+// Create ManagedRuntime
+const runtime = ManagedRuntime.make(EGWServicesLayer);
+
+// Create caches for each operation
+export const booksCache = createCache(async () => {
+  return runtime.runPromise(
+    Effect.gen(function* () {
+      const service = yield* EGWReaderService;
+      return yield* service.getBooks();
+    }),
+  );
+});
+
+export const bookCache = createCache(async (bookCode: string) => {
+  return runtime.runPromise(
+    Effect.gen(function* () {
+      const service = yield* EGWReaderService;
+      const optBook = yield* service.getBookByCode(bookCode);
+      return optBook._tag === 'Some' ? optBook.value : undefined;
+    }),
+  );
+});
+
+export const paragraphsCache = createCache(async (bookCode: string) => {
+  return runtime.runPromise(
+    Effect.gen(function* () {
+      const service = yield* EGWReaderService;
+      return yield* service.getParagraphsByBookCode(bookCode);
+    }),
+  );
+});
+
+export const searchCache = createCache(
+  async (query: string, limit: number = 50) => {
+    return runtime.runPromise(
+      Effect.gen(function* () {
+        const service = yield* EGWReaderService;
+        return yield* service.searchParagraphs(query, limit);
+      }),
     );
+  },
+);
 
-  return {
-    getBooks: () =>
-      runService(
-        Effect.gen(function* () {
-          const service = yield* EGWReaderService;
-          return yield* service.getBooks();
-        }),
-      ),
-
-    getBookByCode: (bookCode: string) =>
-      runService(
-        Effect.gen(function* () {
-          const service = yield* EGWReaderService;
-          const optBook = yield* service.getBookByCode(bookCode);
-          return optBook._tag === 'Some' ? optBook.value : undefined;
-        }),
-      ),
-
-    getParagraphsByBookCode: (bookCode: string) =>
-      runService(
-        Effect.gen(function* () {
-          const service = yield* EGWReaderService;
-          return yield* service.getParagraphsByBookCode(bookCode);
-        }),
-      ),
-
-    searchParagraphs: (query: string, limit = 50) =>
-      runService(
-        Effect.gen(function* () {
-          const service = yield* EGWReaderService;
-          return yield* service.searchParagraphs(query, limit);
-        }),
-      ),
-  };
+interface EGWContextValue {
+  /** Get all books */
+  getBooks: () => PromiseWithStatus<readonly EGWBookInfo[]>;
+  /** Get book by code */
+  getBookByCode: (
+    bookCode: string,
+  ) => PromiseWithStatus<EGWBookInfo | undefined>;
+  /** Get paragraphs for a book */
+  getParagraphsByBookCode: (
+    bookCode: string,
+  ) => PromiseWithStatus<readonly EGWParagraph[]>;
+  /** Search paragraphs */
+  searchParagraphs: (
+    query: string,
+    limit?: number,
+  ) => PromiseWithStatus<readonly EGWParagraph[]>;
+  /** Peek at cached books (sync, returns undefined if not cached) */
+  peekBooks: () => readonly EGWBookInfo[] | undefined;
+  /** Peek at cached book (sync) */
+  peekBook: (bookCode: string) => EGWBookInfo | undefined;
+  /** Peek at cached paragraphs (sync) */
+  peekParagraphs: (bookCode: string) => readonly EGWParagraph[] | undefined;
 }
 
-// Cache service at module level
-let cachedService: EGWContextValue | null = null;
+const EGWContext = createContext<EGWContextValue>();
 
-function getService(): EGWContextValue {
-  if (!cachedService) {
-    cachedService = createEGWService();
-  }
-  return cachedService;
-}
+const egwService: EGWContextValue = {
+  getBooks: () => booksCache.get(),
+  getBookByCode: (bookCode) => bookCache.get(bookCode),
+  getParagraphsByBookCode: (bookCode) => paragraphsCache.get(bookCode),
+  searchParagraphs: (query, limit = 50) => searchCache.get(query, limit),
+  peekBooks: () => booksCache.peek(),
+  peekBook: (bookCode) => bookCache.peek(bookCode),
+  peekParagraphs: (bookCode) => paragraphsCache.peek(bookCode),
+};
 
 export function EGWProvider(props: ParentProps) {
-  const value = getService();
   return (
-    <EGWContext.Provider value={value}>{props.children}</EGWContext.Provider>
+    <EGWContext.Provider value={egwService}>
+      {props.children}
+    </EGWContext.Provider>
   );
 }
 

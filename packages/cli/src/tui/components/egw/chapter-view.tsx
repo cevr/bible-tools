@@ -5,6 +5,7 @@
  * Similar to the Bible's ChapterView but adapted for EGW structure.
  */
 
+import { isChapterHeading } from '@bible/core/egw-db';
 import type { ScrollBoxRenderable } from '@opentui/core';
 import { For, Show } from 'solid-js';
 
@@ -15,19 +16,19 @@ import { EGWParagraphView } from './paragraph.js';
 
 export function EGWChapterView() {
   const { theme } = useTheme();
-  const { loadingState, paragraphs, selectedParagraphIndex, currentBook } =
+  const { loadingState, currentChapter, selectedIndexInChapter, currentBook } =
     useEGWNavigation();
 
   let scrollRef: ScrollBoxRenderable | undefined;
 
-  // Sync scroll to selected paragraph
-  useScrollSync(() => `para-${selectedParagraphIndex()}`, {
+  // Sync scroll to selected paragraph within chapter
+  useScrollSync(() => `para-${selectedIndexInChapter()}`, {
     getRef: () => scrollRef,
   });
 
   return (
     <Show
-      when={loadingState()._tag === 'loaded' && paragraphs().length > 0}
+      when={loadingState()._tag === 'loaded' && currentChapter()}
       fallback={
         <box
           flexGrow={1}
@@ -49,13 +50,19 @@ export function EGWChapterView() {
               >
                 <text fg={theme().error}>
                   Error:{' '}
-                  {(loadingState() as { _tag: 'error'; error: string }).error}
+                  {(() => {
+                    const s = loadingState();
+                    return s._tag === 'error' ? s.error : '';
+                  })()}
                 </text>
               </Show>
             }
           >
             <text fg={theme().textMuted}>
-              {(loadingState() as { _tag: 'loading'; message: string }).message}
+              {(() => {
+                const s = loadingState();
+                return s._tag === 'loading' ? s.message : '';
+              })()}
             </text>
           </Show>
         </box>
@@ -89,13 +96,15 @@ export function EGWChapterView() {
           },
         }}
       >
-        <For each={paragraphs()}>
+        <For each={currentChapter()?.paragraphs}>
           {(paragraph, index) => (
-            <EGWParagraphView
-              id={`para-${index()}`}
-              paragraph={paragraph}
-              isSelected={selectedParagraphIndex() === index()}
-            />
+            <Show when={!isChapterHeading(paragraph.elementType)}>
+              <EGWParagraphView
+                id={`para-${index()}`}
+                paragraph={paragraph}
+                isSelected={selectedIndexInChapter() === index()}
+              />
+            </Show>
           )}
         </For>
       </scrollbox>

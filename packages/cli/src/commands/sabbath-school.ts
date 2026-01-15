@@ -7,7 +7,6 @@ import { z } from 'zod';
 
 import { msToMinutes } from '~/src/lib/general';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
-import { Model, model } from '~/src/services/model';
 import {
   outlineSystemPrompt,
   outlineUserPrompt,
@@ -16,6 +15,7 @@ import {
   reviseSystemPrompt,
   reviseUserPrompt,
 } from '~/src/prompts/sabbath-school/prompts';
+import { Model, model } from '~/src/services/model';
 
 class OutlineError extends Data.TaggedError('OutlineError')<{
   context: SabbathSchoolContext;

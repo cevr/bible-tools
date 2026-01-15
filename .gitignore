@@ -140,3 +140,6 @@ dist
 .opencode
 .react-router
 bin/
+
+# API tokens
+packages/core/data/tokens.json

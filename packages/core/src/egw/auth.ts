@@ -298,7 +298,9 @@ export class EGWAuth extends Effect.Service<EGWAuth>()('lib/EGW/Auth', {
           return yield* refreshToken(token);
         }
         // No refresh token (e.g., client_credentials grant) - fetch new token
-        yield* Effect.logDebug('Token expired, fetching new token (no refresh token available)');
+        yield* Effect.logDebug(
+          'Token expired, fetching new token (no refresh token available)',
+        );
         return yield* fetchToken();
       },
     );

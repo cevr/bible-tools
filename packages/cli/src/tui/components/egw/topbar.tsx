@@ -1,7 +1,7 @@
 /**
  * EGW Topbar
  *
- * Displays the current book title centered.
+ * Displays the current book title and chapter name centered.
  */
 
 import { Show } from 'solid-js';
@@ -11,15 +11,15 @@ import { useTheme } from '../../context/theme.js';
 
 export function EGWTopbar() {
   const { theme } = useTheme();
-  const { currentBook } = useEGWNavigation();
+  const { currentBook, currentChapter } = useEGWNavigation();
 
   return (
     <box
-      height={1}
+      height={2}
       paddingLeft={2}
       paddingRight={2}
       backgroundColor={theme().backgroundPanel}
-      flexDirection="row"
+      flexDirection="column"
       justifyContent="center"
       alignItems="center"
     >
@@ -31,9 +31,12 @@ export function EGWTopbar() {
           </text>
         }
       >
-        <text fg={theme().textHighlight}>
-          <strong>{currentBook()!.title}</strong>
-        </text>
+        <text fg={theme().textMuted}>{currentBook()?.title}</text>
+        <Show when={currentChapter()}>
+          <text fg={theme().textHighlight}>
+            <strong>{currentChapter()?.title}</strong>
+          </text>
+        </Show>
       </Show>
     </box>
   );

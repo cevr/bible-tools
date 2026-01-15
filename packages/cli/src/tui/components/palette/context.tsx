@@ -10,12 +10,12 @@ import {
   type ParentProps,
 } from 'solid-js';
 
-import { searchBibleByTopic } from '../../../data/study/ai-search.js';
 import {
   BOOKS,
   formatReference,
   type Reference,
 } from '../../../data/bible/types.js';
+import { searchBibleByTopic } from '../../../data/study/ai-search.js';
 import { useBibleData, useBibleState } from '../../context/bible.js';
 import { useModel } from '../../context/model.js';
 import { useNavigation } from '../../context/navigation.js';

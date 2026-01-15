@@ -17,7 +17,6 @@
  *   - EGW_CLIENT_SECRET: EGW API client secret
  *   - EGW_PARAGRAPH_DB: (optional) Path to paragraph database file
  */
-
 import { FetchHttpClient } from '@effect/platform';
 import { BunContext, BunRuntime } from '@effect/platform-bun';
 import { Effect, Layer } from 'effect';

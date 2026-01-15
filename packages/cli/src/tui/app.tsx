@@ -230,7 +230,8 @@ function AppWithTheme(props: AppProps) {
   );
 }
 
-function App(props: AppProps) {
+// Export App for testing
+export function App(props: AppProps) {
   // Determine initial route based on props
   // initialEgwRef can be {} to indicate "go to EGW" without a specific reference
   const initialRoute = props.initialEgwRef

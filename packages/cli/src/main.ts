@@ -15,10 +15,7 @@ import { Command } from '@effect/cli';
 import { BunContext, BunRuntime } from '@effect/platform-bun';
 import { Effect, Layer } from 'effect';
 
-// Lightweight CLI command imports (no TUI dependencies)
-import { AppleScriptLive } from './services/apple-script.js';
 import { concordance, verse } from './commands/bible.js';
-import { ChimeLive } from './services/chime.js';
 import { egwWithSubcommands } from './commands/egw.js';
 import { exportOutput } from './commands/export.js';
 import { messages } from './commands/messages.js';
@@ -33,6 +30,9 @@ import {
   traceAsync,
   traceSync,
 } from './instrumentation/trace.js';
+// Lightweight CLI command imports (no TUI dependencies)
+import { AppleScriptLive } from './services/apple-script.js';
+import { ChimeLive } from './services/chime.js';
 import type { ModelService } from './tui/context/model.js';
 
 trace('process start');

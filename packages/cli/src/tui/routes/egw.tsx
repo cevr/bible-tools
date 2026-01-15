@@ -90,7 +90,12 @@ export function EGWView(props: EGWViewProps) {
   } = useEGWNavigation();
 
   // Use global overlay context for proper coordination with app.tsx
-  const { isOpen: isOverlayOpen, isOverlayOpen: isSpecificOverlayOpen, open: openOverlay, close: closeOverlay } = useOverlay();
+  const {
+    isOpen: isOverlayOpen,
+    isOverlayOpen: isSpecificOverlayOpen,
+    open: openOverlay,
+    close: closeOverlay,
+  } = useOverlay();
 
   // Overlay keyboard handlers (registered by child components)
   let commandPaletteHandler: ((key: KeyEvent) => boolean) | null = null;
@@ -214,7 +219,9 @@ export function EGWView(props: EGWViewProps) {
       </Show>
 
       {/* Bible References Popup */}
-      <Show when={isSpecificOverlayOpen('egw-bible-refs') && currentParagraph()}>
+      <Show
+        when={isSpecificOverlayOpen('egw-bible-refs') && currentParagraph()}
+      >
         <box
           position="absolute"
           top={Math.floor(dimensions().height / 6)}

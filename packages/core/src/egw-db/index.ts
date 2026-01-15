@@ -11,6 +11,7 @@ export {
   DatabaseQueryError,
   ParagraphNotFoundError,
   SchemaInitializationError,
+  isChapterHeading,
 } from './book-database.js';
 export type {
   ParagraphDatabaseError,

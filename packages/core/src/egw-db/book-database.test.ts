@@ -4,22 +4,26 @@
  * Uses unique temp files for database isolation between tests.
  */
 
-import { BunContext } from '@effect/platform-bun';
-import { Effect, Layer, Option } from 'effect';
-import { describe, expect, test, afterAll } from 'bun:test';
-import { unlinkSync, existsSync } from 'node:fs';
+import { existsSync, unlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
+import { BunContext } from '@effect/platform-bun';
+import { afterAll, describe, expect, test } from 'bun:test';
+import { Effect, Layer, Option } from 'effect';
+
+import type { Book, Paragraph } from '../egw/schemas.js';
 import { EGWParagraphDatabase } from './book-database.js';
-import type { Paragraph, Book } from '../egw/schemas.js';
 
 // Track temp files for cleanup
 const tempFiles: string[] = [];
 
 // Helper to get a unique temp db path
 const getTempDbPath = (): string => {
-  const path = join(tmpdir(), `egw-test-${Date.now()}-${Math.random().toString(36).slice(2)}.db`);
+  const path = join(
+    tmpdir(),
+    `egw-test-${Date.now()}-${Math.random().toString(36).slice(2)}.db`,
+  );
   tempFiles.push(path);
   return path;
 };
@@ -90,6 +94,30 @@ const mockParagraph = (puborder: number, refcodeShort: string): Paragraph => ({
 });
 
 describe('EGWParagraphDatabase', () => {
+  describe('chapter heading detection', () => {
+    test('detects h1-h6 elements as chapter headings', async () => {
+      await runTest(
+        Effect.gen(function* () {
+          const db = yield* EGWParagraphDatabase;
+          const book = mockBook(99998, 'CHAPTEST');
+
+          const paragraphs: Paragraph[] = [
+            { ...mockParagraph(1, 'CHAPTEST 1'), element_type: 'h1' },
+            { ...mockParagraph(2, 'CHAPTEST 1.1'), element_type: 'p' },
+            { ...mockParagraph(3, 'CHAPTEST 2'), element_type: 'h3' },
+          ];
+
+          yield* db.storeParagraphsBatch(paragraphs, book);
+          const chapters = yield* db.getChapterHeadings(99998);
+
+          expect(chapters.length).toBe(2);
+          expect(chapters[0]?.element_type).toBe('h1');
+          expect(chapters[1]?.element_type).toBe('h3');
+        }),
+      );
+    });
+  });
+
   describe('sync status', () => {
     test('sets and gets sync status for a book', async () => {
       await runTest(

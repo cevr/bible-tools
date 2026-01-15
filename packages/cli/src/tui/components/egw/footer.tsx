@@ -26,13 +26,15 @@ interface EGWFooterProps {
 
 export function EGWFooter(props: EGWFooterProps) {
   const { theme } = useTheme();
-  const { currentParagraph, selectedParagraphIndex, totalParagraphs } =
+  const { currentParagraph, currentChapter, selectedIndexInChapter } =
     useEGWNavigation();
 
   const refcode = () => {
     const para = currentParagraph();
     return para?.refcodeShort ?? para?.refcodeLong ?? '';
   };
+
+  const chapterParagraphCount = () => currentChapter()?.paragraphs.length ?? 0;
 
   return (
     <box
@@ -55,12 +57,12 @@ export function EGWFooter(props: EGWFooterProps) {
           <Show when={refcode()}>
             <text fg={theme().text}>{refcode()}</text>
           </Show>
-          <Show when={totalParagraphs() > 0}>
+          <Show when={chapterParagraphCount() > 0}>
             <text fg={theme().textMuted}>
               <span style={{ fg: theme().accent }}>
-                {selectedParagraphIndex() + 1}
+                {selectedIndexInChapter() + 1}
               </span>
-              /{totalParagraphs()}
+              /{chapterParagraphCount()}
             </text>
           </Show>
         </box>

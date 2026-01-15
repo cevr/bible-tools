@@ -8,10 +8,11 @@
  * Run `bun run packages/core/scripts/sync-egw-books.ts` to sync the database.
  */
 
-import { describe, expect, it } from 'bun:test';
 import { existsSync } from 'fs';
 import { homedir } from 'os';
 import { join } from 'path';
+
+import { describe, expect, it } from 'bun:test';
 
 const DB_PATH = join(homedir(), '.bible', 'egw-paragraphs.db');
 
@@ -46,4 +47,3 @@ describe('EGW Database Performance', () => {
   // - searchParagraphs (FTS5): < 50ms
   // - getParagraphsByBibleRef: < 20ms (Bible ref index)
 });
-

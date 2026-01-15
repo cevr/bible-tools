@@ -184,7 +184,9 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
                 Effect.fail<ReaderError>(new BookNotFoundError({ bookCode })),
               onSome: (book) =>
                 db.getParagraphsByPage(book.bookId, page).pipe(
-                  Effect.map((paras) => paras.map(schemaParagraphToEGWParagraph)),
+                  Effect.map((paras) =>
+                    paras.map(schemaParagraphToEGWParagraph),
+                  ),
                   Effect.mapError(
                     (e): ReaderError =>
                       new EGWReaderError({
@@ -241,7 +243,10 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
       const searchParagraphs = (
         query: string,
         limit: number = 50,
-      ): Effect.Effect<readonly (EGWParagraph & { bookCode: string })[], ReaderError> =>
+      ): Effect.Effect<
+        readonly (EGWParagraph & { bookCode: string })[],
+        ReaderError
+      > =>
         db.searchParagraphs(query, limit).pipe(
           Effect.map((results) =>
             results.map((r) => ({

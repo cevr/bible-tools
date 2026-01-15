@@ -2,10 +2,9 @@ import { Args, Command, Options } from '@effect/cli';
 import { FileSystem, Path } from '@effect/platform';
 import { Effect, Option, pipe } from 'effect';
 
+import { matchArrayEnum, msToMinutes, spin } from '~/src/lib/general';
 import { generate } from '~/src/lib/generate';
 import { revise } from '~/src/lib/revise';
-
-import { matchArrayEnum, msToMinutes, spin } from '~/src/lib/general';
 import { Model, model } from '~/src/services/model';
 
 const targetTypes = ['study', 'slides', 'speaker-notes'] as const;

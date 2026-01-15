@@ -65,23 +65,21 @@ export class EGWCommentaryService extends Effect.Service<EGWCommentaryService>()
       const getCommentary = (
         verse: VerseReference,
       ): Effect.Effect<CommentaryResult, CommentaryServiceError> =>
-        db
-          .getParagraphsByBibleRef(verse.book, verse.chapter, verse.verse)
-          .pipe(
-            Effect.map((paragraphs) => ({
-              verse,
-              entries: paragraphs.map((para) =>
-                paragraphToEntry(para, para.bookCode, para.bookTitle),
-              ),
-            })),
-            Effect.mapError(
-              (e) =>
-                new CommentaryError({
-                  message: 'Failed to get commentary',
-                  cause: e,
-                }),
+        db.getParagraphsByBibleRef(verse.book, verse.chapter, verse.verse).pipe(
+          Effect.map((paragraphs) => ({
+            verse,
+            entries: paragraphs.map((para) =>
+              paragraphToEntry(para, para.bookCode, para.bookTitle),
             ),
-          );
+          })),
+          Effect.mapError(
+            (e) =>
+              new CommentaryError({
+                message: 'Failed to get commentary',
+                cause: e,
+              }),
+          ),
+        );
 
       /**
        * Search commentary by text query

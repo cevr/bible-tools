@@ -8,17 +8,18 @@
  * Run `bun run src/main.ts bible` once to initialize the database.
  */
 
-import { describe, expect, it, beforeAll } from 'bun:test';
 import { existsSync } from 'fs';
 import { homedir } from 'os';
 import { join } from 'path';
 
+import { beforeAll, describe, expect, it } from 'bun:test';
+
 import {
-  initStudyDatabase,
   getCrossRefs,
+  getMarginNotes,
   getStrongsEntry,
   getVerseWords,
-  getMarginNotes,
+  initStudyDatabase,
   searchByStrongs,
   searchStrongsByDefinition,
 } from '../../src/data/study/study-db.js';
@@ -53,7 +54,9 @@ describe('Study Database Performance', () => {
     const refs = getCrossRefs(43, 3, 16); // John 3:16
     const withPreview = refs.filter((r) => r.previewText);
 
-    console.log(`  ${withPreview.length}/${refs.length} refs have preview text`);
+    console.log(
+      `  ${withPreview.length}/${refs.length} refs have preview text`,
+    );
     expect(withPreview.length).toBeGreaterThan(0);
   });
 
@@ -120,7 +123,9 @@ describe('Study Database Performance', () => {
     const notes = getMarginNotes(1, 1, 1); // Gen 1:1
     const elapsed = performance.now() - start;
 
-    console.log(`getMarginNotes: ${elapsed.toFixed(2)}ms, ${notes.length} notes`);
+    console.log(
+      `getMarginNotes: ${elapsed.toFixed(2)}ms, ${notes.length} notes`,
+    );
     expect(notes.length).toBeGreaterThanOrEqual(0);
     expect(elapsed).toBeLessThan(10);
   });
@@ -132,7 +137,9 @@ describe('Study Database Performance', () => {
     const words = getVerseWords(1, 1, 1); // Gen 1:1
     const elapsed = performance.now() - start;
 
-    console.log(`getVerseWords: ${elapsed.toFixed(2)}ms, ${words.length} words`);
+    console.log(
+      `getVerseWords: ${elapsed.toFixed(2)}ms, ${words.length} words`,
+    );
     expect(words.length).toBeGreaterThan(0);
     expect(elapsed).toBeLessThan(5);
   });

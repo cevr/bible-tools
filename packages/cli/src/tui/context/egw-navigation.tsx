@@ -6,6 +6,7 @@
  */
 
 import type { EGWReference } from '@bible/core/app';
+import { isChapterHeading } from '@bible/core/egw-db';
 import type {
   EGWBookInfo,
   EGWParagraph,
@@ -31,8 +32,17 @@ import { useEGW } from './egw.js';
 type LoadingState =
   | { _tag: 'idle' }
   | { _tag: 'loading'; message: string }
-  | { _tag: 'loaded' }
-  | { _tag: 'error'; error: string };
+  | { _tag: 'error'; error: string }
+  | { _tag: 'loaded' };
+
+interface ChapterInfo {
+  /** Index of chapter heading in full paragraphs array */
+  startIndex: number;
+  /** Chapter title (content of the heading paragraph) */
+  title: string;
+  /** Paragraphs in this chapter (including heading) */
+  paragraphs: readonly EGWParagraph[];
+}
 
 interface EGWNavigationContextValue {
   // Current state
@@ -41,6 +51,11 @@ interface EGWNavigationContextValue {
   paragraphs: () => readonly EGWParagraph[];
   selectedParagraphIndex: () => number;
   currentParagraph: () => EGWParagraph | null;
+
+  // Chapter-filtered view (like Bible reader)
+  currentChapter: () => ChapterInfo | null;
+  /** Index within current chapter (0-based) */
+  selectedIndexInChapter: () => number;
 
   // Navigation
   goToBook: (bookCode: string) => void;
@@ -106,13 +121,68 @@ export function EGWNavigationProvider(
     getPageFromParagraph(currentParagraph()),
   );
 
+  // Find current chapter based on selected paragraph
+  const currentChapter = createMemo((): ChapterInfo | null => {
+    const paras = paragraphs();
+    if (paras.length === 0) return null;
+
+    const currentIndex = selectedParagraphIndex();
+
+    // Find the chapter heading for current position (search backwards)
+    let chapterStartIndex = 0;
+    for (let i = currentIndex; i >= 0; i--) {
+      if (isChapterHeading(paras[i]!.elementType)) {
+        chapterStartIndex = i;
+        break;
+      }
+    }
+
+    // Find where the chapter ends (next heading or end of book)
+    let chapterEndIndex = paras.length;
+    for (let i = chapterStartIndex + 1; i < paras.length; i++) {
+      if (isChapterHeading(paras[i]!.elementType)) {
+        chapterEndIndex = i;
+        break;
+      }
+    }
+
+    const chapterParagraphs = paras.slice(chapterStartIndex, chapterEndIndex);
+    const headingPara = paras[chapterStartIndex];
+
+    // Extract title from heading (strip HTML)
+    const title = headingPara?.content?.replace(/<[^>]*>/g, '') ?? 'Untitled';
+
+    return {
+      startIndex: chapterStartIndex,
+      title,
+      paragraphs: chapterParagraphs,
+    };
+  });
+
+  // Index within current chapter
+  const selectedIndexInChapter = createMemo(() => {
+    const chapter = currentChapter();
+    if (!chapter) return 0;
+    return selectedParagraphIndex() - chapter.startIndex;
+  });
+
   // Load book list
   const loadBooks = () => {
-    setLoadingState({ _tag: 'loading', message: 'Loading book list...' });
+    setLoadingState({ _tag: 'loading', message: 'Loading books...' });
+
+    // Check cache first
+    const cached = egw.peekBooks();
+    if (cached) {
+      setBooks(cached);
+      setLoadingState({ _tag: 'loaded' });
+      return;
+    }
+
+    // Load async
     egw
       .getBooks()
-      .then((bookList) => {
-        setBooks(bookList);
+      .then((value) => {
+        setBooks(value);
         setLoadingState({ _tag: 'loaded' });
       })
       .catch((error) => {
@@ -120,10 +190,26 @@ export function EGWNavigationProvider(
       });
   };
 
-  // Navigate to a specific book
-  const goToBook = (bookCode: string) => {
-    setLoadingState({ _tag: 'loading', message: `Loading ${bookCode}...` });
+  // Load book and paragraphs, then run callback with the data
+  const loadBookData = (
+    bookCode: string,
+    onLoaded: (book: EGWBookInfo, paras: readonly EGWParagraph[]) => void,
+  ) => {
+    setLoadingState({ _tag: 'loading', message: 'Loading book...' });
 
+    // Check cache first
+    const cachedBook = egw.peekBook(bookCode);
+    const cachedParas = egw.peekParagraphs(bookCode);
+
+    if (cachedBook && cachedParas) {
+      setCurrentBook(cachedBook);
+      setParagraphs(cachedParas);
+      onLoaded(cachedBook, cachedParas);
+      setLoadingState({ _tag: 'loaded' });
+      return;
+    }
+
+    // Load async
     Promise.all([
       egw.getBookByCode(bookCode),
       egw.getParagraphsByBookCode(bookCode),
@@ -132,7 +218,7 @@ export function EGWNavigationProvider(
         if (book) {
           setCurrentBook(book);
           setParagraphs(paras);
-          setSelectedParagraphIndex(0);
+          onLoaded(book, paras);
           setLoadingState({ _tag: 'loaded' });
         } else {
           setLoadingState({
@@ -146,39 +232,24 @@ export function EGWNavigationProvider(
       });
   };
 
+  // Navigate to a specific book
+  const goToBook = (bookCode: string) => {
+    loadBookData(bookCode, () => setSelectedParagraphIndex(0));
+  };
+
   // Navigate to a specific position (page/paragraph)
   const goToPosition = (position: EGWReaderPosition) => {
     const bookCode = position.bookCode;
     const book = currentBook();
 
-    // If different book, load it first
-    if (!book || book.bookCode.toUpperCase() !== bookCode.toUpperCase()) {
-      setLoadingState({ _tag: 'loading', message: `Loading ${bookCode}...` });
-
-      Promise.all([
-        egw.getBookByCode(bookCode),
-        egw.getParagraphsByBookCode(bookCode),
-      ])
-        .then(([loadedBook, paras]) => {
-          if (loadedBook) {
-            setCurrentBook(loadedBook);
-            setParagraphs(paras);
-            navigateToPosition(paras, position);
-            setLoadingState({ _tag: 'loaded' });
-          } else {
-            setLoadingState({
-              _tag: 'error',
-              error: `Book not found: ${bookCode}`,
-            });
-          }
-        })
-        .catch((error) => {
-          setLoadingState({ _tag: 'error', error: String(error) });
-        });
-    } else {
-      // Same book, just navigate
+    // If same book, just navigate within it
+    if (book && book.bookCode.toUpperCase() === bookCode.toUpperCase()) {
       navigateToPosition(paragraphs(), position);
+      return;
     }
+
+    // Different book - load it first
+    loadBookData(bookCode, (_, paras) => navigateToPosition(paras, position));
   };
 
   // Find paragraph index from position
@@ -295,12 +366,6 @@ export function EGWNavigationProvider(
     }
   };
 
-  // Check if paragraph is a chapter/section heading
-  const isChapterHeading = (para: EGWParagraph): boolean => {
-    const type = para.elementType;
-    return type === 'chapter' || type === 'heading' || type === 'title';
-  };
-
   // Navigate to next chapter (find next chapter heading)
   const nextChapter = () => {
     const paras = paragraphs();
@@ -308,7 +373,7 @@ export function EGWNavigationProvider(
 
     // Find next chapter heading after current position
     for (let i = currentIndex + 1; i < paras.length; i++) {
-      if (isChapterHeading(paras[i]!)) {
+      if (isChapterHeading(paras[i]!.elementType)) {
         setSelectedParagraphIndex(i);
         return;
       }
@@ -327,11 +392,11 @@ export function EGWNavigationProvider(
     let foundCurrentChapter = false;
 
     for (let i = currentIndex - 1; i >= 0; i--) {
-      if (isChapterHeading(paras[i]!)) {
+      if (isChapterHeading(paras[i]!.elementType)) {
         if (
           foundCurrentChapter ||
           (currentIndex === selectedParagraphIndex() &&
-            !isChapterHeading(paras[currentIndex]!))
+            !isChapterHeading(paras[currentIndex]!.elementType))
         ) {
           // We found the previous chapter
           setSelectedParagraphIndex(i);
@@ -393,6 +458,8 @@ export function EGWNavigationProvider(
     paragraphs,
     selectedParagraphIndex,
     currentParagraph,
+    currentChapter,
+    selectedIndexInChapter,
     goToBook,
     goToPosition,
     nextParagraph,

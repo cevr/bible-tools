@@ -8,6 +8,7 @@
  * - Search to filter results
  */
 
+import { isChapterHeading } from '@bible/core/egw-db';
 import type { EGWBookInfo, EGWParagraph } from '@bible/core/egw-reader';
 import type { ScrollBoxRenderable } from '@opentui/core';
 import {
@@ -96,12 +97,12 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
       const para = paras[i];
       if (!para) continue;
       const type = para.elementType;
-      if (type === 'chapter' || type === 'heading' || type === 'title') {
+      if (isChapterHeading(type)) {
         const title = stripHtml(para.content ?? '').slice(0, 60);
         result.push({
           title: title || `Chapter ${result.length + 1}`,
           paragraphIndex: i,
-          elementType: type,
+          elementType: type ?? 'heading',
         });
       }
     }
@@ -529,9 +530,9 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
                           : theme().textMuted,
                     }}
                   >
-                    {chapter.elementType === 'title' ? '§' : ''}
-                    {chapter.elementType === 'chapter' ? '◆' : ''}
-                    {chapter.elementType === 'heading' ? '•' : ''}
+                    {chapter.elementType === 'h1' ? '§' : ''}
+                    {chapter.elementType === 'h2' ? '◆' : ''}
+                    {/^h[3-6]$/.test(chapter.elementType) ? '•' : ''}
                   </span>{' '}
                   {chapter.title}
                 </text>
