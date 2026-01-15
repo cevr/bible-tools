@@ -1,7 +1,9 @@
-import { Path } from '@effect/platform';
 import { $ } from 'bun';
 import { Context, Effect, Layer } from 'effect';
 import type { UnknownException } from 'effect/Cause';
+import { join } from 'path';
+
+import { getCliRoot } from '~/src/lib/paths';
 
 /**
  * Service for playing audio chimes/notifications.
@@ -10,7 +12,7 @@ export interface ChimeService {
   /**
    * Play the done/notification chime.
    */
-  readonly play: Effect.Effect<void, UnknownException, Path.Path>;
+  readonly play: Effect.Effect<void, UnknownException>;
 }
 
 export class Chime extends Context.Tag('Chime')<Chime, ChimeService>() {}
@@ -20,8 +22,7 @@ export class Chime extends Context.Tag('Chime')<Chime, ChimeService>() {}
  */
 export const ChimeLive = Layer.succeed(Chime, {
   play: Effect.gen(function* () {
-    const path = yield* Path.Path;
-    const assetPath = path.join(process.cwd(), 'assets', 'notification.mp3');
+    const assetPath = join(getCliRoot(), 'assets', 'notification.mp3');
 
     yield* Effect.tryPromise(async () => await $`afplay ${assetPath} -v 0.15`);
   }),

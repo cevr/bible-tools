@@ -1,4 +1,4 @@
-# The Way Home Part 3: The Counterfeit System — Paganism's Perversion of Sanctuary Truth
+# The Way Home Part 3: The Counterfeit System — Daniel 2 Reveals Paganism's Perversion of Sanctuary Truth
 
 ## Topic Tags
 
@@ -6,7 +6,7 @@
 - #paganism
 - #babylon
 - #counterfeit
-- #apostasy
+- #Daniel2
 - #greatcontroversy
 
 ## Opening Hymns
@@ -23,295 +23,218 @@
 
 ## Central Bible Verse
 
-- **2 Corinthians 11:14 (KJV)** — "And no marvel; for Satan himself is
-  transformed into an angel of light."
+- **Daniel 2:44 (KJV)** — "And in the days of these kings shall the God of heaven set up a kingdom, which shall never be destroyed: and the kingdom shall not be left to other people, but it shall break in pieces and consume all these kingdoms, and it shall stand for ever."
 
 ## Key Supporting Verses
 
+- Daniel 2:31–45 — Nebuchadnezzar's image
+- 2 Corinthians 11:14 — Satan transformed into angel of light
 - Genesis 3:4 — "Ye shall not surely die"
 - Revelation 17:5 — Mystery Babylon, Mother of Harlots
 - 2 Thessalonians 2:3–4, 7 — Man of sin; mystery of iniquity already at work
-- Jeremiah 44:17–19 — Queen of heaven worship condemned
-- Revelation 13:6 — Blasphemy against God's tabernacle
 
 ---
 
 ## Time Allocation Guide
 
-- Introduction — 5 min
-- Section 1: Paganism's Counterfeit Sanctuary — 10 min
-- Section 2: The Merger — Paganism Enters Christianity — 6 min
-- Section 3: Systematic Substitution Exposed — 10 min
+- Introduction — 4 min
+- Section 1: Daniel 2's Framework — God's Preview of Counterfeit History — 5 min
+- Section 2: Four Kingdoms, Four Counterfeits — 12 min
+- Section 3: The Feet of Iron and Clay — All Counterfeits Combined — 6 min
 - Final Peak Section + CTA — 5 min
 
-**Total: ~36 min**
+**Total: ~32 min**
 
 ---
 
-## Introduction — The Enemy Who Cannot Destroy, Counterfeits (5 min)
+## Introduction — The Image That Maps Satan's Strategy (4 min)
 
 - Review: Part 2 established sanctuary as God's bridge to humanity
   - Sin severed access; sanctuary restored it through Christ
-  - Jacob's ladder = Christ connecting heaven and earth
 - Satan's dilemma: Cannot destroy heaven's remedy
-  - The sanctuary plan is unassailable
-  - Strategy: Create convincing counterfeits
-- [WB]: Draw bridge labeled "TRUE SANCTUARY" with counterfeit bridge beside it
-  labeled "?" (2 Cor 11:14)
-- [RQ]: If Satan cannot eliminate truth, what is his next best option? (2 Cor
-  11:14)
+  - Strategy: Create convincing counterfeits through successive empires
+- Daniel 2:31 — Nebuchadnezzar shown great image
+  - Not random kingdoms—prophetic sequence with spiritual purpose
+  - [WB]: Draw the image with sections labeled (Dan 2:31–45)
 - 2 Corinthians 11:14 — Satan transforms into angel of light
   - Counterfeits appear holy, not evil
-  - The most dangerous deception looks religious
-- Series context: Part 4 will show how prophecy _identifies_ the counterfeit
-  - Part 5 will reveal God's final call and what He awaits
+- [RQ]: Why would God reveal world empires in advance? What was Satan planning through them? (Dan 2:28)
+- Series context: Part 4 will show how prophecy identifies the counterfeit system by name
 
 ---
 
-## Section 1 — Paganism's Counterfeit Sanctuary: Ancient Systems Prepared the Way (10 min)
+## Section 1 — Daniel 2's Framework: God's Preview of Counterfeit History (5 min)
 
-### The Foundation: Eden's First Lie
+### The Image as Prophetic Blueprint
 
-- Genesis 3:4 — "Ye shall not surely die"
-  - First counterfeit doctrine: immortality of the soul
-  - Foundation of all false worship
-  - [WB]: Write "LIE #1: You don't really die" (Gen 3:4)
-- [Aside]: Every pagan system is built on this one lie — that death is not real,
-  that the soul lives on. From this single deception flows ancestor worship,
-  prayers to the dead, purgatory, and spiritualism.
+- Daniel 2:37–40 — Four kingdoms identified
+  - Babylon (gold), Medo-Persia (silver), Greece (bronze), Rome (iron)
+  - God revealed history in advance
+  - [WB]: List kingdoms beside image sections (Dan 2:37–40)
+- Each kingdom became Satan's instrument
+  - Not merely political—spiritually strategic
+  - Each counterfeited a specific sanctuary truth
+- Daniel 2:44 — God's kingdom will destroy and replace all others
+  - The stone cut without hands
+  - Christ's kingdom—the true sanctuary reality—prevails
 
-### Egyptian Religion: Counterfeiting Death and Intercession
+### The Counterfeit Built Layer by Layer
 
-- Immortal soul doctrine fully developed in Egypt
-  - Soul continues conscious existence after death
-  - Elaborate preparations for afterlife journey
-  - Prayers and offerings for the dead
-- Isis and Horus: Mother-child worship
-  - "Queen of heaven" devotion established
-  - Mother figure intercedes with the gods
-  - [WB]: "EGYPT: Immortal soul, prayers for dead, mother-child worship" (Gen
-    3:4; Jer 44:17)
-- [EB]: Jeremiah 44:17–19 — Israel condemned for worshiping queen of heaven
-  - "We will certainly... burn incense unto the queen of heaven"
-- [RQ]: How does belief in an immortal soul open the door to praying to the
-  dead? (Gen 3:4; Eccl 9:5)
+- Satan used successive empires to construct complete counterfeit system
+  - Each kingdom added a layer of deception
+  - [WB]: Write beside each section: "Babylon = ?", "Persia = ?", "Greece = ?", "Rome = ?" (Dan 2:31–45)
+- [RQ]: If each kingdom contributed to a counterfeit system, what was the end goal? (Rev 17:5)
+- [EGW]: "The system of heathen worship was Satan's method of obscuring the plan of salvation." (PP 91)
 
-### Babylonian Mysteries: Counterfeiting Priesthood and Mediation
+---
 
+## Section 2 — Four Kingdoms, Four Counterfeits (12 min)
+
+### BABYLON (Gold Head) — Counterfeited the HIGH PRIESTHOOD
+
+- Daniel 2:38 — "Thou art this head of gold"
+  - First great world empire after flood
+  - First organized counterfeit religious system
 - Revelation 17:5 — "Mystery, Babylon the Great, Mother of Harlots"
-  - One corrupt source; many corrupt offspring
-  - All false religions trace back to Babylon
-- Babylonian priesthood: Human mediators replacing divine access
-  - Priests as gatekeepers between humans and gods
-  - Confessional system: Priests hold secrets, control absolution
-  - [WB]: "BABYLON: Priesthood mediators, confessional, queen of heaven
-    (Semiramis/Tammuz)" (Rev 17:5)
-- Nimrod, Semiramis, Tammuz — counterfeit trinity
-  - Mother-child worship exported worldwide
-- [RQ]: Why does prophecy trace false religion to _one_ ancient source? (Rev
-  17:5)
-- [EGW]: "The system of heathen worship was Satan's method of obscuring the plan
-  of salvation." (PP 91)
+  - All false religions trace to Babylon
+  - [WB]: Gold head — "BABYLON: Counterfeit PRIESTHOOD" (Rev 17:5)
+- Nimrod as first false priest-king
+  - Genesis 10:8–10 — "mighty one in the earth... Babel"
+  - Human mediator replacing divine access
+- Babylonian confessional system
+  - Priests as gatekeepers to the gods
+  - Secrets held, absolution granted by men
+- Semiramis and Tammuz — counterfeit intercessors
+  - "Queen of heaven" worship established
+  - [EB]: Jeremiah 44:17–19 — Israel condemned for worshiping queen of heaven
+- [RQ]: If Christ alone is our High Priest, what does a human priesthood displace? (Heb 8:1–2)
+- [Aside]: Babylon's mystery religion created the template—every future empire would build upon it.
 
-### Mithraism: Counterfeiting the Creator's Memorials
+### MEDO-PERSIA (Silver Arms) — Counterfeited SACRIFICE and ATONEMENT
 
-- Roman Mithraism: Persian sun worship adapted for Roman soldiers
-  - Dies Solis (Sunday) as sacred day — "day of the sun"
-  - December 25: Birth of the sun god (winter solstice celebration)
-  - Rituals in underground temples mimicking mystery religion
-  - [WB]: "MITHRAS: Sunday sacred, Dec. 25 birth, sun worship" (Ezek 8:16)
-- [EB]: Ezekiel 8:16 — Men with backs toward temple, worshiping sun toward the
-  east
-  - God calls this an "abomination"
-- [Aside]: Before Christianity ever existed, paganism had already counterfeited
-  the Sabbath (Sunday for Saturday), the resurrection (Dec. 25 sun "rebirth"),
-  and priestly mediation. The counterfeits were _waiting_ to be absorbed.
+- Daniel 2:39 — "After thee shall arise another kingdom"
+  - Medo-Persian empire conquered Babylon
+  - [WB]: Silver arms — "PERSIA: Counterfeit ATONEMENT" (Dan 2:39)
+- Zoroastrian religion dominated
+  - Dualism: Good vs. evil locked in endless struggle
+  - No true atonement—no substitute bearing sin
+- Fire worship — attempting purification without blood
+  - Leviticus 17:11 — "It is the blood that maketh an atonement"
+  - Persia rejected substitutionary death
+  - [EB]: Hebrews 9:22 — "Without shedding of blood is no remission"
+- Works-based righteousness
+  - Good thoughts, good words, good deeds weighed against evil
+  - No Lamb bearing penalty
+- [RQ]: Without a substitute sacrifice, what hope remains for the guilty? (Heb 9:22)
+- [EGW]: "The blood of Christ... speaks in behalf of sinners." (PP 67.2)
 
-### Summary: The Counterfeit Elements Prepared
+### GREECE (Bronze Belly) — Counterfeited IMMORTALITY and the SOUL
 
-- [WB]: Create summary chart: | Sanctuary Truth | Pagan Counterfeit |
-  |-----------------|-------------------| | Resurrection hope | Immortal soul
-  (Egypt) | | Christ our Intercessor | Queen of heaven (Babylon/Egypt) | |
-  Direct access to God | Priesthood mediators (Babylon) | | Seventh-day Sabbath
-  | Sunday — day of sun (Mithras) | | Christ's birth | December 25 (Mithras) |
-- [RQ]: If all these counterfeits existed _before_ Christianity, what does that
-  suggest about Satan's strategy? (2 Cor 2:11)
+- Daniel 2:39 — "Another third kingdom of brass, which shall bear rule over all the earth"
+  - Greek philosophy conquered minds
+  - [WB]: Bronze belly — "GREECE: Counterfeit RESURRECTION" (Dan 2:39)
+- Genesis 3:4 — "Ye shall not surely die"
+  - The original lie now given philosophical sophistication
+  - Plato's immortal soul doctrine
+- Greek philosophy spread through Alexander's conquests
+  - Soul as immortal, body as prison
+  - Death = liberation, not enemy
+  - [EB]: Ecclesiastes 9:5 — "The dead know not any thing"
+- This enabled:
+  - Ancestor worship
+  - Prayers to dead "saints"
+  - Immediate conscious afterlife instead of resurrection
+  - [WB]: Write "Greek immortal soul → prayers to dead" (1 Thess 4:16)
+- [RQ]: If the soul never dies, why would anyone need a resurrection? (1 Cor 15:16–18)
+- [Aside]: Without this Greek counterfeit, praying to Mary and dead saints would be impossible. The immortal soul doctrine is the foundation.
 
----
+### ROME (Iron Legs) — Counterfeited the SABBATH and WORSHIP
 
-## Section 2 — The Merger: Paganism Enters Christianity (6 min)
-
-### Paul's Warning: Apostasy from Within
-
-- 2 Thessalonians 2:3 — "That day shall not come, except there come a falling
-  away first"
-  - Greek: _apostasia_ — departure, rebellion
-  - Apostasy precedes Christ's return
-- 2 Thessalonians 2:7 — "The mystery of iniquity doth already work"
-  - Corruption began in Paul's own day
-  - Not attack from outside — rotting from within
-  - [WB]: Write "MYSTERY OF INIQUITY = Paganism + Christianity" (2 Thess 2:7)
-- [EB]: Acts 20:29–30 — "Grievous wolves... speaking perverse things, to draw
-  away disciples"
-
-### How Paganism Conquered Christianity
-
-- [EB]: Jeremiah 10:2–3 — "Learn not the way of the heathen; their customs are
-  vain"
-- Constantine's political "conversion" (312 AD)
-  - Christianity made state religion
-  - Pagans flooded into the church unconverted
-  - Compromise to gain numbers
-- [Aside]: When you can't destroy the church by persecution, join it and corrupt
-  it from within. This was Satan's masterstroke.
-- Pagan festivals Christianized:
-  - Saturnalia → Christmas
-  - Easter fertility rites → blended with resurrection
-  - Sunday sun worship → "Lord's Day"
-- [WB]: Draw arrow from "PAGANISM" merging into "APOSTATE CHRISTIANITY" (2 Thess
-  2:7)
-- [EGW]: "Paganism, while appearing to be vanquished, became the conqueror. Her
-  spirit controlled the church." (GC 49.2)
-
-### The Result: A Counterfeit System Complete
-
-- 2 Thessalonians 2:4 — Man of sin "sitteth in the temple of God, shewing
-  himself that he is God"
-  - Claims divine prerogatives
-  - Substitutes human authority for divine
-- Revelation 13:6 — Beast "opened his mouth in blasphemy against God... and his
-  tabernacle"
-  - Direct attack on the sanctuary truth
-  - [WB]: Circle "HIS TABERNACLE" — the target is the sanctuary (Rev 13:6)
-- [RQ]: If the sanctuary is God's bridge to humanity, why would Satan
-  specifically attack "his tabernacle"? (Rev 13:6)
-
----
-
-## Section 3 — Systematic Substitution: The Counterfeit Bridge Exposed (10 min)
-
-- Revelation 13:6 — Beast blasphemes God's tabernacle
-  - Every element of sanctuary truth systematically replaced
-  - [WB]: Title — "SANCTUARY TRUTH vs. COUNTERFEIT" (Rev 13:6)
-
-### Each Truth Replaced Point by Point
-
-**1. Heavenly High Priest → Earthly Priesthood**
-
-- Hebrews 8:1–2 — Christ is High Priest in heavenly sanctuary
-  - "We have such an high priest, who is set on the right hand of the throne"
-  - [WB]: Left column — "Christ, Heavenly High Priest (Heb 8:1–2)"
-  - Right column — "Pope/Priests claim mediatorial power"
-- The pope claims to be "Vicar of Christ" — substitute for Christ
-- [RQ]: If Christ alone is High Priest, what does a human priesthood displace?
-  (Heb 8:1–2)
-
-**2. Direct Access to God → Confession to Priests**
-
-- Hebrews 4:16 — "Come boldly unto the throne of grace"
-  - No human gatekeeper required
-  - [WB]: Left — "Direct access (Heb 4:16)" | Right — "Confessional; priestly
-    absolution"
-- 1 Timothy 2:5 — "One mediator between God and men, the man Christ Jesus"
-  - ONE mediator — not many
-- [EB]: Matthew 27:51 — Veil torn from top to bottom — access opened
-
-**3. Christ's Intercession → Mary and Saints as Mediators**
-
-- Hebrews 7:25 — "He ever liveth to make intercession for them"
-  - Christ's intercession is continual, sufficient, exclusive
-  - [WB]: Left — "Christ intercedes (Heb 7:25)" | Right — "Mary intercession;
-    prayers to saints"
-- [EB]: Acts 4:12 — "Neither is there salvation in any other: for there is none
-  other name under heaven"
-- [Aside]: When you believe the dead are conscious, you can pray to dead
-  "saints." The immortal soul doctrine enables this counterfeit intercession.
-
-**4. Resurrection Hope → Immortal Soul**
-
-- 1 Thessalonians 4:16–17 — "The dead in Christ shall rise first"
-  - Hope is in resurrection, not death
-  - [WB]: Left — "Resurrection at His coming (1 Thess 4:16)" | Right — "Soul
-    goes to heaven/hell at death"
-- [EB]: Ecclesiastes 9:5 — "The dead know not any thing"
-- [EGW]: "Satan commenced his deception in Eden. 'Ye shall not surely die'...
-  This same lie he has continued." (GC 533.2)
-
-**5. Seventh-day Sabbath → Sunday Observance**
-
+- Daniel 2:40 — "The fourth kingdom shall be strong as iron"
+  - Rome crushed all before it
+  - [WB]: Iron legs — "ROME: Counterfeit SABBATH" (Dan 2:40)
+- Mithraism — Persian sun worship adapted for Rome
+  - Dies Solis (Sunday) — sacred day of the sun
+  - December 25 — birth of Mithra (sun god) at winter solstice
+  - [EB]: Ezekiel 8:16 — Men worshiping sun toward east—called "abomination"
+- Constantine merged paganism into Christianity (312 AD)
+  - Sol Invictus (Unconquered Sun) worship practices retained
+  - Sunday veneration transferred to Christian practice
+  - [WB]: Write "Sun-day" with sun symbol replacing Sabbath (Exod 20:8–11)
 - Exodus 20:8–11 — "Remember the sabbath day... the seventh day is the sabbath"
-  - Memorial of creation; seal of Creator
-  - [WB]: Left — "Seventh-day Sabbath (Ex 20:8–11)" | Right — "Sunday—'venerable
-    day of the sun'"
-- The only commandment involving time
-- [Aside]: The catechism openly claims: "The Church... transferred the solemnity
-  from the seventh to the first day." (Catholic Mirror, Sept. 1893)
-- [RQ]: If no Scripture changes the Sabbath, by what authority was it changed?
-  (Mark 7:7)
-
-**6. Heavenly Sanctuary → Earthly Magnificence**
-
-- Hebrews 9:24 — "Christ is not entered into the holy places made with hands...
-  but into heaven itself"
-  - The true sanctuary is in heaven
-  - [WB]: Left — "Heavenly sanctuary (Heb 9:24)" | Right — "Vatican/cathedrals
-    as 'holy' places"
-- [EB]: Acts 7:48 — "The most High dwelleth not in temples made with hands"
-- Earthly buildings replace focus on heavenly ministry
-
-### The Counterfeit Is Complete
-
-- Every sanctuary truth—systematically replaced
-  - [WB]: Draw X through counterfeit column; circle TRUE column (Dan 8:12)
-- Satan's bridge looks impressive but leads nowhere
-  - Ornate cathedrals, elaborate rituals, ancient tradition
-  - But wrong mediator, wrong foundation, wrong destination
-- [RQ]: If every truth pointing to Christ is displaced, where does the
-  counterfeit bridge lead? (Matt 15:14)
-- [EGW]: "Satan is constantly endeavoring to attract attention to man in the
-  place of God." (GC 55.1)
+  - The only commandment specifying time
+  - Rome's counterfeit attacked the Creator's memorial
+- [RQ]: If no Scripture changes the Sabbath, by what authority was it changed? (Mark 7:7)
+- [EGW]: "Paganism, while appearing to be vanquished, became the conqueror. Her spirit controlled the church." (GC 49.2)
 
 ---
 
-## FINAL PEAK SECTION — Recognizing the Counterfeit, Seeking the True (5 min)
+## Section 3 — The Feet of Iron and Clay: All Counterfeits Combined (6 min)
+
+### The Merger — Every Layer Unified
+
+- Daniel 2:41–43 — Feet partly iron, partly clay
+  - Iron = Rome's political and religious power continuing
+  - Clay = weakness, mixture, unable to fully unite
+  - [WB]: Feet — "ALL COUNTERFEITS COMBINED" (Dan 2:41–43)
+- 2 Thessalonians 2:3–4 — Falling away comes first
+  - Man of sin sits in temple of God, claiming divine prerogatives
+  - [WB]: Write "APOSTASY = Babylon + Persia + Greece + Rome" (2 Thess 2:7)
+- 2 Thessalonians 2:7 — "Mystery of iniquity doth already work"
+  - Corruption began in Paul's day
+  - Building toward complete counterfeit system
+
+### The Complete Counterfeit Sanctuary
+
+- [WB]: Summary chart:
+
+| Sanctuary Truth | Empire | Counterfeit |
+|-----------------|--------|-------------|
+| Christ as High Priest | Babylon | Human priesthood, confessional |
+| Blood atonement | Persia | Works, fire purification |
+| Resurrection hope | Greece | Immortal soul, prayers to dead |
+| Seventh-day Sabbath | Rome | Sunday worship |
+
+- Each layer built upon the previous
+  - Babylon's priesthood + Persia's works + Greece's immortal soul + Rome's sun worship
+  - = Complete counterfeit sanctuary system
+- Revelation 13:6 — Beast blasphemes "his tabernacle"
+  - Direct attack on sanctuary truth
+  - [WB]: Circle "HIS TABERNACLE" (Rev 13:6)
+- [RQ]: If Satan built his counterfeit through four empires over thousands of years, how careful should we be in examining our beliefs? (Acts 17:11)
+- [EGW]: "Satan is constantly endeavoring to attract attention to man in the place of God." (GC 55.1)
+
+---
+
+## FINAL PEAK SECTION — The Stone That Smashes the Image (5 min)
 
 ### The Test: Does It Point to Christ's Heavenly Ministry?
 
 - Every true doctrine points to Christ in the heavenly sanctuary
   - His sacrifice, His intercession, His judgment, His return
 - Every counterfeit obscures or replaces that ministry
-  - [WB]: Write test question — "Does this truth point me to CHRIST IN HEAVEN?"
-    (Heb 8:1–2)
-- [RQ]: How can you test any religious teaching to see if it's genuine or
-  counterfeit? (Isa 8:20)
-- Isaiah 8:20 — "To the law and to the testimony: if they speak not according to
-  this word, there is no light in them"
+  - [WB]: Write test question — "Does this teaching point to CHRIST IN HEAVEN?" (Heb 8:1–2)
+- Isaiah 8:20 — "To the law and to the testimony: if they speak not according to this word, there is no light in them"
+- [RQ]: How can you test any religious teaching to see if it's genuine or counterfeit? (Isa 8:20)
 
-### Part 4 Preview: Prophecy Exposes the Counterfeit
+### Part 4 Preview: Prophecy Identifies the Counterfeit by Name
 
-- How do we _know_ which system is the counterfeit?
-  - Not by feelings or tradition
-  - By the sure word of prophecy
-- Daniel 7, 8, 9 — God gave specific prophecies identifying the power that
-  would:
+- Daniel 2 showed us how the counterfeit was built empire by empire
+  - But how do we know which modern system embodies these counterfeits?
+- Daniel 7, 8, 9 — God gave specific prophecies identifying the power that would:
   - Persecute saints for 1260 years
   - "Think to change times and laws"
-  - Take away the "daily" (Christ's continual ministry)
   - Cast truth to the ground
-- Part 4 will unlock these prophetic timelines
-  - [WB]: Write 'NEXT: Prophecy Identifies the Counterfeit (Dan 7–9)'
+  - [WB]: Write "NEXT: Prophecy NAMES the Counterfeit (Dan 7–9)"
+- Daniel 2:44 — "In the days of these kings shall the God of heaven set up a kingdom"
+  - The stone strikes the image at the feet — in our time
+  - Christ's kingdom destroys all counterfeits
 
-### Call to Action — Begin Examining
+### Call to Action — Prepare for the Stone's Impact
 
-- **Test what you've been taught** — Does it point to Christ in the heavenly
-  sanctuary or to earthly substitutes? (Isa 8:20)
-- **Study the sanctuary** — Understand God's original design before accepting
-  any substitute (Heb 8:5)
-- **Ask the hard questions** — Why was the Sabbath changed? By what authority?
-  (Mark 7:7)
-- **Prepare for Part 4** — Prophecy will confirm what history reveals (2 Pet
-  1:19)
-- **Pray for discernment** — Ask God to show you truth from counterfeit (John
-  16:13)
-- The counterfeit bridge is exposed — but do you know the _proof_? Part 4 will
-  provide it.
+- **Test what you've been taught** — Does it point to Christ in heaven or to earthly substitutes? (Isa 8:20)
+- **Trace your beliefs to Scripture, not to empire** — Babylon, Persia, Greece, and Rome contributed counterfeits still present today (Dan 2:31–45)
+- **Ask the hard questions** — Why was the Sabbath changed? Who changed it? By what authority? (Mark 7:7)
+- **Study Daniel 2 yourself** — See how God predicted the counterfeit system's construction (2 Pet 1:19)
+- **Prepare for Part 4** — Prophecy will name what history reveals (Dan 7:25)
+- The image stands exposed — but do you know which modern system wears the counterfeits? Part 4 will prove it.

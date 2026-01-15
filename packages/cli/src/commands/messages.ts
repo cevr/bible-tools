@@ -1,13 +1,15 @@
 import { Command, Options } from '@effect/cli';
-import { FileSystem, Path } from '@effect/platform';
+import { FileSystem } from '@effect/platform';
 import { generateText } from 'ai';
 import { format } from 'date-fns';
 import { Data, Effect, Schedule } from 'effect';
+import { join } from 'path';
 
 import { msToMinutes, spin } from '~/src/lib/general';
 import { generate } from '~/src/lib/generate';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
 import { getNoteContent } from '~/src/lib/notes-utils';
+import { getOutputsPath, getPromptPath } from '~/src/lib/paths';
 import { revise } from '~/src/lib/revise';
 import { generateTopicPrompt } from '~/src/prompts/messages/generate-topic';
 import { Model, model } from '~/src/services/model';
@@ -20,15 +22,12 @@ const topic = Options.text('topic').pipe(
 const generateMessage = Command.make('generate', { topic, model }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const path = yield* Path.Path;
     const startTime = Date.now();
 
     yield* Effect.log(`topic: ${args.topic}`);
 
     const systemPrompt = yield* fs
-      .readFile(
-        path.join(process.cwd(), 'core', 'messages', 'prompts', 'generate.md'),
-      )
+      .readFile(getPromptPath('messages', 'generate.md'))
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
     const { filename, response } = yield* generate(
@@ -36,10 +35,10 @@ const generateMessage = Command.make('generate', { topic, model }, (args) =>
       args.topic,
     ).pipe(Effect.provideService(Model, args.model));
 
-    const messagesDir = path.join(process.cwd(), 'outputs', 'messages');
+    const messagesDir = getOutputsPath('messages');
 
     const fileName = `${format(new Date(), 'yyyy-MM-dd')}-${filename}.md`;
-    const filePath = path.join(messagesDir, fileName);
+    const filePath = join(messagesDir, fileName);
 
     yield* spin(
       'Ensuring messages directory exists',
@@ -80,22 +79,13 @@ const reviseMessage = Command.make(
   (args) =>
     Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
-      const path = yield* Path.Path;
 
       const message = yield* fs
         .readFile(args.file)
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
       const systemMessagePrompt = yield* fs
-        .readFile(
-          path.join(
-            process.cwd(),
-            'core',
-            'messages',
-            'prompts',
-            'generate.md',
-          ),
-        )
+        .readFile(getPromptPath('messages', 'generate.md'))
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
       const revisedMessage = yield* revise({
@@ -127,30 +117,21 @@ const generateFromNoteMessage = Command.make(
   (args) =>
     Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
-      const path = yield* Path.Path;
       const startTime = Date.now();
       const note = yield* getNoteContent(args.noteId);
 
       const systemPrompt = yield* fs
-        .readFile(
-          path.join(
-            process.cwd(),
-            'core',
-            'messages',
-            'prompts',
-            'generate.md',
-          ),
-        )
+        .readFile(getPromptPath('messages', 'generate.md'))
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
       const { filename, response } = yield* generate(systemPrompt, note).pipe(
         Effect.provideService(Model, args.model),
       );
 
-      const messagesDir = path.join(process.cwd(), 'outputs', 'messages');
+      const messagesDir = getOutputsPath('messages');
 
       const fileName = `${format(new Date(), 'yyyy-MM-dd')}-${filename}.md`;
-      const filePath = path.join(messagesDir, fileName);
+      const filePath = join(messagesDir, fileName);
 
       yield* spin(
         'Writing message to file: ' + fileName,
@@ -179,11 +160,8 @@ class GenerateTopicResponseError extends Data.TaggedError(
 const generateTopic = Command.make('generate-topic', { model }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const path = yield* Path.Path;
 
-    const previousMessages = yield* fs.readDirectory(
-      path.join(process.cwd(), 'outputs', 'messages'),
-    );
+    const previousMessages = yield* fs.readDirectory(getOutputsPath('messages'));
 
     const systemPrompt = generateTopicPrompt(previousMessages);
 
@@ -225,16 +203,15 @@ const json = Options.boolean('json').pipe(
 const listMessages = Command.make('list', { json }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const path = yield* Path.Path;
 
-    const messagesDir = path.join(process.cwd(), 'outputs', 'messages');
+    const messagesDir = getOutputsPath('messages');
     const files = yield* fs
       .readDirectory(messagesDir)
       .pipe(Effect.catchAll(() => Effect.succeed([] as string[])));
 
     const filePaths = files
       .filter((f) => f.endsWith('.md'))
-      .map((file) => path.join(messagesDir, file))
+      .map((file) => join(messagesDir, file))
       .sort((a, b) => b.localeCompare(a));
 
     if (args.json) {
@@ -245,7 +222,8 @@ const listMessages = Command.make('list', { json }, (args) =>
       } else {
         yield* Effect.log('Messages:');
         for (const filePath of filePaths) {
-          yield* Effect.log(`  ${path.basename(filePath)}`);
+          const basename = filePath.split('/').pop() ?? filePath;
+          yield* Effect.log(`  ${basename}`);
         }
       }
     }

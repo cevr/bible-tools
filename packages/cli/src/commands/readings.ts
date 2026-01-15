@@ -1,9 +1,11 @@
 import { Args, Command, Options } from '@effect/cli';
-import { FileSystem, Path } from '@effect/platform';
+import { FileSystem } from '@effect/platform';
 import { Effect, Option, pipe } from 'effect';
+import { join } from 'path';
 
 import { matchArrayEnum, msToMinutes, spin } from '~/src/lib/general';
 import { generate } from '~/src/lib/generate';
+import { getCliRoot, getOutputsPath, getPromptPath } from '~/src/lib/paths';
 import { revise } from '~/src/lib/revise';
 import { Model, model } from '~/src/services/model';
 
@@ -26,19 +28,13 @@ const processChapters = Command.make(
   (args) =>
     Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
-      const path = yield* Path.Path;
       const startTime = Date.now();
 
       // Path to extracted chapters directory
-      const chaptersDir = path.join(
-        process.cwd(),
-        '..',
-        'scripts',
-        'extracted-chapters',
-      );
+      const chaptersDir = join(getCliRoot(), '..', 'scripts', 'extracted-chapters');
 
       // Path to output directory
-      const outputDir = path.join(process.cwd(), 'outputs', 'readings');
+      const outputDir = getOutputsPath('readings');
 
       // Ensure output directory exists
       yield* spin(
@@ -63,39 +59,15 @@ const processChapters = Command.make(
 
       // Read the system prompts
       const studyPrompt = yield* fs
-        .readFile(
-          path.join(
-            process.cwd(),
-            'core',
-            'readings',
-            'prompts',
-            'generate-study.md',
-          ),
-        )
+        .readFile(getPromptPath('readings', 'generate-study.md'))
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
       const slidesPrompt = yield* fs
-        .readFile(
-          path.join(
-            process.cwd(),
-            'core',
-            'readings',
-            'prompts',
-            'generate-slides.md',
-          ),
-        )
+        .readFile(getPromptPath('readings', 'generate-slides.md'))
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
       const speakerNotesPrompt = yield* fs
-        .readFile(
-          path.join(
-            process.cwd(),
-            'core',
-            'readings',
-            'prompts',
-            'generate-speaker-notes.md',
-          ),
-        )
+        .readFile(getPromptPath('readings', 'generate-speaker-notes.md'))
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
       // Get all chapter files
@@ -133,15 +105,15 @@ const processChapters = Command.make(
               Effect.gen(function* () {
                 const chapterNum =
                   chapterFile.match(/chapter-(\d+)\.txt/)?.[1] || '0';
-                const studyFile = path.join(
+                const studyFile = join(
                   outputDir,
                   `chapter-${chapterNum}-study.md`,
                 );
-                const slidesFile = path.join(
+                const slidesFile = join(
                   outputDir,
                   `chapter-${chapterNum}-slides.md`,
                 );
-                const speakerNotesFile = path.join(
+                const speakerNotesFile = join(
                   outputDir,
                   `chapter-${chapterNum}-speaker-notes.md`,
                 );
@@ -179,16 +151,16 @@ const processChapters = Command.make(
           Effect.gen(function* () {
             const chapterNum =
               chapterFile.match(/chapter-(\d+)\.txt/)?.[1] || '0';
-            const chapterPath = path.join(chaptersDir, chapterFile);
-            const studyOutputFile = path.join(
+            const chapterPath = join(chaptersDir, chapterFile);
+            const studyOutputFile = join(
               outputDir,
               `chapter-${chapterNum}-study.md`,
             );
-            const slidesOutputFile = path.join(
+            const slidesOutputFile = join(
               outputDir,
               `chapter-${chapterNum}-slides.md`,
             );
-            const speakerNotesOutputFile = path.join(
+            const speakerNotesOutputFile = join(
               outputDir,
               `chapter-${chapterNum}-speaker-notes.md`,
             );
@@ -351,7 +323,6 @@ const reviseReading = Command.make(
   (args) =>
     Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
-      const path = yield* Path.Path;
 
       const reading = yield* fs
         .readFile(args.file)
@@ -367,9 +338,7 @@ const reviseReading = Command.make(
           : 'generate-study.md';
 
       const systemPrompt = yield* fs
-        .readFile(
-          path.join(process.cwd(), 'core', 'readings', 'prompts', promptFile),
-        )
+        .readFile(getPromptPath('readings', promptFile))
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
       const revisedReading = yield* revise({
@@ -398,16 +367,15 @@ const json = Options.boolean('json').pipe(
 const listReadings = Command.make('list', { json }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const path = yield* Path.Path;
 
-    const outputDir = path.join(process.cwd(), 'outputs', 'readings');
+    const outputDir = getOutputsPath('readings');
     const files = yield* fs
       .readDirectory(outputDir)
       .pipe(Effect.catchAll(() => Effect.succeed([] as string[])));
 
     const filePaths = files
       .filter((f) => f.endsWith('.md'))
-      .map((file) => path.join(outputDir, file))
+      .map((file) => join(outputDir, file))
       .sort((a, b) => {
         const numA = parseInt(a.match(/chapter-(\d+)/)?.[1] || '0', 10);
         const numB = parseInt(b.match(/chapter-(\d+)/)?.[1] || '0', 10);
@@ -422,7 +390,8 @@ const listReadings = Command.make('list', { json }, (args) =>
       } else {
         yield* Effect.log('Readings:');
         for (const filePath of filePaths) {
-          yield* Effect.log(`  ${path.basename(filePath)}`);
+          const basename = filePath.split('/').pop() ?? filePath;
+          yield* Effect.log(`  ${basename}`);
         }
       }
     }

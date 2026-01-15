@@ -3,7 +3,7 @@ import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { createOpenAI } from '@ai-sdk/openai';
 import { HelpDoc, Options, ValidationError } from '@effect/cli';
 import { type LanguageModel } from 'ai';
-import { Context, Effect, Option, Schema } from 'effect';
+import { Context, Effect, Option } from 'effect';
 
 import { matchEnum } from '../lib/general';
 
@@ -13,69 +13,60 @@ export enum Provider {
   Anthropic = 'anthropic',
 }
 
+// Read API keys directly from process.env to support compile-time embedding
+// Using explicit process.env.KEY syntax allows Bun's define option to replace at build time
+// Returns Option to maintain Effect patterns
+const getEnvKey = (key: 'GEMINI_API_KEY' | 'OPENAI_API_KEY' | 'ANTHROPIC_API_KEY'): Option.Option<string> => {
+  // These explicit references allow Bun's define to replace them at compile time
+  const value =
+    key === 'GEMINI_API_KEY' ? process.env.GEMINI_API_KEY :
+    key === 'OPENAI_API_KEY' ? process.env.OPENAI_API_KEY :
+    key === 'ANTHROPIC_API_KEY' ? process.env.ANTHROPIC_API_KEY :
+    undefined;
+  return Option.fromNullable(value).pipe(
+    Option.filter((v) => v.length > 0)
+  );
+};
+
 const extractModel = Effect.fn('extractModel')(
   function* (modelOption: Option.Option<string>) {
-    const google = yield* Schema.Config(
-      'GEMINI_API_KEY',
-      Schema.NonEmptyString,
-    ).pipe(
-      Effect.option,
-      Effect.map((googleKey) =>
-        googleKey.pipe(
-          Option.map((googleKey) => {
-            const modelProvider = createGoogleGenerativeAI({
-              apiKey: googleKey,
-            });
-            return {
-              models: {
-                high: modelProvider('gemini-3-pro-preview'),
-                low: modelProvider('gemini-2.5-flash-lite'),
-              },
-              provider: Provider.Gemini,
-            };
-          }),
-        ),
-      ),
+    const google = getEnvKey('GEMINI_API_KEY').pipe(
+      Option.map((googleKey) => {
+        const modelProvider = createGoogleGenerativeAI({ apiKey: googleKey });
+        return {
+          models: {
+            high: modelProvider('gemini-3-pro-preview'),
+            low: modelProvider('gemini-2.5-flash-lite'),
+          },
+          provider: Provider.Gemini,
+        };
+      }),
     );
-    const openai = yield* Schema.Config(
-      'OPENAI_API_KEY',
-      Schema.NonEmptyString,
-    ).pipe(
-      Effect.option,
-      Effect.map((openaiKey) =>
-        openaiKey.pipe(
-          Option.map((openaiKey) => {
-            const modelProvider = createOpenAI({ apiKey: openaiKey });
-            return {
-              models: {
-                high: modelProvider('gpt-5.2'),
-                low: modelProvider('gpt-4.1-nano'),
-              },
-              provider: Provider.OpenAI,
-            };
-          }),
-        ),
-      ),
+
+    const openai = getEnvKey('OPENAI_API_KEY').pipe(
+      Option.map((openaiKey) => {
+        const modelProvider = createOpenAI({ apiKey: openaiKey });
+        return {
+          models: {
+            high: modelProvider('gpt-5.2'),
+            low: modelProvider('gpt-4.1-nano'),
+          },
+          provider: Provider.OpenAI,
+        };
+      }),
     );
-    const anthropic = yield* Schema.Config(
-      'ANTHROPIC_API_KEY',
-      Schema.NonEmptyString,
-    ).pipe(
-      Effect.option,
-      Effect.map((anthropicKey) =>
-        anthropicKey.pipe(
-          Option.map((anthropicKey) => {
-            const modelProvider = createAnthropic({ apiKey: anthropicKey });
-            return {
-              models: {
-                high: modelProvider('claude-opus-4-5'),
-                low: modelProvider('claude-haiku-4-5'),
-              },
-              provider: Provider.Anthropic,
-            };
-          }),
-        ),
-      ),
+
+    const anthropic = getEnvKey('ANTHROPIC_API_KEY').pipe(
+      Option.map((anthropicKey) => {
+        const modelProvider = createAnthropic({ apiKey: anthropicKey });
+        return {
+          models: {
+            high: modelProvider('claude-opus-4-5'),
+            low: modelProvider('claude-haiku-4-5'),
+          },
+          provider: Provider.Anthropic,
+        };
+      }),
     );
     const models = Option.reduceCompact(
       [google, openai, anthropic],

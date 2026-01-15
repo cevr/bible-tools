@@ -1,12 +1,14 @@
 import { Command, Options } from '@effect/cli';
-import { FileSystem, Path } from '@effect/platform';
+import { FileSystem } from '@effect/platform';
 import { format } from 'date-fns';
 import { Effect } from 'effect';
+import { join } from 'path';
 
 import { msToMinutes, spin } from '~/src/lib/general';
 import { generate } from '~/src/lib/generate';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
 import { getNoteContent } from '~/src/lib/notes-utils';
+import { getOutputsPath, getPromptPath } from '~/src/lib/paths';
 import { revise } from '~/src/lib/revise';
 import { Model, model } from '~/src/services/model';
 
@@ -18,15 +20,12 @@ const topic = Options.text('topic').pipe(
 const generateStudy = Command.make('generate', { topic, model }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const path = yield* Path.Path;
     const startTime = Date.now();
 
     yield* Effect.log(`topic: ${args.topic}`);
 
     const systemPrompt = yield* fs
-      .readFile(
-        path.join(process.cwd(), 'core', 'studies', 'prompts', 'generate.md'),
-      )
+      .readFile(getPromptPath('studies', 'generate.md'))
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
     const { filename, response } = yield* generate(
@@ -34,10 +33,10 @@ const generateStudy = Command.make('generate', { topic, model }, (args) =>
       args.topic,
     ).pipe(Effect.provideService(Model, args.model));
 
-    const studiesDir = path.join(process.cwd(), 'outputs', 'studies');
+    const studiesDir = getOutputsPath('studies');
 
     const fileName = `${format(new Date(), 'yyyy-MM-dd')}-${filename}.md`;
-    const filePath = path.join(studiesDir, fileName);
+    const filePath = join(studiesDir, fileName);
 
     yield* spin(
       'Ensuring studies directory exists',
@@ -78,16 +77,13 @@ const reviseStudy = Command.make(
   (args) =>
     Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
-      const path = yield* Path.Path;
 
       const study = yield* fs
         .readFile(args.file)
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
       const systemMessagePrompt = yield* fs
-        .readFile(
-          path.join(process.cwd(), 'core', 'studies', 'prompts', 'generate.md'),
-        )
+        .readFile(getPromptPath('studies', 'generate.md'))
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
       const revisedStudy = yield* revise({
@@ -119,26 +115,23 @@ const generateFromNoteStudy = Command.make(
   (args) =>
     Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
-      const path = yield* Path.Path;
 
       const startTime = Date.now();
 
       const note = yield* getNoteContent(args.noteId);
 
       const systemPrompt = yield* fs
-        .readFile(
-          path.join(process.cwd(), 'core', 'studies', 'prompts', 'generate.md'),
-        )
+        .readFile(getPromptPath('studies', 'generate.md'))
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
       const { filename, response } = yield* generate(systemPrompt, note).pipe(
         Effect.provideService(Model, args.model),
       );
 
-      const studiesDir = path.join(process.cwd(), 'outputs', 'studies');
+      const studiesDir = getOutputsPath('studies');
 
       const fileName = `${format(new Date(), 'yyyy-MM-dd')}-${filename}.md`;
-      const filePath = path.join(studiesDir, fileName);
+      const filePath = join(studiesDir, fileName);
 
       yield* spin(
         'Writing study to file: ' + fileName,
@@ -166,16 +159,15 @@ const json = Options.boolean('json').pipe(
 const listStudies = Command.make('list', { json }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const path = yield* Path.Path;
 
-    const studiesDir = path.join(process.cwd(), 'outputs', 'studies');
+    const studiesDir = getOutputsPath('studies');
     const files = yield* fs
       .readDirectory(studiesDir)
       .pipe(Effect.catchAll(() => Effect.succeed([] as string[])));
 
     const filePaths = files
       .filter((f) => f.endsWith('.md'))
-      .map((file) => path.join(studiesDir, file))
+      .map((file) => join(studiesDir, file))
       .sort((a, b) => b.localeCompare(a));
 
     if (args.json) {
@@ -186,7 +178,8 @@ const listStudies = Command.make('list', { json }, (args) =>
       } else {
         yield* Effect.log('Studies:');
         for (const filePath of filePaths) {
-          yield* Effect.log(`  ${path.basename(filePath)}`);
+          const basename = filePath.split('/').pop() ?? filePath;
+          yield* Effect.log(`  ${basename}`);
         }
       }
     }

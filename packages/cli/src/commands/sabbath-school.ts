@@ -1,12 +1,14 @@
 import { Command, Options } from '@effect/cli';
-import { FileSystem, Path } from '@effect/platform';
+import { FileSystem } from '@effect/platform';
 import { generateObject, generateText } from 'ai';
 import * as cheerio from 'cheerio';
 import { Array, Data, Effect, Option, Schema, Stream } from 'effect';
+import { join } from 'path';
 import { z } from 'zod';
 
 import { msToMinutes } from '~/src/lib/general';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
+import { getOutputsPath } from '~/src/lib/paths';
 import {
   outlineSystemPrompt,
   outlineUserPrompt,
@@ -187,9 +189,8 @@ const getFilePath = Effect.fn('getFilePath')(function* (
   quarter: number,
   week: number,
 ) {
-  const path = yield* Path.Path;
-  const outputDir = path.join(process.cwd(), 'outputs', 'sabbath-school');
-  return path.join(outputDir, `${year}-Q${quarter}-W${week}.md`);
+  const outputDir = getOutputsPath('sabbath-school');
+  return join(outputDir, `${year}-Q${quarter}-W${week}.md`);
 });
 
 const reviseOutline = Effect.fn('reviseOutline')(function* (

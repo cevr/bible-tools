@@ -4,7 +4,7 @@
   "description": "Bible Tools CLI",
   "type": "module",
   "scripts": {
-    "build": "bun scripts/build.ts",
+    "build": "cd /tmp && bun $INIT_CWD/scripts/build.ts",
     "prepare": "effect-language-service patch",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
