@@ -15,7 +15,7 @@ import {
 import type { BibleDataSyncService } from '../../data/bible/types.js';
 import {
   BibleState,
-  BibleStateLayer,
+  BibleStateLive,
   type BibleStateService,
 } from '../../data/bible/state.js';
 
@@ -46,8 +46,9 @@ async function initBibleServices(): Promise<{
   }
 
   if (!cachedStateService) {
-    cachedStateService = Effect.runSync(
-      Effect.provide(BibleState, BibleStateLayer),
+    // BibleStateLive is scoped - use Effect.scoped to properly manage lifecycle
+    cachedStateService = await Effect.runPromise(
+      Effect.scoped(Effect.provide(BibleState, BibleStateLive)),
     );
   }
 

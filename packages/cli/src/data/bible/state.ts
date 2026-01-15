@@ -377,17 +377,11 @@ function createBibleStateService(): BibleStateService {
   };
 }
 
-// Live layer
+// Live layer with proper scoping - use Effect.scoped to manage lifecycle
 export const BibleStateLive = Layer.scoped(
   BibleState,
   Effect.acquireRelease(
     Effect.sync(() => createBibleStateService()),
     (service) => Effect.sync(() => service.close()),
   ),
-);
-
-// Simpler non-scoped layer for TUI usage (manages its own lifecycle)
-export const BibleStateLayer = Layer.succeed(
-  BibleState,
-  createBibleStateService(),
 );

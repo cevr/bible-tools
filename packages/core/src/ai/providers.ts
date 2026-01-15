@@ -1,6 +1,5 @@
 import { createAnthropic } from '@ai-sdk/anthropic';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { createGroq } from '@ai-sdk/groq';
 import { createOpenAI } from '@ai-sdk/openai';
 import { type LanguageModel } from 'ai';
 import { Effect, Option, Schema } from 'effect';
@@ -12,7 +11,6 @@ export enum Provider {
   Gemini = 'gemini',
   OpenAI = 'openai',
   Anthropic = 'anthropic',
-  Kimi = 'kimi',
 }
 
 /**
@@ -101,29 +99,10 @@ export const discoverProviders = Effect.fn('discoverProviders')(function* () {
     ),
   );
 
-  const kimi = yield* Schema.Config('GROQ_API_KEY', Schema.NonEmptyString).pipe(
-    Effect.option,
-    Effect.map((groqKey) =>
-      groqKey.pipe(
-        Option.map((groqKey) => {
-          const modelProvider = createGroq({ apiKey: groqKey });
-          return {
-            models: {
-              high: modelProvider('moonshotai/kimi-k2-instruct'),
-              low: modelProvider('moonshotai/kimi-k2-instruct'),
-            },
-            provider: Provider.Kimi,
-          } satisfies ProviderConfig;
-        }),
-      ),
-    ),
-  );
-
   const providers: Option.Option<ProviderConfig>[] = [
     google,
     openai,
     anthropic,
-    kimi,
   ];
 
   return Option.reduceCompact(
@@ -144,7 +123,5 @@ export const getProviderName = (provider: Provider): string => {
       return 'OpenAI';
     case Provider.Anthropic:
       return 'Anthropic';
-    case Provider.Kimi:
-      return 'Kimi';
   }
 };

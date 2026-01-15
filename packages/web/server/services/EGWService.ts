@@ -20,32 +20,33 @@ import {
 } from '@bible/core/egw-db';
 
 // ============================================================================
-// Service Interface
+// Service Definition
 // ============================================================================
 
-export interface EGWService {
-  readonly getBooks: () => Effect.Effect<
-    readonly EGWBookInfo[],
-    ParagraphDatabaseError
-  >;
-  readonly getBook: (
-    bookCode: string,
-  ) => Effect.Effect<Option.Option<EGWBookInfo>, ParagraphDatabaseError>;
-  readonly getPage: (
-    bookCode: string,
-    page: number,
-  ) => Effect.Effect<EGWPageResponse | null, ParagraphDatabaseError>;
-  readonly getChapters: (
-    bookCode: string,
-  ) => Effect.Effect<readonly EGWChapter[], ParagraphDatabaseError>;
-  readonly search: (
-    query: string,
-    limit: number,
-    bookCode?: string,
-  ) => Effect.Effect<readonly EGWSearchResult[], ParagraphDatabaseError>;
-}
-
-export const EGWService = Context.GenericTag<EGWService>('EGWService');
+export class EGWService extends Context.Tag('@bible/web/EGWService')<
+  EGWService,
+  {
+    readonly getBooks: () => Effect.Effect<
+      readonly EGWBookInfo[],
+      ParagraphDatabaseError
+    >;
+    readonly getBook: (
+      bookCode: string,
+    ) => Effect.Effect<Option.Option<EGWBookInfo>, ParagraphDatabaseError>;
+    readonly getPage: (
+      bookCode: string,
+      page: number,
+    ) => Effect.Effect<EGWPageResponse | null, ParagraphDatabaseError>;
+    readonly getChapters: (
+      bookCode: string,
+    ) => Effect.Effect<readonly EGWChapter[], ParagraphDatabaseError>;
+    readonly search: (
+      query: string,
+      limit: number,
+      bookCode?: string,
+    ) => Effect.Effect<readonly EGWSearchResult[], ParagraphDatabaseError>;
+  }
+>() {}
 
 // ============================================================================
 // Helper Functions

@@ -2,16 +2,11 @@ import { createAnthropic } from '@ai-sdk/anthropic';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { createOpenAI } from '@ai-sdk/openai';
 import { HelpDoc, Options, ValidationError } from '@effect/cli';
-import { type LanguageModel } from 'ai';
 import { Context, Effect, Option } from 'effect';
 
-import { matchEnum } from '../lib/general';
+import { Provider, type ProviderConfig } from '@bible/core/ai';
 
-export enum Provider {
-  Gemini = 'gemini',
-  OpenAI = 'openai',
-  Anthropic = 'anthropic',
-}
+import { matchEnum } from '../lib/general';
 
 // Read API keys directly from process.env to support compile-time embedding
 // Using explicit process.env.KEY syntax allows Bun's define option to replace at build time
@@ -30,7 +25,7 @@ const getEnvKey = (key: 'GEMINI_API_KEY' | 'OPENAI_API_KEY' | 'ANTHROPIC_API_KEY
 
 const extractModel = Effect.fn('extractModel')(
   function* (modelOption: Option.Option<string>) {
-    const google = getEnvKey('GEMINI_API_KEY').pipe(
+    const google: Option.Option<ProviderConfig> = getEnvKey('GEMINI_API_KEY').pipe(
       Option.map((googleKey) => {
         const modelProvider = createGoogleGenerativeAI({ apiKey: googleKey });
         return {
@@ -43,7 +38,7 @@ const extractModel = Effect.fn('extractModel')(
       }),
     );
 
-    const openai = getEnvKey('OPENAI_API_KEY').pipe(
+    const openai: Option.Option<ProviderConfig> = getEnvKey('OPENAI_API_KEY').pipe(
       Option.map((openaiKey) => {
         const modelProvider = createOpenAI({ apiKey: openaiKey });
         return {
@@ -56,7 +51,7 @@ const extractModel = Effect.fn('extractModel')(
       }),
     );
 
-    const anthropic = getEnvKey('ANTHROPIC_API_KEY').pipe(
+    const anthropic: Option.Option<ProviderConfig> = getEnvKey('ANTHROPIC_API_KEY').pipe(
       Option.map((anthropicKey) => {
         const modelProvider = createAnthropic({ apiKey: anthropicKey });
         return {
@@ -68,12 +63,10 @@ const extractModel = Effect.fn('extractModel')(
         };
       }),
     );
+
     const models = Option.reduceCompact(
       [google, openai, anthropic],
-      [] as {
-        models: { high: LanguageModel; low: LanguageModel };
-        provider: Provider;
-      }[],
+      [] as ProviderConfig[],
       (acc, model) => [...acc, model],
     );
 

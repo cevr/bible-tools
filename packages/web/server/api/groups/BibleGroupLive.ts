@@ -8,9 +8,20 @@ import {
   BibleToolsApi,
   BookNotFoundError,
   ChapterNotFoundError,
+  DatabaseError,
 } from '@bible/api';
 
 import { BibleService } from '../../services/BibleService.js';
+
+/**
+ * Map database errors to API DatabaseError
+ */
+const mapDbError = Effect.mapError(
+  (e: unknown) =>
+    new DatabaseError({
+      message: e instanceof Error ? e.message : 'Database error',
+    }),
+);
 
 export const BibleGroupLive = HttpApiBuilder.group(
   BibleToolsApi,
@@ -20,11 +31,11 @@ export const BibleGroupLive = HttpApiBuilder.group(
       const bible = yield* BibleService;
 
       return handlers
-        .handle('books', () => bible.getBooks())
+        .handle('books', () => bible.getBooks().pipe(mapDbError))
         .handle('chapter', ({ path: { book, chapter } }) =>
           Effect.gen(function* () {
             // Get book info
-            const bookInfo = yield* bible.getBook(book);
+            const bookInfo = yield* bible.getBook(book).pipe(mapDbError);
             if (Option.isNone(bookInfo)) {
               return yield* Effect.fail(
                 new BookNotFoundError({
@@ -35,7 +46,7 @@ export const BibleGroupLive = HttpApiBuilder.group(
             }
 
             // Get chapter verses
-            const verses = yield* bible.getChapter(book, chapter);
+            const verses = yield* bible.getChapter(book, chapter).pipe(mapDbError);
             if (verses.length === 0) {
               return yield* Effect.fail(
                 new ChapterNotFoundError({
@@ -60,7 +71,7 @@ export const BibleGroupLive = HttpApiBuilder.group(
           }),
         )
         .handle('search', ({ urlParams: { q, limit } }) =>
-          bible.search(q, limit),
+          bible.search(q, limit).pipe(mapDbError),
         );
     }),
 );

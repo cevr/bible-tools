@@ -82,13 +82,23 @@ export class BookNotFoundError extends S.TaggedError<BookNotFoundError>()(
   HttpApiSchema.annotations({ status: 404 }),
 ) {}
 
+export class DatabaseError extends S.TaggedError<DatabaseError>()(
+  'DatabaseError',
+  {
+    message: S.String,
+  },
+  HttpApiSchema.annotations({ status: 500 }),
+) {}
+
 // ============================================================================
 // Group Definition
 // ============================================================================
 
 export const BibleGroup = HttpApiGroup.make('Bible')
   .add(
-    HttpApiEndpoint.get('books', '/books').addSuccess(S.Array(BookSchema)),
+    HttpApiEndpoint.get('books', '/books')
+      .addSuccess(S.Array(BookSchema))
+      .addError(DatabaseError),
   )
   .add(
     HttpApiEndpoint.get('chapter', '/:book/:chapter')
@@ -100,7 +110,8 @@ export const BibleGroup = HttpApiGroup.make('Bible')
       )
       .addSuccess(ChapterResponseSchema)
       .addError(ChapterNotFoundError)
-      .addError(BookNotFoundError),
+      .addError(BookNotFoundError)
+      .addError(DatabaseError),
   )
   .add(
     HttpApiEndpoint.get('search', '/search')
@@ -112,6 +123,7 @@ export const BibleGroup = HttpApiGroup.make('Bible')
           ),
         }),
       )
-      .addSuccess(S.Array(SearchResultSchema)),
+      .addSuccess(S.Array(SearchResultSchema))
+      .addError(DatabaseError),
   )
   .prefix('/bible');

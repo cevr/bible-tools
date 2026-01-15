@@ -1,9 +1,10 @@
 import type { Component, ParentProps } from 'solid-js';
 import { useParams, useNavigate } from '@solidjs/router';
-import { createSignal, createEffect, createMemo, For, Show } from 'solid-js';
+import { createSignal, createEffect, createMemo, For, Show, onMount } from 'solid-js';
 import { useKeyboardAction } from '@/providers/keyboard-provider';
 import { useOverlay } from '@/providers/overlay-provider';
 import { useBible, useChapter } from '@/providers/bible-provider';
+import { useAppState } from '@/providers/state-provider';
 import { BOOK_ALIASES, type Verse } from '@/data/bible';
 
 /**
@@ -15,6 +16,7 @@ const BibleRoute: Component<ParentProps> = () => {
   const navigate = useNavigate();
   const bible = useBible();
   const { openOverlay } = useOverlay();
+  const appState = useAppState();
 
   // Parse book name to number
   const bookNumber = createMemo(() => {
@@ -61,13 +63,32 @@ const BibleRoute: Component<ParentProps> = () => {
     }
   });
 
-  // Redirect to default book/chapter if needed
-  createEffect(() => {
+  // Redirect to saved position or default book/chapter if needed
+  onMount(() => {
     if (!params.book) {
-      navigate('/bible/genesis/1', { replace: true });
+      // Restore saved position
+      const savedPos = appState.getPosition();
+      const savedBook = bible.getBook(savedPos.book);
+      if (savedBook) {
+        const bookSlug = savedBook.name.toLowerCase().replace(/\s+/g, '-');
+        navigate(`/bible/${bookSlug}/${savedPos.chapter}/${savedPos.verse}`, { replace: true });
+      } else {
+        navigate('/bible/genesis/1', { replace: true });
+      }
     } else if (!params.chapter) {
       const bookName = book()?.name.toLowerCase().replace(/\s+/g, '-') ?? 'genesis';
       navigate(`/bible/${bookName}/1`, { replace: true });
+    }
+  });
+
+  // Save position when it changes
+  createEffect(() => {
+    const b = bookNumber();
+    const c = chapterNumber();
+    const v = selectedVerse();
+    if (b && c && v) {
+      appState.setPosition({ book: b, chapter: c, verse: v });
+      appState.addToHistory({ book: b, chapter: c, verse: v });
     }
   });
 

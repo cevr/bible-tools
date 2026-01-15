@@ -7,10 +7,21 @@ import { Effect, Option } from 'effect';
 import {
   BibleToolsApi,
   EGWBookNotFoundError,
+  EGWDatabaseError,
   EGWPageNotFoundError,
 } from '@bible/api';
 
 import { EGWService } from '../../services/EGWService.js';
+
+/**
+ * Map database errors to API EGWDatabaseError
+ */
+const mapDbError = Effect.mapError(
+  (e: unknown) =>
+    new EGWDatabaseError({
+      message: e instanceof Error ? e.message : 'Database error',
+    }),
+);
 
 export const EGWGroupLive = HttpApiBuilder.group(
   BibleToolsApi,
@@ -21,12 +32,12 @@ export const EGWGroupLive = HttpApiBuilder.group(
 
       return handlers
         .handle('books', () =>
-          egw.getBooks().pipe(Effect.orDie),
+          egw.getBooks().pipe(mapDbError),
         )
         .handle('page', ({ path: { bookCode, page } }) =>
           Effect.gen(function* () {
             // Check if book exists
-            const bookOpt = yield* egw.getBook(bookCode).pipe(Effect.orDie);
+            const bookOpt = yield* egw.getBook(bookCode).pipe(mapDbError);
             if (Option.isNone(bookOpt)) {
               return yield* Effect.fail(
                 new EGWBookNotFoundError({
@@ -37,7 +48,7 @@ export const EGWGroupLive = HttpApiBuilder.group(
             }
 
             // Get page
-            const pageData = yield* egw.getPage(bookCode, page).pipe(Effect.orDie);
+            const pageData = yield* egw.getPage(bookCode, page).pipe(mapDbError);
             if (!pageData) {
               return yield* Effect.fail(
                 new EGWPageNotFoundError({
@@ -54,7 +65,7 @@ export const EGWGroupLive = HttpApiBuilder.group(
         .handle('chapters', ({ path: { bookCode } }) =>
           Effect.gen(function* () {
             // Check if book exists
-            const bookOpt = yield* egw.getBook(bookCode).pipe(Effect.orDie);
+            const bookOpt = yield* egw.getBook(bookCode).pipe(mapDbError);
             if (Option.isNone(bookOpt)) {
               return yield* Effect.fail(
                 new EGWBookNotFoundError({
@@ -64,11 +75,11 @@ export const EGWGroupLive = HttpApiBuilder.group(
               );
             }
 
-            return yield* egw.getChapters(bookCode).pipe(Effect.orDie);
+            return yield* egw.getChapters(bookCode).pipe(mapDbError);
           }),
         )
         .handle('search', ({ urlParams: { q, limit, bookCode } }) =>
-          egw.search(q, limit, bookCode).pipe(Effect.orDie),
+          egw.search(q, limit, bookCode).pipe(mapDbError),
         );
     }),
 );

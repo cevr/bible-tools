@@ -90,15 +90,23 @@ export class EGWPageNotFoundError extends S.TaggedError<EGWPageNotFoundError>()(
   HttpApiSchema.annotations({ status: 404 }),
 ) {}
 
+export class EGWDatabaseError extends S.TaggedError<EGWDatabaseError>()(
+  'EGWDatabaseError',
+  {
+    message: S.String,
+  },
+  HttpApiSchema.annotations({ status: 500 }),
+) {}
+
 // ============================================================================
 // Group Definition
 // ============================================================================
 
 export const EGWGroup = HttpApiGroup.make('EGW')
   .add(
-    HttpApiEndpoint.get('books', '/books').addSuccess(
-      S.Array(EGWBookInfoSchema),
-    ),
+    HttpApiEndpoint.get('books', '/books')
+      .addSuccess(S.Array(EGWBookInfoSchema))
+      .addError(EGWDatabaseError),
   )
   .add(
     HttpApiEndpoint.get('page', '/:bookCode/:page')
@@ -110,7 +118,8 @@ export const EGWGroup = HttpApiGroup.make('EGW')
       )
       .addSuccess(EGWPageResponseSchema)
       .addError(EGWBookNotFoundError)
-      .addError(EGWPageNotFoundError),
+      .addError(EGWPageNotFoundError)
+      .addError(EGWDatabaseError),
   )
   .add(
     HttpApiEndpoint.get('chapters', '/:bookCode/chapters')
@@ -120,7 +129,8 @@ export const EGWGroup = HttpApiGroup.make('EGW')
         }),
       )
       .addSuccess(S.Array(EGWChapterSchema))
-      .addError(EGWBookNotFoundError),
+      .addError(EGWBookNotFoundError)
+      .addError(EGWDatabaseError),
   )
   .add(
     HttpApiEndpoint.get('search', '/search')
@@ -133,6 +143,7 @@ export const EGWGroup = HttpApiGroup.make('EGW')
           ),
         }),
       )
-      .addSuccess(S.Array(EGWSearchResultSchema)),
+      .addSuccess(S.Array(EGWSearchResultSchema))
+      .addError(EGWDatabaseError),
   )
   .prefix('/egw');

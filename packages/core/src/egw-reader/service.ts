@@ -287,34 +287,6 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
           ),
         );
 
-      /**
-       * Get EGW paragraphs that cite a specific Bible verse
-       */
-      const getCommentaryForVerse = (
-        bibleBook: number,
-        bibleChapter: number,
-        bibleVerse?: number,
-      ): Effect.Effect<
-        readonly (EGWParagraph & { bookCode: string; bookTitle: string })[],
-        ReaderError
-      > =>
-        db.getParagraphsByBibleRef(bibleBook, bibleChapter, bibleVerse).pipe(
-          Effect.map((results) =>
-            results.map((r) => ({
-              ...schemaParagraphToEGWParagraph(r),
-              bookCode: r.bookCode,
-              bookTitle: r.bookTitle,
-            })),
-          ),
-          Effect.mapError(
-            (e) =>
-              new EGWReaderError({
-                message: 'Failed to get commentary',
-                cause: e,
-              }),
-          ),
-        );
-
       return {
         getBooks,
         getBookByCode,
@@ -325,7 +297,6 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
         getChapterHeadings,
         findParagraphByPosition,
         searchParagraphs,
-        getCommentaryForVerse,
       } as const;
     }),
     dependencies: [EGWParagraphDatabase.Default],

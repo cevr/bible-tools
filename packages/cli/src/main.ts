@@ -86,17 +86,21 @@ async function loadTuiDependencies() {
 
 // Lazy load AI SDKs
 async function loadAiSdks() {
-  const [{ createGoogleGenerativeAI }, { createOpenAI }, { createAnthropic }] =
-    await Promise.all([
-      import('@ai-sdk/google'),
-      import('@ai-sdk/openai'),
-      import('@ai-sdk/anthropic'),
-    ]);
+  const [
+    { createGoogleGenerativeAI },
+    { createOpenAI },
+    { createAnthropic },
+  ] = await Promise.all([
+    import('@ai-sdk/google'),
+    import('@ai-sdk/openai'),
+    import('@ai-sdk/anthropic'),
+  ]);
 
   return { createGoogleGenerativeAI, createOpenAI, createAnthropic };
 }
 
 // Create model service from environment variables
+// Tries providers in order: Gemini, OpenAI, Anthropic
 function tryCreateModelService(
   aiSdk: Awaited<ReturnType<typeof loadAiSdks>>,
 ): ModelService | null {

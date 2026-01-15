@@ -8,34 +8,40 @@
 import { Context, Effect, Layer, Option } from 'effect';
 
 import type { Book, ChapterReference, SearchResult, Verse } from '@bible/api';
-import { BibleDatabase } from '@bible/core/bible-db';
+import {
+  BibleDatabase,
+  type BibleDatabaseError,
+} from '@bible/core/bible-db';
 
 // ============================================================================
-// Service Interface
+// Service Definition
 // ============================================================================
 
-export interface BibleService {
-  readonly getBooks: () => Effect.Effect<readonly Book[]>;
-  readonly getBook: (bookNum: number) => Effect.Effect<Option.Option<Book>>;
-  readonly getChapter: (
-    bookNum: number,
-    chapterNum: number,
-  ) => Effect.Effect<readonly Verse[]>;
-  readonly getPrevChapter: (
-    bookNum: number,
-    chapterNum: number,
-  ) => Effect.Effect<ChapterReference | null>;
-  readonly getNextChapter: (
-    bookNum: number,
-    chapterNum: number,
-  ) => Effect.Effect<ChapterReference | null>;
-  readonly search: (
-    query: string,
-    limit: number,
-  ) => Effect.Effect<readonly SearchResult[]>;
-}
-
-export const BibleService = Context.GenericTag<BibleService>('BibleService');
+export class BibleService extends Context.Tag('@bible/web/BibleService')<
+  BibleService,
+  {
+    readonly getBooks: () => Effect.Effect<readonly Book[], BibleDatabaseError>;
+    readonly getBook: (
+      bookNum: number,
+    ) => Effect.Effect<Option.Option<Book>, BibleDatabaseError>;
+    readonly getChapter: (
+      bookNum: number,
+      chapterNum: number,
+    ) => Effect.Effect<readonly Verse[], BibleDatabaseError>;
+    readonly getPrevChapter: (
+      bookNum: number,
+      chapterNum: number,
+    ) => Effect.Effect<ChapterReference | null>;
+    readonly getNextChapter: (
+      bookNum: number,
+      chapterNum: number,
+    ) => Effect.Effect<ChapterReference | null>;
+    readonly search: (
+      query: string,
+      limit: number,
+    ) => Effect.Effect<readonly SearchResult[], BibleDatabaseError>;
+  }
+>() {}
 
 // ============================================================================
 // Service Implementation
@@ -46,7 +52,7 @@ export const BibleServiceLive = Layer.effect(
   Effect.gen(function* () {
     const db = yield* BibleDatabase;
 
-    // Build book map for navigation lookups
+    // Build book map for navigation lookups (initialization - fail fast on error)
     const booksResult = yield* db.getBooks().pipe(Effect.orDie);
     const bookMap = new Map<number, (typeof booksResult)[number]>();
     for (const book of booksResult) {
@@ -64,7 +70,6 @@ export const BibleServiceLive = Layer.effect(
               testament: b.testament,
             })),
           ),
-          Effect.orDie,
         ),
 
       getBook: (bookNum) =>
@@ -77,7 +82,6 @@ export const BibleServiceLive = Layer.effect(
               testament: b.testament,
             })),
           ),
-          Effect.orDie,
         ),
 
       getChapter: (bookNum, chapterNum) =>
@@ -90,7 +94,6 @@ export const BibleServiceLive = Layer.effect(
               text: v.text,
             })),
           ),
-          Effect.orDie,
         ),
 
       getPrevChapter: (bookNum, chapterNum) =>
@@ -138,8 +141,7 @@ export const BibleServiceLive = Layer.effect(
               };
             }),
           ),
-          Effect.orDie,
         ),
-    } satisfies BibleService;
+    };
   }),
 );
