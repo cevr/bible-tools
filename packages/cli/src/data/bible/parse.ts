@@ -1,7 +1,12 @@
 import { matchSorter } from 'match-sorter';
 
-import type { BibleDataService } from './data.js';
-import { BOOK_ALIASES, BOOKS, type Reference, type Verse } from './types.js';
+import {
+  BOOK_ALIASES,
+  BOOKS,
+  type BibleDataSyncService,
+  type Reference,
+  type Verse,
+} from './types.js';
 
 // Parsed query result - discriminated union
 export type ParsedQuery =
@@ -89,7 +94,7 @@ function resolveBook(bookPart: string): number | undefined {
 // Parse a verse query into a structured result
 export function parseVerseQuery(
   query: string,
-  data: BibleDataService,
+  data: BibleDataSyncService,
 ): ParsedQuery {
   const input = query.trim();
   if (!input) return ParsedQuery.search(query);
@@ -174,7 +179,7 @@ export function parseVerseQuery(
 // Get verses for a parsed query
 export function getVersesForQuery(
   query: ParsedQuery,
-  data: BibleDataService,
+  data: BibleDataSyncService,
 ): Verse[] {
   switch (query._tag) {
     case 'single': {

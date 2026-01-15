@@ -8,8 +8,7 @@
 import { useKeyboard } from '@opentui/solid';
 import { createMemo, For, Show } from 'solid-js';
 
-import type { WordWithStrongs } from '../../../data/study/study-db.js';
-import { useStudyData } from '../../context/study-data.js';
+import { useStudyData, type WordWithStrongs } from '../../context/study-data.js';
 import { useTheme } from '../../context/theme.js';
 
 interface StrongsPopupProps {

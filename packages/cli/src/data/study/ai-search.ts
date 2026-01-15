@@ -2,9 +2,9 @@ import { generateText } from 'ai';
 import { Context, Data, Effect, Layer } from 'effect';
 
 import { Model } from '../../services/model.js';
-import { BibleData, type BibleDataService } from '../bible/data.js';
+import { BibleData } from '../bible/data.js';
 import { BibleState, type BibleStateService } from '../bible/state.js';
-import type { Reference } from '../bible/types.js';
+import type { BibleDataSyncService, Reference } from '../bible/types.js';
 
 // Tagged error for AI search failures
 export class AISearchError extends Data.TaggedError('AISearchError')<{
@@ -43,7 +43,7 @@ Rules:
 // Parse AI response to references
 function parseAIResponse(
   response: string,
-  dataService: BibleDataService,
+  dataService: BibleDataSyncService,
 ): Reference[] {
   try {
     // Extract JSON from response (in case there's extra text)
@@ -76,7 +76,7 @@ function parseAIResponse(
 // Create the AI search service
 function createAISearchService(
   modelService: { models: { low: any } },
-  dataService: BibleDataService,
+  dataService: BibleDataSyncService,
   stateService: BibleStateService,
 ): AISearchService {
   return {
@@ -125,7 +125,18 @@ export const AISearchLive = Layer.effect(
     const data = yield* BibleData;
     const state = yield* BibleState;
     // Model service from Effect gives us { high, low } directly
-    return createAISearchService({ models: model }, data, state);
+    // Create sync wrapper for AI search (only needs parseReference which is sync)
+    const syncData: BibleDataSyncService = {
+      getBooks: () => Effect.runSync(data.getBooks()),
+      getBook: (n) => Effect.runSync(data.getBook(n)),
+      getChapter: (b, c) => Effect.runSync(data.getChapter(b, c)),
+      getVerse: (b, c, v) => Effect.runSync(data.getVerse(b, c, v)),
+      searchVerses: (q, l) => Effect.runSync(data.searchVerses(q, l)),
+      parseReference: data.parseReference,
+      getNextChapter: data.getNextChapter,
+      getPrevChapter: data.getPrevChapter,
+    };
+    return createAISearchService({ models: model }, syncData, state);
   }),
 );
 
@@ -133,7 +144,7 @@ export const AISearchLive = Layer.effect(
 export async function searchBibleByTopic(
   query: string,
   modelService: { models: { low: any } },
-  dataService: BibleDataService,
+  dataService: BibleDataSyncService,
   stateService: BibleStateService,
 ): Promise<Reference[]> {
   // Check cache first

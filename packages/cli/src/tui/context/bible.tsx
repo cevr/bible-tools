@@ -1,11 +1,18 @@
 import { Effect } from 'effect';
-import { createContext, useContext, type ParentProps } from 'solid-js';
+import {
+  createContext,
+  createResource,
+  useContext,
+  type ParentProps,
+  type Resource,
+} from 'solid-js';
 
 import {
   BibleData,
   BibleDataLive,
   type BibleDataService,
 } from '../../data/bible/data.js';
+import type { BibleDataSyncService } from '../../data/bible/types.js';
 import {
   BibleState,
   BibleStateLayer,
@@ -14,39 +21,91 @@ import {
 
 // Combined services for the Bible viewer
 interface BibleContextValue {
-  data: BibleDataService;
+  ready: Resource<boolean>;
+  isLoading: () => boolean;
+  error: () => Error | undefined;
+  data: BibleDataSyncService;
   state: BibleStateService;
 }
 
 const BibleContext = createContext<BibleContextValue>();
 
-// Create services synchronously
-function createServices(): BibleContextValue {
-  // Access the service implementations directly from the layers
-  const dataService = Effect.runSync(Effect.provide(BibleData, BibleDataLive));
+// Cache services at module level
+let cachedDataService: BibleDataService | null = null;
+let cachedStateService: BibleStateService | null = null;
 
-  const stateService = Effect.runSync(
-    Effect.provide(BibleState, BibleStateLayer),
-  );
+async function initBibleServices(): Promise<{
+  data: BibleDataService;
+  state: BibleStateService;
+}> {
+  if (!cachedDataService) {
+    // BibleDataLive includes BibleDatabase.Default which is scoped
+    cachedDataService = await Effect.runPromise(
+      Effect.scoped(Effect.provide(BibleData, BibleDataLive)),
+    );
+  }
+
+  if (!cachedStateService) {
+    cachedStateService = Effect.runSync(
+      Effect.provide(BibleState, BibleStateLayer),
+    );
+  }
 
   return {
-    data: dataService,
-    state: stateService,
+    data: cachedDataService,
+    state: cachedStateService,
   };
 }
 
-// Cache services at module level
-let cachedServices: BibleContextValue | null = null;
-
-function getServices(): BibleContextValue {
-  if (!cachedServices) {
-    cachedServices = createServices();
-  }
-  return cachedServices;
-}
-
 export function BibleProvider(props: ParentProps) {
-  const value = getServices();
+  // Use createResource to load services in background
+  const [services] = createResource(initBibleServices);
+
+  // Create sync wrapper that runs Effects synchronously
+  // This works because the database connection is already open after init
+  const createSyncWrapper = (): BibleDataSyncService => {
+    const svc = services();
+    if (!svc) {
+      // Return stub that returns empty results while loading
+      return {
+        getBooks: () => [],
+        getBook: () => undefined,
+        getChapter: () => [],
+        getVerse: () => undefined,
+        searchVerses: () => [],
+        parseReference: () => undefined,
+        getNextChapter: () => undefined,
+        getPrevChapter: () => undefined,
+      };
+    }
+
+    return {
+      getBooks: () => Effect.runSync(svc.data.getBooks()),
+      getBook: (n) => Effect.runSync(svc.data.getBook(n)),
+      getChapter: (b, c) => Effect.runSync(svc.data.getChapter(b, c)),
+      getVerse: (b, c, v) => Effect.runSync(svc.data.getVerse(b, c, v)),
+      searchVerses: (q, l) => Effect.runSync(svc.data.searchVerses(q, l)),
+      parseReference: (ref) => svc.data.parseReference(ref),
+      getNextChapter: (b, c) => svc.data.getNextChapter(b, c),
+      getPrevChapter: (b, c) => svc.data.getPrevChapter(b, c),
+    };
+  };
+
+  const value: BibleContextValue = {
+    ready: services as Resource<boolean>,
+    isLoading: () => services.loading,
+    error: () => services.error as Error | undefined,
+    get data() {
+      return createSyncWrapper();
+    },
+    get state() {
+      const svc = services();
+      if (!svc) {
+        throw new Error('Bible services not initialized');
+      }
+      return svc.state;
+    },
+  };
 
   return (
     <BibleContext.Provider value={value}>
@@ -64,7 +123,7 @@ export function useBible(): BibleContextValue {
 }
 
 // Convenience hooks
-export function useBibleData(): BibleDataService {
+export function useBibleData(): BibleDataSyncService {
   return useBible().data;
 }
 

@@ -1,7 +1,15 @@
-import { Context, Effect, Layer } from 'effect';
+/**
+ * Bible Data Service
+ *
+ * Provides access to Bible data via the unified BibleDatabase from @bible/core.
+ * Uses SQLite for fast lookups and FTS5 for full-text search.
+ */
+import { BunContext } from '@effect/platform-bun';
+import { Context, Effect, Layer, Option } from 'effect';
 import { matchSorter } from 'match-sorter';
 
-import kjvData from '../../../assets/kjv.json';
+import { BibleDatabase } from '@bible/core/bible-db';
+
 import {
   BOOK_ALIASES,
   BOOKS,
@@ -11,39 +19,20 @@ import {
   type Verse,
 } from './types.js';
 
-// Pre-process verses into a map by book and chapter for fast lookup
-type ChapterMap = Map<number, Map<number, Verse[]>>;
-
-function buildChapterMap(verses: Verse[]): ChapterMap {
-  const map: ChapterMap = new Map();
-  for (const verse of verses) {
-    if (!map.has(verse.book)) {
-      map.set(verse.book, new Map());
-    }
-    const bookMap = map.get(verse.book)!;
-    if (!bookMap.has(verse.chapter)) {
-      bookMap.set(verse.chapter, []);
-    }
-    bookMap.get(verse.chapter)!.push(verse);
-  }
-  return map;
-}
-
-// Build the chapter map at module load time
-const allVerses = kjvData.verses as Verse[];
-const chapterMap = buildChapterMap(allVerses);
-
 // Service interface
 export interface BibleDataService {
-  readonly getBooks: () => Book[];
-  readonly getBook: (bookNumber: number) => Book | undefined;
-  readonly getChapter: (book: number, chapter: number) => Verse[];
+  readonly getBooks: () => Effect.Effect<Book[]>;
+  readonly getBook: (bookNumber: number) => Effect.Effect<Book | undefined>;
+  readonly getChapter: (book: number, chapter: number) => Effect.Effect<Verse[]>;
   readonly getVerse: (
     book: number,
     chapter: number,
     verse: number,
-  ) => Verse | undefined;
-  readonly searchVerses: (query: string, limit?: number) => SearchResult[];
+  ) => Effect.Effect<Verse | undefined>;
+  readonly searchVerses: (
+    query: string,
+    limit?: number,
+  ) => Effect.Effect<SearchResult[]>;
   readonly parseReference: (ref: string) => Reference | undefined;
   readonly getNextChapter: (
     book: number,
@@ -61,55 +50,121 @@ export class BibleData extends Context.Tag('BibleData')<
   BibleDataService
 >() {}
 
-// Create the service implementation
-function createBibleDataService(): BibleDataService {
+// Create the service implementation backed by BibleDatabase
+const makeBibleDataService = Effect.gen(function* () {
+  const db = yield* BibleDatabase;
+
+  // Pre-load books for navigation helpers (sync operations)
+  const booksResult = yield* db.getBooks().pipe(Effect.orDie);
+  const bookMap = new Map<number, Book>();
+  for (const b of booksResult) {
+    bookMap.set(b.number, {
+      number: b.number,
+      name: b.name,
+      chapters: b.chapters,
+      testament: b.testament,
+    });
+  }
+
   return {
-    getBooks(): Book[] {
-      return BOOKS;
-    },
+    getBooks: () =>
+      db.getBooks().pipe(
+        Effect.map((books) =>
+          books.map((b) => ({
+            number: b.number,
+            name: b.name,
+            chapters: b.chapters,
+            testament: b.testament,
+          })),
+        ),
+        Effect.orDie,
+      ),
 
-    getBook(bookNumber: number): Book | undefined {
-      return BOOKS.find((b) => b.number === bookNumber);
-    },
+    getBook: (bookNumber: number) =>
+      db.getBook(bookNumber).pipe(
+        Effect.map((opt) =>
+          Option.match(opt, {
+            onNone: () => undefined,
+            onSome: (b) => ({
+              number: b.number,
+              name: b.name,
+              chapters: b.chapters,
+              testament: b.testament,
+            }),
+          }),
+        ),
+        Effect.orDie,
+      ),
 
-    getChapter(book: number, chapter: number): Verse[] {
-      return chapterMap.get(book)?.get(chapter) ?? [];
-    },
+    getChapter: (book: number, chapter: number) =>
+      db.getChapter(book, chapter).pipe(
+        Effect.map((verses) =>
+          verses.map((v) => {
+            const bookInfo = bookMap.get(v.book);
+            return {
+              book_name: bookInfo?.name ?? `Book ${v.book}`,
+              book: v.book,
+              chapter: v.chapter,
+              verse: v.verse,
+              text: v.text,
+            };
+          }),
+        ),
+        Effect.orDie,
+      ),
 
-    getVerse(book: number, chapter: number, verse: number): Verse | undefined {
-      const verses = this.getChapter(book, chapter);
-      return verses.find((v) => v.verse === verse);
-    },
+    getVerse: (book: number, chapter: number, verse: number) =>
+      db.getVerse(book, chapter, verse).pipe(
+        Effect.map((opt) =>
+          Option.match(opt, {
+            onNone: () => undefined,
+            onSome: (v) => {
+              const bookInfo = bookMap.get(v.book);
+              return {
+                book_name: bookInfo?.name ?? `Book ${v.book}`,
+                book: v.book,
+                chapter: v.chapter,
+                verse: v.verse,
+                text: v.text,
+              };
+            },
+          }),
+        ),
+        Effect.orDie,
+      ),
 
-    searchVerses(query: string, limit = 50): SearchResult[] {
-      // Full-text search using match-sorter
-      const results = matchSorter(allVerses, query, {
-        keys: ['text'],
-        threshold: matchSorter.rankings.CONTAINS,
-      });
+    searchVerses: (query: string, limit = 50) =>
+      db.searchVerses(query, limit).pipe(
+        Effect.map((results) =>
+          results.map((r, index) => {
+            const bookInfo = bookMap.get(r.book);
+            return {
+              verse: {
+                book_name: bookInfo?.name ?? `Book ${r.book}`,
+                book: r.book,
+                chapter: r.chapter,
+                verse: r.verse,
+                text: r.text,
+              },
+              reference: {
+                book: r.book,
+                chapter: r.chapter,
+                verse: r.verse,
+              },
+              matchScore: 1 - index / Math.max(results.length, 1),
+            };
+          }),
+        ),
+        Effect.orDie,
+      ),
 
-      return results.slice(0, limit).map((verse, index) => ({
-        verse,
-        reference: {
-          book: verse.book,
-          chapter: verse.chapter,
-          verse: verse.verse,
-        },
-        matchScore: 1 - index / results.length,
-      }));
-    },
-
+    // Synchronous helpers that don't need database access
     parseReference(ref: string): Reference | undefined {
-      // Normalize input
       const input = ref.trim().toLowerCase();
       if (!input) return undefined;
 
-      // Try to match patterns like:
-      // "john 3:16", "john 3", "john3:16", "1 cor 13:1", "1cor13:1"
-      // First, try to extract chapter and verse numbers from the end
       const chapterVerseMatch = input.match(/(\d+)(?::(\d+))?$/);
       if (!chapterVerseMatch) {
-        // No chapter/verse found, try to match book name only
         const bookNum = BOOK_ALIASES[input];
         if (bookNum) {
           return { book: bookNum, chapter: 1, verse: 1 };
@@ -124,36 +179,28 @@ function createBibleDataService(): BibleDataService {
       const chapter = parseInt(chapterStr, 10);
       const verse = verseStr ? parseInt(verseStr, 10) : undefined;
 
-      // Extract book name (everything before the chapter/verse)
       let bookPart = input.slice(0, chapterVerseMatch.index).trim();
 
-      // Handle cases like "1cor" where there's no space
       if (!bookPart) {
-        // Try to extract book name that might be stuck to the number
         const numberedBookMatch = input.match(/^(\d+\s*[a-z]+)/);
-        if (numberedBookMatch && numberedBookMatch[1]) {
+        if (numberedBookMatch?.[1]) {
           bookPart = numberedBookMatch[1];
         }
       }
 
       if (!bookPart) return undefined;
 
-      // Look up the book number
       let bookNum: number | undefined = BOOK_ALIASES[bookPart];
 
-      // If not found, try some variations
       if (!bookNum) {
-        // Try removing spaces
         const noSpaces = bookPart.replace(/\s+/g, '');
         bookNum = BOOK_ALIASES[noSpaces];
       }
       if (!bookNum) {
-        // Try adding space after number (e.g., "1cor" -> "1 cor")
         const withSpace = bookPart.replace(/^(\d)([a-z])/, '$1 $2');
         bookNum = BOOK_ALIASES[withSpace];
       }
       if (!bookNum) {
-        // Try fuzzy match on book names
         const bookMatches = matchSorter(BOOKS, bookPart, {
           keys: ['name'],
           threshold: matchSorter.rankings.WORD_STARTS_WITH,
@@ -166,66 +213,54 @@ function createBibleDataService(): BibleDataService {
 
       if (!bookNum) return undefined;
 
-      // Validate chapter exists
-      const book = this.getBook(bookNum);
+      const book = bookMap.get(bookNum);
       if (!book || chapter < 1 || chapter > book.chapters) {
         return undefined;
-      }
-
-      // Validate verse exists if specified
-      if (verse !== undefined) {
-        const verses = this.getChapter(bookNum, chapter);
-        if (verse < 1 || verse > verses.length) {
-          return { book: bookNum, chapter, verse: undefined };
-        }
       }
 
       return { book: bookNum, chapter, verse };
     },
 
     getNextChapter(book: number, chapter: number): Reference | undefined {
-      const currentBook = this.getBook(book);
+      const currentBook = bookMap.get(book);
       if (!currentBook) return undefined;
 
       if (chapter < currentBook.chapters) {
-        // Next chapter in same book
         return { book, chapter: chapter + 1 };
       }
 
-      // Move to next book
-      const nextBook = this.getBook(book + 1);
+      const nextBook = bookMap.get(book + 1);
       if (nextBook) {
         return { book: book + 1, chapter: 1 };
       }
 
-      // Wrap to Genesis
       return { book: 1, chapter: 1 };
     },
 
     getPrevChapter(book: number, chapter: number): Reference | undefined {
       if (chapter > 1) {
-        // Previous chapter in same book
         return { book, chapter: chapter - 1 };
       }
 
-      // Move to previous book
-      const prevBook = this.getBook(book - 1);
+      const prevBook = bookMap.get(book - 1);
       if (prevBook) {
         return { book: book - 1, chapter: prevBook.chapters };
       }
 
-      // Wrap to Revelation
       const lastBook = BOOKS[BOOKS.length - 1];
       if (lastBook) {
         return { book: lastBook.number, chapter: lastBook.chapters };
       }
       return undefined;
     },
-  };
-}
+  } satisfies BibleDataService;
+});
 
-// Live layer
-export const BibleDataLive = Layer.succeed(BibleData, createBibleDataService());
+// Live layer - requires BibleDatabase
+export const BibleDataLive = Layer.effect(BibleData, makeBibleDataService).pipe(
+  Layer.provide(BibleDatabase.Default),
+  Layer.provide(BunContext.layer),
+);
 
 // Helper to access the service in effects
 export const bibleData = Effect.map(BibleData, (service) => service);

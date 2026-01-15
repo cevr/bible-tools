@@ -1,16 +1,15 @@
+import { BunContext } from '@effect/platform-bun';
 import { Args, Command } from '@effect/cli';
-import { Console, Effect } from 'effect';
+import { BibleDatabase, type ConcordanceResult, type StrongsEntry } from '@bible/core/bible-db';
+import { Console, Effect, Layer, Option } from 'effect';
 
 import { BibleData, BibleDataLive } from '~/src/data/bible/data';
 import { getVersesForQuery, parseVerseQuery } from '~/src/data/bible/parse';
-import { getBook, type Verse } from '~/src/data/bible/types';
 import {
-  getStrongsEntry,
-  searchByStrongs,
-  searchStrongsByDefinition,
-  type ConcordanceResult,
-  type StrongsEntry,
-} from '~/src/data/study/study-db';
+  getBook,
+  type BibleDataSyncService,
+  type Verse,
+} from '~/src/data/bible/types';
 
 // Variadic args to capture "john 3:16" or "john" "3:16" etc.
 const query = Args.text({ name: 'query' }).pipe(Args.repeated);
@@ -64,16 +63,28 @@ export const verse = Command.make('verse', { query }, (args) =>
       return;
     }
 
-    const parsed = parseVerseQuery(queryStr, data);
+    // Create sync wrapper for parse functions
+    const syncData: BibleDataSyncService = {
+      getBooks: () => Effect.runSync(data.getBooks()),
+      getBook: (n) => Effect.runSync(data.getBook(n)),
+      getChapter: (b, c) => Effect.runSync(data.getChapter(b, c)),
+      getVerse: (b, c, v) => Effect.runSync(data.getVerse(b, c, v)),
+      searchVerses: (q, l) => Effect.runSync(data.searchVerses(q, l)),
+      parseReference: data.parseReference,
+      getNextChapter: data.getNextChapter,
+      getPrevChapter: data.getPrevChapter,
+    };
+
+    const parsed = parseVerseQuery(queryStr, syncData);
 
     if (parsed._tag === 'search') {
       // Text search
-      const results = data.searchVerses(parsed.query, 10);
+      const results = syncData.searchVerses(parsed.query, 10);
       const verses = results.map((r) => r.verse);
       yield* printSearchResults(parsed.query, verses);
     } else {
       // Reference-based query
-      const verses = getVersesForQuery(parsed, data);
+      const verses = getVersesForQuery(parsed, syncData);
       yield* printVerses(verses);
     }
   }).pipe(Effect.provide(BibleDataLive)),
@@ -89,18 +100,25 @@ export function isStrongsNumber(query: string): boolean {
 // Format a Strong's entry for output
 function formatStrongsEntry(entry: StrongsEntry): string {
   const prefix = entry.number.startsWith('H') ? 'Hebrew' : 'Greek';
-  return `${entry.number} - ${entry.lemma} (${entry.xlit}) [${prefix}]\n${entry.def}`;
+  const xlit = entry.transliteration ?? entry.lemma;
+  return `${entry.number} - ${entry.lemma} (${xlit}) [${prefix}]\n${entry.definition}`;
 }
 
 // Format concordance results with verse reference
 function formatConcordanceResult(result: ConcordanceResult): string {
   const book = getBook(result.book);
   const bookName = book?.name ?? String(result.book);
-  return `${bookName} ${result.chapter}:${result.verse} - "${result.word}"`;
+  return `${bookName} ${result.chapter}:${result.verse} - "${result.word ?? ''}"`;
 }
+
+// Layer for concordance command
+const ConcordanceLive = BibleDatabase.Default.pipe(
+  Layer.provideMerge(BunContext.layer),
+);
 
 export const concordance = Command.make('concordance', { query }, (args) =>
   Effect.gen(function* () {
+    const db = yield* BibleDatabase;
     const queryStr = args.query.join(' ').trim();
 
     if (!queryStr) {
@@ -124,17 +142,18 @@ export const concordance = Command.make('concordance', { query }, (args) =>
     if (isStrongsNumber(queryStr)) {
       // Direct Strong's lookup
       const number = queryStr.toUpperCase();
-      const entry = getStrongsEntry(number);
+      const entryOpt = yield* db.getStrongsEntry(number);
 
-      if (!entry) {
+      if (Option.isNone(entryOpt)) {
         yield* Console.log(`Strong's number ${number} not found.`);
         return;
       }
 
+      const entry = entryOpt.value;
       yield* Console.log(formatStrongsEntry(entry));
       yield* Console.log('');
 
-      const results = searchByStrongs(number);
+      const results = yield* db.getVersesWithStrongs(number);
       if (results.length === 0) {
         yield* Console.log('No verses found with this word.');
       } else {
@@ -153,7 +172,7 @@ export const concordance = Command.make('concordance', { query }, (args) =>
       }
     } else {
       // Definition search
-      const entries = searchStrongsByDefinition(queryStr);
+      const entries = yield* db.searchStrongs(queryStr);
 
       if (entries.length === 0) {
         yield* Console.log(`No Strong's entries found matching "${queryStr}".`);
@@ -169,7 +188,7 @@ export const concordance = Command.make('concordance', { query }, (args) =>
         yield* Console.log('');
       }
     }
-  }),
+  }).pipe(Effect.scoped, Effect.provide(ConcordanceLive)),
 );
 
 export const bible = Command.make('bible').pipe(

@@ -15,7 +15,8 @@
     "./bible-reader": "./src/bible-reader/index.ts",
     "./gemini": "./src/gemini/index.ts",
     "./sabbath-school": "./src/sabbath-school/index.ts",
-    "./sync": "./src/sync/index.ts"
+    "./sync": "./src/sync/index.ts",
+    "./bible-db": "./src/bible-db/index.ts"
   },
   "scripts": {
     "prepare": "effect-language-service patch",
@@ -24,7 +25,9 @@
     "test:watch": "bun test --watch",
     "sync:egw": "bun run src/sync/cli.ts",
     "sync:egw:status": "bun run src/sync/cli.ts --status",
-    "sync:egw:failed": "bun run src/sync/cli.ts --failed"
+    "sync:egw:failed": "bun run src/sync/cli.ts --failed",
+    "sync:bible": "bun run src/sync/bible-sync.ts",
+    "sync:bible:force": "bun run src/sync/bible-sync.ts --force"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.9",

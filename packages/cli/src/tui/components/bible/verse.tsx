@@ -2,9 +2,9 @@ import { createMemo, For, Show } from 'solid-js';
 
 import type { Verse as VerseType } from '../../../data/bible/types.js';
 import type {
-  MarginNote,
+  MarginNoteCompat as MarginNote,
   WordWithStrongs,
-} from '../../../data/study/study-db.js';
+} from '../../context/study-data.js';
 import { useTheme } from '../../context/theme.js';
 
 interface VerseProps {

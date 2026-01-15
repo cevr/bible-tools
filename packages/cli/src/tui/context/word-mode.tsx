@@ -15,8 +15,7 @@ import {
 } from 'solid-js';
 
 import type { Reference } from '../../data/bible/types.js';
-import type { WordWithStrongs } from '../../data/study/study-db.js';
-import { useStudyData } from './study-data.js';
+import { useStudyData, type WordWithStrongs } from './study-data.js';
 
 // State type using discriminated union pattern
 export type WordModeState =

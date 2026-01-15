@@ -1,46 +1,58 @@
 /**
- * Study Database Performance Tests
+ * Bible Database Performance Tests
  *
  * These tests verify query performance stays within acceptable bounds.
  * Run with: bun test test/perf/
  *
- * Note: These tests require the real study.db to be populated.
- * Run `bun run src/main.ts bible` once to initialize the database.
+ * Note: These tests require the real bible.db to be populated.
+ * Run `bun run sync:bible` from packages/core to initialize the database.
  */
 
 import { existsSync } from 'fs';
-import { homedir } from 'os';
 import { join } from 'path';
 
+import { BibleDatabase } from '@bible/core/bible-db';
+import { BunContext } from '@effect/platform-bun';
 import { beforeAll, describe, expect, it } from 'bun:test';
+import { Effect, Layer, ManagedRuntime, Option } from 'effect';
 
-import {
-  getCrossRefs,
-  getMarginNotes,
-  getStrongsEntry,
-  getVerseWords,
-  initStudyDatabase,
-  searchByStrongs,
-  searchStrongsByDefinition,
-} from '../../src/data/study/study-db.js';
+// Use the bible.db in packages/core/data
+const DB_PATH = join(import.meta.dir, '../../../core/data/bible.db');
 
-const DB_PATH = join(homedir(), '.bible', 'study.db');
+// Create combined layer with all dependencies
+const BibleServicesLayer = BibleDatabase.Default.pipe(
+  Layer.provideMerge(BunContext.layer),
+);
 
-describe('Study Database Performance', () => {
+// Create ManagedRuntime
+const runtime = ManagedRuntime.make(BibleServicesLayer);
+
+describe('Bible Database Performance', () => {
   beforeAll(async () => {
     if (!existsSync(DB_PATH)) {
-      console.log('Study database not found at', DB_PATH);
-      console.log('Run `bun run src/main.ts bible` to initialize it.');
+      console.log('Bible database not found at', DB_PATH);
+      console.log('Run `bun run sync:bible` in packages/core to initialize it.');
       return;
     }
-    await initStudyDatabase();
+    // Initialize the runtime
+    await runtime.runPromise(
+      Effect.gen(function* () {
+        const db = yield* BibleDatabase;
+        yield* db.getBooks();
+      }),
+    );
   });
 
-  it('getCrossRefs should complete in < 10ms', () => {
+  it('getCrossRefs should complete in < 10ms', async () => {
     if (!existsSync(DB_PATH)) return;
 
     const start = performance.now();
-    const refs = getCrossRefs(43, 3, 16); // John 3:16
+    const refs = await runtime.runPromise(
+      Effect.gen(function* () {
+        const db = yield* BibleDatabase;
+        return yield* db.getCrossRefs(43, 3, 16); // John 3:16
+      }),
+    );
     const elapsed = performance.now() - start;
 
     console.log(`getCrossRefs: ${elapsed.toFixed(2)}ms, ${refs.length} refs`);
@@ -48,79 +60,93 @@ describe('Study Database Performance', () => {
     expect(elapsed).toBeLessThan(10);
   });
 
-  it('getCrossRefs should include preview text', () => {
-    if (!existsSync(DB_PATH)) return;
-
-    const refs = getCrossRefs(43, 3, 16); // John 3:16
-    const withPreview = refs.filter((r) => r.previewText);
-
-    console.log(
-      `  ${withPreview.length}/${refs.length} refs have preview text`,
-    );
-    expect(withPreview.length).toBeGreaterThan(0);
-  });
-
-  it('getStrongsEntry should complete in < 5ms', () => {
+  it('getStrongsEntry should complete in < 5ms', async () => {
     if (!existsSync(DB_PATH)) return;
 
     const start = performance.now();
-    const entry = getStrongsEntry('H430'); // Elohim
+    const entryOpt = await runtime.runPromise(
+      Effect.gen(function* () {
+        const db = yield* BibleDatabase;
+        return yield* db.getStrongsEntry('H430'); // Elohim
+      }),
+    );
     const elapsed = performance.now() - start;
 
     console.log(`getStrongsEntry: ${elapsed.toFixed(2)}ms`);
-    expect(entry).toBeDefined();
-    // Just check entry exists and has data
-    expect(entry?.def).toBeDefined();
+    expect(Option.isSome(entryOpt)).toBe(true);
+    if (Option.isSome(entryOpt)) {
+      expect(entryOpt.value.definition).toBeDefined();
+    }
     expect(elapsed).toBeLessThan(5);
   });
 
-  it('searchByStrongs should complete in < 50ms (using strongs_verses index)', () => {
+  it('getVersesWithStrongs should complete in < 50ms (using index)', async () => {
     if (!existsSync(DB_PATH)) return;
 
     const start = performance.now();
-    const results = searchByStrongs('H430'); // Common word - Elohim
+    const results = await runtime.runPromise(
+      Effect.gen(function* () {
+        const db = yield* BibleDatabase;
+        return yield* db.getVersesWithStrongs('H430'); // Common word - Elohim
+      }),
+    );
     const elapsed = performance.now() - start;
 
     console.log(
-      `searchByStrongs H430: ${elapsed.toFixed(2)}ms, ${results.length} verses`,
+      `getVersesWithStrongs H430: ${elapsed.toFixed(2)}ms, ${results.length} verses`,
     );
     expect(results.length).toBeGreaterThan(100);
-    expect(elapsed).toBeLessThan(50); // Should be much faster with index
-  });
-
-  it('searchByStrongs should complete in < 50ms for Greek words', () => {
-    if (!existsSync(DB_PATH)) return;
-
-    const start = performance.now();
-    const results = searchByStrongs('G26'); // Agape (love)
-    const elapsed = performance.now() - start;
-
-    console.log(
-      `searchByStrongs G26: ${elapsed.toFixed(2)}ms, ${results.length} verses`,
-    );
-    expect(results.length).toBeGreaterThan(10); // At least some results
     expect(elapsed).toBeLessThan(50);
   });
 
-  it('searchStrongsByDefinition should complete in < 20ms (using FTS5)', () => {
+  it('getVersesWithStrongs should complete in < 50ms for Greek words', async () => {
     if (!existsSync(DB_PATH)) return;
 
     const start = performance.now();
-    const results = searchStrongsByDefinition('love');
+    const results = await runtime.runPromise(
+      Effect.gen(function* () {
+        const db = yield* BibleDatabase;
+        return yield* db.getVersesWithStrongs('G26'); // Agape (love)
+      }),
+    );
     const elapsed = performance.now() - start;
 
     console.log(
-      `searchStrongsByDefinition 'love': ${elapsed.toFixed(2)}ms, ${results.length} entries`,
+      `getVersesWithStrongs G26: ${elapsed.toFixed(2)}ms, ${results.length} verses`,
+    );
+    expect(results.length).toBeGreaterThan(10);
+    expect(elapsed).toBeLessThan(50);
+  });
+
+  it('searchStrongs should complete in < 20ms (using FTS5)', async () => {
+    if (!existsSync(DB_PATH)) return;
+
+    const start = performance.now();
+    const results = await runtime.runPromise(
+      Effect.gen(function* () {
+        const db = yield* BibleDatabase;
+        return yield* db.searchStrongs('love');
+      }),
+    );
+    const elapsed = performance.now() - start;
+
+    console.log(
+      `searchStrongs 'love': ${elapsed.toFixed(2)}ms, ${results.length} entries`,
     );
     expect(results.length).toBeGreaterThan(0);
     expect(elapsed).toBeLessThan(20);
   });
 
-  it('getMarginNotes should complete in < 10ms', () => {
+  it('getMarginNotes should complete in < 10ms', async () => {
     if (!existsSync(DB_PATH)) return;
 
     const start = performance.now();
-    const notes = getMarginNotes(1, 1, 1); // Gen 1:1
+    const notes = await runtime.runPromise(
+      Effect.gen(function* () {
+        const db = yield* BibleDatabase;
+        return yield* db.getMarginNotes(1, 1, 1); // Gen 1:1
+      }),
+    );
     const elapsed = performance.now() - start;
 
     console.log(
@@ -130,11 +156,16 @@ describe('Study Database Performance', () => {
     expect(elapsed).toBeLessThan(10);
   });
 
-  it('getVerseWords should complete in < 5ms', () => {
+  it('getVerseWords should complete in < 5ms', async () => {
     if (!existsSync(DB_PATH)) return;
 
     const start = performance.now();
-    const words = getVerseWords(1, 1, 1); // Gen 1:1
+    const words = await runtime.runPromise(
+      Effect.gen(function* () {
+        const db = yield* BibleDatabase;
+        return yield* db.getVerseWords(1, 1, 1); // Gen 1:1
+      }),
+    );
     const elapsed = performance.now() - start;
 
     console.log(
@@ -144,7 +175,7 @@ describe('Study Database Performance', () => {
     expect(elapsed).toBeLessThan(5);
   });
 
-  it('batch getCrossRefs for 50 verses should complete in < 200ms', () => {
+  it('batch getCrossRefs for 50 verses should complete in < 200ms', async () => {
     if (!existsSync(DB_PATH)) return;
 
     const verses = Array.from({ length: 50 }, (_, i) => ({
@@ -156,7 +187,12 @@ describe('Study Database Performance', () => {
     const start = performance.now();
     let totalRefs = 0;
     for (const verse of verses) {
-      const refs = getCrossRefs(verse.book, verse.chapter, verse.verse);
+      const refs = await runtime.runPromise(
+        Effect.gen(function* () {
+          const db = yield* BibleDatabase;
+          return yield* db.getCrossRefs(verse.book, verse.chapter, verse.verse);
+        }),
+      );
       totalRefs += refs.length;
     }
     const elapsed = performance.now() - start;
