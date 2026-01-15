@@ -31,7 +31,7 @@ describe('readings commands', () => {
           files: {
             files: {
               '/path/to/chapter-1-study.md': '# Original Study\n\nContent...',
-              [`${process.cwd()}/core/readings/prompts/generate-study.md`]:
+              [`${process.cwd()}/src/prompts/readings/generate-study.md`]:
                 'Study prompt...',
             },
           },
@@ -70,7 +70,7 @@ describe('readings commands', () => {
           files: {
             files: {
               '/path/to/chapter-1-slides.md': '# Original Slides\n\nContent...',
-              [`${process.cwd()}/core/readings/prompts/generate-slides.md`]:
+              [`${process.cwd()}/src/prompts/readings/generate-slides.md`]:
                 'Slides prompt...',
             },
           },
@@ -109,7 +109,7 @@ describe('readings commands', () => {
             files: {
               '/path/to/chapter-1-speaker-notes.md':
                 '# Original Notes\n\nContent...',
-              [`${process.cwd()}/core/readings/prompts/generate-speaker-notes.md`]:
+              [`${process.cwd()}/src/prompts/readings/generate-speaker-notes.md`]:
                 'Speaker notes prompt...',
             },
           },
@@ -145,7 +145,7 @@ describe('readings commands', () => {
         {
           files: {
             files: {
-              [`${process.cwd()}/core/readings/prompts/generate-study.md`]:
+              [`${process.cwd()}/src/prompts/readings/generate-study.md`]:
                 'Prompt...',
             },
           },

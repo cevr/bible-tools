@@ -22,7 +22,7 @@ describe('messages commands', () => {
         {
           files: {
             files: {
-              [`${process.cwd()}/core/messages/prompts/generate.md`]:
+              [`${process.cwd()}/src/prompts/messages/generate.md`]:
                 'You are a Bible study assistant...',
             },
             directories: [],
@@ -56,7 +56,7 @@ describe('messages commands', () => {
         {
           files: {
             files: {
-              [`${process.cwd()}/core/messages/prompts/generate.md`]:
+              [`${process.cwd()}/src/prompts/messages/generate.md`]:
                 'System prompt...',
             },
             directories: [],
@@ -96,7 +96,7 @@ describe('messages commands', () => {
             files: {
               '/path/to/message.md':
                 '# Original Message\n\nOriginal content...',
-              [`${process.cwd()}/core/messages/prompts/generate.md`]:
+              [`${process.cwd()}/src/prompts/messages/generate.md`]:
                 'System prompt...',
             },
           },
@@ -136,7 +136,7 @@ describe('messages commands', () => {
         {
           files: {
             files: {
-              [`${process.cwd()}/core/messages/prompts/generate.md`]:
+              [`${process.cwd()}/src/prompts/messages/generate.md`]:
                 'System prompt...',
             },
           },

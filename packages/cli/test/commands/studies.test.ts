@@ -21,7 +21,7 @@ describe('studies commands', () => {
         {
           files: {
             files: {
-              [`${process.cwd()}/core/studies/prompts/generate.md`]:
+              [`${process.cwd()}/src/prompts/studies/generate.md`]:
                 'You are a Bible study generator...',
             },
             directories: [],
@@ -56,7 +56,7 @@ describe('studies commands', () => {
         {
           files: {
             files: {
-              [`${process.cwd()}/core/studies/prompts/generate.md`]:
+              [`${process.cwd()}/src/prompts/studies/generate.md`]:
                 'System prompt...',
             },
             directories: [],
@@ -95,7 +95,7 @@ describe('studies commands', () => {
           files: {
             files: {
               '/path/to/study.md': '# Original Study\n\nOriginal content...',
-              [`${process.cwd()}/core/studies/prompts/generate.md`]:
+              [`${process.cwd()}/src/prompts/studies/generate.md`]:
                 'System prompt...',
             },
           },
@@ -135,7 +135,7 @@ describe('studies commands', () => {
         {
           files: {
             files: {
-              [`${process.cwd()}/core/studies/prompts/generate.md`]:
+              [`${process.cwd()}/src/prompts/studies/generate.md`]:
                 'System prompt...',
             },
           },
