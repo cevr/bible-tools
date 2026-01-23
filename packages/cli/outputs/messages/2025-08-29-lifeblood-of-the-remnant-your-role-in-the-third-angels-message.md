@@ -1,3 +1,6 @@
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p650'
+---
 # Lifeblood of the Remnant: Your Role in the Third Angel's Message
 
 **Tags:** #evangelism #threeangels #lastdays #mission #greatcontroversy #SDA

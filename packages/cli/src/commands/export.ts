@@ -2,6 +2,11 @@ import { Command, Options } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
 import { Effect } from 'effect';
 
+import {
+  parseFrontmatter,
+  updateFrontmatter,
+  type MessageFrontmatter,
+} from '~/src/lib/frontmatter';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
 
 const files = Options.file('files').pipe(
@@ -10,7 +15,12 @@ const files = Options.file('files').pipe(
   Options.withDescription('Files to export to Apple Notes'),
 );
 
-export const exportOutput = Command.make('export', { files }, (args) =>
+const folder = Options.text('folder').pipe(
+  Options.withDescription('Target folder in Apple Notes'),
+  Options.optional,
+);
+
+export const exportOutput = Command.make('export', { files, folder }, (args) =>
   Effect.gen(function* () {
     const fileSystem = yield* FileSystem.FileSystem;
 
@@ -21,20 +31,36 @@ export const exportOutput = Command.make('export', { files }, (args) =>
       return;
     }
 
+    const targetFolder = args.folder._tag === 'Some' ? args.folder.value : undefined;
+
     yield* Effect.log(
-      `Exporting ${args.files.length} file(s) to Apple Notes...`,
+      `Exporting ${args.files.length} file(s) to Apple Notes${targetFolder ? ` (folder: ${targetFolder})` : ''}...`,
     );
 
-    const contents = yield* Effect.forEach(args.files, (filePath) =>
-      fileSystem.readFile(filePath),
-    );
+    for (const filePath of args.files) {
+      const rawContent = yield* fileSystem
+        .readFile(filePath)
+        .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    yield* Effect.forEach(contents, (content, index) =>
-      Effect.gen(function* () {
-        yield* makeAppleNoteFromMarkdown(new TextDecoder().decode(content));
-        yield* Effect.log(`  Exported: ${args.files[index]}`);
-      }),
-    );
+      // Parse to get content without frontmatter for export
+      const { content } = parseFrontmatter<MessageFrontmatter>(rawContent);
+
+      // Export and get the note ID
+      const { noteId } = yield* makeAppleNoteFromMarkdown(content, {
+        folder: targetFolder,
+      });
+
+      // Update the file with the note ID in frontmatter
+      const updatedContent = updateFrontmatter(rawContent, {
+        apple_note_id: noteId,
+      });
+      yield* fileSystem.writeFile(
+        filePath,
+        new TextEncoder().encode(updatedContent),
+      );
+
+      yield* Effect.log(`  Exported: ${filePath} → ${noteId}`);
+    }
 
     yield* Effect.log(
       `Successfully exported ${args.files.length} file(s) to Apple Notes.`,

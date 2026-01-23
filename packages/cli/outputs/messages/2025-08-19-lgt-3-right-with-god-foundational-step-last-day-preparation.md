@@ -1,3 +1,6 @@
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p626'
+---
 # Right With God: The Foundational Step in Last-Day Preparation
 
 **Tags:** #justification #grace #faith #salvation #gospel #lastdays

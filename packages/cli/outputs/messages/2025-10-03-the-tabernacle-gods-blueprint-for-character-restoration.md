@@ -1,3 +1,6 @@
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p685'
+---
 # The Tabernacle: Wisdom, Pattern, and Glory
 
 **Tags:** #sanctuary #restoration #trueeducation #obedience #holiness #lastdays

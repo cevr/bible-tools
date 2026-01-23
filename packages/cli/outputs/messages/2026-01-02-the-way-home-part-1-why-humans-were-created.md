@@ -1,4 +1,4 @@
-# Why Humans Were Created: The Case for Our Necessity
+# The Way Home Part 1: Why Humans Were Created — The Case for Our Necessity
 
 ## Topic Tags
 

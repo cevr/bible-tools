@@ -1,3 +1,6 @@
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p629'
+---
 # God's Final Call: Unpacking the Three Angels' Messages
 
 **Tags:** #revelation #prophecy #lastdays #SDA #greatcontroversy #sanctuary

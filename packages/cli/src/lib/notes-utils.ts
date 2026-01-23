@@ -1,5 +1,5 @@
 import Bun from 'bun';
-import { Data, Effect } from 'effect';
+import { Data, Effect, Option } from 'effect';
 
 // --- Helper Function: Execute AppleScript Command ---
 const execCommand = Effect.fn('execCommand')(function* (command: string[]) {
@@ -295,4 +295,75 @@ export const createNote = Effect.fn('createNote')(function* (
 
   yield* Effect.log(`✅ Note created with ID: ${newNoteId}.`);
   return newNoteId;
+});
+
+/**
+ * Finds a note by its exact title in a specific folder.
+ * @param title The exact title to search for.
+ * @param folder The folder name to search in.
+ * @returns An Effect that resolves with Option<NoteListItem>.
+ */
+export const findNoteByTitle = Effect.fn('findNoteByTitle')(function* (
+  title: string,
+  folder: string,
+) {
+  yield* Effect.log(`🔍 Searching for note "${title}" in folder "${folder}"...`);
+
+  // Escape quotes in title for AppleScript
+  const escapedTitle = title.replace(/"/g, '\\"');
+  const escapedFolder = folder.replace(/"/g, '\\"');
+
+  const script = `
+    tell application "Notes"
+      try
+        set targetFolder to missing value
+        repeat with f in folders
+          if name of f is "${escapedFolder}" then
+            set targetFolder to f
+            exit repeat
+          end if
+        end repeat
+        if targetFolder is missing value then
+          return "NOT_FOUND"
+        end if
+        set matchingNotes to (notes of targetFolder whose name is "${escapedTitle}")
+        if (count of matchingNotes) is 0 then
+          return "NOT_FOUND"
+        end if
+        set theNote to item 1 of matchingNotes
+        return id of theNote
+      on error errMsg number errNum
+        return "Error: " & errMsg & " (" & errNum & ")"
+      end try
+    end tell
+  `;
+
+  const result = yield* execCommand(['osascript', '-e', script]).pipe(
+    Effect.catchAll(
+      (error) =>
+        new NoteOperationError({
+          message: `Failed to execute findNoteByTitle AppleScript for "${title}"`,
+          cause: error,
+          script,
+        }),
+    ),
+  );
+
+  if (result === 'NOT_FOUND') {
+    yield* Effect.log(`📭 Note "${title}" not found in folder "${folder}".`);
+    return Option.none<string>();
+  }
+
+  if (result.startsWith('Error:')) {
+    return yield* Effect.fail(
+      new NoteOperationError({
+        message: `Failed to find note "${title}": ${result}`,
+        script,
+        scriptOutput: result,
+      }),
+    );
+  }
+
+  yield* Effect.log(`✅ Found note "${title}" with ID: ${result}`);
+  return Option.some(result);
 });

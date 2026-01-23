@@ -1,4 +1,4 @@
-# The Sanctuary: Heaven's Bridge to Earth
+# The Way Home Part 2: The Sanctuary — Heaven's Bridge to Earth
 
 ## Topic Tags
 

@@ -1,3 +1,6 @@
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p752'
+---
 # The Way Home Part 4: Prophecy Exposes the Counterfeit — Daniel's Timeline Unlocked
 
 ## Topic Tags
@@ -39,23 +42,27 @@
 
 ## Time Allocation Guide
 
-- Introduction — 5 min
-- Section 1: Daniel 7 — The Little Horn Identified — 10 min
-- Section 2: Daniel 8 — The Daily and the 2300 Days — 8 min
-- Section 3: Daniel 9 — The 70 Weeks Unlock the Timeline — 10 min
-- Final Peak Section + CTA — 5 min
+- Introduction — 4 min
+- Section 1: Daniel 7 — The Little Horn Identified — 6 min
+- Section 2: Daniel 8 — The Daily and the 2300 Days — 7 min
+- Section 3: Daniel 9 — The 70 Weeks Unlock the Timeline — 8 min
+- Final Peak Section + CTA — 8 min
 
-**Total: ~38 min**
+**Total: ~33 min**
 
 ---
 
-## Introduction — Why Prophecy Matters (5 min)
+## Introduction — Why Prophecy Matters (4 min)
 
 - Review: Part 3 exposed the counterfeit system
-  - Paganism merged with Christianity
-  - Every sanctuary truth systematically replaced
-- But how do we _prove_ which system is the counterfeit?
-  - Not by our feelings or preferences
+  - Four empires contributed four counterfeits:
+    - Babylon → counterfeit priesthood
+    - Persia → counterfeit atonement (works)
+    - Greece → counterfeit resurrection (immortal soul)
+    - Rome → counterfeit Sabbath (Sunday)
+  - Chart showed: every sanctuary truth systematically replaced
+- But how do we _prove_ which system inherited all these counterfeits?
+  - Not by feelings or preferences
   - Not by popularity or tradition
   - By the **sure word of prophecy**
 - 2 Peter 1:19 — "We have also a more sure word of prophecy; whereunto ye do
@@ -63,39 +70,28 @@
   - Prophecy is more sure than even eyewitness testimony
   - [WB]: Write "PROPHECY = God's PROOF" (2 Pet 1:19)
 - God gave Daniel detailed prophecies identifying:
-  - The exact power that would corrupt sanctuary truth
+  - The exact power that would consolidate all counterfeits
   - The exact time period of its dominance
   - The exact date when truth would be restored
 - [RQ]: If God foretold these events centuries in advance, can we trust the
   identification? (Isa 46:9–10)
-- [EB]: Isaiah 46:9–10 — "I am God... declaring the end from the beginning"
 
 ---
 
-## Section 1 — Daniel 7: The Little Horn Identified (10 min)
+## Section 1 — Daniel 7: The Little Horn Identified (6 min)
 
-### The Four Beasts: World Empires in Sequence
+### Same Empires, New Perspective
 
-- Daniel 7:2–3 — Daniel sees vision of four beasts from the sea
-  - Sea = peoples, multitudes, nations (Rev 17:15)
-  - Beasts = kingdoms (Dan 7:17, 23)
-- Daniel 7:4 — **Lion** with eagle's wings
-  - Babylon (605–539 BC)
-  - Wings plucked, made to stand as a man
-  - [WB]: Draw lion — "BABYLON" (Dan 7:4)
-- Daniel 7:5 — **Bear** raised on one side, three ribs in mouth
-  - Medo-Persia (539–331 BC)
-  - Persia dominant over Media
-  - [WB]: Add bear — "MEDO-PERSIA" (Dan 7:5)
-- Daniel 7:6 — **Leopard** with four wings, four heads
-  - Greece (331–168 BC)
-  - Alexander's rapid conquest; divided among four generals
-  - [WB]: Add leopard — "GREECE" (Dan 7:6)
-- Daniel 7:7 — **Dreadful beast** with iron teeth, ten horns
-  - Rome (168 BC onward)
-  - Crushing, devouring power
-  - Ten horns = divisions of Western Rome (Europe)
-  - [WB]: Add beast with 10 horns — "ROME → 10 DIVISIONS" (Dan 7:7)
+- Daniel 7:2–7 — Four beasts from the sea
+  - Same sequence as Daniel 2's image: Babylon, Medo-Persia, Greece, Rome
+  - Part 3 covered this — now focus on what's NEW
+  - Difference: Daniel 2 showed political succession; Daniel 7 reveals their
+    beastly character and religious significance
+  - [WB]: Quick list — Lion/Babylon → Bear/Persia → Leopard/Greece → Beast/Rome
+    (Dan 7:4–7)
+- Daniel 7:7 — Fourth beast has ten horns
+  - Ten divisions of Western Rome (Europe)
+  - Stage is set for the real subject: the little horn
 
 ### The Little Horn Rises
 
@@ -116,7 +112,6 @@
 
 - Blasphemy: Claims divine prerogatives
 - Claims to forgive sins (Mark 2:7 — only God can)
-- Claims titles belonging to God
 - [WB]: Mark #1 — "Speaks against God (blasphemy)" (Dan 7:25)
 
 **2. "Wear out the saints of the most High"**
@@ -130,46 +125,42 @@
 
 - Claims authority to alter God's law
 - Changed the Sabbath from seventh to first day
-- Removed second commandment (images), split tenth
 - [WB]: Mark #3 — "Changes times and laws" (Dan 7:25)
 
-- [RQ]: What power arose in Europe, claimed divine authority, persecuted
-  dissenters, and claims to have changed God's law? (Dan 7:25)
-- [EB]: 2 Thessalonians 2:3–4 — Man of sin "sitteth in the temple of God,
-  shewing himself that he is God"
+### Consolidating All Four Counterfeits
+
+- [WB]: Return to Part 3's counterfeit chart and connect to little horn
+- The little horn didn't _invent_ the counterfeits — it _inherited and merged_
+  them:
+  - From Babylon: counterfeit priesthood (human mediators)
+  - From Persia: counterfeit atonement (works-based salvation)
+  - From Greece: counterfeit resurrection (immortal soul doctrine)
+  - From Rome: counterfeit Sabbath (Sunday sacredness)
+- Daniel 2:41–43 — The feet of iron and clay
+  - Iron = Rome's political structure
+  - Clay = religious elements mixing with state power
+  - Little horn = this merger in institutional form
+- [RQ]: Which of these four counterfeits have you unknowingly accepted? (Dan 7:25)
+- [EGW]: "Paganism, while appearing to be vanquished, became the conqueror. Her
+  spirit controlled the church." (GC 49.2)
 
 ### The 1260 Years: Prophetic Time Fulfilled
 
 - Daniel 7:25 — "They shall be given into his hand until a time and times and
   the dividing of time"
-  - Time = 1 year; times = 2 years; dividing of time = ½ year
-  - Total: 3½ prophetic years
-  - 3½ × 360 days = 1260 prophetic days
-- Day-year principle in prophecy:
-  - [EB]: Ezekiel 4:6 — "I have appointed thee each day for a year"
-  - [EB]: Numbers 14:34 — "Each day for a year"
+  - 3½ prophetic years = 1260 prophetic days
+  - Day-year principle: Ezekiel 4:6; Numbers 14:34
   - 1260 prophetic days = **1260 literal years**
   - [WB]: Write calculation: 3½ × 360 = 1260 days = 1260 YEARS (Ezek 4:6)
-
-- **Starting point: 538 AD**
-  - Decree of Emperor Justinian (533 AD) recognized pope as head of churches
-  - Enforced in 538 AD when Ostrogoths defeated
-  - Papal supremacy begins
-
-- **Ending point: 1798 AD**
-  - 538 + 1260 = 1798
-  - Napoleon's general Berthier takes Pope Pius VI captive
-  - Papal power receives "deadly wound" (Rev 13:3)
+- **538 AD to 1798 AD**
+  - 538: Papal supremacy begins
+  - 1798: Pope taken captive; deadly wound
   - [WB]: Timeline — 538 AD → 1260 years → 1798 AD (Dan 7:25)
-
-- [EGW]: "For more than a thousand years, such persecutions as the world had
-  never before known were brought against Christ's followers." (GC 54.1)
-- [RQ]: If prophecy specified 1260 years of persecution, and history confirms
-  exactly this period, can we doubt the identification? (Dan 7:25)
+- [EB]: Revelation 13:3 — "His deadly wound was healed"
 
 ---
 
-## Section 2 — Daniel 8: The Daily and the 2300 Days (8 min)
+## Section 2 — Daniel 8: The Daily and the 2300 Days (7 min)
 
 ### The Sanctuary Under Attack
 
@@ -183,21 +174,14 @@
 - Daniel 8:11 — "By him the daily was taken away, and the place of his sanctuary
   was cast down"
   - "Daily" = Hebrew _tamid_ = continual, perpetual
-  - Refers to the continual ministry in the sanctuary
-  - [WB]: Write "DAILY (tamid) = CONTINUAL ministry" (Dan 8:11)
-- What is Christ's continual ministry?
-  - Hebrews 7:25 — "He ever liveth to make intercession"
-  - Christ continually intercedes in the heavenly sanctuary
-  - [WB]: "DAILY = Christ's continual intercession in heaven" (Heb 7:25)
+  - Refers to Christ's continual ministry in heaven
+  - [WB]: Write "DAILY (tamid) = Christ's CONTINUAL intercession" (Heb 7:25)
 - How was the daily "taken away"?
   - Not literally removed from heaven
   - _Obscured from view_ by the counterfeit system
-  - Earthly priesthood and mass replaced heavenly intercession in people's
-    understanding
+  - Earthly priesthood replaced heavenly intercession in people's understanding
 - [RQ]: When a system claims priests can re-sacrifice Christ daily, what happens
   to His once-for-all heavenly ministry? (Dan 8:11; Heb 10:12)
-- [EGW]: "The daily represents the continual mediation of Christ in the
-  sanctuary above." (4SP 259)
 - [WB]: Draw heavenly sanctuary with cloud labeled "COUNTERFEIT SYSTEM"
   obscuring it (Dan 8:11–12)
 
@@ -205,7 +189,7 @@
 
 - Daniel 8:12 — "It cast down the truth to the ground; and it practised, and
   prospered"
-  - Sanctuary truth displaced by counterfeits
+  - All four counterfeits = sanctuary truth displaced
   - System prospered despite opposing God
   - But prophecy promised restoration
 
@@ -213,25 +197,19 @@
 
 - Daniel 8:14 — "Unto two thousand and three hundred days; then shall the
   sanctuary be cleansed"
-  - Longest time prophecy in Scripture
   - 2300 prophetic days = 2300 literal years
   - [WB]: Draw long line labeled "2300 DAYS (YEARS)" (Dan 8:14)
 - "Sanctuary cleansed" — truth restored, judgment begins
-- Daniel didn't understand; fainted at the vision (Dan 8:27)
+- Daniel didn't understand; fainted (Dan 8:27)
 - Gabriel sent to explain: "Understand, O son of man" (Dan 8:17)
-- [RQ]: What event 2300 years from the starting point would "cleanse the
-  sanctuary" and restore truth? (Dan 8:14)
 
 ---
 
-## Section 3 — Daniel 9: The 70 Weeks Unlock the Timeline (10 min)
+## Section 3 — Daniel 9: The 70 Weeks Unlock the Timeline (8 min)
 
 ### Daniel's Prayer and Gabriel's Answer
 
-- Daniel 9:2–3 — Daniel understood from Jeremiah: 70 years captivity ending
-  - Prays for his people and Jerusalem
 - Daniel 9:21–23 — Gabriel returns to give understanding
-  - "I am now come forth to give thee skill and understanding"
   - "Understand the matter, and consider the vision"
   - What vision? The 2300-day vision from chapter 8
   - [WB]: Connect Dan 8:14 to Dan 9 with arrow — "GABRIEL EXPLAINS" (Dan 9:23)
@@ -239,158 +217,160 @@
 ### The 70 Weeks "Cut Off"
 
 - Daniel 9:24 — "Seventy weeks are determined upon thy people"
-  - "Determined" = Hebrew _chathak_ = cut off, decreed
+  - "Determined" = Hebrew _chathak_ = cut off
   - 70 weeks _cut off from_ the larger 2300-day prophecy
   - [WB]: On 2300-day line, mark first portion: "70 WEEKS cut off" (Dan 9:24)
 - 70 weeks = 70 × 7 = 490 prophetic days = 490 literal years
-  - Special probationary time for Jewish nation
-  - To "finish the transgression... make reconciliation for iniquity... bring in
-    everlasting righteousness... seal up the vision and prophecy... anoint the
-    most Holy"
   - Points to Messiah's work
 
 ### The Starting Point: 457 BC
 
 - Daniel 9:25 — "From the going forth of the commandment to restore and to build
   Jerusalem"
-  - Three decrees to restore Jerusalem:
-    1. Cyrus (536 BC) — rebuild temple
-    2. Darius (519 BC) — continue temple work
-    3. **Artaxerxes (457 BC)** — full civil authority restored
-  - Only Artaxerxes' decree restored complete governmental authority
+  - Artaxerxes' decree (457 BC) — full civil authority restored
   - [EB]: Ezra 7:12–26 — Artaxerxes' decree with full powers
   - [WB]: Write "STARTING POINT: 457 BC (Ezra 7)" (Dan 9:25)
 
-### The 70 Weeks Subdivided
-
-- Daniel 9:25 — "Seven weeks, and threescore and two weeks"
-  - 7 weeks (49 years): Jerusalem rebuilt in troublous times
-    - 457 BC – 408 BC: walls, streets, city restored
-  - 62 weeks (434 years): To Messiah the Prince
-    - 408 BC – 27 AD
-  - [WB]: Draw timeline: 457 BC → 49 yrs → 408 BC → 434 yrs → 27 AD (Dan 9:25)
-
 ### Messiah Arrives on Time
 
+- Daniel 9:25 — 7 weeks + 62 weeks = 69 weeks (483 years)
+  - 457 BC + 483 years = **27 AD**
 - **27 AD: Jesus baptized**
   - "Messiah" = "Anointed One"
-  - Jesus anointed with Holy Spirit at baptism
   - [EB]: Luke 3:21–22 — Spirit descends; "Thou art my beloved Son"
-  - [EB]: Acts 10:38 — "God anointed Jesus of Nazareth with the Holy Ghost"
 - Jesus began ministry declaring: "The time is fulfilled" (Mark 1:15)
   - What time? Daniel's prophetic time!
-  - [WB]: Circle "27 AD" — write "MESSIAH ANOINTED" (Dan 9:25; Mark 1:15)
-- [RQ]: If Jesus arrived exactly when Daniel predicted, what does this prove
-  about the prophecy? (Dan 9:25)
+  - [WB]: Timeline — 457 BC → 483 yrs → 27 AD "MESSIAH ANOINTED" (Mark 1:15)
 
 ### The Final Week: Messiah Cut Off
 
-- Daniel 9:26 — "After threescore and two weeks shall Messiah be cut off, but
-  not for himself"
-  - One week (7 years) remains: 27–34 AD
-  - "Cut off" = crucified
-  - "Not for himself" = for us
-
 - Daniel 9:27 — "In the midst of the week he shall cause the sacrifice and the
   oblation to cease"
-  - Midst of 7 years = 3½ years after 27 AD
   - 27 AD + 3½ years = **31 AD (Spring)**
   - Christ's death ended the sacrificial system
-  - [WB]: 27 AD → 3½ yrs → 31 AD (Crucifixion) → 3½ yrs → 34 AD (Dan 9:27)
-
-- [EB]: Matthew 27:51 — "The veil of the temple was rent in twain from the top
-  to the bottom"
-  - God Himself declared the earthly sacrifices ended
-  - Type met antitype
-
+  - [EB]: Matthew 27:51 — Temple veil rent; God declared earthly sacrifices ended
 - **34 AD: Gospel to Gentiles**
-  - Stephen stoned (Acts 7)
-  - Persecution scatters church
-  - Gospel goes to Gentiles (Acts 8–10)
+  - Stephen stoned (Acts 7); Gospel to Gentiles
   - 70 weeks (490 years) concluded
-  - [WB]: Circle "34 AD" — "70 WEEKS END; Gospel to Gentiles"
+  - [WB]: 27 AD → 31 AD (Crucifixion) → 34 AD (70 weeks end)
 
 ### Calculating to 1844
 
-- We now have everything needed:
-  - Total prophecy: 2300 years
-  - First portion (70 weeks): 490 years, ending 34 AD
-  - Remaining: 2300 – 490 = 1810 years after 34 AD
-  - 34 AD + 1810 = **1844 AD**
-  - [WB]: Calculate: 2300 – 490 = 1810; 34 AD + 1810 = 1844 AD (Dan 8:14)
-
+- Total prophecy: 2300 years
+- First portion (70 weeks): 490 years, ending 34 AD
+- Remaining: 2300 – 490 = 1810 years after 34 AD
+- 34 AD + 1810 = **1844 AD**
 - [WB]: Complete timeline — 457 BC → 27 AD → 31 AD → 34 AD → 1844 AD
+- [RQ]: Every date — 27 AD, 31 AD, 34 AD — precisely fulfilled. Can we doubt
+  1844? (Dan 8:14)
 
-- Daniel 8:14 — "Then shall the sanctuary be cleansed"
-  - 1844: Heavenly sanctuary cleansing begins
-  - Investigative judgment commences
-  - Sanctuary truth restored on earth
-  - [WB]: Circle "1844" — "SANCTUARY CLEANSED = JUDGMENT + TRUTH RESTORED"
+---
 
+## FINAL PEAK SECTION — 1844: Restoration and Judgment (8 min)
+
+### What Happened in 1844? The Day of Atonement Begins
+
+- Leviticus 16 — The Day of Atonement (Yom Kippur)
+  - Once yearly, high priest entered Most Holy Place
+  - Sanctuary cleansed of accumulated sins
+  - Day of judgment for Israel
+  - [WB]: Draw earthly sanctuary; "DAY OF ATONEMENT = JUDGMENT" (Lev 16:29–30)
+- Daniel 8:14 — Heavenly sanctuary cleansing = Day of Atonement antitype
+  - Not a cleaning of dust, but a judgment process
+  - Christ enters the Most Holy Place of the heavenly sanctuary
+  - [WB]: Arrow from earthly to heavenly sanctuary — "1844: ANTITYPE BEGINS"
+
+### The Investigative Judgment
+
+- Daniel 7:9–10 — The judgment scene
+  - "The Ancient of days did sit"
+  - "The judgment was set, and the books were opened"
+  - Cases reviewed _before_ the Second Coming
+  - [WB]: Write "BOOKS OPENED — Cases reviewed" (Dan 7:10)
+- Why an investigative judgment?
+  - Universe watches (1 Cor 4:9; Eph 3:10)
+  - God's justice demonstrated before all
+  - Each case examined: profession matched to character
+- [EGW]: "The judgment is now passing in the sanctuary above... The cases of all
+  must be decided before the close of human probation." (4SP 309)
+- [RQ]: If judgment is happening now, is your life aligned with heaven's
+  sanctuary or earth's substitutes? (Dan 7:9–10)
+
+### Why Truth Was Restored at This Time
+
+- The counterfeit had prospered (Dan 8:12) — but God set a limit
+- 1798: Deadly wound given — counterfeit's dominance broken
+- 1844: God's response to the counterfeit being exposed
+  - As judgment began in heaven, truth was restored on earth
+  - Light proportional to the hour
+- What was restored?
+  - The seventh-day Sabbath (counterfeit #4 exposed)
+  - Christ's heavenly ministry (counterfeit #1 exposed)
+  - State of the dead (counterfeit #3 exposed)
+  - Salvation by grace through faith (counterfeit #2 exposed)
+  - [WB]: List "COUNTERFEITS EXPOSED → TRUTHS RESTORED" (Dan 8:14; Rev 14:6–12)
+
+### The Three Angels' Messages — God's Final Response
+
+- Revelation 14:6–12 — The everlasting gospel in judgment context
+
+**First Angel (Rev 14:6–7)**
+
+- "The hour of his judgment is come"
+  - Judgment began 1844 — we live in this hour
+  - "Fear God" — reverence, not terror
+  - "Worship him that made heaven, and earth" — Creator worship; Sabbath implied
+  - [WB]: FIRST ANGEL = "Judgment hour begun (1844)" (Rev 14:7)
+
+**Second Angel (Rev 14:8)**
+
+- "Babylon is fallen, is fallen"
+  - Babylon = confusion; the counterfeit system
+  - Part 3 showed: Babylon, Persia, Greece, Rome all contributed to the
+    confusion
+  - The little horn consolidated it — that system is "fallen"
+  - [WB]: SECOND ANGEL = "Counterfeit system exposed" (Rev 14:8)
+
+**Third Angel (Rev 14:9–12)**
+
+- "If any man worship the beast and his image"
+  - Worship = ultimate allegiance
+  - Beast's mark = counterfeit system's claim on you
+  - Contrast: "Here are they that keep the commandments of God, and the faith of
+    Jesus"
+  - [WB]: THIRD ANGEL = "Choose: TRUE vs. COUNTERFEIT" (Rev 14:9–12)
+- [RQ]: The three angels call the world to decide — which side have you chosen?
+  (Rev 14:12)
 - [EGW]: "The subject of the sanctuary was the key which unlocked the mystery of
   the disappointment of 1844. It opened to view a complete system of truth,
   connected and harmonious." (GC 423.1)
 
-- [RQ]: Every date in this prophecy — 27 AD, 31 AD, 34 AD — was precisely
-  fulfilled. Can we doubt that 1844 is also accurate? (Dan 8:14)
-
----
-
-## FINAL PEAK SECTION — The Prophecy Confirmed, The Call Issued (5 min)
-
-### The Evidence Is Conclusive
-
-- Prophecy identified the little horn power:
-  - Rose among ten divisions of Rome ✓
-  - Persecuted saints for 1260 years (538–1798) ✓
-  - Claims to change God's times and laws ✓
-  - Took away the "daily" — obscured Christ's heavenly ministry ✓
-  - Cast truth to the ground ✓
-- [WB]: Checklist of fulfilled prophecy (Dan 7:25; 8:11–12)
-
-### 1844: Restoration Begins
-
-- Daniel 8:14 — Sanctuary cleansed; truth no longer cast down
-- What was restored in 1844 and after?
-  - The seventh-day Sabbath
-  - Christ's ministry in heavenly sanctuary
-  - The state of the dead (resurrection, not immortal soul)
-  - The second coming
-  - Health reform; prophetic gift
-  - [WB]: List "TRUTHS RESTORED" beside 1844 (Dan 8:14; Rev 14:6–12)
-
-### The Three Angels' Messages
-
-- Revelation 14:6–12 — God's final message to the world
-  - First angel: "Fear God... the hour of his judgment is come"
-    - Judgment began 1844
-  - Second angel: "Babylon is fallen"
-    - The counterfeit system exposed
-  - Third angel: Warning against the beast and his mark
-    - Choose the true over the counterfeit
-- [RQ]: If the judgment began in 1844, what time are we living in now? (Rev
-  14:7)
-
 ### Part 5 Preview: God's Final Call
 
-- Series conclusion: What is God waiting for?
-  - His character reflected in His people
-  - A generation that keeps His commandments _and_ has the faith of Jesus
-  - Satan's counterfeits designed to prevent this
+- God waits for something specific:
+  - His image reflected in His people (Gen 1:26–27 restored)
+  - A generation that keeps His commandments _and_ has the faith of Jesus (Rev
+    14:12)
+  - The 144,000 — sealed with the Father's name (Rev 14:1)
+  - Satan's counterfeits designed to prevent this character restoration
 - Revelation 18:4 — "Come out of her, my people"
   - God still has people in the counterfeit system
   - The call is to leave error, embrace truth
-  - [WB]: Write "PART 5: God's Image Restored — The Final Call"
+  - [WB]: Write "PART 5: God's Image Restored — The 144,000, The Seal, The Final
+    Call"
 
 ### Call to Action — Respond to the Prophetic Evidence
 
-- **Accept the prophetic proof** — God has not left us guessing; He identified
-  the counterfeit centuries in advance (2 Pet 1:19)
+- **Accept the prophetic proof** — God identified the counterfeit centuries in
+  advance; this is not guesswork (2 Pet 1:19)
+- **Examine your own beliefs** — Have your beliefs come from Scripture, or from
+  the empire-built counterfeit? Which of the four counterfeits still influence
+  your thinking?
 - **Return to Christ's heavenly ministry** — Look to the true High Priest, not
   earthly substitutes (Heb 8:1–2)
-- **Embrace restored truth** — The Sabbath, the sanctuary, the state of the dead
-  — truth cast down but now lifted up (Dan 8:14)
-- **Prepare for judgment** — We live in the time of investigative judgment;
-  today is the day of salvation (Rev 14:7; 2 Cor 6:2)
-- **Stand ready for Part 5** — The final call is coming; God awaits a people who
-  reflect His image (Rev 14:12)
+- **Recognize the hour** — We live in the investigative judgment; today is the
+  day of salvation (Rev 14:7; 2 Cor 6:2)
+- **Align your life with heaven's sanctuary** — Not earth's substitutes, but the
+  reality to which they pointed (Heb 9:24)
+- **Prepare for the final call** — Part 5 will reveal what God awaits; will you
+  be among those who reflect His image? (Rev 14:12)

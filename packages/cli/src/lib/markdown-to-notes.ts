@@ -99,14 +99,16 @@ export const makeAppleNoteFromMarkdown = Effect.fn('makeAppleNoteFromMarkdown')(
           make new folder with properties {name:"${escapeAppleScriptString(options.folder)}"}
           set targetFolder to folder "${escapeAppleScriptString(options.folder)}"
         end if
-        make new note at targetFolder with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
+        set newNote to make new note at targetFolder with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
         ${activateCommand}
+        return id of newNote
       end tell
     `
       : `
       tell application "Notes"
-        make new note with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
+        set newNote to make new note with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
         ${activateCommand}
+        return id of newNote
       end tell
     `;
 
@@ -122,11 +124,12 @@ export const makeAppleNoteFromMarkdown = Effect.fn('makeAppleNoteFromMarkdown')(
     const res = yield* appleScript.exec(appleScriptCommand);
     yield* Effect.log(res);
 
-    // Success
+    // Success - res contains the note ID (e.g., "note id x-coredata://...")
+    const noteId = res.trim();
     yield* Effect.log(
       `✅ Success! Note "${finalNoteTitle}" created in Apple Notes (${locationInfo}).`,
     );
-    return finalNoteTitle; // Resolve with the title used
+    return { title: finalNoteTitle, noteId };
   },
 );
 
