@@ -21,15 +21,15 @@
     "@effect/cli": "catalog:",
     "@effect/platform": "catalog:",
     "@effect/platform-bun": "catalog:",
-    "@opentui/core": "^0.1.72",
-    "@opentui/core-darwin-arm64": "^0.1.72",
-    "@opentui/solid": "^0.1.72",
+    "@opentui/core": "^0.1.74",
+    "@opentui/core-darwin-arm64": "^0.1.74",
+    "@opentui/solid": "^0.1.74",
     "date-fns": "^4.1.0",
     "effect": "catalog:",
     "gray-matter": "^4.0.3",
     "marked": "^17.0.1",
     "match-sorter": "^8.2.0",
-    "solid-js": "^1.9.5"
+    "solid-js": "^1.9.11"
   },
   "devDependencies": {
     "@effect/language-service": "catalog:",
@@ -37,6 +37,6 @@
     "@types/bun": "catalog:",
     "tsx": "^4.21.0",
     "typescript": "catalog:",
-    "vitest": "^4.0.16"
+    "vitest": "^4.0.18"
   }
 }

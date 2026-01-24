@@ -19,20 +19,20 @@
     "@bible/core": "workspace:*",
     "@effect/platform": "catalog:",
     "@effect/platform-bun": "catalog:",
-    "@kobalte/core": "^0.13.9",
-    "@solidjs/router": "^0.15.3",
+    "@kobalte/core": "^0.13.11",
+    "@solidjs/router": "^0.15.4",
     "effect": "catalog:",
-    "solid-js": "^1.9.4"
+    "solid-js": "^1.9.11"
   },
   "devDependencies": {
     "@effect/language-service": "catalog:",
-    "@playwright/test": "^1.49.1",
-    "@tailwindcss/vite": "^4.0.0",
+    "@playwright/test": "^1.58.0",
+    "@tailwindcss/vite": "^4.1.18",
     "@types/bun": "catalog:",
-    "concurrently": "^9.1.2",
-    "tailwindcss": "^4.0.0",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.1.18",
     "typescript": "catalog:",
-    "vite": "^6.0.7",
-    "vite-plugin-solid": "^2.11.0"
+    "vite": "^7.3.1",
+    "vite-plugin-solid": "^2.11.10"
   }
 }
