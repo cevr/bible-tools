@@ -36,9 +36,7 @@ export const EGWParagraphRangeRef = Schema.Struct({
   paragraphEnd: Schema.Number,
 });
 
-export type EGWParagraphRangeRef = Schema.Schema.Type<
-  typeof EGWParagraphRangeRef
->;
+export type EGWParagraphRangeRef = Schema.Schema.Type<typeof EGWParagraphRangeRef>;
 
 /**
  * Parsed EGW Reference - single page (all paragraphs)
@@ -97,13 +95,10 @@ export type EGWParsedRef =
 /**
  * Parse error
  */
-export class EGWParseError extends Schema.TaggedError<EGWParseError>()(
-  'EGWParseError',
-  {
-    input: Schema.String,
-    message: Schema.String,
-  },
-) {}
+export class EGWParseError extends Schema.TaggedError<EGWParseError>()('EGWParseError', {
+  input: Schema.String,
+  message: Schema.String,
+}) {}
 
 /**
  * Reference patterns
@@ -138,12 +133,7 @@ export function parseEGWRef(input: string): EGWParsedRef {
 
   // Try paragraph reference: "PP 351.1"
   const paragraphMatch = trimmed.match(PARAGRAPH_PATTERN);
-  if (
-    paragraphMatch &&
-    paragraphMatch[1] &&
-    paragraphMatch[2] &&
-    paragraphMatch[3]
-  ) {
+  if (paragraphMatch && paragraphMatch[1] && paragraphMatch[2] && paragraphMatch[3]) {
     return {
       _tag: 'paragraph',
       bookCode: paragraphMatch[1].toUpperCase(),
@@ -172,12 +162,7 @@ export function parseEGWRef(input: string): EGWParsedRef {
 
   // Try page range: "PP 351-355"
   const pageRangeMatch = trimmed.match(PAGE_RANGE_PATTERN);
-  if (
-    pageRangeMatch &&
-    pageRangeMatch[1] &&
-    pageRangeMatch[2] &&
-    pageRangeMatch[3]
-  ) {
+  if (pageRangeMatch && pageRangeMatch[1] && pageRangeMatch[2] && pageRangeMatch[3]) {
     return {
       _tag: 'page-range',
       bookCode: pageRangeMatch[1].toUpperCase(),
@@ -215,13 +200,10 @@ export function parseEGWRef(input: string): EGWParsedRef {
 /**
  * Parse an EGW reference string with Effect error handling
  */
-export function parseEGWRefEffect(
-  input: string,
-): Effect.Effect<EGWParsedRef, EGWParseError> {
+export function parseEGWRefEffect(input: string): Effect.Effect<EGWParsedRef, EGWParseError> {
   return Effect.try({
     try: () => parseEGWRef(input),
-    catch: () =>
-      new EGWParseError({ input, message: 'Failed to parse reference' }),
+    catch: () => new EGWParseError({ input, message: 'Failed to parse reference' }),
   });
 }
 
@@ -248,9 +230,7 @@ export function formatEGWRef(ref: EGWParsedRef): string {
 /**
  * Check if parsed result is a reference (not a search query)
  */
-export function isReference(
-  ref: EGWParsedRef,
-): ref is Exclude<EGWParsedRef, EGWSearchQuery> {
+export function isReference(ref: EGWParsedRef): ref is Exclude<EGWParsedRef, EGWSearchQuery> {
   return ref._tag !== 'search';
 }
 
@@ -278,9 +258,7 @@ export function getBookCode(ref: EGWParsedRef): Option.Option<string> {
  * @param ref - Parsed reference
  * @returns Pattern string for LIKE queries
  */
-export function buildRefcodePattern(
-  ref: Exclude<EGWParsedRef, EGWSearchQuery>,
-): string {
+export function buildRefcodePattern(ref: Exclude<EGWParsedRef, EGWSearchQuery>): string {
   switch (ref._tag) {
     case 'paragraph':
       return `${ref.bookCode} ${ref.page}.${ref.paragraph}`;

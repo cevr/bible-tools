@@ -14,13 +14,7 @@ import type {
   EGWReference,
 } from '@bible/core/app';
 import { createAppRouter, initialRouterState } from '@bible/core/app';
-import {
-  createContext,
-  createSignal,
-  onCleanup,
-  useContext,
-  type ParentProps,
-} from 'solid-js';
+import { createContext, createSignal, onCleanup, useContext, type ParentProps } from 'solid-js';
 
 /**
  * Router context value - reactive wrapper around core AppRouter
@@ -108,11 +102,7 @@ export function RouterProvider(props: ParentProps<RouterProviderProps>) {
     canGoBack: () => router.canGoBack(),
   };
 
-  return (
-    <RouterContext.Provider value={value}>
-      {props.children}
-    </RouterContext.Provider>
-  );
+  return <RouterContext.Provider value={value}>{props.children}</RouterContext.Provider>;
 }
 
 /**

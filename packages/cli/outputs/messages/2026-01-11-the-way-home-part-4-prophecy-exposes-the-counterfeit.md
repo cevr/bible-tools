@@ -1,6 +1,7 @@
 ---
 apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p752'
 ---
+
 # The Way Home Part 4: Prophecy Exposes the Counterfeit — Daniel's Timeline Unlocked
 
 ## Topic Tags
@@ -357,7 +358,7 @@ apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p752'
   - God still has people in the counterfeit system
   - The call is to leave error, embrace truth
   - [WB]: Write "PART 5: God's Image Restored — The 144,000, The Seal, The Final
-    Call"
+Call"
 
 ### Call to Action — Respond to the Prophetic Evidence
 

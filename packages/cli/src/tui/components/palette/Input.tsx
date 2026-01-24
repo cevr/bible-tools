@@ -10,17 +10,8 @@ export function PaletteInput() {
   const { setQuery } = usePalette();
 
   return (
-    <box
-      height={3}
-      border
-      borderColor={theme().border}
-      marginBottom={1}
-    >
-      <input
-        placeholder="Search verses, books, or commands..."
-        focused
-        onInput={setQuery}
-      />
+    <box height={3} border borderColor={theme().border} marginBottom={1}>
+      <input placeholder="Search verses, books, or commands..." focused onInput={setQuery} />
     </box>
   );
 }

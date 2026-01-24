@@ -38,10 +38,7 @@ export {
 } from '../egw-reader/service.js';
 
 // EGW Commentary errors
-export {
-  CommentaryError,
-  type CommentaryServiceError,
-} from '../egw-commentary/service.js';
+export { CommentaryError, type CommentaryServiceError } from '../egw-commentary/service.js';
 
 // EGW API errors
 export { EGWApiError, EGWAuthError } from '../egw/index.js';

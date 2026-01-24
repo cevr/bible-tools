@@ -18,8 +18,7 @@ export const FileSystemStorageLive = (baseDir: string) =>
             const filePath = join(baseDir, key);
             return Bun.file(filePath).text();
           },
-          catch: (cause) =>
-            new StorageError({ key, operation: 'read', cause }),
+          catch: (cause) => new StorageError({ key, operation: 'read', cause }),
         }),
 
       write: (key, content) =>
@@ -32,8 +31,7 @@ export const FileSystemStorageLive = (baseDir: string) =>
             }
             Bun.write(filePath, content);
           },
-          catch: (cause) =>
-            new StorageError({ key, operation: 'write', cause }),
+          catch: (cause) => new StorageError({ key, operation: 'write', cause }),
         }),
 
       exists: (key) =>
@@ -50,8 +48,7 @@ export const FileSystemStorageLive = (baseDir: string) =>
               unlinkSync(filePath);
             }
           },
-          catch: (cause) =>
-            new StorageError({ key, operation: 'delete', cause }),
+          catch: (cause) => new StorageError({ key, operation: 'delete', cause }),
         }),
 
       list: (prefix) =>

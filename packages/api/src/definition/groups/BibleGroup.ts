@@ -96,9 +96,7 @@ export class DatabaseError extends S.TaggedError<DatabaseError>()(
 
 export const BibleGroup = HttpApiGroup.make('Bible')
   .add(
-    HttpApiEndpoint.get('books', '/books')
-      .addSuccess(S.Array(BookSchema))
-      .addError(DatabaseError),
+    HttpApiEndpoint.get('books', '/books').addSuccess(S.Array(BookSchema)).addError(DatabaseError),
   )
   .add(
     HttpApiEndpoint.get('chapter', '/:book/:chapter')
@@ -118,9 +116,7 @@ export const BibleGroup = HttpApiGroup.make('Bible')
       .setUrlParams(
         S.Struct({
           q: S.String,
-          limit: S.optional(S.NumberFromString).pipe(
-            S.withDecodingDefault(() => 20),
-          ),
+          limit: S.optional(S.NumberFromString).pipe(S.withDecodingDefault(() => 20)),
         }),
       )
       .addSuccess(S.Array(SearchResultSchema))

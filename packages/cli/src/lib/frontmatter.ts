@@ -16,9 +16,7 @@ export interface ParsedMarkdown<T = Record<string, unknown>> {
  * Parse frontmatter from markdown content.
  * Returns the frontmatter data and the content without frontmatter.
  */
-export function parseFrontmatter<T = Record<string, unknown>>(
-  markdown: string,
-): ParsedMarkdown<T> {
+export function parseFrontmatter<T = Record<string, unknown>>(markdown: string): ParsedMarkdown<T> {
   const { data, content } = matter(markdown);
   return {
     frontmatter: data as T,
@@ -46,10 +44,7 @@ export function hasFrontmatter(markdown: string): boolean {
 /**
  * Update specific frontmatter fields while preserving existing ones.
  */
-export function updateFrontmatter(
-  markdown: string,
-  updates: Record<string, unknown>,
-): string {
+export function updateFrontmatter(markdown: string, updates: Record<string, unknown>): string {
   const { frontmatter, content } = parseFrontmatter(markdown);
   const updatedFrontmatter = { ...frontmatter, ...updates };
   return stringifyFrontmatter(updatedFrontmatter, content);

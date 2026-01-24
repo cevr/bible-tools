@@ -37,9 +37,7 @@ export class Verse extends Schema.Class<Verse>('Verse')({
 /**
  * Chapter reference for navigation
  */
-export class ChapterReference extends Schema.Class<ChapterReference>(
-  'ChapterReference',
-)({
+export class ChapterReference extends Schema.Class<ChapterReference>('ChapterReference')({
   book: Schema.Number,
   chapter: Schema.Number,
 }) {}
@@ -58,9 +56,7 @@ export class SearchResult extends Schema.Class<SearchResult>('SearchResult')({
 /**
  * Chapter response with navigation
  */
-export class ChapterResponse extends Schema.Class<ChapterResponse>(
-  'ChapterResponse',
-)({
+export class ChapterResponse extends Schema.Class<ChapterResponse>('ChapterResponse')({
   book: Book,
   chapter: Schema.Number,
   verses: Schema.Array(Verse),
@@ -77,9 +73,7 @@ export class ChapterResponse extends Schema.Class<ChapterResponse>(
  */
 export interface BibleServiceShape {
   readonly getBooks: () => Effect.Effect<readonly Book[], BibleDatabaseError>;
-  readonly getBook: (
-    bookNum: number,
-  ) => Effect.Effect<Option.Option<Book>, BibleDatabaseError>;
+  readonly getBook: (bookNum: number) => Effect.Effect<Option.Option<Book>, BibleDatabaseError>;
   readonly getChapter: (
     bookNum: number,
     chapterNum: number,
@@ -101,151 +95,148 @@ export class BibleService extends Context.Tag('@bible/core/BibleService')<
   /**
    * Live implementation using BibleDatabase
    */
-  static Live: Layer.Layer<BibleService, BibleDatabaseError, BibleDatabase> =
-    Layer.effect(
-      BibleService,
-      Effect.gen(function* () {
-        const db = yield* BibleDatabase;
+  static Live: Layer.Layer<BibleService, BibleDatabaseError, BibleDatabase> = Layer.effect(
+    BibleService,
+    Effect.gen(function* () {
+      const db = yield* BibleDatabase;
 
-        // Build book map for navigation lookups
-        const booksResult = yield* db.getBooks();
-        const bookMap = new Map<number, Book>();
-        for (const b of booksResult) {
-          bookMap.set(
-            b.number,
-            new Book({
-              number: b.number,
-              name: b.name,
-              chapters: b.chapters,
-              testament: b.testament,
-            }),
-          );
-        }
+      // Build book map for navigation lookups
+      const booksResult = yield* db.getBooks();
+      const bookMap = new Map<number, Book>();
+      for (const b of booksResult) {
+        bookMap.set(
+          b.number,
+          new Book({
+            number: b.number,
+            name: b.name,
+            chapters: b.chapters,
+            testament: b.testament,
+          }),
+        );
+      }
 
-        const getBooks = (): Effect.Effect<readonly Book[], BibleDatabaseError> =>
-          db.getBooks().pipe(
-            Effect.map((books) =>
-              books.map(
-                (b) =>
-                  new Book({
-                    number: b.number,
-                    name: b.name,
-                    chapters: b.chapters,
-                    testament: b.testament,
-                  }),
-              ),
+      const getBooks = (): Effect.Effect<readonly Book[], BibleDatabaseError> =>
+        db.getBooks().pipe(
+          Effect.map((books) =>
+            books.map(
+              (b) =>
+                new Book({
+                  number: b.number,
+                  name: b.name,
+                  chapters: b.chapters,
+                  testament: b.testament,
+                }),
             ),
-          );
+          ),
+        );
 
-        const getBook = (
-          bookNum: number,
-        ): Effect.Effect<Option.Option<Book>, BibleDatabaseError> =>
-          db.getBook(bookNum).pipe(
-            Effect.map((optBook) =>
-              Option.map(
-                optBook,
-                (b) =>
-                  new Book({
-                    number: b.number,
-                    name: b.name,
-                    chapters: b.chapters,
-                    testament: b.testament,
-                  }),
-              ),
+      const getBook = (bookNum: number): Effect.Effect<Option.Option<Book>, BibleDatabaseError> =>
+        db.getBook(bookNum).pipe(
+          Effect.map((optBook) =>
+            Option.map(
+              optBook,
+              (b) =>
+                new Book({
+                  number: b.number,
+                  name: b.name,
+                  chapters: b.chapters,
+                  testament: b.testament,
+                }),
             ),
-          );
+          ),
+        );
 
-        const getChapter = (
-          bookNum: number,
-          chapterNum: number,
-        ): Effect.Effect<ChapterResponse, BibleDatabaseError> =>
-          Effect.gen(function* () {
-            const bookOpt = yield* db.getBook(bookNum);
-            const book = Option.getOrThrow(bookOpt);
+      const getChapter = (
+        bookNum: number,
+        chapterNum: number,
+      ): Effect.Effect<ChapterResponse, BibleDatabaseError> =>
+        Effect.gen(function* () {
+          const bookOpt = yield* db.getBook(bookNum);
+          const book = Option.getOrThrow(bookOpt);
 
-            const verses = yield* db.getChapter(bookNum, chapterNum);
+          const verses = yield* db.getChapter(bookNum, chapterNum);
 
-            // Calculate prev/next chapters
-            let prevChapter: ChapterReference | null = null;
-            let nextChapter: ChapterReference | null = null;
+          // Calculate prev/next chapters
+          let prevChapter: ChapterReference | null = null;
+          let nextChapter: ChapterReference | null = null;
 
-            if (chapterNum > 1) {
-              prevChapter = new ChapterReference({
-                book: bookNum,
-                chapter: chapterNum - 1,
-              });
-            } else {
-              const prevBook = bookMap.get(bookNum - 1);
-              if (prevBook) {
-                prevChapter = new ChapterReference({
-                  book: bookNum - 1,
-                  chapter: prevBook.chapters,
-                });
-              }
-            }
-
-            const currentBook = bookMap.get(bookNum);
-            if (currentBook && chapterNum < currentBook.chapters) {
-              nextChapter = new ChapterReference({
-                book: bookNum,
-                chapter: chapterNum + 1,
-              });
-            } else if (bookMap.has(bookNum + 1)) {
-              nextChapter = new ChapterReference({
-                book: bookNum + 1,
-                chapter: 1,
-              });
-            }
-
-            return new ChapterResponse({
-              book: new Book({
-                number: book.number,
-                name: book.name,
-                chapters: book.chapters,
-                testament: book.testament,
-              }),
-              chapter: chapterNum,
-              verses: verses.map(
-                (v) =>
-                  new Verse({
-                    book: v.book,
-                    chapter: v.chapter,
-                    verse: v.verse,
-                    text: v.text,
-                  }),
-              ),
-              prevChapter,
-              nextChapter,
+          if (chapterNum > 1) {
+            prevChapter = new ChapterReference({
+              book: bookNum,
+              chapter: chapterNum - 1,
             });
-          });
+          } else {
+            const prevBook = bookMap.get(bookNum - 1);
+            if (prevBook) {
+              prevChapter = new ChapterReference({
+                book: bookNum - 1,
+                chapter: prevBook.chapters,
+              });
+            }
+          }
 
-        const search = (
-          query: string,
-          limit: number = 50,
-        ): Effect.Effect<readonly SearchResult[], BibleDatabaseError> =>
-          db.searchVerses(query, limit).pipe(
-            Effect.map((results) =>
-              results.map((r) => {
-                const book = bookMap.get(r.book);
-                return new SearchResult({
-                  book: r.book,
-                  bookName: book?.name ?? `Book ${r.book}`,
-                  chapter: r.chapter,
-                  verse: r.verse,
-                  text: r.text,
-                });
-              }),
+          const currentBook = bookMap.get(bookNum);
+          if (currentBook && chapterNum < currentBook.chapters) {
+            nextChapter = new ChapterReference({
+              book: bookNum,
+              chapter: chapterNum + 1,
+            });
+          } else if (bookMap.has(bookNum + 1)) {
+            nextChapter = new ChapterReference({
+              book: bookNum + 1,
+              chapter: 1,
+            });
+          }
+
+          return new ChapterResponse({
+            book: new Book({
+              number: book.number,
+              name: book.name,
+              chapters: book.chapters,
+              testament: book.testament,
+            }),
+            chapter: chapterNum,
+            verses: verses.map(
+              (v) =>
+                new Verse({
+                  book: v.book,
+                  chapter: v.chapter,
+                  verse: v.verse,
+                  text: v.text,
+                }),
             ),
-          );
+            prevChapter,
+            nextChapter,
+          });
+        });
 
-        return {
-          getBooks,
-          getBook,
-          getChapter,
-          search,
-        };
-      }),
-    );
+      const search = (
+        query: string,
+        limit: number = 50,
+      ): Effect.Effect<readonly SearchResult[], BibleDatabaseError> =>
+        db.searchVerses(query, limit).pipe(
+          Effect.map((results) =>
+            results.map((r) => {
+              const book = bookMap.get(r.book);
+              return new SearchResult({
+                book: r.book,
+                bookName: book?.name ?? `Book ${r.book}`,
+                chapter: r.chapter,
+                verse: r.verse,
+                text: r.text,
+              });
+            }),
+          ),
+        );
+
+      return {
+        getBooks,
+        getBook,
+        getChapter,
+        search,
+      };
+    }),
+  );
 
   /**
    * Default layer - alias for Live
@@ -255,16 +246,16 @@ export class BibleService extends Context.Tag('@bible/core/BibleService')<
   /**
    * Test implementation with configurable mock data
    */
-  static Test = (config: {
-    books?: readonly Book[];
-    verses?: readonly Verse[];
-  } = {}): Layer.Layer<BibleService> =>
+  static Test = (
+    config: {
+      books?: readonly Book[];
+      verses?: readonly Verse[];
+    } = {},
+  ): Layer.Layer<BibleService> =>
     Layer.succeed(BibleService, {
       getBooks: () => Effect.succeed(config.books ?? []),
       getBook: (bookNum) =>
-        Effect.succeed(
-          Option.fromNullable(config.books?.find((b) => b.number === bookNum)),
-        ),
+        Effect.succeed(Option.fromNullable(config.books?.find((b) => b.number === bookNum))),
       getChapter: (bookNum, chapterNum) =>
         Effect.succeed(
           new ChapterResponse({
@@ -278,9 +269,7 @@ export class BibleService extends Context.Tag('@bible/core/BibleService')<
               }),
             chapter: chapterNum,
             verses:
-              config.verses?.filter(
-                (v) => v.book === bookNum && v.chapter === chapterNum,
-              ) ?? [],
+              config.verses?.filter((v) => v.book === bookNum && v.chapter === chapterNum) ?? [],
             prevChapter: null,
             nextChapter: null,
           }),

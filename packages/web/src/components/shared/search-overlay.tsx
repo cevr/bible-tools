@@ -1,11 +1,4 @@
-import {
-  type Component,
-  createSignal,
-  createMemo,
-  For,
-  Show,
-  type JSX,
-} from 'solid-js';
+import { type Component, createSignal, createMemo, For, Show, type JSX } from 'solid-js';
 import { Dialog } from '@kobalte/core/dialog';
 import { useNavigate, useParams } from '@solidjs/router';
 import { useBible, useChapter, useSearch } from '@/providers/bible-provider';
@@ -25,9 +18,7 @@ export const SearchOverlay: Component = () => {
   const isOpen = () => overlay() === 'search';
 
   const [query, setQuery] = createSignal('');
-  const [searchScope, setSearchScope] = createSignal<'chapter' | 'global'>(
-    'chapter'
-  );
+  const [searchScope, setSearchScope] = createSignal<'chapter' | 'global'>('chapter');
 
   // Get current book number from URL
   const currentBookNumber = createMemo(() => {
@@ -40,9 +31,7 @@ export const SearchOverlay: Component = () => {
     const aliasNum = BOOK_ALIASES[bookParam];
     if (aliasNum) return aliasNum;
 
-    const book = bible.books.find(
-      (b) => b.name.toLowerCase() === bookParam
-    );
+    const book = bible.books.find((b) => b.name.toLowerCase() === bookParam);
     return book?.number ?? 1;
   });
 
@@ -55,10 +44,7 @@ export const SearchOverlay: Component = () => {
   const chapterVerses = useChapter(currentBookNumber, currentChapter);
 
   // Fetch global search results
-  const globalResults = useSearch(
-    () => (searchScope() === 'global' ? query() : ''),
-    20
-  );
+  const globalResults = useSearch(() => (searchScope() === 'global' ? query() : ''), 20);
 
   // Unified result type for both chapter and global search
   interface DisplayResult {
@@ -121,9 +107,7 @@ export const SearchOverlay: Component = () => {
     const book = bible.getBook(result.reference.book);
     if (book) {
       const bookSlug = book.name.toLowerCase().replace(/\s+/g, '-');
-      navigate(
-        `/bible/${bookSlug}/${result.reference.chapter}/${result.reference.verse}`
-      );
+      navigate(`/bible/${bookSlug}/${result.reference.chapter}/${result.reference.verse}`);
       closeOverlay();
     }
   };
@@ -242,8 +226,7 @@ export const SearchOverlay: Component = () => {
                             onClick={() => navigateToResult(result)}
                           >
                             <div class="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] mb-0.5">
-                              {book?.name} {result.reference.chapter}:
-                              {result.reference.verse}
+                              {book?.name} {result.reference.chapter}:{result.reference.verse}
                             </div>
                             <div class="text-sm text-[--color-ink] dark:text-[--color-ink-dark] line-clamp-2">
                               {highlightMatch(result.text, query())}
@@ -261,15 +244,11 @@ export const SearchOverlay: Component = () => {
           {/* Footer hints */}
           <div class="border-t border-[--color-border] dark:border-[--color-border-dark] px-4 py-2 text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] flex items-center gap-4">
             <span>
-              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-                ↵
-              </kbd>{' '}
+              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">↵</kbd>{' '}
               select
             </span>
             <span>
-              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-                esc
-              </kbd>{' '}
+              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">esc</kbd>{' '}
               close
             </span>
           </div>

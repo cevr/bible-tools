@@ -21,9 +21,7 @@ export function escapeAppleScriptString(str: string): string {
  * Extract title from Markdown content (first H1 heading).
  * Returns Option.none() if no H1 heading is found.
  */
-export function extractTitleFromMarkdown(
-  markdownContent: string,
-): Option.Option<string> {
+export function extractTitleFromMarkdown(markdownContent: string): Option.Option<string> {
   const h1Match = markdownContent.match(/^\s*#\s+(.*?)(\s+#*)?$/m);
   return Option.fromNullable(h1Match?.[1]?.trim());
 }

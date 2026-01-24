@@ -1,7 +1,6 @@
 ---
 name: bible-tools
-description:
-  Orchestrate Bible study tools for generating messages, Sabbath School
+description: Orchestrate Bible study tools for generating messages, Sabbath School
   outlines, and studies. Use when asked about sermons, messages, Sabbath School
   lessons, Bible studies, or church content generation.
 allowed-tools: [Bash, Read, Glob]

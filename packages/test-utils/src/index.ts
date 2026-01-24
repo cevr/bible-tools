@@ -32,7 +32,4 @@ export {
 } from './assertions.js';
 
 // Test layers
-export {
-  createRecordingTestLayer,
-  runWithCallSequence,
-} from './test-layers.js';
+export { createRecordingTestLayer, runWithCallSequence } from './test-layers.js';

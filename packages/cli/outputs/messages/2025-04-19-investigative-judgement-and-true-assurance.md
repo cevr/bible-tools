@@ -1,6 +1,7 @@
 ---
 apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p505'
 ---
+
 # Investigative Judgment & True Assurance
 
 **Tags:** #investigativejudgment #assurance #salvation #sanctuary #character

@@ -69,19 +69,9 @@ export interface BibleDataSyncService {
   readonly getBooks: () => readonly Book[];
   readonly getBook: (bookNumber: number) => Book | undefined;
   readonly getChapter: (book: number, chapter: number) => Verse[];
-  readonly getVerse: (
-    book: number,
-    chapter: number,
-    verse: number,
-  ) => Verse | undefined;
+  readonly getVerse: (book: number, chapter: number, verse: number) => Verse | undefined;
   readonly searchVerses: (query: string, limit?: number) => SearchResult[];
   readonly parseReference: (ref: string) => Reference | undefined;
-  readonly getNextChapter: (
-    book: number,
-    chapter: number,
-  ) => Reference | undefined;
-  readonly getPrevChapter: (
-    book: number,
-    chapter: number,
-  ) => Reference | undefined;
+  readonly getNextChapter: (book: number, chapter: number) => Reference | undefined;
+  readonly getPrevChapter: (book: number, chapter: number) => Reference | undefined;
 }

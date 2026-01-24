@@ -15,13 +15,10 @@ describe('Bible Reader TUI', () => {
   beforeEach(async () => {
     // Render App starting in Bible view with explicit initial reference
     // to avoid depending on saved state
-    tui = await createTUITest(
-      () => <App initialRef={{ book: 1, chapter: 1, verse: 1 }} />,
-      {
-        width: 80,
-        height: 24,
-      },
-    );
+    tui = await createTUITest(() => <App initialRef={{ book: 1, chapter: 1, verse: 1 }} />, {
+      width: 80,
+      height: 24,
+    });
   });
 
   describe('Initial Render', () => {

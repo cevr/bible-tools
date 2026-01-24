@@ -1,12 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { exportOutput } from '../../src/commands/export.js';
-import {
-  expectCallCount,
-  expectNoCalls,
-  expectSequence,
-  runCli,
-} from '../lib/run-cli.js';
+import { expectCallCount, expectNoCalls, expectSequence, runCli } from '../lib/run-cli.js';
 
 describe('export command', () => {
   beforeEach(() => {
@@ -15,21 +10,16 @@ describe('export command', () => {
 
   describe('export files to Apple Notes', () => {
     it('should export a single file to Apple Notes', async () => {
-      const result = await runCli(
-        exportOutput,
-        ['--files', '/path/to/message.md'],
-        {
+      const result = await runCli(exportOutput, ['--files', '/path/to/message.md'], {
+        files: {
           files: {
-            files: {
-              '/path/to/message.md':
-                '# Test Message\n\nThis is a test message.',
-            },
-          },
-          bun: {
-            appleScriptSuccess: true,
+            '/path/to/message.md': '# Test Message\n\nThis is a test message.',
           },
         },
-      );
+        bun: {
+          appleScriptSuccess: true,
+        },
+      });
 
       expect(result.success).toBe(true);
       expectSequence(result.calls, [
@@ -74,15 +64,11 @@ describe('export command', () => {
     });
 
     it('should fail when file does not exist', async () => {
-      const result = await runCli(
-        exportOutput,
-        ['--files', '/path/to/nonexistent.md'],
-        {
-          files: {
-            files: {},
-          },
+      const result = await runCli(exportOutput, ['--files', '/path/to/nonexistent.md'], {
+        files: {
+          files: {},
         },
-      );
+      });
 
       expect(result.success).toBe(false);
     });

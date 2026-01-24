@@ -138,9 +138,7 @@ export const EGWGroup = HttpApiGroup.make('EGW')
         S.Struct({
           q: S.String,
           bookCode: S.optional(S.String),
-          limit: S.optional(S.NumberFromString).pipe(
-            S.withDecodingDefault(() => 50),
-          ),
+          limit: S.optional(S.NumberFromString).pipe(S.withDecodingDefault(() => 50)),
         }),
       )
       .addSuccess(S.Array(EGWSearchResultSchema))

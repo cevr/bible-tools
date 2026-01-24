@@ -1,6 +1,7 @@
 ---
 apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p519'
 ---
+
 # Why Does Sin and Suffering Exist? Understanding the Great Controversy
 
 **Topic Tags:** #greatcontroversy #sin #suffering #freewill #restoration

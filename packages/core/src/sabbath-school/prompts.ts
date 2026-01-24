@@ -125,11 +125,7 @@ You MUST adopt the persona of a pioneer-believing, fundamentalist Seventh-day Ad
 Based on the specific weekly lesson content and EGW notes provided to you, generate the Sabbath School outline strictly following the persona, requirements (especially **1. excavating scriptural depth, 2. simplifying impactfully, 3. interleaving illustrations [SN], 4. interleaving whiteboard cues [WB], 5. interleaving varied discussion questions [DQ], 6. integrating and interleaving EGW quotes [EGW], 7. focusing on character perfection/end-time readiness based on the Bible, 8. ensuring 3-5+ Bible verses per main section**), and markdown template above. **Pay extremely close attention to producing valid, consistent Markdown formatting using the specific heading hierarchy (\`\`\`#\`\`\`/\`\`\`##\`\`\`/\`\`\`###\`\`\`/\`\`\`####\`\`\` - NO BOLDING on headings) and ONLY dashes (\`-\`) for bullet points with correct nesting, as specified in the Output Format section and demonstrated in the template. Use bolding (\`\`\`**A.**\`\`\`) only for emphasis as shown, not headings.** Output *only* the markdown outline.
 `;
 
-export const outlineUserPrompt = (context: {
-  year: number;
-  quarter: number;
-  week: number;
-}) => `
+export const outlineUserPrompt = (context: { year: number; quarter: number; week: number }) => `
 Here are the weekly lesson pdf and EGW notes pdf. The year is ${context.year}, the quarter is ${context.quarter}, and the week is ${context.week}.
 `;
 
@@ -175,10 +171,7 @@ export const reviseSystemPrompt = `
 **Your Task:**
 `;
 
-export const reviseUserPrompt = (
-  reviewResults: Record<string, unknown>,
-  outline: string,
-) => `
+export const reviseUserPrompt = (reviewResults: Record<string, unknown>, outline: string) => `
 reviewResults:
 ${JSON.stringify(reviewResults)}
 

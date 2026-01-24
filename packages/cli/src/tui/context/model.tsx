@@ -16,11 +16,7 @@ interface ModelProviderProps {
 }
 
 export function ModelProvider(props: ParentProps<ModelProviderProps>) {
-  return (
-    <ModelContext.Provider value={props.model}>
-      {props.children}
-    </ModelContext.Provider>
-  );
+  return <ModelContext.Provider value={props.model}>{props.children}</ModelContext.Provider>;
 }
 
 export function useModel(): ModelService | null {

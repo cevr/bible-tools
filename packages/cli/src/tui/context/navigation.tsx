@@ -38,9 +38,7 @@ interface NavigationProviderProps {
   initialRef?: Reference;
 }
 
-export function NavigationProvider(
-  props: ParentProps<NavigationProviderProps>,
-) {
+export function NavigationProvider(props: ParentProps<NavigationProviderProps>) {
   const data = useBibleData();
   const state = useBibleState();
 
@@ -198,11 +196,7 @@ export function NavigationProvider(
     totalVerses,
   };
 
-  return (
-    <NavigationContext.Provider value={value}>
-      {props.children}
-    </NavigationContext.Provider>
-  );
+  return <NavigationContext.Provider value={value}>{props.children}</NavigationContext.Provider>;
 }
 
 export function useNavigation(): NavigationContextValue {

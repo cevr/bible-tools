@@ -97,10 +97,7 @@ const BOOK_MAP: Record<string, number> = {
 const bookNames = Object.keys(BOOK_MAP)
   .sort((a, b) => b.length - a.length)
   .join('|');
-const ENTRY_REGEX = new RegExp(
-  `(${bookNames})\\s+(\\d+):(\\d+)\\s+([^:]+):\\s*(.+)`,
-  'g',
-);
+const ENTRY_REGEX = new RegExp(`(${bookNames})\\s+(\\d+):(\\d+)\\s+([^:]+):\\s*(.+)`, 'g');
 
 interface MarginNote {
   type: 'hebrew' | 'greek' | 'alternate' | 'name' | 'other';
@@ -190,9 +187,7 @@ async function main() {
     }
   }
 
-  console.log(
-    `Extracted ${count} margin notes from ${Object.keys(notesMap).length} verses\n`,
-  );
+  console.log(`Extracted ${count} margin notes from ${Object.keys(notesMap).length} verses\n`);
   console.log('By type:');
   console.log(`  Hebrew: ${byType.hebrew}`);
   console.log(`  Greek: ${byType.greek}`);

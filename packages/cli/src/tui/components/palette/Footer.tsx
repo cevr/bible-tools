@@ -11,10 +11,7 @@ export function PaletteFooter() {
   const model = useModel();
 
   return (
-    <box
-      height={1}
-      marginTop={1}
-    >
+    <box height={1} marginTop={1}>
       <text fg={theme().textMuted}>
         <span style={{ fg: theme().accent }}>Enter</span> select
         <span> </span>

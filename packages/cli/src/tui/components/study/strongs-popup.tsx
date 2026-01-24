@@ -53,10 +53,7 @@ export function StrongsPopup(props: StrongsPopupProps) {
           <strong>"{props.word.text}"</strong>
         </text>
         <Show when={props.word.strongs}>
-          <text fg={theme().textMuted}>
-            {' '}
-            ({props.word.strongs?.join(', ')})
-          </text>
+          <text fg={theme().textMuted}> ({props.word.strongs?.join(', ')})</text>
         </Show>
       </box>
 
@@ -64,9 +61,7 @@ export function StrongsPopup(props: StrongsPopupProps) {
       <Show
         when={entries().length > 0}
         fallback={
-          <text fg={theme().textMuted}>
-            No Strong's definition available for this word.
-          </text>
+          <text fg={theme().textMuted}>No Strong's definition available for this word.</text>
         }
       >
         <box flexDirection="column">
@@ -75,11 +70,7 @@ export function StrongsPopup(props: StrongsPopupProps) {
               <box flexDirection="column">
                 {/* Strong's Number and Language */}
                 <box>
-                  <text
-                    fg={
-                      isHebrew(entry.number) ? theme().warning : theme().accent
-                    }
-                  >
+                  <text fg={isHebrew(entry.number) ? theme().warning : theme().accent}>
                     <strong>{entry.number}</strong>
                   </text>
                   <text fg={theme().textMuted}>
@@ -95,10 +86,7 @@ export function StrongsPopup(props: StrongsPopupProps) {
                     <text fg={theme().text}>
                       <strong>{entry.xlit || entry.lemma}</strong>
                       <Show when={entry.xlit && entry.lemma}>
-                        <span style={{ fg: theme().textMuted }}>
-                          {' '}
-                          ({entry.lemma})
-                        </span>
+                        <span style={{ fg: theme().textMuted }}> ({entry.lemma})</span>
                       </Show>
                     </text>
                   </box>
@@ -118,10 +106,7 @@ export function StrongsPopup(props: StrongsPopupProps) {
                     <text fg={theme().textMuted}>Definition: </text>
                   </box>
                   <box paddingLeft={2}>
-                    <text
-                      fg={theme().text}
-                      wrapMode="word"
-                    >
+                    <text fg={theme().text} wrapMode="word">
                       {entry.def}
                     </text>
                   </box>
@@ -133,10 +118,7 @@ export function StrongsPopup(props: StrongsPopupProps) {
                     <text fg={theme().textMuted}>KJV Usage: </text>
                   </box>
                   <box paddingLeft={2}>
-                    <text
-                      fg={theme().text}
-                      wrapMode="word"
-                    >
+                    <text fg={theme().text} wrapMode="word">
                       {entry.kjvDef}
                     </text>
                   </box>

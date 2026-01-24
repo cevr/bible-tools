@@ -16,9 +16,7 @@ test.describe('EGW Navigation', () => {
   test('arrow down navigates to next paragraph', async ({ page }) => {
     await page.keyboard.press('ArrowDown');
     // Should select next paragraph
-    await expect(
-      page.locator('[data-para][data-selected="true"]')
-    ).toBeVisible();
+    await expect(page.locator('[data-para][data-selected="true"]')).toBeVisible();
   });
 
   test('redirects /egw/:book to /egw/:book/1', async ({ page }) => {

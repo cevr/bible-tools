@@ -18,13 +18,10 @@ import type { EGWReaderPosition } from './types.js';
 /**
  * Error types for the reader service
  */
-export class EGWReaderError extends Schema.TaggedError<EGWReaderError>()(
-  'EGWReaderError',
-  {
-    message: Schema.String,
-    cause: Schema.optional(Schema.Unknown),
-  },
-) {}
+export class EGWReaderError extends Schema.TaggedError<EGWReaderError>()('EGWReaderError', {
+  message: Schema.String,
+  cause: Schema.optional(Schema.Unknown),
+}) {}
 
 export class BookNotFoundError extends Schema.TaggedError<BookNotFoundError>()(
   'BookNotFoundError',
@@ -57,9 +54,7 @@ export type ReaderError = Schema.Schema.Type<typeof ReaderError>;
 /**
  * Convert database Paragraph to EGWParagraph
  */
-function schemaParagraphToEGWParagraph(
-  para: EGWSchemas.Paragraph,
-): EGWParagraph {
+function schemaParagraphToEGWParagraph(para: EGWSchemas.Paragraph): EGWParagraph {
   return new EGWParagraph({
     paraId: para.para_id ?? undefined,
     refcodeShort: para.refcode_short ?? undefined,
@@ -80,9 +75,7 @@ function schemaParagraphToEGWParagraph(
  * Provides high-level reading operations on EGW writings.
  */
 export interface EGWReaderServiceShape {
-  readonly getBooks: (
-    author?: string,
-  ) => Effect.Effect<readonly EGWBookInfo[], ReaderError>;
+  readonly getBooks: (author?: string) => Effect.Effect<readonly EGWBookInfo[], ReaderError>;
   readonly getBookByCode: (
     bookCode: string,
   ) => Effect.Effect<Option.Option<EGWBookInfo>, ReaderError>;
@@ -110,10 +103,7 @@ export interface EGWReaderServiceShape {
   readonly searchParagraphs: (
     query: string,
     limit?: number,
-  ) => Effect.Effect<
-    readonly (EGWParagraph & { bookCode: string })[],
-    ReaderError
-  >;
+  ) => Effect.Effect<readonly (EGWParagraph & { bookCode: string })[], ReaderError>;
 }
 
 // ============================================================================
@@ -132,11 +122,10 @@ export class EGWReaderService extends Context.Tag('@bible/egw-reader/Service')<
   /**
    * Live implementation using EGWParagraphDatabase.
    */
-  static Live: Layer.Layer<EGWReaderService, never, EGWParagraphDatabase> =
-    Layer.effect(
-      EGWReaderService,
-      Effect.gen(function* () {
-        const db = yield* EGWParagraphDatabase;
+  static Live: Layer.Layer<EGWReaderService, never, EGWParagraphDatabase> = Layer.effect(
+    EGWReaderService,
+    Effect.gen(function* () {
+      const db = yield* EGWParagraphDatabase;
 
       /**
        * Get all available books
@@ -157,10 +146,7 @@ export class EGWReaderService extends Context.Tag('@bible/egw-reader/Service')<
           ),
           Stream.runCollect,
           Effect.map((chunk) => [...chunk]),
-          Effect.mapError(
-            (e) =>
-              new EGWReaderError({ message: 'Failed to get books', cause: e }),
-          ),
+          Effect.mapError((e) => new EGWReaderError({ message: 'Failed to get books', cause: e })),
         );
 
       /**
@@ -183,10 +169,7 @@ export class EGWReaderService extends Context.Tag('@bible/egw-reader/Service')<
                 }),
             ),
           ),
-          Effect.mapError(
-            (e) =>
-              new EGWReaderError({ message: 'Failed to get book', cause: e }),
-          ),
+          Effect.mapError((e) => new EGWReaderError({ message: 'Failed to get book', cause: e })),
         );
 
       /**
@@ -252,13 +235,10 @@ export class EGWReaderService extends Context.Tag('@bible/egw-reader/Service')<
         getBookByCode(bookCode).pipe(
           Effect.flatMap((optBook) =>
             Option.match(optBook, {
-              onNone: () =>
-                Effect.fail<ReaderError>(new BookNotFoundError({ bookCode })),
+              onNone: () => Effect.fail<ReaderError>(new BookNotFoundError({ bookCode })),
               onSome: (book) =>
                 db.getParagraphsByPage(book.bookId, page).pipe(
-                  Effect.map((paras) =>
-                    paras.map(schemaParagraphToEGWParagraph),
-                  ),
+                  Effect.map((paras) => paras.map(schemaParagraphToEGWParagraph)),
                   Effect.mapError(
                     (e): ReaderError =>
                       new EGWReaderError({
@@ -315,10 +295,7 @@ export class EGWReaderService extends Context.Tag('@bible/egw-reader/Service')<
       const searchParagraphs = (
         query: string,
         limit: number = 50,
-      ): Effect.Effect<
-        readonly (EGWParagraph & { bookCode: string })[],
-        ReaderError
-      > =>
+      ): Effect.Effect<readonly (EGWParagraph & { bookCode: string })[], ReaderError> =>
         db.searchParagraphs(query, limit).pipe(
           Effect.map((results) =>
             results.map((r) => ({
@@ -374,18 +351,18 @@ export class EGWReaderService extends Context.Tag('@bible/egw-reader/Service')<
   /**
    * Test implementation with configurable mock data.
    */
-  static Test = (config: {
-    books?: readonly EGWBookInfo[];
-    paragraphs?: readonly EGWParagraph[];
-  } = {}): Layer.Layer<EGWReaderService> =>
+  static Test = (
+    config: {
+      books?: readonly EGWBookInfo[];
+      paragraphs?: readonly EGWParagraph[];
+    } = {},
+  ): Layer.Layer<EGWReaderService> =>
     Layer.succeed(EGWReaderService, {
       getBooks: () => Effect.succeed(config.books ?? []),
       getBookByCode: (bookCode) =>
         Effect.succeed(
           Option.fromNullable(
-            config.books?.find(
-              (b) => b.bookCode.toLowerCase() === bookCode.toLowerCase(),
-            ),
+            config.books?.find((b) => b.bookCode.toLowerCase() === bookCode.toLowerCase()),
           ),
         ),
       getParagraphsByBook: () => Effect.succeed(config.paragraphs ?? []),
@@ -393,10 +370,7 @@ export class EGWReaderService extends Context.Tag('@bible/egw-reader/Service')<
       getParagraphByRefcode: (_, refcode) =>
         Effect.succeed(
           Option.fromNullable(
-            config.paragraphs?.find(
-              (p) =>
-                p.refcodeShort === refcode || p.refcodeLong === refcode,
-            ),
+            config.paragraphs?.find((p) => p.refcodeShort === refcode || p.refcodeLong === refcode),
           ),
         ),
       getParagraphsByPage: () => Effect.succeed([]),

@@ -9,11 +9,7 @@ interface ExitProviderProps {
 }
 
 export function ExitProvider(props: ParentProps<ExitProviderProps>) {
-  return (
-    <ExitContext.Provider value={props.onExit}>
-      {props.children}
-    </ExitContext.Provider>
-  );
+  return <ExitContext.Provider value={props.onExit}>{props.children}</ExitContext.Provider>;
 }
 
 export function useExit(): ExitHandler {

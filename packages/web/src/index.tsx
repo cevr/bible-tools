@@ -23,5 +23,5 @@ render(
       <Route path="/egw/*" component={EgwRoute} />
     </Router>
   ),
-  root
+  root,
 );

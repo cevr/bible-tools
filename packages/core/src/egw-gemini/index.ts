@@ -44,11 +44,7 @@
  */
 
 export { EGWGeminiService, EGWGeminiError } from './service.js';
-export type {
-  UploadBookOptions,
-  QueryOptions,
-  UploadAllEGWWritingsOptions,
-} from './service.js';
+export type { UploadBookOptions, QueryOptions, UploadAllEGWWritingsOptions } from './service.js';
 
 export {
   EGWUploadStatus,

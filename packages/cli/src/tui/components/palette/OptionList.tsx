@@ -39,17 +39,11 @@ export function PaletteOptionList(props: PaletteOptionListProps) {
   const visibleItems = () => renderItems().slice(0, maxVisible());
 
   return (
-    <box
-      flexDirection="column"
-      flexGrow={1}
-    >
+    <box flexDirection="column" flexGrow={1}>
       <Show
         when={visibleItems().length > 0}
         fallback={
-          <text
-            fg={theme().textMuted}
-            style={{ padding: 1 }}
-          >
+          <text fg={theme().textMuted} style={{ padding: 1 }}>
             No results found
           </text>
         }
@@ -57,18 +51,10 @@ export function PaletteOptionList(props: PaletteOptionListProps) {
         <For each={visibleItems()}>
           {(item) => {
             if (is(item, 'header')) {
-              return (
-                <PaletteGroupHeader
-                  label={item.label}
-                  isFirst={item.isFirst}
-                />
-              );
+              return <PaletteGroupHeader label={item.label} isFirst={item.isFirst} />;
             }
             return (
-              <PaletteOption
-                option={item.option}
-                isSelected={item.flatIndex === selectedIndex()}
-              />
+              <PaletteOption option={item.option} isSelected={item.flatIndex === selectedIndex()} />
             );
           }}
         </For>

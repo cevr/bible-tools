@@ -32,9 +32,7 @@ const BibleRoute: Component<ParentProps> = () => {
     if (aliasNum) return aliasNum;
 
     // Try to find by name
-    const book = bible.books.find(
-      (b) => b.name.toLowerCase() === bookParam
-    );
+    const book = bible.books.find((b) => b.name.toLowerCase() === bookParam);
     return book?.number ?? 1;
   });
 
@@ -51,7 +49,7 @@ const BibleRoute: Component<ParentProps> = () => {
 
   // Selected verse state
   const [selectedVerse, setSelectedVerse] = createSignal(
-    params.verse ? parseInt(params.verse, 10) : 1
+    params.verse ? parseInt(params.verse, 10) : 1,
   );
 
   // Update selected verse when URL changes
@@ -178,9 +176,7 @@ const BibleRoute: Component<ParentProps> = () => {
             Failed to load verses: {String(verses.error)}
           </p>
         </Show>
-        <Show
-          when={!verses.loading && !verses.error && verses()}
-        >
+        <Show when={!verses.loading && !verses.error && verses()}>
           {(loadedVerses) => (
             <Show
               when={loadedVerses().length > 0}
@@ -255,8 +251,7 @@ const VerseDisplay: Component<{
       data-verse={props.verse.verse}
       class="cursor-pointer rounded px-2 py-1 transition-colors duration-100"
       classList={{
-        'bg-[--color-highlight] dark:bg-[--color-highlight-dark]':
-          props.isSelected,
+        'bg-[--color-highlight] dark:bg-[--color-highlight-dark]': props.isSelected,
         'hover:bg-[--color-highlight]/50 dark:hover:bg-[--color-highlight-dark]/50':
           !props.isSelected,
       }}

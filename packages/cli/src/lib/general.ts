@@ -8,15 +8,9 @@ export const spin = Effect.fn('prelude/spin')(function* <V, E, R>(
   const start = Date.now();
   yield* Effect.log(`${message}...`);
   const result = yield* job.pipe(
-    Effect.tap(() =>
-      Effect.log(`${message} done (${msToMinutes(Date.now() - start)})`),
-    ),
-    Effect.tapError(() =>
-      Effect.log(`${message} failed (${msToMinutes(Date.now() - start)})`),
-    ),
-    Effect.tapDefect(() =>
-      Effect.log(`${message} failed (${msToMinutes(Date.now() - start)})`),
-    ),
+    Effect.tap(() => Effect.log(`${message} done (${msToMinutes(Date.now() - start)})`)),
+    Effect.tapError(() => Effect.log(`${message} failed (${msToMinutes(Date.now() - start)})`)),
+    Effect.tapDefect(() => Effect.log(`${message} failed (${msToMinutes(Date.now() - start)})`)),
   );
 
   return result;

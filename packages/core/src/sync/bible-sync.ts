@@ -72,16 +72,15 @@ interface StrongsData {
   };
 }
 
-interface KJVStrongsData
-  extends Array<{
-    book: number;
-    chapter: number;
-    verse: number;
-    words: Array<{
-      text: string;
-      strongs?: string[];
-    }>;
-  }> {}
+interface KJVStrongsData extends Array<{
+  book: number;
+  chapter: number;
+  verse: number;
+  words: Array<{
+    text: string;
+    strongs?: string[];
+  }>;
+}> {}
 
 interface MarginNotesData {
   [key: string]: Array<{
@@ -261,7 +260,9 @@ async function syncBible(force: boolean): Promise<void> {
         insertVerse.run(v.book, v.chapter, v.verse, 'KJV', v.text);
       }
     })();
-    process.stdout.write(`\r  Progress: ${Math.min(i + VERSE_BATCH_SIZE, kjv.verses.length)}/${kjv.verses.length}`);
+    process.stdout.write(
+      `\r  Progress: ${Math.min(i + VERSE_BATCH_SIZE, kjv.verses.length)}/${kjv.verses.length}`,
+    );
   }
   console.log('\n');
 
@@ -296,7 +297,9 @@ async function syncBible(force: boolean): Promise<void> {
         }
       }
     })();
-    process.stdout.write(`\r  Progress: ${Math.min(i + CROSSREF_BATCH_SIZE, crossRefEntries.length)}/${crossRefEntries.length}`);
+    process.stdout.write(
+      `\r  Progress: ${Math.min(i + CROSSREF_BATCH_SIZE, crossRefEntries.length)}/${crossRefEntries.length}`,
+    );
   }
   console.log(`\n  Inserted ${crossRefCount} cross-references\n`);
 
@@ -317,7 +320,9 @@ async function syncBible(force: boolean): Promise<void> {
         insertStrongs.run(num.toUpperCase(), language, data.lemma, data.xlit ?? null, data.def);
       }
     })();
-    process.stdout.write(`\r  Progress: ${Math.min(i + STRONGS_BATCH_SIZE, strongsEntries.length)}/${strongsEntries.length}`);
+    process.stdout.write(
+      `\r  Progress: ${Math.min(i + STRONGS_BATCH_SIZE, strongsEntries.length)}/${strongsEntries.length}`,
+    );
   }
   console.log('\n');
 
@@ -370,9 +375,13 @@ async function syncBible(force: boolean): Promise<void> {
         }
       }
     })();
-    process.stdout.write(`\r  Progress: ${Math.min(i + WORDS_BATCH_SIZE, kjvStrongs.length)}/${kjvStrongs.length}`);
+    process.stdout.write(
+      `\r  Progress: ${Math.min(i + WORDS_BATCH_SIZE, kjvStrongs.length)}/${kjvStrongs.length}`,
+    );
   }
-  console.log(`\n  Inserted ${verseWordCount} verse words, ${strongsVerseCount} Strong's references\n`);
+  console.log(
+    `\n  Inserted ${verseWordCount} verse words, ${strongsVerseCount} Strong's references\n`,
+  );
 
   // Load and insert margin notes
   const marginNotes = loadJson<MarginNotesData>('margin-notes.json');
@@ -406,7 +415,9 @@ async function syncBible(force: boolean): Promise<void> {
         }
       }
     })();
-    process.stdout.write(`\r  Progress: ${Math.min(i + NOTES_BATCH_SIZE, marginNoteEntries.length)}/${marginNoteEntries.length}`);
+    process.stdout.write(
+      `\r  Progress: ${Math.min(i + NOTES_BATCH_SIZE, marginNoteEntries.length)}/${marginNoteEntries.length}`,
+    );
   }
   console.log(`\n  Inserted ${marginNoteCount} margin notes\n`);
 

@@ -51,42 +51,39 @@ const parseMarkdown = Effect.fn('parseMarkdown')(function* (content: string) {
  * @returns An Effect that resolves with the final title used for the note upon successful creation.
  * @throws An error if the AppleScript execution fails (e.g., permissions issues).
  */
-export const makeAppleNoteFromMarkdown = Effect.fn('makeAppleNoteFromMarkdown')(
-  function* (markdownContent: string, options: CreateSimpleNoteOptions = {}) {
-    yield* Effect.log('🔄 Converting Markdown to HTML...');
+export const makeAppleNoteFromMarkdown = Effect.fn('makeAppleNoteFromMarkdown')(function* (
+  markdownContent: string,
+  options: CreateSimpleNoteOptions = {},
+) {
+  yield* Effect.log('🔄 Converting Markdown to HTML...');
 
-    // Determine the note title
-    const finalNoteTitle =
-      options.title ??
-      pipe(
-        extractTitleFromMarkdown(markdownContent),
-        Option.getOrElse(() => 'Untitled Note'),
-      );
-    yield* Effect.log(`ℹ️  Using note title: "${finalNoteTitle}"`);
-
-    // Prepare markdown content (removes H1 if using as title, adds section breaks)
-    const contentWithBreaks = prepareMarkdownForAppleNotes(
-      markdownContent,
-      !!options.title,
+  // Determine the note title
+  const finalNoteTitle =
+    options.title ??
+    pipe(
+      extractTitleFromMarkdown(markdownContent),
+      Option.getOrElse(() => 'Untitled Note'),
     );
+  yield* Effect.log(`ℹ️  Using note title: "${finalNoteTitle}"`);
 
-    const htmlContent = yield* parseMarkdown(contentWithBreaks);
+  // Prepare markdown content (removes H1 if using as title, adds section breaks)
+  const contentWithBreaks = prepareMarkdownForAppleNotes(markdownContent, !!options.title);
 
-    // Prepare HTML for AppleScript (basic structure and styling)
-    const styledHtmlContent = wrapWithAppleNotesStyle(htmlContent);
+  const htmlContent = yield* parseMarkdown(contentWithBreaks);
 
-    // Escape content for AppleScript embedding
-    const escapedHtmlBody = escapeAppleScriptString(styledHtmlContent);
-    const escapedNoteTitle = escapeAppleScriptString(finalNoteTitle);
+  // Prepare HTML for AppleScript (basic structure and styling)
+  const styledHtmlContent = wrapWithAppleNotesStyle(htmlContent);
 
-    // Construct the AppleScript command (always targets the main Notes application)
-    yield* Effect.log(
-      '🔨 Constructing AppleScript command for default location...',
-    );
-    const activateCommand = options.activateNotesApp ? 'activate' : '';
+  // Escape content for AppleScript embedding
+  const escapedHtmlBody = escapeAppleScriptString(styledHtmlContent);
+  const escapedNoteTitle = escapeAppleScriptString(finalNoteTitle);
 
-    const appleScriptCommand = options.folder
-      ? `
+  // Construct the AppleScript command (always targets the main Notes application)
+  yield* Effect.log('🔨 Constructing AppleScript command for default location...');
+  const activateCommand = options.activateNotesApp ? 'activate' : '';
+
+  const appleScriptCommand = options.folder
+    ? `
       tell application "Notes"
         set targetFolder to missing value
         repeat with f in folders
@@ -104,7 +101,7 @@ export const makeAppleNoteFromMarkdown = Effect.fn('makeAppleNoteFromMarkdown')(
         return id of newNote
       end tell
     `
-      : `
+    : `
       tell application "Notes"
         set newNote to make new note with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
         ${activateCommand}
@@ -112,26 +109,21 @@ export const makeAppleNoteFromMarkdown = Effect.fn('makeAppleNoteFromMarkdown')(
       end tell
     `;
 
-    // Execute the AppleScript
-    const locationInfo = options.folder
-      ? `folder "${options.folder}"`
-      : 'default location';
-    yield* Effect.log(
-      `🚀 Executing AppleScript to create note in ${locationInfo}...`,
-    );
+  // Execute the AppleScript
+  const locationInfo = options.folder ? `folder "${options.folder}"` : 'default location';
+  yield* Effect.log(`🚀 Executing AppleScript to create note in ${locationInfo}...`);
 
-    const appleScript = yield* AppleScript;
-    const res = yield* appleScript.exec(appleScriptCommand);
-    yield* Effect.log(res);
+  const appleScript = yield* AppleScript;
+  const res = yield* appleScript.exec(appleScriptCommand);
+  yield* Effect.log(res);
 
-    // Success - res contains the note ID (e.g., "note id x-coredata://...")
-    const noteId = res.trim();
-    yield* Effect.log(
-      `✅ Success! Note "${finalNoteTitle}" created in Apple Notes (${locationInfo}).`,
-    );
-    return { title: finalNoteTitle, noteId };
-  },
-);
+  // Success - res contains the note ID (e.g., "note id x-coredata://...")
+  const noteId = res.trim();
+  yield* Effect.log(
+    `✅ Success! Note "${finalNoteTitle}" created in Apple Notes (${locationInfo}).`,
+  );
+  return { title: finalNoteTitle, noteId };
+});
 
 /**
  * Options for updating an existing Apple Note.
@@ -153,9 +145,7 @@ export interface UpdateNoteOptions {
  * @returns An Effect that resolves with the final title used for the note upon successful update.
  * @throws An error if the AppleScript execution fails (e.g., permissions issues, note not found).
  */
-export const updateAppleNoteFromMarkdown = Effect.fn(
-  'updateAppleNoteFromMarkdown',
-)(function* (
+export const updateAppleNoteFromMarkdown = Effect.fn('updateAppleNoteFromMarkdown')(function* (
   noteId: string,
   markdownContent: string,
   options: UpdateNoteOptions = {},
@@ -172,10 +162,7 @@ export const updateAppleNoteFromMarkdown = Effect.fn(
   yield* Effect.log(`ℹ️  Using note title: "${finalNoteTitle}"`);
 
   // Prepare markdown content (removes H1 if using as title, adds section breaks)
-  const contentWithBreaks = prepareMarkdownForAppleNotes(
-    markdownContent,
-    !!options.title,
-  );
+  const contentWithBreaks = prepareMarkdownForAppleNotes(markdownContent, !!options.title);
 
   const htmlContent = yield* parseMarkdown(contentWithBreaks);
 
@@ -188,9 +175,7 @@ export const updateAppleNoteFromMarkdown = Effect.fn(
   const escapedNoteId = escapeAppleScriptString(noteId);
 
   // Construct the AppleScript command to update existing note
-  yield* Effect.log(
-    `🔨 Constructing AppleScript command to update note ID: ${noteId}...`,
-  );
+  yield* Effect.log(`🔨 Constructing AppleScript command to update note ID: ${noteId}...`);
   const activateCommand = options.activateNotesApp ? 'activate' : '';
 
   const appleScriptCommand = `
@@ -224,8 +209,6 @@ export const updateAppleNoteFromMarkdown = Effect.fn(
   }
 
   // Success
-  yield* Effect.log(
-    `✅ Success! Note "${finalNoteTitle}" updated in Apple Notes.`,
-  );
+  yield* Effect.log(`✅ Success! Note "${finalNoteTitle}" updated in Apple Notes.`);
   return finalNoteTitle; // Resolve with the title used
 });

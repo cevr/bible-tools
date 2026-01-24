@@ -30,10 +30,7 @@ function getCacheKey(book: number, chapter: number): string {
 /**
  * Fetch a chapter from the API.
  */
-export async function fetchChapter(
-  book: number,
-  chapter: number,
-): Promise<ChapterResponse> {
+export async function fetchChapter(book: number, chapter: number): Promise<ChapterResponse> {
   const cacheKey = getCacheKey(book, chapter);
   const cached = chapterCache.get(cacheKey);
   if (cached) {
@@ -53,10 +50,7 @@ export async function fetchChapter(
 /**
  * Fetch verses for a chapter.
  */
-export async function fetchVerses(
-  book: number,
-  chapter: number,
-): Promise<readonly Verse[]> {
+export async function fetchVerses(book: number, chapter: number): Promise<readonly Verse[]> {
   const data = await fetchChapter(book, chapter);
   return data.verses;
 }
@@ -64,10 +58,7 @@ export async function fetchVerses(
 /**
  * Search verses via API.
  */
-export async function searchVerses(
-  query: string,
-  limit = 50,
-): Promise<readonly SearchResult[]> {
+export async function searchVerses(query: string, limit = 50): Promise<readonly SearchResult[]> {
   if (!query.trim()) return [];
 
   const params = new URLSearchParams({ q: query, limit: String(limit) });
@@ -152,9 +143,7 @@ export const bibleDataService = {
     if (!bookNum) {
       const lower = bookPart.toLowerCase();
       const match = BOOKS.find(
-        (b) =>
-          b.name.toLowerCase().startsWith(lower) ||
-          b.name.toLowerCase().includes(lower),
+        (b) => b.name.toLowerCase().startsWith(lower) || b.name.toLowerCase().includes(lower),
       );
       if (match) {
         bookNum = match.number;

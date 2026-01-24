@@ -25,20 +25,10 @@ export interface MockHttpState {
 /**
  * Create a mock fetch function that records calls and returns configured responses.
  */
-export const createMockFetch = (
-  config: MockHttpConfig,
-  state: MockHttpState,
-) => {
-  return async (
-    input: string | URL | Request,
-    _init?: RequestInit,
-  ): Promise<Response> => {
+export const createMockFetch = (config: MockHttpConfig, state: MockHttpState) => {
+  return async (input: string | URL | Request, _init?: RequestInit): Promise<Response> => {
     const url =
-      typeof input === 'string'
-        ? input
-        : input instanceof URL
-          ? input.toString()
-          : input.url;
+      typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
 
     // Record the call to shared state
     state.calls.push({ _tag: 'HTTP.fetch', url });

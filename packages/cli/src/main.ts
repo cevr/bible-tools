@@ -24,12 +24,7 @@ import { sabbathSchool } from './commands/sabbath-school.js';
 import { studies } from './commands/studies.js';
 // Types only (no runtime cost)
 import type { Reference } from './data/bible/types.js';
-import {
-  printSummary,
-  trace,
-  traceAsync,
-  traceSync,
-} from './instrumentation/trace.js';
+import { printSummary, trace, traceAsync, traceSync } from './instrumentation/trace.js';
 // Lightweight CLI command imports (no TUI dependencies)
 import { AppleScriptLive } from './services/apple-script.js';
 import { ChimeLive } from './services/chime.js';
@@ -56,8 +51,7 @@ const args = process.argv.slice(2);
 const hasSubcommand = args.some((arg) => cliSubcommands.includes(arg));
 const isOpenCommand = args[0] === 'open';
 const isEgwOpenCommand = args[0] === 'egw' && args[1] === 'open';
-const isTuiMode =
-  (!hasSubcommand && !isOpenCommand) || isOpenCommand || isEgwOpenCommand;
+const isTuiMode = (!hasSubcommand && !isOpenCommand) || isOpenCommand || isEgwOpenCommand;
 
 trace('arg parsing complete', {
   mode: hasSubcommand ? 'cli' : isTuiMode ? 'tui' : 'unknown',
@@ -67,17 +61,13 @@ trace('arg parsing complete', {
 async function loadTuiDependencies() {
   trace('loading TUI dependencies');
 
-  const [
-    { tui },
-    { BibleDataLive, BibleData },
-    { detectSystemThemeAsync },
-    aiSdk,
-  ] = await Promise.all([
-    traceAsync('import tui', () => import('./tui/app.js')),
-    traceAsync('import bible/data', () => import('./data/bible/data.js')),
-    traceAsync('import themes', () => import('./tui/themes/index.js')),
-    traceAsync('import AI SDKs', () => loadAiSdks()),
-  ]);
+  const [{ tui }, { BibleDataLive, BibleData }, { detectSystemThemeAsync }, aiSdk] =
+    await Promise.all([
+      traceAsync('import tui', () => import('./tui/app.js')),
+      traceAsync('import bible/data', () => import('./data/bible/data.js')),
+      traceAsync('import themes', () => import('./tui/themes/index.js')),
+      traceAsync('import AI SDKs', () => loadAiSdks()),
+    ]);
 
   trace('TUI dependencies loaded');
 
@@ -86,11 +76,7 @@ async function loadTuiDependencies() {
 
 // Lazy load AI SDKs
 async function loadAiSdks() {
-  const [
-    { createGoogleGenerativeAI },
-    { createOpenAI },
-    { createAnthropic },
-  ] = await Promise.all([
+  const [{ createGoogleGenerativeAI }, { createOpenAI }, { createAnthropic }] = await Promise.all([
     import('@ai-sdk/google'),
     import('@ai-sdk/openai'),
     import('@ai-sdk/anthropic'),
@@ -101,9 +87,7 @@ async function loadAiSdks() {
 
 // Create model service from environment variables
 // Tries providers in order: Gemini, OpenAI, Anthropic
-function tryCreateModelService(
-  aiSdk: Awaited<ReturnType<typeof loadAiSdks>>,
-): ModelService | null {
+function tryCreateModelService(aiSdk: Awaited<ReturnType<typeof loadAiSdks>>): ModelService | null {
   const { createGoogleGenerativeAI, createOpenAI, createAnthropic } = aiSdk;
 
   // Try Gemini first
@@ -146,9 +130,7 @@ function tryCreateModelService(
 }
 
 // Parse a verse reference from the command line (lazy loads BibleData)
-async function parseReferenceFromArgs(
-  args: string[],
-): Promise<Reference | undefined> {
+async function parseReferenceFromArgs(args: string[]): Promise<Reference | undefined> {
   if (args.length === 0) return undefined;
 
   const refString = args.join(' ');
@@ -159,9 +141,7 @@ async function parseReferenceFromArgs(
   );
 
   const result = traceSync('parseReference', () =>
-    Effect.runSync(Effect.provide(BibleData, BibleDataLive)).parseReference(
-      refString,
-    ),
+    Effect.runSync(Effect.provide(BibleData, BibleDataLive)).parseReference(refString),
   );
 
   return result;
@@ -181,12 +161,7 @@ function parseEgwReferenceFromArgs(args: string[]): EGWReference | undefined {
   // Convert parsed reference to EGWReference for router
   return {
     bookCode: parsed.bookCode,
-    page:
-      'page' in parsed
-        ? parsed.page
-        : 'pageStart' in parsed
-          ? parsed.pageStart
-          : undefined,
+    page: 'page' in parsed ? parsed.page : 'pageStart' in parsed ? parsed.pageStart : undefined,
     paragraph:
       'paragraph' in parsed
         ? parsed.paragraph
@@ -215,15 +190,11 @@ async function main() {
     const deps = await loadTuiDependencies();
 
     await traceAsync('detectSystemTheme', deps.detectSystemThemeAsync);
-    const model = traceSync('createModelService', () =>
-      tryCreateModelService(deps),
-    );
+    const model = traceSync('createModelService', () => tryCreateModelService(deps));
 
     // Pass empty object to signal "go to EGW route" even without a specific reference
     // The EGW navigation context will load from saved state if no ref is provided
-    await traceAsync('tui', () =>
-      deps.tui({ initialEgwRef: egwRef ?? {}, model }),
-    );
+    await traceAsync('tui', () => deps.tui({ initialEgwRef: egwRef ?? {}, model }));
     printSummary();
     return;
   }
@@ -254,11 +225,7 @@ async function main() {
       }),
     );
 
-    const ServicesLayer = Layer.mergeAll(
-      AppleScriptLive,
-      ChimeLive,
-      BunContext.layer,
-    );
+    const ServicesLayer = Layer.mergeAll(AppleScriptLive, ChimeLive, BunContext.layer);
 
     trace('starting Effect execution');
 
@@ -284,9 +251,7 @@ async function main() {
     const deps = await loadTuiDependencies();
 
     await traceAsync('detectSystemTheme', deps.detectSystemThemeAsync);
-    const model = traceSync('createModelService', () =>
-      tryCreateModelService(deps),
-    );
+    const model = traceSync('createModelService', () => tryCreateModelService(deps));
 
     await traceAsync('tui', () => deps.tui({ initialRef: ref, model }));
     printSummary();
@@ -297,9 +262,7 @@ async function main() {
     const deps = await loadTuiDependencies();
 
     await traceAsync('detectSystemTheme', deps.detectSystemThemeAsync);
-    const model = traceSync('createModelService', () =>
-      tryCreateModelService(deps),
-    );
+    const model = traceSync('createModelService', () => tryCreateModelService(deps));
 
     await traceAsync('tui', () => deps.tui({ model }));
     printSummary();

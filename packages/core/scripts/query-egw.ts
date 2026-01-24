@@ -21,12 +21,7 @@
 import { Args, Command } from '@effect/cli';
 import { text } from '@effect/cli/Prompt';
 import { FetchHttpClient } from '@effect/platform';
-import {
-  BunContext,
-  BunFileSystem,
-  BunPath,
-  BunRuntime,
-} from '@effect/platform-bun';
+import { BunContext, BunFileSystem, BunPath, BunRuntime } from '@effect/platform-bun';
 import { Effect, Layer, Option } from 'effect';
 
 import { EGWParagraphDatabase } from '../src/egw-db/index.js';
@@ -79,11 +74,7 @@ const cli = Command.make(
     store: storeOption,
     metadataFilter: metadataFilterOption,
   },
-  (args: {
-    query: Option.Option<string>;
-    store: string;
-    metadataFilter: Option.Option<string>;
-  }) =>
+  (args: { query: Option.Option<string>; store: string; metadataFilter: Option.Option<string> }) =>
     Effect.gen(function* () {
       const service = yield* EGWGeminiService;
 
@@ -123,16 +114,10 @@ const cli = Command.make(
       const response = result.response as GenerateContentResponse;
 
       // Display query information
-      yield* Effect.log(
-        '\n═══════════════════════════════════════════════════════',
-      );
+      yield* Effect.log('\n═══════════════════════════════════════════════════════');
       yield* Effect.log('QUERY RESULTS');
-      yield* Effect.log(
-        '═══════════════════════════════════════════════════════',
-      );
-      yield* Effect.log(
-        `Store: ${result.store.displayName} (${result.store.name})`,
-      );
+      yield* Effect.log('═══════════════════════════════════════════════════════');
+      yield* Effect.log(`Store: ${result.store.displayName} (${result.store.name})`);
       yield* Effect.log(`Query: ${result.query}`);
       yield* Effect.log(`Candidates: ${response.candidates?.length || 0}`);
       yield* Effect.log('');
@@ -172,9 +157,7 @@ const cli = Command.make(
             const metadata = candidate.groundingMetadata;
 
             if (metadata.searchEntryPoint) {
-              yield* Effect.log(
-                `  Search Entry Point: ${metadata.searchEntryPoint}`,
-              );
+              yield* Effect.log(`  Search Entry Point: ${metadata.searchEntryPoint}`);
             }
 
             if (metadata.retrievalMetadata) {
@@ -190,12 +173,8 @@ const cli = Command.make(
                   retrieval.chunk.length > 300
                     ? `${retrieval.chunk.substring(0, 300)}...`
                     : retrieval.chunk;
-                yield* Effect.log(
-                  `    Retrieved Chunk (${retrieval.chunk.length} chars):`,
-                );
-                yield* Effect.log(
-                  `    ${chunkPreview.split('\n').join('\n    ')}`,
-                );
+                yield* Effect.log(`    Retrieved Chunk (${retrieval.chunk.length} chars):`);
+                yield* Effect.log(`    ${chunkPreview.split('\n').join('\n    ')}`);
               }
             } else {
               yield* Effect.log('  (no retrieval metadata)');
@@ -234,9 +213,7 @@ const ApiClientLayer = EGWApiClient.Live.pipe(
 );
 
 // GeminiFileSearchClient needs: HttpClient
-const GeminiClientLayer = GeminiFileSearchClient.Live.pipe(
-  Layer.provide(FetchHttpClient.layer),
-);
+const GeminiClientLayer = GeminiFileSearchClient.Live.pipe(Layer.provide(FetchHttpClient.layer));
 
 // EGWParagraphDatabase needs: FileSystem, Path
 const ParagraphDbLayer = EGWParagraphDatabase.Live;

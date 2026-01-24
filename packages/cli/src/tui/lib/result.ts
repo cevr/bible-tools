@@ -97,9 +97,7 @@ export const getValue = <A, E>(result: Result<A, E>): A | undefined =>
 /**
  * Get cause from result, or undefined if not failure
  */
-export const getCause = <A, E>(
-  result: Result<A, E>,
-): Cause.Cause<E> | undefined =>
+export const getCause = <A, E>(result: Result<A, E>): Cause.Cause<E> | undefined =>
   isFailure(result) ? result.cause : undefined;
 
 /**

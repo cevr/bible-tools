@@ -24,8 +24,7 @@ describe('notes commands', () => {
     });
 
     it('should output JSON when --json flag is used', async () => {
-      const mockNotesResponse =
-        'note-id-1|Test Note|January 1, 2026|January 2, 2026\n';
+      const mockNotesResponse = 'note-id-1|Test Note|January 1, 2026|January 2, 2026\n';
 
       const result = await runCli(notes, ['list', '--json'], {
         bun: {
@@ -54,27 +53,20 @@ describe('notes commands', () => {
     it('should create a new note from markdown file', async () => {
       const markdownContent = '# Test Message\n\nThis is test content.';
 
-      const result = await runCli(
-        notes,
-        ['export', '--file', '/path/to/message.md'],
-        {
+      const result = await runCli(notes, ['export', '--file', '/path/to/message.md'], {
+        files: {
           files: {
-            files: {
-              '/path/to/message.md': markdownContent,
-            },
-          },
-          bun: {
-            appleScriptSuccess: true,
-            appleScriptResponse: 'note-id-new-123',
+            '/path/to/message.md': markdownContent,
           },
         },
-      );
+        bun: {
+          appleScriptSuccess: true,
+          appleScriptResponse: 'note-id-new-123',
+        },
+      });
 
       expect(result.success).toBe(true);
-      expectContains(result.calls, [
-        { _tag: 'FileSystem.readFile' },
-        { _tag: 'AppleScript.exec' },
-      ]);
+      expectContains(result.calls, [{ _tag: 'FileSystem.readFile' }, { _tag: 'AppleScript.exec' }]);
     });
 
     it('should create note in specified folder', async () => {
@@ -97,10 +89,7 @@ describe('notes commands', () => {
       );
 
       expect(result.success).toBe(true);
-      expectContains(result.calls, [
-        { _tag: 'FileSystem.readFile' },
-        { _tag: 'AppleScript.exec' },
-      ]);
+      expectContains(result.calls, [{ _tag: 'FileSystem.readFile' }, { _tag: 'AppleScript.exec' }]);
     });
 
     it('should update existing note when --note-id is provided', async () => {
@@ -108,13 +97,7 @@ describe('notes commands', () => {
 
       const result = await runCli(
         notes,
-        [
-          'export',
-          '--file',
-          '/path/to/message.md',
-          '--note-id',
-          'existing-note-id-456',
-        ],
+        ['export', '--file', '/path/to/message.md', '--note-id', 'existing-note-id-456'],
         {
           files: {
             files: {
@@ -129,26 +112,19 @@ describe('notes commands', () => {
       );
 
       expect(result.success).toBe(true);
-      expectContains(result.calls, [
-        { _tag: 'FileSystem.readFile' },
-        { _tag: 'AppleScript.exec' },
-      ]);
+      expectContains(result.calls, [{ _tag: 'FileSystem.readFile' }, { _tag: 'AppleScript.exec' }]);
     });
 
     it('should fail when file does not exist', async () => {
-      const result = await runCli(
-        notes,
-        ['export', '--file', '/path/to/nonexistent.md'],
-        {
-          files: {
-            files: {},
-          },
-          bun: {
-            appleScriptSuccess: true,
-            appleScriptResponse: 'note-id-123',
-          },
+      const result = await runCli(notes, ['export', '--file', '/path/to/nonexistent.md'], {
+        files: {
+          files: {},
         },
-      );
+        bun: {
+          appleScriptSuccess: true,
+          appleScriptResponse: 'note-id-123',
+        },
+      });
 
       expect(result.success).toBe(false);
     });
@@ -156,28 +132,21 @@ describe('notes commands', () => {
     it('should handle AppleScript failure gracefully', async () => {
       const markdownContent = '# Test\n\nContent';
 
-      const result = await runCli(
-        notes,
-        ['export', '--file', '/path/to/message.md'],
-        {
+      const result = await runCli(notes, ['export', '--file', '/path/to/message.md'], {
+        files: {
           files: {
-            files: {
-              '/path/to/message.md': markdownContent,
-            },
-          },
-          bun: {
-            appleScriptSuccess: false,
-            appleScriptResponse: 'Error: Permission denied',
+            '/path/to/message.md': markdownContent,
           },
         },
-      );
+        bun: {
+          appleScriptSuccess: false,
+          appleScriptResponse: 'Error: Permission denied',
+        },
+      });
 
       // The command should still complete but may fail due to AppleScript error
       // The exact behavior depends on error handling in the implementation
-      expectContains(result.calls, [
-        { _tag: 'FileSystem.readFile' },
-        { _tag: 'AppleScript.exec' },
-      ]);
+      expectContains(result.calls, [{ _tag: 'FileSystem.readFile' }, { _tag: 'AppleScript.exec' }]);
     });
   });
 });

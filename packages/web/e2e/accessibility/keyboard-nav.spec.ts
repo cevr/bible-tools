@@ -19,9 +19,7 @@ test.describe('Keyboard Navigation', () => {
     await expect(page.getByRole('dialog')).not.toBeVisible();
   });
 
-  test('keyboard shortcuts do not fire when input is focused', async ({
-    page,
-  }) => {
+  test('keyboard shortcuts do not fire when input is focused', async ({ page }) => {
     await page.goto('/bible/genesis/1');
 
     // Open search (creates input)

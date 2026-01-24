@@ -2,11 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { isStrongsNumber } from '../../src/commands/bible.js';
 import type { BibleDataService } from '../../src/data/bible/data.js';
-import {
-  getVersesForQuery,
-  ParsedQuery,
-  parseVerseQuery,
-} from '../../src/data/bible/parse.js';
+import { getVersesForQuery, ParsedQuery, parseVerseQuery } from '../../src/data/bible/parse.js';
 import type { Book, Verse } from '../../src/data/bible/types.js';
 
 // Minimal mock BibleDataService for testing parsing logic

@@ -59,33 +59,24 @@ export const paragraphsCache = createCache(async (bookCode: string) => {
   );
 });
 
-export const searchCache = createCache(
-  async (query: string, limit: number = 50) => {
-    return runtime.runPromise(
-      Effect.gen(function* () {
-        const service = yield* EGWReaderService;
-        return yield* service.searchParagraphs(query, limit);
-      }),
-    );
-  },
-);
+export const searchCache = createCache(async (query: string, limit: number = 50) => {
+  return runtime.runPromise(
+    Effect.gen(function* () {
+      const service = yield* EGWReaderService;
+      return yield* service.searchParagraphs(query, limit);
+    }),
+  );
+});
 
 interface EGWContextValue {
   /** Get all books */
   getBooks: () => PromiseWithStatus<readonly EGWBookInfo[]>;
   /** Get book by code */
-  getBookByCode: (
-    bookCode: string,
-  ) => PromiseWithStatus<EGWBookInfo | undefined>;
+  getBookByCode: (bookCode: string) => PromiseWithStatus<EGWBookInfo | undefined>;
   /** Get paragraphs for a book */
-  getParagraphsByBookCode: (
-    bookCode: string,
-  ) => PromiseWithStatus<readonly EGWParagraph[]>;
+  getParagraphsByBookCode: (bookCode: string) => PromiseWithStatus<readonly EGWParagraph[]>;
   /** Search paragraphs */
-  searchParagraphs: (
-    query: string,
-    limit?: number,
-  ) => PromiseWithStatus<readonly EGWParagraph[]>;
+  searchParagraphs: (query: string, limit?: number) => PromiseWithStatus<readonly EGWParagraph[]>;
   /** Peek at cached books (sync, returns undefined if not cached) */
   peekBooks: () => readonly EGWBookInfo[] | undefined;
   /** Peek at cached book (sync) */
@@ -107,11 +98,7 @@ const egwService: EGWContextValue = {
 };
 
 export function EGWProvider(props: ParentProps) {
-  return (
-    <EGWContext.Provider value={egwService}>
-      {props.children}
-    </EGWContext.Provider>
-  );
+  return <EGWContext.Provider value={egwService}>{props.children}</EGWContext.Provider>;
 }
 
 export function useEGW(): EGWContextValue {

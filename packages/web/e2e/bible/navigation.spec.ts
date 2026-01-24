@@ -11,9 +11,7 @@ test.describe('Bible Navigation', () => {
 
   test('arrow down navigates to next verse', async ({ page }) => {
     // Start at verse 1
-    await expect(
-      page.locator('[class*="bg-[--color-highlight]"]')
-    ).toBeVisible();
+    await expect(page.locator('[class*="bg-[--color-highlight]"]')).toBeVisible();
 
     await page.keyboard.press('ArrowDown');
 

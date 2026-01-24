@@ -34,10 +34,7 @@ export interface ProviderConfig {
  * Returns all providers that have valid API keys configured.
  */
 export const discoverProviders = Effect.fn('discoverProviders')(function* () {
-  const google = yield* Schema.Config(
-    'GEMINI_API_KEY',
-    Schema.NonEmptyString,
-  ).pipe(
+  const google = yield* Schema.Config('GEMINI_API_KEY', Schema.NonEmptyString).pipe(
     Effect.option,
     Effect.map((googleKey) =>
       googleKey.pipe(
@@ -57,10 +54,7 @@ export const discoverProviders = Effect.fn('discoverProviders')(function* () {
     ),
   );
 
-  const openai = yield* Schema.Config(
-    'OPENAI_API_KEY',
-    Schema.NonEmptyString,
-  ).pipe(
+  const openai = yield* Schema.Config('OPENAI_API_KEY', Schema.NonEmptyString).pipe(
     Effect.option,
     Effect.map((openaiKey) =>
       openaiKey.pipe(
@@ -78,10 +72,7 @@ export const discoverProviders = Effect.fn('discoverProviders')(function* () {
     ),
   );
 
-  const anthropic = yield* Schema.Config(
-    'ANTHROPIC_API_KEY',
-    Schema.NonEmptyString,
-  ).pipe(
+  const anthropic = yield* Schema.Config('ANTHROPIC_API_KEY', Schema.NonEmptyString).pipe(
     Effect.option,
     Effect.map((anthropicKey) =>
       anthropicKey.pipe(
@@ -99,17 +90,9 @@ export const discoverProviders = Effect.fn('discoverProviders')(function* () {
     ),
   );
 
-  const providers: Option.Option<ProviderConfig>[] = [
-    google,
-    openai,
-    anthropic,
-  ];
+  const providers: Option.Option<ProviderConfig>[] = [google, openai, anthropic];
 
-  return Option.reduceCompact(
-    providers,
-    [] as ProviderConfig[],
-    (acc, model) => [...acc, model],
-  );
+  return Option.reduceCompact(providers, [] as ProviderConfig[], (acc, model) => [...acc, model]);
 });
 
 /**

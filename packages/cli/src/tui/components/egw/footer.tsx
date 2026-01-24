@@ -26,8 +26,7 @@ interface EGWFooterProps {
 
 export function EGWFooter(props: EGWFooterProps) {
   const { theme } = useTheme();
-  const { currentParagraph, currentChapter, selectedIndexInChapter } =
-    useEGWNavigation();
+  const { currentParagraph, currentChapter, selectedIndexInChapter } = useEGWNavigation();
 
   const refcode = () => {
     const para = currentParagraph();
@@ -45,24 +44,15 @@ export function EGWFooter(props: EGWFooterProps) {
       backgroundColor={theme().backgroundPanel}
     >
       {/* Top row: refcode and position on left, pending goto on right */}
-      <box
-        flexDirection="row"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <box
-          flexDirection="row"
-          gap={2}
-        >
+      <box flexDirection="row" justifyContent="space-between" alignItems="center">
+        <box flexDirection="row" gap={2}>
           <Show when={refcode()}>
             <text fg={theme().text}>{refcode()}</text>
           </Show>
           <Show when={chapterParagraphCount() > 0}>
             <text fg={theme().textMuted}>
-              <span style={{ fg: theme().accent }}>
-                {selectedIndexInChapter() + 1}
-              </span>
-              /{chapterParagraphCount()}
+              <span style={{ fg: theme().accent }}>{selectedIndexInChapter() + 1}</span>/
+              {chapterParagraphCount()}
             </text>
           </Show>
         </box>
@@ -70,19 +60,14 @@ export function EGWFooter(props: EGWFooterProps) {
           <text fg={theme().textHighlight}>
             <span style={{ fg: theme().accent }}>g</span>
             <strong>
-              {props.gotoMode?._tag === 'awaiting'
-                ? props.gotoMode.digits || '_'
-                : ''}
+              {props.gotoMode?._tag === 'awaiting' ? props.gotoMode.digits || '_' : ''}
             </strong>
           </text>
         </Show>
       </box>
 
       {/* Bottom row: key hints */}
-      <box
-        flexDirection="row"
-        gap={3}
-      >
+      <box flexDirection="row" gap={3}>
         <For each={DEFAULT_HINTS}>
           {(hint) => (
             <text fg={theme().textMuted}>

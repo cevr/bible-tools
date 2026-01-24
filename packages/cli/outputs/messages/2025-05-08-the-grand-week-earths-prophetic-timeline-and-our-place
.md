@@ -1,6 +1,7 @@
 ---
 apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p539'
 ---
+
 # The Grand Week: Earth's Prophetic Timeline and Our Place
 
 **Tags:** #eschatology #prophecy #lastdays #millennium #SabbathRest

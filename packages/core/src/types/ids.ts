@@ -81,29 +81,24 @@ export const bibleBookNumber = (n: number): BibleBookNumber =>
 /**
  * Create a Bible chapter number from a raw number.
  */
-export const bibleChapter = (n: number): BibleChapter =>
-  Schema.decodeSync(BibleChapter)(n);
+export const bibleChapter = (n: number): BibleChapter => Schema.decodeSync(BibleChapter)(n);
 
 /**
  * Create a Bible verse number from a raw number.
  */
-export const bibleVerse = (n: number): BibleVerse =>
-  Schema.decodeSync(BibleVerse)(n);
+export const bibleVerse = (n: number): BibleVerse => Schema.decodeSync(BibleVerse)(n);
 
 /**
  * Create an EGW book ID from a raw number.
  */
-export const egwBookId = (n: number): EGWBookId =>
-  Schema.decodeSync(EGWBookId)(n);
+export const egwBookId = (n: number): EGWBookId => Schema.decodeSync(EGWBookId)(n);
 
 /**
  * Create an EGW paragraph ID from a raw string.
  */
-export const egwParagraphId = (s: string): EGWParagraphId =>
-  Schema.decodeSync(EGWParagraphId)(s);
+export const egwParagraphId = (s: string): EGWParagraphId => Schema.decodeSync(EGWParagraphId)(s);
 
 /**
  * Create an EGW reference code from a raw string.
  */
-export const egwRefCode = (s: string): EGWRefCode =>
-  Schema.decodeSync(EGWRefCode)(s);
+export const egwRefCode = (s: string): EGWRefCode => Schema.decodeSync(EGWRefCode)(s);

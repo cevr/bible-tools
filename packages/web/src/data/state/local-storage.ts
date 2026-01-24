@@ -56,10 +56,7 @@ function safeJsonParse<T>(json: string | null, fallback: T): T {
   }
 }
 
-function safeLocalStorage<T>(
-  operation: () => T,
-  fallback: T,
-): T {
+function safeLocalStorage<T>(operation: () => T, fallback: T): T {
   try {
     return operation();
   } catch {

@@ -1,6 +1,7 @@
 ---
 apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p498'
 ---
+
 # The Divine Romance: Marriage as a Lesson in Sanctification
 
 **Topic Tags:** #marriage #sanctification #restoration #education #character

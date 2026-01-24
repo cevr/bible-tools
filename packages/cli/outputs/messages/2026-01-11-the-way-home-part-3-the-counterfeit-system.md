@@ -188,12 +188,12 @@
 
 - [WB]: Summary chart:
 
-| Sanctuary Truth | Empire | Counterfeit |
-|-----------------|--------|-------------|
+| Sanctuary Truth       | Empire  | Counterfeit                    |
+| --------------------- | ------- | ------------------------------ |
 | Christ as High Priest | Babylon | Human priesthood, confessional |
-| Blood atonement | Persia | Works, fire purification |
-| Resurrection hope | Greece | Immortal soul, prayers to dead |
-| Seventh-day Sabbath | Rome | Sunday worship |
+| Blood atonement       | Persia  | Works, fire purification       |
+| Resurrection hope     | Greece  | Immortal soul, prayers to dead |
+| Seventh-day Sabbath   | Rome    | Sunday worship                 |
 
 - Each layer built upon the previous
   - Babylon's priesthood + Persia's works + Greece's immortal soul + Rome's sun worship
@@ -225,7 +225,7 @@
   - Persecute saints for 1260 years
   - "Think to change times and laws"
   - Cast truth to the ground
-  - [WB]: Write "NEXT: Prophecy NAMES the Counterfeit (Dan 7–9)"
+  - [WB]: Write 'NEXT: Prophecy NAMES the Counterfeit (Dan 7–9)'
 - Daniel 2:44 — "In the days of these kings shall the God of heaven set up a kingdom"
   - The stone strikes the image at the feet — in our time
   - Christ's kingdom destroys all counterfeits

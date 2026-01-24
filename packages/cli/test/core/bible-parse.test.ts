@@ -259,9 +259,7 @@ describe('Bible books data (core)', () => {
 
   describe('formatBibleReference', () => {
     it('should format reference with verse', () => {
-      expect(formatBibleReference({ book: 43, chapter: 3, verse: 16 })).toBe(
-        'John 3:16',
-      );
+      expect(formatBibleReference({ book: 43, chapter: 3, verse: 16 })).toBe('John 3:16');
     });
 
     it('should format reference without verse', () => {

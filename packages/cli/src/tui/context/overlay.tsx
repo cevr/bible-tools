@@ -1,10 +1,4 @@
-import {
-  createContext,
-  createSignal,
-  useContext,
-  type Accessor,
-  type ParentProps,
-} from 'solid-js';
+import { createContext, createSignal, useContext, type Accessor, type ParentProps } from 'solid-js';
 
 /**
  * Overlay types that can be displayed.
@@ -24,9 +18,7 @@ export type OverlayType =
  * Overlay state using discriminated union.
  * Eliminates impossible states like having multiple overlays open simultaneously.
  */
-export type OverlayState =
-  | { _tag: 'none' }
-  | { _tag: 'open'; type: OverlayType };
+export type OverlayState = { _tag: 'none' } | { _tag: 'open'; type: OverlayType };
 
 export const OverlayState = {
   none: (): OverlayState => ({ _tag: 'none' }),
@@ -90,11 +82,7 @@ export function OverlayProvider(props: ParentProps) {
     toggle,
   };
 
-  return (
-    <OverlayContext.Provider value={value}>
-      {props.children}
-    </OverlayContext.Provider>
-  );
+  return <OverlayContext.Provider value={value}>{props.children}</OverlayContext.Provider>;
 }
 
 export function useOverlay(): OverlayContextValue {

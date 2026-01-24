@@ -23,6 +23,4 @@ import { BibleService } from '@bible/core/bible-service';
 /**
  * BibleServiceLive - Composed layer with database dependency
  */
-export const BibleServiceLive = BibleService.Live.pipe(
-  Layer.provide(BibleDatabase.Live),
-);
+export const BibleServiceLive = BibleService.Live.pipe(Layer.provide(BibleDatabase.Live));

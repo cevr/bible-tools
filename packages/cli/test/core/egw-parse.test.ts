@@ -137,9 +137,7 @@ describe('EGW reference parser', () => {
     });
 
     it('should format page reference', () => {
-      expect(formatEGWRef({ _tag: 'page', bookCode: 'PP', page: 351 })).toBe(
-        'PP 351',
-      );
+      expect(formatEGWRef({ _tag: 'page', bookCode: 'PP', page: 351 })).toBe('PP 351');
     });
 
     it('should format page range reference', () => {
@@ -158,9 +156,7 @@ describe('EGW reference parser', () => {
     });
 
     it('should format search query', () => {
-      expect(formatEGWRef({ _tag: 'search', query: 'faith and works' })).toBe(
-        'faith and works',
-      );
+      expect(formatEGWRef({ _tag: 'search', query: 'faith and works' })).toBe('faith and works');
     });
   });
 

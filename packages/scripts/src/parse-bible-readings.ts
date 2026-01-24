@@ -2,26 +2,16 @@
 import { Args, Command } from '@effect/cli';
 import { FileSystem, Path } from '@effect/platform';
 import { BunContext, BunRuntime } from '@effect/platform-bun';
-import {
-  BadArgument,
-  PlatformError,
-  SystemError,
-} from '@effect/platform/Error';
+import { BadArgument, PlatformError, SystemError } from '@effect/platform/Error';
 import { Effect } from 'effect';
 import { PDFParse } from 'pdf-parse';
 
 // Dynamic import for pdf-parse to handle module resolution
-type PdfParseFunction = (
-  dataBuffer: Buffer,
-) => Promise<{ text: string; numpages: number }>;
+type PdfParseFunction = (dataBuffer: Buffer) => Promise<{ text: string; numpages: number }>;
 
 const PdfPathArg = Args.file({
   name: 'pdf-path',
-}).pipe(
-  Args.withDescription(
-    'Path to the PDF file to parse (or .txt file for testing)',
-  ),
-);
+}).pipe(Args.withDescription('Path to the PDF file to parse (or .txt file for testing)'));
 
 const OutputDirOption = Args.directory({
   name: 'output-dir',
@@ -70,9 +60,7 @@ class FileWriteError extends Error {
 }
 
 // Real PDF parsing function using pdf-parse (also supports text files for testing)
-const parsePdfContent = Effect.fn('parsePdfContent')(function* (
-  filePath: string,
-) {
+const parsePdfContent = Effect.fn('parsePdfContent')(function* (filePath: string) {
   const fs = yield* FileSystem.FileSystem;
   const data = yield* fs.readFile(filePath);
   const parser = new PDFParse({
@@ -107,9 +95,7 @@ const cleanPageNumbers = (content: string): string => {
 };
 
 // Extract chapters from text content
-const extractChapters = Effect.fn('extractChapters')(function* (
-  content: string,
-) {
+const extractChapters = Effect.fn('extractChapters')(function* (content: string) {
   return yield* Effect.try({
     try: () => {
       const chapters: Chapter[] = [];
@@ -120,17 +106,14 @@ const extractChapters = Effect.fn('extractChapters')(function* (
 
       // Remove duplicates at the same position
       const uniqueMatches = matches.filter(
-        (match, index, array) =>
-          index === 0 || match.index !== array[index - 1].index,
+        (match, index, array) => index === 0 || match.index !== array[index - 1].index,
       );
 
       for (let i = 0; i < uniqueMatches.length; i++) {
         const match = uniqueMatches[i];
         const startIndex = match.index!;
         const endIndex =
-          i < uniqueMatches.length - 1
-            ? uniqueMatches[i + 1].index!
-            : content.length;
+          i < uniqueMatches.length - 1 ? uniqueMatches[i + 1].index! : content.length;
         let chapterContent = content.slice(startIndex, endIndex).trim();
 
         // Clean page numbers from chapter content
@@ -158,8 +141,7 @@ const extractChapters = Effect.fn('extractChapters')(function* (
 
       return chapters.sort((a, b) => a.number - b.number);
     },
-    catch: (cause) =>
-      new ChapterExtractionError('Failed to extract chapters', cause),
+    catch: (cause) => new ChapterExtractionError('Failed to extract chapters', cause),
   });
 });
 
@@ -215,10 +197,7 @@ const writeChapterFile = Effect.fn('writeChapterFile')(function* (
   const filePath = path.join(outputDir, fileName);
 
   // Extract title and clean duplicate chapter header
-  const { title, cleanedContent } = extractTitleAndCleanContent(
-    chapter.content,
-    chapter.number,
-  );
+  const { title, cleanedContent } = extractTitleAndCleanContent(chapter.content, chapter.number);
 
   // Format: Chapter Number, Title, Divider, Content
   const divider = '='.repeat(Math.max(title.length, chapter.title.length));
@@ -228,9 +207,7 @@ const writeChapterFile = Effect.fn('writeChapterFile')(function* (
     .writeFile(filePath, new TextEncoder().encode(content))
     .pipe(
       Effect.catchAll((cause) =>
-        Effect.fail(
-          new FileWriteError('Failed to write chapter file', cause, filePath),
-        ),
+        Effect.fail(new FileWriteError('Failed to write chapter file', cause, filePath)),
       ),
     );
 
@@ -238,10 +215,7 @@ const writeChapterFile = Effect.fn('writeChapterFile')(function* (
 });
 
 // Main processing function with progress tracking
-const processPdf = Effect.fn('processPdf')(function* (
-  pdfPath: string,
-  outputDir: string,
-) {
+const processPdf = Effect.fn('processPdf')(function* (pdfPath: string, outputDir: string) {
   const fs = yield* FileSystem.FileSystem;
   const path = yield* Path.Path;
 
@@ -249,10 +223,7 @@ const processPdf = Effect.fn('processPdf')(function* (
   const fileExists = yield* fs.exists(pdfPath);
   if (!fileExists) {
     yield* Effect.fail(
-      new PdfParseError(
-        `PDF file not found: ${pdfPath}`,
-        new Error('File not found'),
-      ),
+      new PdfParseError(`PDF file not found: ${pdfPath}`, new Error('File not found')),
     );
   }
 
@@ -275,9 +246,7 @@ const processPdf = Effect.fn('processPdf')(function* (
     { concurrency: 1, discard: true }, // Sequential processing for better progress tracking
   );
 
-  console.log(
-    `✅ Successfully extracted ${chapters.length} chapters to ${outputDir}`,
-  );
+  console.log(`✅ Successfully extracted ${chapters.length} chapters to ${outputDir}`);
   console.log(`📂 Output directory: ${path.resolve(outputDir)}`);
 });
 
@@ -291,25 +260,17 @@ const parseBibleReadings = Command.make(
   (args) =>
     processPdf(args.pdfPath, args.outputDir).pipe(
       Effect.catchTag('PdfParseError', (error) =>
-        Effect.sync(() =>
-          console.error(`❌ PDF Parse Error: ${error.message}`),
-        ),
+        Effect.sync(() => console.error(`❌ PDF Parse Error: ${error.message}`)),
       ),
       Effect.catchTag('ChapterExtractionError', (error) =>
-        Effect.sync(() =>
-          console.error(`❌ Chapter Extraction Error: ${error.message}`),
-        ),
+        Effect.sync(() => console.error(`❌ Chapter Extraction Error: ${error.message}`)),
       ),
       Effect.catchTag('FileWriteError', (error) =>
         Effect.sync(() =>
-          console.error(
-            `❌ File Write Error: ${error.message} - ${error.filePath}`,
-          ),
+          console.error(`❌ File Write Error: ${error.message} - ${error.filePath}`),
         ),
       ),
-      Effect.catchAll((error) =>
-        Effect.sync(() => console.error(`❌ Unexpected error:`, error)),
-      ),
+      Effect.catchAll((error) => Effect.sync(() => console.error(`❌ Unexpected error:`, error))),
     ),
 );
 

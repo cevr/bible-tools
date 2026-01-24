@@ -4,16 +4,9 @@
  * Provides localStorage-backed state for position, bookmarks, history,
  * and preferences. Similar to CLI's BibleState but browser-based.
  */
-import {
-  createContext,
-  useContext,
-  type ParentComponent,
-} from 'solid-js';
+import { createContext, useContext, type ParentComponent } from 'solid-js';
 
-import {
-  createLocalStorageState,
-  type LocalStorageState,
-} from '@/data/state/local-storage';
+import { createLocalStorageState, type LocalStorageState } from '@/data/state/local-storage';
 
 const StateContext = createContext<LocalStorageState>();
 
@@ -26,11 +19,7 @@ const stateService = createLocalStorageState();
  * Wraps the app to provide access to localStorage-backed state.
  */
 export const StateProvider: ParentComponent = (props) => {
-  return (
-    <StateContext.Provider value={stateService}>
-      {props.children}
-    </StateContext.Provider>
-  );
+  return <StateContext.Provider value={stateService}>{props.children}</StateContext.Provider>;
 };
 
 /**

@@ -10,15 +10,8 @@ interface SearchBoxProps {
 
 export function SearchBox(props: SearchBoxProps) {
   const { theme } = useTheme();
-  const {
-    query,
-    setQuery,
-    matches,
-    currentMatchIndex,
-    totalMatches,
-    nextMatch,
-    prevMatch,
-  } = useSearch();
+  const { query, setQuery, matches, currentMatchIndex, totalMatches, nextMatch, prevMatch } =
+    useSearch();
 
   // Delay rendering the input until after the triggering keystroke is processed
   const [ready, setReady] = createSignal(false);
@@ -84,19 +77,9 @@ export function SearchBox(props: SearchBoxProps) {
       <text fg={theme().accent}>/</text>
 
       {/* Input - delayed render to skip trigger keystroke */}
-      <box
-        flexGrow={1}
-        height={1}
-      >
-        <Show
-          when={ready()}
-          fallback={<text fg={theme().textMuted}>Search...</text>}
-        >
-          <input
-            placeholder="Search..."
-            focused
-            onInput={setQuery}
-          />
+      <box flexGrow={1} height={1}>
+        <Show when={ready()} fallback={<text fg={theme().textMuted}>Search...</text>}>
+          <input placeholder="Search..." focused onInput={setQuery} />
         </Show>
       </box>
 

@@ -104,12 +104,8 @@ export type GeminiConfig = typeof GeminiConfigSchema.Type;
  * Load EGW API config from environment.
  */
 export const loadEGWApiConfig = Config.all({
-  baseUrl: Config.string('EGW_API_BASE_URL').pipe(
-    Config.withDefault('https://a.egwwritings.org'),
-  ),
-  userAgent: Config.string('EGW_USER_AGENT').pipe(
-    Config.withDefault('EGW-Effect-Client/1.0'),
-  ),
+  baseUrl: Config.string('EGW_API_BASE_URL').pipe(Config.withDefault('https://a.egwwritings.org')),
+  userAgent: Config.string('EGW_USER_AGENT').pipe(Config.withDefault('EGW-Effect-Client/1.0')),
 });
 
 /**
@@ -124,9 +120,7 @@ export const loadEGWAuthConfig = Config.all({
   scope: Config.string('EGW_SCOPE').pipe(
     Config.withDefault('writings search studycenter subscriptions user_info'),
   ),
-  tokenFile: Config.string('EGW_TOKEN_FILE').pipe(
-    Config.withDefault('data/tokens.json'),
-  ),
+  tokenFile: Config.string('EGW_TOKEN_FILE').pipe(Config.withDefault('data/tokens.json')),
 });
 
 /**

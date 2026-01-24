@@ -85,19 +85,13 @@ export const GotoDialog: Component = () => {
                 placeholder="John 3:16, Genesis 1, Ps 23..."
                 class="w-full bg-transparent text-xl text-[--color-ink] dark:text-[--color-ink-dark] placeholder:text-[--color-ink-muted] dark:placeholder:text-[--color-ink-muted-dark] outline-none"
               />
-              {error() && (
-                <p class="mt-2 text-sm text-red-600 dark:text-red-400">
-                  {error()}
-                </p>
-              )}
+              {error() && <p class="mt-2 text-sm text-red-600 dark:text-red-400">{error()}</p>}
             </div>
 
             {/* Footer */}
             <div class="border-t border-[--color-border] dark:border-[--color-border-dark] px-4 py-2 text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] flex items-center gap-4">
               <span>
-                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-                  ↵
-                </kbd>{' '}
+                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">↵</kbd>{' '}
                 go
               </span>
               <span>

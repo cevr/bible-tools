@@ -55,10 +55,7 @@ export const runCli = async <Name extends string, R, E>(
 
     // Suppress logs during tests unless debugging
     const exit = await Effect.runPromiseExit(
-      program.pipe(
-        Effect.provide(layer),
-        Effect.provide(Logger.remove(Logger.defaultLogger)),
-      ),
+      program.pipe(Effect.provide(layer), Effect.provide(Logger.remove(Logger.defaultLogger))),
     );
 
     // Extract calls - merge Effect-tracked calls with service/external calls
@@ -77,10 +74,7 @@ export const runCli = async <Name extends string, R, E>(
 
     // Log failure details for debugging
     if (!success) {
-      console.error(
-        'CLI command failed:',
-        Exit.isFailure(exit) ? exit.cause : 'unknown',
-      );
+      console.error('CLI command failed:', Exit.isFailure(exit) ? exit.cause : 'unknown');
     }
 
     return {
@@ -102,10 +96,7 @@ export const runCli = async <Name extends string, R, E>(
  * @param actual The actual recorded service calls
  * @param expected Expected calls in order (partial matches allowed)
  */
-export const expectSequence = (
-  actual: ServiceCall[],
-  expected: Array<Partial<ServiceCall>>,
-) => {
+export const expectSequence = (actual: ServiceCall[], expected: Array<Partial<ServiceCall>>) => {
   let actualIndex = 0;
 
   for (const expectedCall of expected) {
@@ -124,15 +115,9 @@ export const expectSequence = (
           const actualValue = (actualCall as Record<string, unknown>)[key];
 
           // Handle expect.stringContaining and other matchers
-          if (
-            value &&
-            typeof value === 'object' &&
-            'asymmetricMatch' in value
-          ) {
+          if (value && typeof value === 'object' && 'asymmetricMatch' in value) {
             if (
-              !(
-                value as { asymmetricMatch: (v: unknown) => boolean }
-              ).asymmetricMatch(actualValue)
+              !(value as { asymmetricMatch: (v: unknown) => boolean }).asymmetricMatch(actualValue)
             ) {
               matches = false;
               break;
@@ -164,11 +149,7 @@ export const expectSequence = (
 /**
  * Assert that a specific call type appears exactly N times.
  */
-export const expectCallCount = (
-  calls: ServiceCall[],
-  tag: ServiceCall['_tag'],
-  count: number,
-) => {
+export const expectCallCount = (calls: ServiceCall[], tag: ServiceCall['_tag'], count: number) => {
   const actual = calls.filter((c) => c._tag === tag).length;
   expect(actual).toBe(count);
 };
@@ -176,10 +157,7 @@ export const expectCallCount = (
 /**
  * Assert that no calls of a specific type were made.
  */
-export const expectNoCalls = (
-  calls: ServiceCall[],
-  tag: ServiceCall['_tag'],
-) => {
+export const expectNoCalls = (calls: ServiceCall[], tag: ServiceCall['_tag']) => {
   expectCallCount(calls, tag, 0);
 };
 
@@ -190,10 +168,7 @@ export const expectNoCalls = (
  * @param actual The actual recorded service calls
  * @param expected Expected calls (partial matches allowed)
  */
-export const expectContains = (
-  actual: ServiceCall[],
-  expected: Array<Partial<ServiceCall>>,
-) => {
+export const expectContains = (actual: ServiceCall[], expected: Array<Partial<ServiceCall>>) => {
   for (const expectedCall of expected) {
     const found = actual.some((actualCall) => {
       if (actualCall._tag !== expectedCall._tag) return false;
@@ -207,9 +182,7 @@ export const expectContains = (
         // Handle expect.stringContaining and other matchers
         if (value && typeof value === 'object' && 'asymmetricMatch' in value) {
           if (
-            !(
-              value as { asymmetricMatch: (v: unknown) => boolean }
-            ).asymmetricMatch(actualValue)
+            !(value as { asymmetricMatch: (v: unknown) => boolean }).asymmetricMatch(actualValue)
           ) {
             return false;
           }
@@ -228,8 +201,7 @@ export const expectContains = (
           ? `Matching calls: ${JSON.stringify(matchingCalls, null, 2)}`
           : `All calls: ${JSON.stringify(actual.map((c) => c._tag))}`;
       expect.fail(
-        `Expected call ${JSON.stringify(expectedCall)} not found in calls.\n` +
-          actualSummary,
+        `Expected call ${JSON.stringify(expectedCall)} not found in calls.\n` + actualSummary,
       );
     }
   }

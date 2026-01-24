@@ -5,13 +5,7 @@ import { join } from 'path';
 import { Database } from 'bun:sqlite';
 import { Context, Effect, Layer } from 'effect';
 
-import type {
-  Bookmark,
-  HistoryEntry,
-  Position,
-  Preferences,
-  Reference,
-} from './types.js';
+import type { Bookmark, HistoryEntry, Position, Preferences, Reference } from './types.js';
 
 // State storage directory
 const STATE_DIR = join(homedir(), '.bible-tools');
@@ -125,10 +119,7 @@ export interface BibleStateService {
 }
 
 // Effect service tag
-export class BibleState extends Context.Tag('BibleState')<
-  BibleState,
-  BibleStateService
->() {}
+export class BibleState extends Context.Tag('BibleState')<BibleState, BibleStateService>() {}
 
 // Create the service implementation
 function createBibleStateService(): BibleStateService {
@@ -154,9 +145,7 @@ function createBibleStateService(): BibleStateService {
       created_at: number;
     },
     []
-  >(
-    'SELECT id, book, chapter, verse, note, created_at FROM bookmarks ORDER BY created_at DESC',
-  );
+  >('SELECT id, book, chapter, verse, note, created_at FROM bookmarks ORDER BY created_at DESC');
   const addBookmarkStmt = db.prepare(
     'INSERT INTO bookmarks (id, book, chapter, verse, note, created_at) VALUES (?, ?, ?, ?, ?, ?)',
   );
@@ -165,34 +154,29 @@ function createBibleStateService(): BibleStateService {
   const getHistoryStmt = db.prepare<
     { book: number; chapter: number; verse: number | null; visited_at: number },
     [number]
-  >(
-    'SELECT book, chapter, verse, visited_at FROM history ORDER BY visited_at DESC LIMIT ?',
-  );
+  >('SELECT book, chapter, verse, visited_at FROM history ORDER BY visited_at DESC LIMIT ?');
   const addHistoryStmt = db.prepare(
     'INSERT INTO history (book, chapter, verse, visited_at) VALUES (?, ?, ?, ?)',
   );
   const clearHistoryStmt = db.prepare('DELETE FROM history');
 
-  const getPreferencesStmt = db.prepare<
-    { theme: string; display_mode: string },
-    []
-  >('SELECT theme, display_mode FROM preferences WHERE id = 1');
+  const getPreferencesStmt = db.prepare<{ theme: string; display_mode: string }, []>(
+    'SELECT theme, display_mode FROM preferences WHERE id = 1',
+  );
   const setPreferencesStmt = db.prepare(
     'UPDATE preferences SET theme = ?, display_mode = ? WHERE id = 1',
   );
 
-  const getCacheStmt = db.prepare<
-    { results: string; cached_at: number },
-    [string]
-  >('SELECT results, cached_at FROM ai_search_cache WHERE query = ?');
+  const getCacheStmt = db.prepare<{ results: string; cached_at: number }, [string]>(
+    'SELECT results, cached_at FROM ai_search_cache WHERE query = ?',
+  );
   const setCacheStmt = db.prepare(
     'INSERT OR REPLACE INTO ai_search_cache (query, results, cached_at) VALUES (?, ?, ?)',
   );
 
-  const getPaletteStmt = db.prepare<
-    { palette: string; is_dark: number; cached_at: number },
-    []
-  >('SELECT palette, is_dark, cached_at FROM terminal_palette WHERE id = 1');
+  const getPaletteStmt = db.prepare<{ palette: string; is_dark: number; cached_at: number }, []>(
+    'SELECT palette, is_dark, cached_at FROM terminal_palette WHERE id = 1',
+  );
   const setPaletteStmt = db.prepare(
     'INSERT OR REPLACE INTO terminal_palette (id, palette, is_dark, cached_at) VALUES (1, ?, ?, ?)',
   );
@@ -205,9 +189,7 @@ function createBibleStateService(): BibleStateService {
       puborder: number | null;
     },
     []
-  >(
-    'SELECT book_code, page, paragraph, puborder FROM egw_position WHERE id = 1',
-  );
+  >('SELECT book_code, page, paragraph, puborder FROM egw_position WHERE id = 1');
   const setEGWPositionStmt = db.prepare(
     'INSERT OR REPLACE INTO egw_position (id, book_code, page, paragraph, puborder) VALUES (1, ?, ?, ?, ?)',
   );
@@ -244,14 +226,7 @@ function createBibleStateService(): BibleStateService {
     addBookmark(ref: Reference, note?: string): Bookmark {
       const id = crypto.randomUUID();
       const createdAt = Date.now();
-      addBookmarkStmt.run(
-        id,
-        ref.book,
-        ref.chapter,
-        ref.verse ?? null,
-        note ?? null,
-        createdAt,
-      );
+      addBookmarkStmt.run(id, ref.book, ref.chapter, ref.verse ?? null, note ?? null, createdAt);
       return {
         id,
         reference: ref,
@@ -317,11 +292,7 @@ function createBibleStateService(): BibleStateService {
     },
 
     setCachedAISearch(query: string, results: Reference[]): void {
-      setCacheStmt.run(
-        query.toLowerCase().trim(),
-        JSON.stringify(results),
-        Date.now(),
-      );
+      setCacheStmt.run(query.toLowerCase().trim(), JSON.stringify(results), Date.now());
     },
 
     getCachedPalette(): CachedPalette | undefined {
@@ -344,11 +315,7 @@ function createBibleStateService(): BibleStateService {
     },
 
     setCachedPalette(cached: CachedPalette): void {
-      setPaletteStmt.run(
-        JSON.stringify(cached.palette),
-        cached.isDark ? 1 : 0,
-        Date.now(),
-      );
+      setPaletteStmt.run(JSON.stringify(cached.palette), cached.isDark ? 1 : 0, Date.now());
     },
 
     getLastEGWPosition(): EGWPosition | undefined {

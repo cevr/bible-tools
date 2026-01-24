@@ -12,9 +12,7 @@ export const FileSearchStoreConfig = Schema.Struct({
   displayName: Schema.String,
 });
 
-export type FileSearchStoreConfig = Schema.Schema.Type<
-  typeof FileSearchStoreConfig
->;
+export type FileSearchStoreConfig = Schema.Schema.Type<typeof FileSearchStoreConfig>;
 
 /**
  * File Search Store
@@ -40,9 +38,7 @@ export const CreateStoreOperation = Schema.Struct({
   ),
 });
 
-export type CreateStoreOperation = Schema.Schema.Type<
-  typeof CreateStoreOperation
->;
+export type CreateStoreOperation = Schema.Schema.Type<typeof CreateStoreOperation>;
 
 /**
  * Custom Metadata
@@ -105,9 +101,7 @@ export function toCustomMetadata(
       return { key, stringValue: String(value) };
     } else if (Array.isArray(value)) {
       // For arrays, convert to StringList format { values: string[] }
-      const stringArray = value.map((v) =>
-        typeof v === 'string' ? v : String(v),
-      );
+      const stringArray = value.map((v) => (typeof v === 'string' ? v : String(v)));
       return { key, stringListValue: { values: stringArray } };
     } else {
       // Fallback: convert to string
@@ -124,9 +118,7 @@ export const WhiteSpaceChunkingConfig = Schema.Struct({
   maxOverlapTokens: Schema.Number,
 });
 
-export type WhiteSpaceChunkingConfig = Schema.Schema.Type<
-  typeof WhiteSpaceChunkingConfig
->;
+export type WhiteSpaceChunkingConfig = Schema.Schema.Type<typeof WhiteSpaceChunkingConfig>;
 
 export const ChunkingConfig = Schema.Struct({
   whiteSpaceConfig: Schema.optional(WhiteSpaceChunkingConfig),
@@ -231,9 +223,7 @@ export const ListDocumentsResponse = Schema.Struct({
   nextPageToken: Schema.optional(Schema.String),
 });
 
-export type ListDocumentsResponse = Schema.Schema.Type<
-  typeof ListDocumentsResponse
->;
+export type ListDocumentsResponse = Schema.Schema.Type<typeof ListDocumentsResponse>;
 
 /**
  * Operation (for polling)

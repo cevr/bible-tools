@@ -3,14 +3,11 @@ import { Context, Effect, Layer, Schema } from 'effect';
 /**
  * Error thrown when a storage operation fails.
  */
-export class StorageError extends Schema.TaggedError<StorageError>()(
-  'StorageError',
-  {
-    key: Schema.String,
-    operation: Schema.Literal('read', 'write', 'delete'),
-    cause: Schema.Defect,
-  },
-) {}
+export class StorageError extends Schema.TaggedError<StorageError>()('StorageError', {
+  key: Schema.String,
+  operation: Schema.Literal('read', 'write', 'delete'),
+  cause: Schema.Defect,
+}) {}
 
 // ============================================================================
 // Service Interface
@@ -33,10 +30,7 @@ export interface StorageAdapterService {
    * @param key - The storage key (e.g., file path)
    * @param content - The content to write
    */
-  readonly write: (
-    key: string,
-    content: string,
-  ) => Effect.Effect<void, StorageError>;
+  readonly write: (key: string, content: string) => Effect.Effect<void, StorageError>;
 
   /**
    * Check if a key exists in storage.
@@ -71,16 +65,12 @@ export class StorageAdapter extends Context.Tag('@bible/adapters/Storage')<
   /**
    * Test implementation with in-memory storage.
    */
-  static Test = (
-    initialData: Record<string, string> = {},
-  ): Layer.Layer<StorageAdapter> => {
+  static Test = (initialData: Record<string, string> = {}): Layer.Layer<StorageAdapter> => {
     const storage = new Map(Object.entries(initialData));
     return Layer.succeed(StorageAdapter, {
       read: (key) =>
         Effect.fromNullable(storage.get(key)).pipe(
-          Effect.mapError(
-            () => new StorageError({ key, operation: 'read', cause: null }),
-          ),
+          Effect.mapError(() => new StorageError({ key, operation: 'read', cause: null })),
         ),
       write: (key, content) =>
         Effect.sync(() => {
@@ -91,10 +81,7 @@ export class StorageAdapter extends Context.Tag('@bible/adapters/Storage')<
         Effect.sync(() => {
           storage.delete(key);
         }),
-      list: (prefix) =>
-        Effect.succeed(
-          [...storage.keys()].filter((k) => k.startsWith(prefix)),
-        ),
+      list: (prefix) => Effect.succeed([...storage.keys()].filter((k) => k.startsWith(prefix))),
     });
   };
 }

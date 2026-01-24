@@ -2,6 +2,12 @@
   "name": "@bible/cli",
   "version": "1.0.0",
   "description": "Bible Tools CLI",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "bin": {
+    "bible": "bin/bible"
+  },
   "type": "module",
   "scripts": {
     "build": "bun scripts/build.ts",
@@ -10,12 +16,6 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
-  "bin": {
-    "bible": "bin/bible"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@bible/core": "workspace:*",
     "@effect/cli": "catalog:",

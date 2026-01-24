@@ -13,10 +13,7 @@ import { BIBLE_BOOKS, getBibleBook } from './books.js';
  * Wraps to the next book when at the last chapter.
  * Wraps to Genesis 1 when at Revelation 22.
  */
-export function getNextChapter(
-  book: number,
-  chapter: number,
-): BibleReference | undefined {
+export function getNextChapter(book: number, chapter: number): BibleReference | undefined {
   const currentBook = getBibleBook(book);
   if (!currentBook) return undefined;
 
@@ -40,10 +37,7 @@ export function getNextChapter(
  * Wraps to the previous book when at chapter 1.
  * Wraps to Revelation 22 when at Genesis 1.
  */
-export function getPrevChapter(
-  book: number,
-  chapter: number,
-): BibleReference | undefined {
+export function getPrevChapter(book: number, chapter: number): BibleReference | undefined {
   // Previous chapter in same book
   if (chapter > 1) {
     return { book, chapter: chapter - 1 };

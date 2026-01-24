@@ -35,21 +35,13 @@ export type SearchState =
 // State constructors
 export const SearchState = {
   closed: (): SearchState => ({ _tag: 'closed' }),
-  closedWithQuery: (
-    query: string,
-    matches: SearchMatch[],
-    currentIndex: number,
-  ): SearchState => ({
+  closedWithQuery: (query: string, matches: SearchMatch[], currentIndex: number): SearchState => ({
     _tag: 'closedWithQuery',
     query,
     matches,
     currentIndex: clampIndex(currentIndex, matches.length),
   }),
-  open: (
-    query: string,
-    matches: SearchMatch[],
-    currentIndex: number,
-  ): SearchState => ({
+  open: (query: string, matches: SearchMatch[], currentIndex: number): SearchState => ({
     _tag: 'open',
     query,
     matches,
@@ -101,8 +93,7 @@ export function nextMatch(state: SearchState): SearchState {
 
 export function prevMatch(state: SearchState): SearchState {
   if (state._tag === 'closed' || state.matches.length === 0) return state;
-  const prevIndex =
-    (state.currentIndex - 1 + state.matches.length) % state.matches.length;
+  const prevIndex = (state.currentIndex - 1 + state.matches.length) % state.matches.length;
   return { ...state, currentIndex: prevIndex };
 }
 
@@ -123,11 +114,7 @@ export function updateQuery(
 export function closeSearch(state: SearchState): SearchState {
   if (state._tag === 'closed') return state;
   if (state.query === '') return SearchState.closed();
-  return SearchState.closedWithQuery(
-    state.query,
-    state.matches,
-    state.currentIndex,
-  );
+  return SearchState.closedWithQuery(state.query, state.matches, state.currentIndex);
 }
 
 export function openSearch(state: SearchState): SearchState {

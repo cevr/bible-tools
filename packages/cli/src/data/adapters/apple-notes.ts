@@ -11,14 +11,11 @@ import {
   wrapWithAppleNotesStyle,
 } from '~/src/lib/apple-notes-utils.js';
 
-class MarkdownParseError extends Schema.TaggedError<MarkdownParseError>()(
-  'MarkdownParseError',
-  {
-    message: Schema.String,
-    cause: Schema.Defect,
-    content: Schema.String,
-  },
-) {}
+class MarkdownParseError extends Schema.TaggedError<MarkdownParseError>()('MarkdownParseError', {
+  message: Schema.String,
+  cause: Schema.Defect,
+  content: Schema.String,
+}) {}
 
 const execCommand = Effect.fn('execCommand')(function* (command: string[]) {
   const result = yield* Effect.try(() => {
@@ -131,12 +128,8 @@ export const AppleNotesExportLayer = Layer.succeed(
         ),
       );
 
-      const folderInfo = options?.folder
-        ? ` in folder "${options.folder}"`
-        : '';
-      yield* Effect.log(
-        `Success! Note "${finalNoteTitle}" created in Apple Notes${folderInfo}.`,
-      );
+      const folderInfo = options?.folder ? ` in folder "${options.folder}"` : '';
+      yield* Effect.log(`Success! Note "${finalNoteTitle}" created in Apple Notes${folderInfo}.`);
     }),
   }),
 );

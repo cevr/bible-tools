@@ -9,10 +9,7 @@ import { Context, Effect, Layer, Option } from 'effect';
 import { matchSorter } from 'match-sorter';
 
 import { BibleDatabase } from '@bible/core/bible-db';
-import {
-  getNextChapterWithMap,
-  getPrevChapterWithMap,
-} from '@bible/core/bible-reader';
+import { getNextChapterWithMap, getPrevChapterWithMap } from '@bible/core/bible-reader';
 
 import {
   BOOK_ALIASES,
@@ -33,26 +30,14 @@ export interface BibleDataService {
     chapter: number,
     verse: number,
   ) => Effect.Effect<Verse | undefined>;
-  readonly searchVerses: (
-    query: string,
-    limit?: number,
-  ) => Effect.Effect<SearchResult[]>;
+  readonly searchVerses: (query: string, limit?: number) => Effect.Effect<SearchResult[]>;
   readonly parseReference: (ref: string) => Reference | undefined;
-  readonly getNextChapter: (
-    book: number,
-    chapter: number,
-  ) => Reference | undefined;
-  readonly getPrevChapter: (
-    book: number,
-    chapter: number,
-  ) => Reference | undefined;
+  readonly getNextChapter: (book: number, chapter: number) => Reference | undefined;
+  readonly getPrevChapter: (book: number, chapter: number) => Reference | undefined;
 }
 
 // Effect service tag
-export class BibleData extends Context.Tag('BibleData')<
-  BibleData,
-  BibleDataService
->() {}
+export class BibleData extends Context.Tag('BibleData')<BibleData, BibleDataService>() {}
 
 // Create the service implementation backed by BibleDatabase
 const makeBibleDataService = Effect.gen(function* () {

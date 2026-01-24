@@ -1,11 +1,4 @@
-import {
-  type Component,
-  createSignal,
-  createMemo,
-  For,
-  Show,
-  createResource,
-} from 'solid-js';
+import { type Component, createSignal, createMemo, For, Show, createResource } from 'solid-js';
 import { Dialog } from '@kobalte/core/dialog';
 import { useNavigate } from '@solidjs/router';
 import { useBible } from '@/providers/bible-provider';
@@ -39,9 +32,7 @@ export const CommandPalette: Component = () => {
     const q = query().toLowerCase().trim();
     if (!q) return bible.books;
     return bible.books.filter(
-      (book) =>
-        book.name.toLowerCase().includes(q) ||
-        book.name.toLowerCase().startsWith(q)
+      (book) => book.name.toLowerCase().includes(q) || book.name.toLowerCase().startsWith(q),
     );
   });
 
@@ -73,7 +64,7 @@ export const CommandPalette: Component = () => {
     async (params) => {
       if (!params) return [];
       return fetchVerses(params.book, params.chapter);
-    }
+    },
   );
 
   // Get verse numbers
@@ -295,22 +286,16 @@ export const CommandPalette: Component = () => {
           {/* Footer hints */}
           <div class="border-t border-[--color-border] dark:border-[--color-border-dark] px-4 py-2 text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] flex items-center gap-4">
             <span>
-              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-                ↵
-              </kbd>{' '}
+              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">↵</kbd>{' '}
               select
             </span>
             <span>
-              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-                esc
-              </kbd>{' '}
+              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">esc</kbd>{' '}
               close
             </span>
             <Show when={state().mode !== 'book'}>
               <span>
-                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-                  ⌫
-                </kbd>{' '}
+                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">⌫</kbd>{' '}
                 back
               </span>
             </Show>

@@ -19,18 +19,9 @@ import {
   type EGWSearchResult,
 } from '@bible/core/egw-service';
 import { Effect, Option, Runtime } from 'effect';
-import {
-  createContext,
-  useContext,
-  type Accessor,
-  type ParentProps,
-} from 'solid-js';
+import { createContext, useContext, type Accessor, type ParentProps } from 'solid-js';
 
-import {
-  useAppRuntime,
-  useEffectRunner,
-  type ResultType,
-} from '../lib/index.js';
+import { useAppRuntime, useEffectRunner, type ResultType } from '../lib/index.js';
 
 // ============================================================================
 // Bible Client
@@ -166,22 +157,18 @@ export function ClientProvider(props: ParentProps) {
     }),
   );
 
-  const [egwPage, loadEgwPage] = useEffectRunner(
-    runtime,
-    (bookCode: string, page: number) =>
-      Effect.gen(function* () {
-        const service = yield* EGWService;
-        return yield* service.getPage(bookCode, page);
-      }),
+  const [egwPage, loadEgwPage] = useEffectRunner(runtime, (bookCode: string, page: number) =>
+    Effect.gen(function* () {
+      const service = yield* EGWService;
+      return yield* service.getPage(bookCode, page);
+    }),
   );
 
-  const [egwChapters, loadEgwChapters] = useEffectRunner(
-    runtime,
-    (bookCode: string) =>
-      Effect.gen(function* () {
-        const service = yield* EGWService;
-        return yield* service.getChapters(bookCode);
-      }),
+  const [egwChapters, loadEgwChapters] = useEffectRunner(runtime, (bookCode: string) =>
+    Effect.gen(function* () {
+      const service = yield* EGWService;
+      return yield* service.getChapters(bookCode);
+    }),
   );
 
   const [egwSearchResults, searchEgw] = useEffectRunner(
@@ -223,11 +210,7 @@ export function ClientProvider(props: ParentProps) {
     egw: egwClient,
   };
 
-  return (
-    <ClientContext.Provider value={value}>
-      {props.children}
-    </ClientContext.Provider>
-  );
+  return <ClientContext.Provider value={value}>{props.children}</ClientContext.Provider>;
 }
 
 /**

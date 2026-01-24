@@ -48,9 +48,7 @@ export const StudiesViewState = {
 } as const;
 
 // Helper predicates
-export function isMenu<T extends string>(
-  state: MenuViewState<T>,
-): state is { _tag: 'menu' } {
+export function isMenu<T extends string>(state: MenuViewState<T>): state is { _tag: 'menu' } {
   return state._tag === 'menu';
 }
 
@@ -60,8 +58,6 @@ export function isSubview<T extends string>(
   return state._tag === 'subview';
 }
 
-export function getSubview<T extends string>(
-  state: MenuViewState<T>,
-): T | null {
+export function getSubview<T extends string>(state: MenuViewState<T>): T | null {
   return state._tag === 'subview' ? state.view : null;
 }

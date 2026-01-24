@@ -24,9 +24,7 @@ export class EGWBookInfo extends Schema.Class<EGWBookInfo>('EGWBookInfo')({
 /**
  * EGW Chapter/Section Info - for table of contents
  */
-export class EGWChapterInfo extends Schema.Class<EGWChapterInfo>(
-  'EGWChapterInfo',
-)({
+export class EGWChapterInfo extends Schema.Class<EGWChapterInfo>('EGWChapterInfo')({
   paraId: Schema.optional(Schema.String),
   title: Schema.optional(Schema.String),
   refcodeShort: Schema.optional(Schema.String),
@@ -50,9 +48,7 @@ export class EGWParagraph extends Schema.Class<EGWParagraph>('EGWParagraph')({
 /**
  * EGW Reader Position - current reading position
  */
-export class EGWReaderPosition extends Schema.Class<EGWReaderPosition>(
-  'EGWReaderPosition',
-)({
+export class EGWReaderPosition extends Schema.Class<EGWReaderPosition>('EGWReaderPosition')({
   bookCode: Schema.String,
   bookId: Schema.optional(Schema.Number),
   /** Current paragraph puborder */
@@ -69,26 +65,24 @@ export class EGWReaderPosition extends Schema.Class<EGWReaderPosition>(
 /**
  * Reader State variants - discriminated union for loading states
  */
-export class EGWReaderIdle extends Schema.TaggedClass<EGWReaderIdle>(
-  'EGWReaderIdle',
-)('idle', {}) {}
+export class EGWReaderIdle extends Schema.TaggedClass<EGWReaderIdle>('EGWReaderIdle')('idle', {}) {}
 
-export class EGWReaderLoading extends Schema.TaggedClass<EGWReaderLoading>(
-  'EGWReaderLoading',
-)('loading', {
-  message: Schema.String,
-}) {}
+export class EGWReaderLoading extends Schema.TaggedClass<EGWReaderLoading>('EGWReaderLoading')(
+  'loading',
+  {
+    message: Schema.String,
+  },
+) {}
 
-export class EGWReaderLoaded extends Schema.TaggedClass<EGWReaderLoaded>(
-  'EGWReaderLoaded',
-)('loaded', {
-  book: EGWBookInfo,
-  paragraphs: Schema.Array(EGWParagraph),
-}) {}
+export class EGWReaderLoaded extends Schema.TaggedClass<EGWReaderLoaded>('EGWReaderLoaded')(
+  'loaded',
+  {
+    book: EGWBookInfo,
+    paragraphs: Schema.Array(EGWParagraph),
+  },
+) {}
 
-export class EGWReaderError extends Schema.TaggedClass<EGWReaderError>(
-  'EGWReaderError',
-)('error', {
+export class EGWReaderError extends Schema.TaggedClass<EGWReaderError>('EGWReaderError')('error', {
   error: Schema.String,
 }) {}
 
@@ -113,14 +107,10 @@ export const initialReaderState: EGWReaderState = new EGWReaderIdle({});
  * State matchers
  */
 export const isReaderState = {
-  idle: (state: EGWReaderState): state is EGWReaderIdle =>
-    state._tag === 'idle',
-  loading: (state: EGWReaderState): state is EGWReaderLoading =>
-    state._tag === 'loading',
-  loaded: (state: EGWReaderState): state is EGWReaderLoaded =>
-    state._tag === 'loaded',
-  error: (state: EGWReaderState): state is EGWReaderError =>
-    state._tag === 'error',
+  idle: (state: EGWReaderState): state is EGWReaderIdle => state._tag === 'idle',
+  loading: (state: EGWReaderState): state is EGWReaderLoading => state._tag === 'loading',
+  loaded: (state: EGWReaderState): state is EGWReaderLoaded => state._tag === 'loaded',
+  error: (state: EGWReaderState): state is EGWReaderError => state._tag === 'error',
 } as const;
 
 /**
@@ -128,11 +118,8 @@ export const isReaderState = {
  */
 export const ReaderState = {
   idle: (): EGWReaderState => new EGWReaderIdle({}),
-  loading: (message: string): EGWReaderState =>
-    new EGWReaderLoading({ message }),
-  loaded: (
-    book: EGWBookInfo,
-    paragraphs: readonly EGWParagraph[],
-  ): EGWReaderState => new EGWReaderLoaded({ book, paragraphs: [...paragraphs] }),
+  loading: (message: string): EGWReaderState => new EGWReaderLoading({ message }),
+  loaded: (book: EGWBookInfo, paragraphs: readonly EGWParagraph[]): EGWReaderState =>
+    new EGWReaderLoaded({ book, paragraphs: [...paragraphs] }),
   error: (error: string): EGWReaderState => new EGWReaderError({ error }),
 } as const;

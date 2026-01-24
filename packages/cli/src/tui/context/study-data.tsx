@@ -55,9 +55,7 @@ export interface MarginNoteCompat {
 }
 
 // Create combined layer with all dependencies
-const BibleServicesLayer = BibleDatabase.Default.pipe(
-  Layer.provideMerge(BunContext.layer),
-);
+const BibleServicesLayer = BibleDatabase.Default.pipe(Layer.provideMerge(BunContext.layer));
 
 // Create ManagedRuntime
 const runtime = ManagedRuntime.make(BibleServicesLayer);
@@ -88,10 +86,7 @@ async function ensureInitialized(): Promise<void> {
 }
 
 // Helper to run an effect synchronously if possible
-function runSync<T>(
-  effect: Effect.Effect<T, unknown, BibleDatabase>,
-  defaultValue: T,
-): T {
+function runSync<T>(effect: Effect.Effect<T, unknown, BibleDatabase>, defaultValue: T): T {
   if (!initialized) return defaultValue;
   try {
     return runtime.runSync(effect);
@@ -114,18 +109,10 @@ interface StudyDataContextValue {
   getStrongsEntry: (number: string) => StrongsEntryCompat | null;
 
   /** Get words with Strong's numbers for a verse (returns empty array if not ready) */
-  getVerseWords: (
-    book: number,
-    chapter: number,
-    verse: number,
-  ) => WordWithStrongs[];
+  getVerseWords: (book: number, chapter: number, verse: number) => WordWithStrongs[];
 
   /** Get margin notes for a verse (returns empty array if not ready) */
-  getMarginNotes: (
-    book: number,
-    chapter: number,
-    verse: number,
-  ) => MarginNoteCompat[];
+  getMarginNotes: (book: number, chapter: number, verse: number) => MarginNoteCompat[];
 
   /** Search for all verses containing a Strong's number */
   searchByStrongs: (strongsNumber: string) => ConcordanceResultCompat[];
@@ -144,11 +131,7 @@ ensureInitialized();
 
 export function StudyDataProvider(props: ParentProps) {
   // Wrap database methods to handle loading state
-  const getCrossRefs = (
-    book: number,
-    chapter: number,
-    verse: number,
-  ): Reference[] =>
+  const getCrossRefs = (book: number, chapter: number, verse: number): Reference[] =>
     runSync(
       Effect.gen(function* () {
         const db = yield* BibleDatabase;
@@ -183,11 +166,7 @@ export function StudyDataProvider(props: ParentProps) {
       null,
     );
 
-  const getVerseWords = (
-    book: number,
-    chapter: number,
-    verse: number,
-  ): WordWithStrongs[] =>
+  const getVerseWords = (book: number, chapter: number, verse: number): WordWithStrongs[] =>
     runSync(
       Effect.gen(function* () {
         const db = yield* BibleDatabase;
@@ -200,11 +179,7 @@ export function StudyDataProvider(props: ParentProps) {
       [],
     );
 
-  const getMarginNotes = (
-    book: number,
-    chapter: number,
-    verse: number,
-  ): MarginNoteCompat[] =>
+  const getMarginNotes = (book: number, chapter: number, verse: number): MarginNoteCompat[] =>
     runSync(
       Effect.gen(function* () {
         const db = yield* BibleDatabase;
@@ -271,11 +246,7 @@ export function StudyDataProvider(props: ParentProps) {
     searchStrongsByDefinition,
   };
 
-  return (
-    <StudyDataContext.Provider value={value}>
-      {props.children}
-    </StudyDataContext.Provider>
-  );
+  return <StudyDataContext.Provider value={value}>{props.children}</StudyDataContext.Provider>;
 }
 
 export function useStudyData(): StudyDataContextValue {

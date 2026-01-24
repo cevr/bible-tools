@@ -9,22 +9,15 @@ import { Context, Effect, Layer, Schema } from 'effect';
 
 import { EGWParagraphDatabase } from '../egw-db/book-database.js';
 import type * as EGWSchemas from '../egw/schemas.js';
-import type {
-  CommentaryEntry,
-  CommentaryResult,
-  VerseReference,
-} from './types.js';
+import type { CommentaryEntry, CommentaryResult, VerseReference } from './types.js';
 
 /**
  * Error types for the commentary service
  */
-export class CommentaryError extends Schema.TaggedError<CommentaryError>()(
-  'CommentaryError',
-  {
-    message: Schema.String,
-    cause: Schema.optional(Schema.Unknown),
-  },
-) {}
+export class CommentaryError extends Schema.TaggedError<CommentaryError>()('CommentaryError', {
+  message: Schema.String,
+  cause: Schema.optional(Schema.Unknown),
+}) {}
 
 /**
  * Union of all commentary errors
@@ -75,17 +68,14 @@ export interface EGWCommentaryServiceShape {
  *
  * Provides commentary lookup from EGW Bible Commentary volumes.
  */
-export class EGWCommentaryService extends Context.Tag(
-  '@bible/egw-commentary/Service',
-)<EGWCommentaryService, EGWCommentaryServiceShape>() {
+export class EGWCommentaryService extends Context.Tag('@bible/egw-commentary/Service')<
+  EGWCommentaryService,
+  EGWCommentaryServiceShape
+>() {
   /**
    * Live implementation using EGWParagraphDatabase.
    */
-  static Live: Layer.Layer<
-    EGWCommentaryService,
-    never,
-    EGWParagraphDatabase
-  > = Layer.effect(
+  static Live: Layer.Layer<EGWCommentaryService, never, EGWParagraphDatabase> = Layer.effect(
     EGWCommentaryService,
     Effect.gen(function* () {
       const db = yield* EGWParagraphDatabase;
@@ -166,9 +156,11 @@ export class EGWCommentaryService extends Context.Tag(
   /**
    * Test implementation with configurable mock data.
    */
-  static Test = (config: {
-    entries?: readonly CommentaryEntry[];
-  } = {}): Layer.Layer<EGWCommentaryService> =>
+  static Test = (
+    config: {
+      entries?: readonly CommentaryEntry[];
+    } = {},
+  ): Layer.Layer<EGWCommentaryService> =>
     Layer.succeed(EGWCommentaryService, {
       getCommentary: (verse) =>
         Effect.succeed({

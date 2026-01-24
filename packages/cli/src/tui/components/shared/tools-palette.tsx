@@ -135,10 +135,7 @@ export function ToolsPalette(props: ToolsPaletteProps) {
       padding={1}
       width={50}
     >
-      <text
-        fg={theme().textHighlight}
-        marginBottom={1}
-      >
+      <text fg={theme().textHighlight} marginBottom={1}>
         <strong>{mode() === 'tools' ? 'Tools' : 'Themes'}</strong>
       </text>
 
@@ -150,36 +147,19 @@ export function ToolsPalette(props: ToolsPaletteProps) {
               justifyContent="space-between"
               paddingLeft={1}
               paddingRight={1}
-              backgroundColor={
-                index() === selectedIndex() ? theme().accent : undefined
-              }
+              backgroundColor={index() === selectedIndex() ? theme().accent : undefined}
             >
-              <text
-                fg={
-                  index() === selectedIndex()
-                    ? theme().background
-                    : theme().text
-                }
-              >
+              <text fg={index() === selectedIndex() ? theme().background : theme().text}>
                 <span
                   style={{
-                    fg:
-                      index() === selectedIndex()
-                        ? theme().background
-                        : theme().textMuted,
+                    fg: index() === selectedIndex() ? theme().background : theme().textMuted,
                   }}
                 >
                   {index() + 1}.{' '}
                 </span>
                 {tool.label}
               </text>
-              <text
-                fg={
-                  index() === selectedIndex()
-                    ? theme().background
-                    : theme().textMuted
-                }
-              >
+              <text fg={index() === selectedIndex() ? theme().background : theme().textMuted}>
                 {tool.description}
                 {tool.action === 'themes' ? ' →' : ''}
               </text>
@@ -202,15 +182,9 @@ export function ToolsPalette(props: ToolsPaletteProps) {
                 paddingRight={1}
                 backgroundColor={isSelected() ? theme().accent : undefined}
               >
-                <text fg={isSelected() ? theme().background : theme().text}>
-                  {name}
-                </text>
+                <text fg={isSelected() ? theme().background : theme().text}>{name}</text>
                 <Show when={isCurrent}>
-                  <text
-                    fg={isSelected() ? theme().background : theme().textMuted}
-                  >
-                    (current)
-                  </text>
+                  <text fg={isSelected() ? theme().background : theme().textMuted}>(current)</text>
                 </Show>
               </box>
             );
@@ -218,14 +192,10 @@ export function ToolsPalette(props: ToolsPaletteProps) {
         </For>
       </Show>
 
-      <box
-        height={1}
-        marginTop={1}
-      >
+      <box height={1} marginTop={1}>
         <text fg={theme().textMuted}>
           <Show when={mode() === 'tools'}>
-            <span style={{ fg: theme().accent }}>1-{tools().length}</span>{' '}
-            select{'  '}
+            <span style={{ fg: theme().accent }}>1-{tools().length}</span> select{'  '}
             <span style={{ fg: theme().accent }}>→</span> expand{'  '}
           </Show>
           <Show when={mode() === 'themes'}>

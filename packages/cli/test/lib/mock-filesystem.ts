@@ -78,9 +78,7 @@ export const createMockFileSystemLayer = (config: MockFileSystemConfig) => {
       Effect.gen(function* () {
         const exists = state.files.has(path) || state.directories.has(path);
         if (!exists) {
-          return yield* Effect.fail(
-            createFileError('stat', path, `File not found: ${path}`),
-          );
+          return yield* Effect.fail(createFileError('stat', path, `File not found: ${path}`));
         }
         const isDirectory = state.directories.has(path);
         return {
@@ -118,13 +116,9 @@ export const createMockFileSystemLayer = (config: MockFileSystemConfig) => {
         yield* recordCall({ _tag: 'FileSystem.readFile', path });
         const content = state.files.get(path);
         if (content === undefined) {
-          return yield* Effect.fail(
-            createFileError('readFile', path, `File not found: ${path}`),
-          );
+          return yield* Effect.fail(createFileError('readFile', path, `File not found: ${path}`));
         }
-        return content instanceof Uint8Array
-          ? content
-          : new TextEncoder().encode(content);
+        return content instanceof Uint8Array ? content : new TextEncoder().encode(content);
       }),
 
     readFileString: (path) =>
@@ -136,9 +130,7 @@ export const createMockFileSystemLayer = (config: MockFileSystemConfig) => {
             createFileError('readFileString', path, `File not found: ${path}`),
           );
         }
-        return content instanceof Uint8Array
-          ? new TextDecoder().decode(content)
-          : content;
+        return content instanceof Uint8Array ? new TextDecoder().decode(content) : content;
       }),
 
     writeFile: (path, data) =>

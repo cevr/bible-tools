@@ -5,12 +5,7 @@
  * promises with status tracking for synchronous reads.
  */
 
-import {
-  defer,
-  resolvedPromise,
-  type Deferred,
-  type PromiseWithStatus,
-} from './promise.js';
+import { defer, resolvedPromise, type Deferred, type PromiseWithStatus } from './promise.js';
 
 interface CacheEntry<T> {
   promise: PromiseWithStatus<T>;

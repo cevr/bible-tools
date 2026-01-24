@@ -5,11 +5,7 @@ import { Console, Effect, Layer, Option } from 'effect';
 
 import { BibleData, BibleDataLive } from '~/src/data/bible/data';
 import { getVersesForQuery, parseVerseQuery } from '~/src/data/bible/parse';
-import {
-  getBook,
-  type BibleDataSyncService,
-  type Verse,
-} from '~/src/data/bible/types';
+import { getBook, type BibleDataSyncService, type Verse } from '~/src/data/bible/types';
 
 // Variadic args to capture "john 3:16" or "john" "3:16" etc.
 const query = Args.text({ name: 'query' }).pipe(Args.repeated);
@@ -33,10 +29,7 @@ function printVerses(verses: Verse[]): Effect.Effect<void> {
 }
 
 // Print search results
-function printSearchResults(
-  query: string,
-  verses: Verse[],
-): Effect.Effect<void> {
+function printSearchResults(query: string, verses: Verse[]): Effect.Effect<void> {
   if (verses.length === 0) {
     return Console.log(`No verses found matching "${query}".`);
   }
@@ -112,9 +105,7 @@ function formatConcordanceResult(result: ConcordanceResult): string {
 }
 
 // Layer for concordance command
-const ConcordanceLive = BibleDatabase.Default.pipe(
-  Layer.provideMerge(BunContext.layer),
-);
+const ConcordanceLive = BibleDatabase.Default.pipe(Layer.provideMerge(BunContext.layer));
 
 export const concordance = Command.make('concordance', { query }, (args) =>
   Effect.gen(function* () {
@@ -122,20 +113,12 @@ export const concordance = Command.make('concordance', { query }, (args) =>
     const queryStr = args.query.join(' ').trim();
 
     if (!queryStr) {
-      yield* Console.log(
-        "Usage: bible concordance <Strong's number or English word>",
-      );
+      yield* Console.log("Usage: bible concordance <Strong's number or English word>");
       yield* Console.log('');
       yield* Console.log('Examples:');
-      yield* Console.log(
-        "  bible concordance H157      # Hebrew word by Strong's number",
-      );
-      yield* Console.log(
-        "  bible concordance G26       # Greek word by Strong's number",
-      );
-      yield* Console.log(
-        '  bible concordance love      # Search definitions for "love"',
-      );
+      yield* Console.log("  bible concordance H157      # Hebrew word by Strong's number");
+      yield* Console.log("  bible concordance G26       # Greek word by Strong's number");
+      yield* Console.log('  bible concordance love      # Search definitions for "love"');
       return;
     }
 
@@ -157,9 +140,7 @@ export const concordance = Command.make('concordance', { query }, (args) =>
       if (results.length === 0) {
         yield* Console.log('No verses found with this word.');
       } else {
-        yield* Console.log(
-          `Found in ${results.length} verse${results.length === 1 ? '' : 's'}:`,
-        );
+        yield* Console.log(`Found in ${results.length} verse${results.length === 1 ? '' : 's'}:`);
         yield* Console.log('');
         // Limit output to first 50 results for readability
         const displayResults = results.slice(0, 50);
@@ -191,6 +172,4 @@ export const concordance = Command.make('concordance', { query }, (args) =>
   }).pipe(Effect.scoped, Effect.provide(ConcordanceLive)),
 );
 
-export const bible = Command.make('bible').pipe(
-  Command.withSubcommands([verse, concordance]),
-);
+export const bible = Command.make('bible').pipe(Command.withSubcommands([verse, concordance]));

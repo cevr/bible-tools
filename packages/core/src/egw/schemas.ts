@@ -24,12 +24,7 @@ export type BookType = Schema.Schema.Type<typeof BookType>;
 /**
  * Permission Required
  */
-export const PermissionRequired = Schema.Literal(
-  'hidden',
-  'public',
-  'authenticated',
-  'purchased',
-);
+export const PermissionRequired = Schema.Literal('hidden', 'public', 'authenticated', 'purchased');
 
 export type PermissionRequired = Schema.Schema.Type<typeof PermissionRequired>;
 
@@ -69,9 +64,7 @@ export interface Folder extends Schema.Struct.Type<typeof folderFields> {
  */
 export const Folder: Schema.Schema<Folder> = Schema.Struct({
   ...folderFields,
-  children: Schema.optional(
-    Schema.Array(Schema.suspend((): Schema.Schema<Folder> => Folder)),
-  ),
+  children: Schema.optional(Schema.Array(Schema.suspend((): Schema.Schema<Folder> => Folder))),
 });
 
 /**
@@ -125,9 +118,7 @@ export const Book = Schema.Struct({
   is_audiobook: Schema.Boolean,
   cite: Schema.optional(Schema.Union(Schema.String, Schema.Null)),
   original_book: Schema.optional(Schema.Union(Schema.String, Schema.Null)),
-  translated_into: Schema.optional(
-    Schema.Union(Schema.Array(Schema.String), Schema.Null),
-  ),
+  translated_into: Schema.optional(Schema.Union(Schema.Array(Schema.String), Schema.Null)),
   nelements: Schema.Number,
 });
 
@@ -239,14 +230,8 @@ export type BooksQueryParams = Schema.Schema.Type<typeof BooksQueryParams>;
 export const ChapterContentParams = Schema.Struct({
   highlight: Schema.optional(Schema.String),
   trans: Schema.optional(
-    Schema.Union(
-      Schema.Literal('all'),
-      Schema.Array(Schema.String),
-      Schema.String,
-    ),
+    Schema.Union(Schema.Literal('all'), Schema.Array(Schema.String), Schema.String),
   ),
 });
 
-export type ChapterContentParams = Schema.Schema.Type<
-  typeof ChapterContentParams
->;
+export type ChapterContentParams = Schema.Schema.Type<typeof ChapterContentParams>;

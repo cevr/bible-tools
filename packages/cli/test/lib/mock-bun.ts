@@ -21,10 +21,7 @@ export interface MockBunState {
  * Create mock Bun.spawn that records calls and returns mock responses.
  * Used for mocking osascript (AppleScript) and afplay (chime) commands.
  */
-export const createMockBunSpawn = (
-  config: MockBunConfig = {},
-  state: MockBunState,
-) => {
+export const createMockBunSpawn = (config: MockBunConfig = {}, state: MockBunState) => {
   return (command: string[], _options?: Record<string, unknown>) => {
     const [cmd, ...args] = command;
 
@@ -112,10 +109,7 @@ export const createMockBunSpawn = (
  * Create mock Bun.$ tagged template function.
  * Used for shell commands like `$\`afplay ${path}\``.
  */
-export const createMockBunShell = (
-  _config: MockBunConfig = {},
-  state: MockBunState,
-) => {
+export const createMockBunShell = (_config: MockBunConfig = {}, state: MockBunState) => {
   return (strings: TemplateStringsArray, ...values: unknown[]) => {
     // Reconstruct the command string
     let command = strings[0];

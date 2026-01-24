@@ -1,6 +1,7 @@
 ---
 apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p627'
 ---
+
 # Sanctification: Christ in You, The Hope of Glory
 
 **Tags:** #sanctification #holiness #restoration #character #lastdays #salvation

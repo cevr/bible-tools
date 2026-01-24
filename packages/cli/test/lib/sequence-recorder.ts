@@ -57,7 +57,4 @@ export const clearCallSequence = Effect.gen(function* () {
 /**
  * Layer that provides an empty call sequence.
  */
-export const CallSequenceLayer = Layer.effect(
-  CallSequence,
-  Ref.make<ServiceCall[]>([]),
-);
+export const CallSequenceLayer = Layer.effect(CallSequence, Ref.make<ServiceCall[]>([]));

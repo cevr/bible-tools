@@ -31,9 +31,7 @@ export class BibleBook extends Schema.Class<BibleBook>('BibleBook')({
 /**
  * Reference to a position in the Bible
  */
-export class BibleReference extends Schema.Class<BibleReference>(
-  'BibleReference',
-)({
+export class BibleReference extends Schema.Class<BibleReference>('BibleReference')({
   book: Schema.Number,
   chapter: Schema.Number,
   verse: Schema.optional(Schema.Number),
@@ -46,9 +44,7 @@ export class BibleReference extends Schema.Class<BibleReference>(
 /**
  * Current reading position
  */
-export class BiblePosition extends Schema.Class<BiblePosition>(
-  'BiblePosition',
-)({
+export class BiblePosition extends Schema.Class<BiblePosition>('BiblePosition')({
   book: Schema.Number,
   chapter: Schema.Number,
   verse: Schema.Number,
@@ -60,9 +56,7 @@ export class BiblePosition extends Schema.Class<BiblePosition>(
 /**
  * Search result
  */
-export class BibleSearchResult extends Schema.Class<BibleSearchResult>(
-  'BibleSearchResult',
-)({
+export class BibleSearchResult extends Schema.Class<BibleSearchResult>('BibleSearchResult')({
   reference: BibleReference,
   verse: BibleVerse,
   matchScore: Schema.Number,
@@ -71,14 +65,12 @@ export class BibleSearchResult extends Schema.Class<BibleSearchResult>(
 /**
  * Bookmark
  */
-export class BibleBookmark extends Schema.Class<BibleBookmark>('BibleBookmark')(
-  {
-    id: Schema.String,
-    reference: BibleReference,
-    note: Schema.optional(Schema.String),
-    createdAt: Schema.Number,
-  },
-) {
+export class BibleBookmark extends Schema.Class<BibleBookmark>('BibleBookmark')({
+  id: Schema.String,
+  reference: BibleReference,
+  note: Schema.optional(Schema.String),
+  createdAt: Schema.Number,
+}) {
   static fromJson = Schema.decode(Schema.parseJson(BibleBookmark));
   static toJson = Schema.encode(Schema.parseJson(BibleBookmark));
 }
@@ -86,9 +78,7 @@ export class BibleBookmark extends Schema.Class<BibleBookmark>('BibleBookmark')(
 /**
  * History entry
  */
-export class BibleHistoryEntry extends Schema.Class<BibleHistoryEntry>(
-  'BibleHistoryEntry',
-)({
+export class BibleHistoryEntry extends Schema.Class<BibleHistoryEntry>('BibleHistoryEntry')({
   reference: BibleReference,
   visitedAt: Schema.Number,
 }) {}
@@ -96,9 +86,7 @@ export class BibleHistoryEntry extends Schema.Class<BibleHistoryEntry>(
 /**
  * User preferences
  */
-export class BiblePreferences extends Schema.Class<BiblePreferences>(
-  'BiblePreferences',
-)({
+export class BiblePreferences extends Schema.Class<BiblePreferences>('BiblePreferences')({
   theme: Schema.String,
   displayMode: Schema.Literal('verse', 'paragraph'),
 }) {
@@ -109,9 +97,10 @@ export class BiblePreferences extends Schema.Class<BiblePreferences>(
 /**
  * Reader state variants - discriminated union for loading states
  */
-export class BibleReaderIdle extends Schema.TaggedClass<BibleReaderIdle>(
-  'BibleReaderIdle',
-)('idle', {}) {}
+export class BibleReaderIdle extends Schema.TaggedClass<BibleReaderIdle>('BibleReaderIdle')(
+  'idle',
+  {},
+) {}
 
 export class BibleReaderLoading extends Schema.TaggedClass<BibleReaderLoading>(
   'BibleReaderLoading',
@@ -119,11 +108,12 @@ export class BibleReaderLoading extends Schema.TaggedClass<BibleReaderLoading>(
   message: Schema.String,
 }) {}
 
-export class BibleReaderLoaded extends Schema.TaggedClass<BibleReaderLoaded>(
-  'BibleReaderLoaded',
-)('loaded', {
-  position: BiblePosition,
-}) {}
+export class BibleReaderLoaded extends Schema.TaggedClass<BibleReaderLoaded>('BibleReaderLoaded')(
+  'loaded',
+  {
+    position: BiblePosition,
+  },
+) {}
 
 export class BibleReaderErrorState extends Schema.TaggedClass<BibleReaderErrorState>(
   'BibleReaderErrorState',
@@ -152,14 +142,10 @@ export const initialReaderState: BibleReaderState = new BibleReaderIdle({});
  * State matchers
  */
 export const isBibleReaderState = {
-  idle: (state: BibleReaderState): state is BibleReaderIdle =>
-    state._tag === 'idle',
-  loading: (state: BibleReaderState): state is BibleReaderLoading =>
-    state._tag === 'loading',
-  loaded: (state: BibleReaderState): state is BibleReaderLoaded =>
-    state._tag === 'loaded',
-  error: (state: BibleReaderState): state is BibleReaderErrorState =>
-    state._tag === 'error',
+  idle: (state: BibleReaderState): state is BibleReaderIdle => state._tag === 'idle',
+  loading: (state: BibleReaderState): state is BibleReaderLoading => state._tag === 'loading',
+  loaded: (state: BibleReaderState): state is BibleReaderLoaded => state._tag === 'loaded',
+  error: (state: BibleReaderState): state is BibleReaderErrorState => state._tag === 'error',
 } as const;
 
 /**
@@ -167,10 +153,7 @@ export const isBibleReaderState = {
  */
 export const BibleReaderStateConstructors = {
   idle: (): BibleReaderState => new BibleReaderIdle({}),
-  loading: (message: string): BibleReaderState =>
-    new BibleReaderLoading({ message }),
-  loaded: (position: BiblePosition): BibleReaderState =>
-    new BibleReaderLoaded({ position }),
-  error: (error: string): BibleReaderState =>
-    new BibleReaderErrorState({ error }),
+  loading: (message: string): BibleReaderState => new BibleReaderLoading({ message }),
+  loaded: (position: BiblePosition): BibleReaderState => new BibleReaderLoaded({ position }),
+  error: (error: string): BibleReaderState => new BibleReaderErrorState({ error }),
 } as const;

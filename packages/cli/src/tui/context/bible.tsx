@@ -7,17 +7,9 @@ import {
   type Resource,
 } from 'solid-js';
 
-import {
-  BibleData,
-  BibleDataLive,
-  type BibleDataService,
-} from '../../data/bible/data.js';
+import { BibleData, BibleDataLive, type BibleDataService } from '../../data/bible/data.js';
 import type { BibleDataSyncService } from '../../data/bible/types.js';
-import {
-  BibleState,
-  BibleStateLive,
-  type BibleStateService,
-} from '../../data/bible/state.js';
+import { BibleState, BibleStateLive, type BibleStateService } from '../../data/bible/state.js';
 
 // Combined services for the Bible viewer
 interface BibleContextValue {
@@ -108,11 +100,7 @@ export function BibleProvider(props: ParentProps) {
     },
   };
 
-  return (
-    <BibleContext.Provider value={value}>
-      {props.children}
-    </BibleContext.Provider>
-  );
+  return <BibleContext.Provider value={value}>{props.children}</BibleContext.Provider>;
 }
 
 export function useBible(): BibleContextValue {

@@ -1,11 +1,6 @@
 import { isRoute, Route } from '@bible/core/app';
 import type { EGWReference } from '@bible/core/app';
-import {
-  render,
-  useKeyboard,
-  useRenderer,
-  useTerminalDimensions,
-} from '@opentui/solid';
+import { render, useKeyboard, useRenderer, useTerminalDimensions } from '@opentui/solid';
 import type { Runtime } from 'effect';
 import { createResource, createSignal, Match, Show, Switch } from 'solid-js';
 
@@ -25,11 +20,7 @@ import { SearchProvider } from './context/search.js';
 import { StudyDataProvider } from './context/study-data.js';
 import { ThemeProvider, useTheme } from './context/theme.js';
 import { WordModeProvider } from './context/word-mode.js';
-import {
-  getAppRuntime,
-  RuntimeProvider,
-  type AppServices,
-} from './lib/index.js';
+import { getAppRuntime, RuntimeProvider, type AppServices } from './lib/index.js';
 import { BibleView } from './routes/bible.js';
 import { EGWView } from './routes/egw.js';
 import { MessagesView } from './routes/messages.js';
@@ -179,19 +170,13 @@ function AppContent(props: AppProps) {
                         <BibleView onNavigateToRoute={handleNavigateToRoute} />
                       </Match>
                       <Match when={isRoute.messages(route())}>
-                        <MessagesView
-                          onBack={() => back() || navigateToBible()}
-                        />
+                        <MessagesView onBack={() => back() || navigateToBible()} />
                       </Match>
                       <Match when={isRoute.sabbathSchool(route())}>
-                        <SabbathSchoolView
-                          onBack={() => back() || navigateToBible()}
-                        />
+                        <SabbathSchoolView onBack={() => back() || navigateToBible()} />
                       </Match>
                       <Match when={isRoute.studies(route())}>
-                        <StudiesView
-                          onBack={() => back() || navigateToBible()}
-                        />
+                        <StudiesView onBack={() => back() || navigateToBible()} />
                       </Match>
                       <Match when={isRoute.egw(route())}>
                         <EGWProvider>
@@ -263,17 +248,11 @@ function AppWithTheme(props: AppProps) {
  * Loads the centralized Effect runtime and provides it to the tree.
  * Uses RuntimeProvider from the gent pattern.
  */
-function AppWithRuntime(
-  props: AppProps & { runtime: Runtime.Runtime<AppServices> },
-) {
+function AppWithRuntime(props: AppProps & { runtime: Runtime.Runtime<AppServices> }) {
   // Determine initial route based on props
   // initialEgwRef can be {} to indicate "go to EGW" without a specific reference
   const initialRoute = props.initialEgwRef
-    ? Route.egw(
-        props.initialEgwRef.bookCode
-          ? (props.initialEgwRef as EGWReference)
-          : undefined,
-      )
+    ? Route.egw(props.initialEgwRef.bookCode ? (props.initialEgwRef as EGWReference) : undefined)
     : props.initialRef
       ? Route.bible({
           book: props.initialRef.book,

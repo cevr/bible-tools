@@ -1,6 +1,7 @@
 ---
 apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p750'
 ---
+
 # The Way Home Part 5: God's Image Restored — The Final Call
 
 ## Topic Tags
@@ -14,15 +15,15 @@ apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p750'
 
 ## Opening Hymns
 
-- #602 — *O Brother, Be Faithful*
-- #214 — *We Have This Hope*
-- #608 — *Faith Is the Victory*
+- #602 — _O Brother, Be Faithful_
+- #214 — _We Have This Hope_
+- #608 — _Faith Is the Victory_
 
 ## Closing Hymns
 
-- #604 — *We Know Not the Hour*
-- #633 — *When We All Get to Heaven*
-- #298 — *I Saw One Weary*
+- #604 — _We Know Not the Hour_
+- #633 — _When We All Get to Heaven_
+- #298 — _I Saw One Weary_
 
 ## Central Bible Verse
 

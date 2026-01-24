@@ -4,11 +4,7 @@
  * Currently the web app uses simple fetch with caching for Bible data,
  * but this provider can be used for Effect-based services if needed.
  */
-import {
-  createContext,
-  useContext,
-  type ParentComponent,
-} from 'solid-js';
+import { createContext, useContext, type ParentComponent } from 'solid-js';
 
 interface EffectContextValue {
   // Reserved for future Effect-based services
@@ -23,11 +19,7 @@ const EffectContext = createContext<EffectContextValue>();
 export const EffectProvider: ParentComponent = (props) => {
   const value: EffectContextValue = {};
 
-  return (
-    <EffectContext.Provider value={value}>
-      {props.children}
-    </EffectContext.Provider>
-  );
+  return <EffectContext.Provider value={value}>{props.children}</EffectContext.Provider>;
 };
 
 /**

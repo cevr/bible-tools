@@ -3,13 +3,10 @@ import { Context, Effect, Layer, Schema } from 'effect';
 /**
  * Error thrown when an export operation fails.
  */
-export class ExportError extends Schema.TaggedError<ExportError>()(
-  'ExportError',
-  {
-    title: Schema.String,
-    cause: Schema.Defect,
-  },
-) {}
+export class ExportError extends Schema.TaggedError<ExportError>()('ExportError', {
+  title: Schema.String,
+  cause: Schema.Defect,
+}) {}
 
 /**
  * Options for exporting content.

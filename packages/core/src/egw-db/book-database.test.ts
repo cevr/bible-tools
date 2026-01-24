@@ -20,10 +20,7 @@ const tempFiles: string[] = [];
 
 // Helper to get a unique temp db path
 const getTempDbPath = (): string => {
-  const path = join(
-    tmpdir(),
-    `egw-test-${Date.now()}-${Math.random().toString(36).slice(2)}.db`,
-  );
+  const path = join(tmpdir(), `egw-test-${Date.now()}-${Math.random().toString(36).slice(2)}.db`);
   tempFiles.push(path);
   return path;
 };
@@ -43,18 +40,12 @@ afterAll(() => {
 });
 
 // Helper to run scoped effects in tests with fresh database
-const runTest = <A, E>(
-  effect: Effect.Effect<A, E, EGWParagraphDatabase>,
-): Promise<A> => {
+const runTest = <A, E>(effect: Effect.Effect<A, E, EGWParagraphDatabase>): Promise<A> => {
   const dbPath = getTempDbPath();
   process.env.EGW_PARAGRAPH_DB = dbPath;
 
-  const TestLayer = EGWParagraphDatabase.Default.pipe(
-    Layer.provide(BunContext.layer),
-  );
-  return Effect.runPromise(
-    Effect.scoped(effect.pipe(Effect.provide(TestLayer))),
-  );
+  const TestLayer = EGWParagraphDatabase.Default.pipe(Layer.provide(BunContext.layer));
+  return Effect.runPromise(Effect.scoped(effect.pipe(Effect.provide(TestLayer))));
 };
 
 // Helper to create a mock book
@@ -177,10 +168,7 @@ describe('EGWParagraphDatabase', () => {
 
           const successful = yield* db.getBooksByStatus('success');
           expect(successful.length).toBe(2);
-          expect(successful.map((s) => s.book_code).sort()).toEqual([
-            'DA',
-            'PP',
-          ]);
+          expect(successful.map((s) => s.book_code).sort()).toEqual(['DA', 'PP']);
 
           const failed = yield* db.getBooksByStatus('failed');
           expect(failed.length).toBe(1);
@@ -269,10 +257,7 @@ describe('EGWParagraphDatabase', () => {
           const book = mockBook(101, '1BC');
 
           // First store paragraphs so foreign key constraint is satisfied
-          const paragraphs = [
-            mockParagraph(1, '1BC 100.1'),
-            mockParagraph(2, '1BC 100.2'),
-          ];
+          const paragraphs = [mockParagraph(1, '1BC 100.1'), mockParagraph(2, '1BC 100.2')];
           yield* db.storeParagraphsBatch(paragraphs, book);
 
           // Store Bible refs

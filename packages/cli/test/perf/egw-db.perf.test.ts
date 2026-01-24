@@ -20,9 +20,7 @@ describe('EGW Database Performance', () => {
   it('should skip tests if EGW database is not populated', () => {
     if (!existsSync(DB_PATH)) {
       console.log('EGW database not found at', DB_PATH);
-      console.log(
-        'Run `bun run packages/core/scripts/sync-egw-books.ts` to sync it.',
-      );
+      console.log('Run `bun run packages/core/scripts/sync-egw-books.ts` to sync it.');
       console.log('\nSkipping EGW performance tests - database not populated.');
       expect(true).toBe(true); // Pass the test
       return;

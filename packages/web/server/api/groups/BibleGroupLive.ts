@@ -6,12 +6,7 @@
 import { HttpApiBuilder } from '@effect/platform';
 import { Effect, Option } from 'effect';
 
-import {
-  BibleToolsApi,
-  BookNotFoundError,
-  ChapterNotFoundError,
-  DatabaseError,
-} from '@bible/api';
+import { BibleToolsApi, BookNotFoundError, ChapterNotFoundError, DatabaseError } from '@bible/api';
 import { BibleService } from '@bible/core/bible-service';
 
 /**
@@ -24,54 +19,47 @@ const mapDbError = Effect.mapError(
     }),
 );
 
-export const BibleGroupLive = HttpApiBuilder.group(
-  BibleToolsApi,
-  'Bible',
-  (handlers) =>
-    Effect.gen(function* () {
-      const bible = yield* BibleService;
+export const BibleGroupLive = HttpApiBuilder.group(BibleToolsApi, 'Bible', (handlers) =>
+  Effect.gen(function* () {
+    const bible = yield* BibleService;
 
-      return handlers
-        .handle('books', () => bible.getBooks().pipe(mapDbError))
-        .handle('chapter', ({ path: { book, chapter } }) =>
-          Effect.gen(function* () {
-            // Get book info
-            const bookInfo = yield* bible.getBook(book).pipe(mapDbError);
-            if (Option.isNone(bookInfo)) {
-              return yield* Effect.fail(
-                new BookNotFoundError({
-                  book,
-                  message: `Book ${book} not found`,
-                }),
-              );
-            }
+    return handlers
+      .handle('books', () => bible.getBooks().pipe(mapDbError))
+      .handle('chapter', ({ path: { book, chapter } }) =>
+        Effect.gen(function* () {
+          // Get book info
+          const bookInfo = yield* bible.getBook(book).pipe(mapDbError);
+          if (Option.isNone(bookInfo)) {
+            return yield* Effect.fail(
+              new BookNotFoundError({
+                book,
+                message: `Book ${book} not found`,
+              }),
+            );
+          }
 
-            // Get chapter with navigation
-            const chapterData = yield* bible
-              .getChapter(book, chapter)
-              .pipe(mapDbError);
+          // Get chapter with navigation
+          const chapterData = yield* bible.getChapter(book, chapter).pipe(mapDbError);
 
-            if (chapterData.verses.length === 0) {
-              return yield* Effect.fail(
-                new ChapterNotFoundError({
-                  book,
-                  chapter,
-                  message: `Chapter ${book}:${chapter} not found`,
-                }),
-              );
-            }
+          if (chapterData.verses.length === 0) {
+            return yield* Effect.fail(
+              new ChapterNotFoundError({
+                book,
+                chapter,
+                message: `Chapter ${book}:${chapter} not found`,
+              }),
+            );
+          }
 
-            return {
-              book: chapterData.book,
-              chapter: chapterData.chapter,
-              verses: chapterData.verses,
-              prevChapter: chapterData.prevChapter,
-              nextChapter: chapterData.nextChapter,
-            };
-          }),
-        )
-        .handle('search', ({ urlParams: { q, limit } }) =>
-          bible.search(q, limit).pipe(mapDbError),
-        );
-    }),
+          return {
+            book: chapterData.book,
+            chapter: chapterData.chapter,
+            verses: chapterData.verses,
+            prevChapter: chapterData.prevChapter,
+            nextChapter: chapterData.nextChapter,
+          };
+        }),
+      )
+      .handle('search', ({ urlParams: { q, limit } }) => bible.search(q, limit).pipe(mapDbError));
+  }),
 );

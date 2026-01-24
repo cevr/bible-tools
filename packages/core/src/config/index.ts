@@ -5,12 +5,7 @@
  */
 
 // Schema exports
-export type {
-  DatabaseConfig,
-  EGWApiConfig,
-  EGWAuthConfig,
-  GeminiConfig,
-} from './schemas.js';
+export type { DatabaseConfig, EGWApiConfig, EGWAuthConfig, GeminiConfig } from './schemas.js';
 
 export {
   DatabaseConfigSchema,

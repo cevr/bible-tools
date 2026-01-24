@@ -110,9 +110,7 @@ export const listNotes = Effect.fn('listNotes')(function* () {
  * @returns An Effect that resolves with the HTML string content of the note.
  * @throws NoteOperationError if the note is not found or the script fails.
  */
-export const getNoteContent = Effect.fn('getNoteContent')(function* (
-  noteId: string,
-) {
+export const getNoteContent = Effect.fn('getNoteContent')(function* (noteId: string) {
   yield* Effect.log(`🔄 Fetching content for note ID: ${noteId}...`);
   const script = `
     tell application "Notes"
@@ -254,10 +252,7 @@ export const deleteNote = Effect.fn('deleteNote')(function* (noteId: string) {
  * @returns An Effect that resolves with the ID of the newly created note.
  * @throws NoteOperationError if the creation fails.
  */
-export const createNote = Effect.fn('createNote')(function* (
-  title: string,
-  body: string,
-) {
+export const createNote = Effect.fn('createNote')(function* (title: string, body: string) {
   yield* Effect.log(`🔄 Creating new note titled: "${title}"...`);
 
   const script = `

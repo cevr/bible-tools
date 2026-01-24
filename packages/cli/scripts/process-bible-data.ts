@@ -180,9 +180,7 @@ interface StrongsEntry {
 function cleanHtmlEntities(str: string): string {
   return str
     .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(parseInt(code, 10)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, code) =>
-      String.fromCharCode(parseInt(code, 16)),
-    )
+    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)))
     .replace(/&quot;/g, '"')
     .replace(/&apos;/g, "'")
     .replace(/&amp;/g, '&')
@@ -317,23 +315,16 @@ function processStrongs(): Record<string, StrongsEntry> {
         def: cleanHtmlEntities(v.strongs_def || v.outline_usage || ''),
       };
     }
-    console.log(
-      `  Loaded ${Object.keys(lexiconData).length} entries from lexicon.json`,
-    );
+    console.log(`  Loaded ${Object.keys(lexiconData).length} entries from lexicon.json`);
   } catch (e) {
     console.log(`  WARNING: Could not load lexicon.json: ${e}`);
   }
 
   // Then supplement with OpenScriptures Hebrew data (has more detail)
-  const hebrewPath = join(
-    DATA_RAW,
-    'strongs/hebrew/strongs-hebrew-dictionary.js',
-  );
+  const hebrewPath = join(DATA_RAW, 'strongs/hebrew/strongs-hebrew-dictionary.js');
   try {
     const hebrewContent = readFileSync(hebrewPath, 'utf-8');
-    const hebrewMatch = hebrewContent.match(
-      /var strongsHebrewDictionary = (\{[\s\S]*?\n\});/,
-    );
+    const hebrewMatch = hebrewContent.match(/var strongsHebrewDictionary = (\{[\s\S]*?\n\});/);
 
     if (hebrewMatch) {
       const hebrewData = JSON.parse(hebrewMatch[1]);
@@ -359,14 +350,10 @@ function processStrongs(): Record<string, StrongsEntry> {
         } else if (v.pron && !strongs[key].pron) {
           // Add pronunciation if missing
           strongs[key].pron = v.pron;
-          strongs[key].kjvDef = v.kjv_def
-            ? cleanHtmlEntities(v.kjv_def)
-            : undefined;
+          strongs[key].kjvDef = v.kjv_def ? cleanHtmlEntities(v.kjv_def) : undefined;
         }
       }
-      console.log(
-        `  Added/updated ${added} Hebrew entries from OpenScriptures`,
-      );
+      console.log(`  Added/updated ${added} Hebrew entries from OpenScriptures`);
     }
   } catch (e) {
     console.log(`  WARNING: Could not parse Hebrew dictionary: ${e}`);
@@ -376,9 +363,7 @@ function processStrongs(): Record<string, StrongsEntry> {
   const greekPath = join(DATA_RAW, 'strongs/greek/strongs-greek-dictionary.js');
   try {
     const greekContent = readFileSync(greekPath, 'utf-8');
-    const greekMatch = greekContent.match(
-      /var strongsGreekDictionary = (\{.*\});/,
-    );
+    const greekMatch = greekContent.match(/var strongsGreekDictionary = (\{.*\});/);
 
     if (greekMatch) {
       const greekData = JSON.parse(greekMatch[1]);
@@ -404,9 +389,7 @@ function processStrongs(): Record<string, StrongsEntry> {
           added++;
         } else if (v.pron && !strongs[key].pron) {
           strongs[key].pron = v.pron;
-          strongs[key].kjvDef = v.kjv_def
-            ? cleanHtmlEntities(v.kjv_def)
-            : undefined;
+          strongs[key].kjvDef = v.kjv_def ? cleanHtmlEntities(v.kjv_def) : undefined;
         }
       }
       console.log(`  Added/updated ${added} Greek entries from OpenScriptures`);
@@ -453,15 +436,8 @@ function processKjvStrongs(): VerseWithStrongs[] {
   const verses: VerseWithStrongs[] = [];
 
   // Get all book files (exclude metadata files and non-JSON)
-  const excludeFiles = [
-    'books.json',
-    'chapter_count.json',
-    'lexicon.json',
-    'README.md',
-  ];
-  const files = readdirSync(kjvDir).filter(
-    (f) => f.endsWith('.json') && !excludeFiles.includes(f),
-  );
+  const excludeFiles = ['books.json', 'chapter_count.json', 'lexicon.json', 'README.md'];
+  const files = readdirSync(kjvDir).filter((f) => f.endsWith('.json') && !excludeFiles.includes(f));
 
   for (const file of files) {
     const bookAbbr = file.replace('.json', '');
@@ -534,25 +510,15 @@ function processKjvStrongs(): VerseWithStrongs[] {
 console.log('=== Processing Bible Study Data ===\n');
 
 const crossRefs = processCrossRefs();
-writeFileSync(
-  join(ASSETS, 'cross-refs.json'),
-  JSON.stringify(crossRefs),
-  'utf-8',
-);
-console.log(
-  `  Wrote cross-refs.json (${Object.keys(crossRefs).length} verses with refs)\n`,
-);
+writeFileSync(join(ASSETS, 'cross-refs.json'), JSON.stringify(crossRefs), 'utf-8');
+console.log(`  Wrote cross-refs.json (${Object.keys(crossRefs).length} verses with refs)\n`);
 
 const strongs = processStrongs();
 writeFileSync(join(ASSETS, 'strongs.json'), JSON.stringify(strongs), 'utf-8');
 console.log(`  Wrote strongs.json (${Object.keys(strongs).length} entries)\n`);
 
 const kjvStrongs = processKjvStrongs();
-writeFileSync(
-  join(ASSETS, 'kjv-strongs.json'),
-  JSON.stringify(kjvStrongs),
-  'utf-8',
-);
+writeFileSync(join(ASSETS, 'kjv-strongs.json'), JSON.stringify(kjvStrongs), 'utf-8');
 console.log(`  Wrote kjv-strongs.json (${kjvStrongs.length} verses)\n`);
 
 console.log('=== Done ===');

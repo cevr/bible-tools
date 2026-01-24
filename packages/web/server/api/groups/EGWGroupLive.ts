@@ -24,63 +24,58 @@ const mapDbError = Effect.mapError(
     }),
 );
 
-export const EGWGroupLive = HttpApiBuilder.group(
-  BibleToolsApi,
-  'EGW',
-  (handlers) =>
-    Effect.gen(function* () {
-      const egw = yield* EGWService;
+export const EGWGroupLive = HttpApiBuilder.group(BibleToolsApi, 'EGW', (handlers) =>
+  Effect.gen(function* () {
+    const egw = yield* EGWService;
 
-      return handlers
-        .handle('books', () => egw.getBooks().pipe(mapDbError))
-        .handle('page', ({ path: { bookCode, page } }) =>
-          Effect.gen(function* () {
-            // Check if book exists
-            const bookOpt = yield* egw.getBook(bookCode).pipe(mapDbError);
-            if (Option.isNone(bookOpt)) {
-              return yield* Effect.fail(
-                new EGWBookNotFoundError({
-                  bookCode,
-                  message: `Book '${bookCode}' not found`,
-                }),
-              );
-            }
+    return handlers
+      .handle('books', () => egw.getBooks().pipe(mapDbError))
+      .handle('page', ({ path: { bookCode, page } }) =>
+        Effect.gen(function* () {
+          // Check if book exists
+          const bookOpt = yield* egw.getBook(bookCode).pipe(mapDbError);
+          if (Option.isNone(bookOpt)) {
+            return yield* Effect.fail(
+              new EGWBookNotFoundError({
+                bookCode,
+                message: `Book '${bookCode}' not found`,
+              }),
+            );
+          }
 
-            // Get page
-            const pageData = yield* egw
-              .getPage(bookCode, page)
-              .pipe(mapDbError);
-            if (!pageData) {
-              return yield* Effect.fail(
-                new EGWPageNotFoundError({
-                  bookCode,
-                  page,
-                  message: `Page ${page} not found in '${bookCode}'`,
-                }),
-              );
-            }
+          // Get page
+          const pageData = yield* egw.getPage(bookCode, page).pipe(mapDbError);
+          if (!pageData) {
+            return yield* Effect.fail(
+              new EGWPageNotFoundError({
+                bookCode,
+                page,
+                message: `Page ${page} not found in '${bookCode}'`,
+              }),
+            );
+          }
 
-            return pageData;
-          }),
-        )
-        .handle('chapters', ({ path: { bookCode } }) =>
-          Effect.gen(function* () {
-            // Check if book exists
-            const bookOpt = yield* egw.getBook(bookCode).pipe(mapDbError);
-            if (Option.isNone(bookOpt)) {
-              return yield* Effect.fail(
-                new EGWBookNotFoundError({
-                  bookCode,
-                  message: `Book '${bookCode}' not found`,
-                }),
-              );
-            }
+          return pageData;
+        }),
+      )
+      .handle('chapters', ({ path: { bookCode } }) =>
+        Effect.gen(function* () {
+          // Check if book exists
+          const bookOpt = yield* egw.getBook(bookCode).pipe(mapDbError);
+          if (Option.isNone(bookOpt)) {
+            return yield* Effect.fail(
+              new EGWBookNotFoundError({
+                bookCode,
+                message: `Book '${bookCode}' not found`,
+              }),
+            );
+          }
 
-            return yield* egw.getChapters(bookCode).pipe(mapDbError);
-          }),
-        )
-        .handle('search', ({ urlParams: { q, limit, bookCode } }) =>
-          egw.search(q, limit, bookCode).pipe(mapDbError),
-        );
-    }),
+          return yield* egw.getChapters(bookCode).pipe(mapDbError);
+        }),
+      )
+      .handle('search', ({ urlParams: { q, limit, bookCode } }) =>
+        egw.search(q, limit, bookCode).pipe(mapDbError),
+      );
+  }),
 );

@@ -1,6 +1,7 @@
 ---
 apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p509'
 ---
+
 # The Fire That Consumes: Understanding Biblical Destruction
 
 **Tags:** #hell #destruction #annihilation #stateofthedead #greatcontroversy

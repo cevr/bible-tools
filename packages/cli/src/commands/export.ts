@@ -25,9 +25,7 @@ export const exportOutput = Command.make('export', { files, folder }, (args) =>
     const fileSystem = yield* FileSystem.FileSystem;
 
     if (args.files.length === 0) {
-      yield* Effect.logError(
-        'No files specified. Use --files or -f to specify files to export.',
-      );
+      yield* Effect.logError('No files specified. Use --files or -f to specify files to export.');
       return;
     }
 
@@ -54,16 +52,11 @@ export const exportOutput = Command.make('export', { files, folder }, (args) =>
       const updatedContent = updateFrontmatter(rawContent, {
         apple_note_id: noteId,
       });
-      yield* fileSystem.writeFile(
-        filePath,
-        new TextEncoder().encode(updatedContent),
-      );
+      yield* fileSystem.writeFile(filePath, new TextEncoder().encode(updatedContent));
 
       yield* Effect.log(`  Exported: ${filePath} → ${noteId}`);
     }
 
-    yield* Effect.log(
-      `Successfully exported ${args.files.length} file(s) to Apple Notes.`,
-    );
+    yield* Effect.log(`Successfully exported ${args.files.length} file(s) to Apple Notes.`);
   }),
 );

@@ -14,10 +14,7 @@ export interface AppleScriptService {
   readonly exec: (script: string) => Effect.Effect<string, UnknownException>;
 }
 
-export class AppleScript extends Context.Tag('AppleScript')<
-  AppleScript,
-  AppleScriptService
->() {}
+export class AppleScript extends Context.Tag('AppleScript')<AppleScript, AppleScriptService>() {}
 
 /**
  * Live implementation using Bun.spawn to call osascript.

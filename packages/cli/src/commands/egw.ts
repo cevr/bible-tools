@@ -61,9 +61,7 @@ export const egw = Command.make('egw', { query }, (args) =>
       case 'paragraph-range':
         yield* Console.log(`Book: ${parsed.bookCode}`);
         yield* Console.log(`Page: ${parsed.page}`);
-        yield* Console.log(
-          `Paragraphs: ${parsed.paragraphStart}-${parsed.paragraphEnd}`,
-        );
+        yield* Console.log(`Paragraphs: ${parsed.paragraphStart}-${parsed.paragraphEnd}`);
         break;
       case 'page':
         yield* Console.log(`Book: ${parsed.bookCode}`);
@@ -81,9 +79,7 @@ export const egw = Command.make('egw', { query }, (args) =>
     }
 
     yield* Console.log('');
-    yield* Console.log(
-      'Note: Database lookup coming soon. Use "bible egw open" to view in TUI.',
-    );
+    yield* Console.log('Note: Database lookup coming soon. Use "bible egw open" to view in TUI.');
   }),
 );
 
@@ -125,18 +121,14 @@ export const egwWithSubcommands = Command.make('egw', { query }, (args) =>
       const parsed = parseEGWRef(queryStr);
 
       if (isSearchQuery(parsed)) {
-        yield* Console.log(
-          `Search for "${parsed.query}" - Feature coming soon`,
-        );
+        yield* Console.log(`Search for "${parsed.query}" - Feature coming soon`);
         return;
       }
 
       const refStr = formatEGWRef(parsed);
       yield* Console.log(`Looking up: ${refStr}`);
       yield* Console.log('');
-      yield* Console.log(
-        'Note: Database lookup coming soon. Use "bible egw open" to view in TUI.',
-      );
+      yield* Console.log('Note: Database lookup coming soon. Use "bible egw open" to view in TUI.');
       return;
     }
 

@@ -25,9 +25,7 @@ export function PaletteOption(props: PaletteOptionProps) {
       paddingRight={1}
       backgroundColor={props.isSelected ? theme().accent : undefined}
     >
-      <text fg={props.isSelected ? theme().background : theme().text}>
-        {props.option.label}
-      </text>
+      <text fg={props.isSelected ? theme().background : theme().text}>{props.option.label}</text>
       <Show when={props.option.description}>
         <text fg={props.isSelected ? theme().background : theme().textMuted}>
           {props.option.description?.slice(0, maxLen())}
@@ -49,10 +47,7 @@ export function PaletteGroupHeader(props: PaletteGroupHeaderProps) {
   const { theme } = useTheme();
 
   return (
-    <box
-      paddingLeft={1}
-      marginTop={props.isFirst ? 0 : 1}
-    >
+    <box paddingLeft={1} marginTop={props.isFirst ? 0 : 1}>
       <text fg={theme().textMuted}>
         <strong>{props.label}</strong>
       </text>

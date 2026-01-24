@@ -107,15 +107,11 @@ export const syncEgwBooks = (options: SyncOptions = {}) =>
     const paragraphDb = yield* EGWParagraphDatabase;
     const egwClient = yield* EGWApiClient;
 
-    yield* Effect.log(
-      `Starting sync (language: ${languageCode}, author: ${authorName})`,
-    );
+    yield* Effect.log(`Starting sync (language: ${languageCode}, author: ${authorName})`);
     yield* Effect.log(
       `Mode: ${force ? 'FORCE (resync all)' : failedOnly ? 'FAILED ONLY' : 'INCREMENTAL'}`,
     );
-    yield* Effect.log(
-      `Concurrency: ${bookConcurrency} books, ${chapterConcurrency} chapters`,
-    );
+    yield* Effect.log(`Concurrency: ${bookConcurrency} books, ${chapterConcurrency} chapters`);
 
     // Statistics
     const totalBooksRef = yield* Ref.make(0);
@@ -157,9 +153,7 @@ export const syncEgwBooks = (options: SyncOptions = {}) =>
           return;
         }
 
-        yield* Effect.log(
-          `[${bookNum}] Processing: ${book.title} (${book.code})`,
-        );
+        yield* Effect.log(`[${bookNum}] Processing: ${book.title} (${book.code})`);
 
         // Mark as pending
         yield* paragraphDb.setSyncStatus(book.book_id, book.code, 'pending', 0);
@@ -171,13 +165,7 @@ export const syncEgwBooks = (options: SyncOptions = {}) =>
               const errorMsg = `Failed to get TOC: ${String(error)}`;
               yield* Ref.update(errorCountRef, (n) => n + 1);
               yield* Effect.logError(`[${bookNum}] ${errorMsg}`);
-              yield* paragraphDb.setSyncStatus(
-                book.book_id,
-                book.code,
-                'failed',
-                0,
-                errorMsg,
-              );
+              yield* paragraphDb.setSyncStatus(book.book_id, book.code, 'failed', 0, errorMsg);
               return [] as EGWSchemas.TocItem[];
             }),
           ),
@@ -242,28 +230,20 @@ export const syncEgwBooks = (options: SyncOptions = {}) =>
               ? `All chapters failed: ${chapterErrors.slice(0, 3).join('; ')}`
               : 'No paragraphs found';
           yield* Effect.logError(`[${bookNum}] ${errorMsg}`);
-          yield* paragraphDb.setSyncStatus(
-            book.book_id,
-            book.code,
-            'failed',
-            0,
-            errorMsg,
-          );
+          yield* paragraphDb.setSyncStatus(book.book_id, book.code, 'failed', 0, errorMsg);
           return;
         }
 
         // Batch insert all paragraphs in one transaction
-        const insertResult = yield* paragraphDb
-          .storeParagraphsBatch(allParagraphs, book)
-          .pipe(
-            Effect.map((count) => ({ success: true as const, count })),
-            Effect.catchAll((error) =>
-              Effect.succeed({
-                success: false as const,
-                error: `Batch insert failed: ${error._tag ?? 'Unknown'} - ${String(error.cause ?? error)}`,
-              }),
-            ),
-          );
+        const insertResult = yield* paragraphDb.storeParagraphsBatch(allParagraphs, book).pipe(
+          Effect.map((count) => ({ success: true as const, count })),
+          Effect.catchAll((error) =>
+            Effect.succeed({
+              success: false as const,
+              error: `Batch insert failed: ${error._tag ?? 'Unknown'} - ${String(error.cause ?? error)}`,
+            }),
+          ),
+        );
 
         if (!insertResult.success) {
           yield* Ref.update(errorCountRef, (n) => n + 1);
@@ -323,8 +303,7 @@ export const syncEgwBooks = (options: SyncOptions = {}) =>
         yield* paragraphDb.updateBookCount(book.book_id);
 
         // Mark as success (with partial errors noted)
-        const status: SyncStatus =
-          chapterErrors.length > 0 ? 'failed' : 'success';
+        const status: SyncStatus = chapterErrors.length > 0 ? 'failed' : 'success';
         const errorMsg =
           chapterErrors.length > 0
             ? `${chapterErrors.length} chapters failed: ${chapterErrors.slice(0, 3).join('; ')}`

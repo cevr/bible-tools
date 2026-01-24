@@ -27,16 +27,12 @@ export interface ModelConfig {
  * AI Service for text generation operations.
  * This service provides the configured AI models to use for generation.
  */
-export class AiService extends Context.Tag('@bible/ai/Service')<
-  AiService,
-  ModelConfig
->() {
+export class AiService extends Context.Tag('@bible/ai/Service')<AiService, ModelConfig>() {
   /**
    * Live implementation using real AI models.
    * Caller must provide the model configuration.
    */
-  static Live = (config: ModelConfig): Layer.Layer<AiService> =>
-    Layer.succeed(AiService, config);
+  static Live = (config: ModelConfig): Layer.Layer<AiService> => Layer.succeed(AiService, config);
 
   /**
    * Test implementation using mock models.

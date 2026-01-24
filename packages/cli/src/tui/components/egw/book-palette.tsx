@@ -34,9 +34,7 @@ export function EGWBookPalette(props: EGWBookPaletteProps) {
     const q = query().toLowerCase();
     if (!q) return books();
     return books().filter(
-      (book) =>
-        book.title.toLowerCase().includes(q) ||
-        book.bookCode.toLowerCase().includes(q),
+      (book) => book.title.toLowerCase().includes(q) || book.bookCode.toLowerCase().includes(q),
     );
   });
 
@@ -97,10 +95,7 @@ export function EGWBookPalette(props: EGWBookPaletteProps) {
       maxHeight={20}
     >
       {/* Search input */}
-      <box
-        paddingLeft={1}
-        paddingRight={1}
-      >
+      <box paddingLeft={1} paddingRight={1}>
         <text fg={theme().accent}>{'> '}</text>
         <text fg={theme().text}>{query()}</text>
         <text fg={theme().textMuted}>|</text>
@@ -139,23 +134,12 @@ export function EGWBookPalette(props: EGWBookPaletteProps) {
                 <box
                   paddingLeft={1}
                   paddingRight={1}
-                  backgroundColor={
-                    index() === selectedIndex() ? theme().accent : undefined
-                  }
+                  backgroundColor={index() === selectedIndex() ? theme().accent : undefined}
                 >
-                  <text
-                    fg={
-                      index() === selectedIndex()
-                        ? theme().background
-                        : theme().text
-                    }
-                  >
+                  <text fg={index() === selectedIndex() ? theme().background : theme().text}>
                     <span
                       style={{
-                        fg:
-                          index() === selectedIndex()
-                            ? theme().background
-                            : theme().textMuted,
+                        fg: index() === selectedIndex() ? theme().background : theme().textMuted,
                       }}
                     >
                       [{book.bookCode}]
@@ -175,10 +159,7 @@ export function EGWBookPalette(props: EGWBookPaletteProps) {
       </Show>
 
       {/* Footer */}
-      <box
-        paddingLeft={1}
-        paddingRight={1}
-      >
+      <box paddingLeft={1} paddingRight={1}>
         <text fg={theme().textMuted}>
           <span style={{ fg: theme().accent }}>Enter</span> select
           {'  '}

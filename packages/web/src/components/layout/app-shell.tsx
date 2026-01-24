@@ -32,9 +32,7 @@ export const AppShell: ParentComponent = (props) => {
 
   return (
     <div class="min-h-screen bg-[--color-paper] dark:bg-[--color-paper-dark]">
-      <main class="mx-auto max-w-4xl px-[--spacing-gutter] py-8">
-        {props.children}
-      </main>
+      <main class="mx-auto max-w-4xl px-[--spacing-gutter] py-8">{props.children}</main>
     </div>
   );
 };

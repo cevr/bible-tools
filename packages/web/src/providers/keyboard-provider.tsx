@@ -56,11 +56,7 @@ function parseKeyboardEvent(event: KeyboardEvent): KeyboardAction | null {
 
   // Check if we're in an input element
   const target = event.target as HTMLElement;
-  if (
-    target.tagName === 'INPUT' ||
-    target.tagName === 'TEXTAREA' ||
-    target.isContentEditable
-  ) {
+  if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
     // Only allow Escape in inputs
     if (key === 'Escape') return 'closeOverlay';
     return null;
@@ -142,11 +138,7 @@ export const KeyboardProvider: ParentComponent = (props) => {
     setEnabled,
   };
 
-  return (
-    <KeyboardContext.Provider value={value}>
-      {props.children}
-    </KeyboardContext.Provider>
-  );
+  return <KeyboardContext.Provider value={value}>{props.children}</KeyboardContext.Provider>;
 };
 
 /**
@@ -165,7 +157,7 @@ export function useKeyboard(): KeyboardContextValue {
  * Automatically cleans up on component unmount.
  */
 export function useKeyboardAction(
-  handler: (action: KeyboardAction, event: KeyboardEvent) => void
+  handler: (action: KeyboardAction, event: KeyboardEvent) => void,
 ): void {
   const { registerHandler } = useKeyboard();
 

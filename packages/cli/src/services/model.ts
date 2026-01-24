@@ -11,16 +11,19 @@ import { matchEnum } from '../lib/general';
 // Read API keys directly from process.env to support compile-time embedding
 // Using explicit process.env.KEY syntax allows Bun's define option to replace at build time
 // Returns Option to maintain Effect patterns
-const getEnvKey = (key: 'GEMINI_API_KEY' | 'OPENAI_API_KEY' | 'ANTHROPIC_API_KEY'): Option.Option<string> => {
+const getEnvKey = (
+  key: 'GEMINI_API_KEY' | 'OPENAI_API_KEY' | 'ANTHROPIC_API_KEY',
+): Option.Option<string> => {
   // These explicit references allow Bun's define to replace them at compile time
   const value =
-    key === 'GEMINI_API_KEY' ? process.env.GEMINI_API_KEY :
-    key === 'OPENAI_API_KEY' ? process.env.OPENAI_API_KEY :
-    key === 'ANTHROPIC_API_KEY' ? process.env.ANTHROPIC_API_KEY :
-    undefined;
-  return Option.fromNullable(value).pipe(
-    Option.filter((v) => v.length > 0)
-  );
+    key === 'GEMINI_API_KEY'
+      ? process.env.GEMINI_API_KEY
+      : key === 'OPENAI_API_KEY'
+        ? process.env.OPENAI_API_KEY
+        : key === 'ANTHROPIC_API_KEY'
+          ? process.env.ANTHROPIC_API_KEY
+          : undefined;
+  return Option.fromNullable(value).pipe(Option.filter((v) => v.length > 0));
 };
 
 const extractModel = Effect.fn('extractModel')(

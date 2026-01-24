@@ -44,11 +44,8 @@ interface EGWParagraphViewProps {
 export function EGWParagraphView(props: EGWParagraphViewProps) {
   const { theme } = useTheme();
 
-  const refcode = () =>
-    props.paragraph.refcodeShort ?? props.paragraph.refcodeLong ?? '';
-  const cleanContent = createMemo(() =>
-    stripHtml(props.paragraph.content ?? ''),
-  );
+  const refcode = () => props.paragraph.refcodeShort ?? props.paragraph.refcodeLong ?? '';
+  const cleanContent = createMemo(() => stripHtml(props.paragraph.content ?? ''));
 
   // Segment content with Bible references highlighted
   const segments = createMemo(() => segmentTextWithReferences(cleanContent()));
@@ -59,8 +56,7 @@ export function EGWParagraphView(props: EGWParagraphViewProps) {
     return type === 'heading' || type === 'title' || type === 'chapter';
   };
 
-  const textColor = () =>
-    props.isSelected ? theme().textHighlight : theme().text;
+  const textColor = () => (props.isSelected ? theme().textHighlight : theme().text);
   const refColor = () => (props.isSelected ? theme().warning : theme().accent);
 
   return (
@@ -72,10 +68,7 @@ export function EGWParagraphView(props: EGWParagraphViewProps) {
       backgroundColor={props.isSelected ? theme().verseHighlight : undefined}
     >
       {/* Content with Bible references highlighted and refcode at end */}
-      <text
-        fg={textColor()}
-        wrapMode="word"
-      >
+      <text fg={textColor()} wrapMode="word">
         <For each={segments()}>
           {(segment) => {
             if (segment.type === 'ref') {
@@ -85,11 +78,7 @@ export function EGWParagraphView(props: EGWParagraphViewProps) {
                 </span>
               );
             }
-            return isHeading() ? (
-              <strong>{segment.text}</strong>
-            ) : (
-              <span>{segment.text}</span>
-            );
+            return isHeading() ? <strong>{segment.text}</strong> : <span>{segment.text}</span>;
           }}
         </For>
         <Show when={props.showRefcode !== false && refcode()}>

@@ -1,10 +1,4 @@
-import {
-  createContext,
-  createMemo,
-  createSignal,
-  useContext,
-  type ParentProps,
-} from 'solid-js';
+import { createContext, createMemo, createSignal, useContext, type ParentProps } from 'solid-js';
 
 import {
   clearSearch as clearSearchTransition,
@@ -157,11 +151,7 @@ export function SearchProvider(props: ParentProps) {
     state,
   };
 
-  return (
-    <SearchContext.Provider value={value}>
-      {props.children}
-    </SearchContext.Provider>
-  );
+  return <SearchContext.Provider value={value}>{props.children}</SearchContext.Provider>;
 }
 
 export function useSearch(): SearchContextValue {

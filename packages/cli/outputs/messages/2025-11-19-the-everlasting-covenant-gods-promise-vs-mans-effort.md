@@ -1,6 +1,7 @@
 ---
 apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p715'
 ---
+
 # The Everlasting Covenant: God's Promise vs. Man's Effort
 
 **Tags:** #covenant #grace #righteousnessbyfaith #sanctuary #restoration

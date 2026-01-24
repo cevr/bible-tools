@@ -24,12 +24,7 @@
  */
 
 import { FetchHttpClient } from '@effect/platform';
-import {
-  BunContext,
-  BunFileSystem,
-  BunPath,
-  BunRuntime,
-} from '@effect/platform-bun';
+import { BunContext, BunFileSystem, BunPath, BunRuntime } from '@effect/platform-bun';
 import { Effect, Layer } from 'effect';
 
 import { EGWParagraphDatabase } from '../src/egw-db/index.js';
@@ -47,9 +42,7 @@ const program = Effect.gen(function* () {
   const service = yield* EGWGeminiService;
 
   yield* Effect.log('Starting upload of all EGW writings...');
-  yield* Effect.log(
-    `Filtering books by folder ID ${BOOKS_FOLDER_ID} (Books - published writings)`,
-  );
+  yield* Effect.log(`Filtering books by folder ID ${BOOKS_FOLDER_ID} (Books - published writings)`);
 
   const languageCode = 'en';
 
@@ -78,9 +71,7 @@ const ApiClientLayer = EGWApiClient.Live.pipe(
 );
 
 // GeminiFileSearchClient needs: HttpClient
-const GeminiClientLayer = GeminiFileSearchClient.Live.pipe(
-  Layer.provide(FetchHttpClient.layer),
-);
+const GeminiClientLayer = GeminiFileSearchClient.Live.pipe(Layer.provide(FetchHttpClient.layer));
 
 // EGWParagraphDatabase needs: FileSystem, Path
 const ParagraphDbLayer = EGWParagraphDatabase.Live;
