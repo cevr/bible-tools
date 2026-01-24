@@ -22,7 +22,7 @@ import { Args, Command } from '@effect/cli';
 import { text } from '@effect/cli/Prompt';
 import { FetchHttpClient } from '@effect/platform';
 import { BunContext, BunFileSystem, BunPath, BunRuntime } from '@effect/platform-bun';
-import { Effect, Layer, Option } from 'effect';
+import { Console, Effect, Layer, Option } from 'effect';
 
 import { EGWParagraphDatabase } from '../src/egw-db/index.js';
 import { EGWGeminiService } from '../src/egw-gemini/index.js';
@@ -74,26 +74,26 @@ const cli = Command.make(
     store: storeOption,
     metadataFilter: metadataFilterOption,
   },
-  (args: { query: Option.Option<string>; store: string; metadataFilter: Option.Option<string> }) =>
+  (args) =>
     Effect.gen(function* () {
       const service = yield* EGWGeminiService;
 
       // Get query from args or prompt user
-      const query = yield* Option.match(args.query, {
-        onSome: (q) => Effect.succeed(q),
-        onNone: () =>
-          text({
+      const query: string = Option.isSome(args.query)
+        ? args.query.value
+        : yield* text({
             message: 'What would you like to query from the EGW store?',
-          }),
-      });
+          });
 
-      yield* Effect.log(`Querying store: ${args.store}`);
-      yield* Effect.log(`Query: ${query}`);
+      yield* Console.log(`Querying store: ${args.store}`);
+      yield* Console.log(`Query: ${query}`);
 
-      const metadataFilter = Option.getOrUndefined(args.metadataFilter);
+      const metadataFilter = Option.isSome(args.metadataFilter)
+        ? args.metadataFilter.value
+        : undefined;
 
       if (metadataFilter) {
-        yield* Effect.log(`Metadata filter: ${metadataFilter}`);
+        yield* Console.log(`Metadata filter: ${metadataFilter}`);
       }
 
       // Query the store
@@ -114,58 +114,58 @@ const cli = Command.make(
       const response = result.response as GenerateContentResponse;
 
       // Display query information
-      yield* Effect.log('\n═══════════════════════════════════════════════════════');
-      yield* Effect.log('QUERY RESULTS');
-      yield* Effect.log('═══════════════════════════════════════════════════════');
-      yield* Effect.log(`Store: ${result.store.displayName} (${result.store.name})`);
-      yield* Effect.log(`Query: ${result.query}`);
-      yield* Effect.log(`Candidates: ${response.candidates?.length || 0}`);
-      yield* Effect.log('');
+      yield* Console.log('\n═══════════════════════════════════════════════════════');
+      yield* Console.log('QUERY RESULTS');
+      yield* Console.log('═══════════════════════════════════════════════════════');
+      yield* Console.log(`Store: ${result.store.displayName} (${result.store.name})`);
+      yield* Console.log(`Query: ${result.query}`);
+      yield* Console.log(`Candidates: ${response.candidates?.length || 0}`);
+      yield* Console.log('');
 
       // Display all candidates
       const candidates = response.candidates || [];
       if (candidates.length === 0) {
-        yield* Effect.log('No candidates found in response');
+        yield* Console.log('No candidates found in response');
       } else {
         for (let i = 0; i < candidates.length; i++) {
           const candidate = candidates[i];
           if (!candidate) continue;
 
-          yield* Effect.log(
+          yield* Console.log(
             `\n${'─'.repeat(55)}\nCANDIDATE ${i + 1} of ${candidates.length}\n${'─'.repeat(55)}`,
           );
 
           // Display content parts
           if (candidate.content?.parts) {
-            yield* Effect.log('\nContent:');
+            yield* Console.log('\nContent:');
             for (let j = 0; j < candidate.content.parts.length; j++) {
               const part = candidate.content.parts[j];
               if (part?.text) {
-                yield* Effect.log(`\nPart ${j + 1}:`);
-                yield* Effect.log(part.text);
+                yield* Console.log(`\nPart ${j + 1}:`);
+                yield* Console.log(part.text);
               } else {
-                yield* Effect.log(`\nPart ${j + 1}: (non-text content)`);
+                yield* Console.log(`\nPart ${j + 1}: (non-text content)`);
               }
             }
           } else {
-            yield* Effect.log('\nContent: (no content parts)');
+            yield* Console.log('\nContent: (no content parts)');
           }
 
           // Display grounding metadata
           if (candidate.groundingMetadata) {
-            yield* Effect.log('\nGrounding Metadata:');
+            yield* Console.log('\nGrounding Metadata:');
             const metadata = candidate.groundingMetadata;
 
             if (metadata.searchEntryPoint) {
-              yield* Effect.log(`  Search Entry Point: ${metadata.searchEntryPoint}`);
+              yield* Console.log(`  Search Entry Point: ${metadata.searchEntryPoint}`);
             }
 
             if (metadata.retrievalMetadata) {
-              yield* Effect.log('  Retrieval Metadata:');
+              yield* Console.log('  Retrieval Metadata:');
               const retrieval = metadata.retrievalMetadata;
 
               if (retrieval.score !== undefined) {
-                yield* Effect.log(`    Relevance Score: ${retrieval.score}`);
+                yield* Console.log(`    Relevance Score: ${retrieval.score}`);
               }
 
               if (retrieval.chunk) {
@@ -173,27 +173,25 @@ const cli = Command.make(
                   retrieval.chunk.length > 300
                     ? `${retrieval.chunk.substring(0, 300)}...`
                     : retrieval.chunk;
-                yield* Effect.log(`    Retrieved Chunk (${retrieval.chunk.length} chars):`);
-                yield* Effect.log(`    ${chunkPreview.split('\n').join('\n    ')}`);
+                yield* Console.log(`    Retrieved Chunk (${retrieval.chunk.length} chars):`);
+                yield* Console.log(`    ${chunkPreview.split('\n').join('\n    ')}`);
               }
             } else {
-              yield* Effect.log('  (no retrieval metadata)');
+              yield* Console.log('  (no retrieval metadata)');
             }
           } else {
-            yield* Effect.log('\nGrounding Metadata: (none)');
+            yield* Console.log('\nGrounding Metadata: (none)');
           }
         }
       }
 
       // Display any additional response data
-      yield* Effect.log(`\n${'═'.repeat(55)}`);
-      yield* Effect.log('RESPONSE SUMMARY');
-      yield* Effect.log(`${'═'.repeat(55)}`);
-      yield* Effect.log(`Total candidates: ${candidates.length}`);
-      yield* Effect.log(`Store: ${result.store.displayName}`);
-      yield* Effect.log(`${'═'.repeat(55)}\n`);
-
-      return result;
+      yield* Console.log(`\n${'═'.repeat(55)}`);
+      yield* Console.log('RESPONSE SUMMARY');
+      yield* Console.log(`${'═'.repeat(55)}`);
+      yield* Console.log(`Total candidates: ${candidates.length}`);
+      yield* Console.log(`Store: ${result.store.displayName}`);
+      yield* Console.log(`${'═'.repeat(55)}\n`);
     }),
 );
 
@@ -234,4 +232,4 @@ const EGWGeminiLayer = EGWGeminiService.Live.pipe(
 // App layer with all services
 const AppLayer = Layer.mergeAll(EGWGeminiLayer, BunContext.layer);
 
-program(process.argv).pipe(Effect.provide(AppLayer), BunRuntime.runMain);
+program(process.argv).pipe(Effect.provide(AppLayer), Effect.scoped, BunRuntime.runMain);

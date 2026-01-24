@@ -281,6 +281,13 @@ Return **ONLY the outline**:
 - #337 — _Redeemed!_
 - #600 — _Hold Fast Till I Come_
 
+**IMPORTANT: Hymn Selection**
+
+When suggesting hymns, you MUST use the hymnal tool to look up real hymn numbers
+from the SDA Hymnal. Never guess or fabricate hymn numbers. Use the tool's
+`byTheme` action to find hymns matching the message theme, or `search` to find
+specific titles.
+
 ## Central Bible Verse
 
 - **Deuteronomy 30:19 (KJV)** — “I call heaven and earth to record this day

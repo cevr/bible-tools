@@ -18,6 +18,7 @@ import { Effect, Layer } from 'effect';
 import { concordance, verse } from './commands/bible.js';
 import { egwWithSubcommands } from './commands/egw.js';
 import { exportOutput } from './commands/export.js';
+import { hymns } from './commands/hymns.js';
 import { messages } from './commands/messages.js';
 import { readings } from './commands/readings.js';
 import { sabbathSchool } from './commands/sabbath-school.js';
@@ -41,6 +42,7 @@ const cliSubcommands = [
   'concordance',
   'verse',
   'egw',
+  'hymns',
   'messages',
   'sabbath-school',
   'studies',
@@ -209,6 +211,7 @@ async function main() {
           concordance,
           verse,
           egwWithSubcommands,
+          hymns,
           messages,
           sabbathSchool,
           studies,

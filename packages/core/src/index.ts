@@ -22,3 +22,4 @@ export * from './bible-reader/index.js';
 // Core services (single source of truth for TUI/web)
 export * from './bible-service/index.js';
 export * from './egw-service/index.js';
+export * from './hymnal/index.js';

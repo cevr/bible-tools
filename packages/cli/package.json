@@ -24,6 +24,7 @@
     "@opentui/core": "^0.1.74",
     "@opentui/core-darwin-arm64": "^0.1.74",
     "@opentui/solid": "^0.1.74",
+    "ai": "catalog:",
     "date-fns": "^4.1.0",
     "effect": "catalog:",
     "gray-matter": "^4.0.3",
