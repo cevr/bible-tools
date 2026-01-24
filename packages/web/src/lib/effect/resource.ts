@@ -23,7 +23,7 @@ export type EffectResult<A, E> =
 export function createEffectResource<A, E, R, S>(
   runtime: ManagedRuntime.ManagedRuntime<R, never>,
   source: Accessor<S>,
-  effect: (source: S) => Effect.Effect<A, E, R>
+  effect: (source: S) => Effect.Effect<A, E, R>,
 ) {
   return createResource(source, async (s) => {
     const eff = effect(s);
@@ -46,7 +46,7 @@ export function createEffectResource<A, E, R, S>(
 export function createEffectResultResource<A, E, R, S>(
   runtime: ManagedRuntime.ManagedRuntime<R, never>,
   source: Accessor<S>,
-  effect: (source: S) => Effect.Effect<A, E, R>
+  effect: (source: S) => Effect.Effect<A, E, R>,
 ): {
   result: Accessor<EffectResult<A, E>>;
   refetch: () => void;
@@ -85,11 +85,11 @@ export function createEffectResultResource<A, E, R, S>(
  */
 export function createEffectOnce<A, E, R>(
   runtime: ManagedRuntime.ManagedRuntime<R, never>,
-  effect: Effect.Effect<A, E, R>
+  effect: Effect.Effect<A, E, R>,
 ): {
   result: Accessor<EffectResult<A, E>>;
   refetch: () => void;
 } {
-  const [trigger, setTrigger] = createSignal(0);
+  const [trigger, _setTrigger] = createSignal(0);
   return createEffectResultResource(runtime, trigger, () => effect);
 }

@@ -5,7 +5,8 @@
  * Based on gent's atom-solid pattern.
  */
 
-import { Cause, Effect, Exit, Fiber, Runtime } from 'effect';
+import type { Effect } from 'effect';
+import { Cause, Exit, Fiber, Runtime } from 'effect';
 import { createSignal, onCleanup } from 'solid-js';
 import type { Accessor } from 'solid-js';
 
@@ -50,9 +51,7 @@ export function useRuntime<R>(runtime: Runtime.Runtime<R>) {
   const call = <A, E>(
     effect: Effect.Effect<A, E, R>,
   ): readonly [Accessor<ResultType<A, E>>, () => void] => {
-    const [result, setResult] = createSignal<ResultType<A, E>>(
-      Result.initial(true),
-    );
+    const [result, setResult] = createSignal<ResultType<A, E>>(Result.initial(true));
 
     const fiber = Runtime.runFork(runtime)(effect);
 

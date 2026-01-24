@@ -20,9 +20,7 @@ import { Effect, Layer, ManagedRuntime, Option } from 'effect';
 const DB_PATH = join(import.meta.dir, '../../../core/data/bible.db');
 
 // Create combined layer with all dependencies
-const BibleServicesLayer = BibleDatabase.Default.pipe(
-  Layer.provideMerge(BunContext.layer),
-);
+const BibleServicesLayer = BibleDatabase.Default.pipe(Layer.provideMerge(BunContext.layer));
 
 // Create ManagedRuntime
 const runtime = ManagedRuntime.make(BibleServicesLayer);
@@ -92,9 +90,7 @@ describe('Bible Database Performance', () => {
     );
     const elapsed = performance.now() - start;
 
-    console.log(
-      `getVersesWithStrongs H430: ${elapsed.toFixed(2)}ms, ${results.length} verses`,
-    );
+    console.log(`getVersesWithStrongs H430: ${elapsed.toFixed(2)}ms, ${results.length} verses`);
     expect(results.length).toBeGreaterThan(100);
     expect(elapsed).toBeLessThan(50);
   });
@@ -111,9 +107,7 @@ describe('Bible Database Performance', () => {
     );
     const elapsed = performance.now() - start;
 
-    console.log(
-      `getVersesWithStrongs G26: ${elapsed.toFixed(2)}ms, ${results.length} verses`,
-    );
+    console.log(`getVersesWithStrongs G26: ${elapsed.toFixed(2)}ms, ${results.length} verses`);
     expect(results.length).toBeGreaterThan(10);
     expect(elapsed).toBeLessThan(50);
   });
@@ -130,9 +124,7 @@ describe('Bible Database Performance', () => {
     );
     const elapsed = performance.now() - start;
 
-    console.log(
-      `searchStrongs 'love': ${elapsed.toFixed(2)}ms, ${results.length} entries`,
-    );
+    console.log(`searchStrongs 'love': ${elapsed.toFixed(2)}ms, ${results.length} entries`);
     expect(results.length).toBeGreaterThan(0);
     expect(elapsed).toBeLessThan(20);
   });
@@ -149,9 +141,7 @@ describe('Bible Database Performance', () => {
     );
     const elapsed = performance.now() - start;
 
-    console.log(
-      `getMarginNotes: ${elapsed.toFixed(2)}ms, ${notes.length} notes`,
-    );
+    console.log(`getMarginNotes: ${elapsed.toFixed(2)}ms, ${notes.length} notes`);
     expect(notes.length).toBeGreaterThanOrEqual(0);
     expect(elapsed).toBeLessThan(10);
   });
@@ -168,9 +158,7 @@ describe('Bible Database Performance', () => {
     );
     const elapsed = performance.now() - start;
 
-    console.log(
-      `getVerseWords: ${elapsed.toFixed(2)}ms, ${words.length} words`,
-    );
+    console.log(`getVerseWords: ${elapsed.toFixed(2)}ms, ${words.length} words`);
     expect(words.length).toBeGreaterThan(0);
     expect(elapsed).toBeLessThan(5);
   });
@@ -186,6 +174,7 @@ describe('Bible Database Performance', () => {
 
     const start = performance.now();
     let totalRefs = 0;
+    /* eslint-disable no-await-in-loop -- Perf test measures sequential operation timing */
     for (const verse of verses) {
       const refs = await runtime.runPromise(
         Effect.gen(function* () {
@@ -195,11 +184,10 @@ describe('Bible Database Performance', () => {
       );
       totalRefs += refs.length;
     }
+    /* eslint-enable no-await-in-loop */
     const elapsed = performance.now() - start;
 
-    console.log(
-      `batch getCrossRefs (50 verses): ${elapsed.toFixed(2)}ms, ${totalRefs} total refs`,
-    );
+    console.log(`batch getCrossRefs (50 verses): ${elapsed.toFixed(2)}ms, ${totalRefs} total refs`);
     expect(elapsed).toBeLessThan(200);
   });
 });

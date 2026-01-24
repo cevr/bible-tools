@@ -127,7 +127,7 @@ interface BibleViewProps {
   onNavigateToRoute?: (route: string) => void;
 }
 
-export function BibleView(props: BibleViewProps) {
+export function BibleView(_props: BibleViewProps) {
   const dimensions = useTerminalDimensions();
   const { theme } = useTheme();
   const {
@@ -159,9 +159,7 @@ export function BibleView(props: BibleViewProps) {
   const studyData = useStudyData();
 
   // Vim-style goto mode using state machine
-  const [gotoMode, setGotoMode] = createSignal<GotoModeState>(
-    GotoModeState.normal(),
-  );
+  const [gotoMode, setGotoMode] = createSignal<GotoModeState>(GotoModeState.normal());
 
   // Toast message for loading/status feedback
   const [toast, setToast] = createSignal<string | null>(null);
@@ -192,19 +190,14 @@ export function BibleView(props: BibleViewProps) {
   });
 
   // Handle navigation from cross-refs popup
-  const handleCrossRefNavigate = (ref: {
-    book: number;
-    chapter: number;
-    verse?: number;
-  }) => {
+  const handleCrossRefNavigate = (ref: { book: number; chapter: number; verse?: number }) => {
     goTo(ref);
     closeOverlay();
   };
 
   useKeyboard((key) => {
     // Skip if popups are open (they handle their own keyboard input)
-    if (isSpecificOverlayOpen('cross-refs') || isSpecificOverlayOpen('strongs'))
-      return;
+    if (isSpecificOverlayOpen('cross-refs') || isSpecificOverlayOpen('strongs')) return;
 
     // Skip if other overlays are open (command palette, etc.)
     if (isOverlayOpen()) return;
@@ -233,8 +226,7 @@ export function BibleView(props: BibleViewProps) {
     }
 
     // Goto mode state machine (g, gg, G, g{number})
-    if (handleGotoModeKeys(key, gotoMode(), setGotoMode, executeGotoAction))
-      return;
+    if (handleGotoModeKeys(key, gotoMode(), setGotoMode, executeGotoAction)) return;
 
     // Verse/chapter navigation (j/k/h/l, arrows)
     if (
@@ -319,23 +311,14 @@ export function BibleView(props: BibleViewProps) {
 
       {/* Search Box - top right */}
       <Show when={isSearchActive()}>
-        <box
-          position="absolute"
-          top={1}
-          right={2}
-          width={40}
-        >
+        <box position="absolute" top={1} right={2} width={40}>
           <SearchBox onClose={closeSearch} />
         </box>
       </Show>
 
       {/* Cross-References Popup */}
       <Show when={isSpecificOverlayOpen('cross-refs')}>
-        <box
-          position="absolute"
-          top={2}
-          left={Math.floor((dimensions().width - 65) / 2)}
-        >
+        <box position="absolute" top={2} left={Math.floor((dimensions().width - 65) / 2)}>
           <CrossRefsPopup
             verseRef={currentVerseRef()}
             onClose={closeOverlay}
@@ -346,29 +329,17 @@ export function BibleView(props: BibleViewProps) {
 
       {/* Strong's Popup */}
       <Show when={isSpecificOverlayOpen('strongs') && wordMode.currentWord()}>
-        <box
-          position="absolute"
-          top={2}
-          left={Math.floor((dimensions().width - 65) / 2)}
-        >
-          <StrongsPopup
-            word={wordMode.currentWord()!}
-            onClose={closeOverlay}
-          />
-        </box>
+        {(word) => (
+          <box position="absolute" top={2} left={Math.floor((dimensions().width - 65) / 2)}>
+            <StrongsPopup word={word()} onClose={closeOverlay} />
+          </box>
+        )}
       </Show>
 
       {/* Concordance Search */}
       <Show when={isSpecificOverlayOpen('concordance')}>
-        <box
-          position="absolute"
-          top={2}
-          left={Math.floor((dimensions().width - 70) / 2)}
-        >
-          <ConcordanceSearch
-            onClose={closeOverlay}
-            onNavigate={handleCrossRefNavigate}
-          />
+        <box position="absolute" top={2} left={Math.floor((dimensions().width - 70) / 2)}>
+          <ConcordanceSearch onClose={closeOverlay} onNavigate={handleCrossRefNavigate} />
         </box>
       </Show>
 

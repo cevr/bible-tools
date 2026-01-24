@@ -1,6 +1,6 @@
-import type { Component, ParentProps } from 'solid-js';
+import type { Component } from 'solid-js';
 import { useParams, useNavigate } from '@solidjs/router';
-import { createSignal, createEffect, Show } from 'solid-js';
+import { createSignal, createEffect } from 'solid-js';
 import { useKeyboardAction } from '@/providers/keyboard-provider';
 import { useOverlay } from '@/providers/overlay-provider';
 
@@ -21,14 +21,12 @@ function getBookName(code: string): string {
  * EGW reader route.
  * Handles navigation state and keyboard shortcuts for EGW reading.
  */
-const EgwRoute: Component<ParentProps> = (props) => {
+const EgwRoute: Component = () => {
   const params = useParams<{ bookCode?: string; page?: string; para?: string }>();
   const navigate = useNavigate();
-  const { openOverlay } = useOverlay();
+  const { openOverlay: _openOverlay } = useOverlay();
 
-  const [selectedPara, setSelectedPara] = createSignal(
-    params.para ? parseInt(params.para, 10) : 1
-  );
+  const [selectedPara, setSelectedPara] = createSignal(params.para ? parseInt(params.para, 10) : 1);
 
   // Update selected paragraph when URL changes
   createEffect(() => {
@@ -127,8 +125,7 @@ const EgwRoute: Component<ParentProps> = (props) => {
             data-para={paraNum}
             class="cursor-pointer rounded-sm px-2 py-1 transition-colors duration-[--duration-fast]"
             classList={{
-              'bg-[--color-highlight] dark:bg-[--color-highlight-dark]':
-                selectedPara() === paraNum,
+              'bg-[--color-highlight] dark:bg-[--color-highlight-dark]': selectedPara() === paraNum,
             }}
             data-selected={selectedPara() === paraNum ? 'true' : undefined}
             onClick={() => setSelectedPara(paraNum)}
@@ -136,10 +133,9 @@ const EgwRoute: Component<ParentProps> = (props) => {
             <span class="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] mr-2">
               {params.bookCode} {params.page}.{paraNum}
             </span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
         ))}
       </div>

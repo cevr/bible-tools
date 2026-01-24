@@ -18,10 +18,7 @@ import type { BibleDataSyncService, Verse } from './types.js';
 /**
  * Fuzzy matcher using match-sorter library
  */
-function fuzzyMatcher(
-  books: readonly BibleBook[],
-  query: string,
-): BibleBook | undefined {
+function fuzzyMatcher(books: readonly BibleBook[], query: string): BibleBook | undefined {
   const matches = matchSorter([...books], query, {
     keys: ['name'],
     threshold: matchSorter.rankings.WORD_STARTS_WITH,
@@ -61,11 +58,8 @@ export function getVersesForQuery(
 ): Verse[] {
   switch (query._tag) {
     case 'single': {
-      const verse = data.getVerse(
-        query.ref.book,
-        query.ref.chapter,
-        query.ref.verse!,
-      );
+      const verseNum = query.ref.verse ?? 1;
+      const verse = data.getVerse(query.ref.book, query.ref.chapter, verseNum);
       return verse ? [verse] : [];
     }
 
@@ -75,9 +69,7 @@ export function getVersesForQuery(
 
     case 'verseRange': {
       const chapter = data.getChapter(query.book, query.chapter);
-      return chapter.filter(
-        (v) => v.verse >= query.startVerse && v.verse <= query.endVerse,
-      );
+      return chapter.filter((v) => v.verse >= query.startVerse && v.verse <= query.endVerse);
     }
 
     case 'chapterRange': {

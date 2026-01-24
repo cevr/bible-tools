@@ -15,7 +15,7 @@ export interface MockChimeState {
  */
 export const createMockChimeLayer = (state: MockChimeState) => {
   const service: ChimeService = {
-    play: Effect.gen(function* () {
+    play: Effect.sync(() => {
       state.calls.push({ _tag: 'Chime.play' });
     }),
   };

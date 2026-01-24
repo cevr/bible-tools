@@ -13,8 +13,10 @@ import { EGWService } from '@bible/core/egw-service';
 import { BunContext } from '@effect/platform-bun';
 import { Effect, Layer, ManagedRuntime } from 'effect';
 
-import { BibleData, BibleDataLive } from '../../data/bible/data.js';
-import { BibleState, BibleStateLive } from '../../data/bible/state.js';
+import type { BibleData } from '../../data/bible/data.js';
+import { BibleDataLive } from '../../data/bible/data.js';
+import type { BibleState } from '../../data/bible/state.js';
+import { BibleStateLive } from '../../data/bible/state.js';
 
 /**
  * All services available in the TUI app runtime
@@ -67,14 +69,12 @@ export const appRuntime = ManagedRuntime.make(AppLayer);
  * const [runtime] = createResource(() => getAppRuntime())
  * ```
  */
-export const getAppRuntime = () =>
-  Effect.runPromise(appRuntime.runtimeEffect);
+export const getAppRuntime = () => Effect.runPromise(appRuntime.runtimeEffect);
 
 /**
  * Run an effect with the app runtime
  *
  * Convenience wrapper for one-off effect execution.
  */
-export const runAppEffect = <A, E>(
-  effect: Effect.Effect<A, E, AppServices>,
-): Promise<A> => appRuntime.runPromise(effect);
+export const runAppEffect = <A, E>(effect: Effect.Effect<A, E, AppServices>): Promise<A> =>
+  appRuntime.runPromise(effect);

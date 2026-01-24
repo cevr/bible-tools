@@ -16,7 +16,6 @@ import {
   type SearchResult,
   type Verse,
   formatReference,
-  getBook,
   BOOKS,
 } from '@/data/bible';
 
@@ -64,15 +63,11 @@ export const BibleProvider: ParentComponent = (props) => {
     getBook: (bookNumber) => bibleDataService.getBook(bookNumber),
     parseReference: (ref) => bibleDataService.parseReference(ref),
     formatReference,
-    getNextChapter: (book, chapter) =>
-      bibleDataService.getNextChapter(book, chapter),
-    getPrevChapter: (book, chapter) =>
-      bibleDataService.getPrevChapter(book, chapter),
+    getNextChapter: (book, chapter) => bibleDataService.getNextChapter(book, chapter),
+    getPrevChapter: (book, chapter) => bibleDataService.getPrevChapter(book, chapter),
   };
 
-  return (
-    <BibleContext.Provider value={value}>{props.children}</BibleContext.Provider>
-  );
+  return <BibleContext.Provider value={value}>{props.children}</BibleContext.Provider>;
 };
 
 /**

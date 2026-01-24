@@ -5,7 +5,8 @@
  * Service-specific layers should be defined in the package that owns the service.
  */
 
-import { Context, Effect, Layer, Ref } from 'effect';
+import type { Context } from 'effect';
+import { Effect, Layer, Ref } from 'effect';
 
 import {
   CallSequence,
@@ -41,12 +42,16 @@ import {
  * ```
  */
 export const createRecordingTestLayer = <
-  Tag extends Context.Tag<any, any>,
-  Shape extends Record<string, (...args: any[]) => Effect.Effect<any, any, any>>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Generic type param requires any
+  Tag extends Context.Tag<unknown, unknown>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Generic type param requires any
+  Shape extends Record<string, (...args: never[]) => Effect.Effect<unknown, unknown, unknown>>,
 >(
   tag: Tag,
   implementation: {
-    [K in keyof Shape]: (...args: Parameters<Shape[K]>) => Effect.Effect<
+    [K in keyof Shape]: (
+      ...args: Parameters<Shape[K]>
+    ) => Effect.Effect<
       Effect.Effect.Success<ReturnType<Shape[K]>>,
       Effect.Effect.Error<ReturnType<Shape[K]>>,
       never
@@ -60,7 +65,7 @@ export const createRecordingTestLayer = <
 
   return Layer.effect(
     tag,
-    Effect.gen(function* () {
+    Effect.sync(() => {
       const service: Record<string, unknown> = {};
 
       for (const [key, fn] of Object.entries(implementation)) {
@@ -74,7 +79,9 @@ export const createRecordingTestLayer = <
               _tag: `${tagName}.${key}`,
               ...callArgs,
             } as ServiceCall);
-            return yield* (fn as (...a: unknown[]) => Effect.Effect<unknown, unknown, never>)(...args);
+            return yield* (fn as (...a: unknown[]) => Effect.Effect<unknown, unknown, never>)(
+              ...args,
+            );
           });
       }
 

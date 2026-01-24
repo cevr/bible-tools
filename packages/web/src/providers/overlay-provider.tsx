@@ -4,7 +4,6 @@ import {
   createSignal,
   type ParentComponent,
   type Accessor,
-  type JSX,
 } from 'solid-js';
 
 /**
@@ -55,9 +54,7 @@ const OverlayContext = createContext<OverlayContextValue>();
 export const OverlayProvider: ParentComponent = (props) => {
   const [overlay, setOverlay] = createSignal<OverlayType>('none');
   const [overlayData, setOverlayData] = createSignal<unknown>(null);
-  const [returnFocusRef, setReturnFocusRef] = createSignal<HTMLElement | null>(
-    null
-  );
+  const [returnFocusRef, setReturnFocusRef] = createSignal<HTMLElement | null>(null);
 
   const openOverlay = (type: OverlayType, data?: unknown) => {
     // Save current focus for restoration
@@ -96,11 +93,7 @@ export const OverlayProvider: ParentComponent = (props) => {
     setReturnFocusRef,
   };
 
-  return (
-    <OverlayContext.Provider value={value}>
-      {props.children}
-    </OverlayContext.Provider>
-  );
+  return <OverlayContext.Provider value={value}>{props.children}</OverlayContext.Provider>;
 };
 
 /**

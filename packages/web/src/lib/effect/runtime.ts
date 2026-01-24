@@ -1,5 +1,5 @@
-import { ManagedRuntime, Layer } from 'effect';
-import type { Effect } from 'effect';
+import { ManagedRuntime } from 'effect';
+import type { Effect, Layer } from 'effect';
 
 /**
  * Create a ManagedRuntime from a Layer.
@@ -12,22 +12,14 @@ export function createRuntime<R, E>(layer: Layer.Layer<R, E, never>) {
 /**
  * Type helper for extracting the context type from a runtime.
  */
-export type RuntimeContext<T> = T extends ManagedRuntime.ManagedRuntime<
-  infer R,
-  infer _E
->
-  ? R
-  : never;
+export type RuntimeContext<T> =
+  T extends ManagedRuntime.ManagedRuntime<infer R, infer _E> ? R : never;
 
 /**
  * Type helper for extracting the error type from a runtime.
  */
-export type RuntimeError<T> = T extends ManagedRuntime.ManagedRuntime<
-  infer _R,
-  infer E
->
-  ? E
-  : never;
+export type RuntimeError<T> =
+  T extends ManagedRuntime.ManagedRuntime<infer _R, infer E> ? E : never;
 
 /**
  * Run an effect using the provided runtime.
@@ -35,7 +27,7 @@ export type RuntimeError<T> = T extends ManagedRuntime.ManagedRuntime<
  */
 export async function runEffect<A, E, R>(
   runtime: ManagedRuntime.ManagedRuntime<R, never>,
-  effect: Effect.Effect<A, E, R>
+  effect: Effect.Effect<A, E, R>,
 ): Promise<A> {
   return runtime.runPromise(effect);
 }
@@ -45,7 +37,7 @@ export async function runEffect<A, E, R>(
  */
 export async function runEffectExit<A, E, R>(
   runtime: ManagedRuntime.ManagedRuntime<R, never>,
-  effect: Effect.Effect<A, E, R>
+  effect: Effect.Effect<A, E, R>,
 ) {
   return runtime.runPromiseExit(effect);
 }

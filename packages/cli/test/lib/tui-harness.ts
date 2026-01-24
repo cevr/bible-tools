@@ -85,11 +85,13 @@ export async function createTUITest(
 ): Promise<TUITestHarness> {
   const { width = 80, height = 24 } = options;
 
-  const { mockInput, mockMouse, renderOnce, captureCharFrame, resize } =
-    await testRender(component, {
+  const { mockInput, mockMouse, renderOnce, captureCharFrame, resize } = await testRender(
+    component,
+    {
       width,
       height,
-    });
+    },
+  );
 
   const harness: TUITestHarness = {
     mockInput,
@@ -103,6 +105,7 @@ export async function createTUITest(
       await renderOnce();
     },
 
+    /* eslint-disable no-await-in-loop -- Polling loop requires sequential awaits */
     waitForText: async (text: string, timeout = 1000) => {
       const start = Date.now();
       while (Date.now() - start < timeout) {
@@ -115,6 +118,7 @@ export async function createTUITest(
       }
       return false;
     },
+    /* eslint-enable no-await-in-loop */
 
     captureFrame: () => captureCharFrame(),
 

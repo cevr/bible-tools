@@ -26,7 +26,7 @@ export function ChapterView() {
     return matches().map((m) => m.verse);
   });
 
-  let scrollRef: ScrollBoxRenderable | undefined;
+  let scrollRef: ScrollBoxRenderable | undefined = undefined;
 
   // Get verses for current chapter
   const verses = () => data.getChapter(position().book, position().chapter);
@@ -38,17 +38,13 @@ export function ChapterView() {
     <Show
       when={verses().length > 0}
       fallback={
-        <box
-          flexGrow={1}
-          alignItems="center"
-          justifyContent="center"
-        >
+        <box flexGrow={1} alignItems="center" justifyContent="center">
           <text fg={theme().textMuted}>No verses found</text>
         </box>
       }
     >
       <scrollbox
-        ref={scrollRef}
+        ref={(el) => (scrollRef = el)}
         focused={false}
         style={{
           flexGrow: 1,
@@ -105,19 +101,14 @@ export function ChapterView() {
                   : undefined;
               };
               const marginNotes = () =>
-                studyData.getMarginNotes(
-                  position().book,
-                  position().chapter,
-                  verse.verse,
-                );
+                studyData.getMarginNotes(position().book, position().chapter, verse.verse);
 
               return (
                 <Verse
                   id={`verse-${verse.verse}`}
                   verse={verse}
                   isHighlighted={
-                    selectedVerse() === verse.verse ||
-                    highlightedVerse() === verse.verse
+                    selectedVerse() === verse.verse || highlightedVerse() === verse.verse
                   }
                   isSearchMatch={searchMatchVerses().includes(verse.verse)}
                   searchQuery={isActive() ? query() : undefined}

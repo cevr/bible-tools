@@ -6,7 +6,7 @@ interface HomeViewProps {
   onNavigate: (route: RouteName) => void;
 }
 
-export function HomeView(props: HomeViewProps) {
+export function HomeView(_props: HomeViewProps) {
   const menuItems: Array<{
     key: string;
     label: string;
@@ -40,22 +40,12 @@ export function HomeView(props: HomeViewProps) {
   ];
 
   return (
-    <box
-      flexDirection="column"
-      gap={1}
-    >
+    <box flexDirection="column" gap={1}>
       <text fg="#f3f4f6">Select a tool:</text>
-      <box
-        flexDirection="column"
-        gap={1}
-        marginTop={1}
-      >
+      <box flexDirection="column" gap={1} marginTop={1}>
         <For each={menuItems}>
           {(item) => (
-            <box
-              flexDirection="row"
-              gap={2}
-            >
+            <box flexDirection="row" gap={2}>
               <text fg="#3b82f6">[{item.key}]</text>
               <text fg="#f3f4f6">{item.label}</text>
               <text fg="#6b7280">- {item.description}</text>

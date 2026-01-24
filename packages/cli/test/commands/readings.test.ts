@@ -1,13 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { readings } from '../../src/commands/readings.js';
-import {
-  expectCallCount,
-  expectContains,
-  expectNoCalls,
-  expectSequence,
-  runCli,
-} from '../lib/run-cli.js';
+import { expectContains, expectSequence, runCli } from '../lib/run-cli.js';
 
 describe('readings commands', () => {
   beforeEach(() => {
@@ -31,8 +25,7 @@ describe('readings commands', () => {
           files: {
             files: {
               '/path/to/chapter-1-study.md': '# Original Study\n\nContent...',
-              [`${process.cwd()}/src/prompts/readings/generate-study.md`]:
-                'Study prompt...',
+              [`${process.cwd()}/src/prompts/readings/generate-study.md`]: 'Study prompt...',
             },
           },
           model: {
@@ -70,8 +63,7 @@ describe('readings commands', () => {
           files: {
             files: {
               '/path/to/chapter-1-slides.md': '# Original Slides\n\nContent...',
-              [`${process.cwd()}/src/prompts/readings/generate-slides.md`]:
-                'Slides prompt...',
+              [`${process.cwd()}/src/prompts/readings/generate-slides.md`]: 'Slides prompt...',
             },
           },
           model: {
@@ -107,8 +99,7 @@ describe('readings commands', () => {
         {
           files: {
             files: {
-              '/path/to/chapter-1-speaker-notes.md':
-                '# Original Notes\n\nContent...',
+              '/path/to/chapter-1-speaker-notes.md': '# Original Notes\n\nContent...',
               [`${process.cwd()}/src/prompts/readings/generate-speaker-notes.md`]:
                 'Speaker notes prompt...',
             },
@@ -145,8 +136,7 @@ describe('readings commands', () => {
         {
           files: {
             files: {
-              [`${process.cwd()}/src/prompts/readings/generate-study.md`]:
-                'Prompt...',
+              [`${process.cwd()}/src/prompts/readings/generate-study.md`]: 'Prompt...',
             },
           },
           model: {
@@ -165,8 +155,7 @@ describe('readings commands', () => {
         files: {
           files: {
             [`${process.cwd()}/outputs/readings/chapter-1-study.md`]: 'content',
-            [`${process.cwd()}/outputs/readings/chapter-1-slides.md`]:
-              'content',
+            [`${process.cwd()}/outputs/readings/chapter-1-slides.md`]: 'content',
             [`${process.cwd()}/outputs/readings/chapter-2-study.md`]: 'content',
           },
           directories: [`${process.cwd()}/outputs/readings`],

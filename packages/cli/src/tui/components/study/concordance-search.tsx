@@ -30,7 +30,7 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
 
   const [query, setQuery] = createSignal(props.initialQuery ?? '');
   const [selectedIndex, setSelectedIndex] = createSignal(0);
-  let scrollRef: ScrollBoxRenderable | undefined;
+  let scrollRef: ScrollBoxRenderable | undefined = undefined;
 
   // Determine if query is a Strong's number
   const isStrongsQuery = createMemo(() => {
@@ -91,9 +91,7 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
         .slice(0, 100); // Limit to 100 results for performance
     } else {
       // Strong's definition search results
-      return (
-        res as ReturnType<typeof studyData.searchStrongsByDefinition>
-      ).map((entry) => ({
+      return (res as ReturnType<typeof studyData.searchStrongsByDefinition>).map((entry) => ({
         type: 'strongs' as const,
         number: entry.number,
         lemma: entry.lemma,
@@ -188,18 +186,10 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
       </box>
 
       {/* Search Input */}
-      <box
-        border
-        borderColor={theme().border}
-        paddingLeft={1}
-        paddingRight={1}
-        marginBottom={1}
-      >
+      <box border borderColor={theme().border} paddingLeft={1} paddingRight={1} marginBottom={1}>
         <text fg={theme().text}>
           {query() || (
-            <span style={{ fg: theme().textMuted }}>
-              Type H1234, G5678, or English word...
-            </span>
+            <span style={{ fg: theme().textMuted }}>Type H1234, G5678, or English word...</span>
           )}
           <span style={{ fg: theme().accent }}>_</span>
         </text>
@@ -212,8 +202,7 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
             <span style={{ fg: theme().accent }}>{strongsInfo()?.number}</span>{' '}
             <span style={{ fg: theme().text }}>{strongsInfo()?.lemma}</span>
             {' - '}
-            {strongsInfo()?.def.slice(0, 40)}... ({occurrenceCount()}{' '}
-            occurrences)
+            {strongsInfo()?.def.slice(0, 40)}... ({occurrenceCount()} occurrences)
           </text>
         </box>
       </Show>
@@ -228,7 +217,7 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
         }
       >
         <scrollbox
-          ref={scrollRef}
+          ref={(el) => (scrollRef = el)}
           focused={false}
           style={{
             height: 10,
@@ -272,9 +261,7 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
                     >
                       {isSelected() ? <strong>{refText}</strong> : refText}
                     </span>
-                    <span style={{ fg: theme().textMuted }}>
-                      {item.word.padEnd(12)}
-                    </span>
+                    <span style={{ fg: theme().textMuted }}>{item.word.padEnd(12)}</span>
                     {item.preview}
                   </text>
                 );
@@ -297,9 +284,7 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
                         item.number.padEnd(8)
                       )}
                     </span>
-                    <span style={{ fg: theme().text }}>
-                      {item.lemma.padEnd(15)}
-                    </span>
+                    <span style={{ fg: theme().text }}>{item.lemma.padEnd(15)}</span>
                     {item.def}
                   </text>
                 );
@@ -311,9 +296,7 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
 
       {/* Footer */}
       <box marginTop={1}>
-        <text fg={theme().textMuted}>
-          ↑↓ navigate • Enter select • Esc close
-        </text>
+        <text fg={theme().textMuted}>↑↓ navigate • Enter select • Esc close</text>
       </box>
     </box>
   );

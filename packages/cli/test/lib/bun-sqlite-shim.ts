@@ -6,13 +6,6 @@
 export class Database {
   private tables: Map<string, unknown[]> = new Map();
 
-  constructor(
-    _path?: string,
-    _options?: { create?: boolean; readonly?: boolean },
-  ) {
-    // Mock constructor
-  }
-
   exec(_sql: string): void {
     // Mock exec - do nothing
   }

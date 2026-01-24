@@ -21,16 +21,8 @@
 import { FileSystem, Path } from '@effect/platform';
 import type { PlatformError } from '@effect/platform/Error';
 import { Database } from 'bun:sqlite';
-import {
-  Config,
-  ConfigError,
-  Context,
-  Effect,
-  Layer,
-  Option,
-  Schema,
-  Stream,
-} from 'effect';
+import type { ConfigError } from 'effect';
+import { Config, Context, Effect, Layer, Option, Schema, Stream } from 'effect';
 
 import * as EGWSchemas from '../egw/schemas.js';
 import {
@@ -151,15 +143,18 @@ function parseRefcodeNumbers(refcode: string | null): {
   if (!refcode) return { page: null, paragraph: null };
   const match = refcode.match(/\s(\d+)\.(\d+)$/);
   if (match) {
+    const pageStr = match[1];
+    const paraStr = match[2];
     return {
-      page: parseInt(match[1]!, 10),
-      paragraph: parseInt(match[2]!, 10),
+      page: pageStr ? parseInt(pageStr, 10) : null,
+      paragraph: paraStr ? parseInt(paraStr, 10) : null,
     };
   }
   // Try page-only pattern (e.g., "PP 351")
   const pageMatch = refcode.match(/\s(\d+)$/);
   if (pageMatch) {
-    return { page: parseInt(pageMatch[1]!, 10), paragraph: null };
+    const pageStr = pageMatch[1];
+    return { page: pageStr ? parseInt(pageStr, 10) : null, paragraph: null };
   }
   return { page: null, paragraph: null };
 }
@@ -168,9 +163,7 @@ function parseRefcodeNumbers(refcode: string | null): {
  * Check if element type is a chapter heading
  * The EGW API returns HTML element names: h1, h2, h3, etc. for headings
  */
-export function isChapterHeading(
-  elementType: string | null | undefined,
-): boolean {
+export function isChapterHeading(elementType: string | null | undefined): boolean {
   if (!elementType) return false;
   const type = elementType.toLowerCase();
   // HTML heading elements (h1-h6) are chapter/section headings
@@ -189,21 +182,15 @@ export function isChapterHeading(
  */
 export interface EGWParagraphDatabaseService {
   // Book operations
-  readonly storeBook: (
-    book: EGWSchemas.Book,
-  ) => Effect.Effect<void, ParagraphDatabaseError>;
+  readonly storeBook: (book: EGWSchemas.Book) => Effect.Effect<void, ParagraphDatabaseError>;
   readonly getBookById: (
     bookId: number,
   ) => Effect.Effect<Option.Option<BookRow>, ParagraphDatabaseError>;
   readonly getBookByCode: (
     bookCode: string,
   ) => Effect.Effect<Option.Option<BookRow>, ParagraphDatabaseError>;
-  readonly getBooksByAuthor: (
-    author: string,
-  ) => Stream.Stream<BookRow, ParagraphDatabaseError>;
-  readonly updateBookCount: (
-    bookId: number,
-  ) => Effect.Effect<void, ParagraphDatabaseError>;
+  readonly getBooksByAuthor: (author: string) => Stream.Stream<BookRow, ParagraphDatabaseError>;
+  readonly updateBookCount: (bookId: number) => Effect.Effect<void, ParagraphDatabaseError>;
 
   // Paragraph operations
   readonly storeParagraph: (
@@ -279,13 +266,8 @@ export interface EGWParagraphDatabaseService {
   readonly getBooksByStatus: (
     status: SyncStatus,
   ) => Effect.Effect<readonly SyncStatusRow[], ParagraphDatabaseError>;
-  readonly getAllSyncStatus: () => Effect.Effect<
-    readonly SyncStatusRow[],
-    ParagraphDatabaseError
-  >;
-  readonly needsSync: (
-    bookId: number,
-  ) => Effect.Effect<boolean, ParagraphDatabaseError>;
+  readonly getAllSyncStatus: () => Effect.Effect<readonly SyncStatusRow[], ParagraphDatabaseError>;
+  readonly needsSync: (bookId: number) => Effect.Effect<boolean, ParagraphDatabaseError>;
 
   // Maintenance
   readonly rebuildFtsIndex: () => Effect.Effect<void, ParagraphDatabaseError>;
@@ -298,9 +280,10 @@ export interface EGWParagraphDatabaseService {
 /**
  * EGW Paragraph Database Service
  */
-export class EGWParagraphDatabase extends Context.Tag(
-  '@bible/egw-db/ParagraphDatabase',
-)<EGWParagraphDatabase, EGWParagraphDatabaseService>() {
+export class EGWParagraphDatabase extends Context.Tag('@bible/egw-db/ParagraphDatabase')<
+  EGWParagraphDatabase,
+  EGWParagraphDatabaseService
+>() {
   /**
    * Live implementation using SQLite database.
    * Requires FileSystem and Path from @effect/platform.
@@ -326,9 +309,7 @@ export class EGWParagraphDatabase extends Context.Tag(
       const dbPath = path.resolve(dbFile);
 
       // Ensure directory exists
-      yield* fs
-        .makeDirectory(path.dirname(dbPath), { recursive: true })
-        .pipe(Effect.orDie);
+      yield* fs.makeDirectory(path.dirname(dbPath), { recursive: true }).pipe(Effect.orDie);
 
       // Open database connection
       const db = yield* Effect.try({
@@ -525,17 +506,11 @@ export class EGWParagraphDatabase extends Context.Tag(
         SELECT * FROM sync_status WHERE book_id = $bookId
       `);
 
-      const getSyncStatusByStatusQuery = db.query<
-        SyncStatusRow,
-        { $status: string }
-      >(`
+      const getSyncStatusByStatusQuery = db.query<SyncStatusRow, { $status: string }>(`
         SELECT * FROM sync_status WHERE status = $status
       `);
 
-      const getAllSyncStatusQuery = db.query<
-        SyncStatusRow,
-        Record<string, never>
-      >(`
+      const getAllSyncStatusQuery = db.query<SyncStatusRow, Record<string, never>>(`
         SELECT * FROM sync_status ORDER BY book_code
       `);
 
@@ -547,10 +522,7 @@ export class EGWParagraphDatabase extends Context.Tag(
         WHERE book_id = $bookId AND ref_code = $refCode
       `);
 
-      const getParagraphsByBookQuery = db.query<
-        ParagraphRow,
-        { $bookId: number }
-      >(`
+      const getParagraphsByBookQuery = db.query<ParagraphRow, { $bookId: number }>(`
         SELECT * FROM paragraphs
         WHERE book_id = $bookId
         ORDER BY puborder
@@ -589,10 +561,7 @@ export class EGWParagraphDatabase extends Context.Tag(
         SELECT * FROM books WHERE book_code = $bookCode COLLATE NOCASE
       `);
 
-      const getChapterHeadingsQuery = db.query<
-        ParagraphRow,
-        { $bookId: number }
-      >(`
+      const getChapterHeadingsQuery = db.query<ParagraphRow, { $bookId: number }>(`
         SELECT * FROM paragraphs
         WHERE book_id = $bookId AND is_chapter_heading = 1
         ORDER BY puborder
@@ -682,9 +651,7 @@ export class EGWParagraphDatabase extends Context.Tag(
       /**
        * Store or update a book in the database
        */
-      const storeBook = (
-        book: EGWSchemas.Book,
-      ): Effect.Effect<void, ParagraphDatabaseError> =>
+      const storeBook = (book: EGWSchemas.Book): Effect.Effect<void, ParagraphDatabaseError> =>
         Effect.try({
           try: () => {
             insertOrUpdateBookQuery.run({
@@ -741,12 +708,7 @@ export class EGWParagraphDatabase extends Context.Tag(
           });
 
           // Convert paragraph to row
-          const row = paragraphToRow(
-            paragraph,
-            book.book_id,
-            existing?.created_at ?? now,
-            now,
-          );
+          const row = paragraphToRow(paragraph, book.book_id, existing?.created_at ?? now, now);
 
           yield* Effect.try({
             try: () => {
@@ -779,9 +741,7 @@ export class EGWParagraphDatabase extends Context.Tag(
       /**
        * Update book paragraph count (call after bulk insert)
        */
-      const updateBookCount = (
-        bookId: number,
-      ): Effect.Effect<void, ParagraphDatabaseError> =>
+      const updateBookCount = (bookId: number): Effect.Effect<void, ParagraphDatabaseError> =>
         Effect.try({
           try: () => {
             updateBookParagraphCount.run({ $bookId: bookId });
@@ -902,10 +862,7 @@ export class EGWParagraphDatabase extends Context.Tag(
       const getParagraph = (
         bookId: number,
         refCode: string,
-      ): Effect.Effect<
-        Option.Option<EGWSchemas.Paragraph>,
-        ParagraphDatabaseError
-      > =>
+      ): Effect.Effect<Option.Option<EGWSchemas.Paragraph>, ParagraphDatabaseError> =>
         Effect.try({
           try: () => {
             const row = getParagraphByRefCodeQuery.get({
@@ -973,9 +930,7 @@ export class EGWParagraphDatabase extends Context.Tag(
        * Get distinct books by author (for listing books)
        * Returns full book info from normalized books table
        */
-      const getBooksByAuthor = (
-        author: string,
-      ): Stream.Stream<BookRow, ParagraphDatabaseError> =>
+      const getBooksByAuthor = (author: string): Stream.Stream<BookRow, ParagraphDatabaseError> =>
         Stream.fromEffect(
           Effect.try({
             try: () =>
@@ -1045,10 +1000,7 @@ export class EGWParagraphDatabase extends Context.Tag(
        */
       const getChapterHeadings = (
         bookId: number,
-      ): Effect.Effect<
-        readonly EGWSchemas.Paragraph[],
-        ParagraphDatabaseError
-      > =>
+      ): Effect.Effect<readonly EGWSchemas.Paragraph[], ParagraphDatabaseError> =>
         Effect.try({
           try: () => {
             const rows = getChapterHeadingsQuery.all({ $bookId: bookId });
@@ -1068,10 +1020,7 @@ export class EGWParagraphDatabase extends Context.Tag(
       const getParagraphsByPage = (
         bookId: number,
         pageNumber: number,
-      ): Effect.Effect<
-        readonly EGWSchemas.Paragraph[],
-        ParagraphDatabaseError
-      > =>
+      ): Effect.Effect<readonly EGWSchemas.Paragraph[], ParagraphDatabaseError> =>
         Effect.try({
           try: () => {
             const rows = getParagraphsByPageQuery.all({
@@ -1177,15 +1126,11 @@ export class EGWParagraphDatabase extends Context.Tag(
                  ORDER BY b.book_code, p.puborder`;
 
             const rows = bibleVerse
-              ? (db
-                  .query(query)
-                  .all(bibleBook, bibleChapter, bibleVerse) as (ParagraphRow & {
+              ? (db.query(query).all(bibleBook, bibleChapter, bibleVerse) as (ParagraphRow & {
                   book_code: string;
                   book_title: string;
                 })[])
-              : (db
-                  .query(query)
-                  .all(bibleBook, bibleChapter) as (ParagraphRow & {
+              : (db.query(query).all(bibleBook, bibleChapter) as (ParagraphRow & {
                   book_code: string;
                   book_title: string;
                 })[]);
@@ -1209,9 +1154,7 @@ export class EGWParagraphDatabase extends Context.Tag(
       const rebuildFtsIndex = (): Effect.Effect<void, ParagraphDatabaseError> =>
         Effect.try({
           try: () => {
-            db.run(
-              `INSERT INTO paragraphs_fts(paragraphs_fts) VALUES('rebuild')`,
-            );
+            db.run(`INSERT INTO paragraphs_fts(paragraphs_fts) VALUES('rebuild')`);
           },
           catch: (error) =>
             new DatabaseQueryError({
@@ -1304,13 +1247,10 @@ export class EGWParagraphDatabase extends Context.Tag(
       /**
        * Check if a book needs syncing (not success status)
        */
-      const needsSync = (
-        bookId: number,
-      ): Effect.Effect<boolean, ParagraphDatabaseError> =>
+      const needsSync = (bookId: number): Effect.Effect<boolean, ParagraphDatabaseError> =>
         getSyncStatus(bookId).pipe(
           Effect.map(
-            (optStatus) =>
-              Option.isNone(optStatus) || optStatus.value.status !== 'success',
+            (optStatus) => Option.isNone(optStatus) || optStatus.value.status !== 'success',
           ),
         );
 
@@ -1369,28 +1309,24 @@ export class EGWParagraphDatabase extends Context.Tag(
    * Test implementation with in-memory data.
    * Useful for unit testing without a real database.
    */
-  static Test = (config: {
-    books?: readonly BookRow[];
-    paragraphs?: readonly (EGWSchemas.Paragraph & { bookCode: string })[];
-  } = {}): Layer.Layer<EGWParagraphDatabase> =>
+  static Test = (
+    config: {
+      books?: readonly BookRow[];
+      paragraphs?: readonly (EGWSchemas.Paragraph & { bookCode: string })[];
+    } = {},
+  ): Layer.Layer<EGWParagraphDatabase> =>
     Layer.succeed(EGWParagraphDatabase, {
       storeBook: () => Effect.void,
       getBookById: (bookId) =>
-        Effect.succeed(
-          Option.fromNullable(config.books?.find((b) => b.book_id === bookId)),
-        ),
+        Effect.succeed(Option.fromNullable(config.books?.find((b) => b.book_id === bookId))),
       getBookByCode: (bookCode) =>
         Effect.succeed(
           Option.fromNullable(
-            config.books?.find(
-              (b) => b.book_code.toLowerCase() === bookCode.toLowerCase(),
-            ),
+            config.books?.find((b) => b.book_code.toLowerCase() === bookCode.toLowerCase()),
           ),
         ),
       getBooksByAuthor: (author) =>
-        Stream.fromIterable(
-          config.books?.filter((b) => b.book_author === author) ?? [],
-        ),
+        Stream.fromIterable(config.books?.filter((b) => b.book_author === author) ?? []),
       updateBookCount: () => Effect.void,
       storeParagraph: () => Effect.void,
       storeParagraphsBatch: (paragraphs) => Effect.succeed(paragraphs.length),

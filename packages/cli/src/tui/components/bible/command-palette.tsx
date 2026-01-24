@@ -11,21 +11,9 @@
 
 import type { ScrollBoxRenderable } from '@opentui/core';
 import { useKeyboard } from '@opentui/solid';
-import {
-  createEffect,
-  createMemo,
-  createSignal,
-  For,
-  onCleanup,
-  Show,
-} from 'solid-js';
+import { createEffect, createMemo, createSignal, For, onCleanup, Show } from 'solid-js';
 
-import {
-  BOOKS,
-  formatReference,
-  type Book,
-  type Reference,
-} from '../../../data/bible/types.js';
+import { BOOKS, formatReference, type Book, type Reference } from '../../../data/bible/types.js';
 import { searchBibleByTopic } from '../../../data/study/ai-search.js';
 import { useBibleData, useBibleState } from '../../context/bible.js';
 import { useModel } from '../../context/model.js';
@@ -57,12 +45,10 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
   const [mode, setMode] = createSignal<PaletteMode>('chapters');
   const [selectedBookNum, setSelectedBookNum] = createSignal(currentBookNum());
   const [selectedChapter, setSelectedChapter] = createSignal(currentChapter());
-  const [aiState, setAiState] = createSignal<AiSearchState>(
-    AiSearchState.idle(),
-  );
+  const [aiState, setAiState] = createSignal<AiSearchState>(AiSearchState.idle());
 
   let aiSearchTimeout: ReturnType<typeof setTimeout> | null = null;
-  let scrollRef: ScrollBoxRenderable | undefined;
+  let scrollRef: ScrollBoxRenderable | undefined = undefined;
 
   // Scroll sync - keep selected item visible
   useScrollSync(() => `item-${selectedIndex()}`, { getRef: () => scrollRef });
@@ -75,9 +61,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
   });
 
   // Book info
-  const selectedBook = createMemo(() =>
-    BOOKS.find((b) => b.number === selectedBookNum()),
-  );
+  const selectedBook = createMemo(() => BOOKS.find((b) => b.number === selectedBookNum()));
 
   // Check if query is AI search
   const isAiSearch = () => query().trim().startsWith('?');
@@ -104,10 +88,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
 
     if (!model) {
       setAiState(
-        AiSearchState.error(
-          currentAiQuery,
-          'AI search unavailable (no API key configured)',
-        ),
+        AiSearchState.error(currentAiQuery, 'AI search unavailable (no API key configured)'),
       );
       return;
     }
@@ -116,12 +97,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
 
     aiSearchTimeout = setTimeout(async () => {
       try {
-        const refs = await searchBibleByTopic(
-          currentAiQuery,
-          model,
-          data,
-          state,
-        );
+        const refs = await searchBibleByTopic(currentAiQuery, model, data, state);
         if (refs.length === 0) {
           setAiState(AiSearchState.empty(currentAiQuery));
         } else {
@@ -184,8 +160,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
     }
     // Also search by text content
     return verses().filter(
-      (v) =>
-        v.number.toString().includes(q) || v.text.toLowerCase().includes(q),
+      (v) => v.number.toString().includes(q) || v.text.toLowerCase().includes(q),
     );
   });
 
@@ -387,43 +362,21 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
     >
       {/* Mode indicator */}
       <Show when={!isAiSearch()}>
-        <box
-          flexDirection="row"
-          paddingLeft={1}
-          paddingRight={1}
-          marginBottom={0}
-        >
-          <text
-            fg={mode() === 'books' ? theme().textHighlight : theme().textMuted}
-          >
-            <Show
-              when={mode() === 'books'}
-              fallback="Books"
-            >
+        <box flexDirection="row" paddingLeft={1} paddingRight={1} marginBottom={0}>
+          <text fg={mode() === 'books' ? theme().textHighlight : theme().textMuted}>
+            <Show when={mode() === 'books'} fallback="Books">
               <strong>Books</strong>
             </Show>
           </text>
           <text fg={theme().textMuted}> / </text>
-          <text
-            fg={
-              mode() === 'chapters' ? theme().textHighlight : theme().textMuted
-            }
-          >
-            <Show
-              when={mode() === 'chapters'}
-              fallback="Chapters"
-            >
+          <text fg={mode() === 'chapters' ? theme().textHighlight : theme().textMuted}>
+            <Show when={mode() === 'chapters'} fallback="Chapters">
               <strong>Chapters</strong>
             </Show>
           </text>
           <text fg={theme().textMuted}> / </text>
-          <text
-            fg={mode() === 'verses' ? theme().textHighlight : theme().textMuted}
-          >
-            <Show
-              when={mode() === 'verses'}
-              fallback="Verses"
-            >
+          <text fg={mode() === 'verses' ? theme().textHighlight : theme().textMuted}>
+            <Show when={mode() === 'verses'} fallback="Verses">
               <strong>Verses</strong>
             </Show>
           </text>
@@ -432,11 +385,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
       </Show>
 
       <Show when={isAiSearch()}>
-        <box
-          paddingLeft={1}
-          paddingRight={1}
-          marginBottom={0}
-        >
+        <box paddingLeft={1} paddingRight={1} marginBottom={0}>
           <text fg={theme().textHighlight}>
             <strong>AI Search</strong>
           </text>
@@ -444,10 +393,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
       </Show>
 
       {/* Search input */}
-      <box
-        paddingLeft={1}
-        paddingRight={1}
-      >
+      <box paddingLeft={1} paddingRight={1}>
         <text fg={theme().accent}>{'> '}</text>
         <text fg={theme().text}>{query()}</text>
         <text fg={theme().textMuted}>|</text>
@@ -455,16 +401,10 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
 
       {/* AI Search Results */}
       <Show when={isAiSearch()}>
-        <scrollbox
-          ref={scrollRef}
-          focused={false}
-          style={scrollboxStyle()}
-        >
+        <scrollbox ref={(el) => (scrollRef = el)} focused={false} style={scrollboxStyle()}>
           <Show when={aiState()._tag === 'typing'}>
             <box padding={1}>
-              <text fg={theme().textMuted}>
-                Type at least 3 characters to search...
-              </text>
+              <text fg={theme().textMuted}>Type at least 3 characters to search...</text>
             </box>
           </Show>
           <Show when={aiState()._tag === 'loading'}>
@@ -487,31 +427,18 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
           <Show when={aiState()._tag === 'success'}>
             <For each={aiResults()}>
               {(ref, index) => {
-                const verse = data.getVerse(
-                  ref.book,
-                  ref.chapter,
-                  ref.verse ?? 1,
-                );
+                const verse = data.getVerse(ref.book, ref.chapter, ref.verse ?? 1);
                 const preview = verse
-                  ? verse.text.slice(0, 40) +
-                    (verse.text.length > 40 ? '...' : '')
+                  ? verse.text.slice(0, 40) + (verse.text.length > 40 ? '...' : '')
                   : '';
                 return (
                   <box
                     id={`item-${index()}`}
                     paddingLeft={1}
                     paddingRight={1}
-                    backgroundColor={
-                      index() === selectedIndex() ? theme().accent : undefined
-                    }
+                    backgroundColor={index() === selectedIndex() ? theme().accent : undefined}
                   >
-                    <text
-                      fg={
-                        index() === selectedIndex()
-                          ? theme().background
-                          : theme().text
-                      }
-                    >
+                    <text fg={index() === selectedIndex() ? theme().background : theme().text}>
                       <span
                         style={{
                           fg:
@@ -524,10 +451,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
                       </span>{' '}
                       <span
                         style={{
-                          fg:
-                            index() === selectedIndex()
-                              ? theme().background
-                              : theme().textMuted,
+                          fg: index() === selectedIndex() ? theme().background : theme().textMuted,
                         }}
                       >
                         {preview}
@@ -543,35 +467,20 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
 
       {/* Books list */}
       <Show when={!isAiSearch() && mode() === 'books'}>
-        <scrollbox
-          ref={scrollRef}
-          focused={false}
-          style={scrollboxStyle()}
-        >
+        <scrollbox ref={(el) => (scrollRef = el)} focused={false} style={scrollboxStyle()}>
           <For each={filteredBooks()}>
             {(book, index) => (
               <box
                 id={`item-${index()}`}
                 paddingLeft={1}
                 paddingRight={1}
-                backgroundColor={
-                  index() === selectedIndex() ? theme().accent : undefined
-                }
+                backgroundColor={index() === selectedIndex() ? theme().accent : undefined}
               >
-                <text
-                  fg={
-                    index() === selectedIndex()
-                      ? theme().background
-                      : theme().text
-                  }
-                >
+                <text fg={index() === selectedIndex() ? theme().background : theme().text}>
                   {book.name}
                   <span
                     style={{
-                      fg:
-                        index() === selectedIndex()
-                          ? theme().background
-                          : theme().textMuted,
+                      fg: index() === selectedIndex() ? theme().background : theme().textMuted,
                     }}
                   >
                     {' '}
@@ -580,10 +489,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
                   <Show when={book.number === currentBookNum()}>
                     <span
                       style={{
-                        fg:
-                          index() === selectedIndex()
-                            ? theme().background
-                            : theme().accent,
+                        fg: index() === selectedIndex() ? theme().background : theme().accent,
                       }}
                     >
                       {' '}
@@ -604,17 +510,12 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
 
       {/* Chapters list */}
       <Show when={!isAiSearch() && mode() === 'chapters'}>
-        <scrollbox
-          ref={scrollRef}
-          focused={false}
-          style={scrollboxStyle()}
-        >
+        <scrollbox ref={(el) => (scrollRef = el)} focused={false} style={scrollboxStyle()}>
           <For each={filteredChapters()}>
             {(chapter, index) => {
               const isSelected = () => index() === selectedIndex();
               const isCurrent =
-                selectedBookNum() === currentBookNum() &&
-                chapter === currentChapter();
+                selectedBookNum() === currentBookNum() && chapter === currentChapter();
 
               return (
                 <box
@@ -638,9 +539,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
                     <Show when={isCurrent}>
                       <span
                         style={{
-                          fg: isSelected()
-                            ? theme().background
-                            : theme().accent,
+                          fg: isSelected() ? theme().background : theme().accent,
                         }}
                       >
                         {' '}
@@ -662,11 +561,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
 
       {/* Verses list */}
       <Show when={!isAiSearch() && mode() === 'verses'}>
-        <scrollbox
-          ref={scrollRef}
-          focused={false}
-          style={scrollboxStyle()}
-        >
+        <scrollbox ref={(el) => (scrollRef = el)} focused={false} style={scrollboxStyle()}>
           <For each={filteredVerses()}>
             {(verse, index) => {
               const isSelected = () => index() === selectedIndex();
@@ -674,8 +569,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
                 selectedBookNum() === currentBookNum() &&
                 selectedChapter() === currentChapter() &&
                 verse.number === currentVerse();
-              const preview =
-                verse.text.slice(0, 50) + (verse.text.length > 50 ? '...' : '');
+              const preview = verse.text.slice(0, 50) + (verse.text.length > 50 ? '...' : '');
 
               return (
                 <box
@@ -698,9 +592,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
                     </span>{' '}
                     <span
                       style={{
-                        fg: isSelected()
-                          ? theme().background
-                          : theme().textMuted,
+                        fg: isSelected() ? theme().background : theme().textMuted,
                       }}
                     >
                       {preview}
@@ -719,10 +611,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
       </Show>
 
       {/* Footer */}
-      <box
-        paddingLeft={1}
-        paddingRight={1}
-      >
+      <box paddingLeft={1} paddingRight={1}>
         <text fg={theme().textMuted}>
           <span style={{ fg: theme().accent }}>Enter</span> select{'  '}
           <Show when={!isAiSearch()}>

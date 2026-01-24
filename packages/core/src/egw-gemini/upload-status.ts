@@ -9,7 +9,8 @@
 import { FileSystem, Path } from '@effect/platform';
 import type { PlatformError } from '@effect/platform/Error';
 import { Database } from 'bun:sqlite';
-import { Config, ConfigError, Context, Effect, Layer, Option } from 'effect';
+import type { ConfigError } from 'effect';
+import { Config, Context, Effect, Layer, Option } from 'effect';
 
 import {
   DatabaseConnectionError,
@@ -127,9 +128,10 @@ export interface EGWUploadStatusService {
 /**
  * EGW Upload Status Service
  */
-export class EGWUploadStatus extends Context.Tag(
-  '@bible/egw-gemini/UploadStatus',
-)<EGWUploadStatus, EGWUploadStatusService>() {
+export class EGWUploadStatus extends Context.Tag('@bible/egw-gemini/UploadStatus')<
+  EGWUploadStatus,
+  EGWUploadStatusService
+>() {
   /**
    * Live implementation using SQLite database.
    */
@@ -151,9 +153,7 @@ export class EGWUploadStatus extends Context.Tag(
       const dbPath = path.resolve(dbFile);
 
       // Ensure directory exists
-      yield* fs
-        .makeDirectory(path.dirname(dbPath), { recursive: true })
-        .pipe(Effect.orDie);
+      yield* fs.makeDirectory(path.dirname(dbPath), { recursive: true }).pipe(Effect.orDie);
 
       // Open database connection
       const db = yield* Effect.try({
@@ -379,10 +379,7 @@ export class EGWUploadStatus extends Context.Tag(
       const getParagraphUploadStatus = (
         storeDisplayName: string,
         refCode: string,
-      ): Effect.Effect<
-        Option.Option<ParagraphUploadStatus>,
-        UploadStatusError
-      > =>
+      ): Effect.Effect<Option.Option<ParagraphUploadStatus>, UploadStatusError> =>
         Effect.gen(function* () {
           const row = yield* Effect.try({
             try: () =>
@@ -441,13 +438,9 @@ export class EGWUploadStatus extends Context.Tag(
             return yield* Effect.succeed(Option.none());
           }
 
-          const completeCount = rows.filter(
-            (r) => r.status === 'complete',
-          ).length;
+          const completeCount = rows.filter((r) => r.status === 'complete').length;
           const failedCount = rows.filter((r) => r.status === 'failed').length;
-          const inProgressCount = rows.filter(
-            (r) => r.status === 'in-progress',
-          ).length;
+          const inProgressCount = rows.filter((r) => r.status === 'in-progress').length;
           const totalCount = rows.length;
 
           // Determine overall status
@@ -468,9 +461,7 @@ export class EGWUploadStatus extends Context.Tag(
             .pop();
 
           // Get any error messages
-          const errors = rows
-            .map((r) => r.error)
-            .filter((e): e is string => e !== null);
+          const errors = rows.map((r) => r.error).filter((e): e is string => e !== null);
 
           const status: BookUploadStatus = {
             status: overallStatus,
@@ -545,9 +536,7 @@ export class EGWUploadStatus extends Context.Tag(
           });
         }),
       getParagraphUploadStatus: (storeDisplayName, refCode) =>
-        Effect.succeed(
-          Option.fromNullable(storage.get(`${storeDisplayName}:${refCode}`)),
-        ),
+        Effect.succeed(Option.fromNullable(storage.get(`${storeDisplayName}:${refCode}`))),
       getBookUploadStatus: () => Effect.succeed(Option.none()),
     });
   };

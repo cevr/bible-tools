@@ -102,9 +102,7 @@ export function EGWView(props: EGWViewProps) {
   let bibleRefsHandler: ((key: KeyEvent) => boolean) | null = null;
 
   // Vim-style goto mode
-  const [gotoMode, setGotoMode] = createSignal<GotoModeState>(
-    GotoModeState.normal(),
-  );
+  const [gotoMode, setGotoMode] = createSignal<GotoModeState>(GotoModeState.normal());
 
   // Execute actions from goto mode transitions
   const executeGotoAction = (action: GotoModeAction) => {
@@ -219,26 +217,26 @@ export function EGWView(props: EGWViewProps) {
       </Show>
 
       {/* Bible References Popup */}
-      <Show
-        when={isSpecificOverlayOpen('egw-bible-refs') && currentParagraph()}
-      >
-        <box
-          position="absolute"
-          top={Math.floor(dimensions().height / 6)}
-          left={Math.floor((dimensions().width - 70) / 2)}
-        >
-          <EGWBibleRefsPopup
-            paragraph={currentParagraph()!}
-            onClose={closeOverlay}
-            onNavigate={(ref) => {
-              closeOverlay();
-              navigateToBible(ref);
-            }}
-            onKeyboard={(handler) => {
-              bibleRefsHandler = handler;
-            }}
-          />
-        </box>
+      <Show when={isSpecificOverlayOpen('egw-bible-refs') && currentParagraph()}>
+        {(para) => (
+          <box
+            position="absolute"
+            top={Math.floor(dimensions().height / 6)}
+            left={Math.floor((dimensions().width - 70) / 2)}
+          >
+            <EGWBibleRefsPopup
+              paragraph={para()}
+              onClose={closeOverlay}
+              onNavigate={(ref) => {
+                closeOverlay();
+                navigateToBible(ref);
+              }}
+              onKeyboard={(handler) => {
+                bibleRefsHandler = handler;
+              }}
+            />
+          </box>
+        )}
       </Show>
     </box>
   );

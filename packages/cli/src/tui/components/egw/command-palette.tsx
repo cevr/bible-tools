@@ -11,15 +11,7 @@
 import { isChapterHeading } from '@bible/core/egw-db';
 import type { EGWBookInfo, EGWParagraph } from '@bible/core/egw-reader';
 import type { ScrollBoxRenderable } from '@opentui/core';
-import {
-  createEffect,
-  createMemo,
-  createSignal,
-  For,
-  onMount,
-  Show,
-  untrack,
-} from 'solid-js';
+import { createEffect, createMemo, createSignal, For, onMount, Show, untrack } from 'solid-js';
 
 import { useEGWNavigation } from '../../context/egw-navigation.js';
 import { useTheme } from '../../context/theme.js';
@@ -71,12 +63,10 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
   // Default to chapters if in a book, otherwise books
   // Use untrack to avoid reactive subscription during signal initialization
   const hasBook = untrack(() => currentBook() !== null);
-  const [mode, setMode] = createSignal<PaletteMode>(
-    hasBook ? 'chapters' : 'books',
-  );
+  const [mode, setMode] = createSignal<PaletteMode>(hasBook ? 'chapters' : 'books');
   const [selectedChapterIndex, setSelectedChapterIndex] = createSignal(0);
 
-  let scrollRef: ScrollBoxRenderable | undefined;
+  let scrollRef: ScrollBoxRenderable | undefined = undefined;
 
   // Scroll sync - keep selected item visible
   // Only sync when mode is stable (not during initial render)
@@ -110,27 +100,27 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
   });
 
   // Get paragraphs for selected chapter (from chapter heading to next chapter or end)
-  const chapterParagraphs = createMemo(
-    (): { para: EGWParagraph; index: number }[] => {
-      const chaps = chapters();
-      const chapterIdx = selectedChapterIndex();
-      if (chapterIdx < 0 || chapterIdx >= chaps.length) return [];
+  const chapterParagraphs = createMemo((): { para: EGWParagraph; index: number }[] => {
+    const chaps = chapters();
+    const chapterIdx = selectedChapterIndex();
+    if (chapterIdx < 0 || chapterIdx >= chaps.length) return [];
 
-      const chapter = chaps[chapterIdx]!;
-      const startIdx = chapter.paragraphIndex;
-      const nextChapter = chaps[chapterIdx + 1];
-      const endIdx = nextChapter
-        ? nextChapter.paragraphIndex
-        : paragraphs().length;
+    const chapter = chaps[chapterIdx];
+    if (!chapter) return [];
+    const startIdx = chapter.paragraphIndex;
+    const nextChapter = chaps[chapterIdx + 1];
+    const endIdx = nextChapter ? nextChapter.paragraphIndex : paragraphs().length;
 
-      const paras = paragraphs();
-      const result: { para: EGWParagraph; index: number }[] = [];
-      for (let i = startIdx; i < endIdx; i++) {
-        result.push({ para: paras[i]!, index: i });
+    const paras = paragraphs();
+    const result: { para: EGWParagraph; index: number }[] = [];
+    for (let i = startIdx; i < endIdx; i++) {
+      const para = paras[i];
+      if (para) {
+        result.push({ para, index: i });
       }
-      return result;
-    },
-  );
+    }
+    return result;
+  });
 
   // Load books on mount if not loaded
   onMount(() => {
@@ -144,9 +134,7 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
     const q = query().toLowerCase();
     if (!q) return books();
     return books().filter(
-      (book) =>
-        book.title.toLowerCase().includes(q) ||
-        book.bookCode.toLowerCase().includes(q),
+      (book) => book.title.toLowerCase().includes(q) || book.bookCode.toLowerCase().includes(q),
     );
   });
 
@@ -349,9 +337,7 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
       case 'paragraphs': {
         const chapter = chapters()[selectedChapterIndex()];
         const title = chapter?.title.slice(0, 20) ?? '';
-        return book
-          ? ` (${book.bookCode} - ${title}${title.length >= 20 ? '...' : ''})`
-          : '';
+        return book ? ` (${book.bookCode} - ${title}${title.length >= 20 ? '...' : ''})` : '';
       }
     }
   };
@@ -366,43 +352,21 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
       maxHeight={22}
     >
       {/* Mode indicator */}
-      <box
-        flexDirection="row"
-        paddingLeft={1}
-        paddingRight={1}
-        marginBottom={0}
-      >
-        <text
-          fg={mode() === 'books' ? theme().textHighlight : theme().textMuted}
-        >
-          <Show
-            when={mode() === 'books'}
-            fallback="Books"
-          >
+      <box flexDirection="row" paddingLeft={1} paddingRight={1} marginBottom={0}>
+        <text fg={mode() === 'books' ? theme().textHighlight : theme().textMuted}>
+          <Show when={mode() === 'books'} fallback="Books">
             <strong>Books</strong>
           </Show>
         </text>
         <text fg={theme().textMuted}> / </text>
-        <text
-          fg={mode() === 'chapters' ? theme().textHighlight : theme().textMuted}
-        >
-          <Show
-            when={mode() === 'chapters'}
-            fallback="Chapters"
-          >
+        <text fg={mode() === 'chapters' ? theme().textHighlight : theme().textMuted}>
+          <Show when={mode() === 'chapters'} fallback="Chapters">
             <strong>Chapters</strong>
           </Show>
         </text>
         <text fg={theme().textMuted}> / </text>
-        <text
-          fg={
-            mode() === 'paragraphs' ? theme().textHighlight : theme().textMuted
-          }
-        >
-          <Show
-            when={mode() === 'paragraphs'}
-            fallback="Paragraphs"
-          >
+        <text fg={mode() === 'paragraphs' ? theme().textHighlight : theme().textMuted}>
+          <Show when={mode() === 'paragraphs'} fallback="Paragraphs">
             <strong>Paragraphs</strong>
           </Show>
         </text>
@@ -410,10 +374,7 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
       </box>
 
       {/* Search input */}
-      <box
-        paddingLeft={1}
-        paddingRight={1}
-      >
+      <box paddingLeft={1} paddingRight={1}>
         <text fg={theme().accent}>{'> '}</text>
         <text fg={theme().text}>{query()}</text>
         <text fg={theme().textMuted}>|</text>
@@ -438,34 +399,19 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
               </box>
             }
           >
-            <scrollbox
-              ref={scrollRef}
-              focused={false}
-              style={scrollboxStyle()}
-            >
+            <scrollbox ref={(el) => (scrollRef = el)} focused={false} style={scrollboxStyle()}>
               <For each={filteredBooks().slice(0, 50)}>
                 {(book, index) => (
                   <box
                     id={`item-${index()}`}
                     paddingLeft={1}
                     paddingRight={1}
-                    backgroundColor={
-                      index() === selectedIndex() ? theme().accent : undefined
-                    }
+                    backgroundColor={index() === selectedIndex() ? theme().accent : undefined}
                   >
-                    <text
-                      fg={
-                        index() === selectedIndex()
-                          ? theme().background
-                          : theme().text
-                      }
-                    >
+                    <text fg={index() === selectedIndex() ? theme().background : theme().text}>
                       <span
                         style={{
-                          fg:
-                            index() === selectedIndex()
-                              ? theme().background
-                              : theme().textMuted,
+                          fg: index() === selectedIndex() ? theme().background : theme().textMuted,
                         }}
                       >
                         [{book.bookCode}]
@@ -474,10 +420,7 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
                       <Show when={book.bookCode === currentBook()?.bookCode}>
                         <span
                           style={{
-                            fg:
-                              index() === selectedIndex()
-                                ? theme().background
-                                : theme().accent,
+                            fg: index() === selectedIndex() ? theme().background : theme().accent,
                           }}
                         >
                           {' '}
@@ -500,34 +443,19 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
 
       {/* Chapters list - uses already loaded paragraphs */}
       <Show when={mode() === 'chapters'}>
-        <scrollbox
-          ref={scrollRef}
-          focused={false}
-          style={scrollboxStyle()}
-        >
+        <scrollbox ref={(el) => (scrollRef = el)} focused={false} style={scrollboxStyle()}>
           <For each={filteredChapters().slice(0, 50)}>
             {(chapter, index) => (
               <box
                 id={`item-${index()}`}
                 paddingLeft={1}
                 paddingRight={1}
-                backgroundColor={
-                  index() === selectedIndex() ? theme().accent : undefined
-                }
+                backgroundColor={index() === selectedIndex() ? theme().accent : undefined}
               >
-                <text
-                  fg={
-                    index() === selectedIndex()
-                      ? theme().background
-                      : theme().text
-                  }
-                >
+                <text fg={index() === selectedIndex() ? theme().background : theme().text}>
                   <span
                     style={{
-                      fg:
-                        index() === selectedIndex()
-                          ? theme().background
-                          : theme().textMuted,
+                      fg: index() === selectedIndex() ? theme().background : theme().textMuted,
                     }}
                   >
                     {chapter.elementType === 'h1' ? '§' : ''}
@@ -551,11 +479,7 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
 
       {/* Paragraphs list */}
       <Show when={mode() === 'paragraphs'}>
-        <scrollbox
-          ref={scrollRef}
-          focused={false}
-          style={scrollboxStyle()}
-        >
+        <scrollbox ref={(el) => (scrollRef = el)} focused={false} style={scrollboxStyle()}>
           <For each={filteredParagraphs().slice(0, 50)}>
             {(item, index) => {
               const isSelected = () => index() === selectedIndex();
@@ -586,9 +510,7 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
                     </span>{' '}
                     <span
                       style={{
-                        fg: isSelected()
-                          ? theme().background
-                          : theme().textMuted,
+                        fg: isSelected() ? theme().background : theme().textMuted,
                       }}
                     >
                       {content}
@@ -608,10 +530,7 @@ export function EGWCommandPalette(props: EGWCommandPaletteProps) {
       </Show>
 
       {/* Footer */}
-      <box
-        paddingLeft={1}
-        paddingRight={1}
-      >
+      <box paddingLeft={1} paddingRight={1}>
         <text fg={theme().textMuted}>
           <span style={{ fg: theme().accent }}>Enter</span> select{'  '}
           <span style={{ fg: theme().accent }}>←/→</span> navigate{'  '}

@@ -10,10 +10,7 @@
  * 2. EGW Commentary (from Bible Commentary volumes)
  */
 
-import {
-  EGWCommentaryService,
-  type CommentaryEntry,
-} from '@bible/core/egw-commentary';
+import { EGWCommentaryService, type CommentaryEntry } from '@bible/core/egw-commentary';
 import { EGWParagraphDatabase } from '@bible/core/egw-db';
 import { BunContext } from '@effect/platform-bun';
 import type { ScrollBoxRenderable } from '@opentui/core';
@@ -44,32 +41,22 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
   const studyData = useStudyData();
   const [selectedIndex, setSelectedIndex] = createSignal(0);
   const [currentPage, setCurrentPage] = createSignal<PopupPage>('crossrefs');
-  const [commentary, setCommentary] = createSignal<readonly CommentaryEntry[]>(
-    [],
-  );
+  const [commentary, setCommentary] = createSignal<readonly CommentaryEntry[]>([]);
   const [commentaryLoading, setCommentaryLoading] = createSignal(false);
   const [selectedCommentaryIndex, setSelectedCommentaryIndex] = createSignal(0);
-  let scrollRef: ScrollBoxRenderable | undefined;
-  let commentaryScrollRef: ScrollBoxRenderable | undefined;
+  let scrollRef: ScrollBoxRenderable | undefined = undefined;
+  let commentaryScrollRef: ScrollBoxRenderable | undefined = undefined;
 
   // Get cross-references for this verse
   const crossRefs = createMemo(() => {
     const verse = props.verseRef.verse ?? 1;
-    return studyData.getCrossRefs(
-      props.verseRef.book,
-      props.verseRef.chapter,
-      verse,
-    );
+    return studyData.getCrossRefs(props.verseRef.book, props.verseRef.chapter, verse);
   });
 
   // Get margin notes for this verse
   const marginNotes = createMemo(() => {
     const verse = props.verseRef.verse ?? 1;
-    return studyData.getMarginNotes(
-      props.verseRef.book,
-      props.verseRef.chapter,
-      verse,
-    );
+    return studyData.getMarginNotes(props.verseRef.book, props.verseRef.chapter, verse);
   });
 
   // Get preview text for each reference
@@ -222,33 +209,16 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
       padding={1}
     >
       {/* Header with tabs */}
-      <box
-        flexDirection="row"
-        justifyContent="space-between"
-        marginBottom={1}
-      >
+      <box flexDirection="row" justifyContent="space-between" marginBottom={1}>
         <text fg={theme().text}>
           <strong>{sourceLabel}</strong>
         </text>
-        <box
-          flexDirection="row"
-          gap={1}
-        >
-          <text
-            fg={
-              currentPage() === 'crossrefs' ? theme().accent : theme().textMuted
-            }
-          >
+        <box flexDirection="row" gap={1}>
+          <text fg={currentPage() === 'crossrefs' ? theme().accent : theme().textMuted}>
             {currentPage() === 'crossrefs' ? <strong>[Refs]</strong> : 'Refs'}
           </text>
           <text fg={theme().textMuted}>|</text>
-          <text
-            fg={
-              currentPage() === 'commentary'
-                ? theme().accent
-                : theme().textMuted
-            }
-          >
+          <text fg={currentPage() === 'commentary' ? theme().accent : theme().textMuted}>
             {currentPage() === 'commentary' ? <strong>[EGW]</strong> : 'EGW'}
           </text>
         </box>
@@ -258,34 +228,19 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
       <Show when={currentPage() === 'crossrefs'}>
         <Show
           when={hasContent()}
-          fallback={
-            <text fg={theme().textMuted}>
-              No cross-references or margin notes
-            </text>
-          }
+          fallback={<text fg={theme().textMuted}>No cross-references or margin notes</text>}
         >
           {/* Margin Notes Section */}
           <Show when={hasMarginNotes()}>
-            <box
-              flexDirection="column"
-              marginBottom={1}
-            >
-              <text
-                fg={theme().textMuted}
-                marginBottom={0}
-              >
+            <box flexDirection="column" marginBottom={1}>
+              <text fg={theme().textMuted} marginBottom={0}>
                 <strong>Margin Notes</strong>
               </text>
               <For each={marginNotes()}>
                 {(note, index) => (
-                  <text
-                    fg={theme().text}
-                    wrapMode="word"
-                  >
+                  <text fg={theme().text} wrapMode="word">
                     <span style={{ fg: theme().accent }}>{index() + 1}.</span>{' '}
-                    <span style={{ fg: theme().accentMuted }}>
-                      {formatNoteType(note.type)}
-                    </span>
+                    <span style={{ fg: theme().accentMuted }}>{formatNoteType(note.type)}</span>
                     {formatNoteType(note.type) ? ' ' : ''}
                     {note.text}
                   </text>
@@ -297,14 +252,11 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
           {/* Cross-References Section */}
           <Show when={hasCrossRefs()}>
             <box flexDirection="column">
-              <text
-                fg={theme().textMuted}
-                marginBottom={0}
-              >
+              <text fg={theme().textMuted} marginBottom={0}>
                 <strong>Cross-References</strong>
               </text>
               <scrollbox
-                ref={scrollRef}
+                ref={(el) => (scrollRef = el)}
                 focused={false}
                 style={{
                   height: hasMarginNotes() ? 6 : 10,
@@ -345,11 +297,7 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
                             fg: isSelected() ? theme().accent : theme().text,
                           }}
                         >
-                          {isSelected() ? (
-                            <strong>{paddedRef}</strong>
-                          ) : (
-                            paddedRef
-                          )}
+                          {isSelected() ? <strong>{paddedRef}</strong> : paddedRef}
                         </span>
                         {item.preview}
                       </text>
@@ -366,20 +314,14 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
       <Show when={currentPage() === 'commentary'}>
         <Show
           when={!commentaryLoading()}
-          fallback={
-            <text fg={theme().textMuted}>Loading EGW Commentary...</text>
-          }
+          fallback={<text fg={theme().textMuted}>Loading EGW Commentary...</text>}
         >
           <Show
             when={hasCommentary()}
-            fallback={
-              <text fg={theme().textMuted}>
-                No EGW commentary found for this verse
-              </text>
-            }
+            fallback={<text fg={theme().textMuted}>No EGW commentary found for this verse</text>}
           >
             <scrollbox
-              ref={commentaryScrollRef}
+              ref={(el) => (commentaryScrollRef = el)}
               focused={false}
               style={{
                 height: 12,
@@ -406,32 +348,20 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
             >
               <For each={commentary()}>
                 {(entry, index) => {
-                  const isSelected = () =>
-                    index() === selectedCommentaryIndex();
+                  const isSelected = () => index() === selectedCommentaryIndex();
                   return (
                     <box
                       id={`commentary-${index()}`}
                       flexDirection="column"
                       marginBottom={1}
-                      backgroundColor={
-                        isSelected() ? theme().verseHighlight : undefined
-                      }
+                      backgroundColor={isSelected() ? theme().verseHighlight : undefined}
                       paddingLeft={1}
                       paddingRight={1}
                     >
-                      <text
-                        fg={isSelected() ? theme().accent : theme().textMuted}
-                      >
-                        {isSelected() ? (
-                          <strong>{entry.refcode}</strong>
-                        ) : (
-                          entry.refcode
-                        )}
+                      <text fg={isSelected() ? theme().accent : theme().textMuted}>
+                        {isSelected() ? <strong>{entry.refcode}</strong> : entry.refcode}
                       </text>
-                      <text
-                        fg={theme().text}
-                        wrapMode="word"
-                      >
+                      <text fg={theme().text} wrapMode="word">
                         {entry.content.slice(0, 200)}
                         {entry.content.length > 200 ? '...' : ''}
                       </text>

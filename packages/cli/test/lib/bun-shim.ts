@@ -63,11 +63,11 @@ const Bun = {
   get $() {
     return shell;
   },
-  file: (path: string) => ({
+  file: (_path: string) => ({
     text: () => Promise.resolve(''),
     exists: () => Promise.resolve(false),
   }),
-  write: (path: string, _data: unknown) => Promise.resolve(0),
+  write: (_path: string, _data: unknown) => Promise.resolve(0),
   env: process.env,
   version: 'mock',
 };

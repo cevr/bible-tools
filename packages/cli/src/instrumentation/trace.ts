@@ -58,11 +58,7 @@ export function trace(label: string, metadata?: Record<string, unknown>): void {
 /**
  * Time a synchronous operation
  */
-export function traceSync<T>(
-  label: string,
-  fn: () => T,
-  metadata?: Record<string, unknown>,
-): T {
+export function traceSync<T>(label: string, fn: () => T, metadata?: Record<string, unknown>): T {
   if (!ENABLED) return fn();
 
   const startMs = elapsed();
@@ -130,10 +126,7 @@ export async function traceAsync<T>(
 /**
  * Create a trace span that can be ended later
  */
-export function startSpan(
-  label: string,
-  metadata?: Record<string, unknown>,
-): () => void {
+export function startSpan(label: string, metadata?: Record<string, unknown>): () => void {
   if (!ENABLED) return () => {};
 
   const startMs = elapsed();
@@ -166,14 +159,13 @@ export function printSummary(): void {
   // Find slowest operations (with duration)
   const withDuration = entries.filter((e) => e.durationMs !== undefined);
   if (withDuration.length > 0) {
-    const sorted = [...withDuration].sort(
-      (a, b) => (b.durationMs ?? 0) - (a.durationMs ?? 0),
-    );
+    const sorted = [...withDuration].sort((a, b) => (b.durationMs ?? 0) - (a.durationMs ?? 0));
     const top10 = sorted.slice(0, 10);
 
     console.error('Slowest operations:');
     for (const entry of top10) {
-      console.error(`  ${entry.durationMs!.toFixed(2)}ms - ${entry.label}`);
+      const durationMs = entry.durationMs ?? 0;
+      console.error(`  ${durationMs.toFixed(2)}ms - ${entry.label}`);
     }
     console.error('');
   }
@@ -184,13 +176,8 @@ export function printSummary(): void {
   for (const entry of entries) {
     const gap = entry.timestampMs - lastTs;
     const gapStr = gap > 1 ? ` (+${gap.toFixed(0)}ms)` : '';
-    const durStr =
-      entry.durationMs !== undefined
-        ? ` [${entry.durationMs.toFixed(2)}ms]`
-        : '';
-    console.error(
-      `  ${entry.timestampMs.toFixed(2)}ms${gapStr} - ${entry.label}${durStr}`,
-    );
+    const durStr = entry.durationMs !== undefined ? ` [${entry.durationMs.toFixed(2)}ms]` : '';
+    console.error(`  ${entry.timestampMs.toFixed(2)}ms${gapStr} - ${entry.label}${durStr}`);
     lastTs = entry.timestampMs + (entry.durationMs ?? 0);
   }
 

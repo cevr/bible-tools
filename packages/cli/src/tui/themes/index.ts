@@ -260,6 +260,7 @@ async function queryTerminalBackground(): Promise<'dark' | 'light' | null> {
     const handler = (data: Buffer) => {
       const str = data.toString();
       // Match OSC 11 (background color) response: \x1b]11;rgb:RRRR/GGGG/BBBB\x07
+      // eslint-disable-next-line no-control-regex -- Terminal escape sequences require control characters
       const bgMatch = str.match(/\x1b\]11;(?:rgb:)?([^\x07\x1b]+)/);
       if (bgMatch) {
         const colorStr = bgMatch[1];

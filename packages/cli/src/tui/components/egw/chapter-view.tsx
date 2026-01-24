@@ -16,10 +16,9 @@ import { EGWParagraphView } from './paragraph.js';
 
 export function EGWChapterView() {
   const { theme } = useTheme();
-  const { loadingState, currentChapter, selectedIndexInChapter, currentBook } =
-    useEGWNavigation();
+  const { loadingState, currentChapter, selectedIndexInChapter, currentBook } = useEGWNavigation();
 
-  let scrollRef: ScrollBoxRenderable | undefined;
+  let scrollRef: ScrollBoxRenderable | undefined = undefined;
 
   // Sync scroll to selected paragraph within chapter
   useScrollSync(() => `para-${selectedIndexInChapter()}`, {
@@ -30,11 +29,7 @@ export function EGWChapterView() {
     <Show
       when={loadingState()._tag === 'loaded' && currentChapter()}
       fallback={
-        <box
-          flexGrow={1}
-          alignItems="center"
-          justifyContent="center"
-        >
+        <box flexGrow={1} alignItems="center" justifyContent="center">
           <Show
             when={loadingState()._tag === 'loading'}
             fallback={
@@ -42,9 +37,7 @@ export function EGWChapterView() {
                 when={loadingState()._tag === 'error'}
                 fallback={
                   <text fg={theme().textMuted}>
-                    {currentBook()
-                      ? 'No paragraphs found'
-                      : 'Select a book to begin reading'}
+                    {currentBook() ? 'No paragraphs found' : 'Select a book to begin reading'}
                   </text>
                 }
               >
@@ -69,7 +62,7 @@ export function EGWChapterView() {
       }
     >
       <scrollbox
-        ref={scrollRef}
+        ref={(el) => (scrollRef = el)}
         focused={false}
         style={{
           flexGrow: 1,

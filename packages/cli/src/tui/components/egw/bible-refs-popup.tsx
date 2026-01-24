@@ -5,10 +5,7 @@
  * Navigate with j/k or up/down, select with Enter to navigate to Bible verse, close with Escape.
  */
 
-import {
-  extractBibleReferences,
-  formatBibleReference,
-} from '@bible/core/bible-reader';
+import { extractBibleReferences, formatBibleReference } from '@bible/core/bible-reader';
 import type { EGWParagraph } from '@bible/core/egw-reader';
 import type { ScrollBoxRenderable } from '@opentui/core';
 import { createMemo, createSignal, For, Show } from 'solid-js';
@@ -47,7 +44,7 @@ export function EGWBibleRefsPopup(props: EGWBibleRefsPopupProps) {
   const { theme } = useTheme();
   const data = useBibleData();
   const [selectedIndex, setSelectedIndex] = createSignal(0);
-  let scrollRef: ScrollBoxRenderable | undefined;
+  let scrollRef: ScrollBoxRenderable | undefined = undefined;
 
   // Extract Bible references from paragraph content
   const references = createMemo(() => {
@@ -121,8 +118,7 @@ export function EGWBibleRefsPopup(props: EGWBibleRefsPopupProps) {
     return false;
   });
 
-  const refcode = () =>
-    props.paragraph.refcodeShort ?? props.paragraph.refcodeLong ?? '';
+  const refcode = () => props.paragraph.refcodeShort ?? props.paragraph.refcodeLong ?? '';
   const hasRefs = () => refsWithPreviews().length > 0;
 
   return (
@@ -136,11 +132,7 @@ export function EGWBibleRefsPopup(props: EGWBibleRefsPopupProps) {
       padding={1}
     >
       {/* Header */}
-      <box
-        flexDirection="row"
-        justifyContent="space-between"
-        marginBottom={1}
-      >
+      <box flexDirection="row" justifyContent="space-between" marginBottom={1}>
         <text fg={theme().text}>
           <strong>Bible References</strong>
         </text>
@@ -150,14 +142,10 @@ export function EGWBibleRefsPopup(props: EGWBibleRefsPopupProps) {
       {/* References List */}
       <Show
         when={hasRefs()}
-        fallback={
-          <text fg={theme().textMuted}>
-            No Bible references found in this paragraph
-          </text>
-        }
+        fallback={<text fg={theme().textMuted}>No Bible references found in this paragraph</text>}
       >
         <scrollbox
-          ref={scrollRef}
+          ref={(el) => (scrollRef = el)}
           focused={false}
           style={{
             height: 10,
@@ -191,9 +179,7 @@ export function EGWBibleRefsPopup(props: EGWBibleRefsPopupProps) {
                 <box
                   id={`bibleref-${index()}`}
                   flexDirection="column"
-                  backgroundColor={
-                    isSelected() ? theme().verseHighlight : undefined
-                  }
+                  backgroundColor={isSelected() ? theme().verseHighlight : undefined}
                   paddingLeft={1}
                   paddingRight={1}
                 >
@@ -206,15 +192,9 @@ export function EGWBibleRefsPopup(props: EGWBibleRefsPopupProps) {
                     >
                       {isSelected() ? <strong>{paddedRef}</strong> : paddedRef}
                     </span>
-                    <span style={{ fg: theme().textMuted }}>
-                      ({item.extracted.text})
-                    </span>
+                    <span style={{ fg: theme().textMuted }}>({item.extracted.text})</span>
                   </text>
-                  <text
-                    fg={theme().text}
-                    paddingLeft={4}
-                    wrapMode="word"
-                  >
+                  <text fg={theme().text} paddingLeft={4} wrapMode="word">
                     {item.preview}
                   </text>
                 </box>

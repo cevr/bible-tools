@@ -15,7 +15,8 @@
 import { FileSystem, Path } from '@effect/platform';
 import type { PlatformError } from '@effect/platform/Error';
 import { Database } from 'bun:sqlite';
-import { Config, ConfigError, Context, Effect, Layer, Option, Schema } from 'effect';
+import type { ConfigError } from 'effect';
+import { Config, Context, Effect, Layer, Option, Schema } from 'effect';
 
 import {
   DatabaseConnectionError,
@@ -45,10 +46,7 @@ export type BibleDatabaseQueryError = DatabaseQueryError;
 export const BibleDatabaseNotFoundError = RecordNotFoundError;
 export type BibleDatabaseNotFoundError = RecordNotFoundError;
 
-export type BibleDatabaseError =
-  | DatabaseConnectionError
-  | DatabaseQueryError
-  | RecordNotFoundError;
+export type BibleDatabaseError = DatabaseConnectionError | DatabaseQueryError | RecordNotFoundError;
 
 // Re-export for direct usage
 export {
@@ -217,10 +215,7 @@ export interface VerseSearchResult {
  */
 export interface BibleDatabaseService {
   // Book operations
-  readonly getBooks: () => Effect.Effect<
-    readonly BibleBook[],
-    BibleDatabaseError
-  >;
+  readonly getBooks: () => Effect.Effect<readonly BibleBook[], BibleDatabaseError>;
   readonly getBook: (
     bookNum: number,
   ) => Effect.Effect<Option.Option<BibleBook>, BibleDatabaseError>;
@@ -261,9 +256,7 @@ export interface BibleDatabaseService {
   readonly getVersesWithStrongs: (
     strongsNumber: string,
   ) => Effect.Effect<readonly ConcordanceResult[], BibleDatabaseError>;
-  readonly getStrongsCount: (
-    strongsNumber: string,
-  ) => Effect.Effect<number, BibleDatabaseError>;
+  readonly getStrongsCount: (strongsNumber: string) => Effect.Effect<number, BibleDatabaseError>;
 
   // Verse word operations
   readonly getVerseWords: (
@@ -311,9 +304,7 @@ export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
       // Priority: env var > repo path
       const repoDbPath = path.resolve(import.meta.dir, '../../data/bible.db');
 
-      const dbPath = yield* Config.string('BIBLE_DB_PATH').pipe(
-        Config.withDefault(repoDbPath),
-      );
+      const dbPath = yield* Config.string('BIBLE_DB_PATH').pipe(Config.withDefault(repoDbPath));
 
       // Check if database exists
       const exists = yield* fs.exists(dbPath);
@@ -347,9 +338,7 @@ export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
       const getBooks = (): Effect.Effect<readonly BibleBook[], BibleDatabaseError> =>
         Effect.try({
           try: () => {
-            const rows = db
-              .query<BookRow, []>('SELECT * FROM books ORDER BY number')
-              .all();
+            const rows = db.query<BookRow, []>('SELECT * FROM books ORDER BY number').all();
             return rows.map((r) => ({
               number: r.number,
               name: r.name,
@@ -358,8 +347,7 @@ export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
               chapters: r.chapters,
             }));
           },
-          catch: (error) =>
-            new DatabaseQueryError({ operation: 'getBooks', cause: error }),
+          catch: (error) => new DatabaseQueryError({ operation: 'getBooks', cause: error }),
         });
 
       const getBook = (
@@ -380,8 +368,7 @@ export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
                 })
               : Option.none();
           },
-          catch: (error) =>
-            new DatabaseQueryError({ operation: 'getBook', cause: error }),
+          catch: (error) => new DatabaseQueryError({ operation: 'getBook', cause: error }),
         });
 
       // ========================================================================
@@ -410,8 +397,7 @@ export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
               versionCode: r.version_code,
             }));
           },
-          catch: (error) =>
-            new DatabaseQueryError({ operation: 'getChapter', cause: error }),
+          catch: (error) => new DatabaseQueryError({ operation: 'getChapter', cause: error }),
         });
 
       const getVerse = (
@@ -438,8 +424,7 @@ export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
                 })
               : Option.none();
           },
-          catch: (error) =>
-            new DatabaseQueryError({ operation: 'getVerse', cause: error }),
+          catch: (error) => new DatabaseQueryError({ operation: 'getVerse', cause: error }),
         });
 
       const searchVerses = (
@@ -521,9 +506,7 @@ export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
         Effect.try({
           try: () => {
             const row = db
-              .query<StrongsRow, [string]>(
-                'SELECT * FROM strongs WHERE number = ?',
-              )
+              .query<StrongsRow, [string]>('SELECT * FROM strongs WHERE number = ?')
               .get(number.toUpperCase());
 
             return row
@@ -609,9 +592,7 @@ export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
             }),
         });
 
-      const getStrongsCount = (
-        strongsNumber: string,
-      ): Effect.Effect<number, BibleDatabaseError> =>
+      const getStrongsCount = (strongsNumber: string): Effect.Effect<number, BibleDatabaseError> =>
         Effect.try({
           try: () => {
             const row = db
@@ -765,30 +746,27 @@ export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
    * Test implementation with configurable mock data.
    * Useful for unit testing without a real database.
    */
-  static Test = (config: {
-    books?: readonly BibleBook[];
-    verses?: readonly BibleVerse[];
-    crossRefs?: readonly CrossReference[];
-    strongsEntries?: readonly StrongsEntry[];
-  } = {}): Layer.Layer<BibleDatabase> =>
+  static Test = (
+    config: {
+      books?: readonly BibleBook[];
+      verses?: readonly BibleVerse[];
+      crossRefs?: readonly CrossReference[];
+      strongsEntries?: readonly StrongsEntry[];
+    } = {},
+  ): Layer.Layer<BibleDatabase> =>
     Layer.succeed(BibleDatabase, {
       getBooks: () => Effect.succeed(config.books ?? []),
       getBook: (bookNum) =>
-        Effect.succeed(
-          Option.fromNullable(config.books?.find((b) => b.number === bookNum)),
-        ),
+        Effect.succeed(Option.fromNullable(config.books?.find((b) => b.number === bookNum))),
       getChapter: (book, chapter, _versionCode) =>
         Effect.succeed(
-          config.verses?.filter(
-            (v) => v.book === book && v.chapter === chapter,
-          ) ?? [],
+          config.verses?.filter((v) => v.book === book && v.chapter === chapter) ?? [],
         ),
       getVerse: (book, chapter, verse, _versionCode) =>
         Effect.succeed(
           Option.fromNullable(
             config.verses?.find(
-              (v) =>
-                v.book === book && v.chapter === chapter && v.verse === verse,
+              (v) => v.book === book && v.chapter === chapter && v.verse === verse,
             ),
           ),
         ),
@@ -801,9 +779,7 @@ export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
         ),
       getStrongsEntry: (number) =>
         Effect.succeed(
-          Option.fromNullable(
-            config.strongsEntries?.find((e) => e.number === number),
-          ),
+          Option.fromNullable(config.strongsEntries?.find((e) => e.number === number)),
         ),
       searchStrongs: (_query, _limit) => Effect.succeed([]),
       getVersesWithStrongs: (_strongsNumber) => Effect.succeed([]),

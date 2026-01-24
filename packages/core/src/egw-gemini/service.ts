@@ -12,24 +12,19 @@ import { EGWParagraphDatabase } from '../egw-db/index.js';
 import type { ParagraphDatabaseError } from '../egw-db/index.js';
 import { EGWApiClient } from '../egw/client.js';
 import type { EGWApiClientError } from '../egw/client.js';
-import * as EGWSchemas from '../egw/schemas.js';
-import {
-  GeminiFileSearchClient,
-  GeminiFileSearchError,
-} from '../gemini/client.js';
-import * as GeminiSchemas from '../gemini/schemas.js';
+import type * as EGWSchemas from '../egw/schemas.js';
+import type { GeminiFileSearchError } from '../gemini/client.js';
+import { GeminiFileSearchClient } from '../gemini/client.js';
+import type * as GeminiSchemas from '../gemini/schemas.js';
 import { EGWUploadStatus } from './upload-status.js';
 
 /**
  * EGW-Gemini Service Errors
  */
-export class EGWGeminiError extends Schema.TaggedError<EGWGeminiError>()(
-  'EGWGeminiError',
-  {
-    cause: Schema.Unknown,
-    message: Schema.String,
-  },
-) {}
+export class EGWGeminiError extends Schema.TaggedError<EGWGeminiError>()('EGWGeminiError', {
+  cause: Schema.Unknown,
+  message: Schema.String,
+}) {}
 
 /**
  * Upload Book Options
@@ -38,9 +33,7 @@ export interface UploadBookOptions {
   readonly storeDisplayName: string;
   readonly book: EGWSchemas.Book;
   readonly toc: readonly EGWSchemas.TocItem[];
-  readonly customMetadata?:
-    | GeminiSchemas.SimpleMetadata
-    | GeminiSchemas.CustomMetadata[];
+  readonly customMetadata?: GeminiSchemas.SimpleMetadata | GeminiSchemas.CustomMetadata[];
 }
 
 /**
@@ -92,13 +85,8 @@ export interface EGWGeminiServiceShape {
   >;
   readonly getOrCreateStore: (
     displayName: string,
-  ) => Effect.Effect<
-    GeminiSchemas.FileSearchStore,
-    EGWGeminiError | GeminiFileSearchError
-  >;
-  readonly uploadAllEGWWritings: (
-    options: UploadAllEGWWritingsOptions,
-  ) => Effect.Effect<
+  ) => Effect.Effect<GeminiSchemas.FileSearchStore, EGWGeminiError | GeminiFileSearchError>;
+  readonly uploadAllEGWWritings: (options: UploadAllEGWWritingsOptions) => Effect.Effect<
     {
       store: GeminiSchemas.FileSearchStore;
       totalBooksFound: number;
@@ -145,10 +133,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
        */
       const getOrCreateStore = (
         displayName: string,
-      ): Effect.Effect<
-        GeminiSchemas.FileSearchStore,
-        EGWGeminiError | GeminiFileSearchError
-      > =>
+      ): Effect.Effect<GeminiSchemas.FileSearchStore, EGWGeminiError | GeminiFileSearchError> =>
         geminiClient.findStoreByDisplayName(displayName).pipe(
           Effect.catchTag('GeminiFileSearchError', (error) => {
             // If store not found, create it
@@ -168,9 +153,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
           const store = yield* getOrCreateStore(options.storeDisplayName);
 
           // Get book information from API (paragraph database doesn't store full book info)
-          yield* Effect.log(
-            `Uploading book: ${options.book.title} (ID: ${options.book.book_id})`,
-          );
+          yield* Effect.log(`Uploading book: ${options.book.title} (ID: ${options.book.book_id})`);
 
           // Filter out TOC items without a valid identifier for the chapter endpoint
           // Prefer para_id (paragraph ID) when available, fall back to puborder
@@ -253,8 +236,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
 
                   // Create content from paragraph
                   // Handle nullable fields: refcode_short, refcode_long, and content
-                  const paraRefcode =
-                    paragraph.refcode_short ?? paragraph.refcode_long ?? null;
+                  const paraRefcode = paragraph.refcode_short ?? paragraph.refcode_long ?? null;
                   const paragraphContent = paragraph.content ?? '';
                   const content = paraRefcode
                     ? `${paraRefcode}\n${paragraphContent}`
@@ -276,9 +258,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
                       refcode_long: paragraph.refcode_long,
                     }),
                     // Merge any additional custom metadata
-                    ...(options.customMetadata as
-                      | GeminiSchemas.SimpleMetadata
-                      | undefined),
+                    ...(options.customMetadata as GeminiSchemas.SimpleMetadata | undefined),
                   };
 
                   // Create a temporary file (automatically cleaned up when scope closes)
@@ -319,9 +299,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
                               options.storeDisplayName,
                               refcode,
                               options.book.book_id,
-                              error instanceof Error
-                                ? error.message
-                                : String(error),
+                              error instanceof Error ? error.message : String(error),
                             )
                             .pipe(Effect.ignore);
                           return yield* Effect.fail(error);
@@ -373,9 +351,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
       const queryStore = (options: QueryOptions) =>
         Effect.gen(function* () {
           // Find the store
-          const store = yield* geminiClient.findStoreByDisplayName(
-            options.storeDisplayName,
-          );
+          const store = yield* geminiClient.findStoreByDisplayName(options.storeDisplayName);
           if (!store) {
             return yield* Effect.fail(
               new EGWGeminiError({
@@ -420,9 +396,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
           const store = yield* getOrCreateStore(options.storeDisplayName);
           const egwAuthorName = options.egwAuthorName || 'Ellen Gould White';
 
-          yield* Effect.log(
-            `Starting bulk upload of EGW writings to store: ${store.displayName}`,
-          );
+          yield* Effect.log(`Starting bulk upload of EGW writings to store: ${store.displayName}`);
 
           const languageCode = options.languageCode || 'en';
           // Track total books found for the return value (count as we process)
@@ -430,10 +404,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
 
           // If folderId is provided, get books directly from API filtered by folder and author
           // Otherwise, get books from database
-          let booksStream: Stream.Stream<
-            number,
-            EGWApiClientError | ParagraphDatabaseError
-          >;
+          let booksStream: Stream.Stream<number, EGWApiClientError | ParagraphDatabaseError>;
 
           if (options.folderId !== undefined) {
             yield* Effect.log(
@@ -441,18 +412,14 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
             );
 
             // Get books from API filtered by folder and author - keep as stream
-            booksStream = egwClient
-              .getBooks({ lang: languageCode, folder: options.folderId })
-              .pipe(
-                Stream.filter((book) => book.author === egwAuthorName),
-                Stream.map((book) => book.book_id),
-              );
+            booksStream = egwClient.getBooks({ lang: languageCode, folder: options.folderId }).pipe(
+              Stream.filter((book) => book.author === egwAuthorName),
+              Stream.map((book) => book.book_id),
+            );
           } else {
             // Get books by author from paragraph database
             // The database stores paragraphs, so we get distinct books from paragraphs
-            yield* Effect.log(
-              `Fetching books by author ${egwAuthorName} from paragraph database`,
-            );
+            yield* Effect.log(`Fetching books by author ${egwAuthorName} from paragraph database`);
 
             // Create a fresh stream and map to book_id
             booksStream = paragraphDb
@@ -485,10 +452,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
                   );
 
                   // If book is marked as complete, skip it
-                  if (
-                    Option.isSome(bookStatus) &&
-                    bookStatus.value.status === 'complete'
-                  ) {
+                  if (Option.isSome(bookStatus) && bookStatus.value.status === 'complete') {
                     yield* Effect.log(
                       `Skipping book ${book.title} (ID: ${book.book_id}): Already uploaded (${bookStatus.value.documentsUploaded}/${bookStatus.value.expectedDocuments} paragraphs, uploaded at ${bookStatus.value.uploadedAt})`,
                     );
@@ -496,20 +460,14 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
                   }
 
                   // If book previously failed, log and retry
-                  if (
-                    Option.isSome(bookStatus) &&
-                    bookStatus.value.status === 'failed'
-                  ) {
+                  if (Option.isSome(bookStatus) && bookStatus.value.status === 'failed') {
                     yield* Effect.log(
                       `Retrying book ${book.title} (ID: ${book.book_id}): Previous upload failed (${bookStatus.value.error || 'unknown error'})`,
                     );
                   }
 
                   // If book is in-progress, log and continue (will overwrite)
-                  if (
-                    Option.isSome(bookStatus) &&
-                    bookStatus.value.status === 'in-progress'
-                  ) {
+                  if (Option.isSome(bookStatus) && bookStatus.value.status === 'in-progress') {
                     yield* Effect.log(
                       `Resuming book ${book.title} (ID: ${book.book_id}): Previous upload was in-progress`,
                     );
@@ -548,9 +506,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
           // Get the final count of books found
           const totalBooksFound = yield* Ref.get(totalBooksFoundRef);
 
-          yield* Effect.log(
-            `Bulk upload complete: ${results.length} books uploaded successfully`,
-          );
+          yield* Effect.log(`Bulk upload complete: ${results.length} books uploaded successfully`);
 
           return {
             store,
@@ -600,8 +556,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
           response: {},
           store: { name: 'test-store', displayName: options.storeDisplayName },
         }),
-      getOrCreateStore: (displayName) =>
-        Effect.succeed({ name: 'test-store', displayName }),
+      getOrCreateStore: (displayName) => Effect.succeed({ name: 'test-store', displayName }),
       uploadAllEGWWritings: (options) =>
         Effect.succeed({
           store: { name: 'test-store', displayName: options.storeDisplayName },

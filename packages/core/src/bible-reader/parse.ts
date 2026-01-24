@@ -17,10 +17,7 @@ export interface ParseBibleQueryOptions {
    * If provided, will be used as a fallback when exact matching fails.
    * Signature: (books: BibleBook[], query: string) => BibleBook | undefined
    */
-  readonly fuzzyMatcher?: (
-    books: readonly BibleBook[],
-    query: string,
-  ) => BibleBook | undefined;
+  readonly fuzzyMatcher?: (books: readonly BibleBook[], query: string) => BibleBook | undefined;
 }
 
 /**
@@ -71,11 +68,7 @@ export const ParsedBibleQuery = {
     startVerse,
     endVerse,
   }),
-  chapterRange: (
-    book: number,
-    startChapter: number,
-    endChapter: number,
-  ): ParsedBibleQuery => ({
+  chapterRange: (book: number, startChapter: number, endChapter: number): ParsedBibleQuery => ({
     _tag: 'chapterRange',
     book,
     startChapter,
@@ -88,10 +81,7 @@ export const ParsedBibleQuery = {
 /**
  * Try to resolve a book name to a book number
  */
-function resolveBook(
-  bookPart: string,
-  options?: ParseBibleQueryOptions,
-): number | undefined {
+function resolveBook(bookPart: string, options?: ParseBibleQueryOptions): number | undefined {
   const normalized = bookPart.trim().toLowerCase();
 
   // Direct alias lookup
@@ -139,33 +129,27 @@ function resolveBook(
  * @param query - The query string to parse
  * @param options - Optional parsing options (e.g., fuzzy matcher)
  */
-export function parseBibleQuery(
-  query: string,
-  options?: ParseBibleQueryOptions,
-): ParsedBibleQuery {
+export function parseBibleQuery(query: string, options?: ParseBibleQueryOptions): ParsedBibleQuery {
   const input = query.trim();
   if (!input) return ParsedBibleQuery.search(query);
 
   // "john 3:16-18" - verse range
-  const verseRangeMatch = input.match(
-    /^(.+?)\s*(\d+)\s*:\s*(\d+)\s*-\s*(\d+)$/i,
-  );
+  const verseRangeMatch = input.match(/^(.+?)\s*(\d+)\s*:\s*(\d+)\s*-\s*(\d+)$/i);
   if (verseRangeMatch) {
-    const [, bookPart, chapterStr, startVerseStr, endVerseStr] =
-      verseRangeMatch;
-    const bookNum = resolveBook(bookPart!, options);
-    if (bookNum) {
-      const chapter = parseInt(chapterStr!, 10);
-      const startVerse = parseInt(startVerseStr!, 10);
-      const endVerse = parseInt(endVerseStr!, 10);
-      const book = getBibleBook(bookNum);
-      if (book && chapter >= 1 && chapter <= book.chapters) {
-        return ParsedBibleQuery.verseRange(
-          bookNum,
-          chapter,
-          startVerse,
-          endVerse,
-        );
+    const bookPart = verseRangeMatch[1];
+    const chapterStr = verseRangeMatch[2];
+    const startVerseStr = verseRangeMatch[3];
+    const endVerseStr = verseRangeMatch[4];
+    if (bookPart && chapterStr && startVerseStr && endVerseStr) {
+      const bookNum = resolveBook(bookPart, options);
+      if (bookNum) {
+        const chapter = parseInt(chapterStr, 10);
+        const startVerse = parseInt(startVerseStr, 10);
+        const endVerse = parseInt(endVerseStr, 10);
+        const book = getBibleBook(bookNum);
+        if (book && chapter >= 1 && chapter <= book.chapters) {
+          return ParsedBibleQuery.verseRange(bookNum, chapter, startVerse, endVerse);
+        }
       }
     }
   }
@@ -173,14 +157,18 @@ export function parseBibleQuery(
   // "john 3-5" - chapter range
   const chapterRangeMatch = input.match(/^(.+?)\s*(\d+)\s*-\s*(\d+)$/i);
   if (chapterRangeMatch) {
-    const [, bookPart, startChapterStr, endChapterStr] = chapterRangeMatch;
-    const bookNum = resolveBook(bookPart!, options);
-    if (bookNum) {
-      const startChapter = parseInt(startChapterStr!, 10);
-      const endChapter = parseInt(endChapterStr!, 10);
-      const book = getBibleBook(bookNum);
-      if (book && startChapter >= 1 && endChapter <= book.chapters) {
-        return ParsedBibleQuery.chapterRange(bookNum, startChapter, endChapter);
+    const bookPart = chapterRangeMatch[1];
+    const startChapterStr = chapterRangeMatch[2];
+    const endChapterStr = chapterRangeMatch[3];
+    if (bookPart && startChapterStr && endChapterStr) {
+      const bookNum = resolveBook(bookPart, options);
+      if (bookNum) {
+        const startChapter = parseInt(startChapterStr, 10);
+        const endChapter = parseInt(endChapterStr, 10);
+        const book = getBibleBook(bookNum);
+        if (book && startChapter >= 1 && endChapter <= book.chapters) {
+          return ParsedBibleQuery.chapterRange(bookNum, startChapter, endChapter);
+        }
       }
     }
   }
@@ -188,14 +176,18 @@ export function parseBibleQuery(
   // "john 3:16" - single verse
   const singleVerseMatch = input.match(/^(.+?)\s*(\d+)\s*:\s*(\d+)$/i);
   if (singleVerseMatch) {
-    const [, bookPart, chapterStr, verseStr] = singleVerseMatch;
-    const bookNum = resolveBook(bookPart!, options);
-    if (bookNum) {
-      const chapter = parseInt(chapterStr!, 10);
-      const verse = parseInt(verseStr!, 10);
-      const book = getBibleBook(bookNum);
-      if (book && chapter >= 1 && chapter <= book.chapters) {
-        return ParsedBibleQuery.single({ book: bookNum, chapter, verse });
+    const bookPart = singleVerseMatch[1];
+    const chapterStr = singleVerseMatch[2];
+    const verseStr = singleVerseMatch[3];
+    if (bookPart && chapterStr && verseStr) {
+      const bookNum = resolveBook(bookPart, options);
+      if (bookNum) {
+        const chapter = parseInt(chapterStr, 10);
+        const verse = parseInt(verseStr, 10);
+        const book = getBibleBook(bookNum);
+        if (book && chapter >= 1 && chapter <= book.chapters) {
+          return ParsedBibleQuery.single({ book: bookNum, chapter, verse });
+        }
       }
     }
   }
@@ -203,13 +195,16 @@ export function parseBibleQuery(
   // "john 3" - single chapter
   const singleChapterMatch = input.match(/^(.+?)\s*(\d+)$/i);
   if (singleChapterMatch) {
-    const [, bookPart, chapterStr] = singleChapterMatch;
-    const bookNum = resolveBook(bookPart!, options);
-    if (bookNum) {
-      const chapter = parseInt(chapterStr!, 10);
-      const book = getBibleBook(bookNum);
-      if (book && chapter >= 1 && chapter <= book.chapters) {
-        return ParsedBibleQuery.chapter(bookNum, chapter);
+    const bookPart = singleChapterMatch[1];
+    const chapterStr = singleChapterMatch[2];
+    if (bookPart && chapterStr) {
+      const bookNum = resolveBook(bookPart, options);
+      if (bookNum) {
+        const chapter = parseInt(chapterStr, 10);
+        const book = getBibleBook(bookNum);
+        if (book && chapter >= 1 && chapter <= book.chapters) {
+          return ParsedBibleQuery.chapter(bookNum, chapter);
+        }
       }
     }
   }
@@ -217,9 +212,12 @@ export function parseBibleQuery(
   // "ruth" - full book (just a book name with no numbers)
   const bookOnlyMatch = input.match(/^([a-z\s]+)$/i);
   if (bookOnlyMatch) {
-    const bookNum = resolveBook(bookOnlyMatch[1]!, options);
-    if (bookNum) {
-      return ParsedBibleQuery.fullBook(bookNum);
+    const bookPart = bookOnlyMatch[1];
+    if (bookPart) {
+      const bookNum = resolveBook(bookPart, options);
+      if (bookNum) {
+        return ParsedBibleQuery.fullBook(bookNum);
+      }
     }
   }
 
@@ -302,10 +300,18 @@ export function extractBibleReferences(text: string): ExtractedReference[] {
   CANDIDATE_PATTERN.lastIndex = 0;
 
   for (const match of text.matchAll(CANDIDATE_PATTERN)) {
-    const [fullMatch, bookPart, chapterStr, verseStr] = match;
+    const fullMatch = match[0];
+    const bookPart = match[1];
+    const chapterStr = match[2];
+    const verseStr = match[3];
+    const matchIndex = match.index;
+
+    if (!fullMatch || !bookPart || !chapterStr || !verseStr || matchIndex === undefined) {
+      continue;
+    }
 
     // Normalize and look up book name
-    const normalized = normalizeBookName(bookPart!);
+    const normalized = normalizeBookName(bookPart);
 
     // Try direct lookup first (O(1))
     let bookNum = BIBLE_BOOK_ALIASES[normalized];
@@ -325,16 +331,16 @@ export function extractBibleReferences(text: string): ExtractedReference[] {
 
     if (!bookNum) continue;
 
-    const chapter = parseInt(chapterStr!, 10);
-    const verse = parseInt(verseStr!, 10);
+    const chapter = parseInt(chapterStr, 10);
+    const verse = parseInt(verseStr, 10);
     const book = getBibleBook(bookNum);
 
     if (!book || chapter < 1 || chapter > book.chapters) continue;
 
     results.push({
-      text: fullMatch!,
-      start: match.index!,
-      end: match.index! + fullMatch!.length,
+      text: fullMatch,
+      start: matchIndex,
+      end: matchIndex + fullMatch.length,
       ref: { book: bookNum, chapter, verse },
     });
   }

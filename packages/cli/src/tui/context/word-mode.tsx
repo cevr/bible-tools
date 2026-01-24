@@ -55,27 +55,22 @@ export function WordModeProvider(props: ParentProps) {
   const isActive = createMemo(() => state()._tag === 'active');
 
   // Helper to check if a word has Strong's numbers
-  const hasStrongs = (word: WordWithStrongs) =>
-    word.strongs && word.strongs.length > 0;
+  const hasStrongs = (word: WordWithStrongs) => word.strongs && word.strongs.length > 0;
 
   // Find next word index with Strong's (or -1 if none)
-  const findNextWithStrongs = (
-    words: WordWithStrongs[],
-    fromIndex: number,
-  ): number => {
+  const findNextWithStrongs = (words: WordWithStrongs[], fromIndex: number): number => {
     for (let i = fromIndex + 1; i < words.length; i++) {
-      if (hasStrongs(words[i]!)) return i;
+      const word = words[i];
+      if (word && hasStrongs(word)) return i;
     }
     return -1;
   };
 
   // Find previous word index with Strong's (or -1 if none)
-  const findPrevWithStrongs = (
-    words: WordWithStrongs[],
-    fromIndex: number,
-  ): number => {
+  const findPrevWithStrongs = (words: WordWithStrongs[], fromIndex: number): number => {
     for (let i = fromIndex - 1; i >= 0; i--) {
-      if (hasStrongs(words[i]!)) return i;
+      const word = words[i];
+      if (word && hasStrongs(word)) return i;
     }
     return -1;
   };
@@ -83,7 +78,8 @@ export function WordModeProvider(props: ParentProps) {
   // Find first word index with Strong's
   const findFirstWithStrongs = (words: WordWithStrongs[]): number => {
     for (let i = 0; i < words.length; i++) {
-      if (hasStrongs(words[i]!)) return i;
+      const word = words[i];
+      if (word && hasStrongs(word)) return i;
     }
     return -1;
   };
@@ -173,11 +169,7 @@ export function WordModeProvider(props: ParentProps) {
     totalWords,
   };
 
-  return (
-    <WordModeContext.Provider value={value}>
-      {props.children}
-    </WordModeContext.Provider>
-  );
+  return <WordModeContext.Provider value={value}>{props.children}</WordModeContext.Provider>;
 }
 
 export function useWordMode(): WordModeContextValue {

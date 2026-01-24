@@ -21,16 +21,19 @@
   },
   "scripts": {
     "build": "bun --filter '*' build",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "typecheck": "bun --filter '*' typecheck"
+    "typecheck": "bun --filter '*' typecheck",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "test": "bun --filter '*' test",
+    "prepare": "lefthook install"
   },
   "devDependencies": {
-    "@cvr/config": "^0.5.2",
     "@effect/language-service": "^0.64.1",
-    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
-    "prettier": "^3.7.4",
-    "prettier-plugin-tailwindcss": "^0.7.2",
+    "lefthook": "^2.0.15",
+    "oxfmt": "^0.26.0",
+    "oxlint": "^1.41.0",
     "typescript": "^5.9.3"
-  },
-  "prettier": "@cvr/config/prettier"
+  }
 }

@@ -28,11 +28,7 @@ const matches = (actual: unknown, expected: unknown): boolean => {
   if (expected === undefined) return true;
 
   // Handle asymmetric matchers (Jest/Vitest style)
-  if (
-    expected !== null &&
-    typeof expected === 'object' &&
-    'asymmetricMatch' in expected
-  ) {
+  if (expected !== null && typeof expected === 'object' && 'asymmetricMatch' in expected) {
     return (expected as { asymmetricMatch: (v: unknown) => boolean }).asymmetricMatch(actual);
   }
 
@@ -42,10 +38,7 @@ const matches = (actual: unknown, expected: unknown): boolean => {
 /**
  * Check if an actual call matches an expected pattern.
  */
-const callMatches = (
-  actual: ServiceCall,
-  expected: Partial<ServiceCall>,
-): boolean => {
+const callMatches = (actual: ServiceCall, expected: Partial<ServiceCall>): boolean => {
   if (actual._tag !== expected._tag) return false;
 
   for (const [key, value] of Object.entries(expected)) {
@@ -78,8 +71,9 @@ export const assertSequence = (
     let found = false;
 
     while (actualIndex < actual.length) {
-      const actualCall = actual[actualIndex]!;
+      const actualCall = actual[actualIndex];
       actualIndex++;
+      if (!actualCall) continue;
 
       if (callMatches(actualCall, expectedCall)) {
         found = true;
@@ -121,8 +115,7 @@ export const assertContains = (
           : `All calls: ${JSON.stringify(actual.map((c) => c._tag))}`;
 
       throw new AssertionError(
-        `Expected call ${JSON.stringify(expectedCall)} not found in calls.\n` +
-          actualSummary,
+        `Expected call ${JSON.stringify(expectedCall)} not found in calls.\n` + actualSummary,
       );
     }
   }
@@ -136,16 +129,10 @@ export const assertContains = (
  * @param count Expected count
  * @throws AssertionError if count doesn't match
  */
-export const assertCallCount = (
-  calls: ServiceCall[],
-  tag: string,
-  count: number,
-): void => {
+export const assertCallCount = (calls: ServiceCall[], tag: string, count: number): void => {
   const actual = calls.filter((c) => c._tag === tag).length;
   if (actual !== count) {
-    throw new AssertionError(
-      `Expected ${count} calls of type "${tag}", but found ${actual}`,
-    );
+    throw new AssertionError(`Expected ${count} calls of type "${tag}", but found ${actual}`);
   }
 };
 
@@ -167,8 +154,7 @@ export const assertNoCalls = (calls: ServiceCall[], tag: string): void => {
 export const getCallsOfType = <T extends string>(
   calls: ServiceCall[],
   tag: T,
-): Array<ServiceCall<T>> =>
-  calls.filter((c): c is ServiceCall<T> => c._tag === tag);
+): Array<ServiceCall<T>> => calls.filter((c): c is ServiceCall<T> => c._tag === tag);
 
 /**
  * Get the first call of a specific type, or undefined if none.
@@ -176,8 +162,7 @@ export const getCallsOfType = <T extends string>(
 export const getFirstCall = <T extends string>(
   calls: ServiceCall[],
   tag: T,
-): ServiceCall<T> | undefined =>
-  calls.find((c): c is ServiceCall<T> => c._tag === tag);
+): ServiceCall<T> | undefined => calls.find((c): c is ServiceCall<T> => c._tag === tag);
 
 /**
  * Get the last call of a specific type, or undefined if none.

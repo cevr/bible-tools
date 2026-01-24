@@ -7,10 +7,7 @@
 
 import { Context, Effect, Layer, Option, Schema, Stream } from 'effect';
 
-import {
-  EGWParagraphDatabase,
-  type ParagraphDatabaseError,
-} from '../egw-db/book-database.js';
+import { EGWParagraphDatabase, type ParagraphDatabaseError } from '../egw-db/book-database.js';
 
 // ============================================================================
 // Types
@@ -51,9 +48,7 @@ export class EGWChapter extends Schema.Class<EGWChapter>('EGWChapter')({
 /**
  * EGW Page response
  */
-export class EGWPageResponse extends Schema.Class<EGWPageResponse>(
-  'EGWPageResponse',
-)({
+export class EGWPageResponse extends Schema.Class<EGWPageResponse>('EGWPageResponse')({
   book: EGWBook,
   page: Schema.Number,
   paragraphs: Schema.Array(EGWParagraph),
@@ -66,9 +61,7 @@ export class EGWPageResponse extends Schema.Class<EGWPageResponse>(
 /**
  * EGW Search result
  */
-export class EGWSearchResult extends Schema.Class<EGWSearchResult>(
-  'EGWSearchResult',
-)({
+export class EGWSearchResult extends Schema.Class<EGWSearchResult>('EGWSearchResult')({
   paraId: Schema.NullOr(Schema.String),
   refcodeShort: Schema.NullOr(Schema.String),
   content: Schema.NullOr(Schema.String),
@@ -85,10 +78,7 @@ export class EGWSearchResult extends Schema.Class<EGWSearchResult>(
  * EGW service interface
  */
 export interface EGWServiceShape {
-  readonly getBooks: () => Effect.Effect<
-    readonly EGWBook[],
-    ParagraphDatabaseError
-  >;
+  readonly getBooks: () => Effect.Effect<readonly EGWBook[], ParagraphDatabaseError>;
   readonly getBook: (
     bookCode: string,
   ) => Effect.Effect<Option.Option<EGWBook>, ParagraphDatabaseError>;
@@ -117,11 +107,7 @@ export class EGWService extends Context.Tag('@bible/core/EGWService')<
   /**
    * Live implementation using EGWParagraphDatabase
    */
-  static Live: Layer.Layer<
-    EGWService,
-    ParagraphDatabaseError,
-    EGWParagraphDatabase
-  > = Layer.effect(
+  static Live: Layer.Layer<EGWService, ParagraphDatabaseError, EGWParagraphDatabase> = Layer.effect(
     EGWService,
     Effect.gen(function* () {
       const db = yield* EGWParagraphDatabase;
@@ -129,10 +115,7 @@ export class EGWService extends Context.Tag('@bible/core/EGWService')<
       // Default author for EGW writings
       const EGW_AUTHOR = 'Ellen G. White';
 
-      const getBooks = (): Effect.Effect<
-        readonly EGWBook[],
-        ParagraphDatabaseError
-      > =>
+      const getBooks = (): Effect.Effect<readonly EGWBook[], ParagraphDatabaseError> =>
         Stream.runCollect(db.getBooksByAuthor(EGW_AUTHOR)).pipe(
           Effect.map((chunk) =>
             [...chunk].map(
@@ -240,7 +223,8 @@ export class EGWService extends Context.Tag('@bible/core/EGWService')<
           return headings.map((h) => {
             // Parse page number from refcode
             const pageMatch = h.refcode_short?.match(/\s(\d+)\./);
-            const page = pageMatch ? parseInt(pageMatch[1]!, 10) : null;
+            const pageStr = pageMatch?.[1];
+            const page = pageStr ? parseInt(pageStr, 10) : null;
 
             return new EGWChapter({
               title: h.content ?? null,
@@ -290,18 +274,18 @@ export class EGWService extends Context.Tag('@bible/core/EGWService')<
   /**
    * Test implementation with configurable mock data
    */
-  static Test = (config: {
-    books?: readonly EGWBook[];
-    paragraphs?: readonly EGWParagraph[];
-  } = {}): Layer.Layer<EGWService> =>
+  static Test = (
+    config: {
+      books?: readonly EGWBook[];
+      paragraphs?: readonly EGWParagraph[];
+    } = {},
+  ): Layer.Layer<EGWService> =>
     Layer.succeed(EGWService, {
       getBooks: () => Effect.succeed(config.books ?? []),
       getBook: (bookCode) =>
         Effect.succeed(
           Option.fromNullable(
-            config.books?.find(
-              (b) => b.bookCode.toLowerCase() === bookCode.toLowerCase(),
-            ),
+            config.books?.find((b) => b.bookCode.toLowerCase() === bookCode.toLowerCase()),
           ),
         ),
       getPage: () => Effect.succeed(null),

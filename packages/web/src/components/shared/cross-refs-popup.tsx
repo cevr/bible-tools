@@ -1,10 +1,4 @@
-import {
-  type Component,
-  createMemo,
-  For,
-  Show,
-  createResource,
-} from 'solid-js';
+import { type Component, createMemo, For, Show, createResource } from 'solid-js';
 import { Dialog } from '@kobalte/core/dialog';
 import { useNavigate } from '@solidjs/router';
 import { useBible } from '@/providers/bible-provider';
@@ -39,7 +33,7 @@ export const CrossRefsPopup: Component = () => {
     async (params) => {
       if (!params) return [];
       return fetchVerses(params.book, params.chapter);
-    }
+    },
   );
 
   // Get current verse from fetched data
@@ -69,9 +63,7 @@ export const CrossRefsPopup: Component = () => {
     // Get surrounding verses
     const start = Math.max(0, currentIdx - 2);
     const end = Math.min(verses.length, currentIdx + 3);
-    return verses
-      .slice(start, end)
-      .filter((v) => v.verse !== d.verse);
+    return verses.slice(start, end).filter((v) => v.verse !== d.verse);
   });
 
   const handleOpenChange = (open: boolean) => {
@@ -97,8 +89,16 @@ export const CrossRefsPopup: Component = () => {
           {/* Header */}
           <div class="px-4 pt-4 pb-2 border-b border-[--color-border] dark:border-[--color-border-dark]">
             <Dialog.Title class="font-sans text-lg font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
-              <Show when={currentBook() && data()}>
-                {currentBook()!.name} {data()!.chapter}:{data()!.verse}
+              <Show when={currentBook()}>
+                {(book) => (
+                  <Show when={data()}>
+                    {(d) => (
+                      <>
+                        {book().name} {d().chapter}:{d().verse}
+                      </>
+                    )}
+                  </Show>
+                )}
               </Show>
             </Dialog.Title>
             <Dialog.Description class="sr-only">
@@ -115,11 +115,13 @@ export const CrossRefsPopup: Component = () => {
             </div>
           </Show>
           <Show when={!chapterVerses.loading && currentVerse()}>
-            <div class="px-4 py-3 bg-[--color-highlight]/50 dark:bg-[--color-highlight-dark]/50">
-              <p class="reading-text text-[--color-ink] dark:text-[--color-ink-dark]">
-                {currentVerse()!.text}
-              </p>
-            </div>
+            {(verse) => (
+              <div class="px-4 py-3 bg-[--color-highlight]/50 dark:bg-[--color-highlight-dark]/50">
+                <p class="reading-text text-[--color-ink] dark:text-[--color-ink-dark]">
+                  {verse().text}
+                </p>
+              </div>
+            )}
           </Show>
 
           {/* Related verses */}

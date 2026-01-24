@@ -8,12 +8,7 @@
  * (keyboard shortcuts for TUI, click handlers for Web).
  */
 
-import type {
-  AppRoute,
-  AppRouterState,
-  BibleReference,
-  EGWReference,
-} from './types.js';
+import type { AppRoute, AppRouterState, BibleReference, EGWReference } from './types.js';
 import { initialRouterState, Route } from './types.js';
 
 /**
@@ -28,10 +23,7 @@ export type RouterAction =
  * Pure reducer for router state
  * Returns new state without mutation
  */
-export function routerReducer(
-  state: AppRouterState,
-  action: RouterAction,
-): AppRouterState {
+export function routerReducer(state: AppRouterState, action: RouterAction): AppRouterState {
   switch (action.type) {
     case 'navigate': {
       // Don't add to history if navigating to same route type
@@ -49,7 +41,8 @@ export function routerReducer(
         return state;
       }
       const newHistory = [...state.history];
-      const previous = newHistory.pop()!;
+      const previous = newHistory.pop();
+      if (!previous) return state;
       return {
         current: previous,
         history: newHistory,
@@ -108,9 +101,7 @@ export interface AppRouter {
  * Create a new router instance
  * @param initialState - Optional initial state (defaults to Bible view)
  */
-export function createAppRouter(
-  initialState: AppRouterState = initialRouterState,
-): AppRouter {
+export function createAppRouter(initialState: AppRouterState = initialRouterState): AppRouter {
   let state = initialState;
   const listeners = new Set<(state: AppRouterState) => void>();
 

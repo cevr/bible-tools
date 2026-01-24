@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { egw, egwOpen, egwWithSubcommands } from '../../src/commands/egw.js';
-import { expectSequence, runCli } from '../lib/run-cli.js';
+import { runCli } from '../lib/run-cli.js';
 
 describe('egw commands', () => {
   describe('egw command', () => {
@@ -91,11 +91,7 @@ describe('egw commands', () => {
     });
 
     it('should handle search at top level', async () => {
-      const result = await runCli(egwWithSubcommands, [
-        'faith',
-        'and',
-        'works',
-      ]);
+      const result = await runCli(egwWithSubcommands, ['faith', 'and', 'works']);
 
       expect(result.success).toBe(true);
     });

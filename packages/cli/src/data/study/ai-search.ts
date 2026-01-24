@@ -1,3 +1,4 @@
+import type { LanguageModel } from 'ai';
 import { generateText } from 'ai';
 import { Context, Data, Effect, Layer } from 'effect';
 
@@ -14,16 +15,11 @@ export class AISearchError extends Data.TaggedError('AISearchError')<{
 
 // AI Search service interface
 export interface AISearchService {
-  readonly searchByTopic: (
-    query: string,
-  ) => Effect.Effect<Reference[], AISearchError>;
+  readonly searchByTopic: (query: string) => Effect.Effect<Reference[], AISearchError>;
 }
 
 // Effect service tag
-export class AISearch extends Context.Tag('AISearch')<
-  AISearch,
-  AISearchService
->() {}
+export class AISearch extends Context.Tag('AISearch')<AISearch, AISearchService>() {}
 
 // System prompt for Bible verse search
 const SYSTEM_PROMPT = `You are a Bible verse search assistant. Given a topic or question, return the most relevant Bible verses.
@@ -41,10 +37,7 @@ Rules:
 - Return ONLY the JSON array, no other text`;
 
 // Parse AI response to references
-function parseAIResponse(
-  response: string,
-  dataService: BibleDataSyncService,
-): Reference[] {
+function parseAIResponse(response: string, dataService: BibleDataSyncService): Reference[] {
   try {
     // Extract JSON from response (in case there's extra text)
     const jsonMatch = response.match(/\[[\s\S]*\]/);
@@ -75,7 +68,7 @@ function parseAIResponse(
 
 // Create the AI search service
 function createAISearchService(
-  modelService: { models: { low: any } },
+  modelService: { models: { low: LanguageModel } },
   dataService: BibleDataSyncService,
   stateService: BibleStateService,
 ): AISearchService {
@@ -143,7 +136,7 @@ export const AISearchLive = Layer.effect(
 // Standalone function for use outside Effect context
 export async function searchBibleByTopic(
   query: string,
-  modelService: { models: { low: any } },
+  modelService: { models: { low: LanguageModel } },
   dataService: BibleDataSyncService,
   stateService: BibleStateService,
 ): Promise<Reference[]> {

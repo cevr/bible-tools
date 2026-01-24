@@ -1,10 +1,7 @@
 import { createMemo, For, Show } from 'solid-js';
 
 import type { Verse as VerseType } from '../../../data/bible/types.js';
-import type {
-  MarginNoteCompat as MarginNote,
-  WordWithStrongs,
-} from '../../context/study-data.js';
+import type { MarginNoteCompat as MarginNote, WordWithStrongs } from '../../context/study-data.js';
 import { useTheme } from '../../context/theme.js';
 
 interface VerseProps {
@@ -40,7 +37,7 @@ function toSuperscript(n: number): string {
   const superscripts = ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹'];
   return String(n)
     .split('')
-    .map((d) => superscripts[parseInt(d)]!)
+    .map((d) => superscripts[parseInt(d)] ?? d)
     .join('');
 }
 
@@ -66,7 +63,8 @@ function segmentVerseText(
   }> = [];
 
   for (let i = 0; i < marginNotes.length; i++) {
-    const note = marginNotes[i]!;
+    const note = marginNotes[i];
+    if (!note) continue;
     const phrase = note.phrase.toLowerCase();
     const lowerText = text.toLowerCase();
 
@@ -158,8 +156,7 @@ export function Verse(props: VerseProps) {
   const { theme } = useTheme();
 
   // Clean up verse text (remove pilcrow and brackets)
-  const cleanText = () =>
-    props.verse.text.replace(/^\u00b6\s*/, '').replace(/\[([^\]]+)\]/g, '$1');
+  const cleanText = () => props.verse.text.replace(/^\u00b6\s*/, '').replace(/\[([^\]]+)\]/g, '$1');
 
   const segments = createMemo(() =>
     segmentVerseText(cleanText(), props.marginNotes ?? [], props.searchQuery),
@@ -188,7 +185,7 @@ export function Verse(props: VerseProps) {
                 >
                   {isSelected() ? <strong>{word.text}</strong> : word.text}
                 </span>
-                {index() < props.words!.length - 1 ? ' ' : ''}
+                {index() < (props.words?.length ?? 0) - 1 ? ' ' : ''}
               </span>
             );
           }}
@@ -202,9 +199,7 @@ export function Verse(props: VerseProps) {
         {(segment) => {
           if (segment.type === 'margin') {
             return (
-              <span style={{ fg: theme().accentMuted }}>
-                {toSuperscript(segment.noteIndex)}
-              </span>
+              <span style={{ fg: theme().accentMuted }}>{toSuperscript(segment.noteIndex)}</span>
             );
           }
           if (segment.type === 'highlight') {
@@ -237,17 +232,10 @@ export function Verse(props: VerseProps) {
       }
     >
       <box flexDirection="row">
-        <text
-          fg={theme().verseNumber}
-          marginRight={1}
-          minWidth={3}
-        >
+        <text fg={theme().verseNumber} marginRight={1} minWidth={3}>
           <strong>{props.verse.verse}</strong>
         </text>
-        <text
-          fg={theme().verseText}
-          wrapMode="word"
-        >
+        <text fg={theme().verseText} wrapMode="word">
           {renderContent()}
         </text>
       </box>
@@ -265,10 +253,7 @@ interface VerseParagraphProps {
 export function VerseParagraph(props: VerseParagraphProps) {
   const { theme } = useTheme();
 
-  const renderTextWithHighlights = (
-    text: string,
-    query: string | undefined,
-  ) => {
+  const renderTextWithHighlights = (text: string, query: string | undefined) => {
     if (!query || query.length < 2) {
       return <span>{text}</span>;
     }
@@ -302,10 +287,7 @@ export function VerseParagraph(props: VerseParagraphProps) {
     return (
       <For each={segments}>
         {(segment) => (
-          <Show
-            when={segment.highlight}
-            fallback={<span>{segment.text}</span>}
-          >
+          <Show when={segment.highlight} fallback={<span>{segment.text}</span>}>
             <span style={{ fg: theme().background, bg: theme().warning }}>
               <strong>{segment.text}</strong>
             </span>
@@ -316,23 +298,14 @@ export function VerseParagraph(props: VerseParagraphProps) {
   };
 
   return (
-    <box
-      paddingLeft={2}
-      paddingRight={2}
-    >
-      <text
-        fg={theme().verseText}
-        wrapMode="word"
-      >
+    <box paddingLeft={2} paddingRight={2}>
+      <text fg={theme().verseText} wrapMode="word">
         <For each={props.verses}>
           {(verse, index) => {
-            const cleanText = verse.text
-              .replace(/^\u00b6\s*/, '')
-              .replace(/\[([^\]]+)\]/g, '$1');
+            const cleanText = verse.text.replace(/^\u00b6\s*/, '').replace(/\[([^\]]+)\]/g, '$1');
 
             const isHighlighted = () => props.highlightedVerse === verse.verse;
-            const isSearchMatch = () =>
-              props.searchMatchVerses?.includes(verse.verse) ?? false;
+            const isSearchMatch = () => props.searchMatchVerses?.includes(verse.verse) ?? false;
 
             return (
               <span>

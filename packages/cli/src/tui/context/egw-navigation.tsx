@@ -7,11 +7,7 @@
 
 import type { EGWReference } from '@bible/core/app';
 import { isChapterHeading } from '@bible/core/egw-db';
-import type {
-  EGWBookInfo,
-  EGWParagraph,
-  EGWReaderPosition,
-} from '@bible/core/egw-reader';
+import type { EGWBookInfo, EGWParagraph, EGWReaderPosition } from '@bible/core/egw-reader';
 import {
   createContext,
   createEffect,
@@ -85,9 +81,7 @@ interface EGWNavigationProviderProps {
   initialRef?: EGWReference;
 }
 
-export function EGWNavigationProvider(
-  props: ParentProps<EGWNavigationProviderProps>,
-) {
+export function EGWNavigationProvider(props: ParentProps<EGWNavigationProviderProps>) {
   const egw = useEGW();
   const bibleState = useBibleState();
 
@@ -114,12 +108,12 @@ export function EGWNavigationProvider(
     if (!para) return null;
     const refcode = para.refcodeShort ?? para.refcodeLong ?? '';
     const match = refcode.match(/\s(\d+)\.\d+$/);
-    return match ? parseInt(match[1]!, 10) : null;
+    if (!match) return null;
+    const pageNum = match[1];
+    return pageNum ? parseInt(pageNum, 10) : null;
   };
 
-  const currentPage = createMemo(() =>
-    getPageFromParagraph(currentParagraph()),
-  );
+  const currentPage = createMemo(() => getPageFromParagraph(currentParagraph()));
 
   // Find current chapter based on selected paragraph
   const currentChapter = createMemo((): ChapterInfo | null => {
@@ -131,7 +125,8 @@ export function EGWNavigationProvider(
     // Find the chapter heading for current position (search backwards)
     let chapterStartIndex = 0;
     for (let i = currentIndex; i >= 0; i--) {
-      if (isChapterHeading(paras[i]!.elementType)) {
+      const para = paras[i];
+      if (para && isChapterHeading(para.elementType)) {
         chapterStartIndex = i;
         break;
       }
@@ -140,7 +135,8 @@ export function EGWNavigationProvider(
     // Find where the chapter ends (next heading or end of book)
     let chapterEndIndex = paras.length;
     for (let i = chapterStartIndex + 1; i < paras.length; i++) {
-      if (isChapterHeading(paras[i]!.elementType)) {
+      const para = paras[i];
+      if (para && isChapterHeading(para.elementType)) {
         chapterEndIndex = i;
         break;
       }
@@ -210,10 +206,7 @@ export function EGWNavigationProvider(
     }
 
     // Load async
-    Promise.all([
-      egw.getBookByCode(bookCode),
-      egw.getParagraphsByBookCode(bookCode),
-    ])
+    Promise.all([egw.getBookByCode(bookCode), egw.getParagraphsByBookCode(bookCode)])
       .then(([book, paras]) => {
         if (book) {
           setCurrentBook(book);
@@ -253,10 +246,7 @@ export function EGWNavigationProvider(
   };
 
   // Find paragraph index from position
-  const navigateToPosition = (
-    paras: readonly EGWParagraph[],
-    position: EGWReaderPosition,
-  ) => {
+  const navigateToPosition = (paras: readonly EGWParagraph[], position: EGWReaderPosition) => {
     // If we have page and paragraph, build refcode
     if (position.page != null) {
       const refcodePrefix =
@@ -323,7 +313,9 @@ export function EGWNavigationProvider(
     const currentIndex = selectedParagraphIndex();
     // Find first paragraph on a different (higher) page
     for (let i = currentIndex + 1; i < paras.length; i++) {
-      const page = getPageFromParagraph(paras[i]!);
+      const para = paras[i];
+      if (!para) continue;
+      const page = getPageFromParagraph(para);
       if (page !== null && page > current) {
         setSelectedParagraphIndex(i);
         return;
@@ -343,7 +335,9 @@ export function EGWNavigationProvider(
     // Find the page before current
     let targetPage: number | null = null;
     for (let i = currentIndex - 1; i >= 0; i--) {
-      const page = getPageFromParagraph(paras[i]!);
+      const para = paras[i];
+      if (!para) continue;
+      const page = getPageFromParagraph(para);
       if (page !== null && page < current) {
         targetPage = page;
         break;
@@ -358,7 +352,9 @@ export function EGWNavigationProvider(
 
     // Find first paragraph on that page
     for (let i = 0; i < paras.length; i++) {
-      const page = getPageFromParagraph(paras[i]!);
+      const para = paras[i];
+      if (!para) continue;
+      const page = getPageFromParagraph(para);
       if (page === targetPage) {
         setSelectedParagraphIndex(i);
         return;
@@ -373,7 +369,8 @@ export function EGWNavigationProvider(
 
     // Find next chapter heading after current position
     for (let i = currentIndex + 1; i < paras.length; i++) {
-      if (isChapterHeading(paras[i]!.elementType)) {
+      const para = paras[i];
+      if (para && isChapterHeading(para.elementType)) {
         setSelectedParagraphIndex(i);
         return;
       }
@@ -390,14 +387,13 @@ export function EGWNavigationProvider(
     // If we're on a chapter heading, go to the one before it
     // Otherwise, go to the chapter heading of the current section
     let foundCurrentChapter = false;
+    const currentPara = paras[currentIndex];
+    const isCurrentChapterHeading = currentPara && isChapterHeading(currentPara.elementType);
 
     for (let i = currentIndex - 1; i >= 0; i--) {
-      if (isChapterHeading(paras[i]!.elementType)) {
-        if (
-          foundCurrentChapter ||
-          (currentIndex === selectedParagraphIndex() &&
-            !isChapterHeading(paras[currentIndex]!.elementType))
-        ) {
+      const para = paras[i];
+      if (para && isChapterHeading(para.elementType)) {
+        if (foundCurrentChapter || !isCurrentChapterHeading) {
           // We found the previous chapter
           setSelectedParagraphIndex(i);
           return;
@@ -478,18 +474,14 @@ export function EGWNavigationProvider(
   };
 
   return (
-    <EGWNavigationContext.Provider value={value}>
-      {props.children}
-    </EGWNavigationContext.Provider>
+    <EGWNavigationContext.Provider value={value}>{props.children}</EGWNavigationContext.Provider>
   );
 }
 
 export function useEGWNavigation(): EGWNavigationContextValue {
   const ctx = useContext(EGWNavigationContext);
   if (!ctx) {
-    throw new Error(
-      'useEGWNavigation must be used within an EGWNavigationProvider',
-    );
+    throw new Error('useEGWNavigation must be used within an EGWNavigationProvider');
   }
   return ctx;
 }

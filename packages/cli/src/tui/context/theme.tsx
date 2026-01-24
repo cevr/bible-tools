@@ -8,13 +8,7 @@ import {
   type ParentProps,
 } from 'solid-js';
 
-import {
-  darkTheme,
-  getThemeNames,
-  lightTheme,
-  themes,
-  type Theme,
-} from '../themes/index.js';
+import { darkTheme, getThemeNames, lightTheme, themes, type Theme } from '../themes/index.js';
 import { useBibleState } from './bible.js';
 
 interface ThemeContextValue {
@@ -27,8 +21,14 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue>();
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Renderer = any; // Using any since @opentui/solid's useRenderer returns untyped
+// Using interface since @opentui/solid's useRenderer returns untyped
+interface RendererColors {
+  palette?: (string | null)[];
+  defaultBackground?: string | null;
+}
+type Renderer = {
+  getPalette: (config: { size: number }) => Promise<RendererColors>;
+};
 
 interface ThemeProviderProps {
   initialTheme?: string;
@@ -62,13 +62,15 @@ function generateSystemTheme(palette: string[], isDark: boolean): Theme {
   // Generate panel background by slightly adjusting the base background
   const hexToRgb = (hex: string) => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result
-      ? {
-          r: parseInt(result[1]!, 16),
-          g: parseInt(result[2]!, 16),
-          b: parseInt(result[3]!, 16),
-        }
-      : { r: 0, g: 0, b: 0 };
+    if (!result) return { r: 0, g: 0, b: 0 };
+    const rStr = result[1];
+    const gStr = result[2];
+    const bStr = result[3];
+    return {
+      r: rStr ? parseInt(rStr, 16) : 0,
+      g: gStr ? parseInt(gStr, 16) : 0,
+      b: bStr ? parseInt(bStr, 16) : 0,
+    };
   };
 
   const rgbToHex = (r: number, g: number, b: number) => {
@@ -116,9 +118,7 @@ export function ThemeProvider(props: ParentProps<ThemeProviderProps>) {
   const state = useBibleState();
   const prefs = state.getPreferences();
 
-  const [themeName, setThemeNameState] = createSignal(
-    props.initialTheme ?? prefs.theme,
-  );
+  const [themeName, setThemeNameState] = createSignal(props.initialTheme ?? prefs.theme);
   const [systemTheme, setSystemTheme] = createSignal<Theme | null>(null);
   const [systemMode, setSystemMode] = createSignal<'dark' | 'light'>('dark');
   const [ready, setReady] = createSignal(false);
@@ -135,9 +135,11 @@ export function ThemeProvider(props: ParentProps<ThemeProviderProps>) {
   onMount(async () => {
     try {
       const colors = await props.renderer.getPalette({ size: 16 });
-      if (colors.palette && colors.palette.length >= 16) {
+      // Filter out null values from palette
+      const palette = colors.palette?.filter((c): c is string => c !== null);
+      if (palette && palette.length >= 16) {
         // Detect if terminal is dark or light based on background luminance
-        const bg = colors.defaultBackground ?? colors.palette[0];
+        const bg = colors.defaultBackground ?? palette[0];
         if (bg) {
           const hex = bg.replace('#', '');
           const r = parseInt(hex.slice(0, 2), 16);
@@ -146,9 +148,9 @@ export function ThemeProvider(props: ParentProps<ThemeProviderProps>) {
           const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
           const isDark = luminance < 0.5;
           setSystemMode(isDark ? 'dark' : 'light');
-          setSystemTheme(generateSystemTheme(colors.palette, isDark));
+          setSystemTheme(generateSystemTheme(palette, isDark));
           // Cache the palette for next launch
-          state.setCachedPalette({ palette: colors.palette, isDark });
+          state.setCachedPalette({ palette, isDark });
         }
       }
     } catch {
@@ -169,9 +171,7 @@ export function ThemeProvider(props: ParentProps<ThemeProviderProps>) {
   const theme = createMemo(() => {
     const name = themeName();
     if (name === 'system') {
-      return (
-        systemTheme() ?? (systemMode() === 'dark' ? darkTheme : lightTheme)
-      );
+      return systemTheme() ?? (systemMode() === 'dark' ? darkTheme : lightTheme);
     }
     return themes[name] ?? darkTheme;
   });

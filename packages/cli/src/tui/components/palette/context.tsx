@@ -10,11 +10,7 @@ import {
   type ParentProps,
 } from 'solid-js';
 
-import {
-  BOOKS,
-  formatReference,
-  type Reference,
-} from '../../../data/bible/types.js';
+import { BOOKS, formatReference, type Reference } from '../../../data/bible/types.js';
 import { searchBibleByTopic } from '../../../data/study/ai-search.js';
 import { useBibleData, useBibleState } from '../../context/bible.js';
 import { useModel } from '../../context/model.js';
@@ -24,22 +20,9 @@ import { AiSearchState } from '../../types/ai-search.js';
 
 // Types
 
-export type GroupType =
-  | 'navigation'
-  | 'search'
-  | 'tools'
-  | 'settings'
-  | 'recent'
-  | 'ai';
+export type GroupType = 'navigation' | 'search' | 'tools' | 'settings' | 'recent' | 'ai';
 
-export type CommandType =
-  | 'verse'
-  | 'book'
-  | 'search'
-  | 'ai'
-  | 'tool'
-  | 'setting'
-  | 'history';
+export type CommandType = 'verse' | 'book' | 'search' | 'ai' | 'tool' | 'setting' | 'history';
 
 export interface CommandOption {
   type: CommandType;
@@ -108,9 +91,7 @@ export function PaletteProvider(props: PaletteProviderProps) {
   // Core state
   const [query, setQuery] = createSignal('');
   const [selectedIndex, setSelectedIndex] = createSignal(0);
-  const [aiState, setAiState] = createSignal<AiSearchState>(
-    AiSearchState.idle(),
-  );
+  const [aiState, setAiState] = createSignal<AiSearchState>(AiSearchState.idle());
 
   let aiSearchTimeout: ReturnType<typeof setTimeout> | null = null;
 
@@ -146,10 +127,7 @@ export function PaletteProvider(props: PaletteProviderProps) {
 
     if (!model) {
       setAiState(
-        AiSearchState.error(
-          currentAiQuery,
-          'AI search unavailable (no API key configured)',
-        ),
+        AiSearchState.error(currentAiQuery, 'AI search unavailable (no API key configured)'),
       );
       return;
     }
@@ -158,12 +136,7 @@ export function PaletteProvider(props: PaletteProviderProps) {
 
     aiSearchTimeout = setTimeout(async () => {
       try {
-        const refs = await searchBibleByTopic(
-          currentAiQuery,
-          model,
-          data,
-          state,
-        );
+        const refs = await searchBibleByTopic(currentAiQuery, model, data, state);
         if (refs.length === 0) {
           setAiState(AiSearchState.empty(currentAiQuery));
         } else {
@@ -375,7 +348,8 @@ export function PaletteProvider(props: PaletteProviderProps) {
 
   // Reset selection when options change
   createEffect(() => {
-    flatOptions().length; // track dependency
+    const _length = flatOptions().length; // track dependency
+    void _length;
     setSelectedIndex(0);
   });
 
@@ -427,11 +401,7 @@ export function PaletteProvider(props: PaletteProviderProps) {
     selectCurrent,
   };
 
-  return (
-    <PaletteContext.Provider value={value}>
-      {props.children}
-    </PaletteContext.Provider>
-  );
+  return <PaletteContext.Provider value={value}>{props.children}</PaletteContext.Provider>;
 }
 
 // Hook

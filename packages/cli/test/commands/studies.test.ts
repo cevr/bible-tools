@@ -1,12 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { studies } from '../../src/commands/studies.js';
-import {
-  expectContains,
-  expectNoCalls,
-  expectSequence,
-  runCli,
-} from '../lib/run-cli.js';
+import { expectContains, expectSequence, runCli } from '../lib/run-cli.js';
 
 describe('studies commands', () => {
   beforeEach(() => {
@@ -28,9 +23,7 @@ describe('studies commands', () => {
           },
           model: {
             responses: {
-              high: [
-                '# The Sanctuary\n\nA comprehensive study on the sanctuary...',
-              ],
+              high: ['# The Sanctuary\n\nA comprehensive study on the sanctuary...'],
               low: ['the-sanctuary-study'],
             },
           },
@@ -56,8 +49,7 @@ describe('studies commands', () => {
         {
           files: {
             files: {
-              [`${process.cwd()}/src/prompts/studies/generate.md`]:
-                'System prompt...',
+              [`${process.cwd()}/src/prompts/studies/generate.md`]: 'System prompt...',
             },
             directories: [],
           },
@@ -95,15 +87,12 @@ describe('studies commands', () => {
           files: {
             files: {
               '/path/to/study.md': '# Original Study\n\nOriginal content...',
-              [`${process.cwd()}/src/prompts/studies/generate.md`]:
-                'System prompt...',
+              [`${process.cwd()}/src/prompts/studies/generate.md`]: 'System prompt...',
             },
           },
           model: {
             responses: {
-              high: [
-                '# Interactive Study\n\nImproved content with questions...',
-              ],
+              high: ['# Interactive Study\n\nImproved content with questions...'],
               low: [],
             },
           },
@@ -135,8 +124,7 @@ describe('studies commands', () => {
         {
           files: {
             files: {
-              [`${process.cwd()}/src/prompts/studies/generate.md`]:
-                'System prompt...',
+              [`${process.cwd()}/src/prompts/studies/generate.md`]: 'System prompt...',
             },
           },
           model: {
@@ -154,10 +142,8 @@ describe('studies commands', () => {
       const result = await runCli(studies, ['list'], {
         files: {
           files: {
-            [`${process.cwd()}/outputs/studies/2024-01-01-sanctuary.md`]:
-              'content',
-            [`${process.cwd()}/outputs/studies/2024-01-02-prophecy.md`]:
-              'content',
+            [`${process.cwd()}/outputs/studies/2024-01-01-sanctuary.md`]: 'content',
+            [`${process.cwd()}/outputs/studies/2024-01-02-prophecy.md`]: 'content',
           },
           directories: [`${process.cwd()}/outputs/studies`],
         },

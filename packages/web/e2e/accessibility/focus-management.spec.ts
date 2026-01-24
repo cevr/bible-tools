@@ -28,10 +28,12 @@ test.describe('Focus Management', () => {
     // Tab through dialog - focus should stay within
     // This tests that focus trap is working
     await page.keyboard.press('Tab');
-    const focusedElement = page.locator(':focus');
-    const dialog = page.getByRole('dialog');
 
     // Focused element should be within dialog
     // Note: actual implementation with Kobalte will handle focus trapping
+    const dialog = page.getByRole('dialog');
+    const focusedElement = page.locator(':focus');
+    await expect(focusedElement).not.toHaveCount(0);
+    await expect(dialog.locator(':focus')).toBeVisible();
   });
 });

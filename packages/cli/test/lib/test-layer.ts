@@ -1,30 +1,24 @@
 import path from 'path';
 
+import type { FileSystem } from '@effect/platform';
 import { Path } from '@effect/platform';
 import { Layer } from 'effect';
+
+import type { AppleScript } from '../../src/core/apple-script.js';
+import type { Chime } from '../../src/core/chime.js';
+import type { Model } from '../../src/core/model.js';
 
 import {
   createMockAppleScriptLayer,
   type MockAppleScriptConfig,
   type MockAppleScriptState,
 } from './mock-apple-script.js';
-import {
-  createMockBunShell,
-  createMockBunSpawn,
-  type MockBunConfig,
-} from './mock-bun.js';
+import { createMockBunShell, createMockBunSpawn, type MockBunConfig } from './mock-bun.js';
 import { createMockChimeLayer, type MockChimeState } from './mock-chime.js';
-import {
-  createMockFileSystemLayer,
-  type MockFileSystemConfig,
-} from './mock-filesystem.js';
-import {
-  installMockFetch,
-  type MockHttpConfig,
-  type MockHttpState,
-} from './mock-http.js';
+import { createMockFileSystemLayer, type MockFileSystemConfig } from './mock-filesystem.js';
+import { installMockFetch, type MockHttpConfig, type MockHttpState } from './mock-http.js';
 import { createMockModelLayer, type MockModelConfig } from './mock-model.js';
-import { CallSequenceLayer, type ServiceCall } from './sequence-recorder.js';
+import { CallSequenceLayer, type CallSequence, type ServiceCall } from './sequence-recorder.js';
 
 /**
  * Configuration for creating a test layer.
@@ -51,12 +45,7 @@ export interface TestLayerState {
   cleanup: () => void;
   /** The composed layer to provide to the CLI */
   layer: Layer.Layer<
-    | import('@effect/platform').FileSystem.FileSystem
-    | import('@effect/platform').Path.Path
-    | import('../../core/model.js').Model
-    | import('../../core/apple-script.js').AppleScript
-    | import('../../core/chime.js').Chime
-    | import('./sequence-recorder.js').CallSequence,
+    FileSystem.FileSystem | Path.Path | Model | AppleScript | Chime | CallSequence,
     never,
     never
   >;
@@ -70,9 +59,7 @@ export interface TestLayerState {
  * This follows the Effect testing pattern of providing mock layers
  * for all external dependencies while running actual command logic.
  */
-export const createTestLayer = (
-  config: TestLayerConfig = {},
-): TestLayerState => {
+export const createTestLayer = (config: TestLayerConfig = {}): TestLayerState => {
   const cleanupFns: Array<() => void> = [];
 
   // Shared state for service calls
@@ -81,20 +68,13 @@ export const createTestLayer = (
   let httpState: MockHttpState | null = null;
 
   // Create mock file system
-  const mockFs = createMockFileSystemLayer(
-    config.files ?? { files: {}, directories: [] },
-  );
+  const mockFs = createMockFileSystemLayer(config.files ?? { files: {}, directories: [] });
 
   // Create mock model
-  const mockModel = createMockModelLayer(
-    config.model ?? { responses: { high: [], low: [] } },
-  );
+  const mockModel = createMockModelLayer(config.model ?? { responses: { high: [], low: [] } });
 
   // Create mock AppleScript service
-  const mockAppleScript = createMockAppleScriptLayer(
-    config.appleScript ?? {},
-    appleScriptState,
-  );
+  const mockAppleScript = createMockAppleScriptLayer(config.appleScript ?? {}, appleScriptState);
 
   // Create mock Chime service
   const mockChime = createMockChimeLayer(chimeState);
