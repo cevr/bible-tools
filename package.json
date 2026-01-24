@@ -27,6 +27,7 @@
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "test": "bun --filter '*' test",
+    "gate": "bun run typecheck && bun run lint && bun run fmt:check",
     "prepare": "lefthook install"
   },
   "devDependencies": {
