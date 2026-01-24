@@ -6,11 +6,12 @@
  */
 
 import { FileSystem } from '@effect/platform';
-import { Effect, Option, Ref, Schema, Stream } from 'effect';
+import { Context, Effect, Layer, Option, Ref, Schema, Stream } from 'effect';
 
 import { EGWParagraphDatabase } from '../egw-db/index.js';
 import type { ParagraphDatabaseError } from '../egw-db/index.js';
-import { EGWApiClient, EGWApiError } from '../egw/client.js';
+import { EGWApiClient } from '../egw/client.js';
+import type { EGWApiClientError } from '../egw/client.js';
 import * as EGWSchemas from '../egw/schemas.js';
 import {
   GeminiFileSearchClient,
@@ -63,13 +64,77 @@ export interface UploadAllEGWWritingsOptions {
   readonly customMetadata?: GeminiSchemas.CustomMetadata[];
 }
 
+// ============================================================================
+// Service Interface
+// ============================================================================
+
+/**
+ * EGW-Gemini service interface.
+ * Combines EGW API and Gemini File Search for searchable document storage.
+ */
+export interface EGWGeminiServiceShape {
+  readonly uploadBook: (options: UploadBookOptions) => Effect.Effect<
+    {
+      store: GeminiSchemas.FileSearchStore;
+      book: EGWSchemas.Book;
+      documentsUploaded: number;
+    },
+    EGWGeminiError | GeminiFileSearchError,
+    FileSystem.FileSystem
+  >;
+  readonly queryStore: (options: QueryOptions) => Effect.Effect<
+    {
+      query: string;
+      response: unknown;
+      store: GeminiSchemas.FileSearchStore;
+    },
+    EGWGeminiError | GeminiFileSearchError
+  >;
+  readonly getOrCreateStore: (
+    displayName: string,
+  ) => Effect.Effect<
+    GeminiSchemas.FileSearchStore,
+    EGWGeminiError | GeminiFileSearchError
+  >;
+  readonly uploadAllEGWWritings: (
+    options: UploadAllEGWWritingsOptions,
+  ) => Effect.Effect<
+    {
+      store: GeminiSchemas.FileSearchStore;
+      totalBooksFound: number;
+      booksUploaded: number;
+      uploadedBooks: readonly unknown[];
+    },
+    EGWGeminiError,
+    FileSystem.FileSystem
+  >;
+}
+
+// ============================================================================
+// Service Definition
+// ============================================================================
+
 /**
  * EGW-Gemini Integration Service
  */
-export class EGWGeminiService extends Effect.Service<EGWGeminiService>()(
-  '@bible/egw-gemini/Service',
-  {
-    effect: Effect.gen(function* () {
+export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
+  EGWGeminiService,
+  EGWGeminiServiceShape
+>() {
+  /**
+   * Live implementation using EGW API, Gemini, and upload status tracking.
+   */
+  static Live: Layer.Layer<
+    EGWGeminiService,
+    never,
+    | EGWApiClient
+    | GeminiFileSearchClient
+    | EGWUploadStatus
+    | EGWParagraphDatabase
+    | FileSystem.FileSystem
+  > = Layer.effect(
+    EGWGeminiService,
+    Effect.gen(function* () {
       const egwClient = yield* EGWApiClient;
       const geminiClient = yield* GeminiFileSearchClient;
       const uploadStatus = yield* EGWUploadStatus;
@@ -367,7 +432,7 @@ export class EGWGeminiService extends Effect.Service<EGWGeminiService>()(
           // Otherwise, get books from database
           let booksStream: Stream.Stream<
             number,
-            EGWApiError | ParagraphDatabaseError
+            EGWApiClientError | ParagraphDatabaseError
           >;
 
           if (options.folderId !== undefined) {
@@ -491,7 +556,7 @@ export class EGWGeminiService extends Effect.Service<EGWGeminiService>()(
             store,
             totalBooksFound,
             booksUploaded: results.length,
-            uploadedBooks: results,
+            uploadedBooks: [...results],
           };
         }).pipe(
           Effect.catchAll((error) =>
@@ -509,13 +574,40 @@ export class EGWGeminiService extends Effect.Service<EGWGeminiService>()(
         queryStore,
         getOrCreateStore,
         uploadAllEGWWritings,
-      } as const;
+      };
     }),
-    dependencies: [
-      EGWApiClient.Default,
-      GeminiFileSearchClient.Default,
-      EGWUploadStatus.Default,
-      EGWParagraphDatabase.Default,
-    ],
-  },
-) {}
+  );
+
+  /**
+   * Default layer - alias for Live (backwards compatibility).
+   */
+  static Default = EGWGeminiService.Live;
+
+  /**
+   * Test implementation with no-op operations.
+   */
+  static Test = (): Layer.Layer<EGWGeminiService> =>
+    Layer.succeed(EGWGeminiService, {
+      uploadBook: (options) =>
+        Effect.succeed({
+          store: { name: 'test-store', displayName: options.storeDisplayName },
+          book: options.book,
+          documentsUploaded: 0,
+        }),
+      queryStore: (options) =>
+        Effect.succeed({
+          query: options.query,
+          response: {},
+          store: { name: 'test-store', displayName: options.storeDisplayName },
+        }),
+      getOrCreateStore: (displayName) =>
+        Effect.succeed({ name: 'test-store', displayName }),
+      uploadAllEGWWritings: (options) =>
+        Effect.succeed({
+          store: { name: 'test-store', displayName: options.storeDisplayName },
+          totalBooksFound: 0,
+          booksUploaded: 0,
+          uploadedBooks: [],
+        }),
+    });
+}

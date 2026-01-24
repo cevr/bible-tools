@@ -22,6 +22,7 @@ import { BunContext, BunRuntime } from '@effect/platform-bun';
 import { Effect, Layer } from 'effect';
 
 import { EGWParagraphDatabase } from '../egw-db/index.js';
+import { EGWAuth } from '../egw/auth.js';
 import { EGWApiClient } from '../egw/client.js';
 import { getSyncStatusSummary, syncEgwBooks } from './egw-sync.js';
 
@@ -72,11 +73,21 @@ const syncProgram = syncEgwBooks({
 // Choose program based on flags
 const program = showStatus ? showSyncStatusProgram : syncProgram;
 
-// Compose layers
-const ServiceLayer = Layer.mergeAll(
-  EGWParagraphDatabase.Default,
-  Layer.provide(EGWApiClient.Default, FetchHttpClient.layer),
+// Compose layers with explicit dependencies
+// EGWAuth needs: HttpClient, FileSystem, Path
+const AuthLayer = EGWAuth.Live.pipe(Layer.provide(FetchHttpClient.layer));
+
+// EGWApiClient needs: EGWAuth, HttpClient
+const ApiClientLayer = EGWApiClient.Live.pipe(
+  Layer.provide(AuthLayer),
+  Layer.provide(FetchHttpClient.layer),
 );
+
+// EGWParagraphDatabase needs: FileSystem, Path
+const ParagraphDbLayer = EGWParagraphDatabase.Live;
+
+// Compose service layers
+const ServiceLayer = Layer.mergeAll(ParagraphDbLayer, ApiClientLayer);
 
 const AppLayer = ServiceLayer.pipe(Layer.provide(BunContext.layer));
 

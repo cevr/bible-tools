@@ -15,8 +15,11 @@ import type {
 import {
   Chunk,
   Config,
+  ConfigError,
+  Context,
   Duration,
   Effect,
+  Layer,
   Option,
   Redacted,
   Schedule,
@@ -42,13 +45,90 @@ export class GeminiFileSearchError extends Schema.TaggedError<GeminiFileSearchEr
   },
 ) {}
 
+// ============================================================================
+// Service Interface
+// ============================================================================
+
+/**
+ * Gemini File Search Client service interface.
+ */
+export interface GeminiFileSearchClientService {
+  readonly createStore: (
+    displayName: string,
+  ) => Effect.Effect<Schemas.FileSearchStore, GeminiFileSearchError>;
+  readonly findStoreByDisplayName: (
+    displayName: string,
+    pageSize?: number,
+  ) => Effect.Effect<Schemas.FileSearchStore, GeminiFileSearchError>;
+  readonly uploadFile: (
+    filePath: string,
+    fileSearchStoreName: string,
+    config: Schemas.UploadConfig,
+  ) => Effect.Effect<Schemas.Operation, GeminiFileSearchError>;
+  readonly uploadContent: (
+    content: string | Uint8Array | Buffer,
+    fileSearchStoreName: string,
+    config: Schemas.UploadConfig,
+  ) => Effect.Effect<Schemas.Operation, GeminiFileSearchError>;
+  readonly uploadFiles: (
+    filePaths: string[],
+    fileSearchStoreName: string,
+    getConfig: (filePath: string) => Schemas.UploadConfig,
+  ) => Effect.Effect<Chunk.Chunk<Schemas.Operation>, GeminiFileSearchError>;
+  readonly generateContent: (
+    model: string,
+    contents: string,
+    fileSearchStoreNames: string[],
+    metadataFilter?: string,
+  ) => Effect.Effect<unknown, GeminiFileSearchError>;
+  readonly listDocuments: (
+    fileSearchStoreName: string,
+    pageSize?: number,
+  ) => Effect.Effect<Chunk.Chunk<Schemas.Document>, GeminiFileSearchError>;
+  readonly findDocumentByDisplayName: (
+    fileSearchStoreName: string,
+    displayName: string,
+  ) => Effect.Effect<Schemas.Document, GeminiFileSearchError>;
+  readonly documentExists: (
+    fileSearchStoreName: string,
+    displayName: string,
+  ) => Effect.Effect<boolean, GeminiFileSearchError>;
+  readonly countDocumentsByBookId: (
+    fileSearchStoreName: string,
+    bookId: number,
+  ) => Effect.Effect<number, GeminiFileSearchError>;
+  readonly deleteDocument: (
+    documentName: string,
+    force?: boolean,
+  ) => Effect.Effect<void, GeminiFileSearchError>;
+  readonly updateDocument: (
+    filePath: string,
+    fileSearchStoreName: string,
+    displayName: string,
+    config?: Omit<Schemas.UploadConfig, 'displayName'>,
+  ) => Effect.Effect<Schemas.Operation, GeminiFileSearchError>;
+  readonly deleteStore: (
+    storeName: string,
+    force?: boolean,
+  ) => Effect.Effect<void, GeminiFileSearchError>;
+}
+
+// ============================================================================
+// Service Definition
+// ============================================================================
+
 /**
  * Gemini File Search Client Service
  */
-export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClient>()(
+export class GeminiFileSearchClient extends Context.Tag(
   '@bible/gemini/Client',
-  {
-    effect: Effect.gen(function* () {
+)<GeminiFileSearchClient, GeminiFileSearchClientService>() {
+  /**
+   * Live implementation using Google AI API.
+   */
+  static Live: Layer.Layer<GeminiFileSearchClient, ConfigError.ConfigError> = Layer.effect(
+    GeminiFileSearchClient,
+    Effect.gen(function* () {
       const apiKey = yield* Config.redacted('GOOGLE_AI_API_KEY').pipe(
         Config.withDefault(
           process.env.GOOGLE_AI_API_KEY
@@ -190,6 +270,49 @@ export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClien
           );
         });
 
+      // Define uploadFile as a named function for reuse
+      const uploadFile = (
+        filePath: string,
+        fileSearchStoreName: string,
+        config: Schemas.UploadConfig,
+      ): Effect.Effect<Schemas.Operation, GeminiFileSearchError> =>
+        Effect.gen(function* () {
+          const apiMetadata = Schemas.toCustomMetadata(config.customMetadata);
+          const uploadConfig: {
+            displayName: string;
+            customMetadata: CustomMetadata[];
+            chunkingConfig?: {
+              whiteSpaceConfig: {
+                maxTokensPerChunk: number;
+                maxOverlapTokens: number;
+              };
+            };
+          } = {
+            displayName: config.displayName,
+            customMetadata: apiMetadata as CustomMetadata[],
+          };
+          if (config.chunkingConfig?.whiteSpaceConfig) {
+            uploadConfig.chunkingConfig = {
+              whiteSpaceConfig: config.chunkingConfig.whiteSpaceConfig,
+            };
+          }
+
+          const operation = yield* Effect.tryPromise({
+            try: () =>
+              ai.fileSearchStores.uploadToFileSearchStore({
+                file: filePath,
+                fileSearchStoreName,
+                config: uploadConfig,
+              }),
+            catch: (error) =>
+              new GeminiFileSearchError({
+                message: `Failed to upload file: ${filePath}`,
+                cause: error,
+              }),
+          });
+          return yield* pollOperation(operation);
+        }).pipe(Effect.retry(retrySchedule));
+
       return {
         createStore: (displayName: string) =>
           Effect.gen(function* () {
@@ -232,52 +355,7 @@ export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClien
             return store;
           }).pipe(Effect.retry(retrySchedule)),
 
-        uploadFile: (
-          filePath: string,
-          fileSearchStoreName: string,
-          config: Schemas.UploadConfig,
-        ) =>
-          Effect.gen(function* () {
-            // Convert metadata to API format using the helper
-            // The helper handles conversion from SimpleMetadata or CustomMetadata[]
-            // and ensures all values are in the correct format for the API
-            const apiMetadata = Schemas.toCustomMetadata(config.customMetadata);
-
-            // Build config object, only including chunkingConfig if it has whiteSpaceConfig
-            const uploadConfig: {
-              displayName: string;
-              customMetadata: CustomMetadata[];
-              chunkingConfig?: {
-                whiteSpaceConfig: {
-                  maxTokensPerChunk: number;
-                  maxOverlapTokens: number;
-                };
-              };
-            } = {
-              displayName: config.displayName,
-              customMetadata: apiMetadata as CustomMetadata[],
-            };
-            if (config.chunkingConfig?.whiteSpaceConfig) {
-              uploadConfig.chunkingConfig = {
-                whiteSpaceConfig: config.chunkingConfig.whiteSpaceConfig,
-              };
-            }
-
-            const operation = yield* Effect.tryPromise({
-              try: () =>
-                ai.fileSearchStores.uploadToFileSearchStore({
-                  file: filePath,
-                  fileSearchStoreName,
-                  config: uploadConfig,
-                }),
-              catch: (error) =>
-                new GeminiFileSearchError({
-                  message: `Failed to upload file: ${filePath}`,
-                  cause: error,
-                }),
-            });
-            return yield* pollOperation(operation);
-          }).pipe(Effect.retry(retrySchedule)),
+        uploadFile,
 
         uploadContent: (
           content: string | Uint8Array | Buffer,
@@ -363,7 +441,6 @@ export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClien
           getConfig: (filePath: string) => Schemas.UploadConfig,
         ) =>
           Effect.gen(function* () {
-            const { uploadFile } = yield* GeminiFileSearchClient;
             // Convert array to stream and process with concurrency
             return yield* Stream.fromIterable(filePaths).pipe(
               Stream.flatMap((filePath) =>
@@ -572,10 +649,74 @@ export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClien
 
         countDocumentsByBookId: (fileSearchStoreName: string, bookId: number) =>
           Effect.gen(function* () {
-            const { listDocuments } = yield* GeminiFileSearchClient;
-            const allDocumentsChunk = yield* listDocuments(fileSearchStoreName);
-            // Convert Chunk to Stream and filter documents
-            const count = yield* Stream.fromChunk(allDocumentsChunk).pipe(
+            // Inline listDocuments logic to avoid self-reference
+            const stream = Stream.unfoldEffect(
+              undefined as DocumentPager | undefined,
+              (currentPager) =>
+                Effect.gen(function* () {
+                  let pager: DocumentPager;
+                  if (currentPager) {
+                    yield* Effect.tryPromise({
+                      try: () => currentPager.nextPage(),
+                      catch: (error) =>
+                        new GeminiFileSearchError({
+                          message: `Failed to get next page of documents`,
+                          cause: error,
+                        }),
+                    }).pipe(Effect.retry(retrySchedule));
+                    pager = currentPager;
+                  } else {
+                    const pagerResult = yield* Effect.tryPromise({
+                      try: () =>
+                        ai.fileSearchStores.documents.list({
+                          parent: fileSearchStoreName,
+                          config: { pageSize: 100 },
+                        }),
+                      catch: (error) =>
+                        new GeminiFileSearchError({
+                          message: `Failed to list documents in store: ${fileSearchStoreName}`,
+                          cause: error,
+                        }),
+                    }).pipe(Effect.retry(retrySchedule));
+                    pager = pagerResult as unknown as DocumentPager;
+                  }
+
+                  const page = pager.page || [];
+                  const documents = Chunk.fromIterable(
+                    page.map((doc: Document) => ({
+                      name: doc.name || '',
+                      displayName: doc.displayName || '',
+                      customMetadata: (doc.customMetadata ||
+                        []) as Schemas.CustomMetadata[],
+                    })),
+                  );
+
+                  let hasNext = false;
+                  if (typeof (pager as any).hasNextPage === 'function') {
+                    try {
+                      hasNext = (pager as any).hasNextPage();
+                    } catch {
+                      const params = (pager as any).params;
+                      hasNext = params?.config?.pageToken !== undefined;
+                    }
+                  } else {
+                    const params = (pager as any).params;
+                    hasNext = params?.config?.pageToken !== undefined;
+                  }
+
+                  return Option.some([
+                    documents,
+                    hasNext ? pager : undefined,
+                  ] as const);
+                }),
+            ).pipe(
+              Stream.flatMap((documentsChunk) =>
+                Stream.fromChunk(documentsChunk),
+              ),
+            );
+
+            // Count documents with matching bookId
+            const count = yield* stream.pipe(
               Stream.filter((doc) => {
                 const bookIdMetadata = doc.customMetadata?.find(
                   (meta: Schemas.CustomMetadata) => meta.key === 'book_id',
@@ -613,15 +754,38 @@ export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClien
           config?: Omit<Schemas.UploadConfig, 'displayName'>,
         ) =>
           Effect.gen(function* () {
-            const { findDocumentByDisplayName, deleteDocument, uploadFile } =
-              yield* GeminiFileSearchClient;
-            yield* findDocumentByDisplayName(
-              fileSearchStoreName,
-              displayName,
-            ).pipe(
-              Effect.flatMap((existingDoc) =>
-                deleteDocument(existingDoc.name, true),
-              ),
+            // Try to find and delete existing document
+            yield* Effect.gen(function* () {
+              const pager = yield* Effect.tryPromise({
+                try: () =>
+                  ai.fileSearchStores.documents.list({
+                    parent: fileSearchStoreName,
+                  }),
+                catch: (error) =>
+                  new GeminiFileSearchError({
+                    message: `Failed to list documents in store: ${fileSearchStoreName}`,
+                    cause: error,
+                  }),
+              });
+              const existingDoc = yield* searchDocumentsRecursive(
+                pager,
+                displayName,
+              );
+              if (existingDoc) {
+                yield* Effect.tryPromise({
+                  try: () =>
+                    ai.fileSearchStores.documents.delete({
+                      name: existingDoc.name,
+                      config: { force: true },
+                    }),
+                  catch: (error) =>
+                    new GeminiFileSearchError({
+                      message: `Failed to delete document: ${existingDoc.name}`,
+                      cause: error,
+                    }),
+                });
+              }
+            }).pipe(
               Effect.catchTag('GeminiFileSearchError', (error) => {
                 if (error.message.includes('not found')) {
                   return Effect.void;
@@ -629,10 +793,42 @@ export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClien
                 return Effect.fail(error);
               }),
             );
-            return yield* uploadFile(filePath, fileSearchStoreName, {
+
+            // Upload new file
+            const apiMetadata = Schemas.toCustomMetadata(config?.customMetadata);
+            const uploadConfig: {
+              displayName: string;
+              customMetadata: CustomMetadata[];
+              chunkingConfig?: {
+                whiteSpaceConfig: {
+                  maxTokensPerChunk: number;
+                  maxOverlapTokens: number;
+                };
+              };
+            } = {
               displayName,
-              ...config,
+              customMetadata: apiMetadata as CustomMetadata[],
+            };
+            if (config?.chunkingConfig?.whiteSpaceConfig) {
+              uploadConfig.chunkingConfig = {
+                whiteSpaceConfig: config.chunkingConfig.whiteSpaceConfig,
+              };
+            }
+
+            const operation = yield* Effect.tryPromise({
+              try: () =>
+                ai.fileSearchStores.uploadToFileSearchStore({
+                  file: filePath,
+                  fileSearchStoreName,
+                  config: uploadConfig,
+                }),
+              catch: (error) =>
+                new GeminiFileSearchError({
+                  message: `Failed to upload file: ${filePath}`,
+                  cause: error,
+                }),
             });
+            return yield* pollOperation(operation);
           }),
 
         deleteStore: (storeName: string, force: boolean = true) =>
@@ -650,7 +846,38 @@ export class GeminiFileSearchClient extends Effect.Service<GeminiFileSearchClien
                 }),
             });
           }).pipe(Effect.retry(retrySchedule)),
-      } as const;
+      };
     }),
-  },
-) {}
+  );
+
+  /**
+   * Default layer - alias for Live (backwards compatibility).
+   */
+  static Default = GeminiFileSearchClient.Live;
+
+  /**
+   * Test implementation with no-op operations.
+   */
+  static Test = (): Layer.Layer<GeminiFileSearchClient> =>
+    Layer.succeed(GeminiFileSearchClient, {
+      createStore: (displayName) =>
+        Effect.succeed({ name: 'test-store', displayName }),
+      findStoreByDisplayName: (displayName) =>
+        Effect.succeed({ name: 'test-store', displayName }),
+      uploadFile: () =>
+        Effect.succeed({ name: 'test-op', done: true, response: {} }),
+      uploadContent: () =>
+        Effect.succeed({ name: 'test-op', done: true, response: {} }),
+      uploadFiles: () => Effect.succeed(Chunk.empty()),
+      generateContent: () => Effect.succeed({ candidates: [] }),
+      listDocuments: () => Effect.succeed(Chunk.empty()),
+      findDocumentByDisplayName: (_, displayName) =>
+        Effect.succeed({ name: 'test-doc', displayName }),
+      documentExists: () => Effect.succeed(false),
+      countDocumentsByBookId: () => Effect.succeed(0),
+      deleteDocument: () => Effect.void,
+      updateDocument: () =>
+        Effect.succeed({ name: 'test-op', done: true, response: {} }),
+      deleteStore: () => Effect.void,
+    });
+}

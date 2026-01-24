@@ -29,7 +29,11 @@ import {
 } from '@effect/platform-bun';
 import { Effect, Layer, Option } from 'effect';
 
+import { EGWParagraphDatabase } from '../src/egw-db/index.js';
 import { EGWGeminiService } from '../src/egw-gemini/index.js';
+import { EGWUploadStatus } from '../src/egw-gemini/upload-status.js';
+import { EGWAuth } from '../src/egw/auth.js';
+import { EGWApiClient } from '../src/egw/client.js';
 import { GeminiFileSearchClient } from '../src/gemini/index.js';
 
 const queryArg = Args.text({
@@ -51,6 +55,22 @@ const metadataFilterOption = Args.text({
     'Optional metadata filter to narrow search results (e.g., book_title="The Desire of Ages")',
   ),
 );
+
+// Response type for display purposes
+interface GenerateContentResponse {
+  candidates?: Array<{
+    content?: {
+      parts?: Array<{ text?: string }>;
+    };
+    groundingMetadata?: {
+      searchEntryPoint?: string;
+      retrievalMetadata?: {
+        score?: number;
+        chunk?: string;
+      };
+    };
+  }>;
+}
 
 const cli = Command.make(
   'query-egw',
@@ -99,6 +119,9 @@ const cli = Command.make(
             },
       );
 
+      // Type the response for display
+      const response = result.response as GenerateContentResponse;
+
       // Display query information
       yield* Effect.log(
         '\n═══════════════════════════════════════════════════════',
@@ -111,15 +134,13 @@ const cli = Command.make(
         `Store: ${result.store.displayName} (${result.store.name})`,
       );
       yield* Effect.log(`Query: ${result.query}`);
-      yield* Effect.log(
-        `Candidates: ${result.response.candidates?.length || 0}`,
-      );
+      yield* Effect.log(`Candidates: ${response.candidates?.length || 0}`);
       yield* Effect.log('');
 
       // Display all candidates
-      const candidates = result.response.candidates || [];
+      const candidates = response.candidates || [];
       if (candidates.length === 0) {
-        yield* Effect.log('⚠️  No candidates found in response');
+        yield* Effect.log('No candidates found in response');
       } else {
         for (let i = 0; i < candidates.length; i++) {
           const candidate = candidates[i];
@@ -131,7 +152,7 @@ const cli = Command.make(
 
           // Display content parts
           if (candidate.content?.parts) {
-            yield* Effect.log('\n📝 Content:');
+            yield* Effect.log('\nContent:');
             for (let j = 0; j < candidate.content.parts.length; j++) {
               const part = candidate.content.parts[j];
               if (part?.text) {
@@ -142,12 +163,12 @@ const cli = Command.make(
               }
             }
           } else {
-            yield* Effect.log('\n📝 Content: (no content parts)');
+            yield* Effect.log('\nContent: (no content parts)');
           }
 
           // Display grounding metadata
           if (candidate.groundingMetadata) {
-            yield* Effect.log('\n🔍 Grounding Metadata:');
+            yield* Effect.log('\nGrounding Metadata:');
             const metadata = candidate.groundingMetadata;
 
             if (metadata.searchEntryPoint) {
@@ -180,7 +201,7 @@ const cli = Command.make(
               yield* Effect.log('  (no retrieval metadata)');
             }
           } else {
-            yield* Effect.log('\n🔍 Grounding Metadata: (none)');
+            yield* Effect.log('\nGrounding Metadata: (none)');
           }
         }
       }
@@ -202,16 +223,38 @@ const program = Command.run(cli, {
   version: '1.0.0',
 });
 
-// Set up service layers
-const ServiceLayer = Layer.mergeAll(
-  Layer.provideMerge(
-    Layer.provide(EGWGeminiService.Default, FetchHttpClient.layer),
-    Layer.mergeAll(BunFileSystem.layer, BunPath.layer),
-  ),
-  GeminiFileSearchClient.Default,
+// Compose layers with explicit dependencies
+// EGWAuth needs: HttpClient, FileSystem, Path
+const AuthLayer = EGWAuth.Live.pipe(Layer.provide(FetchHttpClient.layer));
+
+// EGWApiClient needs: EGWAuth, HttpClient
+const ApiClientLayer = EGWApiClient.Live.pipe(
+  Layer.provide(AuthLayer),
+  Layer.provide(FetchHttpClient.layer),
 );
 
-// Provide BunContext first for scoped services
-const AppLayer = Layer.mergeAll(ServiceLayer, BunContext.layer);
+// GeminiFileSearchClient needs: HttpClient
+const GeminiClientLayer = GeminiFileSearchClient.Live.pipe(
+  Layer.provide(FetchHttpClient.layer),
+);
+
+// EGWParagraphDatabase needs: FileSystem, Path
+const ParagraphDbLayer = EGWParagraphDatabase.Live;
+
+// EGWUploadStatus needs: FileSystem, Path
+const UploadStatusLayer = EGWUploadStatus.Live;
+
+// EGWGeminiService needs: EGWApiClient, GeminiFileSearchClient, EGWUploadStatus, EGWParagraphDatabase, FileSystem
+const EGWGeminiLayer = EGWGeminiService.Live.pipe(
+  Layer.provide(ApiClientLayer),
+  Layer.provide(GeminiClientLayer),
+  Layer.provide(UploadStatusLayer),
+  Layer.provide(ParagraphDbLayer),
+  Layer.provide(BunFileSystem.layer),
+  Layer.provide(BunPath.layer),
+);
+
+// App layer with all services
+const AppLayer = Layer.mergeAll(EGWGeminiLayer, BunContext.layer);
 
 program(process.argv).pipe(Effect.provide(AppLayer), BunRuntime.runMain);

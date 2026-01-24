@@ -5,14 +5,19 @@
 
 import {
   HttpClient,
+  HttpClientError,
   HttpClientRequest,
   HttpClientResponse,
 } from '@effect/platform';
 import {
   Config,
+  ConfigError,
+  Context,
   Duration,
   Effect,
+  Layer,
   Option,
+  ParseResult,
   Redacted,
   Schedule,
   Schema,
@@ -33,13 +38,86 @@ export class EGWApiError extends Schema.TaggedError<EGWApiError>()(
   },
 ) {}
 
+// ============================================================================
+// Service Interface
+// ============================================================================
+
+/**
+ * EGW API Client error type (union of possible errors)
+ */
+export type EGWApiClientError =
+  | EGWApiError
+  | HttpClientError.HttpClientError
+  | ParseResult.ParseError;
+
+/**
+ * EGW API Client service interface.
+ */
+export interface EGWApiClientService {
+  readonly getLanguages: () => Effect.Effect<
+    readonly Schemas.Language[],
+    EGWApiClientError
+  >;
+  readonly getFoldersByLanguage: (
+    languageCode: string,
+  ) => Effect.Effect<readonly Schemas.Folder[], EGWApiClientError>;
+  readonly getBooksByFolder: (
+    folderId: number,
+    params?: Partial<Schemas.BooksQueryParams>,
+  ) => Effect.Effect<readonly Schemas.Book[], EGWApiClientError>;
+  readonly getBooks: (
+    params?: Partial<Schemas.BooksQueryParams>,
+  ) => Stream.Stream<Schemas.Book, EGWApiClientError>;
+  readonly getBook: (
+    bookId: number,
+    params?: { trans?: 'all' | string },
+  ) => Effect.Effect<Schemas.Book, EGWApiClientError>;
+  readonly getBookToc: (
+    bookId: number,
+  ) => Effect.Effect<readonly Schemas.TocItem[], EGWApiClientError>;
+  readonly getChapterContent: (
+    bookId: number,
+    chapterId: string,
+    params?: Partial<Schemas.ChapterContentParams>,
+  ) => Effect.Effect<readonly Schemas.Paragraph[], EGWApiClientError>;
+  readonly downloadBook: (
+    bookId: number,
+  ) => Effect.Effect<ArrayBuffer, EGWApiClientError>;
+  readonly search: (
+    params: Schemas.SearchParams,
+  ) => Effect.Effect<unknown, EGWApiClientError>;
+  readonly getSuggestions: (
+    query: string,
+    limit?: number,
+  ) => Effect.Effect<readonly string[], EGWApiClientError>;
+  readonly getBookCoverUrl: (
+    bookId: number,
+    size?: 'small' | 'large',
+  ) => Effect.Effect<string>;
+  readonly getMirrors: () => Effect.Effect<readonly string[], EGWApiClientError>;
+}
+
+// ============================================================================
+// Service Definition
+// ============================================================================
+
 /**
  * EGW API Client Service
  */
-export class EGWApiClient extends Effect.Service<EGWApiClient>()(
-  '@bible/egw/Client',
-  {
-    effect: Effect.gen(function* () {
+export class EGWApiClient extends Context.Tag('@bible/egw/Client')<
+  EGWApiClient,
+  EGWApiClientService
+>() {
+  /**
+   * Live implementation using HTTP client and EGW Auth.
+   */
+  static Live: Layer.Layer<
+    EGWApiClient,
+    ConfigError.ConfigError | HttpClientError.HttpClientError | ParseResult.ParseError,
+    EGWAuth | HttpClient.HttpClient
+  > = Layer.effect(
+    EGWApiClient,
+    Effect.gen(function* () {
       const baseUrl = yield* Config.string('EGW_API_BASE_URL').pipe(
         Config.withDefault('https://a.egwwritings.org'),
       );
@@ -416,8 +494,43 @@ export class EGWApiClient extends Effect.Service<EGWApiClient>()(
               Schema.Array(Schema.String),
             )(response);
           }).pipe(Effect.retry(retrySchedule)),
-      } as const;
+      };
     }),
-    dependencies: [EGWAuth.Default],
-  },
-) {}
+  );
+
+  /**
+   * Default layer - alias for Live (backwards compatibility).
+   */
+  static Default = EGWApiClient.Live;
+
+  /**
+   * Test implementation with mock data.
+   */
+  static Test = (config: {
+    books?: readonly Schemas.Book[];
+    languages?: readonly Schemas.Language[];
+  } = {}): Layer.Layer<EGWApiClient> =>
+    Layer.succeed(EGWApiClient, {
+      getLanguages: () => Effect.succeed(config.languages ?? []),
+      getFoldersByLanguage: () => Effect.succeed([]),
+      getBooksByFolder: () => Effect.succeed(config.books ?? []),
+      getBooks: () => Stream.fromIterable(config.books ?? []),
+      getBook: (bookId) =>
+        Effect.fromNullable(config.books?.find((b) => b.book_id === bookId)).pipe(
+          Effect.mapError(
+            () =>
+              new EGWApiError({
+                message: `Book not found: ${bookId}`,
+                cause: undefined,
+              }),
+          ),
+        ),
+      getBookToc: () => Effect.succeed([]),
+      getChapterContent: () => Effect.succeed([]),
+      downloadBook: () => Effect.succeed(new ArrayBuffer(0)),
+      search: () => Effect.succeed({}),
+      getSuggestions: () => Effect.succeed([]),
+      getBookCoverUrl: (bookId) => Effect.succeed(`/covers/${bookId}`),
+      getMirrors: () => Effect.succeed([]),
+    });
+}

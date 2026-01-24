@@ -32,7 +32,11 @@ import {
 } from '@effect/platform-bun';
 import { Effect, Layer } from 'effect';
 
+import { EGWParagraphDatabase } from '../src/egw-db/index.js';
 import { EGWGeminiService } from '../src/egw-gemini/index.js';
+import { EGWUploadStatus } from '../src/egw-gemini/upload-status.js';
+import { EGWAuth } from '../src/egw/auth.js';
+import { EGWApiClient } from '../src/egw/client.js';
 import { GeminiFileSearchClient } from '../src/gemini/index.js';
 
 // Folder ID for "Books" folder (published writings)
@@ -63,17 +67,38 @@ const program = Effect.gen(function* () {
   return result;
 });
 
-const ServiceLayer = Layer.mergeAll(
-  Layer.provideMerge(
-    Layer.provide(EGWGeminiService.Default, FetchHttpClient.layer),
-    Layer.mergeAll(BunFileSystem.layer, BunPath.layer),
-  ),
-  GeminiFileSearchClient.Default,
+// Compose layers with explicit dependencies
+// EGWAuth needs: HttpClient, FileSystem, Path
+const AuthLayer = EGWAuth.Live.pipe(Layer.provide(FetchHttpClient.layer));
+
+// EGWApiClient needs: EGWAuth, HttpClient
+const ApiClientLayer = EGWApiClient.Live.pipe(
+  Layer.provide(AuthLayer),
+  Layer.provide(FetchHttpClient.layer),
 );
 
-// Provide BunContext first for scoped services, then merge with other services
-const AppLayer = ServiceLayer.pipe(Layer.provide(BunContext.layer));
+// GeminiFileSearchClient needs: HttpClient
+const GeminiClientLayer = GeminiFileSearchClient.Live.pipe(
+  Layer.provide(FetchHttpClient.layer),
+);
 
-const programWithContext = program.pipe(Effect.provide(AppLayer));
+// EGWParagraphDatabase needs: FileSystem, Path
+const ParagraphDbLayer = EGWParagraphDatabase.Live;
 
-BunRuntime.runMain(programWithContext);
+// EGWUploadStatus needs: FileSystem, Path
+const UploadStatusLayer = EGWUploadStatus.Live;
+
+// EGWGeminiService needs: EGWApiClient, GeminiFileSearchClient, EGWUploadStatus, EGWParagraphDatabase, FileSystem
+const EGWGeminiLayer = EGWGeminiService.Live.pipe(
+  Layer.provide(ApiClientLayer),
+  Layer.provide(GeminiClientLayer),
+  Layer.provide(UploadStatusLayer),
+  Layer.provide(ParagraphDbLayer),
+  Layer.provide(BunFileSystem.layer),
+  Layer.provide(BunPath.layer),
+);
+
+// App layer with all services
+const AppLayer = Layer.mergeAll(EGWGeminiLayer, BunContext.layer);
+
+BunRuntime.runMain(program.pipe(Effect.provide(AppLayer)));

@@ -5,7 +5,7 @@
  * Uses the indexed paragraph_bible_refs table for fast O(1) lookups.
  */
 
-import { Effect, Schema } from 'effect';
+import { Context, Effect, Layer, Schema } from 'effect';
 
 import { EGWParagraphDatabase } from '../egw-db/book-database.js';
 import type * as EGWSchemas from '../egw/schemas.js';
@@ -48,15 +48,46 @@ function paragraphToEntry(
   };
 }
 
+// ============================================================================
+// Service Interface
+// ============================================================================
+
+/**
+ * EGW Commentary service interface.
+ * Provides commentary lookup from EGW Bible Commentary volumes.
+ */
+export interface EGWCommentaryServiceShape {
+  readonly getCommentary: (
+    verse: VerseReference,
+  ) => Effect.Effect<CommentaryResult, CommentaryServiceError>;
+  readonly searchCommentary: (
+    query: string,
+    limit?: number,
+  ) => Effect.Effect<readonly CommentaryEntry[], CommentaryServiceError>;
+}
+
+// ============================================================================
+// Service Definition
+// ============================================================================
+
 /**
  * EGW Commentary Service
  *
  * Provides commentary lookup from EGW Bible Commentary volumes.
  */
-export class EGWCommentaryService extends Effect.Service<EGWCommentaryService>()(
+export class EGWCommentaryService extends Context.Tag(
   '@bible/egw-commentary/Service',
-  {
-    effect: Effect.gen(function* () {
+)<EGWCommentaryService, EGWCommentaryServiceShape>() {
+  /**
+   * Live implementation using EGWParagraphDatabase.
+   */
+  static Live: Layer.Layer<
+    EGWCommentaryService,
+    never,
+    EGWParagraphDatabase
+  > = Layer.effect(
+    EGWCommentaryService,
+    Effect.gen(function* () {
       const db = yield* EGWParagraphDatabase;
 
       /**
@@ -123,8 +154,27 @@ export class EGWCommentaryService extends Effect.Service<EGWCommentaryService>()
       return {
         getCommentary,
         searchCommentary,
-      } as const;
+      };
     }),
-    dependencies: [EGWParagraphDatabase.Default],
-  },
-) {}
+  );
+
+  /**
+   * Default layer - alias for Live (backwards compatibility).
+   */
+  static Default = EGWCommentaryService.Live;
+
+  /**
+   * Test implementation with configurable mock data.
+   */
+  static Test = (config: {
+    entries?: readonly CommentaryEntry[];
+  } = {}): Layer.Layer<EGWCommentaryService> =>
+    Layer.succeed(EGWCommentaryService, {
+      getCommentary: (verse) =>
+        Effect.succeed({
+          verse,
+          entries: config.entries ?? [],
+        }),
+      searchCommentary: () => Effect.succeed(config.entries ?? []),
+    });
+}

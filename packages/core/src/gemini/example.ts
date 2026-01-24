@@ -102,6 +102,14 @@ export const advancedUploadExample = (
   );
 };
 
+// Type for generateContent response (simplified for examples)
+interface GenerateContentResponse {
+  candidates: Array<{
+    content: { parts: Array<{ text?: string }> };
+    groundingMetadata?: unknown;
+  }>;
+}
+
 /**
  * Example 5: Run a Generation Query using File Search (RAG)
  */
@@ -111,9 +119,9 @@ export const generateContentExample = (
 ) =>
   Effect.gen(function* () {
     const client = yield* GeminiFileSearchClient;
-    const response = yield* client.generateContent('gemini-2.5-flash', query, [
+    const response = (yield* client.generateContent('gemini-2.5-flash', query, [
       fileSearchStoreName,
-    ]);
+    ])) as GenerateContentResponse;
     const text =
       response.candidates[0]?.content.parts[0]?.text || 'No response';
     yield* Effect.log('Model response:', text);
@@ -139,12 +147,12 @@ export const generateContentWithFilterExample = (
 ) =>
   Effect.gen(function* () {
     const client = yield* GeminiFileSearchClient;
-    const response = yield* client.generateContent(
+    const response = (yield* client.generateContent(
       'gemini-2.5-flash',
       query,
       [fileSearchStoreName],
       'doc_type="manual"',
-    );
+    )) as GenerateContentResponse;
     const text =
       response.candidates[0]?.content.parts[0]?.text || 'No response';
     yield* Effect.log('Filtered response:', text);

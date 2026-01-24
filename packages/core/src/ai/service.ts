@@ -1,5 +1,5 @@
 import { type LanguageModel } from 'ai';
-import { Context, Schema } from 'effect';
+import { Context, Layer, Schema } from 'effect';
 
 /**
  * Error thrown when AI operations fail.
@@ -19,6 +19,10 @@ export interface ModelConfig {
   readonly low: LanguageModel;
 }
 
+// ============================================================================
+// Service Definition
+// ============================================================================
+
 /**
  * AI Service for text generation operations.
  * This service provides the configured AI models to use for generation.
@@ -26,4 +30,43 @@ export interface ModelConfig {
 export class AiService extends Context.Tag('@bible/ai/Service')<
   AiService,
   ModelConfig
->() {}
+>() {
+  /**
+   * Live implementation using real AI models.
+   * Caller must provide the model configuration.
+   */
+  static Live = (config: ModelConfig): Layer.Layer<AiService> =>
+    Layer.succeed(AiService, config);
+
+  /**
+   * Test implementation using mock models.
+   * The mock models will throw if used - tests should mock at a higher level.
+   */
+  static Test = (): Layer.Layer<AiService> =>
+    Layer.succeed(AiService, {
+      high: {
+        specificationVersion: 'v1',
+        provider: 'test',
+        modelId: 'test-high',
+        defaultObjectGenerationMode: 'json',
+        doGenerate: () => {
+          throw new Error('Test model should not be called directly');
+        },
+        doStream: () => {
+          throw new Error('Test model should not be called directly');
+        },
+      } as unknown as LanguageModel,
+      low: {
+        specificationVersion: 'v1',
+        provider: 'test',
+        modelId: 'test-low',
+        defaultObjectGenerationMode: 'json',
+        doGenerate: () => {
+          throw new Error('Test model should not be called directly');
+        },
+        doStream: () => {
+          throw new Error('Test model should not be called directly');
+        },
+      } as unknown as LanguageModel,
+    });
+}

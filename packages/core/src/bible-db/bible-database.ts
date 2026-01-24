@@ -13,8 +13,9 @@
  */
 
 import { FileSystem, Path } from '@effect/platform';
+import type { PlatformError } from '@effect/platform/Error';
 import { Database } from 'bun:sqlite';
-import { Config, Effect, Option, Schema } from 'effect';
+import { Config, ConfigError, Context, Effect, Layer, Option, Schema } from 'effect';
 
 import {
   DatabaseConnectionError,
@@ -207,22 +208,108 @@ export interface VerseSearchResult {
 }
 
 // ============================================================================
+// Service Interface
+// ============================================================================
+
+/**
+ * Bible Database service interface.
+ * Provides access to Bible data stored in SQLite.
+ */
+export interface BibleDatabaseService {
+  // Book operations
+  readonly getBooks: () => Effect.Effect<
+    readonly BibleBook[],
+    BibleDatabaseError
+  >;
+  readonly getBook: (
+    bookNum: number,
+  ) => Effect.Effect<Option.Option<BibleBook>, BibleDatabaseError>;
+
+  // Verse operations
+  readonly getChapter: (
+    book: number,
+    chapter: number,
+    versionCode?: string,
+  ) => Effect.Effect<readonly BibleVerse[], BibleDatabaseError>;
+  readonly getVerse: (
+    book: number,
+    chapter: number,
+    verse: number,
+    versionCode?: string,
+  ) => Effect.Effect<Option.Option<BibleVerse>, BibleDatabaseError>;
+  readonly searchVerses: (
+    query: string,
+    limit?: number,
+    versionCode?: string,
+  ) => Effect.Effect<readonly VerseSearchResult[], BibleDatabaseError>;
+
+  // Cross-reference operations
+  readonly getCrossRefs: (
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => Effect.Effect<readonly CrossReference[], BibleDatabaseError>;
+
+  // Strong's operations
+  readonly getStrongsEntry: (
+    number: string,
+  ) => Effect.Effect<Option.Option<StrongsEntry>, BibleDatabaseError>;
+  readonly searchStrongs: (
+    query: string,
+    limit?: number,
+  ) => Effect.Effect<readonly StrongsEntry[], BibleDatabaseError>;
+  readonly getVersesWithStrongs: (
+    strongsNumber: string,
+  ) => Effect.Effect<readonly ConcordanceResult[], BibleDatabaseError>;
+  readonly getStrongsCount: (
+    strongsNumber: string,
+  ) => Effect.Effect<number, BibleDatabaseError>;
+
+  // Verse word operations
+  readonly getVerseWords: (
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => Effect.Effect<readonly VerseWord[], BibleDatabaseError>;
+  readonly hasStrongsMapping: (
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => Effect.Effect<boolean, BibleDatabaseError>;
+
+  // Margin notes operations
+  readonly getMarginNotes: (
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => Effect.Effect<readonly MarginNote[], BibleDatabaseError>;
+}
+
+// ============================================================================
 // Service Definition
 // ============================================================================
 
-export class BibleDatabase extends Effect.Service<BibleDatabase>()(
-  '@bible/bible-db/Database',
-  {
-    scoped: Effect.gen(function* () {
+export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
+  BibleDatabase,
+  BibleDatabaseService
+>() {
+  /**
+   * Live implementation using SQLite database.
+   * Requires FileSystem and Path from @effect/platform.
+   */
+  static Live: Layer.Layer<
+    BibleDatabase,
+    DatabaseConnectionError | RecordNotFoundError | ConfigError.ConfigError | PlatformError,
+    FileSystem.FileSystem | Path.Path
+  > = Layer.scoped(
+    BibleDatabase,
+    Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
       const path = yield* Path.Path;
 
       // Determine database path
       // Priority: env var > repo path
-      const repoDbPath = path.resolve(
-        import.meta.dir,
-        '../../data/bible.db',
-      );
+      const repoDbPath = path.resolve(import.meta.dir, '../../data/bible.db');
 
       const dbPath = yield* Config.string('BIBLE_DB_PATH').pipe(
         Config.withDefault(repoDbPath),
@@ -665,8 +752,64 @@ export class BibleDatabase extends Effect.Service<BibleDatabase>()(
         hasStrongsMapping,
         // Margin notes operations
         getMarginNotes,
-      } as const;
+      };
     }),
-    dependencies: [],
-  },
-) {}
+  );
+
+  /**
+   * Default layer - alias for Live (backwards compatibility).
+   */
+  static Default = BibleDatabase.Live;
+
+  /**
+   * Test implementation with configurable mock data.
+   * Useful for unit testing without a real database.
+   */
+  static Test = (config: {
+    books?: readonly BibleBook[];
+    verses?: readonly BibleVerse[];
+    crossRefs?: readonly CrossReference[];
+    strongsEntries?: readonly StrongsEntry[];
+  } = {}): Layer.Layer<BibleDatabase> =>
+    Layer.succeed(BibleDatabase, {
+      getBooks: () => Effect.succeed(config.books ?? []),
+      getBook: (bookNum) =>
+        Effect.succeed(
+          Option.fromNullable(config.books?.find((b) => b.number === bookNum)),
+        ),
+      getChapter: (book, chapter, _versionCode) =>
+        Effect.succeed(
+          config.verses?.filter(
+            (v) => v.book === book && v.chapter === chapter,
+          ) ?? [],
+        ),
+      getVerse: (book, chapter, verse, _versionCode) =>
+        Effect.succeed(
+          Option.fromNullable(
+            config.verses?.find(
+              (v) =>
+                v.book === book && v.chapter === chapter && v.verse === verse,
+            ),
+          ),
+        ),
+      searchVerses: (_query, _limit, _versionCode) => Effect.succeed([]),
+      getCrossRefs: (book, chapter, verse) =>
+        Effect.succeed(
+          config.crossRefs?.filter(
+            (r) => r.book === book && r.chapter === chapter && r.verse === verse,
+          ) ?? [],
+        ),
+      getStrongsEntry: (number) =>
+        Effect.succeed(
+          Option.fromNullable(
+            config.strongsEntries?.find((e) => e.number === number),
+          ),
+        ),
+      searchStrongs: (_query, _limit) => Effect.succeed([]),
+      getVersesWithStrongs: (_strongsNumber) => Effect.succeed([]),
+      getStrongsCount: (_strongsNumber) => Effect.succeed(0),
+      getVerseWords: (_book, _chapter, _verse) => Effect.succeed([]),
+      hasStrongsMapping: (_book, _chapter, _verse) => Effect.succeed(false),
+      getMarginNotes: (_book, _chapter, _verse) => Effect.succeed([]),
+    });
+}

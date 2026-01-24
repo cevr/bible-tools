@@ -63,10 +63,16 @@ export class RecordNotFoundError extends Schema.TaggedError<RecordNotFoundError>
 ) {}
 
 /**
- * Union of all database errors
+ * Union of all database errors (Schema)
  */
-export type DatabaseError =
-  | DatabaseConnectionError
-  | SchemaInitializationError
-  | DatabaseQueryError
-  | RecordNotFoundError;
+export const DatabaseError = Schema.Union(
+  DatabaseConnectionError,
+  SchemaInitializationError,
+  DatabaseQueryError,
+  RecordNotFoundError,
+);
+
+/**
+ * Union of all database errors (type)
+ */
+export type DatabaseError = Schema.Schema.Type<typeof DatabaseError>;

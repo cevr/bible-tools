@@ -8,11 +8,12 @@
  * a higher-level API suitable for reader UIs.
  */
 
-import { Effect, Option, Schema, Stream } from 'effect';
+import { Context, Effect, Layer, Option, Schema, Stream } from 'effect';
 
 import { EGWParagraphDatabase } from '../egw-db/book-database.js';
 import type * as EGWSchemas from '../egw/schemas.js';
-import type { EGWBookInfo, EGWParagraph, EGWReaderPosition } from './types.js';
+import { EGWBookInfo, EGWParagraph } from './types.js';
+import type { EGWReaderPosition } from './types.js';
 
 /**
  * Error types for the reader service
@@ -40,12 +41,18 @@ export class DatabaseNotInitializedError extends Schema.TaggedError<DatabaseNotI
 ) {}
 
 /**
- * Union of all reader errors
+ * Union of all reader errors (Schema)
  */
-export type ReaderError =
-  | EGWReaderError
-  | BookNotFoundError
-  | DatabaseNotInitializedError;
+export const ReaderError = Schema.Union(
+  EGWReaderError,
+  BookNotFoundError,
+  DatabaseNotInitializedError,
+);
+
+/**
+ * Union of all reader errors (type)
+ */
+export type ReaderError = Schema.Schema.Type<typeof ReaderError>;
 
 /**
  * Convert database Paragraph to EGWParagraph
@@ -53,7 +60,7 @@ export type ReaderError =
 function schemaParagraphToEGWParagraph(
   para: EGWSchemas.Paragraph,
 ): EGWParagraph {
-  return {
+  return new EGWParagraph({
     paraId: para.para_id ?? undefined,
     refcodeShort: para.refcode_short ?? undefined,
     refcodeLong: para.refcode_long ?? undefined,
@@ -61,19 +68,75 @@ function schemaParagraphToEGWParagraph(
     puborder: para.puborder,
     elementType: para.element_type ?? undefined,
     elementSubtype: para.element_subtype ?? undefined,
-  };
+  });
 }
+
+// ============================================================================
+// Service Interface
+// ============================================================================
+
+/**
+ * EGW Reader service interface.
+ * Provides high-level reading operations on EGW writings.
+ */
+export interface EGWReaderServiceShape {
+  readonly getBooks: (
+    author?: string,
+  ) => Effect.Effect<readonly EGWBookInfo[], ReaderError>;
+  readonly getBookByCode: (
+    bookCode: string,
+  ) => Effect.Effect<Option.Option<EGWBookInfo>, ReaderError>;
+  readonly getParagraphsByBook: (
+    bookId: number,
+  ) => Effect.Effect<readonly EGWParagraph[], ReaderError>;
+  readonly getParagraphsByBookCode: (
+    bookCode: string,
+  ) => Effect.Effect<readonly EGWParagraph[], ReaderError>;
+  readonly getParagraphByRefcode: (
+    bookId: number,
+    refcode: string,
+  ) => Effect.Effect<Option.Option<EGWParagraph>, ReaderError>;
+  readonly getParagraphsByPage: (
+    bookCode: string,
+    page: number,
+  ) => Effect.Effect<readonly EGWParagraph[], ReaderError>;
+  readonly getChapterHeadings: (
+    bookId: number,
+  ) => Effect.Effect<readonly EGWParagraph[], ReaderError>;
+  readonly findParagraphByPosition: (
+    paragraphs: readonly EGWParagraph[],
+    position: EGWReaderPosition,
+  ) => Option.Option<EGWParagraph>;
+  readonly searchParagraphs: (
+    query: string,
+    limit?: number,
+  ) => Effect.Effect<
+    readonly (EGWParagraph & { bookCode: string })[],
+    ReaderError
+  >;
+}
+
+// ============================================================================
+// Service Definition
+// ============================================================================
 
 /**
  * EGW Reader Service
  *
  * Provides high-level reading operations on EGW writings.
  */
-export class EGWReaderService extends Effect.Service<EGWReaderService>()(
-  '@bible/egw-reader/Service',
-  {
-    effect: Effect.gen(function* () {
-      const db = yield* EGWParagraphDatabase;
+export class EGWReaderService extends Context.Tag('@bible/egw-reader/Service')<
+  EGWReaderService,
+  EGWReaderServiceShape
+>() {
+  /**
+   * Live implementation using EGWParagraphDatabase.
+   */
+  static Live: Layer.Layer<EGWReaderService, never, EGWParagraphDatabase> =
+    Layer.effect(
+      EGWReaderService,
+      Effect.gen(function* () {
+        const db = yield* EGWParagraphDatabase;
 
       /**
        * Get all available books
@@ -83,13 +146,14 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
       ): Effect.Effect<readonly EGWBookInfo[], ReaderError> =>
         db.getBooksByAuthor(author).pipe(
           Stream.map(
-            (row): EGWBookInfo => ({
-              bookId: row.book_id,
-              bookCode: row.book_code,
-              title: row.book_title,
-              author,
-              pageCount: undefined,
-            }),
+            (row) =>
+              new EGWBookInfo({
+                bookId: row.book_id,
+                bookCode: row.book_code,
+                title: row.book_title,
+                author,
+                pageCount: undefined,
+              }),
           ),
           Stream.runCollect,
           Effect.map((chunk) => [...chunk]),
@@ -109,13 +173,14 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
           Effect.map((opt) =>
             Option.map(
               opt,
-              (row): EGWBookInfo => ({
-                bookId: row.book_id,
-                bookCode: row.book_code,
-                title: row.book_title,
-                author: row.book_author,
-                pageCount: undefined,
-              }),
+              (row) =>
+                new EGWBookInfo({
+                  bookId: row.book_id,
+                  bookCode: row.book_code,
+                  title: row.book_title,
+                  author: row.book_author,
+                  pageCount: undefined,
+                }),
             ),
           ),
           Effect.mapError(
@@ -297,8 +362,47 @@ export class EGWReaderService extends Effect.Service<EGWReaderService>()(
         getChapterHeadings,
         findParagraphByPosition,
         searchParagraphs,
-      } as const;
+      };
     }),
-    dependencies: [EGWParagraphDatabase.Default],
-  },
-) {}
+  );
+
+  /**
+   * Default layer - alias for Live (backwards compatibility).
+   */
+  static Default = EGWReaderService.Live;
+
+  /**
+   * Test implementation with configurable mock data.
+   */
+  static Test = (config: {
+    books?: readonly EGWBookInfo[];
+    paragraphs?: readonly EGWParagraph[];
+  } = {}): Layer.Layer<EGWReaderService> =>
+    Layer.succeed(EGWReaderService, {
+      getBooks: () => Effect.succeed(config.books ?? []),
+      getBookByCode: (bookCode) =>
+        Effect.succeed(
+          Option.fromNullable(
+            config.books?.find(
+              (b) => b.bookCode.toLowerCase() === bookCode.toLowerCase(),
+            ),
+          ),
+        ),
+      getParagraphsByBook: () => Effect.succeed(config.paragraphs ?? []),
+      getParagraphsByBookCode: () => Effect.succeed(config.paragraphs ?? []),
+      getParagraphByRefcode: (_, refcode) =>
+        Effect.succeed(
+          Option.fromNullable(
+            config.paragraphs?.find(
+              (p) =>
+                p.refcodeShort === refcode || p.refcodeLong === refcode,
+            ),
+          ),
+        ),
+      getParagraphsByPage: () => Effect.succeed([]),
+      getChapterHeadings: () => Effect.succeed([]),
+      findParagraphByPosition: (paragraphs, _position) =>
+        paragraphs[0] ? Option.some(paragraphs[0]) : Option.none(),
+      searchParagraphs: () => Effect.succeed([]),
+    });
+}

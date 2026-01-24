@@ -7,17 +7,23 @@ import {
   FileSystem,
   HttpBody,
   HttpClient,
+  HttpClientError,
   HttpClientRequest,
   HttpClientResponse,
   Path,
   UrlParams,
 } from '@effect/platform';
+import type { PlatformError } from '@effect/platform/Error';
 import {
   Clock,
   Config,
+  ConfigError,
+  Context,
   Duration,
   Effect,
+  Layer,
   Option,
+  ParseResult,
   Predicate,
   Redacted,
   Schedule,
@@ -103,14 +109,41 @@ const AccessTokenFromOAuthResponse = Schema.transformOrFail(
   },
 );
 
+// ============================================================================
+// Service Interface
+// ============================================================================
+
+/**
+ * EGW Auth service interface.
+ */
+export interface EGWAuthService {
+  readonly getToken: () => Effect.Effect<AccessToken>;
+}
+
+// ============================================================================
+// Service Definition
+// ============================================================================
+
 /**
  * EGW Authentication Service
  */
-export class EGWAuth extends Effect.Service<EGWAuth>()('@bible/egw/Auth', {
-  scoped: Effect.gen(function* () {
-    const authBaseUrl = yield* Config.string('EGW_AUTH_BASE_URL').pipe(
-      Config.withDefault('https://cpanel.egwwritings.org'),
-    );
+export class EGWAuth extends Context.Tag('@bible/egw/Auth')<
+  EGWAuth,
+  EGWAuthService
+>() {
+  /**
+   * Live implementation using OAuth2 client credentials flow.
+   */
+  static Live: Layer.Layer<
+    EGWAuth,
+    ConfigError.ConfigError | PlatformError | ParseResult.ParseError | HttpClientError.HttpClientError,
+    FileSystem.FileSystem | Path.Path | HttpClient.HttpClient
+  > = Layer.scoped(
+    EGWAuth,
+    Effect.gen(function* () {
+      const authBaseUrl = yield* Config.string('EGW_AUTH_BASE_URL').pipe(
+        Config.withDefault('https://cpanel.egwwritings.org'),
+      );
     const clientId = yield* Config.string('EGW_CLIENT_ID');
     const clientSecret = yield* Config.redacted('EGW_CLIENT_SECRET');
     const scope = yield* Config.string('EGW_SCOPE').pipe(
@@ -329,6 +362,31 @@ export class EGWAuth extends Effect.Service<EGWAuth>()('@bible/egw/Auth', {
 
     return {
       getToken,
-    } as const;
+    };
   }),
-}) {}
+);
+
+  /**
+   * Default layer - alias for Live (backwards compatibility).
+   */
+  static Default = EGWAuth.Live;
+
+  /**
+   * Test implementation with a mock token.
+   */
+  static Test = (token?: AccessToken): Layer.Layer<EGWAuth> =>
+    Layer.succeed(EGWAuth, {
+      getToken: () =>
+        Effect.succeed(
+          token ??
+            new AccessToken(
+              {
+                accessToken: Redacted.make('test-token'),
+                expiresAt: Date.now() + 3600000,
+                scope: 'test',
+              },
+              { disableValidation: true },
+            ),
+        ),
+    });
+}

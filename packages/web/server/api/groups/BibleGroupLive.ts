@@ -1,5 +1,7 @@
 /**
  * BibleGroupLive - HTTP API handler implementations for Bible endpoints
+ *
+ * Delegates to core BibleService for all operations.
  */
 import { HttpApiBuilder } from '@effect/platform';
 import { Effect, Option } from 'effect';
@@ -10,8 +12,7 @@ import {
   ChapterNotFoundError,
   DatabaseError,
 } from '@bible/api';
-
-import { BibleService } from '../../services/BibleService.js';
+import { BibleService } from '@bible/core/bible-service';
 
 /**
  * Map database errors to API DatabaseError
@@ -45,9 +46,12 @@ export const BibleGroupLive = HttpApiBuilder.group(
               );
             }
 
-            // Get chapter verses
-            const verses = yield* bible.getChapter(book, chapter).pipe(mapDbError);
-            if (verses.length === 0) {
+            // Get chapter with navigation
+            const chapterData = yield* bible
+              .getChapter(book, chapter)
+              .pipe(mapDbError);
+
+            if (chapterData.verses.length === 0) {
               return yield* Effect.fail(
                 new ChapterNotFoundError({
                   book,
@@ -57,16 +61,12 @@ export const BibleGroupLive = HttpApiBuilder.group(
               );
             }
 
-            // Get navigation hints
-            const prevChapter = yield* bible.getPrevChapter(book, chapter);
-            const nextChapter = yield* bible.getNextChapter(book, chapter);
-
             return {
-              book: bookInfo.value,
-              chapter,
-              verses,
-              prevChapter,
-              nextChapter,
+              book: chapterData.book,
+              chapter: chapterData.chapter,
+              verses: chapterData.verses,
+              prevChapter: chapterData.prevChapter,
+              nextChapter: chapterData.nextChapter,
             };
           }),
         )

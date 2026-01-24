@@ -19,8 +19,18 @@
  */
 
 import { FileSystem, Path } from '@effect/platform';
+import type { PlatformError } from '@effect/platform/Error';
 import { Database } from 'bun:sqlite';
-import { Config, Effect, Option, Schema, Stream } from 'effect';
+import {
+  Config,
+  ConfigError,
+  Context,
+  Effect,
+  Layer,
+  Option,
+  Schema,
+  Stream,
+} from 'effect';
 
 import * as EGWSchemas from '../egw/schemas.js';
 import {
@@ -169,13 +179,139 @@ export function isChapterHeading(
   return ['chapter', 'heading', 'title'].includes(type);
 }
 
+// ============================================================================
+// Service Interface
+// ============================================================================
+
+/**
+ * EGW Paragraph Database service interface.
+ * Provides storage and retrieval of EGW paragraphs in SQLite.
+ */
+export interface EGWParagraphDatabaseService {
+  // Book operations
+  readonly storeBook: (
+    book: EGWSchemas.Book,
+  ) => Effect.Effect<void, ParagraphDatabaseError>;
+  readonly getBookById: (
+    bookId: number,
+  ) => Effect.Effect<Option.Option<BookRow>, ParagraphDatabaseError>;
+  readonly getBookByCode: (
+    bookCode: string,
+  ) => Effect.Effect<Option.Option<BookRow>, ParagraphDatabaseError>;
+  readonly getBooksByAuthor: (
+    author: string,
+  ) => Stream.Stream<BookRow, ParagraphDatabaseError>;
+  readonly updateBookCount: (
+    bookId: number,
+  ) => Effect.Effect<void, ParagraphDatabaseError>;
+
+  // Paragraph operations
+  readonly storeParagraph: (
+    paragraph: EGWSchemas.Paragraph,
+    book: EGWSchemas.Book,
+  ) => Effect.Effect<void, ParagraphDatabaseError>;
+  readonly storeParagraphsBatch: (
+    paragraphs: readonly EGWSchemas.Paragraph[],
+    book: EGWSchemas.Book,
+  ) => Effect.Effect<number, ParagraphDatabaseError>;
+  readonly getParagraph: (
+    bookId: number,
+    refCode: string,
+  ) => Effect.Effect<Option.Option<EGWSchemas.Paragraph>, ParagraphDatabaseError>;
+  readonly getParagraphsByBook: (
+    bookId: number,
+  ) => Stream.Stream<EGWSchemas.Paragraph, ParagraphDatabaseError>;
+  readonly getParagraphsByAuthor: (
+    author: string,
+  ) => Stream.Stream<EGWSchemas.Paragraph, ParagraphDatabaseError>;
+  readonly getParagraphsByPage: (
+    bookId: number,
+    pageNumber: number,
+  ) => Effect.Effect<readonly EGWSchemas.Paragraph[], ParagraphDatabaseError>;
+  readonly getChapterHeadings: (
+    bookId: number,
+  ) => Effect.Effect<readonly EGWSchemas.Paragraph[], ParagraphDatabaseError>;
+  readonly searchParagraphs: (
+    query: string,
+    limit?: number,
+  ) => Effect.Effect<
+    readonly (EGWSchemas.Paragraph & { bookCode: string })[],
+    ParagraphDatabaseError
+  >;
+
+  // Bible reference operations
+  readonly storeBibleRef: (
+    bookId: number,
+    refCode: string,
+    bibleBook: number,
+    bibleChapter: number,
+    bibleVerse: number | null,
+  ) => Effect.Effect<void, ParagraphDatabaseError>;
+  readonly storeBibleRefsBatch: (
+    refs: readonly {
+      bookId: number;
+      refCode: string;
+      bibleBook: number;
+      bibleChapter: number;
+      bibleVerse: number | null;
+    }[],
+  ) => Effect.Effect<number, ParagraphDatabaseError>;
+  readonly getParagraphsByBibleRef: (
+    bibleBook: number,
+    bibleChapter: number,
+    bibleVerse?: number,
+  ) => Effect.Effect<
+    readonly (EGWSchemas.Paragraph & { bookCode: string; bookTitle: string })[],
+    ParagraphDatabaseError
+  >;
+
+  // Sync status operations
+  readonly setSyncStatus: (
+    bookId: number,
+    bookCode: string,
+    status: SyncStatus,
+    paragraphCount: number,
+    errorMessage?: string,
+  ) => Effect.Effect<void, ParagraphDatabaseError>;
+  readonly getSyncStatus: (
+    bookId: number,
+  ) => Effect.Effect<Option.Option<SyncStatusRow>, ParagraphDatabaseError>;
+  readonly getBooksByStatus: (
+    status: SyncStatus,
+  ) => Effect.Effect<readonly SyncStatusRow[], ParagraphDatabaseError>;
+  readonly getAllSyncStatus: () => Effect.Effect<
+    readonly SyncStatusRow[],
+    ParagraphDatabaseError
+  >;
+  readonly needsSync: (
+    bookId: number,
+  ) => Effect.Effect<boolean, ParagraphDatabaseError>;
+
+  // Maintenance
+  readonly rebuildFtsIndex: () => Effect.Effect<void, ParagraphDatabaseError>;
+}
+
+// ============================================================================
+// Service Definition
+// ============================================================================
+
 /**
  * EGW Paragraph Database Service
  */
-export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()(
+export class EGWParagraphDatabase extends Context.Tag(
   '@bible/egw-db/ParagraphDatabase',
-  {
-    scoped: Effect.gen(function* () {
+)<EGWParagraphDatabase, EGWParagraphDatabaseService>() {
+  /**
+   * Live implementation using SQLite database.
+   * Requires FileSystem and Path from @effect/platform.
+   */
+  static Live: Layer.Layer<
+    EGWParagraphDatabase,
+    DatabaseConnectionError | SchemaInitializationError | ConfigError.ConfigError | PlatformError,
+    FileSystem.FileSystem | Path.Path
+  > = Layer.scoped(
+    EGWParagraphDatabase,
+    Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
       const path = yield* Path.Path;
 
@@ -1220,8 +1356,58 @@ export class EGWParagraphDatabase extends Effect.Service<EGWParagraphDatabase>()
         needsSync,
         // Maintenance
         rebuildFtsIndex,
-      } as const;
+      };
     }),
-    dependencies: [],
-  },
-) {}
+  );
+
+  /**
+   * Default layer - alias for Live (backwards compatibility).
+   */
+  static Default = EGWParagraphDatabase.Live;
+
+  /**
+   * Test implementation with in-memory data.
+   * Useful for unit testing without a real database.
+   */
+  static Test = (config: {
+    books?: readonly BookRow[];
+    paragraphs?: readonly (EGWSchemas.Paragraph & { bookCode: string })[];
+  } = {}): Layer.Layer<EGWParagraphDatabase> =>
+    Layer.succeed(EGWParagraphDatabase, {
+      storeBook: () => Effect.void,
+      getBookById: (bookId) =>
+        Effect.succeed(
+          Option.fromNullable(config.books?.find((b) => b.book_id === bookId)),
+        ),
+      getBookByCode: (bookCode) =>
+        Effect.succeed(
+          Option.fromNullable(
+            config.books?.find(
+              (b) => b.book_code.toLowerCase() === bookCode.toLowerCase(),
+            ),
+          ),
+        ),
+      getBooksByAuthor: (author) =>
+        Stream.fromIterable(
+          config.books?.filter((b) => b.book_author === author) ?? [],
+        ),
+      updateBookCount: () => Effect.void,
+      storeParagraph: () => Effect.void,
+      storeParagraphsBatch: (paragraphs) => Effect.succeed(paragraphs.length),
+      getParagraph: () => Effect.succeed(Option.none()),
+      getParagraphsByBook: () => Stream.empty,
+      getParagraphsByAuthor: () => Stream.empty,
+      getParagraphsByPage: () => Effect.succeed([]),
+      getChapterHeadings: () => Effect.succeed([]),
+      searchParagraphs: () => Effect.succeed([]),
+      storeBibleRef: () => Effect.void,
+      storeBibleRefsBatch: (refs) => Effect.succeed(refs.length),
+      getParagraphsByBibleRef: () => Effect.succeed([]),
+      setSyncStatus: () => Effect.void,
+      getSyncStatus: () => Effect.succeed(Option.none()),
+      getBooksByStatus: () => Effect.succeed([]),
+      getAllSyncStatus: () => Effect.succeed([]),
+      needsSync: () => Effect.succeed(true),
+      rebuildFtsIndex: () => Effect.void,
+    });
+}

@@ -5,113 +5,172 @@
  * Used by both TUI and Web renderers.
  */
 
+import { Schema } from 'effect';
+
 /**
  * A verse from the Bible
  */
-export interface BibleVerse {
-  readonly bookName: string;
-  readonly book: number;
-  readonly chapter: number;
-  readonly verse: number;
-  readonly text: string;
-}
+export class BibleVerse extends Schema.Class<BibleVerse>('BibleVerse')({
+  bookName: Schema.String,
+  book: Schema.Number,
+  chapter: Schema.Number,
+  verse: Schema.Number,
+  text: Schema.String,
+}) {}
 
 /**
  * Book information
  */
-export interface BibleBook {
-  readonly number: number;
-  readonly name: string;
-  readonly chapters: number;
-  readonly testament: 'old' | 'new';
-}
+export class BibleBook extends Schema.Class<BibleBook>('BibleBook')({
+  number: Schema.Number,
+  name: Schema.String,
+  chapters: Schema.Number,
+  testament: Schema.Literal('old', 'new'),
+}) {}
 
 /**
  * Reference to a position in the Bible
  */
-export interface BibleReference {
-  readonly book: number;
-  readonly chapter: number;
-  readonly verse?: number;
-  readonly verseEnd?: number;
+export class BibleReference extends Schema.Class<BibleReference>(
+  'BibleReference',
+)({
+  book: Schema.Number,
+  chapter: Schema.Number,
+  verse: Schema.optional(Schema.Number),
+  verseEnd: Schema.optional(Schema.Number),
+}) {
+  static fromJson = Schema.decode(Schema.parseJson(BibleReference));
+  static toJson = Schema.encode(Schema.parseJson(BibleReference));
 }
 
 /**
  * Current reading position
  */
-export interface BiblePosition {
-  readonly book: number;
-  readonly chapter: number;
-  readonly verse: number;
+export class BiblePosition extends Schema.Class<BiblePosition>(
+  'BiblePosition',
+)({
+  book: Schema.Number,
+  chapter: Schema.Number,
+  verse: Schema.Number,
+}) {
+  static fromJson = Schema.decode(Schema.parseJson(BiblePosition));
+  static toJson = Schema.encode(Schema.parseJson(BiblePosition));
 }
 
 /**
  * Search result
  */
-export interface BibleSearchResult {
-  readonly reference: BibleReference;
-  readonly verse: BibleVerse;
-  readonly matchScore: number;
-}
+export class BibleSearchResult extends Schema.Class<BibleSearchResult>(
+  'BibleSearchResult',
+)({
+  reference: BibleReference,
+  verse: BibleVerse,
+  matchScore: Schema.Number,
+}) {}
 
 /**
  * Bookmark
  */
-export interface BibleBookmark {
-  readonly id: string;
-  readonly reference: BibleReference;
-  readonly note?: string;
-  readonly createdAt: number;
+export class BibleBookmark extends Schema.Class<BibleBookmark>('BibleBookmark')(
+  {
+    id: Schema.String,
+    reference: BibleReference,
+    note: Schema.optional(Schema.String),
+    createdAt: Schema.Number,
+  },
+) {
+  static fromJson = Schema.decode(Schema.parseJson(BibleBookmark));
+  static toJson = Schema.encode(Schema.parseJson(BibleBookmark));
 }
 
 /**
  * History entry
  */
-export interface BibleHistoryEntry {
-  readonly reference: BibleReference;
-  readonly visitedAt: number;
-}
+export class BibleHistoryEntry extends Schema.Class<BibleHistoryEntry>(
+  'BibleHistoryEntry',
+)({
+  reference: BibleReference,
+  visitedAt: Schema.Number,
+}) {}
 
 /**
  * User preferences
  */
-export interface BiblePreferences {
-  readonly theme: string;
-  readonly displayMode: 'verse' | 'paragraph';
+export class BiblePreferences extends Schema.Class<BiblePreferences>(
+  'BiblePreferences',
+)({
+  theme: Schema.String,
+  displayMode: Schema.Literal('verse', 'paragraph'),
+}) {
+  static fromJson = Schema.decode(Schema.parseJson(BiblePreferences));
+  static toJson = Schema.encode(Schema.parseJson(BiblePreferences));
 }
+
+/**
+ * Reader state variants - discriminated union for loading states
+ */
+export class BibleReaderIdle extends Schema.TaggedClass<BibleReaderIdle>(
+  'BibleReaderIdle',
+)('idle', {}) {}
+
+export class BibleReaderLoading extends Schema.TaggedClass<BibleReaderLoading>(
+  'BibleReaderLoading',
+)('loading', {
+  message: Schema.String,
+}) {}
+
+export class BibleReaderLoaded extends Schema.TaggedClass<BibleReaderLoaded>(
+  'BibleReaderLoaded',
+)('loaded', {
+  position: BiblePosition,
+}) {}
+
+export class BibleReaderErrorState extends Schema.TaggedClass<BibleReaderErrorState>(
+  'BibleReaderErrorState',
+)('error', {
+  error: Schema.String,
+}) {}
 
 /**
  * Reader state - discriminated union for loading states
  */
-export type BibleReaderState =
-  | { readonly _tag: 'idle' }
-  | { readonly _tag: 'loading'; readonly message: string }
-  | { readonly _tag: 'loaded'; readonly position: BiblePosition }
-  | { readonly _tag: 'error'; readonly error: string };
+export const BibleReaderState = Schema.Union(
+  BibleReaderIdle,
+  BibleReaderLoading,
+  BibleReaderLoaded,
+  BibleReaderErrorState,
+);
+
+export type BibleReaderState = Schema.Schema.Type<typeof BibleReaderState>;
 
 /**
  * Initial reader state
  */
-export const initialReaderState: BibleReaderState = { _tag: 'idle' };
+export const initialReaderState: BibleReaderState = new BibleReaderIdle({});
 
 /**
  * State matchers
  */
 export const isBibleReaderState = {
-  idle: (
-    state: BibleReaderState,
-  ): state is Extract<BibleReaderState, { _tag: 'idle' }> =>
+  idle: (state: BibleReaderState): state is BibleReaderIdle =>
     state._tag === 'idle',
-  loading: (
-    state: BibleReaderState,
-  ): state is Extract<BibleReaderState, { _tag: 'loading' }> =>
+  loading: (state: BibleReaderState): state is BibleReaderLoading =>
     state._tag === 'loading',
-  loaded: (
-    state: BibleReaderState,
-  ): state is Extract<BibleReaderState, { _tag: 'loaded' }> =>
+  loaded: (state: BibleReaderState): state is BibleReaderLoaded =>
     state._tag === 'loaded',
-  error: (
-    state: BibleReaderState,
-  ): state is Extract<BibleReaderState, { _tag: 'error' }> =>
+  error: (state: BibleReaderState): state is BibleReaderErrorState =>
     state._tag === 'error',
+} as const;
+
+/**
+ * State constructors
+ */
+export const BibleReaderStateConstructors = {
+  idle: (): BibleReaderState => new BibleReaderIdle({}),
+  loading: (message: string): BibleReaderState =>
+    new BibleReaderLoading({ message }),
+  loaded: (position: BiblePosition): BibleReaderState =>
+    new BibleReaderLoaded({ position }),
+  error: (error: string): BibleReaderState =>
+    new BibleReaderErrorState({ error }),
 } as const;

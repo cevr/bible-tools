@@ -64,3 +64,20 @@ export class ReviseError extends Schema.TaggedError<ReviseError>()(
     cause: Schema.Defect,
   },
 ) {}
+
+/**
+ * Union of all Sabbath School errors (Schema)
+ */
+export const SabbathSchoolError = Schema.Union(
+  DownloadError,
+  ParseError,
+  MissingPdfError,
+  OutlineError,
+  ReviewError,
+  ReviseError,
+);
+
+/**
+ * Union of all Sabbath School errors (type)
+ */
+export type SabbathSchoolError = Schema.Schema.Type<typeof SabbathSchoolError>;

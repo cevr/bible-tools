@@ -89,6 +89,17 @@
         "pdf-parse": "^2.4.5",
       },
     },
+    "packages/test-utils": {
+      "name": "@bible/test-utils",
+      "dependencies": {
+        "@bible/core": "workspace:*",
+        "effect": "catalog:",
+      },
+      "devDependencies": {
+        "@effect/language-service": "catalog:",
+        "typescript": "catalog:",
+      },
+    },
     "packages/web": {
       "name": "@bible/web",
       "version": "0.1.0",
@@ -208,6 +219,8 @@
     "@bible/core": ["@bible/core@workspace:packages/core"],
 
     "@bible/scripts": ["@bible/scripts@workspace:packages/scripts"],
+
+    "@bible/test-utils": ["@bible/test-utils@workspace:packages/test-utils"],
 
     "@bible/web": ["@bible/web@workspace:packages/web"],
 
@@ -1730,6 +1743,8 @@
     "@bible/scripts/@effect/platform-bun": ["@effect/platform-bun@0.87.0", "", { "dependencies": { "@effect/platform-node-shared": "^0.57.0", "multipasta": "^0.2.7" }, "peerDependencies": { "@effect/cluster": "^0.56.0", "@effect/platform": "^0.94.0", "@effect/rpc": "^0.73.0", "@effect/sql": "^0.49.0", "effect": "^3.19.13" } }, "sha512-O0WJXc5f4qTcdEXWQDb5JDT0b4qiSrrOovRiZ46O+c3ZdC6wkc7vuvmvI9L6gI3rNmDgPZtK+IkELH6P20dLXA=="],
 
     "@bible/scripts/effect": ["effect@3.19.14", "", { "dependencies": { "@standard-schema/spec": "^1.0.0", "fast-check": "^3.23.1" } }, "sha512-3vwdq0zlvQOxXzXNKRIPKTqZNMyGCdaFUBfMPqpsyzZDre67kgC1EEHDV4EoQTovJ4w5fmJW756f86kkuz7WFA=="],
+
+    "@bible/test-utils/@effect/language-service": ["@effect/language-service@0.64.0", "", { "bin": { "effect-language-service": "cli.js" } }, "sha512-Ch6s0aAcrdaOWKmsXw0ys/MvYzz2DD5wf6qALnuyb8Tq1LO8livCUf2ax2cIWzPuEitRyvmIFb0byxKAYi1kcw=="],
 
     "@bible/web/@effect/language-service": ["@effect/language-service@0.64.0", "", { "bin": { "effect-language-service": "cli.js" } }, "sha512-Ch6s0aAcrdaOWKmsXw0ys/MvYzz2DD5wf6qALnuyb8Tq1LO8livCUf2ax2cIWzPuEitRyvmIFb0byxKAYi1kcw=="],
 

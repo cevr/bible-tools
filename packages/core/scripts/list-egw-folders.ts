@@ -19,6 +19,7 @@ import { FetchHttpClient } from '@effect/platform';
 import { BunContext, BunRuntime } from '@effect/platform-bun';
 import { Effect, Layer } from 'effect';
 
+import { EGWAuth } from '../src/egw/auth.js';
 import { EGWApiClient } from '../src/egw/client.js';
 import * as EGWSchemas from '../src/egw/schemas.js';
 
@@ -58,10 +59,14 @@ const program = Effect.gen(function* () {
   return folders;
 });
 
-// Compose all layers
-const ServiceLayer = Layer.provide(EGWApiClient.Default, FetchHttpClient.layer);
+// Compose all layers - EGWApiClient needs EGWAuth and HttpClient
+const AuthLayer = Layer.provide(EGWAuth.Live, FetchHttpClient.layer);
+const ApiClientLayer = EGWApiClient.Live.pipe(
+  Layer.provide(AuthLayer),
+  Layer.provide(FetchHttpClient.layer),
+);
 
-const AppLayer = ServiceLayer.pipe(Layer.provide(BunContext.layer));
+const AppLayer = ApiClientLayer.pipe(Layer.provide(BunContext.layer));
 
 // Run the program with all required dependencies
 BunRuntime.runMain(program.pipe(Effect.provide(AppLayer)));

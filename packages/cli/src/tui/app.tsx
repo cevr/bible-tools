@@ -6,11 +6,13 @@ import {
   useRenderer,
   useTerminalDimensions,
 } from '@opentui/solid';
-import { createSignal, Match, Show, Switch } from 'solid-js';
+import type { Runtime } from 'effect';
+import { createResource, createSignal, Match, Show, Switch } from 'solid-js';
 
 import type { Reference } from '../data/bible/types.js';
 import { ToolsPalette } from './components/shared/tools-palette.js';
 import { BibleProvider } from './context/bible.js';
+import { ClientProvider } from './context/client.js';
 import { DisplayProvider } from './context/display.js';
 import { EGWNavigationProvider } from './context/egw-navigation.js';
 import { EGWProvider } from './context/egw.js';
@@ -23,6 +25,11 @@ import { SearchProvider } from './context/search.js';
 import { StudyDataProvider } from './context/study-data.js';
 import { ThemeProvider, useTheme } from './context/theme.js';
 import { WordModeProvider } from './context/word-mode.js';
+import {
+  getAppRuntime,
+  RuntimeProvider,
+  type AppServices,
+} from './lib/index.js';
 import { BibleView } from './routes/bible.js';
 import { EGWView } from './routes/egw.js';
 import { MessagesView } from './routes/messages.js';
@@ -33,6 +40,26 @@ import { StudiesView } from './routes/studies.js';
 export { useExit } from './context/exit.js';
 // Re-export router hooks
 export { useRouter, useRoute } from './context/router.js';
+// Re-export runtime hooks for components using Effect
+export {
+  useAppRuntime,
+  useRuntime,
+  useEffectRunner,
+  Result,
+  isSuccess,
+  isFailure,
+  isInitial,
+  isLoading,
+  match,
+} from './lib/index.js';
+// Re-export client hooks
+export {
+  useClient,
+  useBibleClient,
+  useEGWClient,
+  type BibleClient,
+  type EGWClient,
+} from './context/client.js';
 
 interface AppProps {
   initialRef?: Reference;
@@ -230,8 +257,15 @@ function AppWithTheme(props: AppProps) {
   );
 }
 
-// Export App for testing
-export function App(props: AppProps) {
+/**
+ * App with runtime wrapper
+ *
+ * Loads the centralized Effect runtime and provides it to the tree.
+ * Uses RuntimeProvider from the gent pattern.
+ */
+function AppWithRuntime(
+  props: AppProps & { runtime: Runtime.Runtime<AppServices> },
+) {
   // Determine initial route based on props
   // initialEgwRef can be {} to indicate "go to EGW" without a specific reference
   const initialRoute = props.initialEgwRef
@@ -249,11 +283,27 @@ export function App(props: AppProps) {
       : Route.bible();
 
   return (
-    <BibleProvider>
-      <RouterProvider initialRoute={initialRoute}>
-        <AppWithTheme {...props} />
-      </RouterProvider>
-    </BibleProvider>
+    <RuntimeProvider runtime={props.runtime}>
+      <ClientProvider>
+        <BibleProvider>
+          <RouterProvider initialRoute={initialRoute}>
+            <AppWithTheme {...props} />
+          </RouterProvider>
+        </BibleProvider>
+      </ClientProvider>
+    </RuntimeProvider>
+  );
+}
+
+// Export App for testing
+export function App(props: AppProps) {
+  // Load runtime asynchronously
+  const [runtime] = createResource(getAppRuntime);
+
+  return (
+    <Show when={runtime()} fallback={<box>Loading...</box>}>
+      {(rt) => <AppWithRuntime {...props} runtime={rt()} />}
+    </Show>
   );
 }
 

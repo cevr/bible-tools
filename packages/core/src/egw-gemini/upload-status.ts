@@ -7,8 +7,9 @@
  */
 
 import { FileSystem, Path } from '@effect/platform';
+import type { PlatformError } from '@effect/platform/Error';
 import { Database } from 'bun:sqlite';
-import { Config, Effect, Option } from 'effect';
+import { Config, ConfigError, Context, Effect, Layer, Option } from 'effect';
 
 import {
   DatabaseConnectionError,
@@ -84,13 +85,61 @@ interface ParagraphUploadRow {
   updated_at: string;
 }
 
+// ============================================================================
+// Service Interface
+// ============================================================================
+
+/**
+ * EGW Upload Status service interface.
+ * Tracks upload status of EGW paragraphs to Gemini File Search stores.
+ */
+export interface EGWUploadStatusService {
+  readonly markParagraphInProgress: (
+    storeDisplayName: string,
+    refCode: string,
+    bookId: number,
+  ) => Effect.Effect<void, UploadStatusError>;
+  readonly markParagraphComplete: (
+    storeDisplayName: string,
+    refCode: string,
+    bookId: number,
+  ) => Effect.Effect<void, UploadStatusError>;
+  readonly markParagraphFailed: (
+    storeDisplayName: string,
+    refCode: string,
+    bookId: number,
+    error: string,
+  ) => Effect.Effect<void, UploadStatusError>;
+  readonly getParagraphUploadStatus: (
+    storeDisplayName: string,
+    refCode: string,
+  ) => Effect.Effect<Option.Option<ParagraphUploadStatus>, UploadStatusError>;
+  readonly getBookUploadStatus: (
+    storeDisplayName: string,
+    bookId: number,
+  ) => Effect.Effect<Option.Option<BookUploadStatus>, UploadStatusError>;
+}
+
+// ============================================================================
+// Service Definition
+// ============================================================================
+
 /**
  * EGW Upload Status Service
  */
-export class EGWUploadStatus extends Effect.Service<EGWUploadStatus>()(
+export class EGWUploadStatus extends Context.Tag(
   '@bible/egw-gemini/UploadStatus',
-  {
-    scoped: Effect.gen(function* () {
+)<EGWUploadStatus, EGWUploadStatusService>() {
+  /**
+   * Live implementation using SQLite database.
+   */
+  static Live: Layer.Layer<
+    EGWUploadStatus,
+    DatabaseConnectionError | SchemaInitializationError | ConfigError.ConfigError | PlatformError,
+    FileSystem.FileSystem | Path.Path
+  > = Layer.scoped(
+    EGWUploadStatus,
+    Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
       const path = yield* Path.Path;
 
@@ -454,8 +503,52 @@ export class EGWUploadStatus extends Effect.Service<EGWUploadStatus>()(
         markParagraphFailed,
         getParagraphUploadStatus,
         getBookUploadStatus,
-      } as const;
+      };
     }),
-    dependencies: [],
-  },
-) {}
+  );
+
+  /**
+   * Default layer - alias for Live (backwards compatibility).
+   */
+  static Default = EGWUploadStatus.Live;
+
+  /**
+   * Test implementation with in-memory storage.
+   */
+  static Test = (): Layer.Layer<EGWUploadStatus> => {
+    const storage = new Map<string, ParagraphUploadStatus>();
+    return Layer.succeed(EGWUploadStatus, {
+      markParagraphInProgress: (storeDisplayName, refCode, bookId) =>
+        Effect.sync(() => {
+          storage.set(`${storeDisplayName}:${refCode}`, {
+            status: 'in-progress',
+            refCode,
+            bookId,
+          });
+        }),
+      markParagraphComplete: (storeDisplayName, refCode, bookId) =>
+        Effect.sync(() => {
+          storage.set(`${storeDisplayName}:${refCode}`, {
+            status: 'complete',
+            refCode,
+            bookId,
+            uploadedAt: new Date().toISOString(),
+          });
+        }),
+      markParagraphFailed: (storeDisplayName, refCode, bookId, error) =>
+        Effect.sync(() => {
+          storage.set(`${storeDisplayName}:${refCode}`, {
+            status: 'failed',
+            refCode,
+            bookId,
+            error,
+          });
+        }),
+      getParagraphUploadStatus: (storeDisplayName, refCode) =>
+        Effect.succeed(
+          Option.fromNullable(storage.get(`${storeDisplayName}:${refCode}`)),
+        ),
+      getBookUploadStatus: () => Effect.succeed(Option.none()),
+    });
+  };
+}

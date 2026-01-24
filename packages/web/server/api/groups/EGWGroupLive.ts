@@ -1,5 +1,7 @@
 /**
  * EGWGroupLive - HTTP API handler implementations for EGW endpoints
+ *
+ * Delegates to core EGWService for all operations.
  */
 import { HttpApiBuilder } from '@effect/platform';
 import { Effect, Option } from 'effect';
@@ -10,8 +12,7 @@ import {
   EGWDatabaseError,
   EGWPageNotFoundError,
 } from '@bible/api';
-
-import { EGWService } from '../../services/EGWService.js';
+import { EGWService } from '@bible/core/egw-service';
 
 /**
  * Map database errors to API EGWDatabaseError
@@ -31,9 +32,7 @@ export const EGWGroupLive = HttpApiBuilder.group(
       const egw = yield* EGWService;
 
       return handlers
-        .handle('books', () =>
-          egw.getBooks().pipe(mapDbError),
-        )
+        .handle('books', () => egw.getBooks().pipe(mapDbError))
         .handle('page', ({ path: { bookCode, page } }) =>
           Effect.gen(function* () {
             // Check if book exists
@@ -48,7 +47,9 @@ export const EGWGroupLive = HttpApiBuilder.group(
             }
 
             // Get page
-            const pageData = yield* egw.getPage(bookCode, page).pipe(mapDbError);
+            const pageData = yield* egw
+              .getPage(bookCode, page)
+              .pipe(mapDbError);
             if (!pageData) {
               return yield* Effect.fail(
                 new EGWPageNotFoundError({

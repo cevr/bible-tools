@@ -26,50 +26,67 @@ import { LessonContext, WeekUrls } from './schemas.js';
 /**
  * SabbathSchool service for scraping, generating, and revising lesson outlines.
  */
+// ============================================================================
+// Service Interface
+// ============================================================================
+
+/**
+ * SabbathSchool service interface.
+ */
+export interface SabbathSchoolService {
+  /**
+   * Find all week URLs for a given quarter.
+   */
+  readonly findQuarterUrls: (
+    year: number,
+    quarter: number,
+  ) => Effect.Effect<
+    readonly WeekUrls[],
+    DownloadError | ParseError | MissingPdfError
+  >;
+
+  /**
+   * Download a PDF file from a URL.
+   */
+  readonly downloadPdf: (
+    url: string,
+  ) => Effect.Effect<ArrayBuffer, DownloadError>;
+
+  /**
+   * Generate an outline from lesson and EGW PDFs.
+   */
+  readonly generateOutline: (
+    context: LessonContext,
+    lessonPdf: ArrayBuffer,
+    egwPdf: ArrayBuffer,
+  ) => Effect.Effect<string, OutlineError>;
+
+  /**
+   * Review and optionally revise an outline.
+   * Returns Some(revisedOutline) if revision was needed, None otherwise.
+   */
+  readonly reviseOutline: (
+    context: LessonContext,
+    outline: string,
+  ) => Effect.Effect<Option.Option<string>, ReviewError | ReviseError>;
+}
+
+// ============================================================================
+// Service Definition
+// ============================================================================
+
 export class SabbathSchool extends Context.Tag('@bible/sabbath-school/Service')<
   SabbathSchool,
-  {
-    /**
-     * Find all week URLs for a given quarter.
-     */
-    readonly findQuarterUrls: (
-      year: number,
-      quarter: number,
-    ) => Effect.Effect<
-      readonly WeekUrls[],
-      DownloadError | ParseError | MissingPdfError
-    >;
-
-    /**
-     * Download a PDF file from a URL.
-     */
-    readonly downloadPdf: (
-      url: string,
-    ) => Effect.Effect<ArrayBuffer, DownloadError>;
-
-    /**
-     * Generate an outline from lesson and EGW PDFs.
-     */
-    readonly generateOutline: (
-      context: LessonContext,
-      lessonPdf: ArrayBuffer,
-      egwPdf: ArrayBuffer,
-    ) => Effect.Effect<string, OutlineError>;
-
-    /**
-     * Review and optionally revise an outline.
-     * Returns Some(revisedOutline) if revision was needed, None otherwise.
-     */
-    readonly reviseOutline: (
-      context: LessonContext,
-      outline: string,
-    ) => Effect.Effect<Option.Option<string>, ReviewError | ReviseError>;
-  }
+  SabbathSchoolService
 >() {
   /**
-   * Default layer implementation using HttpClient and AiService.
+   * Live implementation using HttpClient and AiService.
    */
-  static readonly layer = Layer.effect(
+  static readonly Live: Layer.Layer<
+    SabbathSchool,
+    never,
+    HttpClient.HttpClient | AiService
+  > = Layer.effect(
     SabbathSchool,
     Effect.gen(function* () {
       const http = yield* HttpClient.HttpClient;
@@ -273,12 +290,31 @@ export class SabbathSchool extends Context.Tag('@bible/sabbath-school/Service')<
         return Option.some(revisedOutline.text);
       });
 
-      return SabbathSchool.of({
+      return {
         findQuarterUrls,
         downloadPdf,
         generateOutline,
         reviseOutline,
-      });
+      };
     }),
   );
+
+  /**
+   * Default layer - alias for Live (backwards compatibility).
+   */
+  static readonly Default = SabbathSchool.Live;
+
+  /**
+   * Test implementation with configurable mock data.
+   */
+  static readonly Test = (config: {
+    weekUrls?: readonly WeekUrls[];
+    outline?: string;
+  } = {}): Layer.Layer<SabbathSchool> =>
+    Layer.succeed(SabbathSchool, {
+      findQuarterUrls: () => Effect.succeed(config.weekUrls ?? []),
+      downloadPdf: () => Effect.succeed(new ArrayBuffer(0)),
+      generateOutline: () => Effect.succeed(config.outline ?? ''),
+      reviseOutline: () => Effect.succeed(Option.none()),
+    });
 }
