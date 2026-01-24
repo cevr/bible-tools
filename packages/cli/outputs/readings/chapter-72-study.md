@@ -1,416 +1,168 @@
-### Q1. How long has sin reigned?
+# Moral Obligation in the Patriarchal Age
 
-**“He that committeth sin is of the Devil; for the Devil sinneth from the
-beginning." 1 John 3:8.**
+## Introduction
 
-**Answer:** The reign of sin predates the creation of this world. The apostle
-John reveals that the origin of evil lies with "the Devil," who sinned "from the
-beginning." This implies several vital truths regarding the government of God:
-
-1.  **The Antiquity of Law:** Since sin is defined as "the transgression of the
-    law" (1 John 3:4), the moral government of God and His law must have existed
-    in heaven before Satan fell. You cannot have a rebellion without a ruler,
-    nor a transgression without a law.
-2.  **The Nature of Satan’s Work:** Satan, originally Lucifer, was the first to
-    break harmony with God’s character of love. His rebellion was a rejection of
-    God’s authority.
-3.  **The Universal Conflict:** The Great Controversy between Christ and Satan
-    began in heaven and was transferred to this earth. The issue has always been
-    about the justice of God’s law and His character.
-
-**Term Definition:**
-
-- **Sin:** The transgression (breaking) of God’s law (1 John 3:4). It is not
-  merely a mistake, but a rebellion against the principles of God’s government.
-
-[ILL] Imagine a mutiny on a ship at sea. The mutiny begins the moment the crew
-decides to reject the captain's orders, even before they throw the captain
-overboard. Similarly, sin began in the heart of Lucifer when he rejected God's
-law of love, long before he tempted Adam and Eve.
+A question of profound importance confronts every student of Scripture: Did God hold men accountable to His moral law before the formal giving of the Ten Commandments at Sinai? Some have supposed that the law of God began with Moses, and that the patriarchs—Adam, Noah, Abraham, and others—lived in an age of moral freedom without divine commandments. This study will demonstrate from Scripture that God's moral law has always existed, that sin has always been the transgression of that law, and that men in every age have been called to obedience through faith in the coming Redeemer. The principles we uncover bear directly upon our own standing before God and our understanding of righteousness by faith.
 
 ---
 
-### Q2. What others sinned with Satan?
+## Core Truths
 
-**“God spared not the angels that sinned, but cast them down to hell, and
-delivered them into chains of darkness, to be reserved unto judgment." 2 Peter
-2:4.**
+### Sin Has Existed from the Beginning
 
-**Answer:** The rebellion was not limited to Lucifer alone; he drew a third of
-the angels with him (Revelation 12:4). This text highlights the serious nature
-of the moral law:
+The apostle John declares plainly: "He that committeth sin is of the Devil; for the Devil sinneth from the beginning" (1 John 3:8). Here we learn that sin did not originate with humanity, nor at Sinai, but "from the beginning"—with Satan himself. The very existence of sin presupposes a standard against which it is measured.
 
-- **Angels are Subject to Law:** If angels can sin, they must be subject to a
-  moral standard. Created beings, no matter how high or holy, are not
-  independent of their Creator's will.
-- **Judgment is Certain:** The phrase "reserved unto judgment" points us to the
-  sanctuary message. God has an appointed time to examine the lives of His
-  creatures. If God did not spare the angels who stood in His very presence, He
-  will surely not overlook willful sin in humanity.
-- **The Cost of Rebellion:** These angels were "cast down." Sin always results
-  in separation from God, who is the source of light and life.
+**Sin defined:** Sin is the transgression of God's law (1 John 3:4). It is not merely a failure to reach an ideal, but a rebellion against the expressed will of God. Wherever sin exists, law must also exist; for "where no law is, there is no transgression" (Romans 4:15).
 
-**Term Definition:**
+Thus, if the Devil sinned "from the beginning," then God's law existed from the beginning. The angels who joined Satan in rebellion were cast down and reserved for judgment (2 Peter 2:4). Heaven itself was governed by moral law, and the fall of Satan was its violation.
 
-- **Judgment:** The judicial process where God examines the records of
-  intelligent beings to decide their eternal destiny, vindicating His justice
-  and mercy.
+### The Law Preceded Sinai
+
+The logic of Scripture is clear:
+
+- Sin existed before Sinai (Genesis 4:7; 6:5; 13:13).
+- Sin is the transgression of the law (1 John 3:4).
+- Therefore, law existed before Sinai.
+
+Paul confirms: "Because the law worketh wrath: for where no law is, there is no transgression" (Romans 4:15). If there was transgression from Adam to Moses—and Scripture abundantly testifies there was—then the law was in force throughout that period.
 
 ---
 
-### Q3. Can there be sin where there is no law?
+## Deeper Truths: Evidence from the Patriarchal Age
 
-**“Because the law worketh wrath; for where no law is, there is no
-transgression." Rom. 4:15.**
+### Cain and Abel—Murder and the Sixth Commandment
 
-**Answer:** This is a foundational pillar of truth. The apostle Paul establishes
-a logical impossibility: one cannot be guilty of a crime if there is no law
-defining that crime.
+The first death recorded in Scripture was not by natural causes, but by murder: "Cain rose up against Abel his brother, and slew him" (Genesis 4:8). God held Cain accountable: "The voice of thy brother's blood crieth unto Me from the ground... now art thou cursed from the earth" (Genesis 4:10–11).
 
-1.  **The Existence of Law in the Patriarchal Age:** Since the Bible clearly
-    states that Adam, Cain, the Antediluvians, and Sodom were guilty of _sin_,
-    the moral law (the Ten Commandments in principle) must have been in force
-    long before it was spoken on Mount Sinai.
-2.  **The Function of the Law:** The law acts as a mirror (James 1:23–25). It
-    reveals dirt (sin) but cannot wash it away. Paul says the law "worketh
-    wrath" because it points out our violation and the penalty required.
-3.  **The Need for a Savior:** Because the law existed and man broke it, man was
-    under the penalty of death. This necessitated the plan of salvation
-    immediately upon the fall of Adam. If there were no law, there would be no
-    sin; if no sin, no need for a Savior.
+What law did Cain violate? The sixth commandment: "Thou shalt not kill" (Exodus 20:13). Yet Exodus had not yet been given. The commandment was known and binding, written upon the conscience by the Creator Himself.
 
-[ILL] If a driver speeds down a road that has no posted speed limit and no
-traffic laws, a police officer cannot issue a ticket. There is no transgression
-because there is no law. However, if the officer issues a valid ticket, it
-proves the law existed before the driver arrived. Since God charged men with sin
-from Adam to Moses (Romans 5:13–14), the Law must have been active.
+John explains the root: "Not as Cain, who was of that wicked one, and slew his brother. And wherefore slew he him? Because his own works were evil, and his brother's righteous" (1 John 3:12). The difference between Cain and Abel was not ceremonial but moral—one had a righteous character, the other did not. This distinction implies a standard of righteousness—God's law.
 
----
+**Note:** God warned Cain before the murder: "If thou doest well, shalt thou not be accepted? and if thou doest not well, sin lieth at the door" (Genesis 4:7). "Doing well" and "not doing well" are moral categories requiring a moral standard.
 
-### Q4. How was the first death brought about?
+### The Antediluvian World—Violence and the Law
 
-**“And Cain talked with Abel his brother; and it came to pass, when they were in
-the field, that Cain rose up against Abel his brother, and slew him." Gen.
-4:8.**
+Before the flood, "the earth also was corrupt before God; and the earth was filled with violence" (Genesis 6:11). God declared: "The end of all flesh is come before Me; for the earth is filled with violence through them; and, behold, I will destroy them with the earth" (Genesis 6:13).
 
-**Answer:** The first physical death in human history was a murder—a direct
-violation of the principle later codified as the Sixth Commandment, "Thou shalt
-not kill" (Exodus 20:13).
+Violence is a violation of the sixth commandment. Corruption before God implies idolatry and impurity—violations of the first, second, and seventh commandments. The flood was God's judgment upon sin—and judgment presupposes law.
 
-- **The Fruit of Unbelief:** Cain’s act was the final result of anger and
-  jealousy, which Jesus equates with murder in the heart (Matthew 5:21–22).
-- **Rejection of the Atonement:** Cain refused to bring the lamb (typifying the
-  blood of Christ) and instead brought the fruit of his own labor
-  (works-righteousness). When his man-made religion was rejected, hatred for the
-  true religion sprang up. Persecution often comes from those who try to be
-  saved by their own works against those who rest in Christ’s righteousness.
+In contrast, "Noah found grace in the eyes of the Lord" (Genesis 6:8). He is called "a preacher of righteousness" (2 Peter 2:5). What righteousness did he preach? Not a lawless righteousness, but the righteousness of God, which is always in harmony with His law (Psalm 119:172; Romans 8:4).
+
+**Righteousness defined:** Righteousness is conformity to the will of God as expressed in His law. It is not merely legal standing, but right-doing—a life that reflects the character of God Himself (1 John 3:7).
+
+### Sodom—Unlawful Deeds
+
+The men of Sodom were "wicked and sinners before the Lord exceedingly" (Genesis 13:13). The angels declared: "We will destroy this place, because the cry of them is waxen great before the face of the Lord" (Genesis 19:13).
+
+Peter tells us the specific nature of their sins: Lot, "that righteous man dwelling among them, in seeing and hearing, vexed his righteous soul from day to day with their unlawful deeds" (2 Peter 2:8).
+
+Mark the word: **unlawful**. Their deeds were contrary to law—God's law. The seventh commandment, "Thou shalt not commit adultery" (Exodus 20:14), and the principles underlying it, were binding and violated. This was centuries before Sinai.
+
+### Joseph—The Seventh Commandment
+
+When tempted by Potiphar's wife, Joseph replied: "How then can I do this great wickedness, and sin against God?" (Genesis 39:9).
+
+Joseph recognized adultery as **sin against God**—not merely a social offense. He knew God's law, though Moses had not yet received it on tables of stone. The law was written in his heart by faith.
+
+### The Amorites and the Nations of Canaan
+
+God told Abraham: "In the fourth generation they shall come hither again: for the iniquity of the Amorites is not yet full" (Genesis 15:16). The Amorites were guilty of great sin, especially idolatry: "He did very abominably in following idols, according to all things as did the Amorites" (1 Kings 21:26).
+
+The Lord declared to Israel: "Ye shall not walk in the manners of the nation, which I cast out before you: for they committed all these things, and therefore I abhorred them" (Leviticus 20:23).
+
+God judged these nations for breaking His law—the first and second commandments forbidding idolatry, and the moral precepts governing life and purity. If there was no law binding them, there could be no just ground for judgment. But God's judgments are always righteous (Psalm 19:9; Genesis 18:25).
 
 ---
 
-### Q5. What was the difference between the characters of the two men?
+## Principles and Great Controversy Themes
 
-**“Not as Cain, who was of that wicked one, and slew his brother. And wherefore
-slew he him? Because his own works were evil, and his brother's righteous." 1
-John 3:12.**
+### The Law of God Is Eternal
 
-**Answer:** The difference was not merely in their offering, but in the _state
-of their hearts_, which dictated their actions.
+What these examples demonstrate is not merely that the law existed before Sinai, but that God's moral law is as eternal as God Himself. It is the transcript of His character, the expression of His will, the standard of righteousness for all intelligent beings—angelic and human—in all ages.
 
-1.  **Righteousness by Faith:** Hebrews 11:4 tells us that "By faith Abel
-    offered unto God a more excellent sacrifice." Abel is called "righteous" not
-    because he was naturally perfect, but because he looked by faith to the Lamb
-    of God. His obedience flowed from a heart reconciled to God.
-2.  **Evil Works:** Cain’s works were "evil" because they originated from a
-    heart of rebellion. Even an act of worship, if done without faith and
-    contrary to God's command, is an "evil work."
-3.  **The Two Classes:** This establishes the two great classes of humanity
-    found throughout the Great Controversy: those who rely on the blood of
-    Christ and obey God (Abel), and those who rely on self and rebel against
-    God's law (Cain).
+- Satan and his angels were judged by it in heaven (2 Peter 2:4; Jude 6).
+- Adam and Eve were judged by it in Eden (Genesis 3).
+- The antediluvians, the Sodomites, and the Canaanites were all judged by it before Sinai.
 
-**Term Definition:**
+**The Ten Commandments** at Sinai were not the creation of a new moral code, but the formal, written proclamation of principles that had always been in force. God wrote on stone what had long been written in the conscience of mankind (Romans 2:14–15).
 
-- **Righteousness:** Doing what is right in God's eyes. In the Christian life,
-  it is twofold: Christ's perfect life credited to us (justification) and
-  Christ's life lived out through us by the Holy Spirit (sanctification).
+### Abraham—Obedience by Faith
 
----
+Why did God make His promises to Abraham's seed? "Because that Abraham obeyed My voice, and kept My charge, My commandments, My statutes, and My laws" (Genesis 26:5).
 
-### Q6. Did the Lord impute sin to Cain for taking the life of his brother?
+Abraham was not justified by his obedience; he was justified by faith (Genesis 15:6; Romans 4:3). But his faith produced obedience. He kept God's commandments—not to earn favor, but because faith works by love (Galatians 5:6).
 
-**“If thou doest well, shalt thou not be accepted? and if thou doest not well,
-sin lieth at the door... And he [God] said,"... the voice of thy brother's blood
-crieth unto me from the ground... now art thou cursed from the earth." Gen.
-4:7-11.**
+This is the very heart of **Righteousness by Faith**:
 
-**Answer:** Yes, God clearly imputed sin to Cain.
+- **Justification (imputed righteousness):** God counts the believing sinner as righteous because of Christ's merits (Romans 4:5–8).
+- **Sanctification (imparted righteousness):** God works in the believer to produce actual conformity to His law (Philippians 2:13; Ezekiel 36:26–27).
 
-- **Moral Accountability:** God’s question, "If thou doest well, shalt thou not
-  be accepted?" implies that Cain knew what "doing well" meant. He was morally
-  obligated to obey God’s will.
-- **Sin Lies at the Door:** This phrase depicts sin like a crouching beast
-  waiting to devour. God warned Cain that he must master his sinful passions,
-  but this is only possible through surrender to God.
-- **The Curse:** God pronounced a sentence (judgment) upon Cain. This confirms
-  that the principles of the law were in effect and that God acts as the Judge
-  of the earth.
+Abraham's life demonstrates that faith and obedience are inseparable. "Faith without works is dead" (James 2:26). True faith in Christ always results in the keeping of God's commandments from the heart.
 
-**Term Definition:**
+### Who Are Abraham's Children?
 
-- **Impute:** To reckon, count, or charge to one’s account. God imputed guilt to
-  Cain because of his sin. Conversely, in the Gospel, God imputes Christ's
-  righteousness to the repentant sinner (Romans 4:22–24).
+Jesus declared: "If ye were Abraham's children, ye would do the works of Abraham" (John 8:39). Abraham's true seed are those who walk in the footsteps of his faith—trusting in God's promises and obeying His law.
+
+Paul confirms: "If ye be Christ's, then are ye Abraham's seed, and heirs according to the promise" (Galatians 3:29).
+
+The children of Abraham are not those who have physical descent, but those who have his faith—a faith that receives Christ's righteousness and produces a life of loving obedience.
 
 ---
 
-### Q7. In what condition was mankind before the flood?
+## Sanctuary Connection
 
-**“The earth also was corrupt before God; and the earth was filled with
-violence." Gen. 6:11.**
+The patriarchal age was not without a sanctuary message. From the gates of Eden, where God placed cherubim and a flaming sword (Genesis 3:24), to the altars of Abel, Noah, and Abraham, the way of approach to God was through sacrifice—pointing forward to the Lamb of God.
 
-**Answer:** The antediluvian world (before the Flood) demonstrates the result of
-setting aside God's law.
+**The outer court** of the sanctuary system, with its altar of sacrifice, was foreshadowed in every burnt offering of the patriarchal age. The blood of lambs and bulls testified: "Without shedding of blood is no remission" (Hebrews 9:22). The patriarchs looked forward in faith to the cross, where Christ would bear the penalty of the broken law (1 Peter 1:18–20).
 
-- **Corruption:** This refers to moral decay, likely including the perversion of
-  marriage and worship.
-- **Violence:** When the first four commandments (duty to God) are broken, the
-  last six (duty to man) are soon trampled. Without God, humanity turned against
-  itself. "Violence" is the violation of the rights of others.
-- **Total Depravity:** Genesis 6:5 adds that "every imagination of the thoughts
-  of his heart was only evil continually." This shows the desperate need for a
-  new heart (Sanctification), which the Spirit of God was striving to give them
-  (Gen 6:3), but they resisted.
+The law, therefore, was never opposed to grace. It was the law that revealed sin (Romans 3:20) and pointed men to the Redeemer. The sacrificial system taught that God would provide a substitute, a way of reconciliation, an atonement—a bringing together of God and man through the blood of the Promised Seed.
+
+**Atonement defined:** The work by which God and man are reconciled, and sin is removed. In the sanctuary, the blood of the sacrifice made atonement for the sinner, covering and ultimately blotting out sin (Leviticus 17:11; Hebrews 9:22–26).
 
 ---
 
-### Q8. What did God purpose to do with the people of that day?
+## Practical Application
 
-**” And God said unto Noah, The end of all flesh is come before Me; for the
-earth is filled with violence through them; and, behold, I will destroy them
-with the earth." Gen. 6:13.**
+### The Law Stands Over Us Today
 
-**Answer:** God purposed to execute judgment.
+If God held the patriarchs accountable to His law, how much more are we accountable who have received the full revelation of Jesus Christ and the written Word?
 
-- **The limit of Divine Patience:** God is "longsuffering... not willing that
-  any should perish" (2 Peter 3:9), but there is a limit to divine forbearance.
-  When men become fully settled in rebellion, preventing any possibility of
-  repentance, probation closes.
-- **Cleansing the Earth:** The Flood was a type of the final destruction of sin.
-  Just as the sanctuary must be cleansed of recorded sins, the earth had to be
-  cleansed of the violent rebels who were destroying it.
-- **Vindication of Law:** The destruction of the old world is a testimony that
-  God’s law cannot be trampled upon with impunity forever.
+"For not the hearers of the law are just before God, but the doers of the law shall be justified" (Romans 2:13).
 
----
+This does not mean we are saved by works, but that genuine faith will produce a life that honors the law of God. The one who truly believes in Jesus will say with David: "O how love I Thy law! It is my meditation all the day" (Psalm 119:97).
 
-### Q9. What was Noah called?
+### The Possibility of Victory
 
-**“And spared not the old world, but saved Noah, the eighth person, a preacher
-of righteousness." 2 Peter 2:5.**
+What was true for Abraham, Joseph, and Noah is true for us: Through faith in Christ, we may keep God's commandments. Not in our own strength, but by the indwelling life of Christ (Galatians 2:20).
 
-**Answer:** Noah is called a "preacher of righteousness."
+"This is the victory that overcometh the world, even our faith" (1 John 5:4).
 
-- **The Definition of Righteousness:** "All thy commandments are righteousness"
-  (Psalm 119:172). Therefore, Noah was a preacher of obedience to God's law.
-- **Preaching by Life and Word:** For 120 years, while building the ark, Noah
-  preached that men should repent—which means to turn away from sin
-  (transgression of the law) and turn toward God.
-- **Salvation by Grace:** Noah "found grace in the eyes of the Lord" (Genesis
-  6:8). His righteousness was the fruit of his faith (Hebrews 11:7). He did not
-  earn salvation by boat-building; he built the boat because he believed God.
+"Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus" (Revelation 14:12).
 
-[ILL] Noah was like a lighthouse keeper in a storm. He didn't just shine the
-light (preach); he stood on the solid rock (faith in God) while the waves of
-popular opinion and mockery crashed around him. His life proved that it is
-possible to walk with God even in a wicked generation.
+The last-day people of God will demonstrate that the law can be kept—not by human effort, but by the power of Christ working within.
 
 ---
 
-### Q10. Why did the Lord destroy Sodom?
+[ILL]
 
-**“The men of Sodom were wicked and sinners before the Lord exceedingly." Gen.
-13:13. "We will destroy this place, because the cry of them is waxen great
-before the face of the Lord." Gen. 19:13.**
+A man once stood before a judge, accused of stealing. His defense was simple: "I did not know the law against theft was in force in this county. No one showed me the statute book."
 
-**Answer:** Sodom was destroyed because they were "sinners... exceedingly."
+The judge replied: "Ignorance of the law is no excuse. The law is the law, whether you read the statute or not. And in truth, you did know it was wrong—for your conscience condemned you even as you did it."
 
-- **The Nature of their Sin:** They violated the laws of purity and love. Jude 7
-  tells us they gave themselves over to "fornication" and "strange flesh."
-  Ezekiel 16:49 adds that they were full of "pride, fullness of bread, and
-  abundance of idleness" and did not strengthen the hand of the poor.
-- **Sin against God:** Notice the text says they were sinners "before the Lord."
-  Sin is personal; it is an offense against the Creator's character.
+So it was in the patriarchal age. The written tables of stone had not yet been given, but the law was written in the conscience. Every man who sinned knew he was sinning—for "sin lieth at the door" even when no book of statutes sits upon the shelf. God's law is eternal, and all are accountable to it.
 
 ---
 
-### Q11. By what standard were their deeds weighed?
+## Appeal
 
-**“And delivered just Lot, vexed with the filthy conversation of the wicked; for
-that righteous man dwelling among them, in seeing and hearing, vexed his
-righteous soul from day to day with their unlawful deeds." 2 Peter 2:7, 8.**
+The great question is not whether the law existed before Sinai—Scripture is abundantly clear that it did. The question is: What will you do with the law of God today?
 
-**Answer:** Their deeds were weighed by the standard of God's law.
+Will you, like Cain, resist the Spirit's conviction and let sin master you? Or will you, like Abel, come to God by faith, offering the blood of the Lamb, and by grace walk in righteousness?
 
-- **"Unlawful Deeds":** The Apostle Peter explicitly calls their actions
-  "unlawful." This is proof positive that the Law existed in Lot's day. You
-  cannot have "unlawful" deeds without a law.
-- **"Filthy Conversation":** This refers to their conduct or lifestyle.
-- **The Reaction of the Righteous:** Lot was "vexed" (tortured/distressed) by
-  the sin around him. This is a mark of the true child of God (see Ezekiel 9:4).
-  A believer cannot be comfortable in the presence of open rebellion against
-  God's law.
-- **Imputed Righteousness:** Lot was a flawed man, yet the Bible calls him
-  "just" and "righteous." This shows he had been justified by faith, and his
-  heart was aligned with God’s standards, even though he struggled in a
-  difficult environment.
+Will you, like the men of Sodom, continue in unlawful deeds until judgment falls? Or will you, like righteous Lot, be vexed with sin and cry out for deliverance?
 
----
+Will you, like the Amorites, fill up the cup of iniquity? Or will you, like Abraham, obey God's voice, and keep His charge, His commandments, His statutes, and His laws—not to earn salvation, but because you love the God who has saved you by His grace?
 
-### Q12. What did Joseph say when he was tempted on a certain point?
+"If ye be Christ's, then are ye Abraham's seed, and heirs according to the promise" (Galatians 3:29).
 
-**“How then, can I do this great wickedness, and sin against God?" Gen. 39:9.**
-
-**Answer:** Joseph recognized the moral law regarding adultery centuries before
-it was written on stone at Sinai.
-
-- **The Seventh Commandment:** Joseph understood that taking another man's wife
-  was "great wickedness."
-- **Sin Against God:** While it would have been a sin against Potiphar, Joseph
-  recognized the deeper truth: all sin is primarily treason against God.
-- **Victory over Sin:** Joseph illustrates the power of Righteousness by Faith.
-  He did not debate the temptation; he fled from it. His connection with God was
-  so real that he would rather go to prison than break his relationship with the
-  Lord by sinning. This is the experience God desires for His people in the last
-  days (Revelation 14:12).
-
----
-
-### Q13. What did God tell Abraham concerning the Amorites?
-
-**“But in the fourth generation they shall come hither again; for the iniquity
-of the Amorites is not yet full." Gen. 15:16.**
-
-**Answer:** God revealed to Abraham that nations are on probation.
-
-- **Probationary Time:** God gave the Amorites over 400 years to turn from their
-  wickedness. This shows God's mercy and longsuffering.
-- **Measurement of Iniquity:** The cup of iniquity becomes "full" when a nation
-  or individual completely rejects the light of conscience and truth.
-- **National Judgment:** Just as God judged the world by the Flood and Sodom by
-  fire, He judges nations when they violate moral law.
-
----
-
-### Q14. Of what sin were they specially guilty?
-
-**“And he did very abominably in following idols, according to all things as did
-the Amorites, whom the Lord cast out before the children of Israel." 1 Kings
-21:26.**
-
-**Answer:** The Amorites were specifically guilty of gross idolatry ("following
-idols").
-
-- **Violation of the First Table:** This is a direct violation of the first and
-  second commandments—putting other gods before the true God and bowing to
-  images.
-- **Abominations:** Their idolatry wasn't innocent; it involved horrific rites,
-  including child sacrifice and ritual prostitution (Deuteronomy 12:31).
-- **Universal Application:** The fact that God cast out the Amorites (Gentiles)
-  for idolatry proves that the command to worship the true God alone was not
-  just for Jews, but for all humanity.
-
----
-
-### Q15. Why did the Lord abhor the nations that occupied Canaan before Israel?
-
-**"Ye shall therefore keep all My statutes, and all My judgments and do them:
-that the land, whither I bring you to dwell therein, spue you not out. And ye
-shall not walk in the manners of the nation, which I cast out before you; for
-they committed all these things, and therefore I abhorred them." Lev.
-20:22, 23.**
-
-**Answer:** God abhorred them because they "committed all these
-things"—referring to a list of moral crimes including incest, adultery, and
-child sacrifice.
-
-- **The Land "Vomits" Sinners:** The metaphor of the land "spuing" (vomiting)
-  them out vividly portrays that sin is unnatural. God created the world for
-  righteousness; sin is a foreign, toxic substance that creation itself rejects
-  (Romans 8:22).
-- **No Double Standard:** God warned Israel that if they did the same things,
-  the land would vomit them out too. God does not have one law for Gentiles and
-  another for Jews; He has one moral standard for all mankind.
-
----
-
-### Q16. Why did God make His promise to the seed of Abraham?
-
-**“Because that Abraham obeyed My voice, and kept My charge, My commandments, My
-statutes and My laws." Gen. 26:5.**
-
-**Answer:** This is perhaps the most powerful verse regarding law in the
-Patriarchal age. God confirms the covenant with Isaac based on Abraham's life of
-faithful obedience.
-
-- **Comprehensive Obedience:** Note the terms used: _Charge, Commandments,
-  Statutes, Laws._ This vocabulary covers the entirety of God's revealed will,
-  moral and ceremonial.
-- **Before Sinai:** Abraham lived hundreds of years before Moses received the
-  tablets of stone. Yet, Abraham knew God’s commandments. They were written on
-  his heart by the Holy Spirit.
-- **Faith Works:** Abraham is the "father of the faithful" (Romans 4:16). This
-  text proves that true faith does not abolish the law; rather, true faith
-  _establishes_ the law (Romans 3:31). Abraham believed God, and that faith
-  produced obedience.
-
-**Term Definition:**
-
-- **Sanctification:** The result of the covenant of grace where God writes His
-  law in the heart (Hebrews 8:10), causing the believer to walk in His statutes
-  (Ezekiel 36:27).
-
----
-
-### Q17. What will the children of Abraham do?
-
-**“Jesus saith unto them, If ye were Abraham's children, ye would do the works
-of Abraham." John 8:39.**
-
-**Answer:** Jesus teaches that spiritual lineage is demonstrated by character
-and action, not just DNA.
-
-- **The Works of Abraham:** What were the works of Abraham? As seen in the
-  previous question, he "obeyed My voice" and kept God's commandments. He also
-  commanded his household to keep the "way of the Lord" (Genesis 18:19).
-- **Counterfeit Faith:** The Pharisees claimed to be Abraham's children but
-  sought to kill Jesus (John 8:40). Jesus pointed out that their actions (works)
-  proved they were actually children of the devil (John 8:44).
-- **The Lesson:** We cannot claim to be saved by faith if our lives are
-  characterized by willful disobedience. "Faith, if it hath not works, is dead,
-  being alone" (James 2:17).
-
----
-
-### Q18. Who are the children of Abraham?
-
-**“And if ye be Christ's, then are ye Abraham's seed, and heirs according to the
-promise." Gal. 3:29.**
-
-**Answer:** Here is the beautiful conclusion of the Gospel.
-
-- **Union with Christ:** We do not become children of Abraham by birth or by our
-  own efforts, but by belonging to Christ. When we accept Jesus, His history
-  becomes our history. His righteousness becomes our robe.
-- **Heirs of the Promise:** The promise to Abraham was a promise of land (the
-  earth made new) and spiritual blessing. This belongs to the Christian who,
-  like Abraham, walks by faith.
-- **The Conclusion of the Matter:** If we are Abraham's seed through Christ, we
-  will do the works of Abraham (Q17). We will cherish and obey God's
-  commandments, not to _be_ saved, but because we _are_ saved and belong to the
-  family of God.
-
-[ILL] An adopted child takes on the legal name and the inheritance of the
-father. But more than that, a loving adopted child grows to resemble the
-character of the father the longer they live together. Being "Christ's" gives us
-the title to heaven (Justification), and living with Him imparts to us His
-character of obedience (Sanctification).
+Come to Christ. Receive His righteousness—both imputed and imparted. Let His law be written in your heart, and by faith, walk in the footsteps of faithful Abraham, looking for that city "which hath foundations, whose builder and maker is God" (Hebrews 11:10).
