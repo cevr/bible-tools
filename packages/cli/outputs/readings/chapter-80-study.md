@@ -1,4 +1,8 @@
-# Bible Study: The Gospel in the Old Testament
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1249'
+---
+
+# Reading 80: The Gospel in the Old Testament
 
 ## Introduction
 

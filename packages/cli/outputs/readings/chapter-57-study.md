@@ -1,4 +1,8 @@
-# Bible Study: Our Lord's Great Prophecy
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1220'
+---
+
+# Reading 57: Our Lord's Great Prophecy
 
 ## Introduction
 

@@ -1,4 +1,8 @@
-# Bible Study: The World's Conversion—A Biblical Reality Check
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1224'
+---
+
+# Reading 60: The World's Conversion—A Biblical Reality Check
 
 ## Introduction
 

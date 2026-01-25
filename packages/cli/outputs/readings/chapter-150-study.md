@@ -1,4 +1,8 @@
-# Bible Study: Free-Will Offerings
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1323'
+---
+
+# Reading 150: Free-Will Offerings
 
 ## Introduction
 

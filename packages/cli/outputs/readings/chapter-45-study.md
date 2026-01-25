@@ -1,4 +1,8 @@
-# Bible Study: The Prophetic Symbols of Daniel 8
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1205'
+---
+
+# Reading 45: The Prophetic Symbols of Daniel 8
 
 ## Introduction
 

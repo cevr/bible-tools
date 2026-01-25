@@ -1,4 +1,8 @@
-# Bible Study: Christ's Second Coming
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1225'
+---
+
+# Reading 61: Christ's Second Coming
 
 ## Introduction
 

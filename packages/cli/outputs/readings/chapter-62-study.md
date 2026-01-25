@@ -1,4 +1,8 @@
-# Bible Study: The Manner of Christ's Coming
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1226'
+---
+
+# Reading 62: The Manner of Christ's Coming
 
 ## Introduction
 

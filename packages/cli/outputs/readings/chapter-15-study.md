@@ -1,4 +1,8 @@
-# Bible Study: The Anchor of the Soul — Christian Hope
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1172'
+---
+
+# Reading 15: The Anchor of the Soul — Christian Hope
 
 ## Introduction
 

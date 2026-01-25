@@ -1,4 +1,8 @@
-# Bible Study: Submission—The Path to True Freedom
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1307'
+---
+
+# Reading 135: Submission—The Path to True Freedom
 
 ## Introduction
 

@@ -1,4 +1,8 @@
-# Bible Study: Prophetic History of the World
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1201'
+---
+
+# Reading 41: Prophetic History of the World
 
 ## Introduction
 

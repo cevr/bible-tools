@@ -1,4 +1,8 @@
-# Bible Study: The Sufferings of Christ
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1195'
+---
+
+# Reading 36: The Sufferings of Christ
 
 ## Introduction
 

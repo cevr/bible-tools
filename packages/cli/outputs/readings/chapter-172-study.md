@@ -1,4 +1,8 @@
-# Bible Study: Social Purity—The Battle for the Mind
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1347'
+---
+
+# Reading 172: Social Purity—The Battle for the Mind
 
 ## Introduction
 

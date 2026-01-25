@@ -1,4 +1,8 @@
-# Bible Study: The Sure Word of Prophecy
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1200'
+---
+
+# Reading 40: The Sure Word of Prophecy
 
 ## Introduction
 

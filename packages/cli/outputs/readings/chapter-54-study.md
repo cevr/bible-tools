@@ -1,4 +1,8 @@
-# Bible Study: The First Beast of Revelation 13—The Rise of Papal Rome
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1217'
+---
+
+# Reading 54: The First Beast of Revelation 13—The Rise of Papal Rome
 
 ## Introduction
 

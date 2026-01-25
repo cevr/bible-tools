@@ -1,4 +1,8 @@
-# Bible Study: The Birth and Early Life of Christ
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1192'
+---
+
+# Reading 33: The Birth and Early Life of Christ
 
 ## Introduction
 

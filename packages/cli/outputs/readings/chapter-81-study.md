@@ -1,4 +1,8 @@
-# Bible Study: The Importance of Obedience
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1250'
+---
+
+# Reading 81: The Importance of Obedience
 
 ## Introduction
 

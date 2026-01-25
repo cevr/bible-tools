@@ -1,4 +1,8 @@
-# Bible Study: Promises for the Children
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1344'
+---
+
+# Reading 169: Promises for the Children
 
 ## Introduction
 

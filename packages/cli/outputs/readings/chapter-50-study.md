@@ -1,4 +1,8 @@
-# Bible Study: The First Angel's Message
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1211'
+---
+
+# Reading 50: The First Angel's Message
 
 ## Introduction
 

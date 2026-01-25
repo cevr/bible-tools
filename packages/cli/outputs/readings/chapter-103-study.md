@@ -1,4 +1,8 @@
-# Bible Study: What is Man?
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1272'
+---
+
+# Reading 103: What is Man?
 
 ## Introduction
 

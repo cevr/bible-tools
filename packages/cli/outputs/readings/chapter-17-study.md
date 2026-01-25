@@ -1,4 +1,8 @@
-# Bible Study: Confession—The Divine Pathway to Spiritual Freedom
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1174'
+---
+
+# Reading 17: Confession—The Divine Pathway to Spiritual Freedom
 
 ## Introduction
 

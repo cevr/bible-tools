@@ -1,4 +1,8 @@
-# Bible Study: True Shepherds and False—A Test for the Last Days
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1338'
+---
+
+# Reading 164: True Shepherds and False—A Test for the Last Days
 
 ## Introduction
 

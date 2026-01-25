@@ -1,4 +1,8 @@
-# Bible Study: The Law Given at Sinai
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1239'
+---
+
+# Reading 71: The Law Given at Sinai
 
 ## Introduction
 

@@ -1,4 +1,8 @@
-# Bible Study: Spiritualism—The Ancient Deception Unmasked
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1288'
+---
+
+# Reading 117: Spiritualism—The Ancient Deception Unmasked
 
 ## Introduction
 

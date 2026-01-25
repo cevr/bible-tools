@@ -1,4 +1,8 @@
-# Bible Study: The Lord's Supper
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1316'
+---
+
+# Reading 143: The Lord's Supper
 
 ## Introduction
 

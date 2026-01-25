@@ -1,4 +1,8 @@
-# Bible Study: The Spirits in Prison
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1284'
+---
+
+# Reading 113: The Spirits in Prison
 
 ## Introduction
 

@@ -1,4 +1,8 @@
-# Bible Study: The Author of Liberty
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1266'
+---
+
+# Reading 97: The Author of Liberty
 
 ## Introduction
 

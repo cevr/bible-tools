@@ -1,4 +1,8 @@
-# Bible Study: Creation and the Creator
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1162'
+---
+
+# Reading 6: Creation and the Creator
 
 ## Introduction
 

@@ -1,4 +1,8 @@
-# Bible Study: Sunday Sacredness—What Does the New Testament Actually Teach?
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1257'
+---
+
+# Reading 88: Sunday Sacredness—What Does the New Testament Actually Teach?
 
 ## Introduction
 

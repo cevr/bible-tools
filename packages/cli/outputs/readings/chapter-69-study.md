@@ -1,4 +1,8 @@
-# Bible Study: The Nature of God's Law
+---
+apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1237'
+---
+
+# Reading 69: The Nature of God's Law
 
 ## Introduction
 
