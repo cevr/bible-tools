@@ -7,7 +7,7 @@ import { Model } from '~/src/services/model';
 import { doneChime } from './done-chime';
 import { spin } from './general';
 
-class ReviewError extends Data.TaggedError('ReviewError')<{
+export class ReviewError extends Data.TaggedError('ReviewError')<{
   cause: unknown;
 }> {}
 

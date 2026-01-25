@@ -2,19 +2,14 @@ import { Command, Options } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
 import { Console, Effect, Schema } from 'effect';
 
+import { file, folder, json, noteId } from '~/src/lib/content/options';
 import {
   makeAppleNoteFromMarkdown,
   updateAppleNoteFromMarkdown,
 } from '~/src/lib/markdown-to-notes';
 import { listNotes } from '~/src/lib/notes-utils';
 
-// List subcommand
-const jsonFlag = Options.boolean('json').pipe(
-  Options.withDescription('Output as JSON'),
-  Options.withDefault(false),
-);
-
-const list = Command.make('list', { json: jsonFlag }, (args) =>
+const list = Command.make('list', { json }, (args) =>
   Effect.gen(function* () {
     const notes = yield* listNotes();
     const encodeJson = Schema.encode(Schema.parseJson({ space: 2 }));
@@ -48,24 +43,9 @@ const list = Command.make('list', { json: jsonFlag }, (args) =>
   }),
 );
 
-// Export subcommand - export markdown file to Apple Notes (create or update)
-const files = Options.file('file').pipe(
-  Options.withAlias('f'),
-  Options.withDescription('Markdown file to export'),
-);
+const optionalNoteId = noteId.pipe(Options.optional);
 
-const noteId = Options.text('note-id').pipe(
-  Options.withAlias('n'),
-  Options.withDescription('Note ID to update (if not provided, creates new note)'),
-  Options.optional,
-);
-
-const folder = Options.text('folder').pipe(
-  Options.withDescription('Target folder in Apple Notes (for new notes)'),
-  Options.optional,
-);
-
-const exportNote = Command.make('export', { file: files, noteId, folder }, (args) =>
+const exportNote = Command.make('export', { file, noteId: optionalNoteId, folder }, (args) =>
   Effect.gen(function* () {
     const fileSystem = yield* FileSystem.FileSystem;
 

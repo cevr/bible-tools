@@ -1,24 +1,14 @@
-import { Command, Options } from '@effect/cli';
+import { Command } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
 import { Effect } from 'effect';
 
+import { files, folder } from '~/src/lib/content/options';
 import {
   parseFrontmatter,
   updateFrontmatter,
   type MessageFrontmatter,
 } from '~/src/lib/frontmatter';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
-
-const files = Options.file('files').pipe(
-  Options.withAlias('f'),
-  Options.repeated,
-  Options.withDescription('Files to export to Apple Notes'),
-);
-
-const folder = Options.text('folder').pipe(
-  Options.withDescription('Target folder in Apple Notes'),
-  Options.optional,
-);
 
 export const exportOutput = Command.make('export', { files, folder }, (args) =>
   Effect.gen(function* () {

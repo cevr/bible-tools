@@ -10,25 +10,21 @@ describe('messages commands', () => {
 
   describe('generate command', () => {
     it('should generate a message from topic', async () => {
-      const result = await runCli(
-        messages,
-        ['generate', '--topic', 'Faith and Works', '--model', 'gemini'],
-        {
+      const result = await runCli(messages, ['generate', '--topic', 'Faith and Works'], {
+        files: {
           files: {
-            files: {
-              [`${process.cwd()}/src/prompts/messages/generate.md`]:
-                'You are a Bible study assistant...',
-            },
-            directories: [],
+            [`${process.cwd()}/src/prompts/messages/generate.md`]:
+              'You are a Bible study assistant...',
           },
-          model: {
-            responses: {
-              high: ['# Faith and Works\n\nA message about faith and works...'],
-              low: ['faith-and-works'],
-            },
+          directories: [],
+        },
+        model: {
+          responses: {
+            high: ['# Faith and Works\n\nA message about faith and works...'],
+            low: ['faith-and-works'],
           },
         },
-      );
+      });
 
       expect(result.success).toBe(true);
       // Check all expected calls are present (order varies due to async)
@@ -44,7 +40,7 @@ describe('messages commands', () => {
     });
 
     it('should create messages directory if it does not exist', async () => {
-      const result = await runCli(messages, ['generate', '--topic', 'Grace', '--model', 'gemini'], {
+      const result = await runCli(messages, ['generate', '--topic', 'Grace'], {
         files: {
           files: {
             [`${process.cwd()}/src/prompts/messages/generate.md`]: 'System prompt...',
@@ -77,8 +73,6 @@ describe('messages commands', () => {
           '/path/to/message.md',
           '--instructions',
           'Add more scripture references',
-          '--model',
-          'gemini',
         ],
         {
           files: {
@@ -109,15 +103,7 @@ describe('messages commands', () => {
     it('should fail when message file does not exist', async () => {
       const result = await runCli(
         messages,
-        [
-          'revise',
-          '--file',
-          '/path/to/nonexistent.md',
-          '--instructions',
-          'Fix it',
-          '--model',
-          'gemini',
-        ],
+        ['revise', '--file', '/path/to/nonexistent.md', '--instructions', 'Fix it'],
         {
           files: {
             files: {
@@ -136,7 +122,7 @@ describe('messages commands', () => {
 
   describe('generate-topic command', () => {
     it('should generate topic suggestions', async () => {
-      const result = await runCli(messages, ['generate-topic', '--model', 'gemini'], {
+      const result = await runCli(messages, ['generate-topic'], {
         files: {
           files: {
             [`${process.cwd()}/outputs/messages/2024-01-01-faith.md`]: 'content',

@@ -1,37 +1,28 @@
-import { Command, Options } from '@effect/cli';
+import { Command } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
 import { generateText } from 'ai';
 import { format } from 'date-fns';
-import { Data, Effect, Option, Schedule, Schema } from 'effect';
+import { Data, Effect, Option, Schedule } from 'effect';
 import { join } from 'path';
 
-import {
-  type MessageFrontmatter,
-  parseFrontmatter,
-  stringifyFrontmatter,
-  updateFrontmatter,
-} from '~/src/lib/frontmatter';
+import { MessagesConfig } from '~/src/lib/content/configs';
+import { makeListCommand, makeReviseCommand, makeExportCommand } from '~/src/lib/content/commands';
+import { MessageFrontmatter } from '~/src/lib/content/schemas';
+import { topic, noteId, dryRun } from '~/src/lib/content/options';
+import { parseFrontmatter, stringifyFrontmatter, updateFrontmatter } from '~/src/lib/frontmatter';
 import { msToMinutes, spin } from '~/src/lib/general';
 import { generate } from '~/src/lib/generate';
-import {
-  makeAppleNoteFromMarkdown,
-  updateAppleNoteFromMarkdown,
-} from '~/src/lib/markdown-to-notes';
+import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
 import { findNoteByTitle, getNoteContent } from '~/src/lib/notes-utils';
 import { extractTitleFromMarkdown } from '~/src/lib/apple-notes-utils';
 import { getOutputsPath, getPromptPath } from '~/src/lib/paths';
-import { revise } from '~/src/lib/revise';
 import { generateTopicPrompt } from '~/src/prompts/messages/generate-topic';
-import { Model, model } from '~/src/services/model';
+import { Model } from '~/src/services/model';
 
-const topic = Options.text('topic').pipe(
-  Options.withAlias('t'),
-  Options.withDescription('Topic for the message'),
-);
-
-const generateMessage = Command.make('generate', { topic, model }, (args) =>
+const generateMessage = Command.make('generate', { topic }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
+    const model = yield* Model;
     const startTime = Date.now();
 
     yield* Effect.logDebug(`topic: ${args.topic}`);
@@ -41,7 +32,7 @@ const generateMessage = Command.make('generate', { topic, model }, (args) =>
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
     const { filename, response } = yield* generate(systemPrompt, args.topic).pipe(
-      Effect.provideService(Model, args.model),
+      Effect.provideService(Model, model),
     );
 
     const messagesDir = getOutputsPath('messages');
@@ -50,10 +41,11 @@ const generateMessage = Command.make('generate', { topic, model }, (args) =>
     const filePath = join(messagesDir, fileName);
 
     // Create frontmatter
-    const frontmatter: MessageFrontmatter = {
+    const frontmatter = new MessageFrontmatter({
       created_at: new Date().toISOString(),
       topic: args.topic,
-    };
+      apple_note_id: Option.none(),
+    });
 
     yield* spin(
       'Ensuring messages directory exists',
@@ -61,7 +53,13 @@ const generateMessage = Command.make('generate', { topic, model }, (args) =>
     );
 
     // Write initial file with frontmatter (without apple_note_id yet)
-    const contentWithFrontmatter = stringifyFrontmatter(frontmatter, response);
+    const contentWithFrontmatter = stringifyFrontmatter(
+      {
+        created_at: frontmatter.created_at,
+        topic: frontmatter.topic,
+      },
+      response,
+    );
     yield* spin(
       'Writing message to file: ' + fileName,
       fs.writeFile(filePath, new TextEncoder().encode(contentWithFrontmatter)),
@@ -85,65 +83,10 @@ const generateMessage = Command.make('generate', { topic, model }, (args) =>
   }),
 );
 
-const file = Options.file('file').pipe(
-  Options.withAlias('f'),
-  Options.withDescription('Path to the message file to revise'),
-);
-
-const instructions = Options.text('instructions').pipe(
-  Options.withAlias('i'),
-  Options.withDescription('Revision instructions'),
-);
-
-const reviseMessage = Command.make('revise', { model, file, instructions }, (args) =>
+const generateFromNoteMessage = Command.make('from-note', { noteId }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-
-    const rawContent = yield* fs
-      .readFile(args.file)
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
-
-    // Parse frontmatter to preserve it and check for apple_note_id
-    const { frontmatter, content: message } = parseFrontmatter<MessageFrontmatter>(rawContent);
-
-    const systemMessagePrompt = yield* fs
-      .readFile(getPromptPath('messages', 'generate.md'))
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
-
-    const revisedMessage = yield* revise({
-      cycles: [
-        {
-          prompt: '',
-          response: message,
-        },
-      ],
-      systemPrompt: systemMessagePrompt,
-      instructions: args.instructions,
-    }).pipe(Effect.provideService(Model, args.model));
-
-    // Preserve frontmatter with revised content
-    const finalContent = stringifyFrontmatter(frontmatter, revisedMessage);
-    yield* fs.writeFile(args.file, new TextEncoder().encode(finalContent));
-
-    // If we have an apple_note_id, update the existing note
-    const appleNoteId = frontmatter.apple_note_id;
-    if (typeof appleNoteId === 'string') {
-      yield* spin('Updating Apple Note', updateAppleNoteFromMarkdown(appleNoteId, revisedMessage));
-    }
-
-    yield* Effect.log(`Message revised successfully!`);
-    yield* Effect.log(`Output: ${args.file}`);
-  }),
-);
-
-const noteId = Options.text('note-id').pipe(
-  Options.withAlias('n'),
-  Options.withDescription('Apple Note ID to generate from'),
-);
-
-const generateFromNoteMessage = Command.make('from-note', { model, noteId }, (args) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
+    const model = yield* Model;
     const startTime = Date.now();
     const note = yield* getNoteContent(args.noteId);
 
@@ -152,7 +95,7 @@ const generateFromNoteMessage = Command.make('from-note', { model, noteId }, (ar
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
     const { filename, response } = yield* generate(systemPrompt, note).pipe(
-      Effect.provideService(Model, args.model),
+      Effect.provideService(Model, model),
     );
 
     const messagesDir = getOutputsPath('messages');
@@ -161,10 +104,11 @@ const generateFromNoteMessage = Command.make('from-note', { model, noteId }, (ar
     const filePath = join(messagesDir, fileName);
 
     // Create frontmatter
-    const frontmatter: MessageFrontmatter = {
+    const frontmatter = new MessageFrontmatter({
       created_at: new Date().toISOString(),
       topic: `from-note:${args.noteId}`,
-    };
+      apple_note_id: Option.none(),
+    });
 
     yield* spin(
       'Ensuring messages directory exists',
@@ -172,7 +116,13 @@ const generateFromNoteMessage = Command.make('from-note', { model, noteId }, (ar
     );
 
     // Write initial file with frontmatter
-    const contentWithFrontmatter = stringifyFrontmatter(frontmatter, response);
+    const contentWithFrontmatter = stringifyFrontmatter(
+      {
+        created_at: frontmatter.created_at,
+        topic: frontmatter.topic,
+      },
+      response,
+    );
     yield* spin(
       'Writing message to file: ' + fileName,
       fs.writeFile(filePath, new TextEncoder().encode(contentWithFrontmatter)),
@@ -200,9 +150,10 @@ class GenerateTopicResponseError extends Data.TaggedError('GenerateTopicResponse
   cause: unknown;
 }> {}
 
-const generateTopic = Command.make('generate-topic', { model }, (args) =>
+const generateTopic = Command.make('generate-topic', {}, () =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
+    const model = yield* Model;
 
     const previousMessages = yield* fs.readDirectory(getOutputsPath('messages'));
 
@@ -213,7 +164,7 @@ const generateTopic = Command.make('generate-topic', { model }, (args) =>
       Effect.tryPromise({
         try: () =>
           generateText({
-            model: args.model.high,
+            model: model.high,
             messages: [
               {
                 role: 'system',
@@ -236,48 +187,6 @@ const generateTopic = Command.make('generate-topic', { model }, (args) =>
     const message = response.text;
     yield* Effect.log(`topic: \n\n ${message}`);
   }),
-);
-
-const json = Options.boolean('json').pipe(
-  Options.withDefault(false),
-  Options.withDescription('Output as JSON'),
-);
-
-const listMessages = Command.make('list', { json }, (args) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
-    const encodeJson = Schema.encode(Schema.parseJson({ space: 2 }));
-
-    const messagesDir = getOutputsPath('messages');
-    const files = yield* fs
-      .readDirectory(messagesDir)
-      .pipe(Effect.catchAll(() => Effect.succeed([] as string[])));
-
-    const filePaths = files
-      .filter((f) => f.endsWith('.md'))
-      .map((file) => join(messagesDir, file))
-      .sort((a, b) => b.localeCompare(a));
-
-    if (args.json) {
-      const jsonOutput = yield* encodeJson(filePaths);
-      yield* Effect.log(jsonOutput);
-    } else {
-      if (filePaths.length === 0) {
-        yield* Effect.log('No messages found.');
-      } else {
-        yield* Effect.log('Messages:');
-        for (const filePath of filePaths) {
-          const basename = filePath.split('/').pop() ?? filePath;
-          yield* Effect.log(`  ${basename}`);
-        }
-      }
-    }
-  }),
-);
-
-const dryRun = Options.boolean('dry-run').pipe(
-  Options.withDefault(false),
-  Options.withDescription('Show what would be synced without making changes'),
 );
 
 const syncMessages = Command.make('sync', { dryRun }, (args) =>
@@ -307,7 +216,7 @@ const syncMessages = Command.make('sync', { dryRun }, (args) =>
         .readFile(filePath)
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-      const { frontmatter, content } = parseFrontmatter<MessageFrontmatter>(rawContent);
+      const { frontmatter, content } = parseFrontmatter<{ apple_note_id?: string }>(rawContent);
 
       // Skip if already has apple_note_id
       if (frontmatter.apple_note_id) {
@@ -318,7 +227,7 @@ const syncMessages = Command.make('sync', { dryRun }, (args) =>
       // Extract title from markdown content
       const titleOption = extractTitleFromMarkdown(content);
       if (Option.isNone(titleOption)) {
-        yield* Effect.log(`⚠️  No title found in ${filePath.split('/').pop()}`);
+        yield* Effect.log(`No title found in ${filePath.split('/').pop()}`);
         notFound++;
         continue;
       }
@@ -329,43 +238,44 @@ const syncMessages = Command.make('sync', { dryRun }, (args) =>
       const noteIdOption = yield* findNoteByTitle(title, 'messages');
 
       if (Option.isNone(noteIdOption)) {
-        yield* Effect.log(`📭 No matching note for: ${title}`);
+        yield* Effect.log(`No matching note for: ${title}`);
         notFound++;
         continue;
       }
 
-      const noteId = noteIdOption.value;
+      const foundNoteId = noteIdOption.value;
 
       if (args.dryRun) {
-        yield* Effect.log(`🔗 Would sync: ${title} → ${noteId}`);
+        yield* Effect.log(`Would sync: ${title} -> ${foundNoteId}`);
         synced++;
         continue;
       }
 
       // Update frontmatter with the found note ID
       const updatedContent = updateFrontmatter(rawContent, {
-        apple_note_id: noteId,
+        apple_note_id: foundNoteId,
       });
       yield* fs.writeFile(filePath, new TextEncoder().encode(updatedContent));
-      yield* Effect.log(`✅ Synced: ${title} → ${noteId}`);
+      yield* Effect.log(`Synced: ${title} -> ${foundNoteId}`);
       synced++;
     }
 
     yield* Effect.log('');
     yield* Effect.log('Sync complete:');
-    yield* Effect.log(`  ✅ Synced: ${synced}`);
-    yield* Effect.log(`  ⏭️  Skipped (already synced): ${skipped}`);
-    yield* Effect.log(`  📭 Not found in Notes: ${notFound}`);
+    yield* Effect.log(`  Synced: ${synced}`);
+    yield* Effect.log(`  Skipped (already synced): ${skipped}`);
+    yield* Effect.log(`  Not found in Notes: ${notFound}`);
   }),
 );
 
 export const messages = Command.make('messages').pipe(
   Command.withSubcommands([
     generateMessage,
-    reviseMessage,
     generateFromNoteMessage,
     generateTopic,
-    listMessages,
     syncMessages,
+    makeReviseCommand(MessagesConfig),
+    makeListCommand(MessagesConfig),
+    makeExportCommand(MessagesConfig),
   ]),
 );

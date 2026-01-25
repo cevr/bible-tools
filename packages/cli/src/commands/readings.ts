@@ -1,13 +1,16 @@
 import { Args, Command, Options } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
-import { Effect, Option, Schema, pipe } from 'effect';
+import { Effect, Option, pipe } from 'effect';
 import { join } from 'path';
 
+import { ReadingsConfig } from '~/src/lib/content/configs';
+import { makeListCommand, makeReviseCommand, makeExportCommand } from '~/src/lib/content/commands';
+import { ReadingFrontmatter, type ReadingType } from '~/src/lib/content/schemas';
+import { stringifyFrontmatter } from '~/src/lib/frontmatter';
 import { matchArrayEnum, msToMinutes, spin } from '~/src/lib/general';
 import { generate } from '~/src/lib/generate';
 import { getCliRoot, getOutputsPath, getPromptPath } from '~/src/lib/paths';
-import { revise } from '~/src/lib/revise';
-import { Model, model } from '~/src/services/model';
+import { Model } from '~/src/services/model';
 
 const targetTypes = ['study', 'slides', 'speaker-notes'] as const;
 type TargetType = (typeof targetTypes)[number];
@@ -22,8 +25,9 @@ const chapter = Args.integer({
   name: 'chapter',
 }).pipe(Args.optional);
 
-const processChapters = Command.make('process', { model, chapter, target }, (args) =>
+const processChapters = Command.make('process', { chapter, target }, (args) =>
   Effect.gen(function* () {
+    const model = yield* Model;
     const fs = yield* FileSystem.FileSystem;
     const startTime = Date.now();
 
@@ -127,12 +131,44 @@ const processChapters = Command.make('process', { model, chapter, target }, (arg
       `Processing ${chaptersToProcess.length} chapters (${allChapterFiles.length - chaptersToProcess.length} already completed)`,
     );
 
+    // Helper to create frontmatter for a reading
+    const makeFrontmatter = (chapterNum: number, type: ReadingType) =>
+      new ReadingFrontmatter({
+        created_at: new Date().toISOString(),
+        chapter: chapterNum,
+        type,
+        apple_note_id: Option.none(),
+      });
+
+    // Helper to write content with frontmatter
+    const writeWithFrontmatter = (
+      filePath: string,
+      content: string,
+      chapterNum: number,
+      type: ReadingType,
+    ) =>
+      Effect.gen(function* () {
+        const frontmatter = makeFrontmatter(chapterNum, type);
+        const finalContent = stringifyFrontmatter(
+          {
+            created_at: frontmatter.created_at,
+            chapter: frontmatter.chapter,
+            type: frontmatter.type,
+          },
+          content,
+        );
+        yield* spin(
+          `Writing ${type} to ${filePath}`,
+          fs.writeFile(filePath, new TextEncoder().encode(finalContent)),
+        );
+      });
+
     // Process each chapter
     yield* Effect.forEach(
       chaptersToProcess,
       (chapterFile, index) =>
         Effect.gen(function* () {
-          const chapterNum = chapterFile.match(/chapter-(\d+)\.txt/)?.[1] || '0';
+          const chapterNum = parseInt(chapterFile.match(/chapter-(\d+)\.txt/)?.[1] || '0', 10);
           const chapterPath = join(chaptersDir, chapterFile);
           const studyOutputFile = join(outputDir, `chapter-${chapterNum}-study.md`);
           const slidesOutputFile = join(outputDir, `chapter-${chapterNum}-slides.md`);
@@ -169,13 +205,10 @@ const processChapters = Command.make('process', { model, chapter, target }, (arg
 
               const { response } = yield* generate(studyPrompt, chapterContent, {
                 skipChime: true,
-              }).pipe(Effect.provideService(Model, args.model));
+              }).pipe(Effect.provideService(Model, model));
               studyContent = response;
 
-              yield* spin(
-                `Writing study to ${studyOutputFile}`,
-                fs.writeFile(studyOutputFile, new TextEncoder().encode(studyContent)),
-              );
+              yield* writeWithFrontmatter(studyOutputFile, studyContent, chapterNum, 'study');
             } else {
               // Study exists, not forcing, just read it
               studyContent = yield* fs
@@ -206,13 +239,10 @@ const processChapters = Command.make('process', { model, chapter, target }, (arg
               // Generate slides if requested OR if it doesn't exist but is needed
               const { response } = yield* generate(slidesPrompt, studyContent, {
                 skipChime: true,
-              }).pipe(Effect.provideService(Model, args.model));
+              }).pipe(Effect.provideService(Model, model));
               slidesContent = response;
 
-              yield* spin(
-                `Writing slides to ${slidesOutputFile}`,
-                fs.writeFile(slidesOutputFile, new TextEncoder().encode(slidesContent)),
-              );
+              yield* writeWithFrontmatter(slidesOutputFile, slidesContent, chapterNum, 'slides');
             } else {
               // Slides exist, not forcing, just read them
               slidesContent = yield* fs
@@ -231,17 +261,19 @@ const processChapters = Command.make('process', { model, chapter, target }, (arg
                 speakerNotesPrompt,
                 combinedInput,
                 { skipChime: true },
-              ).pipe(Effect.provideService(Model, args.model));
+              ).pipe(Effect.provideService(Model, model));
 
-              yield* spin(
-                `Writing speaker notes to ${speakerNotesOutputFile}`,
-                fs.writeFile(speakerNotesOutputFile, new TextEncoder().encode(speakerNotesContent)),
+              yield* writeWithFrontmatter(
+                speakerNotesOutputFile,
+                speakerNotesContent,
+                chapterNum,
+                'speaker-notes',
               );
             }
           }
 
           yield* Effect.logDebug(
-            `[${index + 1}/${chaptersToProcess.length}] ✓ Completed ${chapterFile}`,
+            `[${index + 1}/${chaptersToProcess.length}] Completed ${chapterFile}`,
           );
         }).pipe(
           Effect.annotateLogs({
@@ -256,100 +288,15 @@ const processChapters = Command.make('process', { model, chapter, target }, (arg
     );
 
     const totalTime = msToMinutes(Date.now() - startTime);
-    yield* Effect.log(`\n✅ All chapters processed successfully! (Total time: ${totalTime})`);
-  }),
-);
-
-const file = Options.file('file').pipe(
-  Options.withAlias('f'),
-  Options.withDescription('Path to the reading file to revise'),
-);
-
-const instructions = Options.text('instructions').pipe(
-  Options.withAlias('i'),
-  Options.withDescription('Revision instructions'),
-);
-
-const reviseReading = Command.make('revise', { model, file, instructions }, (args) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
-
-    const reading = yield* fs
-      .readFile(args.file)
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
-
-    // Determine which prompt to use based on file type
-    const isSlides = args.file.includes('-slides');
-    const isSpeakerNotes = args.file.includes('-speaker-notes');
-    const promptFile = isSpeakerNotes
-      ? 'generate-speaker-notes.md'
-      : isSlides
-        ? 'generate-slides.md'
-        : 'generate-study.md';
-
-    const systemPrompt = yield* fs
-      .readFile(getPromptPath('readings', promptFile))
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
-
-    const revisedReading = yield* revise({
-      cycles: [
-        {
-          prompt: '',
-          response: reading,
-        },
-      ],
-      systemPrompt,
-      instructions: args.instructions,
-    }).pipe(Effect.provideService(Model, args.model));
-
-    yield* fs.writeFile(args.file, new TextEncoder().encode(revisedReading));
-
-    yield* Effect.log(`Reading revised successfully!`);
-    yield* Effect.log(`Output: ${args.file}`);
-  }),
-);
-
-const json = Options.boolean('json').pipe(
-  Options.withDefault(false),
-  Options.withDescription('Output as JSON'),
-);
-
-const listReadings = Command.make('list', { json }, (args) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
-    const encodeJson = Schema.encode(Schema.parseJson({ space: 2 }));
-
-    const outputDir = getOutputsPath('readings');
-    const files = yield* fs
-      .readDirectory(outputDir)
-      .pipe(Effect.catchAll(() => Effect.succeed([] as string[])));
-
-    const filePaths = files
-      .filter((f) => f.endsWith('.md'))
-      .map((file) => join(outputDir, file))
-      .sort((a, b) => {
-        const numA = parseInt(a.match(/chapter-(\d+)/)?.[1] || '0', 10);
-        const numB = parseInt(b.match(/chapter-(\d+)/)?.[1] || '0', 10);
-        return numA - numB;
-      });
-
-    if (args.json) {
-      const jsonOutput = yield* encodeJson(filePaths);
-      yield* Effect.log(jsonOutput);
-    } else {
-      if (filePaths.length === 0) {
-        yield* Effect.log('No readings found.');
-      } else {
-        yield* Effect.log('Readings:');
-        for (const filePath of filePaths) {
-          const basename = filePath.split('/').pop() ?? filePath;
-          yield* Effect.log(`  ${basename}`);
-        }
-      }
-    }
+    yield* Effect.log(`\nAll chapters processed successfully! (Total time: ${totalTime})`);
   }),
 );
 
 export const readings = Command.make('readings').pipe(
-  Command.withSubcommands([processChapters, reviseReading, listReadings]),
+  Command.withSubcommands([
+    processChapters,
+    makeReviseCommand(ReadingsConfig),
+    makeListCommand(ReadingsConfig),
+    makeExportCommand(ReadingsConfig),
+  ]),
 );

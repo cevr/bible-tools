@@ -1,25 +1,25 @@
-import { Command, Options } from '@effect/cli';
+import { Command } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
 import { format } from 'date-fns';
-import { Effect, Schema } from 'effect';
+import { Effect, Option } from 'effect';
 import { join } from 'path';
 
+import { StudiesConfig } from '~/src/lib/content/configs';
+import { makeListCommand, makeReviseCommand, makeExportCommand } from '~/src/lib/content/commands';
+import { StudyFrontmatter } from '~/src/lib/content/schemas';
+import { topic, noteId } from '~/src/lib/content/options';
+import { stringifyFrontmatter, updateFrontmatter } from '~/src/lib/frontmatter';
 import { msToMinutes, spin } from '~/src/lib/general';
 import { generate } from '~/src/lib/generate';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
 import { getNoteContent } from '~/src/lib/notes-utils';
 import { getOutputsPath, getPromptPath } from '~/src/lib/paths';
-import { revise } from '~/src/lib/revise';
-import { Model, model } from '~/src/services/model';
+import { Model } from '~/src/services/model';
 
-const topic = Options.text('topic').pipe(
-  Options.withAlias('t'),
-  Options.withDescription('Topic for the study'),
-);
-
-const generateStudy = Command.make('generate', { topic, model }, (args) =>
+const generateStudy = Command.make('generate', { topic }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
+    const model = yield* Model;
     const startTime = Date.now();
 
     yield* Effect.logDebug(`topic: ${args.topic}`);
@@ -29,7 +29,7 @@ const generateStudy = Command.make('generate', { topic, model }, (args) =>
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
     const { filename, response } = yield* generate(systemPrompt, args.topic).pipe(
-      Effect.provideService(Model, args.model),
+      Effect.provideService(Model, model),
     );
 
     const studiesDir = getOutputsPath('studies');
@@ -37,20 +37,42 @@ const generateStudy = Command.make('generate', { topic, model }, (args) =>
     const fileName = `${format(new Date(), 'yyyy-MM-dd')}-${filename}.md`;
     const filePath = join(studiesDir, fileName);
 
+    // Create frontmatter
+    const frontmatter = new StudyFrontmatter({
+      created_at: new Date().toISOString(),
+      topic: args.topic,
+      apple_note_id: Option.none(),
+    });
+
     yield* spin(
       'Ensuring studies directory exists',
       fs.makeDirectory(studiesDir).pipe(Effect.ignore),
     );
 
+    // Write initial file with frontmatter (without apple_note_id yet)
+    const contentWithFrontmatter = stringifyFrontmatter(
+      {
+        created_at: frontmatter.created_at,
+        topic: frontmatter.topic,
+      },
+      response,
+    );
     yield* spin(
       'Writing study to file: ' + fileName,
-      fs.writeFile(filePath, new TextEncoder().encode(response)),
+      fs.writeFile(filePath, new TextEncoder().encode(contentWithFrontmatter)),
     );
 
-    yield* spin(
+    // Export to Apple Notes and get the note ID
+    const { noteId } = yield* spin(
       'Adding study to notes',
       makeAppleNoteFromMarkdown(response, { folder: 'studies' }),
     );
+
+    // Update file with apple_note_id in frontmatter
+    const finalContent = updateFrontmatter(contentWithFrontmatter, {
+      apple_note_id: noteId,
+    });
+    yield* fs.writeFile(filePath, new TextEncoder().encode(finalContent));
 
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(`Study generated successfully! (Total time: ${totalTime})`);
@@ -58,54 +80,10 @@ const generateStudy = Command.make('generate', { topic, model }, (args) =>
   }),
 );
 
-const file = Options.file('file').pipe(
-  Options.withAlias('f'),
-  Options.withDescription('Path to the study file to revise'),
-);
-
-const instructions = Options.text('instructions').pipe(
-  Options.withAlias('i'),
-  Options.withDescription('Revision instructions'),
-);
-
-const reviseStudy = Command.make('revise', { model, file, instructions }, (args) =>
+const generateFromNoteStudy = Command.make('from-note', { noteId }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-
-    const study = yield* fs
-      .readFile(args.file)
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
-
-    const systemMessagePrompt = yield* fs
-      .readFile(getPromptPath('studies', 'generate.md'))
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
-
-    const revisedStudy = yield* revise({
-      cycles: [
-        {
-          prompt: '',
-          response: study,
-        },
-      ],
-      systemPrompt: systemMessagePrompt,
-      instructions: args.instructions,
-    }).pipe(Effect.provideService(Model, args.model));
-
-    yield* fs.writeFile(args.file, new TextEncoder().encode(revisedStudy));
-
-    yield* Effect.log(`Study revised successfully!`);
-    yield* Effect.log(`Output: ${args.file}`);
-  }),
-);
-
-const noteId = Options.text('note-id').pipe(
-  Options.withAlias('n'),
-  Options.withDescription('Apple Note ID to generate from'),
-);
-
-const generateFromNoteStudy = Command.make('from-note', { model, noteId }, (args) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
+    const model = yield* Model;
 
     const startTime = Date.now();
 
@@ -116,7 +94,7 @@ const generateFromNoteStudy = Command.make('from-note', { model, noteId }, (args
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
     const { filename, response } = yield* generate(systemPrompt, note).pipe(
-      Effect.provideService(Model, args.model),
+      Effect.provideService(Model, model),
     );
 
     const studiesDir = getOutputsPath('studies');
@@ -124,15 +102,37 @@ const generateFromNoteStudy = Command.make('from-note', { model, noteId }, (args
     const fileName = `${format(new Date(), 'yyyy-MM-dd')}-${filename}.md`;
     const filePath = join(studiesDir, fileName);
 
+    // Create frontmatter
+    const frontmatter = new StudyFrontmatter({
+      created_at: new Date().toISOString(),
+      topic: `from-note:${args.noteId}`,
+      apple_note_id: Option.none(),
+    });
+
+    // Write initial file with frontmatter
+    const contentWithFrontmatter = stringifyFrontmatter(
+      {
+        created_at: frontmatter.created_at,
+        topic: frontmatter.topic,
+      },
+      response,
+    );
     yield* spin(
       'Writing study to file: ' + fileName,
-      fs.writeFile(filePath, new TextEncoder().encode(response)),
+      fs.writeFile(filePath, new TextEncoder().encode(contentWithFrontmatter)),
     );
 
-    yield* spin(
+    // Export to Apple Notes and get the note ID
+    const { noteId: appleNoteId } = yield* spin(
       'Adding study to notes',
       makeAppleNoteFromMarkdown(response, { folder: 'studies' }),
     );
+
+    // Update file with apple_note_id in frontmatter
+    const finalContent = updateFrontmatter(contentWithFrontmatter, {
+      apple_note_id: appleNoteId,
+    });
+    yield* fs.writeFile(filePath, new TextEncoder().encode(finalContent));
 
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(`Study generated successfully! (Total time: ${totalTime})`);
@@ -140,43 +140,12 @@ const generateFromNoteStudy = Command.make('from-note', { model, noteId }, (args
   }),
 );
 
-const json = Options.boolean('json').pipe(
-  Options.withDefault(false),
-  Options.withDescription('Output as JSON'),
-);
-
-const listStudies = Command.make('list', { json }, (args) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
-    const encodeJson = Schema.encode(Schema.parseJson({ space: 2 }));
-
-    const studiesDir = getOutputsPath('studies');
-    const files = yield* fs
-      .readDirectory(studiesDir)
-      .pipe(Effect.catchAll(() => Effect.succeed([] as string[])));
-
-    const filePaths = files
-      .filter((f) => f.endsWith('.md'))
-      .map((file) => join(studiesDir, file))
-      .sort((a, b) => b.localeCompare(a));
-
-    if (args.json) {
-      const jsonOutput = yield* encodeJson(filePaths);
-      yield* Effect.log(jsonOutput);
-    } else {
-      if (filePaths.length === 0) {
-        yield* Effect.log('No studies found.');
-      } else {
-        yield* Effect.log('Studies:');
-        for (const filePath of filePaths) {
-          const basename = filePath.split('/').pop() ?? filePath;
-          yield* Effect.log(`  ${basename}`);
-        }
-      }
-    }
-  }),
-);
-
 export const studies = Command.make('studies').pipe(
-  Command.withSubcommands([generateStudy, reviseStudy, generateFromNoteStudy, listStudies]),
+  Command.withSubcommands([
+    generateStudy,
+    generateFromNoteStudy,
+    makeReviseCommand(StudiesConfig),
+    makeListCommand(StudiesConfig),
+    makeExportCommand(StudiesConfig),
+  ]),
 );

@@ -31,6 +31,7 @@ import { AppleScriptLive } from './services/apple-script.js';
 import { ChimeLive } from './services/chime.js';
 import { cliOptions, CliOptions } from './services/cli-options.js';
 import { CliLoggerLive } from './services/logger.js';
+import { Model } from './services/model.js';
 import type { ModelService } from './tui/context/model.js';
 
 trace('process start');
@@ -221,6 +222,7 @@ async function main() {
           exportOutput,
         ]),
         Command.provideSync(CliOptions, ({ verbose }) => ({ verbose })),
+        Command.provideSync(Model, ({ model }) => model),
         Command.transformHandler((effect, { verbose }) =>
           effect.pipe(Logger.withMinimumLogLevel(verbose ? LogLevel.Debug : LogLevel.Info)),
         ),

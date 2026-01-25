@@ -12,15 +12,7 @@ describe('readings commands', () => {
     it('should revise a study file', async () => {
       const result = await runCli(
         readings,
-        [
-          'revise',
-          '--file',
-          '/path/to/chapter-1-study.md',
-          '--instructions',
-          'Add more detail',
-          '--model',
-          'gemini',
-        ],
+        ['revise', '--file', '/path/to/chapter-1-study.md', '--instructions', 'Add more detail'],
         {
           files: {
             files: {
@@ -50,15 +42,7 @@ describe('readings commands', () => {
     it('should revise a slides file with correct prompt', async () => {
       const result = await runCli(
         readings,
-        [
-          'revise',
-          '--file',
-          '/path/to/chapter-1-slides.md',
-          '--instructions',
-          'Simplify slides',
-          '--model',
-          'gemini',
-        ],
+        ['revise', '--file', '/path/to/chapter-1-slides.md', '--instructions', 'Simplify slides'],
         {
           files: {
             files: {
@@ -93,8 +77,6 @@ describe('readings commands', () => {
           '/path/to/chapter-1-speaker-notes.md',
           '--instructions',
           'Make more conversational',
-          '--model',
-          'gemini',
         ],
         {
           files: {
@@ -124,15 +106,7 @@ describe('readings commands', () => {
     it('should fail when file does not exist', async () => {
       const result = await runCli(
         readings,
-        [
-          'revise',
-          '--file',
-          '/path/to/nonexistent.md',
-          '--instructions',
-          'Fix it',
-          '--model',
-          'gemini',
-        ],
+        ['revise', '--file', '/path/to/nonexistent.md', '--instructions', 'Fix it'],
         {
           files: {
             files: {

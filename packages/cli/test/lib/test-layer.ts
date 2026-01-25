@@ -4,9 +4,9 @@ import type { FileSystem } from '@effect/platform';
 import { Path } from '@effect/platform';
 import { Layer } from 'effect';
 
-import type { AppleScript } from '../../src/core/apple-script.js';
-import type { Chime } from '../../src/core/chime.js';
-import type { Model } from '../../src/core/model.js';
+import type { AppleScript } from '../../src/services/apple-script.js';
+import type { Chime } from '../../src/services/chime.js';
+import type { Model } from '../../src/services/model.js';
 
 import {
   createMockAppleScriptLayer,

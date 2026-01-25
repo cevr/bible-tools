@@ -1,0 +1,43 @@
+import { Command } from '@effect/cli';
+import type { Schema } from 'effect';
+import { Effect, Option } from 'effect';
+
+import type { ContentTypeConfig } from './types';
+import { file, files, folder, instructions, json } from './options';
+import { ContentService } from '~/src/services/content';
+
+export const makeListCommand = <F extends Schema.Schema.AnyNoContext>(
+  config: ContentTypeConfig<F>,
+) =>
+  Command.make('list', { json }, ({ json }) =>
+    ContentService.pipe(
+      Effect.flatMap((service) => service.list(json)),
+      Effect.provide(ContentService.make(config)),
+    ),
+  );
+
+export const makeReviseCommand = <F extends Schema.Schema.AnyNoContext>(
+  config: ContentTypeConfig<F>,
+) =>
+  Command.make('revise', { file, instructions }, (args) =>
+    ContentService.pipe(
+      Effect.flatMap((service) => service.revise(args.file, args.instructions)),
+      Effect.provide(ContentService.make(config)),
+    ),
+  );
+
+export const makeExportCommand = <F extends Schema.Schema.AnyNoContext>(
+  config: ContentTypeConfig<F>,
+) =>
+  Command.make('export', { files, folder }, (args) =>
+    ContentService.pipe(
+      Effect.flatMap((service) => {
+        const targetFolder = Option.match(args.folder, {
+          onSome: (f) => f,
+          onNone: () => undefined,
+        });
+        return service.export(args.files, targetFolder);
+      }),
+      Effect.provide(ContentService.make(config)),
+    ),
+  );

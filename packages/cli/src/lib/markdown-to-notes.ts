@@ -9,7 +9,7 @@ import {
   prepareMarkdownForAppleNotes,
 } from './apple-notes-utils.js';
 
-class MarkdownParseError extends Data.TaggedError('MarkdownParseError')<{
+export class MarkdownParseError extends Data.TaggedError('MarkdownParseError')<{
   message: string;
   cause: unknown;
   content: string;
