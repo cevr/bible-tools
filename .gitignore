@@ -137,6 +137,9 @@ dist
 
 .DS_Store
 
+# Turborepo
+.turbo
+
 .opencode
 .react-router
 bin/
