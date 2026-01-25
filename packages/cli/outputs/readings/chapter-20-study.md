@@ -1,451 +1,279 @@
-### Q1. What commission did Christ give to His disciples?
+# Bible Study: Baptism — Buried with Christ, Raised to Newness of Life
 
-"Go ye therefore, and teach all nations, baptizing them in the name of the
-Father, and of the Son, and of the Holy Ghost." Matt. 28:19.
+## Introduction
 
-**Answer:** Before His ascension to the heavenly sanctuary, Christ gave the
-church its marching orders. This commission involves three distinct steps:
-
-1.  **Teaching (Making Disciples):** The gospel must first reach the mind and
-    heart. The word translated "teach" here actually means "make disciples."
-2.  **Baptizing:** The public sign of entrance into the covenant of grace.
-3.  **Instruction:** Teaching them to observe all things Christ commanded (v.
-    20).
-
-The command is to baptize in the "name" (singular) of the threefold
-Godhead—Father, Son, and Holy Ghost. This signifies that the new believer is
-being adopted into the family of God and placed under the protection and power
-of the entire heavenly trio.
-
-- **Term Definition:** _Disciple:_ A learner and follower of Jesus Christ who
-  accepts His teachings and imitates His life.
-
-**[ILL] Illustration:** Imagine a soldier enlisting in an army. First, he must
-understand the cause (teaching). Then, he puts on the uniform and takes the oath
-(baptism). Finally, he undergoes training to learn the discipline of the service
-(ongoing instruction). One cannot be a soldier of the Cross without enlisting
-publicly under the banner of Prince Emmanuel.
+Baptism stands as one of the most profound and beautiful ordinances given to the
+Christian church. Far more than an outward ceremony or religious formality, it
+represents the believer's union with Christ in His death, burial, and
+resurrection. Through this sacred act, the repentant sinner publicly declares
+that the old life of sin has been crucified with Christ and that, through faith
+in God's mighty power, a new life has begun—a life hidden in Christ and destined
+for glory.
 
 ---
 
-### Q2. Before one is baptized, what is it necessary for him to do?
+## Core Truths
 
-"Then Peter said unto them, Repent, and be baptized everyone of you." Acts 2:38.
+### Christ's Commission
 
-**Answer:** The first prerequisite for baptism is **repentance**. Baptism is not
-a magic ritual that washes away sin mechanically; it is an outward sign of an
-inward change. Without repentance, immersion in water is simply a bath.
+The ordinance of baptism rests upon divine authority. Just before His ascension,
+Jesus gave this charge to His disciples:
 
-True repentance involves a sorrow for sin and a turning away from it (Proverbs
-28:13). It is the recognition that our past life has been out of harmony with
-God and a decided choice to abandon the old ways.
+> _"Go ye therefore, and teach all nations, baptizing them in the name of the
+> Father, and of the Son, and of the Holy Ghost: teaching them to observe all
+> things whatsoever I have commanded you."_ (Matthew 28:19–20)
 
-- **Term Definition:** _Repentance:_ A godly sorrow for sin that leads to a
-  change of mind and a turning away from transgression (2 Corinthians 7:10).
+Notice the order Christ established: **teach first, baptize second**. The
+candidate must understand and receive the gospel before entering the baptismal
+waters. This commission remains binding upon the church until the end of time.
 
----
+### The Prerequisites: Repentance and Faith
 
-### Q3. Toward whom must men repent?
+Scripture is clear that baptism is not for everyone indiscriminately. Two things
+must precede it:
 
-"Testifying both to the Jews, and also to the Greeks, repentance toward God, and
-faith toward our Lord Jesus Christ." Acts 20:21.
+**1. Repentance toward God**
 
-**Answer:** Paul presents two essential movements of the soul in conversion:
+> _"Then Peter said unto them, Repent, and be baptized every one of you in the
+> name of Jesus Christ for the remission of sins."_ (Acts 2:38)
 
-1.  **Repentance toward God:** We must repent toward the Father because He is
-    the Lawgiver. It is His law we have broken. When a citizen breaks a law,
-    they must answer to the government that established the law.
-2.  **Faith toward our Lord Jesus Christ:** While the Law condemns the sinner,
-    it cannot save him. Therefore, we must look to Jesus, the Saviour, who paid
-    the penalty for our transgression.
+> _"Testifying both to the Jews, and also to the Greeks, repentance toward God,
+> and faith toward our Lord Jesus Christ."_ (Acts 20:21)
 
-We do not repent toward Jesus and have faith in the Law; rather, we repent
-toward the Lawgiver (God) for breaking His law, and we have faith in the
-Redeemer (Jesus) who covers that breach with His blood.
+**Repentance**: A genuine sorrow for sin that leads to turning away from it
+(2 Corinthians 7:10). This repentance is "toward God" because sin is ultimately
+an offense against Him and His holy law.
 
-- **Term Definition:** _Faith:_ Trusting fully in the merits of Christ’s
-  sacrifice for forgiveness and in His power to restore us to obedience (Hebrews
-  11:1).
+Why must we repent toward God? _"For all have sinned, and come short of the
+glory of God"_ (Romans 3:23). Every soul stands guilty before the divine
+tribunal. The law of God reveals our condition:
 
----
+> _"For I was alive without the law once: but when the commandment came, sin
+> revived, and I died."_ (Romans 7:9)
 
-### Q4. Why should one repent toward God?
+The commandment acts as a mirror (James 1:23–25), showing us our true state. We
+thought ourselves alive spiritually until God's standard exposed our sinfulness.
+This conviction leads the honest heart to cry out for mercy.
 
-"For all have sinned, and come short of the glory of God." Rom. 3:23.
+**2. Faith toward Christ**
 
-**Answer:** Repentance is necessary because every human being has failed to meet
-the standard of God's character. The "glory of God" is His character (Exodus
-33:18–19; 34:6–7), and His character is transcribed in His law. Because "all
-have sinned," all are under the sentence of death unless rescued. We repent
-toward God because we have violated the constitution of His universe.
+> _"He that believeth and is baptized shall be saved; but he that believeth not
+> shall be damned."_ (Mark 16:16)
 
-- **Term Definition:** _Sin:_ "Sin is the transgression of the law" (1 John
-  3:4). It is lawlessness and rebellion against God's government.
+Faith must accompany repentance. When Philip preached Jesus to the Ethiopian
+eunuch, the man asked, _"See, here is water; what doth hinder me to be
+baptized?"_ Philip replied, _"If thou believest with all thine heart, thou
+mayest"_ (Acts 8:36–37).
 
-**[ILL] Illustration:** If a man drives recklessly and crashes into a neighbor’s
-house, he has offended the neighbor, but he has also broken the law of the
-state. He needs the neighbor’s forgiveness (reconciliation) but he also stands
-guilty before the judge (the law). Sin is a crime against the government of
-Heaven.
+[DYK🔎] The requirement of belief before baptism is why the early church
+practiced only adult (or "believer's") baptism. The practice of infant baptism
+developed centuries later and finds no support in Scripture, since infants
+cannot repent, believe, or be taught the gospel.
 
 ---
 
-### Q5. What effect does the law have upon sinners in conversion?
+## Deeper Truths
 
-"For I was alive without the law once: but when the commandment came, sin
-revived, and I died." Rom. 7:9.
+### The Meaning of Baptism: Death, Burial, and Resurrection
 
-**Answer:** The moral law acts as a mirror (James 1:23–25). Before Paul
-understood the spiritual depth of the Ten Commandments, he felt "alive"—that is,
-spiritually secure and self-righteous. But when the Holy Spirit applied the law
-to his conscience ("when the commandment came"), he saw the hideousness of his
-sin.
+Baptism is far more than a washing or a symbolic cleansing. Paul unfolds its
+profound significance in Romans 6:
 
-- **"Sin revived":** He realized how active and deadly sin was in his nature.
-- **"I died":** His self-confidence was shattered. He realized he was
-  spiritually dead and helpless. This "death" to self-righteousness is the first
-  step toward true life in Christ.
+> _"Knowing this, that our old man is crucified with Him, that the body of sin
+> might be destroyed, that henceforth we should not serve sin."_ (Romans 6:6)
 
----
+> _"Now if we be dead with Christ, we believe that we shall also live with
+> Him."_ (Romans 6:8)
 
-### Q6. Why is it necessary for one to die in the sense here represented?
+> _"Therefore we are buried with Him by baptism into death: that like as Christ
+> was raised up from the dead by the glory of the Father, even so we also should
+> walk in newness of life."_ (Romans 6:4)
 
-"Knowing this, that our old man is crucified with Him, that the body of sin
-might be destroyed, that henceforth we should not serve sin." Rom. 6:6.
+Baptism represents three great realities:
 
-**Answer:** The gospel is not a modification of the old life; it is the end of
-the old life and the beginning of a new one. The "old man"—the carnal nature
-that loves sin and hates God—must be "crucified."
+| **Symbol**            | **Spiritual Reality**                   | **Scripture**   |
+| --------------------- | --------------------------------------- | --------------- |
+| Going down into water | Death to the old life of sin            | Romans 6:6      |
+| Being submerged       | Burial of the old man with Christ       | Romans 6:4      |
+| Rising from water     | Resurrection to walk in newness of life | Colossians 2:12 |
 
-- **Victory over Sin:** The purpose of this death is "that the body of sin might
-  be destroyed" and that we should "not serve sin."
-- **Righteousness by Faith:** God does not just forgive the past; He breaks the
-  power of enslaved habits. Through the indwelling Christ, the believer is no
-  longer a slave to sin (Romans 6:14). We cannot walk in newness of life while
-  keeping the "old man" alive.
+The candidate identifies with Christ's literal death, burial, and resurrection.
+As Christ died for sin, we die to sin. As He was buried, we bury the old life.
+As He rose triumphant, we rise to serve Him in the power of an endless life.
 
-- **Term Definition:** _Crucified with Christ:_ The spiritual experience of
-  surrendering one's will completely to God, accepting Christ's death as one's
-  own (Galatians 2:20).
+[ILL] Consider a man who has been condemned to death for his crimes. The
+sentence is executed; he dies and is buried. That man no longer owes anything to
+the law—death has paid his debt in full. So it is with the one who is baptized
+into Christ. The old man of sin is reckoned dead. The law's condemnation against
+him is satisfied. He rises from that watery grave a new creature, no longer
+under the dominion of sin, but alive unto God (Romans 6:10–11).
 
----
+### One Lord, One Faith, One Baptism
 
-### Q7. If one thus dies, how is he to live again?
+> _"One Lord, one faith, one baptism."_ (Ephesians 4:5)
 
-"Now if we be dead with Christ, we believe that we shall also live with Him."
-Rom. 6:8.
+The Bible recognizes only **one mode of baptism**—immersion. The very meaning of
+the Greek word _baptizo_ is "to dip, plunge, or immerse." Sprinkling or pouring
+cannot fulfill the symbolism of burial and resurrection.
 
-**Answer:** The Christian life is a resurrection life. Having surrendered the
-old life of selfishness to the grave, the believer now lives by the power of
-Christ's life. "Christ liveth in me" (Galatians 2:20). This is not merely a hope
-for the future resurrection of the body, but a present reality of living by the
-"power of His resurrection" (Philippians 3:10) today. We live _with_ Him—in
-constant communion and dependence.
+[DYK🔎] Even scholars from churches that practice sprinkling acknowledge this
+truth. Conybeare and Howson, eminent Church of England clergymen, wrote: "It
+must be a subject of regret that the general discontinuance of this original
+form of baptism... has rendered obscure to popular apprehension some very
+important passages of Scripture."
 
----
+The baptism of the Ethiopian eunuch illustrates the biblical practice:
 
-### Q8. If one is dead with Christ, what should be done with him?
+> _"And they went down both into the water, both Philip and the eunuch; and he
+> baptized him. And when they were come up out of the water, the Spirit of the
+> Lord caught away Philip."_ (Acts 8:38–39)
 
-"Therefore we are buried with Him by baptism into death: that like as Christ was
-raised up from the dead by the glory of the Father, even so we should walk in
-newness of life." Rom. 6:4.
+Both Philip and the eunuch went _down into_ the water and came _up out of_ the
+water. This is immersion, nothing else.
 
-**Answer:** When a person has died physically, the next step is burial.
-Spiritual death to sin demands a spiritual burial. Baptism is that burial.
+[Q] **"But how could 3,000 people be baptized on the day of Pentecost? Wouldn't
+that take too long?"**
 
-- **The Symbol:** The water represents the grave.
-- **The Reality:** Going under the water symbolizes the end of the old life of
-  sin. Coming up out of the water symbolizes the resurrection to "newness of
-  life."
-- **Sanctification:** This "newness of life" is the experience of
-  sanctification—walking in obedience by the power of the Holy Spirit.
+Consider that about 120 disciples were present (Acts 1:15). If only half of them
+(60) engaged in baptizing, each would need to immerse only 50 persons—a task
+requiring perhaps an hour. Jerusalem also had numerous pools and water sources,
+including the Pool of Siloam and Bethesda, making multiple simultaneous
+baptisms practical.
 
-**[ILL] Illustration:** We do not bury people alive. If a person is buried, it
-is understood they are dead. Likewise, baptism has no meaning if the candidate
-is still "alive" to the love of the world and sin. We must die to self _before_
-we are buried in the water.
+### Why Not Delay?
 
----
+Ananias urged the converted Saul:
 
-### Q9. How is one to be buried in baptism?
+> _"And now why tarriest thou? Arise, and be baptized, and wash away thy sins,
+> calling on the name of the Lord."_ (Acts 22:16)
 
-"For if we have been planted together in the likeness of His death, we shall be
-also in the likeness of His resurrection." Rom. 6:5.
-
-**Answer:** The mode of baptism must fit the meaning. The verse uses the imagery
-of being "planted" or united in the _likeness_ of His death and resurrection.
-
-- **Likeness of Death:** Christ died and was buried in the tomb. Only total
-  immersion in water adequately symbolizes a burial. Sprinkling or pouring water
-  on the head does not look like a burial.
-- **Likeness of Resurrection:** Rising from the watery grave pictures Christ
-  rising from the tomb.
-- **Biblical Mode:** The Greek word _baptizo_ means to dip, plunge, or immerse.
-  The physical act must align with the spiritual truth it proclaims.
+The Philippian jailer was baptized "the same hour of the night" following his
+conversion (Acts 16:33). When the heart is convicted and faith has been
+exercised, delay is unnecessary and even dangerous. Satan works to cool
+convictions and raise obstacles. Obedience should follow conviction promptly.
 
 ---
 
-### Q10. For what purpose is one baptized?
+## Principles and Great Controversy Themes
 
-"Buried with Him in baptism, wherein also ye are risen with Him through the
-faith of the operation of God, who hath raised Him from the dead." Col. 2:12.
+### Baptism and the Law of God
 
-**Answer:** Baptism is an act of faith. It is not the removal of dirt from the
-body (1 Peter 3:21), but the "answer of a good conscience toward God."
+The reading includes an important digression on the law, and rightly so. Baptism
+presupposes sin, and sin presupposes law:
 
-1.  **Faith in God's Operation:** The believer trusts that just as God raised
-    Jesus from the dead, He will now raise this soul from the death of sin to
-    the life of righteousness.
-2.  **Declaration:** It is a public testimony that the believer accepts Christ's
-    death as their atonement and Christ's life as their power.
+> _"I had not known sin, but by the law: for I had not known lust, except the
+> law had said, Thou shalt not covet."_ (Romans 7:7)
 
-- **Term Definition:** _Atonement:_ The work of reconciliation. In baptism, we
-  accept the death of the Sacrifice (Jesus) in our place.
+> _"Wherefore, as by one man sin entered into the world, and death by sin; and
+> so death passed upon all men, for that all have sinned."_ (Romans 5:12)
 
----
+Some argue that God's law did not exist before Sinai. But Paul declares, _"Death
+reigned from Adam to Moses"_ (Romans 5:14), and death is the penalty for sin.
+Where there is penalty, there must be law: _"Sin is not imputed when there is no
+law"_ (Romans 5:13). The existence of death from Adam onward proves the law
+existed and was transgressed.
 
-### Q11. When baptized into Christ, what does one put on?
+This matters for baptism because we are baptized in response to **conviction of
+sin by the law** and **faith in Christ who kept the law perfectly and died for
+our transgression of it**.
 
-"For as many of you as have been baptized into Christ have put on Christ." Gal.
-3:27.
+### The Sanctuary Connection
 
-**Answer:** Baptism is the formal entry into a union with Jesus. To "put on
-Christ" refers to the robe of His righteousness.
+Baptism connects beautifully with the sanctuary message:
 
-- **Justification (Imputed Righteousness):** We are covered by His merits, so
-  when the Father looks at us, He sees the perfection of His Son.
-- **Sanctification (Imparted Righteousness):** We put on His character, His
-  humility, and His love in our daily walk. This verse implies a change of
-  identity. The baptized believer now bears the family name of heaven
-  (Christian) and is to reflect the family likeness.
+- **The laver** stood between the altar of sacrifice and the holy place. The
+  priests washed there before ministering (Exodus 30:17–21). So the believer,
+  having accepted Christ's sacrifice (the altar), is washed in baptism before
+  entering the daily walk of sanctification (the holy place ministry).
 
-**[ILL] Illustration:** In the parable of the wedding feast, the king provided a
-wedding garment for every guest (Matthew 22:11–12). To refuse the garment was an
-insult to the king. In baptism, we publicly put on the wedding garment of
-Christ’s righteousness, hiding our own filthy rags of sin.
+- Baptism represents our entrance into Christ's death and resurrection. Christ's
+  sacrifice (outer court) provides the foundation. His resurrection opens the
+  way for His heavenly ministry on our behalf (holy place and most holy place).
 
----
+- As baptism symbolizes death to sin and resurrection to righteousness, it
+  points forward to the final work of the sanctuary: the complete blotting out
+  of sin and the preparation of a people who reflect Christ's character fully.
 
-### Q12. What question did the eunuch ask after Philip had preached unto him Jesus?
+### Righteousness by Faith
 
-"And as they went on their way, they came unto a certain water: and the eunuch
-said, See, here is water; what doth hinder me to be baptized?" Acts 8:36.
+Baptism is not a work by which we earn salvation. It is a public confession of
+faith in Christ's finished work _and_ His ongoing work in us:
 
-**Answer:** The Ethiopian eunuch, after hearing the prophecy of Isaiah 53
-explained by Philip, recognized Jesus as the Messiah. His immediate response was
-a desire to identify with this Saviour. This shows that baptism should follow
-plainly upon the acceptance of the gospel. He did not ask to join a social club;
-he asked for the rite that would seal him to the Saviour he had just found.
+> _"Buried with Him in baptism, wherein also ye are risen with Him through the
+> faith of the operation of God, who hath raised Him from the dead."_
+> (Colossians 2:12)
 
----
+Notice: we are raised **"through the faith of the operation of God."** It is
+God's power—not ours—that raises us to newness of life. Baptism declares our
+faith that the same power which raised Christ from the dead is able to raise us
+from spiritual death and keep us walking in righteousness.
 
-### Q13. What reply did Philip make?
+> _"For as many of you as have been baptized into Christ have put on Christ."_
+> (Galatians 3:27)
 
-"And Philip said, If thou believest with all thine heart, thou mayest." Acts
-8:37.
-
-**Answer:** This is the crucial condition for baptism: **Belief with all the
-heart.**
-
-- **Not Head Knowledge Only:** It is not enough to merely agree with a creed.
-  The heart—the will and affections—must be engaged.
-- **No Infant Baptism:** An infant cannot believe with all their heart. They
-  cannot repent or understand the gospel. Therefore, biblical baptism is
-  reserved for those who have reached the age of accountability and can make a
-  conscious decision for Christ.
+To "put on Christ" is to be clothed with His righteousness—both imputed
+(justification) and imparted (sanctification). Baptism marks the beginning of a
+life lived not in self-effort, but in constant dependence upon Christ's power.
 
 ---
 
-### Q14. In administering the ordinance, where did Philip take the candidate?
+## Practical Application
 
-"And they went down both into the water, both Philip and the eunuch; and he
-baptized him." Acts 8:38.
+### Before Baptism
 
-**Answer:** The text is geographically precise to teach us the method.
+1. **Hear and understand the gospel** (Matthew 28:19–20; Acts 8:35)
+2. **Repent of all known sin** (Acts 2:38)
+3. **Believe with all your heart** (Acts 8:37; Mark 16:16)
+4. **Do not delay** once conviction has come (Acts 22:16)
 
-1.  **"Down into the water":** If sprinkling were sufficient, Philip could have
-    brought water in a cup. The fact that both men had to go _into_ the water
-    serves as strong evidence that immersion was the only mode practiced by the
-    apostles.
-2.  **"Up out of the water" (v. 39):** This confirms the total immersion of the
-    candidate.
+### At Baptism
 
----
+1. **Understand what you are doing**: publicly declaring death to the old life
+   and resurrection to newness of life in Christ
+2. **Enter the water in faith**, trusting not in the ceremony but in the God who
+   raises the dead
+3. **Receive it as a covenant sign** of your union with Christ and membership in
+   His body, the church
 
-### Q15. How many modes of baptism are recognized in the Bible?
+### After Baptism
 
-"One Lord, one faith, one baptism." Eph. 4:5.
+> _"If ye then be risen with Christ, seek those things which are above, where
+> Christ sitteth on the right hand of God."_ (Colossians 3:1)
 
-**Answer:** Paul declares there is only **one** valid baptism. In the context of
-the early church and the meaning of the Greek word _baptizo_, this "one baptism"
-is immersion of a repentant believer. The variety of modes seen today
-(sprinkling, pouring, rose petals, flags) are human inventions that obscure the
-beautiful symbolism of death, burial, and resurrection found in the "one
-baptism" of Scripture.
+1. **Set your affections on heavenly things** (Colossians 3:2)
+2. **Walk in newness of life**—let the old sins remain buried (Romans 6:4)
+3. **Daily claim Christ's power** for victory over temptation
+4. **Fellowship with believers** in the church to which you have been added
+   (Acts 2:41, 47)
 
----
+[Q] **"What if I fall into sin after baptism? Does that mean my baptism was
+invalid?"**
 
-### Q16. How many were added to the church on the day of Pentecost?
-
-"Then they that gladly received his word were baptized: and the same day there
-were added unto them about three thousand souls." Acts 2:41.
-
-**Answer:** The Holy Spirit's outpouring resulted in a massive harvest. Three
-thousand people made a decision, "gladly received" the gospel, and were
-baptized. This demonstrates that baptism is the door into the visible church. We
-are not saved _by_ the church, but those who are saved are added _to_ the church
-to serve and grow together.
-
----
-
-### Q17. How many disciples were together on that occasion to engage in the work?
-
-"And in those days Peter stood up in the midst of the disciples, and said (the
-number of names together were about a hundred and twenty)." Acts 1:15.
-
-**Answer:** With 120 disciples present (Acts 1:15) and the twelve apostles (Acts
-2:14), there were ample hands to baptize 3,000 people in a single day. This
-highlights the "priesthood of all believers" (1 Peter 2:9). The authority to
-baptize comes from Christ's commission, and in this instance, the disciples
-worked together to harvest the souls the Spirit had convicted. It was a
-corporate work of the body of Christ.
+Baptism is not a guarantee of sinless perfection, but a commitment to walk with
+Christ and a declaration of faith in His power to save. If you stumble, you have
+an Advocate with the Father (1 John 2:1). Confess, repent, and continue in
+faith. The goal is growth—to be progressively conformed to Christ's image
+(2 Corinthians 3:18). God's grace is sufficient, and His power is available to
+overcome every besetting sin (Hebrews 4:16; Jude 24).
 
 ---
 
-### Q18. Should one wait long after conversion before being baptized?
+## Appeal
 
-"And now why tarriest thou? Arise, and be baptized, and wash away thy sins,
-calling on the name of the Lord." Acts 22:16.
+> _"Know ye not, that so many of us as were baptized into Jesus Christ were
+> baptized into His death? Therefore we are buried with Him by baptism into
+> death: that like as Christ was raised up from the dead by the glory of the
+> Father, even so we also should walk in newness of life."_ (Romans 6:3–4)
 
-**Answer:** Ananias’ words to the converted Saul (Paul) convey urgency. Once a
-person has repented and believed, there is no virtue in delay.
+Dear friend, have you responded to the Savior's call? Has the law of God
+convicted you of sin? Has the Spirit drawn your heart to Christ? Have you
+believed in Him who died and rose again for you?
 
-- **"Wash away thy sins":** Water cannot remove the guilt of sin—only the blood
-  of Jesus does that (1 John 1:7). However, baptism is the public, formal
-  acceptance of that cleansing. It is the "signing of the deed" that God has
-  drawn up.
-- **"Calling on the name of the Lord":** This indicates prayer and dependence.
-  Baptism is a prayer for a clear conscience (1 Peter 3:21).
+If so, what hinders you from being baptized?
 
----
+The same power that rolled away the stone from Christ's tomb, the same power
+that called forth Lazarus from the grave, is offered to you. God will bury your
+old life of sin and raise you to walk in newness of life—a life of victory, a
+life of peace, a life hidden with Christ in God.
 
-### Q19. What is necessary before baptism?
-
-"He that believeth and is baptized shall be saved,. but he that believeth not
-shall be damned." Mark 16:16.
-
-**Answer:** The order established by the Master is: **Believe -> Baptized ->
-Saved.** One cannot reverse this order. One cannot be baptized first (as an
-infant) and then believe later to make it valid. The refusal to believe brings
-condemnation ("damned"), showing that faith is the saving instrument. Baptism is
-the test of obedience for the one who claims to believe.
-
----
-
-### Q20. After the release of Paul and Silas from jail, how many of the jailer's family submitted to baptism?
-
-"And he took them the same hour of the night, and washed their stripes, and was
-baptized, he and all his, straightway." Acts 16:33.
-
-**Answer:** The entire household ("all his") was baptized. This is often cited
-by those favoring infant baptism, but the context (seen in the next questions)
-proves otherwise. The jailer washed the apostles' physical wounds (stripes), and
-the apostles washed the jailer’s spiritual wounds through baptism. It was done
-"straightway"—immediately—even at midnight, showing the importance of the
-ordinance.
-
----
-
-### Q21. To how many of them had Paul and Silas preached?
-
-"And they spake unto him the word of the Lord, and to all that were in his
-house." Acts 16:32.
-
-**Answer:** Before baptizing them, Paul and Silas preached the Word to **all**
-in the house. This implies that everyone in the household was old enough to
-listen, understand, and process the "word of the Lord." Faith comes by hearing
-(Romans 10:17).
-
----
-
-### Q22. How many of them believed the truth that was preached?
-
-"And when he had brought them into his house, he set meat before them, and
-rejoiced, believing in God with all his house." Acts 16:34.
-
-**Answer:** The record states clearly that the jailer believed "with all his
-house." Since infants cannot believe in God or rejoice in truth, we conclude
-there were no infants baptized here. This was a household of believers who had
-all heard the word and all accepted it by faith.
-
----
-
-### Q23. After baptism, what should one do?
-
-"If ye then be risen with Christ, seek those things which are above, where
-Christ sitteth on the right hand of God." Col. 3:1.
-
-**Answer:** Baptism is the starting line, not the finish line. Having been
-"risen with Christ" from the watery grave, the believer's focus shifts to the
-heavenly sanctuary.
-
-- **The Heavenly Focus:** Christ is "on the right hand of God" interceding for
-  us. Our minds should be fixed on His work there.
-- **Sanctification:** We are to leave the lowlands of sin and breathe the
-  atmosphere of heaven. As Christ ministers in the sanctuary above to blot out
-  our sins, we on earth are to cooperate by overcoming sin through His grace.
-
-- **Term Definition:** _Intercession:_ Jesus standing before the Father as our
-  High Priest, applying the benefits of His sacrifice to our individual cases.
-
----
-
-### Q24. By what does one gain a knowledge of sin?
-
-"I had not known sin, but by the law: for I had not known lust, except the law
-had said, Thou shalt not covet." Rom. 7:7.
-
-**Answer:** Why do we need baptism? Because we have sinned. How do we know we
-have sinned? Because of the Law. The Ten Commandments define the boundaries of
-right and wrong. Paul specifically quotes the tenth commandment ("Thou shalt not
-covet"), showing that the law reaches the thoughts and intents of the heart.
-Without the Law, there is no conviction of sin; without conviction, there is no
-need for a Saviour; without a Saviour, baptism is meaningless. The Law points us
-to the water of baptism for cleansing.
-
----
-
-### Q25. What brought death into the world?
-
-"Wherefore, as by one man sin entered into the world, and death by sin; and so
-death passed upon all men, for that all have sinned." Rom. 5:12.
-
-**Answer:** Adam’s transgression opened the floodgates of sin and death. Because
-of this, every human being is born with a fallen nature and eventually chooses
-to sin. Death is the wages of sin (Romans 6:23). Baptism is the gospel’s answer
-to this problem: it acknowledges the death we deserve (burial in water) and
-gives us the life we do not deserve (resurrection with Christ).
-
----
-
-### Q26. Did death reign all the time between Adam and Moses?
-
-"For until the law, sin was in the world: but sin is not imputed when there is
-no law. Nevertheless death reigned from Adam to Moses." Rom. 5:13, 14.
-
-**Answer:** This text establishes the eternal nature of God's law.
-
-- **The Argument:** Paul argues that death reigned from Adam (creation) to Moses
-  (Sinai).
-- **The Logic:** 1. Death is the result of sin. 2. Sin is not charged
-  ("imputed") if there is no law. 3. Since people died between Adam and Moses,
-  sin must have been imputed to them. 4. Therefore, God's law existed _before_
-  it was written on stone at Sinai. The Law that convinces us of sin today is
-  the same Law that governed the universe from the beginning. It reveals our
-  desperate need for the cleansing blood of Christ, into which we are baptized.
-
-**[ILL] Illustration:** Gravity existed before Isaac Newton wrote down the
-formula for it. Men fell and died from cliffs long before the "law of gravity"
-was written in a book. Similarly, God's moral law existed in the very nature of
-His government long before He wrote it on tables of stone for Moses. It is this
-eternal standard that drives us to the Cross.
+Arise, and be baptized, calling on the name of the Lord.

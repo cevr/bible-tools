@@ -1,436 +1,189 @@
-### Q1. In what condition are all men naturally?
+# Bible Study: Christ the Way of Life
 
-**"But the Scripture hath concluded all under sin." Gal. 3:22. "For all have
-sinned, and come short of the glory of God." Rom. 3:23.**
+## Introduction
 
-**Answer:** The Bible presents a diagnosis of the human race that is universal
-and without exception. Naturally, apart from the grace of God, humanity is in a
-state of spiritual bankruptcy.
-
-- **The Scope of Sin:** The text says "all" have sinned. There are no distinct
-  classes of men where some are naturally holy and others are sinners. Whether
-  Jew or Gentile, rich or poor, all are born with a fallen nature inherited from
-  Adam (Psalm 51:5).
-- **The Definition of Sin:**
-  - **Transgression:** Sin is the transgression of the law (1 John 3:4). It is
-    stepping across the boundary of God’s government.
-  - **Falling Short:** Romans 3:23 describes sin as coming short of the "glory
-    of God." Since God’s glory is His character (Exodus 33:18–19; 34:6–7), sin
-    is a failure to reflect God’s character of love.
-- **The Prisoner:** The phrase "concluded all under sin" suggests a prison
-  house. We are held captive by the power of sin, unable to free ourselves. This
-  prepares the way for a Deliverer.
-
-**[ILL] The Debtors:** Imagine a prison filled with debtors. One owes a million
-dollars, another owes ten dollars. While the amounts differ, both are equally
-prisoners and equally unable to pay their way out. So it is with humanity;
-whether our sins seem great or small to human eyes, all are "under sin" and in
-need of a Savior.
+Every human being faces the same fundamental problem: we are born sinners, separated from God, and destined for eternal death. Yet into this hopeless condition, God has provided a complete remedy—His own Son. This study explores how Christ becomes not merely our example or teacher, but our very life, and how through faith we may experience the same victory over sin that He demonstrated in human flesh.
 
 ---
 
-### Q2. What is the wages of sin?
+## Core Truths
 
-**"The wages of sin is death." Rom. 6:23.**
+### The Universal Condition of Mankind
 
-**Answer:** In the government of God, sin is not merely a mistake; it is a
-rebellion against the Source of Life.
+Scripture leaves no room for human boasting or self-salvation. The apostle Paul declares plainly:
 
-- **Wages:** A wage is something earned—payment that is due. Sin acts as a
-  master, and when we serve sin, it pays us in death.
-- **The Nature of Death:** This is not merely the first death (sleep) that all
-  experience, but the "second death" (Revelation 20:14)—eternal separation from
-  God, who is the Life-giver.
-- **The Justice of God:** The law of God is a law of life. To transgress it is
-  to choose disconnection from Life. God does not arbitrarily kill; sin itself,
-  when finished, brings forth death (James 1:15).
+> _"For all have sinned, and come short of the glory of God."_ (Romans 3:23)
 
----
+> _"But the Scripture hath concluded all under sin."_ (Galatians 3:22)
 
-### Q3. What is the gift of God?
+This is not merely a description of outward behavior—it is the diagnosis of our very nature. From Adam's fall, every child born into this world has inherited a sinful nature, a bent toward evil, a heart that naturally turns away from God. No amount of education, culture, or moral effort can change this inward corruption.
 
-**"The gift of God is eternal life." Rom. 6:23.**
+**Sin** is not simply making mistakes; it is the transgression of God's law of love (1 John 3:4). And the sentence upon all who sin is unequivocal:
 
-**Answer:** Here is the sharp contrast of the Gospel. While death is earned
-(wages), life can never be earned by a sinner.
+> _"The wages of sin is death."_ (Romans 6:23)
 
-- **A Free Gift:** Eternal life is not a reward for good behavior, nor a payment
-  for years of service. It is a gift (Ephesians 2:8).
-- **Restoration:** This gift restores what Adam lost in Eden. It includes not
-  only length of days (immortality) but quality of existence—a life in harmony
-  with God’s law and character.
+Not merely physical death, but eternal separation from the Source of all life. This is justice—for God cannot allow sin to continue forever, destroying His creation and marring His universe.
 
-**Definition:**
+[DYK🔎] The Greek word for "come short" in Romans 3:23 is _hystereo_, meaning to fall behind, to lack, to be inferior. It pictures a runner who cannot reach the finish line—no matter how hard we try, we cannot by our own effort attain to God's perfect standard.
 
-- **Grace:** The unmerited favor of God toward those who deserve the opposite.
-  It is God’s Riches At Christ’s Expense.
+### The Gift That Meets Our Need
+
+But the same verse that pronounces death upon sinners also reveals heaven's remedy:
+
+> _"The wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord."_ (Romans 6:23)
+
+Notice the contrast: death is earned ("wages"), but life is given ("gift"). We deserve the first; we can never earn the second. Eternal life is not a reward for good behavior—it is a gift flowing from the heart of a loving God who desires not the death of the sinner, but that all should come to repentance (Ezekiel 33:11; 2 Peter 3:9).
+
+> _"This is the record, that God hath given to us eternal life, and this life is in His Son."_ (1 John 5:11)
+
+Here is a truth of infinite importance: **eternal life is not something separate from Christ—it is in Him.** Life is not a commodity God distributes apart from relationship; it is bound up in the Person of His Son. To have life, we must have Christ. To reject Christ is to reject life itself.
 
 ---
 
-### Q4. In whom is now this gift?
+## Deeper Truths
 
-**"This is the record, that God hath given to us eternal life, and this life is
-in His Son." 1 John 5:11.**
+### Christ In You—The Mystery of Godliness
 
-**Answer:** God does not dispense eternal life as a separate commodity or a
-package to be handed out. He gives us a Person.
+Many professed Christians think of Christ as a distant Savior—someone who died for them two thousand years ago, who now sits far away in heaven. But Scripture reveals something far more intimate and powerful:
 
-- **Life is in the Son:** We cannot possess eternal life apart from possessing
-  Christ. He is the "Life" (John 14:6).
-- **The Fountain:** Just as water stays in the fountain, eternal life stays in
-  Christ. To get the water, one must come to the fountain. To have life, one
-  must be united with Jesus.
-- **Righteousness by Faith:** This is the core of Righteousness by Faith. We do
-  not have righteousness in ourselves; we have it only by being in Christ.
+> _"He that hath the Son hath life; and he that hath not the Son of God hath not life."_ (1 John 5:12)
 
----
+> _"Know ye not your own selves, how that Jesus Christ is in you, except ye be reprobates?"_ (2 Corinthians 13:5)
 
-### Q5. How many may have this life?
+Christ is not merely _for_ us—He is to be _in_ us. This is the great mystery of the gospel: "Christ in you, the hope of glory" (Colossians 1:27). The question is not merely, "Do you believe _about_ Christ?" but "Is Christ living _in_ you?"
 
-**"And the Spirit and the bride say, Come. And let him that heareth say, Come.
-And let him that is athirst come. And whosoever will, let him take the water of
-life freely." Rev. 22: 17. "He that hath the Son hath life; and he that hath not
-the Son of God hath not life." 1 John 5:12.**
+[Q] **"How can Christ literally be 'in' me? Isn't He in heaven?"**
 
-**Answer:** The offer is universal, but the reception is conditional upon the
-will.
+Christ is indeed in heaven, ministering as our High Priest in the heavenly sanctuary (Hebrews 8:1–2). But He is also omnipresent through the Holy Spirit. Jesus promised, "I will not leave you comfortless: I will come to you" (John 14:18). The Spirit is called "the Spirit of Christ" (Romans 8:9), and through the Spirit, Christ Himself dwells in the believing heart. This is not mere metaphor—it is spiritual reality. Paul testified:
 
-- **Whosoever Will:** The invitation is open to every human being. No one is
-  excluded by God’s decree; men exclude themselves by refusing to come (John
-  5:40).
-- **The Condition:** The verse in 1 John simplifies the entire judgment: "He
-  that hath the Son hath life." It does not say "he that hath a good record" or
-  "he that hath superior knowledge," but he that _hath the Son_.
-- **Sanctuary Imagery:** Just as the water flowed from the rock in the
-  wilderness (1 Corinthians 10:4), the water of life flows freely from Christ to
-  all who are thirsty.
+> _"I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave Himself for me."_ (Galatians 2:20)
 
----
+### From Death to Life—The New Birth
 
-### Q6. How must one have Christ?
+Before conversion, every person is spiritually dead:
 
-**"Know ye not your own selves, how that Jesus Christ is in you, except ye be
-reprobates?" 2 Cor. 13:5.**
+> _"God, who is rich in mercy, for His great love wherewith He loved us, even when we were dead in sins, hath quickened us together with Christ."_ (Ephesians 2:4–5)
 
-**Answer:** This question moves from the legal to the experiential. It is not
-enough to know _about_ Christ historically; He must dwell within.
+Dead men cannot save themselves. They cannot even cooperate with their own resurrection. This is why the gospel is such good news—God does for us what we could never do for ourselves. He "quickens" us—makes us alive—together with Christ.
 
-- **The Mystery of the Gospel:** Paul defines the "mystery" of the ages as
-  "Christ in you, the hope of glory" (Colossians 1:27).
-- **Indwelling Spirit:** Christ dwells in the believer through the Holy Spirit.
-  This is not a metaphor; it is a spiritual reality where the mind of Christ
-  becomes our mind (Philippians 2:5).
-- **The Test:** The text asks us to examine ourselves. If Christ is not in
-  us—ruling, guiding, and empowering—we are "reprobates" (disqualified or
-  rejected), regardless of our outward profession.
+This spiritual resurrection is called **the new birth**:
 
----
+> _"Being born again, not of corruptible seed, but of incorruptible, by the word of God, which liveth and abideth forever."_ (1 Peter 1:23)
 
-### Q7. How do we really have Christ in us unto eternal life?
+Just as we had nothing to do with our first birth, so the new birth is entirely God's work in us. We cannot manufacture it, earn it, or produce it by religious effort. We can only receive it by faith—opening the heart to Christ and allowing Him to create within us a new nature.
 
-**"He that believeth on Me hath everlasting life." John 6:47.**
+[ILL] Consider a man who has been declared legally dead and lies cold upon a slab. No amount of self-improvement books stacked beside him will bring him to life. No motivational speeches can stir his heart to beat again. He needs _life_ from outside himself—a power that can raise the dead. So it is with every sinner. We do not need better advice; we need resurrection. And that resurrection comes only through Christ.
 
-**Answer:** The mechanism of this union is faith.
+[DYK🔎] The Greek word for "born again" (_gennao anothen_) can also mean "born from above." Nicodemus thought Jesus spoke of physical re-entry into the womb (John 3:4), but Jesus was speaking of a spiritual birth that comes down from heaven—a divine work that transforms the soul.
 
-- **Believing is Receiving:** To believe on Him is to accept Him as He is
-  offered—as Savior from sin and Lord of life.
-- **Present Possession:** The verb is present tense: "Hath" (has) everlasting
-  life. It begins the moment the soul casts itself wholly upon Christ.
-- **Heart Work:** This faith is "with the heart" (Romans 10:10). It opens the
-  door of the soul for Jesus to enter (Revelation 3:20).
+### The Promise Through the Seed
 
-**Definition:**
+God's plan to restore life to fallen humanity was not an afterthought. Before Adam and Eve left the garden, God announced the remedy:
 
-- **Faith:** Not merely mental assent to facts, but a transaction of the will
-  where I surrender my emptiness to receive Christ’s fullness. It is "taking God
-  at His word" (Hebrews 11:1).
+> _"I will put enmity between thee and the woman, and between thy seed and her seed; it shall bruise thy head, and thou shalt bruise his heel."_ (Genesis 3:15)
+
+This first gospel promise pointed to One who would come from the woman's line to crush the serpent's head—to destroy Satan and undo the work of sin. Christ was "the Lamb slain from the foundation of the world" (Revelation 13:8). Before creation began, the Godhead had already devised the plan of redemption.
+
+This promise narrowed through Abraham:
+
+> _"The Lord appeared unto Abram, and said, Unto thy seed will I give this land."_ (Genesis 12:7)
+
+> _"And in thy seed shall all the kindreds of the earth be blessed."_ (Acts 3:25)
+
+Who is this "seed"? Paul makes it unmistakably clear:
+
+> _"Now to Abraham and his seed were the promises made. He saith not, And to seeds, as of many; but as of one, And to thy seed, which is Christ."_ (Galatians 3:16)
+
+Every promise of God—redemption, inheritance, eternal life—flows through Christ alone. Abraham believed this promise, and his faith was "counted unto him for righteousness" (Romans 4:3). The patriarch was not saved by law-keeping but by faith in the coming Redeemer—the same faith that saves us today.
 
 ---
 
-### Q8. What follows the reception of Christ?
+## Principles and Great Controversy Themes
 
-**"I live; yet not I, but Christ liveth in me; and the life which I now live in
-the flesh I live by the faith of the Son of God." Gal. 2:20.**
+### Why the Law Cannot Save
 
-**Answer:** When Christ is received, a new power takes the throne of the heart.
-This is the essence of sanctification.
+If righteousness could come through human obedience to the law, then Christ died for nothing:
 
-- **Death to Self:** "I am crucified with Christ." The old self-centered nature
-  is legally reckoned dead and experientially subdued.
-- **A New Occupant:** "Christ liveth in me." It is actually the life of Jesus
-  being lived out through a human vessel.
-- **Practical Obedience:** This answers the charge that faith leads to
-  lawlessness. If Christ lives in me, He will do in me what He did in Galilee—He
-  will keep the Father’s commandments (John 15:10). He does not enter the heart
-  to sin, but to obey.
+> _"If righteousness come by the law, then Christ is dead in vain."_ (Galatians 2:21)
 
-**[ILL] The Glove:** A glove lying on a table is powerless. It cannot lift a
-penny. But if a living hand puts on the glove, the glove moves, lifts, and
-works. The glove says, "I work, yet not I, but the hand works in me." So the
-Christian is the vessel; Christ is the Worker.
+The law is holy, just, and good (Romans 7:12). It reveals God's character and shows us our sin. But it has no power to save the sinner or transform the heart. The law is like a mirror—it shows the dirt on our face, but it cannot wash it away. For cleansing, we need water; for salvation, we need Christ.
 
----
+> _"But the Scripture hath concluded all under sin, that the promise by faith of Jesus Christ might be given to them that believe."_ (Galatians 3:22)
 
-### Q9. How are all regarded before they are quickened with Christ?
+God has enclosed all humanity under the verdict of sin—not to condemn us hopelessly, but to drive us to Christ as our only hope. When we see that all human effort is bankrupt, we are ready to receive the gift of righteousness by faith.
 
-**"God, who is rich in mercy, for His great love wherewith He loved us, even
-when we were dead in sins, hath quickened us together with Christ." Eph.
-2:4-5.**
+### Christ Our Way, Truth, and Life
 
-**Answer:** Before the new birth, the Bible diagnoses us as "dead."
+> _"Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by Me."_ (John 14:6)
 
-- **Spiritual Death:** A corpse cannot see, hear, or respond to physical
-  stimuli. A sinner "dead in sins" is unresponsive to spiritual things until the
-  Spirit draws him.
-- **Quickened:** This old English word means "made alive."
-- **Grace Initiative:** Notice that God loved us _while_ we were dead. He did
-  not wait for us to revive ourselves. He breathed life into us through the
-  Gospel.
+Christ is not merely _a_ way among many—He is _the_ way. He is not merely a teacher of truth—He is _the_ truth incarnate. He is not merely pointing to life—He _is_ the life. All the fullness of the Godhead dwells in Him bodily (Colossians 2:9). To come to God, we must come through Christ. There is no other name given under heaven whereby we must be saved (Acts 4:12).
 
----
+### The Victory Christ Achieved—And Offers to Us
 
-### Q10. What is this spiritual transition from death to life called?
+Here we touch upon a truth of immense practical importance for victorious Christian living. Why did Christ take human flesh?
 
-**"Being born again, not of corruptible seed; but of incorruptible, by the word
-of God, which liveth and abideth forever." 1 Peter 1:23.**
+> _"Forasmuch then as the children are partakers of flesh and blood, He also Himself likewise took part of the same; that through death He might destroy him that had the power of death, that is, the devil."_ (Hebrews 2:14)
 
-**Answer:** This transition is the "New Birth" or being "Born Again" (John
-3:3–5).
+Christ did not take the nature of angels; He took the nature of Abraham's seed (Hebrews 2:16). He was "made like unto His brethren" in all things, that He might be a merciful and faithful High Priest (Hebrews 2:17). He was "in all points tempted like as we are, yet without sin" (Hebrews 4:15).
 
-- **Necessity:** Just as we cannot enter the physical world without a physical
-  birth, we cannot enter the spiritual kingdom without a spiritual birth.
-- **The Agent:** The "seed" is the Word of God. When the Word is received into
-  the heart by faith, it germinates and produces a new nature—the divine nature
-  (2 Peter 1:4).
-- **Victory:** This new birth is the secret to victory over sin. "Whosoever is
-  born of God doth not commit sin [does not practice sinning]" (1 John 3:9).
+**This means Christ faced every temptation we face—from within the same fallen, weakened human nature we inherit—and overcame.** He did not overcome through divine power unavailable to us, but through the same means offered to every believer: faith in the Father, dependence upon the Holy Spirit, and the word of God.
+
+[Q] **"Are you saying Christ had a sinful nature like ours?"**
+
+Scripture is clear that Christ "knew no sin" (2 Corinthians 5:21) and "in Him is no sin" (1 John 3:5). He never committed a single sinful act, thought, or motive. But He _inherited_ the same weakened, fallen human nature that has come down through four thousand years of hereditary weakness since Adam. The virgin Mary was not immaculate; she was a descendant of sinful Adam, and Jesus received human nature through her.
+
+This truth does not diminish Christ's holiness—it magnifies His victory and makes Him our true helper. If Christ took a nature different from ours, He cannot be our example in overcoming. But because He faced every inherited tendency to sin that we face—and overcame by divine power working in humanity—He stands as proof that sin can be conquered in human flesh.
+
+> _"To him that overcometh will I grant to sit with Me in My throne, even as I also overcame, and am set down with My Father in His throne."_ (Revelation 3:21)
+
+Christ overcame in human flesh. Now He offers the same victory to every soul who receives Him by faith.
+
+[ILL] Imagine a man in a deep pit, unable to climb out. A rescuer comes, but instead of descending into the pit, he stands at the edge and shouts instructions. "Climb up!" he calls. "Here's how I would do it!" But the man cannot climb. Now imagine a second rescuer who descends into the pit himself, stands beside the trapped man, and then by his own strength lifts him out. This is what Christ has done. He did not stand at a distance and tell us how to live. He descended into the pit of our fallen humanity, overcame where we have failed, and now offers to lift us out by His own indwelling life.
+
+### The Sanctuary Connection
+
+Christ's work as the Way of Life is beautifully illustrated in the sanctuary:
+
+- **The outer court** with its altar of sacrifice points to Christ's death on the cross—the foundation of our salvation, where the penalty of sin was paid.
+- **The holy place** with its candlestick, table of shewbread, and altar of incense represents Christ's ongoing ministry in us—His light (John 8:12), His word as our daily bread (John 6:35), and His intercession (Romans 8:34).
+- **The most holy place** points to Christ's final work of atonement, when every trace of sin is blotted out and God's people are sealed with His character—fully prepared for His return.
+
+The entire sanctuary teaches one message: Christ is our life, from justification at the cross to final glorification when He appears.
 
 ---
 
-### Q11. When our first parents transgressed, what was done to prevent them from living forever in sin?
+## Practical Application
 
-**"And now, lest he put forth his hand, and take also of the tree of life, and
-eat, and live forever." "So He drove out the man; and He placed at the east of
-the garden of Eden cherubim, and a flaming sword which turned every way, to keep
-the way of the tree of life." Gen. 3:22, 24.**
+### What Does This Mean for Daily Living?
 
-**Answer:** God’s action here was an act of severe mercy.
+1. **Stop trying to save yourself.** No amount of good works, religious observance, or moral improvement can earn eternal life. Righteousness is a gift received by faith, not a wage earned by performance. Rest in Christ.
 
-- **Conditional Immortality:** Man is not naturally immortal. His life depended
-  on access to the Tree of Life.
-- **Preventing Immortal Sinners:** To allow a sinner to eat of the tree would be
-  to immortalize sin. It would doom man to an eternity of misery, separation,
-  and evil.
-- **The Barred Way:** God barred the way to the physical tree so He could open a
-  "new and living way" (Hebrews 10:20) through Christ. We now access life
-  through faith, not through the physical fruit of Eden.
+2. **Receive Christ by faith—daily.** Faith is not a one-time decision made years ago. It is a present, living connection with Christ maintained moment by moment. Each morning, open your heart anew to His indwelling presence. "He that hath the Son hath life"—do you have Him today?
+
+3. **Feed upon the Word.** The new birth comes "by the word of God" (1 Peter 1:23). Christ dwells in us through faith, and faith comes by hearing the word of God (Romans 10:17). Daily Bible study is not optional—it is the means by which Christ's life flows into us.
+
+4. **Believe that victory over sin is possible.** Christ overcame every temptation in human flesh. The same power is available to you through His indwelling Spirit. You need not remain defeated by habits, temper, lust, or any besetting sin. "I can do all things through Christ which strengtheneth me" (Philippians 4:13).
+
+5. **Live by faith, not by feeling.** Galatians 2:20 says Paul lived "by the faith of the Son of God." Faith is not an emotion; it is taking God at His word regardless of feelings. When temptation comes, claim by faith that Christ lives in you and that His strength is made perfect in your weakness (2 Corinthians 12:9).
 
 ---
 
-### Q12. By whom did the Lord say that Satan, the originator of sin, should be destroyed?
+## Appeal
 
-**"I will put enmity between thee and the woman, and between thy seed and her
-seed; it shall bruise thy head, and thou shalt bruise his heel." Gen. 3:15.**
+The invitation of heaven stands open to every soul:
 
-**Answer:** This is the _Protoevangelium_—the first proclamation of the Gospel.
+> _"And the Spirit and the bride say, Come. And let him that heareth say, Come. And let him that is athirst come. And whosoever will, let him take the water of life freely."_ (Revelation 22:17)
 
-- **The Enmity:** God promised to put a supernatural hatred for sin in the heart
-  of man (the church/woman). Without this imparted enmity, we would be content
-  slaves of Satan.
-- **The Conflict:** There is a war between the seed of Satan (rebellion) and the
-  Seed of the woman (Christ and His people).
-- **The Victory:** The "Seed" (Christ) would suffer a bruised heel (the
-  crucifixion—painful but not final), but He would crush the serpent's head (the
-  total destruction of Satan and his kingdom).
+"Whosoever will"—there are no exceptions. The gift of eternal life in Christ is offered to you today. But notice the condition: you must _come_. You must _take_. This is the response of faith—not earning, but receiving; not working, but trusting.
 
----
+Are you weary of struggling in your own strength? Have you tried again and again to overcome sin, only to fail? Christ invites you to stop trying and start trusting. Let Him live His life in you. Let His victory become your victory.
 
-### Q13. For what purpose did Christ die?
+> _"For ye are all the children of God by faith in Christ Jesus."_ (Galatians 3:26)
 
-**"Forasmuch then as the children are partakers of flesh and blood, He also
-Himself likewise took part of the same; that through death He might destroy him
-that had the power of death, that is, the Devil." Heb. 2:14.**
+> _"If children, then heirs; heirs of God, and joint-heirs with Christ."_ (Romans 8:17)
 
-**Answer:** Christ died to break the dominion of Satan and to liberate humanity.
+Think of it—heirs of God! Joint-heirs with Christ! Everything that belongs to Christ becomes yours through faith: His righteousness, His victory, His inheritance, His eternal life. Will you receive Him today?
 
-- **Identification:** He did not take on the nature of angels; He took on "flesh
-  and blood"—the same nature as the children He came to save. He met sin in the
-  flesh to condemn sin in the flesh (Romans 8:3).
-- **Destroying the Destroyer:** By dying, Jesus paid the wages of sin (death) on
-  behalf of the race. In doing so, He broke Satan’s legal claim over humanity.
-- **The Sanctuary Connection:** Just as the sacrificial goat was slain in the
-  outer court, Christ was slain on earth (the antitypical outer court) to make
-  atonement.
+The way is open. The truth is revealed. The life is offered. Christ Himself stands at the door of your heart and knocks. "If any man hear My voice, and open the door, I will come in to him" (Revelation 3:20).
 
----
-
-### Q14. How early was it determined that Christ should die?
-
-**"And all that dwell upon the earth shall worship him, whose names are not
-written in the book of life of the Lamb slain from the foundation of the world."
-Rev. 13:8.**
-
-**Answer:** The plan of salvation was not an afterthought or an emergency backup
-plan devised when Adam sinned.
-
-- **Eternal Purpose:** The "Everlasting Covenant" (Hebrews 13:20) was
-  established before creation. God foresaw the possibility of sin and provided
-  the remedy—the Lamb—from the foundation of the world.
-- **Security:** This gives the believer immense confidence. Our salvation rests
-  on a foundation as old as eternity.
-
----
-
-### Q15. Through whom was Abraham to receive the promise of God?
-
-**"The Lord appeared unto Abram, and said, Unto thy seed will give this land."
-Gen. 12:7.**
-
-**Answer:** The covenant of salvation was renewed with Abraham, centered on a
-specific "Seed."
-
-- **The Promise:** The inheritance (the land, and ultimately the earth made new)
-  was promised not just to Abraham, but to his Seed.
-- **Faith, not Flesh:** This promise was not based on Abraham's natural capacity
-  (he was old and childless) but on God’s miraculous power.
-
----
-
-### Q16. How far was the promise to Abraham to extend?
-
-**"And in thy seed shall all the kindreds of the earth be blessed." Acts 3:25.**
-
-**Answer:** The promise was global and universal in scope.
-
-- **Mission:** God called Abraham not to exclude the Gentiles, but to be the
-  channel of blessing to _all_ families of the earth.
-- **The Gospel:** Paul tells us that the gospel was preached to Abraham in this
-  promise (Galatians 3:8).
-
----
-
-### Q17. To whom does the "seed" of the Old Testament refer?
-
-**"Now to Abraham and his seed were the promises made. He saith not, And to
-seeds, as of many; but as of one, And to thy seed, which is Christ." Gal.
-3:16.**
-
-**Answer:** Here is the key to the covenant.
-
-- **Christ is the Seed:** The ultimate fulfillment of the covenant is Jesus
-  Christ. He is the true Heir of the world.
-- **Union with Christ:** Since the promise is made to Christ, the only way for
-  us to share in the promise is to be _in_ Christ. "And if ye be Christ's, then
-  are ye Abraham's seed, and heirs according to the promise" (Galatians 3:29).
-
----
-
-### Q18. How did the Lord regard Abraham's faith?
-
-**"Abraham believed God, and it was counted unto him for righteousness." Rom.
-4:3.**
-
-**Answer:** This is the foundational text for Justification by Faith.
-
-- **Counted/Imputed:** Abraham had no righteousness of his own to offer. He
-  simply believed God’s promise. God took that faith and credited it to him as
-  righteousness.
-- **Exchange:** God treats the believing sinner as if he were righteous, because
-  he trusts in the Righteous One.
-- **Not Faith in Nothing:** It was not faith in "faith," but faith in _God's
-  promise_ (the coming Seed) that saved him.
-
-**Definition:**
-
-- **Justification:** The legal declaration by God that a sinner is righteous. It
-  is being "set right" with God, solely through the merits of Jesus.
-
----
-
-### Q19. Since man had sinned, if righteousness could come by the law, then what must we conclude?
-
-**"If righteousness come by the law, then Christ is dead in vain." Gal. 2:21.**
-
-**Answer:** This is the strongest argument against legalism (trying to be saved
-by works).
-
-- **The Dilemma:** If a man could save himself by obeying the Ten Commandments,
-  then the sacrifice of Jesus was an unnecessary waste.
-- **The Limit of Law:** The law points out sin (Romans 3:20), but it has no
-  power to save, forgive, or change the heart. It acts as a mirror—revealing the
-  smudge on the face, but unable to wash it off. Only the blood of Jesus can
-  cleanse.
-
-**[ILL] The Mirror:** If you look in a mirror and see dirt on your face, you do
-not try to wash your face with the mirror. You go to the water. The law is the
-mirror; Christ is the water.
-
----
-
-### Q20. Why have all been reckoned under sin?
-
-**"But the Scripture hath concluded all under sin, that the promise by faith of
-Christ Jesus might be given to them that believe." Gal. 3:22.**
-
-**Answer:** God allows the law to reveal our hopeless condition for a specific
-purpose.
-
-- **Shut Up to Faith:** We are diagnosed as terminal so that we might accept the
-  Cure. The law strips us of self-confidence so we must rely wholly on "the
-  faith of Christ Jesus."
-- **The Promise:** The promise of the Spirit and eternal life is given only to
-  those who stop working for it and start trusting the Savior for it.
-
----
-
-### Q21. What does Christ become to the true believer?
-
-**"Jesus saith unto him, I am the way, the truth, and the life; no man cometh
-unto the Father, but by Me." John 14:6.**
-
-**Answer:** Christ is the exclusive and all-sufficient means of salvation.
-
-- **The Way:** Not merely a signpost pointing the way, He _is_ the Way. In the
-  sanctuary service, He is the Door, the Sacrifice, the Priest, and the Veil.
-- **The Truth:** He is the reality of all God’s promises.
-- **The Life:** He is the source of the new life that overcomes sin.
-- **No Other Way:** There is no other ladder from earth to heaven. All human
-  philosophy, ritual, or effort fails to bridge the gap caused by sin.
-
----
-
-### Q22. How then do all become children of God?
-
-**"For ye are all the children of God by faith in Christ Jesus." Gal. 3:26.**
-
-**Answer:** Adoption into the heavenly family is by faith alone.
-
-- **Relationship:** We are not natural-born children of God (in the spiritual
-  sense); we are "children of wrath" by nature (Ephesians 2:3). We become
-  children by adoption through faith.
-- **Equality:** This privilege is open to "all"—Jew, Gentile, bond, or free.
-
----
-
-### Q23. If children of God, what is our prospect?
-
-**"If children, then heirs; heirs of God, and joint-heirs with Christ." Rom.
-8:17.**
-
-**Answer:** The study concludes with the glorious result of the Gospel.
-
-- **Heirs:** An heir inherits what the father possesses. God gives us the
-  Kingdom.
-- **Joint-Heirs:** We share the inheritance with Jesus. Whatever He has won, He
-  shares with His people—His throne, His glory, and His eternal life (Revelation
-  3:21).
-- **The Condition of Suffering:** The verse goes on to say, "if so be that we
-  suffer with him." We share in His sufferings against sin now, that we may
-  share in His glory hereafter.
-
-**Concluding Thought:** As noted in the introduction to this topic, for Christ
-to be a perfect Savior, He had to be made "like unto his brethren" (Hebrews
-2:17). He took our nature, fought our battles, and defeated sin in the flesh.
-Now, through the new birth, He imparts that victory to us. He does not merely
-cover our past; He empowers our present. He is the Way of Life—not just a
-theory, but a living Person dwelling in the heart of the believer.
+Open the door. Let Christ in. And you will have life—abundant, victorious, eternal.

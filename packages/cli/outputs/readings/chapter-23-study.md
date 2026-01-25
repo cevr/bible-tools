@@ -1,457 +1,210 @@
-### Q1. Who are accepted of God?
+# Bible Study: Evidences of Acceptance with God
 
-"In every nation he that feareth Him, and worketh righteousness, is accepted
-with Him." Acts 10:35. "If thou doest well, shalt thou not be accepted?" Gen.
-4:7.
+## Introduction
 
-**Answer:** Acceptance with God is the foundation of all peace and spiritual
-life. These verses indicate that God is not arbitrary; He does not show
-partiality based on nationality, lineage, or social standing. However, the text
-says he that "worketh righteousness" is accepted. This must be understood
-through the lens of the Gospel to avoid the error of legalism (trying to earn
-salvation by works).
-
-1.  **The Source of Righteousness:** True righteousness is not self-generated.
-    As Isaiah 64:6 tells us, our own righteousnesses are as "filthy rags."
-    Therefore, the man who "worketh righteousness" is one who has surrendered to
-    the influence of God's Spirit and is living up to the light he has received.
-    He is accepted because his heart is turned toward God in faith.
-2.  **Fearing God:** To "fear" God in the biblical sense means to have a deep,
-    reverential awe and a willingness to obey Him (Ecclesiastes 12:13). It is
-    the beginning of wisdom (Proverbs 9:10).
-3.  **Working Righteousness by Faith:** In the Great Controversy between good
-    and evil, God looks at the heart. When a person—like Cornelius in Acts
-    10—responds to the drawing power of the Holy Spirit with faith and
-    obedience, God accepts that faith. It is Christ’s righteousness that makes
-    any human work acceptable.
-
-**Definition:**
-
-- **Righteousness:** Doing what is right in God's eyes; conformity to the law of
-  God. In the plan of salvation, this is only possible through faith in Jesus
-  Christ (Romans 3:22).
-
-[ILL] Imagine a mirror. A mirror cannot generate light on its own; it is dark by
-nature. However, if it is turned toward the sun, it "works" light by reflecting
-it. A believer "works righteousness" not by creating it from within, but by
-turning their heart toward the Sun of Righteousness (Malachi 4:2) and reflecting
-His character.
+How can a person know they are truly accepted by God? This vital question touches the very heart of Christian assurance. Many sincere souls live in uncertainty, wondering if their conversion is genuine or if God has truly received them. Scripture provides clear evidences—not based on feeling alone, but on the transforming work of the Spirit and the fruit that flows from union with Christ.
 
 ---
 
-### Q2. Since by nature man cannot "work righteousness," the carnal mind being "enmity against God" (Rom. 8:7), what transformation is necessary?
+## Core Truths
 
-"Being born again, not of corruptible seed, but of incorruptible, by the word of
-God." 1 Peter 1:23. "If any man be in Christ, he is a new creature." 2 Cor.
-5:17.
+### The Basis of Acceptance
 
-**Answer:** Because the natural human heart is fallen and self-centered, a
-superficial improvement or "turning over a new leaf" is insufficient. A radical
-transformation is required:
+God's acceptance is not based on nationality, social standing, or human merit. Peter declared this truth after witnessing the conversion of Cornelius:
 
-1.  **The Problem—The Carnal Mind:** The "carnal mind" refers to human nature
-    separated from God. It is naturally selfish, rebellious, and incapable of
-    obeying God's law of love (Romans 8:7). It is not merely sick; it is dead in
-    trespasses and sins (Ephesians 2:1).
-2.  **The Solution—The New Birth:** Jesus taught Nicodemus, "Ye must be born
-    again" (John 3:7). This is a new creation, not a renovation of the old life.
-    The "old man" of sin must die, and a "new man" must be created in
-    righteousness (Ephesians 4:24).
-3.  **The Seed of Life:** This new life is planted by the "incorruptible seed,"
-    which is the Word of God. When the sinner receives the Bible's promises by
-    faith, the life of God enters the soul.
+> _"In every nation he that feareth Him, and worketh righteousness, is accepted with Him."_ (Acts 10:35)
 
-**Definition:**
+**Fearing God** means reverent submission to His will. **Working righteousness** does not mean earning salvation by good deeds, but living rightly as a fruit of genuine faith.
 
-- **Carnal Mind:** The natural, unregenerate human mind that seeks self-interest
-  and resists God’s authority.
-- **New Birth:** The spiritual act where God imparts a new nature and divine
-  life to the believing sinner, enabling them to love and obey God.
+[DYK🔎] The phrase "worketh righteousness" in Acts 10:35 describes the _result_ of acceptance, not its _cause_. The Greek verb tense indicates continuous action—a lifestyle flowing from relationship with God, not isolated acts to gain His favor.
 
-[ILL] A sculpture can be polished and painted, but it remains stone—cold and
-lifeless. It can never become a human being by improvement. It would require a
-miracle to turn stone into flesh. Similarly, a sinner cannot be improved into a
-saint; they must be "born again" by the creative power of God to become a "new
-creature."
+### The Problem: Man Cannot Produce Righteousness
+
+Here lies humanity's great dilemma:
+
+> _"The carnal mind is enmity against God: for it is not subject to the law of God, neither indeed can be."_ (Romans 8:7)
+
+The natural heart is not merely weak toward God—it is actively hostile. Like a compass pointing always to itself, the unconverted nature cannot orient toward heaven. This is why moral reformation alone can never bring acceptance with God.
+
+[Q] **"But can't sincere effort and good intentions make a person acceptable to God?"**
+
+God asked Cain, _"If thou doest well, shalt thou not be accepted?"_ (Genesis 4:7). Yet Cain's problem was not lack of effort but lack of faith. He brought his own works (the fruit of the ground) rather than the appointed sacrifice pointing to Christ. Human effort, however sincere, cannot substitute for the righteousness that comes through faith in Christ's sacrifice.
 
 ---
 
-### Q3. By what agency is the new birth produced?
+## Deeper Truths
 
-"That which is born of the flesh is flesh; and that which is born of the Spirit
-is spirit." John 3:6. "It is the Spirit that quickeneth." John 6:63. "If any man
-have not the Spirit of Christ, he is not of His." Rom. 8:9.
+### The New Birth: God's Solution
 
-**Answer:** The agent of this miraculous transformation is the Holy Spirit, the
-third person of the Godhead.
+Since man cannot produce righteousness, God provides a complete transformation:
 
-1.  **The Spirit Quickeneth:** To "quicken" means to make alive. Just as the
-    Spirit of God moved upon the face of the waters at creation (Genesis 1:2),
-    the Holy Spirit moves upon the chaos of the human heart to bring spiritual
-    life.
-2.  **The Spirit of Christ:** The Holy Spirit brings the personal presence of
-    Jesus into the believer's life. To have the Spirit is to have the mind of
-    Christ (Philippians 2:5). Without this indwelling, we may have a form of
-    religion, but we lack the power thereof (2 Timothy 3:5).
-3.  **Sanctuary Connection:** In the earthly sanctuary, the priest used water
-    for cleansing. This typified the work of the Holy Spirit (Titus 3:5, the
-    "washing of regeneration"). The Spirit applies the cleansing blood of Christ
-    to the conscience.
+> _"Except a man be born again, he cannot see the kingdom of God."_ (John 3:3)
 
-**Definition:**
+> _"If any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new."_ (2 Corinthians 5:17)
 
-- **Regeneration:** Another term for the new birth; the act of the Holy Spirit
-  reforming the heart and implanting a new principle of life.
+This is not reformation but _regeneration_—not patching the old garment but receiving an entirely new nature.
 
-[ILL] Think of a radio. It may have all the correct parts and be tuned to the
-right frequency, but without electricity, it produces no sound. The Christian
-brings the "machinery" of the mind and body, but it is the electricity—the Holy
-Spirit—that powers the life and produces the music of the Gospel.
+**New birth** (Greek: _gennao anothen_): To be born "from above"—a divine work creating new spiritual life where none existed before (1 Peter 1:23).
 
----
+### The Agent of Transformation
 
-### Q4. How precious is forgiveness to the burdened soul at conversion! Is this rich boon conferred as a thing that is due, or as a pure act of grace or unmerited favor?
+> _"That which is born of the flesh is flesh; and that which is born of the Spirit is spirit."_ (John 3:6)
 
-"In whom we have redemption through His blood, the forgiveness of sins,
-according to the riches of His grace." Eph. 1:7. "Father, I have sinned against
-heaven, and before thee, and am no more worthy to be called thy son." Luke
-15:18, 19.
+> _"It is the Spirit that quickeneth."_ (John 6:63)
 
-**Answer:** Forgiveness is the first great gift of the Gospel, and the Bible is
-emphatic that it is a gift of pure grace, never a wage earned by human merit.
+The Holy Spirit is the active agent in regeneration. No human can manufacture this change—it is entirely God's work in the surrendered heart.
 
-1.  **Not by Works:** The prodigal son in Luke 15 prepared a speech offering to
-    work as a servant, but the father embraced him as a son before he could even
-    finish. We are "justified freely by His grace" (Romans 3:24).
-2.  **Through His Blood:** Grace is free to us, but it cost heaven everything.
-    Forgiveness is legally possible because the penalty of the law was paid by
-    the life and blood of Jesus Christ. In the sanctuary service, the sinner
-    brought a lamb—Christ is the Lamb of God who takes away the sin of the world
-    (John 1:29).
-3.  **Unmerited Favor:** We are "no more worthy." The realization of our
-    unworthiness, combined with the knowledge of God's love, breaks the heart
-    and leads to genuine repentance.
+> _"If any man have not the Spirit of Christ, he is none of His."_ (Romans 8:9)
 
-**Definition:**
+[ILL] Consider a caterpillar becoming a butterfly. The creature does not improve its crawling skills until it learns to fly. Rather, a complete transformation occurs within the chrysalis—the old nature dissolved, an entirely new creature emerging. So it is with the new birth: God does not improve our old nature but gives us an entirely new one through the Spirit.
 
-- **Grace:** The unmerited favor and love of God toward those who deserve
-  exactly the opposite.
-- **Justification:** God’s legal declaration that a repentant sinner is
-  righteous. He treats the sinner as if he had never sinned, crediting Christ's
-  perfect life to his account (Romans 4:5).
+### Forgiveness: Grace, Not Wages
 
-[ILL] If a man commits a crime and is fined one million dollars, he cannot pay
-it. If a wealthy friend pays the fine for him, the judge can legally set the man
-free. The freedom is a gift to the criminal, but the cost was real to the
-friend. Christ paid our debt on the cross so we could receive the
-receipt—forgiveness—as a free gift.
+When the convicted sinner first experiences forgiveness, how precious it becomes! But on what basis is it given?
+
+> _"In whom we have redemption through His blood, the forgiveness of sins, according to the riches of His grace."_ (Ephesians 1:7)
+
+The prodigal son understood this:
+
+> _"Father, I have sinned against heaven, and before thee, and am no more worthy to be called thy son."_ (Luke 15:18-19)
+
+Forgiveness is not earned—it flows from the riches of God's grace. Even our faith does not merit salvation; all merit belongs to Christ, whom we receive by faith (Romans 4:1-5).
 
 ---
 
-### Q5. What relation exists between God and believers?
+## The Evidences of Acceptance
 
-"I will be their God, and they shall be My people." "And will be a Father unto
-you, and ye shall be My sons and daughters, saith the Lord Almighty." 2 Cor.
-6:16, 18.
+### Evidence 1: The Witness of the Spirit
 
-**Answer:** The Gospel restores the intimate relationship that was broken in
-Eden. It is a covenant relationship:
+Can a person be accepted by God and not know it? Scripture answers clearly:
 
-1.  **Adoption:** We are not merely subjects of a King; we are adopted children
-    of a Father (Romans 8:15). This grants us access to the "throne of grace"
-    with confidence.
-2.  **Mutual Possession:** "I will be their God, and they shall be My people."
-    This echoes the marriage covenant. God pledges His omnipotence to protect,
-    guide, and save His people, and His people pledge their loyalty and love to
-    Him.
-3.  **Sanctuary Connection:** God’s purpose in the sanctuary was, "Let them make
-    me a sanctuary; that I may dwell among them" (Exodus 25:8). Through the Holy
-    Spirit, the believer’s body becomes the temple of the living God (1
-    Corinthians 6:19).
+> _"The Spirit itself beareth witness with our spirit, that we are the children of God."_ (Romans 8:16)
 
-[ILL] A street urchin may be pitied by a king and given a coin. But if the king
-takes the child into the palace, signs adoption papers, and gives him the royal
-name, the relationship changes entirely. The child now has a right to the
-resources of the father. By faith, we are that child.
+> _"Hereby know we that we dwell in Him, and He in us, because He hath given us of His Spirit."_ (1 John 4:13)
 
----
+This is not mere emotion but a deep, settled assurance—the Spirit's testimony confirming our adoption into God's family.
 
-### Q6. Can such relation exist and one not be conscious of it?
+[DYK🔎] The Greek word for "witness" (_summartureo_) is a legal term meaning "to testify together with." The Holy Spirit joins His testimony with our spirit, providing dual confirmation of our acceptance—like two witnesses establishing a matter (Deuteronomy 19:15).
 
-"Even the Spirit of truth; whom the world cannot receive, because it seeth Him
-not, neither knoweth Him; but ye know Him: for He dwelleth with you, and shall
-be in you." John 14:17. "The Spirit itself beareth witness with our spirit, that
-we are the children of God." Rom. 8:16. "Hereby know we that we dwell in Him,
-and He in us, because He hath given us of His Spirit." 1 John 4:13.
+### Evidence 2: Peace with God
 
-**Answer:** True Christianity is an experiential reality, not just a theory.
-While feelings fluctuate, there is a definite consciousness of a changed life
-and relationship.
+> _"Therefore being justified by faith, we have peace with God through our Lord Jesus Christ."_ (Romans 5:1)
 
-1.  **The Witness of the Spirit:** The Holy Spirit works upon the human
-    conscience, giving an internal assurance of acceptance. This "witness" often
-    comes through the application of Scripture to the heart—when we read a
-    promise, the Spirit helps us believe, "This is for me."
-2.  **Knowing Him:** Jesus says the world does not know the Spirit, but "ye know
-    Him." Righteousness by faith involves a personal, interactive knowledge of
-    God.
-3.  **Evidence of Change:** We know we have passed from death to life because we
-    love the brethren (1 John 3:14) and because our desires have changed from
-    worldly things to spiritual things.
+Before conversion, we were enemies of God (Romans 5:10). Now, through justification by faith, the war is over. This peace is not merely peaceful feelings but an objective change in relationship—we have been reconciled to God.
 
-**Definition:**
+> _"Peace I leave with you, My peace I give unto you: not as the world giveth, give I unto you."_ (John 14:27)
 
-- **Assurance of Salvation:** The confidence that we are currently accepted by
-  God through Christ, based on the promises of His Word (1 John 5:13).
+Christ's peace differs from worldly peace. The world offers peace through favorable circumstances; Christ gives peace _in spite of_ circumstances.
 
-[ILL] If a person is carrying a heavy backpack of rocks and someone suddenly
-cuts the straps and lifts it off, the person _knows_ the difference. They feel
-the relief. When the burden of sin is rolled away at the foot of the cross, the
-soul knows the relief of forgiveness.
+[Q] **"But I still face troubles and trials. Does this mean I'm not truly accepted?"**
 
----
+Jesus was clear:
 
-### Q7. What does the knowledge of our acceptance with God bring?
+> _"In the world ye shall have tribulation: but be of good cheer; I have overcome the world."_ (John 16:33)
 
-"Therefore being justified by faith, we have peace with God through our Lord
-Jesus Christ." Rom. 5:1.
+Tribulation is not evidence of rejection—it is the normal experience of believers in a fallen world. The evidence of acceptance is peace _during_ tribulation, not the absence of it.
 
-**Answer:** The immediate result of justification is **peace**.
+### Evidence 3: Delight in God's Law
 
-1.  **End of Hostilities:** Sin is rebellion; it is a state of war against God's
-    government. When we surrender and accept Christ's righteousness, the war is
-    over. We are no longer "enemies" (Romans 5:10), but friends.
-2.  **Relief from Guilt:** A guilty conscience is a restless thing (Isaiah
-    57:20). Justification removes the ground of guilt because Christ has taken
-    the penalty.
-3.  **Righteousness by Faith:** This peace comes only by _faith_. If we look to
-    our own works for peace, we will find only anxiety, because our works are
-    never perfect. But when we look to Christ's finished work, the peace is
-    solid.
+One of the surest evidences of the new birth is a transformed attitude toward God's commandments:
 
-[ILL] Imagine a soldier who has been fighting against a legitimate king. He
-lives in constant fear of capture and punishment. Then, he receives a royal
-pardon and an invitation to dine at the king's table. The fear vanishes,
-replaced by gratitude and peace. This is the peace of the justified soul.
+> _"For I delight in the law of God after the inward man."_ (Romans 7:22)
+
+> _"His delight is in the law of the Lord; and in his law doth he meditate day and night."_ (Psalm 1:2)
+
+The carnal mind sees God's law as restrictive bondage. The renewed mind sees it as the transcript of God's character—a delight to study and obey.
+
+[ILL] A young man in love does not consider it bondage to spend time with his beloved. Her wishes are not burdensome requirements but opportunities to please her. So the converted heart regards God's commandments—not as heavy chains but as expressions of a loving relationship.
+
+### Evidence 4: The Fruit of the Spirit
+
+> _"By their fruits ye shall know them."_ (Matthew 7:20)
+
+> _"The fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance."_ (Galatians 5:22-23)
+
+These qualities cannot be manufactured by human effort:
+
+> _"As the branch cannot bear fruit of itself, except it abide in the vine; no more can ye, except ye abide in Me."_ (John 15:4)
+
+**Fruit** grows naturally from vital connection to the source of life. A branch does not strain to produce grapes—it simply abides in the vine, and fruit follows. So the Christian abiding in Christ will naturally manifest His character.
+
+[DYK🔎] Notice Paul speaks of "the fruit" (singular) of the Spirit, not "fruits" (plural). These nine qualities are not separate achievements to pursue but one unified fruit—the character of Christ—manifested in various expressions. Where the Spirit dwells, all these qualities begin to develop together.
+
+### Evidence 5: Hearts That Burn
+
+The disciples on the Emmaus road experienced something remarkable:
+
+> _"Did not our heart burn within us, while He talked with us by the way, and while He opened to us the Scriptures?"_ (Luke 24:32)
+
+When Christ opens the Scriptures to the believing heart, there is a responsive warmth—an inner recognition that this is truth, this is life, this is Christ Himself speaking.
 
 ---
 
-### Q8. Of what nature is the peace of the believer?
+## Principles and Great Controversy Themes
 
-"Peace I leave with you, My peace I give unto you: not as the world giveth, give
-I unto you." John 14:27.
+### The Sanctuary Connection
 
-**Answer:** The peace of Christ is distinct from what the world calls peace.
+The evidences of acceptance parallel the believer's journey through the sanctuary:
 
-1.  **Not External:** Worldly peace is merely the absence of conflict or
-    trouble. It depends on circumstances. If the bank account is full and health
-    is good, the world has peace.
-2.  **Internal and Divine:** Christ's peace ("My peace") is the calm He
-    possessed even while facing the cross. It is a deep, settled trust in the
-    Father's love that exists _regardless_ of external circumstances.
-3.  **A Fruit of the Spirit:** It is part of the "fruit of the Spirit"
-    (Galatians 5:22). It is the tranquility of a heart that has nothing to hide
-    from God and nothing to fear from the future.
+**The Altar of Sacrifice (Outer Court):** Here we first encounter the Lamb of God. Forgiveness flows from His blood (Ephesians 1:7). The guilty conscience finds peace through Christ's atoning death. This is justification—the beginning of our acceptance.
 
-[ILL] The ocean surface may be raging with waves during a hurricane, but deep
-below the surface, the waters are perfectly still. The Christian's life may have
-storms on the surface (troubles, persecution), but deep in the soul, there is
-the stillness of God.
+**The Holy Place (Daily Ministry):** The table of showbread represents Christ as the Bread of Life nourishing our souls. The candlestick represents the Holy Spirit illuminating Scripture. The altar of incense represents prayer and communion with God. Here the evidence of acceptance deepens—delight in God's Word, the Spirit's witness, growing fruit of character.
 
----
+**The Most Holy Place (Final Atonement):** Christ's present ministry involves not only forgiving sins but _blotting them out_—removing the very record and root of sin from the believer's experience. The final generation will be sealed, reflecting Christ's character fully, standing without fault before God's throne (Revelation 14:5).
 
-### Q9. Will those who have this peace be free from tribulation?
+### The Great Controversy Perspective
 
-"In the world ye shall have tribulation: but be of good cheer; I have overcome
-the world." John 16:33.
+Satan's great accusation is that God's law cannot be kept, that human beings cannot truly be transformed, that acceptance with God is impossible. Every genuinely converted soul is a living refutation of this lie.
 
-**Answer:** No, the Christian is not promised an easy life. In fact, "all that
-will live godly in Christ Jesus shall suffer persecution" (2 Timothy 3:12).
+When the Spirit transforms a heart to _delight_ in God's law—when love, joy, and peace replace selfishness, anxiety, and strife—heaven demonstrates that God's government of love is sustainable, His law is just, and His grace is sufficient to save completely.
 
-1.  **The Reality of Conflict:** As long as the Great Controversy continues, the
-    enemy will attack those who bear Christ's image. Tribulation helps refine
-    the character, burning away the dross of selfishness (1 Peter 1:6-7).
-2.  **Good Cheer:** We can be of "good cheer" not because the pain is gone, but
-    because the Victory is already won. Christ has "overcome the world," and
-    through faith, His victory becomes ours (1 John 5:4).
-3.  **Sanctification through Suffering:** God uses trials to teach us dependence
-    on Him. It drives us to the Sanctuary—to the throne of grace—where we find
-    help in time of need.
+### Righteousness by Faith: The Heart of Acceptance
 
-[ILL] A diamond is shaped and polished by friction. Without the friction of the
-grinding wheel, it would remain a rough, dull stone. God uses the friction of
-tribulation to polish His people into jewels for His kingdom.
+The evidences of acceptance are not works we perform to gain God's favor. They are the natural results of Christ living in us:
+
+- **Justification** (imputed righteousness): Christ's perfect life credited to our account the moment we believe
+- **Sanctification** (imparted righteousness): Christ's character progressively formed within us as we abide in Him
+
+Both are received by faith. Both are Christ's work, not ours. The branch does not struggle to produce fruit—it simply remains connected to the vine.
+
+> _"I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me."_ (Galatians 2:20)
 
 ---
 
-### Q10. What will be one of the delights of the converted man?
+## Practical Application
 
-"For I delight in the law of God after the inward man." Rom. 7:22. "His delight
-is in the law of the Lord." Ps. 1:2.
+### How to Cultivate Assurance
 
-**Answer:** This is a crucial test of true conversion. The carnal mind is "not
-subject to the law of God" (Romans 8:7), but the converted heart loves it.
+1. **Ground your assurance in Scripture, not feelings.** Feelings fluctuate; God's promises remain constant. When doubts arise, return to verses like Romans 8:16 and 1 John 4:13.
 
-1.  **The Law Written on the Heart:** In the New Covenant, God promises, "I will
-    put my laws into their mind, and write them in their hearts" (Hebrews 8:10).
-    This means the believer wants to do God's will. Obedience becomes a delight,
-    not a burden.
-2.  **Character Alignment:** The law is a transcript of God’s character. When we
-    love Christ, we naturally love His law because it describes what He is like.
-3.  **Righteousness by Faith:** Legalism keeps the law to earn salvation (which
-    is impossible). Faith keeps the law because the heart has been changed by
-    salvation. As Psalm 40:8 says, "I delight to do thy will, O my God: yea, thy
-    law is within my heart."
+2. **Examine your fruit honestly.** Do you see love, joy, and peace growing in your life? Not perfection, but direction—are you moving toward Christlikeness?
 
-**Definition:**
+3. **Maintain vital connection with Christ.** Spend time in His Word daily. The disciples' hearts burned when Christ opened the Scriptures. Seek that same experience through prayerful Bible study.
 
-- **Sanctification:** The ongoing process of being made holy; the Holy Spirit
-  writing the law of God on the heart so that the believer grows up into the
-  character of Christ.
+4. **Open the door when He knocks.** Christ promises:
 
-[ILL] A prisoner in a cell may obey the guard solely out of fear of punishment.
-That is the "spirit of bondage." A loving husband remains faithful to his wife
-not because he fears jail, but because he loves her. That is the "delight" of
-the converted heart toward God's law.
+> _"If any man hear My voice, and open the door, I will come in to him, and will sup with him, and he with Me."_ (Revelation 3:20)
+
+5. **Let His peace guard your heart.** In the midst of tribulation, claim the promise:
+
+> _"And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus."_ (Philippians 4:7)
+
+### When Doubts Come
+
+[Q] **"I don't always feel accepted. Does this mean I'm not truly converted?"**
+
+The evidences of acceptance are not constant emotional highs but abiding realities. The Spirit witnesses to our adoption; peace with God is our legal standing; delight in God's law characterizes the new nature; fruit grows from the vine. These may be more or less perceptible at different times, but they remain true for all who abide in Christ.
+
+When doubts arise, do not look inward for assurance—look upward to Christ. Our acceptance rests on His finished work and present intercession, not on the steadiness of our feelings.
 
 ---
 
-### Q11. How may true believers be identified?
+## Appeal
 
-"By their fruits ye shall know them. Not everyone that saith unto Me, Lord,
-Lord, shall enter into the kingdom of heaven; but he that doeth the will of My
-Father which is in heaven." Matt. 7:20, 21.
+_"Behold, I stand at the door, and knock: if any man hear My voice, and open the door, I will come in to him, and will sup with him, and he with Me."_ (Revelation 3:20)
 
-**Answer:** Profession is nothing without possession. A verbal claim to
-"believe" is insufficient if the life contradicts the confession.
+Dear friend, do you long for the assurance of acceptance with God? The evidences are clear: the Spirit's witness, peace with God, delight in His law, and the fruit of Christlike character. These are not achievements to strive for but gifts to receive—the natural results of opening your heart to Christ.
 
-1.  **Fruit as Evidence:** Fruit does not make the tree alive; the life of the
-    tree produces the fruit. Similarly, good works do not save us, but a saved
-    person will naturally produce good works.
-2.  **Doing the Will of God:** Jesus emphasizes that entry into the kingdom is
-    for "he that doeth the will of My Father." This is not salvation by works,
-    but salvation _that works_. Genuine faith always leads to obedience (James
-    2:17).
-3.  **Investigative Judgment:** In the final judgment, our lives (fruits) will
-    testify whether our faith was genuine or a counterfeit. God judges by the
-    secrets of the heart as revealed in the life.
+If you have never experienced the new birth, today is the day to invite Christ in. If you are a believer struggling with doubt, return to the simple practice of abiding in the Vine. Read His Word. Commune with Him in prayer. Trust His promises more than your fluctuating feelings.
 
-[ILL] If you walk into an orchard and see a tree with a sign that says "Apple
-Tree," but it is covered in thorns and has no apples, you know the sign is a
-lie. A Christian is identified not by the "sign" they wear (church membership),
-but by the fruit they bear (character).
-
----
-
-### Q12. What is the fruit of the Spirit?
-
-"The fruit of the Spirit is love, joy, peace, long suffering, gentleness,
-goodness, faith, meekness, temperance." Gal. 5:22, 23.
-
-**Answer:** When the Holy Spirit controls the life, these character traits
-appear naturally.
-
-1.  **Singular Fruit:** The word "fruit" is singular, suggesting that all these
-    virtues are part of one clustered whole—the character of Christ. You cannot
-    have true spiritual "faith" without "love," nor "peace" without "temperance"
-    (self-control).
-2.  **Against Such There is No Law:** These traits are the very definition of
-    law-keeping. "Love is the fulfilling of the law" (Romans 13:10). When these
-    fruits are present, the law of God is being kept from the heart.
-3.  **Temperance:** This includes self-control in all things—appetite, passion,
-    and speech. It is a vital part of Righteousness by Faith, as the body is
-    brought into subjection to the sanctified mind (1 Corinthians 9:27).
-
-**Definition:**
-
-- **Temperance:** The control of the will, under the power of the Holy Spirit,
-  over the appetites and passions.
-
-[ILL] Light passing through a prism breaks into a rainbow of colors—red, orange,
-yellow, green, blue, etc. The "fruit of the Spirit" is like white light; when it
-shines through a human life, it breaks into the beautiful colors of love, joy,
-peace, patience, etc.
-
----
-
-### Q13. Can one bear this fruit of himself?
-
-"As the branch cannot bear fruit of itself, except it abide in the vine; no more
-can ye, except ye abide in Me." John 15:4.
-
-**Answer:** This is the core of Righteousness by Faith.
-
-1.  **Absolute Dependence:** A branch has no life of its own. If you cut it off
-    from the trunk, it cannot produce a single grape; it withers and dies. In
-    the same way, a human being cannot produce one act of genuine, unselfish
-    righteousness apart from Christ.
-2.  **Abiding:** The secret of victory over sin is not trying harder, but
-    "abiding" closer. It is a constant, moment-by-moment dependence on Jesus. We
-    receive His life through prayer and the Word.
-3.  **Imparted Righteousness:** As the sap flows from the vine to the branch,
-    the Holy Spirit flows from Christ to us, imparting His character. We live,
-    yet not we, but Christ liveth in us (Galatians 2:20).
-
-[ILL] A diver underwater depends entirely on the air hose connected to the
-surface. If he pinches the hose to try and "breathe on his own," he dies. We
-must remain connected to Christ, our life-source, every moment to live the
-Christian life.
-
----
-
-### Q14. What was the experience of the two disciples who talked with Jesus on the way to Emmaus?
-
-"And they said one to another, Did not our heart burn within us, while He talked
-with us by the way, and while He opened to us the Scriptures?" Luke 24:32.
-
-**Answer:** Communion with Christ through His Word produces a spiritual vitality
-described as "burning" within the heart.
-
-1.  **The Word Illumined:** Jesus "opened to them the Scriptures." The Bible is
-    the channel through which Christ speaks to the soul. When the Spirit
-    illuminates the Word, it ceases to be dry text and becomes the living voice
-    of God.
-2.  **The Burning Heart:** This represents the warming of the affections, the
-    revival of hope, and the kindling of love for God. It is the antidote to the
-    "lukewarm" condition of Laodicea (Revelation 3:15-16).
-3.  **Christ Centered:** Notice that they burned when He showed them things
-    "concerning Himself" (Luke 24:27). All Scripture finds its center in the
-    cross and the ministry of Christ.
-
-[ILL] If you place a cold iron poker into a blazing fire, it soon becomes hot
-and glows red. It takes on the nature of the fire. When we spend time in the
-fire of God's Word, our cold hearts are warmed and begin to glow with His love.
-
----
-
-### Q15. What blessed experience may all have?
-
-"If any man hear My voice, and open the door, I will come in to him, and will
-sup with him, and he with Me." Rev. 3:20. "And the peace of God, which passeth
-all understanding, shall keep your hearts and minds through Christ Jesus." Phil.
-4:7.
-
-**Answer:** The final evidence of acceptance is the indwelling presence of
-Christ.
-
-1.  **The Divine Knock:** Revelation 3:20 is addressed to the church of
-    Laodicea—the church of the judgment hour. Christ is standing at the door of
-    the heart, knocking. He does not force entry; the will (the door) must be
-    opened by the individual.
-2.  **Intimate Fellowship:** To "sup" (eat) together implies the deepest
-    friendship and communion. It suggests that Christ sustains us (He is the
-    Bread of Life) and that He delights in our fellowship.
-3.  **Peace that Guards:** Philippians 4:7 describes peace as a garrison (a
-    military guard). The peace of God stands sentry over our hearts and minds,
-    protecting us from the assaults of fear and doubt. This is the heritage of
-    the servants of the Lord.
-
-**Conclusion:** Acceptance with God is not a feeling, but a fact based on God's
-promise to the repentant believer. By surrendering the will, trusting in
-Christ's merit, and abiding in Him daily, we have the assurance that we are His
-children.
-
-[ILL] Holman Hunt painted a famous picture of Jesus knocking at a door
-(illustrating Rev 3:20). When asked why there was no handle on the outside of
-the door, the artist replied, "The handle is on the inside." Only you can open
-your heart to Jesus. When you do, He promises to come in.
+The same Christ who walked with the disciples to Emmaus desires to walk with you today—opening the Scriptures, warming your heart, revealing Himself as your Savior, Friend, and Lord. Will you open the door?

@@ -1,315 +1,209 @@
-### Q1. Is there a promise for those who confess their sins?
+# Bible Study: Confession—The Divine Pathway to Spiritual Freedom
 
-"If we confess our sins, He is faithful and just to forgive us our sins, and to
-cleanse us from all unrighteousness." 1 John 1:9.
+## Introduction
 
-**Answer:** This verse contains the dual promise that lies at the heart of the
-plan of salvation: forgiveness for the past and cleansing for the present.
-
-1.  **The Condition:** The promise is conditional upon "confession." Biblical
-    confession is not merely admitting a fact that God already knows; it is the
-    act of the soul agreeing with God concerning the guilt and malignity of sin
-    (Psalm 51:3–4). It involves a laying aside of pride and a genuine turning of
-    the heart to God.
-2.  **Faithful and Just:** It is remarkable that the text says God is "just" to
-    forgive. We might expect it to say "merciful." However, because Christ has
-    paid the penalty for sin on the cross (Romans 3:24–26), justice no longer
-    demands the sinner's death if they are in Christ. God is faithful to His
-    covenant and just in applying Christ’s merits to the repentant believer.
-3.  **Two-Fold Work:**
-    - **Forgiveness (Justification):** This is the legal release from the
-      penalty of sin. The record of guilt is covered by Christ’s blood.
-    - **Cleansing (Sanctification):** God does not merely forgive the legal
-      debt; He attacks the root of the problem. He promises to "cleanse us from
-      all unrighteousness." This is the imparting of Christ's life to the
-      believer, enabling them to overcome sin. The Gospel provides for a change
-      of heart, not just a change of record (Ezekiel 36:25–27).
-
-- **Justification:** God’s legal declaration that a repentant sinner is
-  righteous because of Christ’s merits (Romans 3:24; 5:1).
-- **Sanctification:** The ongoing work of God by which He makes the believer
-  holy in character and life (1 Thessalonians 4:3).
-
-[ILL] **Illustration:** If a workman falls into a pit of mud, he needs two
-things. First, he needs to be pulled out (rescue/forgiveness). But if he is
-pulled out and left covered in filth, he is not fit to enter the King's palace.
-He must also be washed (cleansing). The Gospel of Christ does both: it rescues
-us from the pit of condemnation and washes the character from the defilement of
-sin.
+Confession is one of the most misunderstood and neglected elements of the Christian experience, yet it stands as an essential gateway to forgiveness, healing, and restoration. Far from being a mere ritual or psychological exercise, biblical confession is the honest acknowledgment of sin before a merciful God who waits to cleanse and restore. In the great controversy between good and evil, confession represents the sinner's decisive break with Satan's kingdom and wholehearted return to the loving arms of the Father.
 
 ---
 
-### Q2. To whom besides the Lord should one confess his sins?
+## Core Truths
 
-"Confess your faults one to another, and pray one for another, that ye may be
-healed. The effectual, fervent prayer of a righteous man availeth much." James
-5:16.
+### The Divine Promise of Forgiveness
 
-**Answer:** The Bible distinguishes clearly between sins committed against God
-and offenses committed against our fellow men.
+At the heart of confession lies one of the most precious promises in all of Scripture:
 
-1.  **Confession to God:** Every sin is ultimately a sin against God and His
-    law; therefore, every sin must be confessed to Him (Psalm 51:4). No human
-    priest or leader can mediate between the soul and God for the forgiveness of
-    sins; there is only one Mediator, the man Christ Jesus (1 Timothy 2:5).
-2.  **Confession to Man:** When our actions have injured a neighbor, a brother,
-    or a friend, confession must be made to the one harmed. Reconciliation with
-    our brother is a prerequisite for acceptable worship (Matthew 5:23–24).
-    - If the sin is public, the confession should be public.
-    - If the sin is private, the confession should be private.
-3.  **The Goal is Healing:** The text connects confession with "healing."
-    Unresolved guilt and broken relationships hinder physical and spiritual
-    health. By humbling ourselves to confess our faults to one another, we break
-    down the barriers of pride that prevent the Holy Spirit from working in our
-    midst.
+> _"If we confess our sins, He is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness."_ (1 John 1:9)
 
-[ILL] **Illustration:** If you accidentally break a neighbor's window,
-apologizing to your own father inside your house does not fix the neighbor's
-window. You must go to the neighbor, admit the fault, and make restitution.
-However, you must also ask your father for forgiveness for your carelessness. So
-it is with sin: we make right with man what affects man, and we make right with
-God what affects God.
+Notice the dual nature of God's response to confession:
 
----
+- **Forgiveness**—the pardon of guilt (justification)
+- **Cleansing**—the removal of sin's defilement (sanctification)
 
-### Q3. If one tries to cover up a sin, and will not properly confess it, what effect will such a course have on the delinquent?
+God is described as both **faithful** and **just** in forgiving. He is faithful to His promise and just because Christ has already paid the penalty for our sins. When we confess, we are not begging an unwilling God to show mercy; we are claiming a covenant promise already secured by the blood of Jesus.
 
-"He that covereth his sins shall not prosper; but whoso confesseth and forsaketh
-them shall have mercy." Prov. 28:13.
+[DYK🔎] The Greek word for "confess" (ὁμολογέω, _homologeo_) literally means "to say the same thing"—that is, to agree with God about our sin. True confession means seeing our transgression as God sees it and calling it what He calls it.
 
-**Answer:** This text strikes at the root of human nature—the desire to hide our
-shame (Genesis 3:8).
+### The Proper Scope of Confession
 
-1.  **The Failure of Hiding:** To "cover" sin means to hide it, excuse it, or
-    justify it. The Bible warns that spiritual prosperity is impossible while
-    sin is cherished or concealed. The Holy Spirit cannot dwell in a heart that
-    is deceitful (Psalm 32:2).
-2.  **Confessing and Forsaking:** True Righteousness by Faith is not a cloak for
-    cherished sin. The promise of mercy is for those who confess _and_ forsake.
-    - **Confession** acknowledges the debt.
-    - **Forsaking** turns away from the cause of the debt.
-    - Many fail to find peace because they confess vaguely but have no intention
-      of giving up the practice of sin. Power to forsake comes only through the
-      indwelling Christ, but the will must consent to let the sin go
-      (Philippians 2:13).
-3.  **Christ's Covering:** There is only one covering that God accepts—the Robe
-    of Christ's Righteousness (Isaiah 61:10). We cannot put on this robe over
-    our own "fig leaves" of excuses. We must uncover the sin to Jesus so that He
-    may cover it with His blood.
+Scripture teaches that confession has two dimensions:
 
-[ILL] **Illustration:** A man with a festering wound may bandage it up tight so
-no one can see it. He may look healthy on the outside, but underneath, the
-infection is spreading to his blood. "Covering" the wound does not cure it; it
-only guarantees death. He must expose the wound to the Physician to be cleaned
-and healed.
+**1. Confession to God** (1 John 1:9)
+All sins, without exception, must be confessed to God because every sin, however small in human estimation, grieves His heart and violates His holy law.
+
+**2. Confession to those we have wronged** (James 5:16)
+
+> _"Confess your faults one to another, and pray one for another, that ye may be healed."_ (James 5:16)
+
+The principle is clear: **the circle of confession should match the circle of offense**. A sin against God alone requires confession to God alone. A sin against a brother requires confession both to God and to that brother. A public sin may require public acknowledgment.
+
+[Q] **"Should I confess all my sins to a priest or pastor?"**
+
+Scripture nowhere teaches that a human intermediary is required for forgiveness. We have direct access to God through our one Mediator, Jesus Christ (1 Timothy 2:5). However, when we have wronged others, humility calls us to seek reconciliation with them as well (Matthew 5:23–24). Confessing private sins to another person beyond the one offended is not required and may cause unnecessary harm.
 
 ---
 
-### Q4. Is it possible to hide a sin from God?
+## Deeper Truths
 
-"Be sure your sin will find you out." Num. 32:23. "Thou hast set our iniquities
-before thee, our secret sins in the light of Thy countenance." Ps. 90:8.
+### The Danger of Hidden Sin
 
-**Answer:** The omniscience of God serves as both a warning to the stubborn and
-a comfort to the sincere.
+Solomon warns with solemn clarity:
 
-1.  **The Record Books:** The Bible teaches that a record of every life is kept
-    in heaven (Daniel 7:10; Revelation 20:12). Nothing is hidden from the eyes
-    of Him with whom we have to do (Hebrews 4:13).
-2.  **The Sanctuary Truth:** In the earthly sanctuary, when a sinner brought a
-    sacrifice, the sin was transferred from the sinner to the sanctuary. In the
-    heavenly reality, our sins are recorded. In the great Investigative
-    Judgment, these records will be opened. Sins that have not been confessed
-    and sent beforehand to judgment will stand against the sinner in that day
-    (Ecclesiastes 12:14).
-3.  **Sin Finds Us Out:** Sin has a natural consequence. It hardens the
-    conscience and often leads to public exposure. But even if it remains hidden
-    from men until death, it will meet the sinner at the judgment bar of God.
+> _"He that covereth his sins shall not prosper; but whoso confesseth and forsaketh them shall have mercy."_ (Proverbs 28:13)
 
-- **Investigative Judgment:** The phase of Christ’s ministry in the heavenly
-  sanctuary (starting in 1844) where He reviews the lives of professed believers
-  to see who has remained in the faith, blotting out the sins of the overcoming
-  saints (Daniel 8:14; Acts 3:19).
+The Hebrew word for "prosper" (_tsalach_) means to advance, succeed, or break through. The one who conceals sin may appear outwardly successful, but spiritually he is paralyzed—unable to advance in the Christian life, unable to experience true peace.
 
-[ILL] **Illustration:** A man may commit a crime in the dark, thinking he is
-unseen. But if a recording camera was running the entire time, his secrecy is an
-illusion. God’s record is more accurate than any camera; it records not just the
-act, but the motive and the thought of the heart.
+Some imagine they can hide their sins from God. This is a fatal delusion:
 
----
+> _"Be sure your sin will find you out."_ (Numbers 32:23)
 
-### Q5. How did David feel before he confessed his sins?
+> _"Thou hast set our iniquities before Thee, our secret sins in the light of Thy countenance."_ (Psalm 90:8)
 
-"When I kept silence, my bones waxed old through my roaring all the day long.
-For day and night thy hand was heavy upon me: my moisture is turned into the
-drought of summer." Ps. 32:3, 4.
+[DYK🔎] The phrase "in the light of Thy countenance" refers to God's face—that searching, omniscient gaze before which nothing can be hidden. What darkness conceals from human eyes stands fully exposed before the blazing holiness of God.
 
-**Answer:** David’s experience illustrates the crushing weight of a guilty
-conscience fighting against the Holy Spirit.
+### David's Experience: The Agony of Unconfessed Sin
 
-1.  **The Physical Toll of Guilt:** David describes physical symptoms—bones
-    waxing old, moisture drying up. The burden of unconfessed sin destroys
-    mental peace and physical health. It separates the soul from the Source of
-    Life.
-2.  **The Heavy Hand:** The "heavy hand" of God was actually His mercy in
-    disguise. It was the conviction of the Holy Spirit pressing upon David,
-    urging him to repent before he was lost.
-3.  **The Silence:** "Keeping silence" refers to the refusal to admit guilt. As
-    long as David tried to maintain his innocence or ignore his sin, he was in
-    misery. There is no rest for the wicked (Isaiah 57:20–21).
+Few passages describe the misery of hidden guilt more vividly than David's testimony:
 
-[ILL] **Illustration:** Carrying a heavy backpack all day exhausts the traveler.
-If he refuses to take it off at night, he cannot sleep; his muscles ache, and he
-becomes weak. Unconfessed sin is a burden the soul was never designed to carry.
-Jesus invites us: "Come unto me... and I will give you rest" (Matthew 11:28).
+> _"When I kept silence, my bones waxed old through my roaring all the day long. For day and night Thy hand was heavy upon me: my moisture is turned into the drought of summer."_ (Psalm 32:3–4)
 
----
+David's physical health deteriorated. His spiritual vitality evaporated like water in desert heat. The Holy Spirit's convicting presence—God's "heavy hand"—would not release him.
 
-### Q6. What came to him after confession?
+But then came the turning point:
 
-"I acknowledged my sin unto Thee, and mine iniquity have I not hid. I said, I
-will confess my transgressions unto the Lord; and Thou forgavest the iniquity of
-my sin." Ps. 32:5.
+> _"I acknowledged my sin unto Thee, and mine iniquity have I not hid. I said, I will confess my transgressions unto the Lord; and Thou forgavest the iniquity of my sin."_ (Psalm 32:5)
 
-**Answer:** The transition from verse 4 to verse 5 is the transition from death
-to life.
+The moment David opened his heart in honest confession, forgiveness flowed freely. The burden lifted. Joy returned.
 
-1.  **Instant Forgiveness:** Notice the immediacy. "I said, I will confess...
-    and Thou forgavest." David did not have to do a year of penance. He threw
-    himself on the mercy of the covenant, and God responded instantly.
-2.  **No Excuses:** David says, "I acknowledged my sin." He did not blame
-    circumstances or others (as Adam did). True confession takes full
-    responsibility.
-3.  **Righteousness by Faith:** This is a perfect picture of justification.
-    David had no merit to offer; he had murder and adultery on his record. He
-    offered only a broken heart and faith in God's mercy. God imputed
-    righteousness to him the moment he ceased defending his own unrighteousness
-    (Romans 4:6–8).
+[ILL] Consider a man carrying a heavy stone in his chest—a weight that presses against his heart day and night, making it difficult to breathe, to sleep, to find joy in anything. He grows accustomed to the burden, but it slowly crushes the life from him. Confession is the moment he finally opens his chest and allows the Great Physician to remove the crushing weight. Relief floods in. He breathes freely for the first time in months. This is what David experienced—and what every honest penitent may know.
 
-[ILL] **Illustration:** Imagine a dam holding back a mighty river. The moment
-the sluice gate is opened, the water rushes through. God's mercy is like that
-river, pressing against the door of our hearts. Confession is simply unlocking
-the door; the moment it opens, the grace of God floods in.
+### Christ Our Advocate
+
+The sinner does not approach God alone:
+
+> _"If any man sin, we have an advocate with the Father, Jesus Christ the righteous."_ (1 John 2:1)
+
+**Advocate**: A legal representative who pleads another's case. The Greek word (_parakletos_) is the same word translated "Comforter" for the Holy Spirit—one called alongside to help.
+
+Jesus stands before the Father, not with arguments of our merit, but with the merits of His own blood. He presents His wounded hands and says, "My blood covers this one. I paid the price for this sin."
+
+[Q] **"Why must I confess if Christ already knows my sins?"**
+
+Christ, our Advocate, does know our case fully. But confession is not merely informational—it is relational. When we confess, we:
+
+- Acknowledge our need of a Savior
+- Agree with God's assessment of sin
+- Accept responsibility rather than making excuses
+- Open our hearts to receive His cleansing power
+
+An advocate pleads for a client who admits the need for representation. The unconfessing heart says, "I need no help." The confessing heart says, "I am guilty, but my Advocate has paid my debt."
+
+### Specific Confession
+
+When Israel sought Samuel's intercession, they did not offer vague acknowledgments of general wrongdoing:
+
+> _"And all the people said unto Samuel, Pray for thy servants unto the Lord thy God, that we die not; for we have added unto all our sins this evil, to ask us a king."_ (1 Samuel 12:19)
+
+They named their sin specifically: "to ask us a king."
+
+God desires specific confession because:
+
+- It demonstrates genuine conviction rather than mere formality
+- It shows that we truly understand what we have done
+- It breaks the power of self-deception
+- It prepares the heart for specific victory over that particular sin
+
+[DYK🔎] Ellen White counseled: "True confession is always of a specific character, and acknowledges particular sins. They may be of such a nature as to be brought before God only; they may be wrongs that should be confessed to individuals who have suffered injury through them; or they may be of a public character, and should then be as publicly confessed. But all confession should be definite and to the point, acknowledging the very sins of which you are guilty" (_Steps to Christ_, p. 38).
 
 ---
 
-### Q7. Who is the advocate of the sinner?
+## Principles and Great Controversy Themes
 
-"If any man sin, we have an advocate with the Father, Jesus Christ the
-righteous." 1 John 2:1.
+### Confession and the Sanctuary
 
-**Answer:** We are not left alone to face the broken law of God. We have a
-Representative in the courts of heaven.
+The sanctuary service illuminates the meaning of confession. When an Israelite sinned, he brought a sacrifice to the tabernacle. But before the animal was slain, the sinner placed his hands upon its head and **confessed his sins** (Leviticus 5:5; 16:21). This act symbolically transferred the guilt from the sinner to the innocent substitute.
 
-1.  **The Advocate:** The Greek word is _Parakletos_, meaning one called
-    alongside to help, an intercessor or defense attorney.
-2.  **Jesus Christ the Righteous:** This is crucial. Christ does not plead _our_
-    righteousness, for we have none (Isaiah 64:6). He pleads _His_
-    righteousness. He shows the Father His wounded hands. His perfect obedience
-    is credited to the sinner's account.
-3.  **The High Priestly Ministry:** This points us to the Sanctuary. Jesus is
-    our High Priest in the heavenly places (Hebrews 8:1). He appears in the
-    presence of God for us. He does not excuse sin, but He points to His
-    sacrifice as the payment for it.
-4.  **"If Any Man Sin":** The text does not say "when any man sins," implying
-    that sinning should not be the constant pattern of the Christian life (1
-    John 2:1, first part). But _if_ we fall, the provision for restoration is
-    immediate through Christ.
+This is precisely what happens when we confess our sins today:
 
-- **Advocate:** One who pleads the cause of another. Christ pleads His blood and
-  merits on behalf of the penitent sinner.
+- We acknowledge our guilt before God
+- By faith, we place our sins upon Jesus, our Substitute
+- His blood cleanses us; our guilt is transferred to the heavenly sanctuary record
+- We leave justified—forgiven and accounted righteous
 
-[ILL] **Illustration:** In a courtroom, a defendant who tries to represent
-himself against a skilled prosecutor will lose. But if he has the most powerful
-attorney in the land—one who has never lost a case and who has already paid the
-fine for the crime—he can stand with confidence. Jesus is that Attorney.
+In the final Day of Atonement (the investigative judgment now in progress), these confessed and forsaken sins are blotted out forever (Acts 3:19). But sins unconfessed remain charged to the sinner's account.
 
----
+### Confession and Righteousness by Faith
 
-### Q8. How fully did Israel confess to Samuel when they wished him to intercede before God in their behalf?
+Confession is not a work that earns forgiveness; it is the channel through which grace flows. We do not deserve forgiveness because we confess; we receive forgiveness because Christ died and lives to intercede for us.
 
-"And all the people said unto Samuel, Pray for thy servants unto the Lord thy
-God, that we die not; for we have added unto all our sins this evil, to ask us a
-king." 1 Sam. 12:19.
+Yet confession is inseparable from genuine faith:
 
-**Answer:** General confessions often mask a lack of genuine repentance.
-Israel's confession here teaches us the necessity of being specific.
+- **Faith** sees Jesus as Savior and Lord
+- **Repentance** turns from sin in sorrow
+- **Confession** acknowledges sin honestly before God
+- **Forgiveness** is received as a gift of grace
+- **Cleansing** transforms the character by the indwelling Christ
 
-1.  **Specific Confession:** They did not just say, "We are sinners." They
-    pinpointed the exact sin that stood between them and God: "to ask us a
-    king."
-2.  **The Principle:** Repentance is not a vague feeling of sadness. It is the
-    specific renunciation of specific wrongs. We must ask the Holy Spirit to
-    search our hearts and reveal the specific things that grieve Him (Psalm
-    139:23–24).
-3.  **Acknowledging the Evil:** They admitted that their action was "evil." They
-    stopped calling it a political necessity or a cultural preference and called
-    it what God called it: sin.
+These are not separate steps but one unified experience of salvation. The soul that truly believes will confess; the soul that truly confesses will be cleansed.
 
-[ILL] **Illustration:** If a patient goes to a doctor and says, "I hurt," the
-doctor cannot help much. But if he says, "I have a sharp pain in my chest when I
-breathe," the doctor can diagnose and treat the problem. We must bring our
-specific spiritual symptoms to the Great Physician.
+### The Final Confession
+
+Paul speaks of a day when every soul will acknowledge God:
+
+> _"For it is written, As I live, saith the Lord, every knee shall bow to Me, and every tongue shall confess to God. So then every one of us shall give account of himself to God."_ (Romans 14:11–12)
+
+This is the solemn confession at the end of all things—when even the lost will acknowledge God's justice. But that confession will come too late for mercy. It will vindicate God's character before the universe, but it will not save the impenitent soul.
+
+[Q] **"If everyone will confess eventually, why does it matter when I confess?"**
+
+The difference is everything:
+
+- Confession **now** brings forgiveness, cleansing, and eternal life
+- Confession **then** is merely acknowledgment of facts when probation has closed
+
+Today, confession is a doorway to mercy. In the judgment, it is merely a witness to justice. The time to confess is while the Advocate still pleads, while the sanctuary doors remain open.
 
 ---
 
-### Q9. What are we to expect when we confess our sins?
+## Practical Application
 
-"Have mercy upon me, O God, according to thy loving-kindness: according unto the
-multitude of thy tender mercies blot out my transgressions." Ps. 51:1.
+### How to Make Genuine Confession
 
-**Answer:** When we come to God with a contrite heart, we may expect not only
-forgiveness but the eventual complete removal of the record of sin.
+**1. Come to God honestly**
+Do not minimize, excuse, or blame others. Call sin what God calls it.
 
-1.  **Appeal to Character:** David appeals to God's "loving-kindness" and
-    "tender mercies." Our confidence is not in the intensity of our repentance,
-    but in the depth of God's love.
-2.  **Blotting Out:** This is a sanctuary term. In the earthly service, the
-    blood of the sin offering transferred the sin to the sanctuary record. On
-    the Day of Atonement, the sanctuary was cleansed, and the sins were
-    effectively blotted out.
-3.  **The Final Atonement:** We look forward to the time when, having confessed
-    and forsaken our sins, and having been settled into the truth so that we
-    cannot be moved, our sins will be blotted from the books of heaven forever
-    (Acts 3:19). This prepares a people to stand in the sight of a holy God
-    without an intercessor after probation closes.
+**2. Be specific**
+Name the sin. "Lord, I confess that I spoke harshly to my spouse this morning. I confess my pride and impatience."
 
-- **Blotting Out of Sins:** The final removal of the record of sin from the
-  heavenly books during the judgment, corresponding to the cleansing of the
-  sanctuary on the Day of Atonement (Leviticus 16).
+**3. Accept full responsibility**
+Avoid phrases like "if I offended anyone" or "I'm sorry you felt that way." Say simply, "I was wrong."
 
-[ILL] **Illustration:** If a debt is written in a ledger, the merchant may write
-"Paid" across it. That is forgiveness. But "blotting out" is as if the page were
-wiped clean or burned, leaving no trace that the debt ever existed. God promises
-to cast our sins into the depths of the sea (Micah 7:19).
+**4. Claim the promise**
+After confessing, believe that God forgives according to His word (1 John 1:9). Do not linger in guilt over sins already confessed.
+
+**5. Forsake the sin**
+Confession without intention to change is not true repentance. By God's grace, turn from the sin and walk in newness of life.
+
+**6. Make restitution where possible**
+If you have wronged another, seek reconciliation. If you have stolen, restore what was taken (Luke 19:8).
+
+### Daily Confession
+
+Many find it helpful to examine their hearts at the close of each day, confessing any known sins and claiming cleansing before sleep. This prevents the accumulation of unacknowledged guilt and keeps the channel of communion with God clear.
+
+> _"Search me, O God, and know my heart: try me, and know my thoughts: and see if there be any wicked way in me, and lead me in the way everlasting."_ (Psalm 139:23–24)
 
 ---
 
-### Q10. Will there be a time when every one will confess to God?
+## Appeal
 
-"For it is written, As I live, saith the Lord, every knee shall bow to Me, and
-every tongue shall confess to God. So then everyone of us shall give account of
-himself to God." Rom. 14:11, 12.
+Dear friend, is there unconfessed sin weighing upon your heart today? Perhaps you have tried to hide it, to forget it, to excuse it—but still it haunts you. God already sees it. Nothing is hidden from His eyes.
 
-**Answer:** Universal confession is inevitable, but it will not be universally
-saving.
+But here is the glorious news: **He waits to forgive**. He longs to cleanse. Jesus, your Advocate, stands before the Father this very moment, ready to plead His blood on your behalf.
 
-1.  **Two Kinds of Confession:**
-    - **Voluntary Confession:** Made now, in the day of grace, resulting in
-      salvation and cleansing.
-    - **Involuntary Confession:** Made in the day of judgment, acknowledging
-      God's justice but too late for salvation.
-2.  **The Vindication of God:** The Great Controversy ends with every created
-    being—righteous and wicked, and even Satan himself—acknowledging that God’s
-    ways are just and His law is holy.
-3.  **The Urgent Call:** Since we must all give an account then, wisdom dictates
-    that we settle the account now. Today, while Jesus ministers in the heavenly
-    sanctuary, the door of mercy is open. We may send our sins to judgment
-    beforehand through confession, so that when we appear there, our record is
-    clean.
+Will you not come to Him now? Name your sin. Agree with God about it. Place it by faith upon your Substitute. And then believe His promise:
 
-[ILL] **Illustration:** A criminal can confess before the trial and often
-receive leniency or a plea deal. But after the gavel falls and the sentence is
-read, admitting guilt changes nothing regarding the punishment. We are currently
-in the time of the trial; the sentence has not yet been executed. Now is the
-accepted time (2 Corinthians 6:2).
+> _"If we confess our sins, He is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness."_ (1 John 1:9)
+
+Do not delay until that final day when every tongue must confess—when mercy's door has closed. Confess now, while the Advocate pleads, while grace abounds, while you may yet find pardon and peace.
+
+The fountain is open. The invitation stands. Come, and be cleansed.

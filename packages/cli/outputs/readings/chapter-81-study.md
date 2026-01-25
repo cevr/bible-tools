@@ -1,411 +1,196 @@
-### Introduction
+# Bible Study: The Importance of Obedience
 
-This study examines the vital role of obedience in the plan of salvation. From
-the standpoint of the "Third Angel’s Message" (Revelation 14:12), the remnant
-people of God are identified by two characteristics: the patience of the saints,
-keeping the commandments of God, and having the faith of Jesus.
+## Introduction
 
-Many confuse obedience with legalism (trying to earn heaven by works). However,
-true biblical obedience is the fruit of faith—it is the inevitable result of
-Christ living out His life within the believer (Galatians 2:20). God’s law is a
-transcript of His character; therefore, to be restored to His image means being
-brought back into harmony with His law through the power of the Holy Spirit.
+Obedience to God's word is not merely a matter of outward compliance—it is the very language of love and faith. Throughout Scripture, God reveals that He values sincere, heart-deep obedience above all religious ceremony, and that partial obedience is, in His sight, no obedience at all. This study examines why obedience matters so profoundly, what happens when we compromise God's clear commands, and how we may become genuine "doers of the word" through Christ's enabling power.
 
 ---
 
-### Q1. How does God regard obedience to His word?
+## Core Truths
 
-“Hath the Lord as great delight in burnt offerings and sacrifices, as in obeying
-the voice of the Lord? Behold, to obey is better than sacrifice, and to hearken
-than the fat of rams." 1 Samuel 15:22.
+### Obedience Surpasses Sacrifice
 
-**Answer:** God places the surrender of the will above all outward forms of
-religion. In this account, King Saul offered a sacrifice to God, yet he did so
-while willfully disregarding God’s specific instructions. Samuel’s rebuke
-teaches us that religious activity—church attendance, tithes, or ministry—cannot
-substitute for a heart that listens to and follows God’s voice.
+> _"Hath the Lord as great delight in burnt offerings and sacrifices, as in obeying the voice of the Lord? Behold, to obey is better than sacrifice, and to hearken than the fat of rams."_ (1 Samuel 15:22)
 
-- **The Nature of True Obedience:** It is not merely outward compliance but an
-  inward attitude of "hearkening" (listening with intent to follow). It springs
-  from love, not fear of punishment (John 14:15).
-- **The Failure of Ritualism:** In the earthly sanctuary service, the "fat of
-  rams" was meaningful only as it represented a contrite heart trusting in the
-  coming Redeemer. When offered by a disobedient heart, it became an abomination
-  (Proverbs 28:9).
-- **Righteousness by Faith Connection:** We cannot cover a cherished sin with a
-  religious offering. We must surrender the sin to Christ. Justification (being
-  declared righteous) is not a cloak for disobedience; it is the gateway to a
-  life where the law is written on the heart (Hebrews 8:10).
+This declaration came from the lips of the prophet Samuel to King Saul, who had just offered what he thought was a noble sacrifice—but with animals he had been commanded to destroy. God's response cuts to the heart of true religion:
 
-> **Definition:**
->
-> - **Sanctification:** The process by which the Holy Spirit sets the believer
->   apart for God's use, transforming their character to be like Jesus,
->   resulting in a life of willing obedience (1 Thessalonians 4:3).
+- **Religious ritual without obedience is worthless.** Saul multiplied sacrifices while violating the plain command of God. Heaven was not impressed.
+- **Obedience is the highest form of worship.** It acknowledges God's authority, wisdom, and love. Sacrifice can be self-serving; obedience is self-surrendering.
+- **Listening ("hearkening") is inseparable from doing.** True hearing leads to action (James 1:22).
 
-**[ILL]** Imagine a child who breaks a vase because he was playing ball in the
-house after being told not to. He then brings his mother a bouquet of flowers to
-smooth things over, but immediately picks up the ball to play in the house
-again. Does the mother delight in the flowers? No. She desires a heart that
-respects her word. So it is with God; He desires the surrender of our will more
-than our "flowers" of formal worship.
+[DYK🔎] The Hebrew word for "obey" in this passage is _shama_, which means both "to hear" and "to obey." In the biblical mind, hearing God's voice without obeying it was inconceivable—the two were one act.
 
----
+### The Gravity of Rebellion and Stubbornness
 
-### Q2. To what are rebellion and stubbornness likened?
+> _"For rebellion is as the sin of witchcraft, and stubbornness is as iniquity and idolatry."_ (1 Samuel 15:23)
 
-“For rebellion is as the sin of witchcraft, and stubbornness is as iniquity and
-idolatry." 1 Samuel 15:23.
+God equates disobedience with two of the gravest sins known in Israel:
 
-**Answer:** The Holy Spirit uses strong language here to show the true nature of
-sin.
+- **Rebellion = Witchcraft.** Witchcraft sought to manipulate spiritual forces outside of God's will. Rebellion does the same—it places self-will above God's revealed will, seeking to control outcomes on our own terms.
+- **Stubbornness = Idolatry.** The stubborn heart has enthroned self as god. It worships its own opinions, preferences, and comforts above the word of the Lord.
 
-- **Witchcraft:** Witchcraft is seeking power or knowledge from a source other
-  than God. When we rebel against God’s Word to follow our own way, we are
-  effectively cutting ourselves off from God’s power and placing ourselves under
-  the control of the enemy.
-- **Idolatry:** Stubbornness is called idolatry because it elevates the human
-  will above the Divine will. When a man refuses to yield his opinion to a "Thus
-  saith the Lord," he is worshipping himself. He has made an idol of his own
-  mind.
+[Q] **"Isn't this comparison too harsh? Saul was just trying to offer a better sacrifice."**
 
-This reveals that the root of all sin is self-worship (Isaiah 14:12–14). The
-remedy is the complete humbling of self and the enthroning of Christ in the
-heart.
+The severity of God's response reveals a principle often missed: _the spirit behind disobedience is the same spirit that drives occultism and idolatry_—independence from God. Saul's outward act appeared religious, even commendable. But his heart was trusting his own judgment over God's explicit command. This is the essence of sin (Isaiah 53:6). God looks upon the heart (1 Samuel 16:7), and He saw in Saul's "sacrifice" the seeds of witchcraft and idolatry—self-will masquerading as worship.
+
+### The Danger of Excuses
+
+> _"I have transgressed the commandment of the Lord, and thy words; because I feared the people, and obeyed their voice."_ (1 Samuel 15:24)
+
+Saul's excuse is tragically common:
+
+- **"I feared the people."** The fear of man became greater than the fear of God.
+- **"I obeyed their voice."** He exchanged obedience to God for obedience to public opinion.
+
+[ILL] Consider a soldier who disobeys his commander's orders because his comrades wanted a different plan. When he stands before the court-martial, will his excuse—"I feared my friends and obeyed their voice"—be accepted? How much less shall such excuses stand before the Judge of all the earth!
+
+The Bible warns: _"The fear of man bringeth a snare: but whoso putteth his trust in the Lord shall be safe."_ (Proverbs 29:25)
 
 ---
 
-### Q3. What excuse did Saul make for his disobedience?
+## Deeper Truths
 
-“I have transgressed the commandment of the Lord, and thy words; because I
-feared the people, and obeyed their voice." 1 Samuel 15:24.
+### God's Word Must Not Be Altered
 
-**Answer:** Saul’s downfall was the fear of man rather than the fear of God.
+> _"Ye shall not add unto the word which I command you, neither shall ye diminish aught from it, that ye may keep the commandments of the Lord your God which I command you."_ (Deuteronomy 4:2)
 
-- **The Trap of Peer Pressure:** Saul knew what was right, but the pressure of
-  the crowd caused him to compromise. This is a warning for the last days, where
-  popularity and majority opinion will often run contrary to the commandments of
-  God (Exodus 23:2).
-- **Shifted Responsibility:** A sign of an unrepentant heart is blaming
-  circumstances or other people for our sins. True repentance involves saying,
-  "I have sinned," without adding "but..." (Psalm 51:3–4).
+This command, given at the threshold of the Promised Land, establishes a principle for all time:
 
-> **Definition:**
->
-> - **Transgression:** Literally "stepping across." It is the act of crossing
->   the boundary line God has set for our protection and happiness (1 John 3:4).
+- **Adding to God's word** substitutes human tradition for divine authority.
+- **Diminishing from God's word** removes what God considers essential.
+- **Both are forbidden** because both distort the character and will of God.
 
-**[ILL]** A compass needle should point north. If you place a magnet near it,
-the needle will swing toward the magnet instead. Saul’s heart should have
-pointed to God, but the "magnet" of the people’s praise pulled him off course.
-We must be grounded in Christ so that no earthly magnet can divert our loyalty
-from His law.
+[DYK🔎] This same warning bookends Scripture. In the last chapter of the Bible, Jesus declares: _"If any man shall add unto these things, God shall add unto him the plagues that are written in this book: And if any man shall take away from the words of the book of this prophecy, God shall take away his part out of the book of life."_ (Revelation 22:18–19)
 
----
+### The Man of God and the Lying Prophet
 
-### Q4. How strictly does God require His commandments to be kept?
+One of the most sobering narratives on obedience appears in 1 Kings 13. A nameless prophet from Judah was sent to Bethel with a direct, personal command from God:
 
-"Ye shall not add unto the word which I command you, neither shall ye diminish
-aught from it, that ye may keep the commandments of the Lord your God which I
-command you." Deuteronomy 4:2.
+> _"For so was it charged me by the word of the Lord, saying, Eat no bread, nor drink water, nor turn again by the same way that thou camest."_ (1 Kings 13:9)
 
-**Answer:** God requires exact obedience because His law is perfect (Psalm
-19:7).
+The prophet faithfully refused King Jeroboam's invitation (v. 7–8). But then came a subtler test:
 
-1.  **No Adding:** We must not add human traditions or burdensome rules that God
-    has not imposed (Matthew 15:9). This leads to legalism and Pharisees.
-2.  **No Diminishing:** We must not explain away the parts of the Bible that are
-    inconvenient or unpopular. This leads to liberalism and lawlessness.
-3.  **The Standard:** God’s government is exact. Just as the laws of physics
-    (gravity, inertia) are constant, so the moral law is unchangeable. Jesus
-    came not to destroy the law, but to fulfill it—to show us how to keep it
-    through the power of the Spirit (Matthew 5:17).
+> _"He said unto him, I am a prophet also as thou art; and an angel spake unto me by the word of the Lord, saying, Bring him back with thee into thine house, that he may eat bread and drink water. But he lied unto him."_ (1 Kings 13:18)
 
-**[ILL]** If a doctor writes a prescription for a specific medicine to cure a
-deadly disease, would you say, "I will take away two ingredients and add three
-of my own"? No. To alter the prescription is to invite death. God’s Word is the
-prescription for the sin-sick soul; we must take it exactly as the Great
-Physician has written it.
+The man of God yielded. He believed a man's word over the word God had given him directly. The result was swift and fatal: a lion slew him on the road, and his body never came to the tomb of his fathers (1 Kings 13:21–24).
 
----
+**Lessons from this tragedy:**
 
-### Q5. Who was sent from Judah to Bethel with a message from God?
+1. **No subsequent "revelation" can contradict God's prior command.** God does not contradict Himself. If a message contradicts what God has clearly spoken, it is not from God—regardless of the messenger's credentials (Galatians 1:8; Isaiah 8:20).
 
-“And, behold, there came a man of God out of Judah by the word of the Lord unto
-Bethel: and Jeroboam stood by the altar to burn incense." 1 Kings 13:1.
+2. **Personal accountability cannot be transferred.** The man of God could not blame the old prophet at the judgment. He knew what God had said to _him_.
 
-**Answer:** A nameless "man of God" (a prophet) was sent to rebuke King
-Jeroboam, who had set up a counterfeit system of worship (golden calves) to keep
-the people from going to Jerusalem. God sent a messenger to protest against this
-false worship, showing that God does not leave His people without warning when
-they drift into apostasy.
+3. **Familiarity and religious position do not guarantee truth.** The deceiver was an old prophet—experienced, respected, perhaps even well-meaning. But his word was a lie.
+
+4. **Obedience must be to God's word, not to human opinion about God's word.**
+
+[Q] **"But how can we know which voice to trust when spiritual authorities disagree?"**
+
+This is why personal knowledge of Scripture is essential. The Bereans were "more noble" because they _"searched the scriptures daily, whether those things were so"_ (Acts 17:11). Every claim—even from prophets, pastors, or angels—must be tested by the written word of God. _"To the law and to the testimony: if they speak not according to this word, it is because there is no light in them."_ (Isaiah 8:20)
+
+### Nadab and Abihu: Strange Fire
+
+> _"And Nadab and Abihu, the sons of Aaron, took either of them his censer, and put fire therein, and put incense thereon, and offered strange fire before the Lord, which He commanded them not. And there went out fire from the Lord, and devoured them."_ (Leviticus 10:1–2)
+
+The priests were to take fire only from the altar of burnt offering—fire kindled by God Himself (Leviticus 9:24; 16:12). Nadab and Abihu substituted common fire, perhaps thinking it made no difference.
+
+**Why did this matter so much?**
+
+- **The sanctuary was a model of heavenly realities.** Every element pointed to Christ and the plan of salvation. To alter the pattern was to distort the gospel itself.
+- **The fire from the altar represented God's acceptance of the sacrifice**—ultimately, Christ's atoning death. To bring "strange fire" was to suggest that man could approach God on his own terms, apart from the divinely appointed way.
+- **The severity of the judgment was proportional to the privilege of the priests.** They had witnessed God's glory; their light was great, and so was their responsibility (Luke 12:48).
+
+[DYK🔎] Jewish tradition suggests that Nadab and Abihu may have been under the influence of wine, which would explain why God immediately afterward commanded priests not to drink wine when entering the tabernacle (Leviticus 10:8–9). Intoxicants dull the conscience and make disobedience seem reasonable.
 
 ---
 
-### Q6. What did king Jeroboam invite the man to do?
+## Principles and Great Controversy Themes
 
-“And the king said unto the man of God, Come home with me, and refresh thyself,
-and I will give thee a reward." 1 Kings 13:7.
+### The Heart of the Conflict
 
-**Answer:** After the prophet gave his message, the king tried to neutralize the
-rebuke with hospitality and bribery. This is a common tactic of the enemy: if he
-cannot silence the truth with threats, he attempts to dilute it with worldly
-favor, compromise, and "rewards."
+The Great Controversy between Christ and Satan is, at its core, a controversy over _authority_—whose word shall govern the universe. Satan rebelled because he desired to exalt his will above God's (Isaiah 14:13–14). He tempted Eve by casting doubt on God's word: _"Yea, hath God said?"_ (Genesis 3:1).
 
----
+Every act of disobedience echoes that original rebellion. Every act of obedience is a vote for God's government, a declaration that His wisdom is trustworthy and His love is safe.
 
-### Q7. What reply did he return to the king?
+- **Obedience is the test of loyalty in the Great Controversy.**
+- **Partial obedience sides with the enemy,** for it says, "God, I will follow You—but only so far."
+- **Obedience from the heart, enabled by Christ, is the fruit of genuine faith.**
 
-“If thou wilt give me half thine house, I will not go in with thee, neither will
-I eat bread nor drink water in this place; for so was it charged me by the word
-of the Lord." 1 Kings 13:8, 9.
+### Sanctuary Connections
 
-**Answer:** At first, the man of God stood firm. He understood that to eat with
-the king would be to fellowship with his idolatry (1 Corinthians 5:11). His
-refusal was based on a direct command from God: "Eat no bread, nor drink water."
-His loyalty to God’s word was stronger than the allure of the king’s palace.
+The sanctuary services teach us that God has appointed _one way_ of approach to Himself—through the sacrifice and ministry of Christ:
 
----
+- **Outer Court (Altar of Burnt Offering):** We come only through the blood of the Lamb. No "strange sacrifice" will do.
+- **Holy Place (Golden Altar of Incense):** Our prayers ascend through Christ's mediation. We cannot bring "strange fire"—human merit, self-righteousness, or invented worship.
+- **Most Holy Place:** In the final judgment, Christ examines whether His people have truly allowed His law to be written in their hearts (Hebrews 10:16). Obedience is not the _ground_ of salvation, but it is the _evidence_ of genuine faith.
 
-### Q8. Who also dwelt at Bethel?
+The sanctuary teaches that obedience is not an arbitrary test—it is the natural response to redemption. Those who truly understand what Christ has done _want_ to obey, for love constrains them (2 Corinthians 5:14).
 
-“Now there dwelt an old prophet in Bethel." 1 Kings 13:11.
+### Righteousness by Faith and Obedience
 
-**Answer:** This "old prophet" represents those who once knew the truth and had
-a reputation for godliness but had lost their connection with Heaven. He was
-living in the midst of idolatry (Bethel) without protesting against it. He
-represents a backslidden church or leader who retains the title of "prophet" but
-lacks the Spirit.
+[Q] **"If we are saved by grace through faith, why does obedience matter so much?"**
 
----
+This is the question Paul anticipated: _"Shall we continue in sin, that grace may abound? God forbid."_ (Romans 6:1–2)
 
-### Q9. What did this old prophet say to the man of God?
+Righteousness by faith does not make obedience optional—it makes obedience _possible_. Before conversion, the carnal mind _"is not subject to the law of God, neither indeed can be"_ (Romans 8:7). But when Christ dwells in the heart by faith:
 
-“Then he said unto him, Come home with me, and eat bread." 1 Kings 13:15.
+- **His righteousness is imputed** (credited to our account—justification).
+- **His righteousness is imparted** (worked out in our lives—sanctification).
+- **His law is written in our hearts** (Hebrews 8:10).
+- **We are enabled to "keep the commandments of God" by His indwelling power** (Revelation 14:12; Philippians 2:13).
 
-**Answer:** The temptation now came from a different source. It was no longer
-the wicked king, but a fellow "prophet." The test of obedience often becomes
-hardest when the temptation comes from within the church or from respected
-religious leaders.
+Obedience is not earning salvation; it is the _fruit_ of salvation. A tree does not produce fruit in order to become a tree; it produces fruit because it _is_ a tree. So the believer obeys, not to become righteous, but because Christ's righteousness is being formed within.
+
+[ILL] A drowning man is rescued by a lifeguard and brought safely to shore. Once on land, he does not pay for his rescue—it was free. But his gratitude moves him to live differently: he learns to swim, he warns others of the danger, he honors the one who saved him. So it is with the saved sinner. We obey, not to earn life, but because Christ has given it freely—and love compels us to follow Him.
 
 ---
 
-### Q10. After hearing his refusal, and the reason for it, what did he say to the man of God?
+## Practical Application
 
-“He said unto him, I am a prophet also as thou art; and an angel spake unto me
-by the word of the Lord, saying, Bring him back with thee into thine house, that
-he may eat bread and drink water. But he lied unto him." 1 Kings 13:18.
+### Examine Yourself
 
-**Answer:** This is the crux of the deception. The old prophet claimed to have a
-fresh revelation ("an angel spake unto me") that contradicted the plain Word of
-God given to the man of God earlier.
+- **Is there any command of God I am knowingly neglecting?** Saul kept most of the command—but partial obedience was counted as rebellion.
+- **Am I following human voices over God's plain word?** The man of God fell because he believed a man rather than the direct command he had received.
+- **Am I offering "strange fire"—substituting human invention for God's appointed way?**
 
-- **The Test of Truth:** God does not contradict Himself (Malachi 3:6). If an
-  angel, a prophet, or a miracle worker speaks something contrary to what God
-  has already commanded in His Word, they are to be rejected (Galatians 1:8;
-  Isaiah 8:20).
-- **The Danger:** We must never trust "impressions," "feelings," or the word of
-  man above the written Word of God.
+### Test All Things by Scripture
 
----
+- _"Prove all things; hold fast that which is good."_ (1 Thessalonians 5:21)
+- _"To the law and to the testimony: if they speak not according to this word, it is because there is no light in them."_ (Isaiah 8:20)
 
-### Q11. What effect did this persuasive statement have upon him?
+No tradition, no teacher, no experience can override the plain word of God. The Bereans are our model.
 
-” So he went back with him, and did eat bread in his house, and drank water." 1
-Kings 13:19.
+### Build on the Rock
 
-**Answer:** The man of God fell because he trusted the word of a man over the
-Word of God. He likely thought, "This man is older and more experienced; surely
-God has spoken to him." This illustrates a fatal error: delegating our
-conscience to others. Every believer must study the Word for themselves and obey
-it, regardless of what others say.
+> _"Whosoever heareth these sayings of mine, and doeth them, I will liken him unto a wise man, which built his house upon a rock."_ (Matthew 7:24)
 
----
+Christ draws a sharp distinction:
 
-### Q12. What was the result of his yielding to the lying importunities of the prophet?
+- **The wise man hears and obeys.** His house stands through every storm.
+- **The foolish man hears but does not obey.** His house falls, and great is the fall.
 
-“Thus saith the Lord, Forasmuch as thou has disobeyed the mouth of the Lord, and
-hast not kept the commandment which the Lord thy God commanded thee, but camest
-back, and hast eaten bread and drunk water in the place of the which the Lord
-did say to thee, Eat no bread, and drink no water; thy carcass shall not come
-unto the sepulcher of thy fathers." 1 Kings 13:21, 22.
+The difference is not in _hearing_—both heard. The difference is in _doing_. _"Be ye doers of the word, and not hearers only, deceiving your own selves."_ (James 1:22)
 
-**Answer:** The result was judgment and death (he was later killed by a lion).
-This severe outcome teaches us that God is particular. It might have seemed a
-"small thing" to eat a meal, but the act involved doubting God's veracity.
+### The Fourth Commandment as a Test
 
-- **Righteousness by Faith:** Faith is taking God at His word. When we disobey,
-  we are demonstrating unbelief.
-- **Solemn Warning:** Even those who have been used by God to do great things
-  (like this man of God) can fall if they take their eyes off the Master and
-  listen to human voices.
+As the original note in this study suggests, the Sabbath commandment stands as a particular test of obedience in these last days. The precept is plain: _"The seventh day is the sabbath of the Lord thy God."_ (Exodus 20:10)
+
+Millions have heard this command but have followed tradition instead of Scripture. Yet in the judgment, how shall any excuse stand when the word reads so clearly? God does not say one thing and mean another.
+
+[Q] **"But surely God understands—so many sincere Christians keep Sunday."**
+
+Sincerity is precious, but it cannot turn error into truth. Saul was sincere; Nadab and Abihu were sincere; the man of God was sincere when he believed the old prophet. God is merciful to those who walk in all the light they have—but when greater light comes, greater accountability follows (John 9:41; Acts 17:30). Those who see the truth of the Sabbath and refuse to obey will not be guiltless.
 
 ---
 
-### Q13. Where was the priest to obtain the fire with which he offered incense in the sanctuary?
+## Appeal
 
-” And he shall take a censer full of burning coals of fire from off the altar
-before the Lord." Lev. 16:12.
+> _"Not everyone that saith unto Me, Lord, Lord, shall enter into the kingdom of heaven: but he that doeth the will of My Father which is in heaven."_ (Matthew 7:21)
 
-**Answer:** In the earthly sanctuary, the fire on the altar of burnt offering
-was originally kindled by God Himself (Leviticus 9:24). It was "holy fire."
+Dear reader, it is not enough to call Jesus "Lord" with the lips while the life contradicts His word. Heaven is looking for doers of the word—not in their own strength, but through the power of Christ who works in them _"both to will and to do of His good pleasure"_ (Philippians 2:13).
 
-- **Sanctuary Typology:** The fire represents the merit of Christ’s sacrifice
-  and the work of the Holy Spirit. Only the fire that God provides can make our
-  prayers (incense) acceptable. We cannot generate this heat or light ourselves.
+The great controversy will soon close. Every soul will have decided whose voice to obey—God's or the world's. May we be among those who, by faith, receive the enabling grace of Christ and keep the commandments of God from a heart transformed by love.
 
----
+_"If ye love Me, keep My commandments."_ (John 14:15)
 
-### Q14. What two priests ventured to disobey this instruction?
-
-“And Nadab and Abihu, the sons of Aaron, took either of them his censer, and put
-fire therein, and put incense thereon, and offered strange fire before the Lord,
-which He commanded them not." Lev. 10:1.
-
-**Answer:** Nadab and Abihu, the sons of the High Priest, used "strange
-fire"—common fire of their own kindling—instead of the holy fire from the altar.
-
-- **The Meaning of Strange Fire:** This represents trying to serve God with
-  common, human energy, excitement, or methods, rather than the sanctified power
-  of the Holy Spirit. It represents **Self-Righteousness**—bringing our own
-  "good works" to God instead of relying wholly on the merits of Christ (the
-  true Altar).
-- **Alcohol Connection:** Leviticus 10:9 suggest they may have been under the
-  influence of alcohol, which clouded their ability to distinguish between the
-  holy and the profane.
-
-> **Definition:**
->
-> - **Atonement:** The work of reconciliation. In the sanctuary, this could only
->   be accomplished by the blood (life) of the victim and the fire (power) of
->   God. Man has no part in providing the atonement; his part is to accept it.
-
----
-
-### Q15. And what came of their disobedience?
-
-“And there went out fire from the Lord, and devoured them, and they died before
-the Lord." Lev. 10:2.
-
-**Answer:** The fire of God’s presence, which is life to the obedient, became a
-consuming fire to the disobedient (Hebrews 12:29). This demonstrates that God is
-holy. We cannot approach Him in a careless, self-willed manner. The plan of
-salvation is designed to save us _from_ sin, not _in_ sin.
-
----
-
-### Q16. For what purpose were these Old Testament examples written?
-
-“Now all these things happened unto them for ensamples: and they are written for
-our admonition, upon whom the ends of the world are come." 1 Cor. 10:11.
-
-**Answer:** These are not merely old stories; they are types and shadows for the
-church in the last days.
-
-- **Admonition:** We are living in the antitypical Day of Atonement. Just as
-  ancient Israel had to afflict their souls and put away sin during that day, so
-  we, "upon whom the ends of the world are come," are called to a standard of
-  holiness through faith in Jesus.
-- **Historicism:** We stand at the climax of the Great Controversy. The
-  deceptions of the "old prophet" and the temptation of "strange fire" are
-  rampant today. We need the Bible as our safeguard.
-
----
-
-### Q17. In view of these examples, what ought all to do?
-
-“But be ye doers of the word, and not hearers only, deceiving your own selves."
-James 1:22.
-
-**Answer:** Hearing the truth, agreeing with the truth, or even teaching the
-truth does not save a man. The truth must be assimilated into the life.
-
-- **Self-Deception:** The most dangerous deception is believing we are saved
-  because we know the correct doctrines, while our hearts remain unchanged and
-  rebellious.
-- **Practical Application:** If we know the Sabbath is holy, we must keep it. If
-  we know our bodies are temples, we must care for them. Faith that does not
-  lead to action is dead (James 2:26).
-
-**[ILL]** A man may study a map for hours, memorizing every turn and landmark.
-But if he never gets in the car and drives, he will never reach his destination.
-Being a "hearer only" is like memorizing the map but staying home. Being a
-"doer" is traveling the path to the Kingdom.
-
----
-
-### Q18. Who only will enter the kingdom of heaven?
-
-” Not everyone that saith unto Me, Lord, Lord, shall enter into the kingdom of
-heaven: but he that doeth the will of My Father which is in heaven." Matt. 7:21.
-
-**Answer:** Jesus destroys the false hope of those who claim a relationship
-("Lord, Lord") without the reality of surrender.
-
-- **The Will of the Father:** This is summarized in the Ten Commandments and the
-  law of self-sacrificing love.
-- **Imputed vs. Imparted Righteousness:** We are saved solely by Christ's merit
-  (imputed righteousness), but the evidence that we have received this merit is
-  that we begin to do the Father's will (imparted righteousness). A "faith" that
-  does not produce obedience is a counterfeit.
-
----
-
-### Q19. To whom does Christ liken the man who obeys the word of God?
-
-“I will liken him unto a wise man, which built his house upon a rock; and the
-rain descended, and the floods came, and the winds blew, and beat upon that
-house; and it fell not: for it was founded upon a rock." Matt. 7:24, 25.
-
-**Answer:**
-
-- **The Rock:** The Rock is Jesus Christ and His unchangeable Word (1
-  Corinthians 10:4).
-- **The Wise Builder:** He digs deep. He doesn't just place his religious life
-  on the surface of feelings or tradition. He digs down until he finds the solid
-  Word of God and anchors his life there by obedience.
-- **The Storm:** Trials, temptations, and the final judgment will test every
-  character. Those united with Christ by faith and obedience will stand.
-
----
-
-### Q20. To whom does He liken him who hears, but does not obey?
-
-“And everyone that heareth these sayings of mine, and doeth them not, shall be
-likened unto a foolish man, which built his house upon the sand, and the rain
-descended, and the floods came, and the winds blew, and beat upon that house;
-and it fell, and great was the fall of it." Matt. 7:26, 27.
-
-**Answer:**
-
-- **The Sand:** Human theories, popular opinion, feelings, and traditions. Sand
-  shifts. It looks solid in the sunshine, but it dissolves in the storm.
-- **The Foolish Builder:** Notice that he also built a house. He may have looked
-  just like the wise man to the casual observer. He went to church, he heard the
-  sayings of Jesus. But he did not _obey_. His religion was superficial.
-- **The Great Fall:** When the crisis comes, a character not formed by the
-  indwelling power of Christ and obedience to His law will collapse.
-
-**[ILL]** Two ships may look identical in the harbor. But one has an anchor
-firmly lodged in the bedrock of the ocean floor; the other has an anchor that is
-just hanging in the water or resting on shifting mud. You cannot tell the
-difference in calm weather. But when the hurricane comes, one holds fast, and
-the other is driven onto the rocks. Obedience is the chain that connects us to
-the Anchor, Christ Jesus.
-
----
-
-### Summary Note
-
-God does not say one thing and mean another. As we have seen with Saul, the Man
-of God, and Nadab and Abihu, "small" deviations from God's express command are
-seen by Heaven as rebellion.
-
-Today, the Christian world is tested on the Fourth Commandment. God says, "The
-seventh day is the Sabbath of the Lord." Tradition says, "The first day." Like
-the Man of God in 1 Kings 13, we are faced with a choice: Do we follow the clear
-Word of the Lord, or the contradictory voice of "old prophets" and tradition? In
-the judgment, only the house built on the Rock of God's Word will stand.
-
-> "Here is the patience of the saints: here are they that keep the commandments
-> of God, and the faith of Jesus." (Revelation 14:12).
+Will you, today, surrender every known disobedience to Jesus Christ? Will you ask Him for the power to obey—not in legalistic fear, but in loving trust? He who calls you is faithful, and He will do it (1 Thessalonians 5:24).

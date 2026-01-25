@@ -1,433 +1,256 @@
-### Q1. By what are men sanctified?
+# Bible Study: Present Truth
 
-**“Sanctify them through thy truth: thy word is truth.” John 17:17.**
+## Introduction
 
-**Answer:** Sanctification is the process by which the Holy Spirit transforms
-the character of the believer into the likeness of Christ. According to the
-prayer of Jesus, the instrument used for this transformation is **the truth**
-found in God’s Word.
-
-- **The Source of Holiness:** We cannot sanctify ourselves by human effort or
-  social reform. Holiness is an attribute of God, imparted to us as we receive
-  His Word into our hearts (1 Thessalonians 2:13).
-- **The Role of Truth:** Error and falsehood darken the mind and enslave the
-  soul to sin. Truth—specifically the truth about God’s character of love and
-  His law—liberates the mind and purifies the affections (John 8:32).
-- **A Progressive Work:** Sanctification is not the work of a moment; it is the
-  work of a lifetime. As we learn more truth from the Bible, we are called to
-  advance in holiness.
-
-**Definition:**
-
-- **Sanctification:** The ongoing work of God’s grace by which the believer is
-  set apart for holy use and gradually made holy in character, resulting in
-  obedience to God’s law (1 Thessalonians 4:3; 5:23).
+Throughout salvation history, God has sent specific messages for specific times. These messages, when believed and obeyed, bring salvation; when rejected, they bring destruction. Today, as in every generation, God has a "present truth"—a timely message designed to prepare a people for what lies ahead. Understanding this principle transforms how we read Scripture and respond to God's call in our own day.
 
 ---
 
-### Q2. Would God have all men come to the knowledge of the truth?
+## Core Truths
 
-**“Who will have all men to be saved, and to come unto the knowledge of the
-truth.” 1 Tim. 2:4.**
+### The Foundation: Truth Sanctifies
 
-**Answer:** God’s desire for humanity is universally benevolent. He does not
-predestinate any soul to be lost; rather, He has provided an atonement
-sufficient for the entire world.
+God's word is the instrument of sanctification: _"Sanctify them through thy truth: thy word is truth"_ (John 17:17). This is not mere intellectual agreement with facts, but a transforming power that purifies the soul.
 
-- **The Divine Will:** God’s "will" here expresses His deep desire and
-  provision. He has done everything possible, short of violating free will, to
-  bring every person to salvation (2 Peter 3:9).
-- **Knowledge and Salvation:** Salvation is inextricably linked to the
-  "knowledge of the truth." We cannot be saved in willful ignorance. To be saved
-  from sin (which is a lie), we must embrace the truth as it is in Jesus.
+**Sanctification** (definition): The ongoing work of the Holy Spirit, making the believer holy in character and conduct through the truth of God's word (1 Thessalonians 4:3).
 
----
+Notice the divine progression revealed in Scripture:
 
-### Q3. After receiving a knowledge of the truth, what must one do to be sanctified?
+1. **Knowledge of truth** — God desires all to attain it (1 Timothy 2:4)
+2. **Belief of truth** — "Sanctification of the Spirit and belief of the truth" (2 Thessalonians 2:13)
+3. **Obedience to truth** — "Sanctification of the Spirit, unto obedience" (1 Peter 1:2)
+4. **Purification through truth** — "Ye have purified your souls in obeying the truth through the Spirit" (1 Peter 1:22)
 
-**“God hath from the beginning chosen you to salvation through sanctification of
-the Spirit and belief of the truth.” 2 Thess. 2:13.**
+Truth is not a passive possession but an active power. We do not merely _hold_ truth; truth _holds_ us—and transforms us.
 
-**Answer:** Knowing the truth intellectually is not enough. It must be combined
-with two essential elements:
+[DYK🔎] The Greek word for "sanctify" (_hagiazō_) shares the same root as "holy" (_hagios_). To be sanctified is literally to be "made holy"—set apart for sacred use, cleansed from common defilement.
 
-1.  **Sanctification of the Spirit:** The Holy Spirit must apply the truth to
-    the heart. The Spirit convinces us of sin and righteousness (John 16:8) and
-    empowers the will to yield to God.
-2.  **Belief of the Truth:** This "belief" is more than mental assent; it is
-    saving faith. It is a "faith that works by love" (Galatians 5:6). We must
-    personally accept the truth as God’s message to _us_.
+### Worship in Spirit and Truth
 
-**Righteousness by Faith Connection:** We are chosen for salvation not because
-of our own merits, but through the work of the Spirit and our faith in Christ.
-The Spirit brings the righteousness of Christ and imparts it to the believer,
-making the truth a living reality in the life.
+_"God is a Spirit: and they that worship Him must worship Him in spirit and in truth"_ (John 4:24).
 
----
+Acceptable worship requires both elements:
 
-### Q4. And what is necessary besides believing it?
+- **Spirit** — Sincere heart devotion, empowered by the Holy Spirit
+- **Truth** — Accordance with God's revealed will in Scripture
 
-**“Elect according to the foreknowledge of God the Father, through
-sanctification of the Spirit, unto obedience.” 1 Peter 1:2.**
+One without the other is incomplete. Emotional fervor without truth becomes superstition. Doctrinal correctness without the Spirit becomes cold formalism. God calls us to both.
 
-**Answer:** True faith always leads to obedience. The text shows the goal of
-election and sanctification is "unto obedience."
+### The Value of Truth
 
-- **The Fruit of Faith:** Faith is the root; obedience is the fruit. If a person
-  claims to believe the truth but persists in willful disobedience to God’s law,
-  their faith is dead (James 2:17–20).
-- **The Power to Obey:** This obedience is not a legalistic attempt to earn
-  heaven. It is the result of the "sanctification of the Spirit." When the
-  Spirit writes the law on the heart (Hebrews 8:10), obedience becomes the
-  natural outflow of a new nature.
+_"Buy the truth, and sell it not"_ (Proverbs 23:23).
 
-**[ILL]** A blueprint is necessary to build a house, but possessing the
-blueprint does not build the walls. You must follow the blueprint. Similarly,
-knowing Bible truth is the blueprint for a holy life, but "obedience" is the
-actual building of that life through the power of the Spirit.
+This striking command treats truth as the most valuable commodity. We should:
+
+- **Buy it** — Pursue it at any cost (time, effort, sacrifice)
+- **Never sell it** — Refuse to compromise it for popularity, ease, or worldly advantage
+
+[Q] **"But isn't sincerity enough? If someone is sincere in their beliefs, does the specific content of truth really matter?"**
+
+Sincerity is essential—but insufficient. A man sincerely drinking poison will still die. God desires both sincerity _and_ truth. Jesus said, _"Ye shall know the truth, and the truth shall make you free"_ (John 8:32). Freedom comes through knowing actual truth, not merely through sincere intentions. This is why God "will have all men to be saved, and to come unto the knowledge of the truth" (1 Timothy 2:4). He links salvation to truth-knowledge because truth alone has saving power.
 
 ---
 
-### Q5. What effect does obedience to the truth have?
+## Deeper Truths
 
-**“Seeing ye have purified your souls in obeying the truth through the Spirit.”
-1 Peter 1:22.**
+### The Principle of "Present Truth"
 
-**Answer:** Obedience to the truth, empowered by the Spirit, results in the
-purification of the soul.
+The apostle Peter speaks of being _"established in the present truth"_ (2 Peter 1:12). This remarkable phrase reveals that while all Scripture is eternally true, certain truths have special urgency for particular times.
 
-- **Practical Purity:** Sin is an impurity of the soul. When we obey the
-  truth—by repenting of sin and walking in God's commandments—the defilement of
-  sin is washed away by the blood of Christ and the power of the Spirit (1 John
-  1:7–9).
-- **Preparation for Heaven:** Nothing that defiles can enter the city of God
-  (Revelation 21:27). Therefore, this purifying process is the essential
-  preparation for living in God's presence.
-- **Sanctuary Connection:** Just as the sanctuary had to be cleansed of the
-  record of sin on the Day of Atonement, so must our "soul temples" be cleansed
-  of the love and practice of sin before Christ returns.
+**Present truth** (definition): That portion of God's revealed will which has special relevance and testing power for a specific generation, requiring immediate response.
 
----
+This principle runs throughout Scripture. God does not merely give timeless abstractions—He speaks specific words for specific moments in salvation history.
 
-### Q6. How must worship be rendered to God, that it may be acceptable?
+[DYK🔎] The phrase "present truth" (_parousē alētheia_) in 2 Peter 1:12 literally means "truth that is present" or "truth that has arrived." Peter implies that certain truths become urgent when their time comes—like a letter that arrives demanding immediate attention.
 
-**“God is a Spirit: and they that worship Him must worship Him in spirit and in
-truth.” John 4:24.**
+### Historical Examples of Present Truth
 
-**Answer:** True worship requires a balance of two elements:
+#### Noah's Generation (Genesis 6:13-14)
 
-1.  **In Spirit:** Worship must spring from a heart renewed by the Holy Spirit.
-    It must be sincere, emotional, and alive, not merely a cold form or ritual.
-2.  **In Truth:** Worship must align with God’s revealed will in Scripture. Zeal
-    without knowledge can lead to fanaticism or idolatry (Romans 10:2).
+**The message**: _"The end of all flesh is come before Me... Make thee an ark."_
 
-**Key Point:** We cannot worship God "in truth" while knowingly violating His
-commandments (such as the Sabbath), nor can we worship Him "in spirit" if our
-hearts are full of pride or bitterness.
+**The response required**: Build the ark by faith, warn others, enter before the flood.
 
----
+**The result**: _"By faith Noah, being warned of God of things not seen as yet, moved with fear, prepared an ark to the saving of his house; by the which he condemned the world, and became heir of the righteousness which is by faith"_ (Hebrews 11:7).
 
-### Q7. How should the truth ever be cherished?
+_"Eight souls were saved by water"_ (1 Peter 3:20).
 
-**“Buy the truth, and sell it not.” Prov. 23:23.**
+For 120 years, Noah preached a message that seemed absurd to his contemporaries. No worldwide flood had ever occurred. The warning tested faith—and only eight passed the test.
 
-**Answer:** Truth is presented as a commodity of infinite value that requires a
-transaction.
+[ILL] Consider a town built below a great dam. If engineers discover a fatal crack and issue warnings, that warning becomes "present truth" for that moment. Those who heed it and relocate are saved; those who dismiss it as alarmist perish when the dam breaks. It matters nothing that they were sincere, respectable citizens. The warning was truth for _that hour_—and response to it determined destiny.
 
-- **Buying the Truth:** We do not buy truth with money, but we "pay" for it by
-  sacrificing our pride, our preconceived opinions, our worldly popularity, and
-  sometimes our convenience. We must be willing to give up everything to possess
-  Christ, who is the Truth (Philippians 3:7–8).
-- **Selling It Not:** Once we have found Bible truth, we must never compromise
-  it for gain, status, or peace with the world. To "sell" the truth is to
-  abandon one's conscience for temporary advantage.
+#### Nineveh (Jonah 3:3-5, 10)
 
-**[ILL]** Imagine a man who finds a cure for a deadly disease in a rare herb. He
-must travel far and climb high mountains to get it ("buy it"). Once he has it,
-no amount of money should tempt him to trade it away ("sell it"), for without
-it, he dies. The truth is that cure for the soul.
+**The message**: _"Yet forty days, and Nineveh shall be overthrown."_
+
+**The response**: _"The people of Nineveh believed God, and proclaimed a fast... from the greatest of them even to the least of them."_
+
+**The result**: _"God saw their works, that they turned from their evil way; and God repented of the evil, that He had said He would do unto them."_
+
+Here is mercy's triumph! Unlike Noah's generation, Nineveh believed the warning. Their repentance was genuine—evidenced by works. And the threatened destruction was averted.
+
+[DYK🔎] Nineveh was the capital of Assyria, Israel's brutal enemy. God sent a Hebrew prophet to save Israel's oppressors! This reveals God's character—He desires the salvation of all, even those we might consider beyond redemption.
+
+#### John the Baptist's Message (John 1:6-7, 23)
+
+**The message**: _"Make straight the way of the Lord"_ — prepare for Messiah's arrival.
+
+**The response divided the nation**:
+
+- Those who received John's baptism _"justified God"_ (Luke 7:29)
+- Those who rejected it _"rejected the counsel of God against themselves"_ (Luke 7:30)
+
+John's message was present truth for his generation. Those who rejected it were unprepared for Christ when He came. The Pharisees, who prided themselves on Scripture knowledge, missed the very Messiah those Scriptures foretold.
+
+[Q] **"Why did the religious leaders reject John and Jesus? Weren't they the ones most qualified to recognize truth?"**
+
+Their very confidence became their snare. They said of Jesus, _"We know that God spake unto Moses: as for this fellow, we know not from whence He is"_ (John 9:29). They used past revelation to reject present truth. They honored Moses while rejecting the One Moses wrote about (John 5:46). They venerated the prophets their fathers killed while preparing to kill the Prophet of prophets (Matthew 23:30-31).
+
+This pattern is deadly: using _yesterday's truth_ as an excuse to reject _today's message_. Each generation must respond to the light God gives _them_—not merely rest on their ancestors' faith.
 
 ---
 
-### Q8. Is there in the Bible what may be called "present truth?
+## Principles and Great Controversy Themes
 
-**“Wherefore I will not be negligent to put you always in remembrance of these
-things, though ye know them, and be established in the present truth.” 2 Peter
-1:12.**
+### The Testing Power of Present Truth
 
-**Answer:** Yes. While all Scripture is inspired, "present truth" refers to that
-portion of God's Word that has a special application to a specific time and
-generation.
+Every generation faces its own test. Present truth separates those who truly love God from those who merely follow tradition or convenience.
 
-- **Timeliness:** God sends messages adapted to the needs and crises of His
-  people in every age.
-- **Testing Truths:** These messages often serve as a test of loyalty. Accepting
-  the general truths of the past is easy; accepting the _present_ truth that
-  requires action _now_ is the test of faith.
+Consider the pattern:
 
-**Definition:**
+- **Noah's generation** — tested on the flood warning (most failed)
+- **Nineveh** — tested on the overthrow warning (they passed)
+- **Israel at Christ's coming** — tested on accepting Messiah (most failed)
 
-- **Present Truth:** A specific message from God applicable to the current time,
-  designed to prepare His people for the next event in salvation history.
+The test is always the same in principle: _Will you believe and obey the message God sends for your time?_
 
----
+_"If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! but now they are hid from thine eyes"_ (Luke 19:41-42).
 
-### Q9. What was the special message to be proclaimed in Noah's day?
+Jesus wept over Jerusalem because they missed "this thy day"—the specific time of their visitation. God times His messages. Missing the appointed moment has eternal consequences.
 
-**“And God said unto Noah, The end of all flesh is come before Me; for the earth
-is filled with violence through them; and, behold, I will destroy them with the
-earth. Make thee an ark of gopher wood.” Gen. 6:13, 14.**
+[ILL] A farmer must plant in planting season and harvest in harvest season. No amount of sincerity will produce a crop if he plants in December or harvests in April. Spiritual opportunities also have their seasons. _"Seek ye the LORD while He may be found, call ye upon Him while He is near"_ (Isaiah 55:6). Present truth is truth whose time has come—and which will not wait forever.
 
-**Answer:** The "present truth" for Noah’s generation was a warning of coming
-judgment (the Flood) and a provision for escape (the Ark).
+### The Connection to Christ's Ministry
 
-- It was not enough for the antediluvians to believe in God generally, or to
-  follow the religion of their father Adam. They had to believe the _specific_
-  message of the Flood and enter the Ark to be saved.
+In the sanctuary services, the high priest had specific duties for specific times. The daily ministry differed from the Day of Atonement ministry. Each service was valid only in its appointed time.
 
----
+So it is with God's messages. Each era has its "present truth" corresponding to what Christ is doing in His heavenly ministry:
 
-### Q10. Did Noah build the ark? and why?
+- **Noah** proclaimed judgment coming—escape through the ark (type of Christ)
+- **John** proclaimed Messiah arriving—prepare the heart
+- **The apostles** proclaimed Christ crucified and risen—salvation through His sacrifice
+- **The Reformation** restored justification by faith—corresponding to Christ's mediation
+- **The final generation** must receive the message corresponding to Christ's final work in the Most Holy Place
 
-**“By faith Noah, being warned of God of things not seen as yet, moved with
-fear, prepared an ark to the saving of his house; by the which he condemned the
-world, and became heir of the righteousness which is by faith.” Heb. 11:7.**
+### Righteousness by Faith and Present Truth
 
-**Answer:** Noah built the ark because he believed God’s warning about "things
-not seen as yet" (rain and flood).
+Notice Hebrews 11:7 carefully: Noah _"became heir of the righteousness which is by faith."_ His ark-building was not works-based salvation—it was faith expressing itself in obedience. He believed God's word about what he could not see, and his actions demonstrated his faith.
 
-- **Righteousness by Faith:** Notice that Noah is called an "heir of
-  righteousness which is by faith." His boat-building was not a work of human
-  merit to _earn_ salvation; it was the outward action produced by his inward
-  faith.
-- **Faith Works:** Had Noah claimed to have faith but refused to build the ark,
-  he would have drowned. True faith always produces action corresponding to the
-  message.
+This is the eternal principle: righteousness comes by faith, and true faith produces obedience. _"Faith without works is dead"_ (James 2:26), but works without faith cannot save. Noah was saved by grace through faith—a faith that worked.
+
+So it will be with those who receive God's final message. They will keep _"the commandments of God, and the faith of Jesus"_ (Revelation 14:12)—not to earn salvation, but because living faith produces obedient love.
 
 ---
 
-### Q11. How many were saved in the ark?
+## The Last Generation's Present Truth
 
-**“The long-suffering of God waited in the days of Noah, while the ark was a
-preparing, wherein few, that is, eight souls were saved by water.” 1 Peter
-3:20.**
+### A Message for the Final Hour
 
-**Answer:** Only eight people were saved. This teaches a solemn lesson: the
-majority is often wrong when it comes to present truth.
+_"Therefore be ye also ready: for in such an hour as ye think not the Son of man cometh. Who then is a faithful and wise servant, whom his lord hath made ruler over his household, to give them meat in due season?"_ (Matthew 24:44-45).
 
-- **The Remnant:** In every age, it is usually a "little flock" that accepts the
-  advanced light of truth (Luke 12:32).
-- **Popularity is No Test:** We cannot judge the truth of a message by the
-  number of people accepting it. The masses in Noah's day were wrong; the few
-  who followed God's specific instruction were right.
+Christ asks: Who will give "meat in due season"—timely spiritual food for the final generation? This implies that the last days will have their own present truth, appropriate to the crisis.
 
----
+**Blessed are those found doing this work**: _"Blessed is that servant, whom his lord when He cometh shall find so doing"_ (Matthew 24:46).
 
-### Q12. What special message was given to Jonah for the people of Nineveh?
+### The Content of the Final Message
 
-**“So Jonah arose, and went unto Nineveh, according to the word of the Lord...
-And Jonah began to enter into the city a day's journey, and he cried, and said,
-Yet forty days, and Nineveh shall be overthrown.” Jonah 3:3, 4.**
+_"Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus"_ (Revelation 14:12).
 
-**Answer:** The present truth for Nineveh was a time-bound warning: judgment is
-coming in forty days. It was a call to immediate repentance based on a specific
-prophetic time period.
+This verse follows the three angels' messages (Revelation 14:6-11) and describes the people shaped by those messages. The final present truth produces:
 
----
+1. **Patience** (_hupomonē_) — steadfast endurance under trial
+2. **Commandment-keeping** — full obedience to God's moral law
+3. **The faith of Jesus** — the same quality of faith Jesus exercised
 
-### Q13. What saved the people from the predicted overthrow?
+[DYK🔎] The phrase "faith of Jesus" (_pistin Iēsou_) can mean both "faith _in_ Jesus" and "the faith _which Jesus had_." Both meanings apply: we trust in Jesus, and we exercise the same trusting relationship with the Father that He demonstrated.
 
-**“So the people of Nineveh believed God, and proclaimed a fast, and put on
-sackcloth, from the greatest of them even to the least of them.” “And God saw
-their works, that they turned from their evil way; and God repented of the evil,
-that He had said He would do unto them; and He did it not.” Jonah 3:5, 10.**
+### The Urgency of the Work
 
-**Answer:** Two things saved them:
+_"Go out into the highways and hedges, and compel them to come in, that my house may be filled"_ (Luke 14:23).
 
-1.  **Belief:** They "believed God."
-2.  **Action:** They "turned from their evil way."
+The final message is to go everywhere—highways (public places) and hedges (hidden corners). "Compel" (_anagkazō_) means to urgently persuade, to press the invitation. Not force—but earnest, persistent appeal.
 
-This illustrates that God's threats of judgment are often conditional. He
-desires mercy, not destruction. Their acceptance of the "present truth" (the
-warning) led to a change of behavior, which averted the disaster.
+Why such urgency? Because present truth has an expiration date. Noah's door closed. Nineveh's forty days ended. Christ's generation passed. The final invitation will also close—and those who delay response may find the door shut.
 
 ---
 
-### Q14. What was the special mission of John the Baptist?
+## Practical Application
 
-**“There was a man sent from God, whose name was John. The same came for a
-witness, to bear witness of the Light, that all men through Him might believe.”
-John 1:6, 7.**
+### How to Respond to Present Truth
 
-**Answer:** John the Baptist was the forerunner of the Messiah. His "present
-truth" message was to identify Jesus of Nazareth as the Lamb of God and to
-prepare the people’s hearts to receive Him.
+**1. Pursue knowledge of truth eagerly**
 
----
+- Study Scripture systematically, not superficially
+- Ask God to reveal His will: _"Open thou mine eyes, that I may behold wondrous things out of thy law"_ (Psalm 119:18)
 
-### Q15. What answer did he return to those who asked him about his mission?
+**2. Believe what God reveals**
 
-**“He said, I am the voice of one crying in the wilderness. Make straight the
-way of the Lord, as said the prophet Esaias.” John 1:23.**
+- Faith means taking God at His word, even when it seems unreasonable to the world
+- Noah had no evidence of floods; he had God's word—and that was enough
 
-**Answer:** John identified his work as the fulfillment of prophecy (Isaiah
-40:3).
+**3. Obey promptly and fully**
 
-- **Making Straight the Way:** This meant calling people to repentance
-  (straightening out the crookedness of sin) so that the King of Glory could
-  enter their lives.
-- **Preparation:** Present truth is always a preparing message. John prepared
-  the way for the First Advent; God has a message to prepare the way for the
-  Second Advent.
+- Partial obedience is disobedience in disguise
+- The Pharisees knew much truth but obeyed selectively—and missed salvation
 
----
+**4. Never trade truth for comfort or acceptance**
 
-### Q16. John's baptism was something new and startling to his generation. What did those do for themselves who rejected his doctrine?
+- "Buy the truth, and sell it not"
+- Truth will often cost reputation, relationships, or worldly advantage
+- But what is gained by losing one's soul? (Mark 8:36)
 
-**“But the Pharisees and lawyers rejected the counsel of God against themselves,
-being not baptized of him.” Luke 7:30.**
+**5. Share truth urgently with others**
 
-**Answer:** By rejecting the messenger God sent (John) and his specific message
-(baptism of repentance), the religious leaders "rejected the counsel of God
-against themselves."
+- Present truth is not for hoarding but for proclaiming
+- The faithful servant gives "meat in due season"
+- Go into highways and hedges with the invitation
 
-- **Consequence:** By rejecting the _forerunner_, they unprepared themselves to
-  receive the _King_. Rejecting present truth blinds the spiritual eyesight to
-  greater truths.
+### Warning Signs of Rejecting Present Truth
 
----
+- Trusting past religious experience instead of present light
+- Using loyalty to tradition as an excuse to reject new understanding
+- Assuming sincerity substitutes for obedience
+- Delaying response until a more convenient time
+- Dismissing unpopular truth because few accept it
 
-### Q17. And what did those do who were baptized of John?
+[Q] **"How can I know if something is genuine 'present truth' or just a new idea?"**
 
-**“And all the people that heard him, and the publicans, justified God, being
-baptized with the baptism of John.” Luke 7:29.**
+Apply these tests:
 
-**Answer:** The common people "justified God."
+1. **Scripture test**: Does it align with the whole counsel of Scripture? _"To the law and to the testimony: if they speak not according to this word, it is because there is no light in them"_ (Isaiah 8:20).
+2. **Fruit test**: Does it produce holiness, love, and obedience—or pride and division?
+3. **Christ-centered test**: Does it exalt Jesus and His saving work?
+4. **Prophetic test**: Does it fit the prophetic timeline of Scripture?
 
-- **Justifying God:** This means they declared God to be right and themselves to
-  be wrong. This is the essence of true repentance. They acknowledged the truth
-  of the message and submitted to the requirements of the gospel.
+True present truth will be ancient truth newly urgent—not novel invention, but timely recovery of neglected biblical teaching.
 
 ---
 
-### Q18. Did the reputed people of God receive Christ when He came?
+## Appeal
 
-**“He came unto His own, and His own received Him not.” John 1:11.**
+_"Wherefore I will not be negligent to put you always in remembrance of these things, though ye know them, and be established in the present truth."_ (2 Peter 1:12)
 
-**Answer:** Tragically, no. The very nation that held the Scriptures and the
-prophecies regarding the Messiah failed to recognize Him when He appeared. Being
-a member of the visible church is not a guarantee of salvation if the heart is
-closed to truth.
+We stand in the final hours of earth's history. The messages God sends now are not optional information but urgent, testing truth. Noah's generation heard warnings for 120 years—and only eight were saved. Nineveh believed and was spared. Israel knew the Scriptures but rejected their Messiah.
 
----
+Which will characterize your response?
 
-### Q19. What reason did they give for not doing so?
+God calls you today to:
 
-**“We know that God spake unto Moses: as for this fellow, we know not from
-whence He is.” John 9:29.**
+- **Know** the truth He reveals in His word
+- **Believe** it with the faith of Noah
+- **Obey** it through the Spirit's power
+- **Share** it with those still in darkness
 
-**Answer:** They pitted _past_ truth against _present_ truth.
+The door of mercy stands open—but it will not remain open forever. _"Behold, now is the accepted time; behold, now is the day of salvation"_ (2 Corinthians 6:2).
 
-- They claimed to believe Moses (truth of the past) as an excuse to reject Jesus
-  (truth of the present).
-- **The Lesson:** Satan often uses established tradition and the memory of past
-  leaders to prevent people from advancing in the light God is revealing _now_.
-
----
-
-### Q20. What did the people say when Christ referred to how their fathers slew the prophets?
-
-**“If we had been in the days of our fathers, we would not have been partakers
-with them in the blood of the prophets.” Matt. 23:30.**
-
-**Answer:** They claimed they would have acted differently than their ancestors.
-
-- **Self-Deception:** They honored the dead prophets with tombs and monuments
-  while plotting to kill the Living Prophet (Jesus). It is easy to honor truth
-  that is centuries old; it is much harder to honor truth that reproves our
-  current sins.
-
----
-
-### Q21. What was the result of the Jews' not accepting Christ?
-
-**“And when He was come near, He beheld the city, and wept over it, saying, If
-thou hadst known, even thou, at least in this thy day, the things which belong
-unto thy peace! but now they are hid from thine eyes.” Luke 19:41, 42.**
-
-**Answer:** The result was total blindness and eventual destruction.
-
-- **"This Thy Day":** They had a specific time of visitation—their "present
-  truth" moment. Because they let it pass, the truth became "hid from their
-  eyes."
-- **Judgment:** This rejection led to the destruction of Jerusalem in A.D. 70, a
-  type of the final destruction of the world at the end of time.
-
----
-
-### Q22. Is there to be a special message and work for the last generation?
-
-**“Therefore be ye also ready: for in such an hour as ye think not the Son of
-man cometh. Who then is a faithful and wise servant, whom his lord hath made
-ruler over his house- hold, to give them meat in due season?” Matt. 24:44, 45.**
-
-**Answer:** Yes. Just as in the days of Noah and John the Baptist, God has a
-special message for the time just before Christ returns.
-
-- **Meat in Due Season:** This refers to spiritual food (doctrine/truth)
-  appropriate for the specific time. The "meat" for the last days is the message
-  that prepares a people for the Second Coming.
-
----
-
-### Q23. What is pronounced upon those who are found doing such work?
-
-**“Blessed is that servant, whom his lord when He cometh shall find so doing.”
-Matt. 24:46.**
-
-**Answer:** A special blessing is pronounced on those who are awake, watching,
-and spreading the warning message. They are the "faithful and wise" servants.
-
----
-
-### Q24. What will be the burden of that proclamation?
-
-**“Here is the patience of the saints: here are they that keep the commandments
-of God, and the faith of Jesus.” Rev. 14:12.**
-
-**Answer:** The "present truth" for the last days is the **Three Angels'
-Messages** of Revelation 14, culminating in verse 12. This message produces a
-people with three distinct characteristics:
-
-1.  **Patience:** Enduring faith amidst persecution and delay.
-2.  **Keep the Commandments of God:** A restoration of obedience to all ten
-    commandments, including the Sabbath, which points to the Creator.
-3.  **The Faith of Jesus:** Not just faith _in_ Jesus, but the very quality of
-    faith _of_ Jesus. This is the Righteousness by Faith that enables the
-    believer to keep the law.
-
-**Sanctuary Connection:** Revelation 11:19 opens the Most Holy Place in heaven,
-where the Ark of the Covenant (containing the Ten Commandments) is seen. The
-final message directs the world's attention to the law inside the heavenly ark
-and the interceding High Priest who ministers there.
-
----
-
-### Q25. How earnestly is this work to be prosecuted?
-
-**“And the lord said unto the servant, Go out into the highways and hedges, and
-compel them to come in; that my house may be filled.” Luke 14:23.**
-
-**Answer:** The work is to be done with extreme urgency and love.
-
-- **"Compel them":** This does not mean using force, but using the "compelling"
-  power of love, logic, and the Word of God. It implies an intense earnestness,
-  knowing the time is short and the stakes are eternal life or death.
-- **The Final Call:** God wants His house filled. He is holding back the winds
-  of strife until the message of present truth has gone to "every nation,
-  kindred, tongue, and people" (Revelation 14:6).
-
-**[ILL]** If a dam is about to break and flood a town (like Noah's flood), you
-do not whisper the warning. You run, you shout, you knock on doors, you "compel"
-people to leave their possessions and flee to high ground. This is the spirit of
-the present truth message for this generation.
+May we each be found among those who receive present truth with gladness, obey it with faithfulness, and share it with urgency—that when Christ returns, He may find us faithful servants, giving meat in due season to a perishing world.

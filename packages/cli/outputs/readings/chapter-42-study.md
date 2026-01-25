@@ -1,457 +1,239 @@
-### Chapter 42: The Kingdoms of Grace and Glory
+# Bible Study: The Kingdoms of Grace and Glory
 
-This study explores the two great phases of Christ’s kingdom: the **Kingdom of
-Grace** (established in the hearts of believers now through the gospel) and the
-**Kingdom of Glory** (to be established literally at the Second Coming).
-Understanding the distinction between these two prevents confusion regarding
-prophecy and highlights the importance of our present probationary time.
+## Introduction
+
+Scripture reveals two distinct yet connected kingdoms in God's plan of redemption—the kingdom of grace, where Christ ministers now as our High Priest, and the kingdom of glory, which He will establish at His second coming. Understanding these two phases of God's kingdom illuminates our present experience and future hope, showing how heaven's throne room activity directly relates to our daily Christian walk.
 
 ---
 
-### Q1. Give the promise which our Saviour made to the "little flock."
+## Core Truths
 
-> "Fear not, little flock; for it is your Father's good pleasure to give you the
-> kingdom." Luke 12:32.
+### The Promise of the Kingdom
 
-**Answer:**
+Our Saviour gave a remarkable promise to His faithful followers:
 
-In this tender assurance, Jesus addresses His followers as a "little flock,"
-acknowledging that true believers may often feel small in number or marginalized
-by the world. Yet, He reveals the heart of the Father toward them.
+> _"Fear not, little flock; for it is your Father's good pleasure to give you the kingdom."_ (Luke 12:32)
 
-- **The Nature of Salvation:** The kingdom is a gift ("give you"), not something
-  earned by human merit. This creates the foundation for **Justification**
-  (being declared righteous by God). We do not seize the kingdom; we receive it
-  by faith.
-- **The Father’s Attitude:** It is God’s "good pleasure." He is not reluctant to
-  save; He delights in restoring His children.
-- **The Security of the Believer:** The command "fear not" suggests that despite
-  the trials of this life, the outcome is secure for those who remain in Christ.
+Notice the tenderness here. Christ calls His people a "little flock"—small, vulnerable, seemingly insignificant in the world's eyes. Yet the Father takes **pleasure** in giving them a kingdom! This is not reluctant charity but joyful generosity from the heart of God.
 
-**[ILL]** A wealthy king decides to adopt a street orphan. The orphan does not
-need to pay the king or conquer the castle to become a prince. He simply needs
-to accept the adoption papers. The kingdom becomes his because it is the king's
-pleasure to give it, not because the orphan earned it.
+**[DYK🔎]** The Greek word for "good pleasure" (_eudokeō_) expresses delight and purposeful will. The same word describes the Father's attitude toward Christ at His baptism: "This is my beloved Son, in whom I am well pleased" (Matthew 3:17). God delights in giving His kingdom to His children with the same affection He has for His own Son.
 
----
+### Two Thrones, Two Kingdoms
 
-### Q2. To what throne are we exhorted to come to find mercy?
+Scripture presents two distinct thrones that reveal two phases of God's kingdom:
 
-> “Let us therefore come boldly unto the throne of grace, that we may obtain
-> mercy, and find grace to help in time of need." Heb. 4:16.
+**The Throne of Grace** (Present):
 
-**Answer:**
+> _"Let us therefore come boldly unto the throne of grace, that we may obtain mercy, and find grace to help in time of need."_ (Hebrews 4:16)
 
-The Apostle Paul directs our eyes to the heavenly sanctuary, where Christ now
-ministers.
+**The Throne of Glory** (Future):
 
-- **The Throne of Grace:** This represents the **Kingdom of Grace**. It is the
-  spiritual reign of God in the heart of the believer _now_. Because Jesus died
-  as our sacrifice and lives as our High Priest, the throne of judgment has
-  become a throne of favor for the penitent.
-- **Mercy and Grace Defined:**
-  - **Mercy:** Not receiving the punishment we deserve (forgiveness for past
-    sins).
-  - **Grace:** Receiving the power and favor we do not deserve (power to obey in
-    the future).
-- **Boldness:** We come boldly not because we are worthy, but because our High
-  Priest (Jesus) is worthy.
-- **"Time of Need":** This implies we still struggle with temptation. The "grace
-  to help" is the power of **Sanctification**—the impartation of Christ's life
-  to overcome sin (1 Corinthians 10:13).
+> _"When the Son of man shall come in His glory, and all the holy angels with Him, then shall He sit upon the throne of His glory."_ (Matthew 25:31)
 
-**[ILL]** Imagine a courtroom where the judge is also your older brother who has
-paid your fine. You do not approach the bench trembling with terror; you
-approach with humble confidence, knowing the Judge desires your freedom, not
-your condemnation.
+The throne of grace operates **now**, offering mercy and help. The throne of glory will be established at Christ's **return**, bringing final judgment and reward.
+
+### Salvation by Grace Through Faith
+
+> _"For by grace are ye saved through faith; and that not of yourselves: it is the gift of God."_ (Ephesians 2:8)
+
+**Grace**: God's unmerited favor and enabling power, freely given to sinners who deserve only death (Romans 6:23).
+
+**Faith**: The hand that receives what grace offers—trusting wholly in Christ's merits rather than our own works.
+
+This truth lies at the heart of the kingdom of grace. We cannot earn entrance; we receive it as a gift through faith in Jesus Christ.
 
 ---
 
-### Q3. To what other kingdom do the Scriptures call our attention?
+## Deeper Truths
 
-> “When the Son of man shall come in His glory, and all the holy angels with
-> Him, then shall He sit upon the throne of His glory." Matt. 25:31.
+### The Lost Dominion and God's Recovery Plan
 
-**Answer:**
+**Original Dominion Given to Man:**
 
-While the Throne of Grace is for the present time of probation, the Scriptures
-point forward to the **Kingdom of Glory**.
+> _"And God said, Let us make man in our image, after our likeness: and let them have dominion over the fish of the sea, and over the fowl of the air, and over the cattle, and over all the earth."_ (Genesis 1:26)
 
-- **A Future Event:** This kingdom is inaugurated at the Second Coming ("When
-  the Son of man shall come").
-- **A Visible Reality:** The Kingdom of Grace is invisible (in the heart); the
-  Kingdom of Glory will be visible, literal, and universal (Revelation 1:7).
-- **The Change of Throne:** Currently, Jesus sits on the Father's throne as
-  Intercessor. In the future, He sits on "the throne of His glory" as King of
-  Kings to execute judgment and reward the saints.
+God entrusted this world's kingdom to humanity. Adam was earth's rightful ruler under God—a king-priest over creation. But when Adam sinned, he forfeited that dominion to Satan, who became "the prince of this world" (John 12:31).
 
----
+**[Q] "If God gave dominion to man, how did Satan become ruler of this world?"**
 
-### Q4. By what are men saved from sin?
+When Adam yielded to Satan's temptation, he surrendered his allegiance—and with it, his dominion. Satan gained control not by divine appointment but by conquest through deception. Yet God immediately set in motion a plan to recover what was lost. The "seed of the woman" would crush the serpent's head (Genesis 3:15). Christ came to reclaim the kingdom Adam forfeited.
 
-> ” For by grace are ye saved through faith; and that not of yourselves: it is
-> the gift of God." Eph. 2:8 (Rom. 6:23).
+### The Kingdom of Priests
 
-**Answer:**
+After Israel's deliverance from Egypt, God offered them a special position:
 
-This is the cornerstone of the Gospel and the entry point into the Kingdom of
-Grace.
+> _"Now therefore, if ye will obey My voice indeed, and keep My covenant, then ye shall be a peculiar treasure unto Me above all people: for all the earth is Mine. And ye shall be unto Me a kingdom of priests, and a holy nation."_ (Exodus 19:5–6)
 
-- **The Source:** Salvation is "by grace"—God's unmerited love and power.
-- **The Instrument:** It is "through faith." Faith is not the _savior_; faith is
-  merely the hand that grasps the gift of Christ.
-- **Righteousness by Faith:**
-  - We cannot generate righteousness ourselves (Isaiah 64:6).
-  - **Imputed Righteousness:** Christ's perfect past life covers our past sins
-    (Justification).
-  - **Imparted Righteousness:** Christ's present life is given to us for
-    obedience (Sanctification).
-- **The Gift:** Eternal life is a gift, whereas death is the "wages" or earnings
-  of sin (Romans 6:23).
+God's plan was for Israel to be a **kingdom of priests**—every citizen a minister of reconciliation to the nations. This was not mere national privilege; it was missionary calling. Through obedient Israel, all earth would know the true God.
 
-**[ILL]** If a man is drowning, he cannot save himself by swimming harder if he
-is already going under. A lifeguard throws him a rope. The rope is the "grace."
-Holding onto the rope is "faith." The man is saved by the rope, but he must hold
-on. He cannot boast, "I saved myself by my strong grip"; he can only thank the
-lifeguard.
+**[ILL]** Consider a lighthouse on a rocky coast. Its purpose is not to admire its own light but to guide ships safely to harbor. So God designed Israel—and now His church—to shine His truth into the darkness, guiding wandering souls to salvation's shore.
 
----
+### Israel's Tragic Rejection
 
-### Q5. In the parable of the wheat and tares, what does the good seed represent?
+Sadly, Israel rejected God's direct reign:
 
-> “The field is the world; the good seed are the children of the kingdom; but
-> the tares are the children of the wicked one," Matt. 13:38.
+> _"Make us a king to judge us like all the nations."_ (1 Samuel 8:5)
 
-**Answer:**
+God's response reveals the true nature of their request:
 
-In the present age (the Kingdom of Grace), good and evil coexist.
+> _"They have not rejected thee, but they have rejected Me, that I should not reign over them."_ (1 Samuel 8:7)
 
-- **Children of the Kingdom:** These are those who have the law of God written
-  in their hearts (Hebrews 8:10). They are "born again" of the Spirit.
-- **Character, Not Location:** The distinction is not merely being inside a
-  church building, but having a transformed character. The "good seed" bears
-  fruit—the fruit of the Spirit (Galatians 5:22–23).
-- **Coexistence:** God allows the wheat and tares to grow together until the
-  harvest (judgment), showing His patience, giving time for tares to potentially
-  become wheat through the miracle of conversion.
+Wanting a king "like all the nations" was not merely political preference—it was **spiritual rebellion**. They wanted visible, human leadership rather than invisible, divine sovereignty. Yet even in their rejection, God worked to accomplish His purposes.
 
----
+### The Davidic Covenant and Christ
 
-### Q6. Who sows the tares?
+Despite Israel's failures, God made an unconditional promise to David:
 
-> “The enemy that sowed them is the Devil." Matt. 13:39.
+> _"Thy seed will I establish forever, and build up thy throne to all generations."_ (Psalm 89:4)
 
-**Answer:**
+This promise found its ultimate fulfillment in Christ:
 
-- **The Origin of Evil:** God is not the author of sin or confusion. False
-  doctrines and unrepentant characters ("tares") are the work of Satan.
-- **The Counterfeit:** Tares (likely darnel) look exactly like wheat in the
-  early stages. Only when the fruit (grain) matures is the difference obvious.
-  Satan specializes in counterfeits that look like Christianity but lack the
-  power of godliness (2 Timothy 3:5).
-- **The Great Controversy:** The world is a battlefield where Satan actively
-  works to sabotage God's harvest by planting error and hypocrisy among the
-  truth.
+> _"For unto us a child is born, unto us a son is given: and the government shall be upon His shoulder: and His name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace. Of the increase of His government and peace there shall be no end, upon the throne of David."_ (Isaiah 9:6–7)
+
+The angel Gabriel confirmed this to Mary:
+
+> _"Thou shalt...bring forth a son, and shalt call His name Jesus. He shall be great, and shall be called the Son of the Highest; and the Lord God shall give unto Him the throne of His father David."_ (Luke 1:31–32)
+
+**[DYK🔎]** The name "Jesus" (Greek _Iēsous_) is the equivalent of the Hebrew "Joshua," meaning "Yahweh saves" or "Yahweh is salvation." Every time we speak His name, we proclaim that salvation belongs to the Lord.
+
+### The Overturned Throne
+
+Before Christ could receive David's throne, it had to pass through judgment. Through Ezekiel, God pronounced sentence on Judah's last king:
+
+> _"And thou, profane, wicked prince of Israel, whose day is come, when iniquity shall have an end, Thus saith the Lord God; Remove the diadem, and take off the crown."_ (Ezekiel 21:25–26)
+
+Then came the remarkable prophecy:
+
+> _"I will overturn, overturn, overturn it; and it shall be no more, until He come whose right it is; and I will give it Him."_ (Ezekiel 21:27)
+
+Three overturnings would occur—Babylon, Medo-Persia, and Greece would successively dominate Israel—"until He come whose right it is." The throne of David would remain vacant until the rightful Heir claimed it.
+
+**[Q] "Did Christ take David's throne when He came to earth?"**
+
+No. Christ clearly stated, "My kingdom is not of this world" (John 18:36). He came first as Saviour, not as conquering King. He would take David's throne only after completing His work as Priest.
 
 ---
 
-### Q7. To whom did God entrust His kingdom?
+## Principles and Great Controversy Themes
 
-> ” And God said, Let us make man in our image, after our likeness: and let them
-> have dominion over the fish of the sea, and over the fowl of the air, and over
-> the cattle, and over all the earth, and over every creeping thing that
-> creepeth upon the earth." Gen. 1:26.
+### Christ's Present Position: Priest, Not King of Earth
 
-**Answer:**
+Where is Christ now? Scripture is explicit:
 
-- **The First Dominion:** Originally, Adam was established as the ruler of this
-  world, under God. The Kingdom of Glory was intended to be established in Eden.
-- **The Image of God:** Man was made to reflect God’s character of love and
-  justice. His dominion was to be a benevolent rule, not a tyranny.
-- **Lost by Sin:** When Adam yielded to Satan, he surrendered this dominion.
-  Satan became the "prince of this world" (John 12:31). The plan of salvation is
-  the plan to restore this lost dominion (Micah 4:8).
+> _"To him that overcometh will I grant to sit with Me in My throne, even as I also overcame, and am set down with My Father in His throne."_ (Revelation 3:21)
 
----
+Christ sits on the **Father's throne** in heaven—not yet on His own throne of glory. This distinction is crucial.
 
-### Q8. When Christ sent out His disciples, what did He tell them to preach?
+What is He doing there?
 
-> “And He sent them to preach the kingdom of God, and to heal the sick." Luke
-> 9:2.
+> _"The Lord said unto my Lord, Sit thou at My right hand, until I make thine enemies thy footstool... Thou art a priest forever after the order of Melchizedek."_ (Psalm 110:1, 4)
 
-**Answer:**
+Christ ministers as our **High Priest** in the heavenly sanctuary. He is not idle on the Father's throne; He is actively interceding for His people, applying the merits of His sacrifice to every repentant sinner.
 
-- **The Dual Ministry:** Christ’s commission combined teaching (doctrine) and
-  healing (practical medical missionary work). The Kingdom of God affects the
-  whole person—body, mind, and spirit.
-- **Restoration:** The preaching of the kingdom warns men of judgment and
-  invites them to restoration. Healing the sick illustrated the power of the
-  King to reverse the curse of sin.
+**Sanctuary Connection:**
 
----
+In the earthly sanctuary, the high priest ministered daily in the holy place—trimming lamps, burning incense, presenting showbread. This represented Christ's continual work for us: illuminating our minds through His Spirit, presenting our prayers before God, and providing the Bread of Life for our souls.
 
-### Q9. In carrying out their commission, what did they preach?
+But the high priest also entered the Most Holy Place once a year on the Day of Atonement for the final cleansing of the sanctuary and the final disposition of sin. This typified Christ's closing work in the heavenly Most Holy Place—the investigative judgment preceding His return.
 
-> ” And they departed, and went through the towns, preaching the gospel, and
-> healing everywhere." Luke 9:6.
+The kingdom of grace operates during this priestly ministry. Every day, the throne of grace remains accessible:
 
-**Answer:**
+> _"Let us therefore come **boldly** unto the throne of grace, that we may obtain mercy, and find grace to help in time of need."_ (Hebrews 4:16)
 
-- **The Kingdom is the Gospel:** To preach the "Kingdom of God" (v. 2) is to
-  preach "the gospel" (v. 6).
-- **Definition of Gospel:** The "Good News" that the King has come to deliver
-  His people from the tyranny of sin and Satan (Romans 1:16).
-- **The Kingdom of Grace:** By accepting the Gospel, believers enter the Kingdom
-  of Grace now. They are translated from the power of darkness into the kingdom
-  of His dear Son (Colossians 1:13).
+We may come **boldly**—not presumptively, but with confidence rooted in Christ's perfect sacrifice and living intercession. The kingdom of grace invites all who will come.
 
----
+### The Gospel and the Kingdom
 
-### Q10. After the loss of the first kingdom, what promise did God make to Israel, if they would obey Him?
+When Christ sent His disciples, He gave them a dual commission:
 
-> “Now therefore, if ye will obey My voice indeed, and keep My covenant, then ye
-> shall be a peculiar treasure unto Me above all people: for all the earth is
-> Mine. And ye shall be unto Me a kingdom of priests, and a holy nation." Ex.
-> 19:5-6.
+> _"He sent them to preach the kingdom of God, and to heal the sick."_ (Luke 9:2)
 
-**Answer:**
+How did they fulfill this?
 
-- **A Conditional Covenant:** The promise was based on the condition: "If ye
-  will obey." God cannot establish a kingdom of peace with rebellious subjects.
-- **Kingdom of Priests:** Israel was meant to be God’s demonstration to the
-  world. As priests, they were to teach the nations about the true God.
-- **Peculiar Treasure:** God desired a people whose character was distinct from
-  the heathen nations—a people who kept His law and reflected His holiness.
+> _"They departed, and went through the towns, preaching the gospel, and healing everywhere."_ (Luke 9:6)
 
-**[ILL]** A lighthouse is built to shine. If the lighthouse keeper covers the
-light or lets it go out, the lighthouse fails its purpose. Israel was called to
-be the world's lighthouse.
+Notice the interchange: they were sent to preach **the kingdom** and went preaching **the gospel**. The kingdom message **is** the gospel message. To preach salvation by grace through faith is to preach the kingdom of grace now open to all who believe.
+
+**[ILL]** A farmer sowing seed does not merely scatter grain; he plants a future harvest. When we share the gospel, we are not simply telling people facts—we are sowing kingdom seed. The good seed are "the children of the kingdom" (Matthew 13:38). Every genuine conversion is a new citizen of Christ's realm.
+
+### The Great Controversy in the Kingdom
+
+The parable of the wheat and tares reveals the cosmic conflict:
+
+> _"The field is the world; the good seed are the children of the kingdom; but the tares are the children of the wicked one."_ (Matthew 13:38)
+
+> _"The enemy that sowed them is the Devil."_ (Matthew 13:39)
+
+Satan actively works to corrupt the kingdom. He cannot prevent Christ from sowing good seed, so he sows counterfeit believers—tares that resemble wheat but bear no genuine fruit. This explains the mixed condition of the visible church. True and false grow together until the harvest.
+
+But the enemy's work is temporary. When Christ takes His throne of glory, the separation will be final and complete.
 
 ---
 
-### Q11. After the children of Israel were settled in Canaan, what did they request of Samuel the prophet?
+## The Kingdom of Glory
 
-> “Behold, thou art old, and thy sons walk not in thy ways: now make us a king
-> to judge us like all the nations." 1 Sam. 8:5.
+### When Christ Finishes His Priestly Work
 
-**Answer:**
+> _"Then cometh the end, when He shall have delivered up the kingdom to God, even the Father."_ (1 Corinthians 15:24)
 
-- **Conformity to the World:** Their motivation was "to be like all the
-  nations." This is the root of apostasy—God’s people desiring to imitate the
-  methods and structures of the secular world.
-- **Loss of Vision:** They looked at the failure of Samuel’s sons (human
-  leadership) and sought a political solution (a king) rather than a spiritual
-  solution (repentance and return to God).
+When Christ's intercession concludes, probation closes. He lays aside His priestly garments and assumes His kingly robes. The kingdom of grace gives way to the kingdom of glory.
 
----
+### The Glorious Return
 
-### Q12. Upon taking the matter to God, what instruction did Samuel receive?
+> _"When the Son of man shall come in His glory, and all the holy angels with Him, then shall He sit upon the throne of His glory."_ (Matthew 25:31)
 
-> “And the Lord said unto Samuel, Hearken unto the voice of the people in all
-> that they say unto thee: for they have not rejected thee, but they have
-> rejected Me, that I should not reign over them." 1 Sam. 8:7.
+At last, Christ takes His rightful throne—not the Father's throne in heaven, but **His own throne of glory** as King of kings. The usurper is cast out. The rightful Heir reclaims what Adam lost.
 
-**Answer:**
+### The Inheritance of the Saints
 
-- **The Real Rejection:** God identified the core issue: they were rejecting the
-  **Theocracy** (God’s direct rule). They wanted a visible king rather than the
-  invisible King of Glory.
-- **God's Permissive Will:** God allowed them to have a king, though it was not
-  His perfect will. He often allows us to experience the consequences of our own
-  choices so we might learn the folly of trusting in man.
+To the redeemed, Christ will speak the most wonderful words:
+
+> _"Come, ye blessed of My Father, inherit the kingdom prepared for you from the foundation of the world."_ (Matthew 25:34)
+
+**[DYK🔎]** The word "inherit" (_klēronomeō_) implies receiving as a rightful heir, not earning by labor. Children do not work to inherit from their parents—they receive because of relationship. So the saints receive the kingdom because they are children of God through faith in Christ.
+
+### The Glorified Saints
+
+> _"Then shall the righteous shine forth as the sun in the kingdom of their Father."_ (Matthew 13:43)
+
+What a transformation! Those who walked in darkness now radiate the light of God's glory. The image of God, marred by sin, is fully restored. The children of the kingdom reflect the character of their King.
 
 ---
 
-### Q13. Notwithstanding the perverseness of Israel, what did the lord promise to David their king?
+## Practical Application
 
-> "Thy seed will I establish forever, and build up thy throne to all
-> generations." Ps. 89:4.
+### Living as Kingdom Citizens Now
 
-**Answer:**
+If we are citizens of God's kingdom, our lives should reflect that citizenship:
 
-- **The Davidic Covenant:** Despite Israel’s failure, God made a covenant with
-  David (the second king, a man after God’s own heart).
-- **The Eternal Throne:** This promise looked beyond the earthly monarchy to the
-  Messiah. God promised that the line of David would eventually produce a King
-  who would reign forever—linking the earthly lineage to the heavenly plan.
+1. **Come boldly to the throne of grace.** Do not let guilt or discouragement keep you from Christ's presence. The throne of grace exists precisely for sinners who need mercy and help. Come daily—come hourly—come in every time of need.
 
----
+2. **Receive grace through faith.** Stop trying to earn what God freely gives. Salvation is "not of yourselves: it is the gift of God." Faith receives; it does not achieve. Trust Christ's merits, not your own.
 
-### Q14. Through whom was the throne of David to be perpetuated?
+3. **Live as a royal priest.** You are called to a "kingdom of priests" (1 Peter 2:9; Revelation 1:6). Your life is a ministry. Every interaction is an opportunity to mediate God's grace to others.
 
-> “For unto us a child is born, unto us a son is given: and the government shall
-> be upon His shoulder: and His name shall be called Wonderful, Counsellor, The
-> mighty God, The everlasting Father, The Prince of Peace. Of the increase of
-> His government and peace there shall be no end, upon the throne of David."
-> Isa. 9:6-7.
+4. **Do not be surprised by tares.** Counterfeit Christians have always grown alongside genuine believers. Do not be discouraged by hypocrisy in the church. Focus on being wheat yourself—fruitful, genuine, rooted in Christ.
 
-**Answer:**
+5. **Keep your eyes on the throne of glory.** This present kingdom of grace is leading somewhere. One day, the priestly work will conclude, and the King will come. Live in constant readiness for that blessed hope.
 
-- **The Messiah:** Isaiah identifies the "seed" as a divine-human person.
-- **Divinity Revealed:** He is a child born (humanity) yet "The mighty God"
-  (divinity).
-- **Nature of His Government:** It is a government of "peace." This connects to
-  the Kingdom of Grace (peace with God now) and the Kingdom of Glory (peace on
-  earth later).
+### The Two Thrones and Victory Over Sin
+
+Here we see the practical power of righteousness by faith. At the throne of grace, we receive not only **pardon** for past sin (justification) but also **power** over present temptation (sanctification). Grace is not merely forgiveness—it is "help in time of need."
+
+When temptation presses, we need not fall. The throne of grace is open. Christ, our High Priest, understands our weakness (Hebrews 4:15). He offers strength for every battle, wisdom for every decision, comfort for every sorrow.
+
+The goal of the kingdom of grace is to prepare a people for the kingdom of glory—not merely forgiven people, but transformed people who "shine forth as the sun."
 
 ---
 
-### Q15. Who is this seed of David, the heir to his throne?
+## Appeal
 
-> “Thou shalt. .bring forth a son, and shalt call His name Jesus. He shall be
-> great, and shall be called the Son of the Highest; and the Lord God shall give
-> unto Him the throne of His father David." Luke 1:31, 32.
+> _"Fear not, little flock; for it is your Father's good pleasure to give you the kingdom."_ (Luke 12:32)
 
-**Answer:**
+Dear friend, which throne will you approach today? The throne of grace stands open now. Mercy awaits. Help is available. Your High Priest intercedes for you at this very moment.
 
-- **Jesus of Nazareth:** The angel Gabriel explicitly applies the prophecies of
-  Isaiah and Psalm 89 to Jesus.
-- **The Throne of David:** While Jesus did not sit on a literal throne in
-  Jerusalem during His first advent, He is the rightful heir. He conquered sin
-  and death to reclaim the dominion Adam lost and the throne David typified.
+But the kingdom of grace will not last forever. A day is coming when the throne of glory will be set, and every case will be decided. Those who have received grace will inherit glory. Those who have rejected grace will face judgment.
 
----
+Will you come boldly today? Will you receive by faith what you cannot earn by works? Will you live as a citizen of heaven, preparing for the day when Christ calls you to "inherit the kingdom prepared for you from the foundation of the world"?
 
-### Q16. While the kingdom was still held by the Jewish kings, what prediction was made concerning the kingdom?
-
-> “And thou, profane, wicked prince of Israel, whose day is come, when iniquity
-> shall have an end, Thus saith the Lord God; Remove the diadem, and take off
-> the crown." Eze. 21:25, 26.
-
-**Answer:**
-
-- **The End of the Earthly Theocracy:** This prophecy was directed at Zedekiah,
-  the last king of Judah.
-- **Suspension of the Crown:** Because of persistent rebellion and the breaking
-  of the covenant, the visible kingdom of God on earth was to be removed. The
-  "diadem" (crown) was taken away, and the people went into Babylonian
-  captivity.
-
----
-
-### Q17. After the crown was taken from the Jewish king, and that kingdom had become tributary to the Babylonians, what more was predicted concerning it?
-
-> “I will overturn, overturn, overturn it; and it shall be no more, until He
-> come whose right it is; and I will give it Him." Eze. 21:27.
-
-**Answer:**
-
-- **Three Overturnings:** This is a remarkable historicist prophecy. After
-  Babylon (the first kingdom), the dominion would be overturned three times:
-  1.  Babylon to Medo-Persia.
-  2.  Medo-Persia to Greece.
-  3.  Greece to Rome.
-- **"It Shall Be No More":** There would never again be a permanent,
-  God-ordained King of the line of David reigning on earth _until_ Christ
-  returns.
-- **"Until He Come":** The crown is held in reserve for Jesus, "whose right it
-  is." He has the right by birth (line of David) and by conquest (victory at the
-  cross).
-
----
-
-### Q18. Christ did not take that throne when on earth. Did He assume it when ascending to heaven, or did He occupy the Father's throne, with Him?
-
-> “To him that overcometh will I grant to sit with Me in My throne, even as I
-> also overcame, and am set down with My Father in His throne." Rev. 3:21.
-
-**Answer:**
-
-- **Two Thrones Distinguished:** Jesus clarifies that He is currently sitting on
-  the **Father's Throne**. This is the throne of universal dominion and
-  intercession.
-- **His Own Throne:** There is a future throne called "My throne" (Christ's
-  specific throne as the King of Glory/Davidic Heir), which He shares with the
-  saints _after_ the conquest of sin is complete.
-- **Current Ministry:** Jesus is currently functioning as High Priest in the
-  heavenly sanctuary, mediating the Kingdom of Grace from the Father's throne.
-
----
-
-### Q19. What is He doing at the Father's right hand?
-
-> “The Lord said unto my Lord, Sit thou at My right hand, until I make thine
-> enemies thy footstool." "The Lord hath sworn, and will not repent, Thou art a
-> priest forever after the order of Melchizedek." Ps. 110:1, 4; Heb. 10:12, 13.
-
-**Answer:**
-
-- **The "Until":** Jesus sits at the right hand _expecting_ (waiting) until His
-  enemies are made His footstool. This is the period of the Gospel dispensation.
-- **Priest-King:** Like Melchizedek (who was both King of Salem and Priest of
-  God), Christ combines the offices. He is reigning over the church spiritually
-  while ministering His blood for the cleansing of sins.
-- **Investigative Judgment:** Before He returns to destroy the "enemies," there
-  is a work of judgment (Daniel 7:9-14) to determine who are the subjects of the
-  kingdom and who are the enemies.
-
----
-
-### Q20. When His priestly work is finished, what will Christ do?
-
-> ” Then cometh the end, when He shall have delivered up the kingdom to God,
-> even the Father." 1 Cor. 15:24.
-
-**Answer:**
-
-- **The Close of Probation:** When the work of the Gospel is finished, and every
-  case is decided, Christ concludes His mediation.
-- **Consummation:** The Kingdom of Grace (the work of saving men) ends because
-  the number of the redeemed is made up. He presents the finished product—a
-  redeemed humanity—to the Father, vindicating God's character.
-
----
-
-### Q21. When He comes to earth, on whose throne will He sit?
-
-> “When the Son of man shall come in His glory, and all the holy angels with
-> Him, then shall He sit upon the throne of His glory." Matt. 25:31 (Rev.
-> 11:15).
-
-**Answer:**
-
-- **The Kingdom of Glory Begins:** At the Second Coming, Jesus shifts from the
-  position of Priest/Intercessor to King of Kings.
-- **The Throne of His Glory:** He now exercises full executive power to raise
-  the dead, translate the living saints, and destroy sin. The prayer "Thy
-  Kingdom come" is finally answered in its literal sense.
-
----
-
-### Q22. Then what will He say to the redeemed?
-
-> “Come, ye blessed of My Father, inherit the kingdom prepared for you from the
-> foundation of the world." Matt. 25:34.
-
-**Answer:**
-
-- **Inheritance:** We do not buy the kingdom; we inherit it as joint-heirs with
-  Christ (Romans 8:17).
-- **Prepared for You:** God's original plan in Eden was never abandoned. The
-  "First Dominion" is restored. God created the earth to be inhabited by holy,
-  happy beings, and His purpose will be fulfilled.
-- **The Invitation:** "Come." This is the sweet voice of the Shepherd welcoming
-  His flock home.
-
-**[ILL]** A family loses their ancestral home to a dishonest foreclosure
-(Satan's usurpation). The eldest son (Jesus) goes away, works hard, pays the
-debt, and fights the legal battle to reclaim the deed. Finally, He calls the
-family together, opens the door, and says, "Come in. The home is ours again."
-
----
-
-### Q23. How will the saints appear after reaching that kingdom?
-
-> “Then shall the righteous shine forth as the sun in the kingdom of their
-> Father." Matt. 13:43.
-
-**Answer:**
-
-- **Glorification:** This is the final step of salvation.
-  1.  **Justification:** Saved from the penalty of sin (Kingdom of Grace).
-  2.  **Sanctification:** Saved from the power of sin (Kingdom of Grace).
-  3.  **Glorification:** Saved from the presence of sin and its effects (Kingdom
-      of Glory).
-- **Shining as the Sun:** The saints will reflect the image of Jesus fully. The
-  corruption of the mortal body is changed into immortality (1 Corinthians
-  15:51-54). We shall be like Him, for we shall see Him as He is (1 John 3:2).
+The Father's good pleasure is to give you the kingdom. Will you receive it?

@@ -1,422 +1,196 @@
-### Chapter 3: Power in the Word
+# Bible Study: Power in the Word
 
-**Introduction**
+## Introduction
 
-In the study of the sanctuary and the plan of salvation, we must understand the
-instrument God uses to accomplish His will. In the physical creation, God did
-not use tools or engines; He used His Word. In the spiritual re-creation
-(salvation), He uses the same instrument. Righteousness by Faith is essentially
-a reliance on the creative power of God’s Word to do what human effort cannot
-do: transform the heart and produce a holy life.
+The Word of God is far more than ink on paper or sounds in the air. It carries the very creative power of the Almighty—the same power that spoke worlds into existence, that sustains the universe moment by moment, and that can transform a sin-hardened heart into a new creation. To understand the power in God's Word is to discover the secret of victorious Christian living.
 
 ---
 
-### Q1. What was the way in which God brought the heavens into existence?
+## Core Truths
 
-**"By the word of the Lord were the heavens made; and all the host of them by
-the breath of his mouth... For He spake, and it was done; He commanded, and it
-stood fast." Psalm 33:6-9.**
+### The Word as Creative Force
 
-**Answer:**
+The opening pages of Scripture reveal a profound truth about how God works. He does not labor as men labor, straining with tools and effort. He _speaks_, and it is done.
 
-The Bible opens with the revelation of **creative power**. This passage teaches
-that the material universe was not formed out of pre-existing matter, but was
-called into existence by the _fiat_ (command) of the Almighty.
+> _"By the word of the Lord were the heavens made; and all the host of them by the breath of His mouth... For He spake, and it was done; He commanded, and it stood fast."_ (Psalm 33:6, 9)
 
-- **The Nature of God’s Word:** In human experience, a word is merely a sound
-  expressing an idea. We must speak, and then _do_ something to make it happen.
-  With God, the word _is_ the deed. The power to fulfill the command is in the
-  command itself (Isaiah 55:11).
-- **Immediate Obedience:** The text says, "He spake, and it was done." There was
-  no delay, no resistance, and no gradual evolution. The matter obeyed the voice
-  of its Creator instantly.
+Consider this: the vast expanse of the universe—billions of galaxies, each containing billions of stars—came into being by a word. Not a struggle. Not a process of trial and error. A word.
 
-**[ILL] Illustration:** Imagine a master artist painting a sunrise. He must mix
-paints, apply brushstrokes, and work for hours to create an _image_ of light.
-But when God created light, He simply said, "Let there be light." He did not
-need brushes or canvas; His word contained the reality of the light itself.
+> _"Let them praise the name of the Lord: for He commanded, and they were created."_ (Psalm 148:5)
+
+[DYK🔎] The Hebrew word _bara_ (to create) used in Genesis 1 describes creation from nothing—a power that belongs to God alone. No human artist, however skilled, can truly _create_; we can only rearrange existing materials. But God speaks, and matter that never existed leaps into being.
+
+### The Word as Sustaining Power
+
+Creation was not a one-time event that God set in motion and then abandoned. The same Word that created continues to uphold all things:
+
+> _"Upholding all things by the word of His power."_ (Hebrews 1:3)
+
+This is a staggering thought. Every atom in the universe holds together because Christ speaks it into continued existence. The laws of nature that scientists observe are simply God's consistent Word maintaining order in His creation. Remove that Word, and all would dissolve into chaos.
 
 ---
 
-### Q2. What is it that Christ uses to uphold all things?
+## Deeper Truths
 
-**"Upholding all things by the word of His power." Hebrews 1:3.**
+### The Word in Judgment—Past and Future
 
-**Answer:**
+Peter warns that some choose to forget what the Word of God has done:
 
-Creation is not like a clock that God wound up and left to run on its own. The
-same power that called the worlds into existence is required to keep them in
-existence moment by moment.
+> _"For this they willingly are ignorant of, that by the word of God the heavens were of old, and the earth standing out of the water and in the water: whereby the world that then was, being overflowed with water, perished."_ (2 Peter 3:5, 6)
 
-- **Continuous Creation:** The laws of nature (gravity, thermodynamics, etc.)
-  are simply the habits of God, maintained by His powerful Word. If He were to
-  withdraw His word, the universe would collapse into chaos.
-- **Security for the Believer:** If the Word of Christ is strong enough to hold
-  the stars in their courses and the atoms in their structure, it is strong
-  enough to hold the believer up in the midst of temptation (Jude 24).
+The Flood was not a natural disaster independent of God. It came by the same Word that created. And Peter continues with a solemn warning:
 
----
+> _"But the heavens and the earth, which are now, by the same word are kept in store, reserved unto fire against the day of judgment and perdition of ungodly men."_ (2 Peter 3:7)
 
-### Q3. Of what great truth are some willingly ignorant?
+[Q] **"Why would people be _willingly_ ignorant of creation and the Flood?"**
 
-**"For this they willingly are ignorant of, that by the word of God the heavens
-were of old, and the earth standing out of the water and in the water: whereby
-the world that then was, being overflowed with water, perished." 2 Peter
-3:5,6.**
+Because acknowledging a Creator who judges demands moral accountability. If God spoke the world into existence, He has authority over it. If He judged sin by water, He may judge again. Many prefer a universe without a Lawgiver—but preference does not change reality. The same Word that holds creation together reserves it for final judgment.
 
-**Answer:**
+### The Word as Re-Creative Power
 
-Peter warns of a skepticism that denies the intervention of God in history. This
-"willing ignorance" overlooks two great events: Creation and the Flood.
+Here is the heart of the gospel: **the same power that created the universe can create anew in the human heart**.
 
-- **The Flood:** The Antediluvians mocked Noah because they saw no physical
-  evidence of rain. They trusted their senses rather than the Word of God.
-  However, the water that was held in check by God's word was released by that
-  same word, resulting in judgment.
-- **The Lesson:** We must not judge reality by what we see (circumstances), but
-  by what God has said.
+> _"Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new."_ (2 Corinthians 5:17)
 
----
+Jesus described this transformation as being "born again" (John 3:3). But how does this new birth occur? Peter answers plainly:
 
-### Q4. By what are the present heavens and earth reserved for a similar fate?
+> _"Being born again, not of corruptible seed, but of incorruptible, by the word of God, which liveth and abideth for ever."_ (1 Peter 1:23)
 
-**"But the heavens and the earth, which are now, by the same word are kept in
-store, reserved unto fire against the day of judgment and perdition of ungodly
-men." 2 Peter 3:7.**
+[ILL] Consider a field long neglected, overgrown with thorns and weeds, the soil hard and unproductive. No amount of rearranging the weeds will make it fruitful. It needs new seed—living seed—planted deep in broken soil. So it is with the human heart. We cannot reform ourselves by effort; we need the living Word planted within us, bringing forth an entirely new creation.
 
-**Answer:**
+### Light from Darkness—Creation's First Command in the Heart
 
-Just as the world was once destroyed by water, it is destined to be purified by
-fire. The only thing preventing this fire from breaking out right now is the
-"word" that keeps it in store.
+The first recorded words of God in Scripture are: _"Let there be light: and there was light"_ (Genesis 1:3). Paul connects this directly to the new creation:
 
-- **The Sanctuary Connection:** In the earthly sanctuary, the fire on the altar
-  consumed the sacrifice. In the final judgment, the fire of God’s glory will
-  consume sin.
-- **Atonement:** **Atonement** is the reconciliation of God and man (Romans
-  5:11). Those who are covered by the Atonement of Christ are safe from the
-  consuming fire, for Christ has already borne that judgment for them.
+> _"For God, who commanded the light to shine out of darkness, hath shined in our hearts, to give the light of the knowledge of the glory of God in the face of Jesus Christ."_ (2 Corinthians 4:6)
+
+The same God who dispelled primordial darkness with a word speaks light into the darkness of our ignorance and sin. This is not mere enlightenment in an intellectual sense—it is _creative_ light, bringing into existence what was not there before.
+
+[DYK🔎] The glory of God shining in Christ's face recalls how Moses' face shone after being in God's presence (Exodus 34:29-35). But Moses veiled his face because that glory faded. In Christ, the glory does not fade—and by beholding Him in the Word, we are "changed into the same image from glory to glory" (2 Corinthians 3:18).
 
 ---
 
-### Q5. What other passage of Scripture also reveals that creative power is exercised through the word of God?
+## The Word Demonstrated in Christ's Ministry
 
-**"Let them praise the name of the Lord: for He commanded, and they were
-created." Psalm 148:5.**
+### Authority Over All
 
-**Answer:**
+When Jesus taught, people noticed something different:
 
-The Psalmist calls upon the sun, moon, stars, and angels to praise God because
-they owe their very existence to His command. This establishes the absolute
-sovereignty of God. If the inanimate creation obeys His voice instantly, how
-much more should man, created in God's image, listen to that Word?
+> _"And they were astonished at His doctrine: for His word was with power."_ (Luke 4:32)
 
----
+This was not the power of eloquence or clever argument. It was the power of the Creator speaking. And when He commanded unclean spirits:
 
-### Q6. What change is wrought out in the life of one who is in Christ?
+> _"They were all amazed, and spake among themselves, saying, What a word is this! for with authority and power He commandeth the unclean spirits, and they come out."_ (Luke 4:36)
 
-**"Therefore if any man be in Christ, he is a new creature [literally, "a new
-creation"]: old things are passed away; behold, all things are become new." 2
-Corinthians 5:17.**
+Demons recognized what many humans refused to see: Jesus spoke with the authority of the One who made all things.
 
-**Answer:**
+### Healing by the Word
 
-Here we move from physical creation to **spiritual creation**.
+The Psalmist declared of ancient times:
 
-- **Justification as Creation:** **Justification** is God’s legal declaration
-  that a sinner is righteous (Romans 3:24). But it is more than just a legal
-  change; it is a creative act. When God declares a man righteous in Christ, He
-  makes him a "new creature."
-- **Newness of Life:** This is not a patch on the old life. It is a new heart
-  and a new mind (Ezekiel 36:26). The "old things" (love of sin, selfishness,
-  pride) pass away as the life of Christ takes possession of the soul.
+> _"He sent His word, and healed them, and delivered them from their destructions."_ (Psalm 107:20)
 
-**[ILL] Illustration:** You cannot turn a wolf into a sheep by shearing it or
-teaching it to eat grass; its nature remains predatory. It would require a
-miracle of creation to change its species. Similarly, education and culture
-cannot change a sinner into a saint. Only the Creator can install a new nature.
+A Roman centurion—a Gentile soldier—understood this better than most of Israel:
+
+> _"Lord, I am not worthy that Thou shouldest come under my roof: but speak the word only, and my servant shall be healed."_ (Matthew 8:8)
+
+Jesus marveled at this faith (Matthew 8:10). The centurion understood authority. He spoke, and soldiers obeyed. He recognized that Jesus held that same kind of authority—not over men, but over disease, over nature, over all creation.
+
+[Q] **"Can we expect the same power today?"**
+
+The Word of God has not diminished. What has often diminished is our faith in it. The centurion received what he believed. "According to your faith be it unto you" remains Christ's principle (Matthew 9:29). We may not always understand how or when God will act, but His Word remains "living and powerful" (Hebrews 4:12).
 
 ---
 
-### Q7. Jesus described this same experience in what other passage?
+## Principles and Great Controversy Themes
 
-**"Jesus answered and said unto him, Verily, verily, I say unto thee, Except a
-man be born again, he cannot see the kingdom of God." John 3:3.**
+### The Word as Seed
 
-**Answer:**
+Jesus explained in the parable of the sower:
 
-Jesus uses the metaphor of birth to explain the radical nature of conversion.
+> _"The seed is the word of God."_ (Luke 8:11)
 
-- **The Necessity:** It is not that a man _ought_ not to enter heaven without
-  this change; he _cannot_. The atmosphere of heaven is holiness; a heart that
-  has not been "born again" would find heaven to be a place of torture, for it
-  would be utterly out of harmony with God.
-- **The Method:** As we had no part in our physical birth, so we cannot generate
-  our own spiritual birth. It is the work of the Spirit of God, received by
-  faith.
+A seed appears small, insignificant, even lifeless. But within it lies a mysterious power—the germ of life that can break through hard earth, push aside stones, and grow into a mighty plant. So the Word of God may seem simple—just words on a page—but within it is the very life of God.
 
----
+**The Condition for Growth**
 
-### Q8. By what agency is this new creation or new birth accomplished?
+Christ desires His Word to take deep root:
 
-**"Being born again, not of corruptible seed, but of incorruptible, by the word
-of God, which liveth and abideth for ever." 1 Peter 1:23.**
+> _"Let the word of Christ dwell in you richly in all wisdom."_ (Colossians 3:16)
 
-**Answer:**
+But not all receive it. Jesus warned:
 
-The instrument of the new birth is the Word of God.
+> _"Ye have not His word abiding in you: for whom He hath sent, Him ye believe not."_ (John 5:38)
 
-- **The Seed:** A seed contains the life of the plant. The Word of God is the
-  "incorruptible seed." It contains the life of Christ. When this Word is
-  received into the heart by faith, the life of Christ begins to grow there.
-- **Righteousness by Faith:** We do not produce righteousness; we receive the
-  Seed. As the seed grows, it naturally produces the fruit of obedience
-  (Galatians 5:22-23). Our part is to receive and cherish the Word.
+The difference between fruitfulness and barrenness is whether the Word _abides_—remains, dwells, takes up residence. A seed scattered on a hard path cannot germinate. The heart must be receptive.
 
----
+### The Word Working Within
 
-### Q9. What is the first creative commandment that is mentioned in the Bible?
+Paul thanked God for the Thessalonians because:
 
-**"And God said, Let there be light: and there was light." Genesis 1:3.**
+> _"When ye received the word of God which ye heard of us, ye received it not as the word of men, but as it is in truth, the word of God, which effectually worketh also in you that believe."_ (1 Thessalonians 2:13)
 
-**Answer:**
+Notice: the Word _effectually worketh_. It is not passive information. When received by faith, it operates powerfully within the believer, accomplishing transformation. This is the secret of sanctification: not human striving to manufacture holiness, but the living Word working _in_ us what we could never work out by ourselves.
 
-God addressed the darkness and chaos of the deep. He did not struggle with the
-darkness; He simply introduced light, and the darkness vanished. This is the
-pattern for how God deals with the darkness of sin.
+### Partakers of the Divine Nature
+
+Peter unveils a staggering promise:
+
+> _"Whereby are given unto us exceeding great and precious promises: that by these ye might be partakers of the divine nature, having escaped the corruption that is in the world through lust."_ (2 Peter 1:4)
+
+Through the promises of God's Word, we actually become _partakers of the divine nature_. Not divine in the sense of becoming gods, but sharing in God's moral character—His love, His holiness, His purity. The corruption of sin is escaped not by our power but by receiving the nature of God through His Word.
+
+[ILL] A piece of iron left in a fire does not remain cold and dark. Over time, it absorbs the fire's heat and light until it glows with the fire's own nature. So the soul that dwells constantly in God's Word absorbs the divine character until it glows with Christ's own life.
 
 ---
 
-### Q10. Did God also command another light to shine out of darkness?
+## Practical Application
 
-**"For God, who commanded the light to shine out of darkness, hath shined in our
-hearts, to give the light of the knowledge of the glory of God in the face of
-Jesus Christ." 2 Corinthians 4:6.**
+### Cleansing Through the Word
 
-**Answer:**
+Jesus told His disciples:
 
-Paul directly connects the creation of physical light with the conversion of the
-soul.
+> _"Now are ye clean through the word which I have spoken unto you."_ (John 15:3)
 
-- **The Dark Heart:** The human heart by nature is "darkness" (Ephesians 5:8).
-  We cannot create light within ourselves.
-- **The Divine Command:** God speaks the word of forgiveness and grace into the
-  heart. This "shining" is the revelation of His character (His glory) seen in
-  Christ.
-- **Sanctuary Connection:** In the Holy Place, the seven-branched candlestick
-  represented Christ, the Light of the World, and His Word illuminating the
-  church through the Spirit.
+The Psalmist asked the question every honest young person has pondered:
 
----
+> _"Wherewithal shall a young man cleanse his way? by taking heed thereto according to Thy word."_ (Psalm 119:9)
 
-### Q11. What was it about Christ's teaching that astonished people?
+Sin defiles. The world, the flesh, and the devil constantly seek to pollute the mind and heart. But the Word of God has cleansing power. As we read, study, and receive it by faith, it washes away impurity.
 
-**"And they were astonished at His doctrine: for His word was with power." Luke
-4:32.**
+### Victory Over Sin
 
-**Answer:**
+David discovered the secret of overcoming temptation:
 
-The scribes and Pharisees quoted human authorities and traditions. Christ spoke
-from the Source. His word possessed an inherent power that convicted the
-conscience. True preaching today is not the sharing of human opinions, but the
-delivery of God's Word, which still retains that same power.
+> _"Thy word have I hid in mine heart, that I might not sin against thee."_ (Psalm 119:11)
+
+Not just memorization—though that is involved—but _hiding_ the Word in the heart. Making it an internal treasure, guarded and cherished. When temptation comes, the Word rises to meet it. Jesus Himself met every temptation of Satan with "It is written" (Matthew 4:4, 7, 10). If the Son of God relied on Scripture to overcome, how much more must we?
+
+**Steps to Victory:**
+
+1. **Read the Word daily**—let it become as necessary as daily bread (Matthew 4:4)
+2. **Receive it as God's Word**, not mere human literature (1 Thessalonians 2:13)
+3. **Memorize key passages**—hide them in the heart (Psalm 119:11)
+4. **Meditate on it** day and night (Psalm 1:2)
+5. **Obey what you understand**—faith acts on truth (James 1:22)
+6. **Depend on its power**, not your own willpower (Philippians 2:13)
 
 ---
 
-### Q12. What important fact testified to the power of Christ's word?
+## Appeal
 
-**"And they were all amazed, and spake among themselves, saying, What a word is
-this! for with authority and power He commandeth the unclean spirits, and they
-come out." Luke 4:36.**
+The God who spoke light into existence wants to speak light into your heart. The Word that upholds the stars wants to uphold you. The power that raised Jesus from the dead is available to you through the living Word.
 
-**Answer:**
+Do you struggle with besetting sins? The Word can cleanse you.
 
-Even the demonic realm recognizes the authority of the Word.
+Do you feel spiritually dead? The Word can give you new birth.
 
-- **Spiritual Warfare:** We are in a "Great Controversy" between Christ and
-  Satan. We cannot defeat the enemy with logic or willpower.
-- **The Weapon:** Jesus defeated Satan in the wilderness by saying, "It is
-  written" (Matthew 4:4). We overcome by the "word of our testimony" regarding
-  the blood of the Lamb (Revelation 12:11).
+Do you long for transformation? The Word can make you a new creature.
 
----
+But the Word must be _received_. It must _abide_. It must be _hidden in the heart_.
 
-### Q13. In ancient times, how did God bring healing to His people?
+Will you open your heart today to the creative, sustaining, transforming power of God's Word?
 
-**"He sent His word, and healed them, and delivered them from their
-destructions." Psalm 107:20.**
+> _"For the word of God is quick, and powerful, and sharper than any twoedged sword, piercing even to the dividing asunder of soul and spirit, and of the joints and marrow, and is a discerner of the thoughts and intents of the heart."_ (Hebrews 4:12)
 
-**Answer:**
-
-Healing, whether physical or spiritual, comes through the Word. This verse
-implies that the Word is a messenger ("He sent His word"). It goes forth to
-accomplish a specific task. When we are sick with sin, the remedy is found in
-the promises of God.
-
----
-
-### Q14. In what way did the Roman centurion reveal his strong faith in Christ?
-
-**"The centurion answered and said, Lord, I am not worthy that Thou shouldest
-come under my roof: but speak the word only, and my servant shall be healed."
-Matthew 8:8.**
-
-**Answer:**
-
-The Centurion is one of the Bible's greatest examples of **Righteousness by
-Faith**.
-
-- **Dependence on the Word:** He did not ask for a sign, a touch, or a feeling.
-  He knew that if Jesus simply _spoke_, the result was guaranteed.
-- **Faith Defined:** Faith is accepting God’s Word as fact, before the result is
-  seen. If we wait to "feel" healed or "feel" forgiven before we believe, we are
-  not exercising faith. We must believe the Word _only_.
-
-**[ILL] Illustration:** If a reliable wealthy friend gives you a check for a
-thousand dollars, you consider the debt paid before you even go to the bank. You
-trust the "word" written on the paper. God's promises are checks signed in the
-blood of Jesus. We may treat them as current reality.
-
----
-
-### Q15. What did Christ say is the seed of the kingdom of God?
-
-**"The seed is the word of God." Luke 8:11.**
-
-**Answer:**
-
-In the Parable of the Sower, Jesus identifies the Word as the seed.
-
-- **Potential Life:** A seed may look small and dry, but inside is the germ of
-  life. The Bible may seem like just a book, but within its pages is the life of
-  God.
-- **Growth:** Just as a seed needs good soil, the Word needs a receptive heart.
-  When received, it produces "after its kind"—it produces the character of
-  Christ in the believer.
-
----
-
-### Q16. Where does God want Christ's word to dwell?
-
-**"Let the word of Christ dwell in you richly in all wisdom." Colossians 3:16.**
-
-**Answer:**
-
-The Word is not to be a visitor, but a resident.
-
-- **Indwelling Christ:** To have the Word dwell in us is to have Christ dwell in
-  us, for He is the "Word made flesh" (John 1:14).
-- **Sanctification:** **Sanctification** is the process of the Word taking over
-  more and more of the mind, replacing worldly thoughts with God's thoughts,
-  resulting in a holy life.
-
----
-
-### Q17. Could those who believed not on Jesus Christ receive this important seed?
-
-**"Ye have not His word abiding in you: for whom He hath sent, Him ye believe
-not." John 5:38.**
-
-**Answer:**
-
-Unbelief shuts the door to the Word. The religious leaders of Jesus' day
-memorized the Scriptures, but the Word did not _abide_ (live) in them because
-they rejected Christ. We cannot separate the written Word from the Living Word.
-To reject Christ is to drain the Bible of its power for our souls.
-
----
-
-### Q18. How does the Word of God work in the life of the believer?
-
-**"For this cause also thank we God without ceasing, because, when ye received
-the word of God which ye heard of us, ye received it not as the word of men, but
-as it is in truth, the word of God, which effectually worketh also in you that
-believe." 1 Thessalonians 2:13.**
-
-**Answer:**
-
-- **Not Human Opinion:** If the Bible is merely good advice from ancient men, it
-  has no power to save. We must receive it as the voice of God speaking to us
-  individually.
-- **Effectual Working:** The Greek word for "effectually worketh" is _energeia_
-  (energy). The Word is active. It energizes the will to obey.
-- **Righteousness by Faith:** We do not work _for_ the Word; the Word works _in_
-  us. "It is God which worketh in you both to will and to do of his good
-  pleasure" (Philippians 2:13).
-
----
-
-### Q19. What new nature is imparted to us through the promises of God?
-
-**"Whereby are given unto us exceeding great and precious promises: that by
-these ye might be partakers of the divine nature, having escaped the corruption
-that is in the world through lust." 2 Peter 1:4.**
-
-**Answer:**
-
-This is the secret of victory over sin.
-
-- **Imparted Righteousness:** How do we get God's nature? Through His
-  _promises_. Every promise of God contains the power to fulfill itself. When we
-  grasp a promise (e.g., "Sin shall not have dominion over you"), we are
-  actually partaking of the divine nature.
-- **Escaping Corruption:** We do not escape the world by running to a monastery,
-  but by holding to the promises. The divine nature expels the carnal nature as
-  light expels darkness.
-
-**[ILL] Illustration:** A diver can remain dry while underwater if he is inside
-a diving bell. He is in the water, but not _of_ the water. The believer is in
-the world, but through the "diving bell" of God's promises, he is surrounded by
-the atmosphere of heaven (the divine nature) and is kept from the corruption
-around him.
-
----
-
-### Q20. What is it that can cleanse the lives of believers in Christ?
-
-**"Now are ye clean through the word which I have spoken unto you." John 15:3.**
-
-**Answer:**
-
-- **Cleansing Power:** Just as water cleanses the body, the Word cleanses the
-  mind and conscience.
-- **Sanctuary Connection:** This points to the **Laver** in the courtyard, where
-  the priests washed before entering the Holy Place. We must be washed daily by
-  the "washing of water by the word" (Ephesians 5:26).
-- **Justification:** The declaration of Christ ("Ye are clean") makes it so. He
-  pronounces us clean, and His word provides the reality of that purity.
-
----
-
-### Q21. How can a young man cleanse his ways?
-
-**"Wherewithal shall a young man cleanse his way? by taking heed thereto
-according to Thy word." Psalm 119:9.**
-
-**Answer:**
-
-The question is practical: How can a young person, full of energy and facing
-strong temptations, remain pure?
-
-- **The Standard:** The Word is the standard of right and wrong.
-- **The Method:** "Taking heed" means to align one's life with the Word. It
-  involves constant reference to the Scriptures as the guide for every decision.
-
----
-
-### Q22. What is the result of accepting the Word of God into the heart and life?
-
-**"Thy word have I hid in mine heart, that I might not sin against thee." Psalm
-119:11. (See also Psalm 17:4.)**
-
-**Answer:**
-
-This is the conclusion of the matter: The Word is the antidote to sin.
-
-- **Hiding the Word:** This implies more than reading; it means memorizing,
-  meditating, and storing the Word in the deep affections of the heart.
-- **Victory:** When temptation comes, the Holy Spirit brings the "hidden" Word
-  to remembrance. If the heart is full of God's Word, there is no room for sin.
-- **The Path of Christ:** This was Jesus' secret. He hid the law within His
-  heart (Psalm 40:8), and therefore He could say, "I delight to do thy will." As
-  we behold Him in the Word, we are changed into the same image.
+The same Word that made the heavens waits to make you new. Receive it. Believe it. Let it work effectually in you—and stand amazed at what God will do.

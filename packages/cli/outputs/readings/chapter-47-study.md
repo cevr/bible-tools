@@ -1,496 +1,364 @@
-### Q1. Why was Abel's sacrifice more acceptable to God than Cain’s?
+# Bible Study: The Atonement in the Old Testament
 
-**Verse:** “By faith Abel offered unto God a more excellent sacrifice than
-Cain." Heb. 11:4.
+## Introduction
 
-**Answer:** The difference between Abel’s sacrifice and Cain’s was not merely in
-the items offered, but in the _faith_ and _understanding_ of the plan of
-salvation that prompted the offering.
-
-- **The Blood vs. The Fruit:** Cain brought the "fruit of the ground" (Genesis
-  4:3), representing human labor and works. It contained no blood, and therefore
-  made no confession of sin and no acknowledgment of the need for a Savior. Abel
-  brought the "firstlings of his flock" (Genesis 4:4), a slain lamb. This
-  involved the shedding of blood, acknowledging that "without shedding of blood
-  is no remission" (Hebrews 9:22).
-- **Faith in the Substitute:** Abel’s offering was "by faith." Faith in what?
-  Faith in the promised Seed (Genesis 3:15) who would bruise the serpent’s head.
-  Abel understood that his own life was forfeited by sin and that he could only
-  be accepted through the death of a Substitute.
-- **Righteousness by Faith:** This is the earliest biblical illustration of
-  righteousness by faith versus righteousness by works. Cain sought to approach
-  God through his own culture and effort (works); Abel approached God through
-  the merit of the innocent victim (faith in Christ).
-
-**[ILL]** Imagine two men owing a debt they cannot pay. One man brings his own
-handmade crafts to the bank, saying, "Look how hard I worked on these; surely
-this settles my debt." The banker refuses, for crafts are not legal tender. The
-second man brings a check signed by a wealthy benefactor. He has done no work
-for it, but he trusts the signature. The bank accepts it immediately. Cain
-brought his own "crafts"; Abel brought the "check" signed in the blood of the
-Lamb.
+The earthly sanctuary was not merely a tent of worship—it was God's visual
+gospel, a divine classroom where every sacrifice, every piece of furniture, and
+every priestly act pointed forward to Christ and His work of saving sinners. In
+studying the ancient atonement services, we discover not dusty rituals but living
+truth about how God reconciles fallen humanity to Himself. The sanctuary reveals
+God's answer to the great problem of sin and shows us the complete plan of
+redemption from first conviction to final cleansing.
 
 ---
 
-### Q2. To what did his sacrifice point forward?
+## Core Truths
 
-**Verse:** "Ye were not redeemed with corruptible things,... but with the
-precious blood of Christ, as of a lamb without blemish and without spot: Who
-verily was foreordained before the foundation of the world." 1 Peter 1:18-20.
+### The Foundation: Faith Before the Sanctuary Existed
 
-**Answer:** Abel's sacrifice was a "type" or a shadow pointing forward to the
-great "antitype"—Jesus Christ.
+Long before Moses built the tabernacle, the faithful worshipped God through
+sacrifice. Abel, Abraham, Jacob—all offered animals as expressions of faith in a
+coming Redeemer.
 
-- **The Lamb of God:** Every sacrifice offered by the patriarchs was a prophecy
-  in action. The lamb represented Jesus, "the Lamb of God, which taketh away the
-  sin of the world" (John 1:29).
-- **Foreordained:** The plan of salvation was not an afterthought devised when
-  Adam sinned. Christ was "foreordained before the foundation of the world."
-  This is the "everlasting covenant" (Hebrews 13:20)—the agreement between the
-  Father and the Son to save humanity at the cost of the Son's life.
-- **Redemption:** The text says we are redeemed "with the precious blood of
-  Christ." _Redemption_ means "buying back." We sold ourselves into the slavery
-  of sin; Christ’s blood is the price paid to release us from the condemnation
-  of the law (Galatians 3:13).
+> _"By faith Abel offered unto God a more excellent sacrifice than Cain, by
+> which he obtained witness that he was righteous."_ (Hebrews 11:4)
 
----
+What made Abel's offering "more excellent"? Not the quality of the lamb, but the
+**faith** behind it. Cain brought the fruit of his own labors—the work of his
+hands. Abel brought a lamb, acknowledging that sin required the death of an
+innocent substitute. Abel's offering pointed forward to the Lamb of God:
 
-### Q3. By his sacrifice, what did Abel obtain?
+> _"Ye were not redeemed with corruptible things, as silver and gold... but with
+> the precious blood of Christ, as of a lamb without blemish and without spot:
+> who verily was foreordained before the foundation of the world."_ (1 Peter
+> 1:18–20)
 
-**Verse:** “He obtained witness that he was righteous." Heb. 11:4.
+[DYK🔎] The plan of redemption through a sacrificial Lamb existed in God's heart
+_before_ Adam sinned—even "before the foundation of the world." The sacrifice of
+Christ was not an emergency backup plan, but the eternal purpose of the Godhead.
 
-**Answer:** Through his offering, Abel received a divine testimony that he was
-righteous. This is the heart of **Justification**.
+**Justification**: God's legal declaration that a repentant sinner is righteous
+because of Christ's merits (Romans 3:24; 5:1). Abel "obtained witness that he
+was righteous"—not by his works, but by faith in the promised Savior.
 
-- **Definition of Justification:** It is the legal declaration by God that a
-  sinner is righteous, not because of their own deeds, but because the
-  righteousness of Christ is imputed (credited) to them (Romans 4:3–5).
-- **Imputed Righteousness:** Abel was not righteous because he was personally
-  perfect or sinless in himself; he was a sinner in need of a Savior. He was
-  accounted righteous because he laid hold of Christ.
-- **The Witness:** God "testifying of his gifts" (Hebrews 11:4) showed that God
-  accepts the sinner who comes covered in the merit of Jesus.
+### The Sanctuary: God's Dwelling Among His People
 
----
+After delivering Israel from Egypt, God commanded Moses:
 
-### Q4. With what sacrifice did God command Abraham to worship Him?
+> _"Let them make Me a sanctuary; that I may dwell among them."_ (Exodus 25:8)
 
-**Verse:** “And He said unto him, Take Me a heifer of three years old, and a she
-goat of three years old, and a ram of three years old... And he took unto him
-all these, and divided them in the midst, and laid each piece one against
-another." Gen. 15:1, 10.
+This was no ordinary tent. God gave Moses exact specifications—a pattern shown
+him in the mount (Exodus 25:40; Hebrews 8:5). Every detail carried meaning.
 
-**Answer:** God commanded Abraham to prepare a specific covenant sacrifice
-involving a heifer, a she-goat, a ram, a turtledove, and a young pigeon.
+**The Two Apartments:**
 
-- **Ratifying the Covenant:** In ancient times, cutting animals in two and
-  passing between the pieces was a solemn way of sealing a covenant (Jeremiah
-  34:18). By this ritual, God was confirming His promise to give Abraham the
-  land and a Seed (Christ).
-- **Total Surrender:** Abraham obeyed precisely. This shows that faith is not
-  merely an abstract belief; true faith acts. "Faith, if it hath not works, is
-  dead" (James 2:17). Abraham’s obedience was the fruit of his faith.
+The sanctuary was divided by a veil into two rooms (Exodus 26:33):
 
----
+1. **The Holy Place** (first apartment)—containing:
+   - The **golden candlestick** with seven lamps (Exodus 25:31–40)
+   - The **table of showbread** (Exodus 25:23–30)
+   - The **altar of incense** (Exodus 30:1–6)
 
-### Q5. How did Jacob manifest his faith in the promised Redeemer?
+2. **The Most Holy Place** (second apartment)—containing:
+   - The **ark of the covenant** overlaid with gold
+   - The **mercy seat** atop the ark
+   - The **two cherubim** overshadowing the mercy seat
+   - Inside the ark: **the tables of the covenant**—the Ten Commandments
+     (Deuteronomy 10:4–5)
 
-**Verse:** “And Israel took his journey with all that he had, and came to
-Beersheba, and offered sacrifices unto the God of his father Isaac." Gen. 46:1.
+[DYK🔎] The mercy seat (Hebrew: _kapporeth_) comes from the root word meaning "to
+cover" or "to atone." The very place where God met with His people was called
+the "covering" or "place of atonement"—where divine justice and mercy met
+together.
 
-**Answer:** Jacob (Israel), near the end of his life, continued the practice of
-offering blood sacrifices.
+### The Problem: Sin and Its Wages
 
-- **Continuity of Faith:** The religion of the patriarchs was the religion of
-  the cross. From Abel to Abraham, to Isaac, and to Jacob, the faithful line was
-  preserved through the sacrificial system which taught that God provides a
-  substitute.
-- **Seeking Guidance:** Jacob offered these sacrifices before going down into
-  Egypt. He sought God’s covering and guidance through the appointed means of
-  worship—the blood of the covenant.
+Why was all this elaborate system necessary? Because of sin.
 
----
+> _"Whosoever committeth sin transgresseth also the law: for sin is the
+> transgression of the law."_ (1 John 3:4)
 
-### Q6. What did the lord command Moses to have made?
+> _"The wages of sin is death."_ (Romans 6:23)
 
-**Verse:** “And the Lord spake unto Moses, saying, Speak unto the children of
-Israel, that they bring me an offering; ..and let them make Me a sanctuary: that
-I may dwell among them." Ex. 25:1, 8 (Acts 7:44) (Heb. 8:5). "Moreover thou
-shalt make the tabernacle with ten curtains of fine twined linen, and blue, and
-purple, and scarlet: with cherubim of cunning work shalt thou make them." "And
-thou shalt make curtains goats' hair to be a covering upon the tabernacle: even
-curtains shalt thou make." "And thou shalt make a covering for the tent of rams'
-skins dyed red, and a covering above of badgers' skins." Ex. 26:1, 7, 14.
+The law of God—resting inside the ark beneath the mercy seat—defines what sin
+is. When we break God's commandments, we incur the death penalty. The law
+demands death. But above the law was the mercy seat, sprinkled with blood. Mercy
+and justice meet at the cross—and both were illustrated in the sanctuary's Most
+Holy Place.
 
-**Answer:** God commanded the construction of a **Sanctuary** (a holy place).
+### The Daily Service: Confession, Substitution, and Transfer
 
-- **The Purpose:** "That I may dwell among them." God’s desire has always been
-  to be close to His people. Sin separated man from God (Isaiah 59:2); the
-  sanctuary provided a way for a holy God to dwell in the midst of a sinful
-  people through the mediation of blood.
-- **The Pattern:** Moses was not left to design this himself. He was shown a
-  "pattern" in the mount (Exodus 25:40; Hebrews 8:5). This earthly sanctuary was
-  a miniature model of the true tabernacle in heaven, which the Lord pitched,
-  and not man (Hebrews 8:2).
-- **Antitype—The Human Heart:** Ultimately, God wants to dwell not in a tent of
-  skin, but in the human heart. "Know ye not that ye are the temple of God?" (1
-  Corinthians 3:16). The earthly sanctuary illustrates how God cleanses the soul
-  temple from sin so He can reign there supreme.
+When a common Israelite sinned, what must he do?
 
----
+> _"Then he shall bring his offering, a kid of the goats, a female without
+> blemish, for his sin which he hath sinned. And he shall lay his hand upon the
+> head of the sin offering, and slay the sin offering..."_ (Leviticus 4:27–29)
 
-### Q7. How many apartments had the sanctuary?
+Notice the steps:
 
-**Verse:** ” And the veil shall divide unto you between the holy place and the
-most holy." Ex. 26:33.
+1. **Recognition** of sin (becoming aware of transgression)
+2. **Bringing** a spotless animal to the sanctuary
+3. **Laying hands** on the victim's head—confessing sin, transferring guilt
+4. **Slaying** the animal with his own hand
+5. **Blood applied** by the priest to the altar horns or sprinkled before the
+   veil
 
-**Answer:** The sanctuary had two apartments (rooms):
+[ILL] Imagine a man who has stolen from his neighbor. Conscience-stricken, he
+brings a lamb to the sanctuary. Standing at the altar, he places both hands upon
+the lamb's head and speaks aloud his sin. He feels the warm pulse of life
+beneath his palms. Then, with trembling hand, he must himself draw the knife
+across the lamb's throat. As the blood flows and the innocent creature dies, the
+man understands viscerally: _my sin did this_. This is what my transgression
+deserves. The lamb dies in my place.
 
-1.  The **Holy Place** (the first apartment).
-2.  The **Most Holy Place** (or Holy of Holies, the second apartment).
+**The blood was then applied** by the priest—either sprinkled before the veil or
+placed on the horns of the altar (Leviticus 4:30). The sin, having been
+confessed and symbolically transferred to the animal, was now carried by the
+blood into the sanctuary. The sinner returned home forgiven, but **the sin was
+now recorded** in the sanctuary.
 
-They were separated by a heavy veil. This structure outlines the two phases of
-Christ’s ministry: His daily intercession (Holy Place) and His final work of
-judgment and cleansing (Most Holy Place).
+> _"The priest that offereth it for sin shall eat it; in the holy place shall it
+> be eaten."_ (Leviticus 6:26)
+
+By eating the sin offering (or by the blood being sprinkled), the priest bore
+the sins of the people into the holy place. The sanctuary itself became, in a
+sense, the repository of confessed sin—accumulating throughout the year until
+the Day of Atonement.
 
 ---
 
-### Q8. What was in the first apartment?
+## Deeper Truths
 
-**Verse:** “For there was a tabernacle made; the first, wherein was the
-candlestick, and the table, and the showbread; which is called the sanctuary."
-Heb 9:2.
+### The Yearly Service: Cleansing the Sanctuary
 
-**Answer:** The first apartment contained:
+The daily services dealt with individual sins, providing forgiveness and peace
+to the repentant sinner. But confessed sins had accumulated in the sanctuary all
+year. Once annually, on the tenth day of the seventh month, came the solemn **Day
+of Atonement**—_Yom Kippur_.
 
-- **The Golden Candlestick (Menorah):** It had seven lamps and burned
-  continually. It represents Jesus as the "Light of the world" (John 8:12) and
-  the power of the Holy Spirit illuminating the church (Revelation 4:5).
-- **The Table of Shewbread:** This held twelve loaves of bread, representing
-  Jesus as the "Bread of Life" (John 6:35). We must daily feed upon His Word to
-  sustain our spiritual life.
+> _"For on that day shall the priest make an atonement for you, to cleanse you,
+> that ye may be clean from all your sins before the Lord."_ (Leviticus 16:30)
 
-**[ILL]** Just as our physical bodies will die without daily food and light, our
-spiritual life withers without the daily intake of God’s Word (Bread) and the
-illuminating presence of the Holy Spirit (Oil/Light).
+**Atonement**: The work by which God and man are brought into oneness
+(_at-one-ment_) through Christ's sacrifice and priestly ministry (Leviticus 16;
+Romans 5:10–11).
 
----
+[Q] **"If sins were forgiven in the daily service, why was the Day of Atonement
+necessary?"**
 
-### Q9. What other article was in the first apartment?
+Forgiveness and cleansing are related but distinct. The daily service brought
+**forgiveness** to the penitent sinner—he went home at peace, his sin covered by
+the substitute's blood. But the sin had not vanished; it had been _transferred_
+to the sanctuary. The sanctuary bore the recorded sins of the people. On the Day
+of Atonement, those sins were **finally removed**—the sanctuary was cleansed,
+and the sin was placed where it belonged: upon the head of the originator of
+sin.
 
-**Verse:** “And he put the golden altar in the tent of the congregation before
-the veil." Ex. 40:26 (Ex. 30:1-6).
+### The Two Goats: The Lord's Goat and the Scapegoat
 
-**Answer:** The **Altar of Incense**.
+The ceremony of the Day of Atonement centered on two goats:
 
-- **Location:** It stood directly before the veil that separated the Holy from
-  the Most Holy place.
-- **Significance:** The incense represents the "prayers of saints" (Revelation
-  8:3–4) mingled with the merit and intercession of Christ. As we pray, our
-  petitions ascend, sweetened by the perfect righteousness of Jesus, making them
-  acceptable to the Father. This teaches us that prayer is our connection to
-  heaven, but it is effective only through Jesus' name.
+> _"And Aaron shall cast lots upon the two goats; one lot for the Lord, and the
+> other lot for the scapegoat."_ (Leviticus 16:8)
 
----
+**The Lord's goat** was slain as a sin offering. Its blood was carried inside
+the veil—into the Most Holy Place—and sprinkled upon the mercy seat:
 
-### Q10. What was contained in the second apartment, or the most holy place?
+> _"Then shall he kill the goat of the sin offering, that is for the people, and
+> bring his blood within the veil... and sprinkle it upon the mercy seat, and
+> before the mercy seat."_ (Leviticus 16:15)
 
-**Verse:** “And after the second veil, the tabernacle which is called the
-Holiest of all; which had the golden censer, and the ark of the covenant
-overlaid round about with gold, wherein was the golden pot that had manna, and
-Aaron's rod that budded, and the tables of the covenant." Heb. 9:3-4 (Ex. 40:20,
-21).
+This blood atoned for and cleansed the sanctuary from all accumulated sins:
 
-**Answer:** The central feature of the Most Holy Place was the **Ark of the
-Covenant**. Inside this chest were:
+> _"And he shall make an atonement for the holy place, because of the
+> uncleanness of the children of Israel, and because of their transgressions in
+> all their sins."_ (Leviticus 16:16)
 
-1.  **The Golden Pot of Manna:** Reminding Israel of God's providence.
-2.  **Aaron's Rod that Budded:** Showing God's choice of the priesthood.
-3.  **The Tables of the Covenant:** The Ten Commandments written by God's
-    finger.
+Only after the sanctuary was cleansed did the high priest deal with the
+**scapegoat** (Hebrew: _Azazel_):
 
----
+> _"And Aaron shall lay both his hands upon the head of the live goat, and
+> confess over him all the iniquities of the children of Israel... putting them
+> upon the head of the goat, and shall send him away... into the wilderness. And
+> the goat shall bear upon him all their iniquities unto a land not inhabited."_
+> (Leviticus 16:21–22)
 
-### Q11. By what name was the cover of the ark known?
+[DYK🔎] The Hebrew word _Azazel_ appears only in Leviticus 16 and has been
+understood by Jewish and Christian scholars to be a name referring to an evil
+being—the one ultimately responsible for tempting humanity to sin. The scapegoat
+did not atone for sin (that was accomplished by the Lord's goat); rather, it
+bore away the sins that had already been atoned for, carrying them back to their
+originator.
 
-**Verse:** “And thou shalt put the mercy seat above upon the ark; and in the ark
-thou shalt put the testimony that I shall give thee." Ex.25:21.
+### Christ in the Sanctuary Types
 
-**Answer:** The cover was called the **Mercy Seat**.
+Every element pointed forward to Jesus:
 
-- **Mercy and Truth:** The Mercy Seat (solid gold) covered the Law (the Ten
-  Commandments) inside the box. The Law cries out for the death of the sinner
-  ("The wages of sin is death"), but the Mercy Seat, sprinkled with blood,
-  interposes to save the sinner.
-- **The Gospel:** Here "Mercy and truth are met together; righteousness and
-  peace have kissed each other" (Psalm 85:10). It shows that God does not
-  abolish His law to save men; rather, He satisfies the law's demands through
-  Christ's blood so that mercy can be extended.
+| **Type**                    | **Antitype**                                               |
+| --------------------------- | ---------------------------------------------------------- |
+| Spotless lamb               | Christ, the Lamb without blemish (1 Peter 1:19)            |
+| Blood of the sacrifice      | Christ's blood shed on Calvary (Hebrews 9:12)              |
+| Priest ministering blood    | Christ our High Priest in heaven (Hebrews 8:1–2)           |
+| Daily service (forgiveness) | Justification—Christ's righteousness imputed               |
+| Most Holy Place ministry    | Christ's final work of atonement and blotting out of sins  |
+| Lord's goat (atonement)     | Christ's sacrifice, applied for final cleansing            |
+| Scapegoat (Azazel)          | Satan, bearing responsibility for sins he caused           |
+| Sanctuary cleansed          | Heaven's records cleared; God's people sealed and prepared |
 
----
+[Q] **"Was atonement completed at the cross, or is it ongoing?"**
 
-### Q12. Where was God, by the symbol of His presence, to meet with Israel's high priest?
-
-**Verse:** “And there I will meet with thee, and I will commune with thee from
-above the mercy seat, from between the two cherubim which are upon the ark of
-the testimony." Ex. 25:22.
-
-**Answer:** God’s presence (the Shekinah glory) dwelt **above the Mercy Seat**,
-between the two golden cherubim.
-
-- **The Center of Government:** This spot represented the throne of God. It
-  teaches us that God's government is based on two pillars: Justice (the Law
-  inside the ark) and Mercy (the blood on the Mercy Seat).
-- **Access:** God meets with man only over the blood of atonement.
-
----
-
-### Q13. What was in the ark, under the mercy seat?
-
-**Verse:** “And He wrote on the tables, according to the first writing, the ten
-commandments... And I turned myself and came down from the mount, and put the
-tables in the ark which I had made." Deut. 10:4, 5.
-
-**Answer:** The **Ten Commandments**.
-
-- **The Standard:** The moral law is the foundation of God’s government. It is
-  the standard of righteousness.
-- **Relation to the Gospel:** The law reveals sin (Romans 3:20) and points us to
-  our need for the Mercy Seat (Christ). Under the New Covenant, God does not
-  change this law; instead, He promises, "I will put my laws into their mind,
-  and write them in their hearts" (Hebrews 8:10).
+Scripture reveals both aspects. Christ's sacrifice on the cross was complete and
+sufficient—"It is finished!" (John 19:30). Nothing can be added to His death. Yet
+the _application_ of that sacrifice continues. The earthly high priest did not
+complete his work merely by slaying the lamb; he then ministered the blood
+within the sanctuary. So Christ, having died once for all, now ministers the
+benefits of His sacrifice in the heavenly sanctuary (Hebrews 8:1–2; 9:24). The
+daily service represents ongoing intercession and forgiveness; the yearly
+service represents final cleansing, the blotting out of sins, and the
+preparation of God's people for eternity.
 
 ---
 
-### Q14. When this building was completed, for what purpose was it used, and who daily officiated in the first apartment?
+## Principles and Great Controversy Themes
 
-**Verse:** “Now when these things were thus ordained, the priests went always
-into the first tabernacle, accomplishing the service of God." Heb. 9:6.
+### The Law at the Center
 
-**Answer:** The first apartment (Holy Place) was used for the **daily service**.
+What lay at the very heart of the sanctuary—inside the Most Holy Place, within
+the ark, beneath the mercy seat where God's glory dwelt? **The Ten
+Commandments** (Deuteronomy 10:4–5).
 
-- **Continual Ministry:** The priests entered "always" (daily) to trim the
-  lamps, offer incense, and present the blood of individual sin offerings.
-- **Application:** This represents Christ’s continual ministry for us right now.
-  He "ever liveth to make intercession" for us (Hebrews 7:25). We have daily
-  access to the Father through Him.
+This placement reveals profound truth:
 
----
+- God's law is the **foundation of His government**—eternal and unchangeable
+- The mercy seat _rested upon_ the law—mercy does not abolish the law but
+  satisfies its demands
+- Access to God's presence required passing through _blood-stained
+  apartments_—no one comes to the Father except through the sacrifice of Christ
 
-### Q15. Who only was allowed in the second apartment? How often? And for what purpose?
+The great controversy between Christ and Satan centers on God's law. Satan
+claims it cannot be kept, that God asks the impossible. Christ came to "magnify
+the law and make it honorable" (Isaiah 42:21), demonstrating in human flesh that
+the law can be obeyed through divine power. The sanctuary teaches that God's
+plan is not to abolish His law but to **write it in our hearts** (Hebrews
+10:16)—the very purpose of the new covenant.
 
-**Verse:** “But into the second went the high priest alone once every year, not
-without blood, which he offered for himself, and for the errors of the people."
-Heb. 9:7.
+### The Transfer of Sin and Final Judgment
 
-**Answer:**
+The sanctuary service illustrates the entire plan of salvation:
 
-- **Who:** Only the **High Priest**.
-- **When:** Only **once a year**, on the Day of Atonement (Yom Kippur).
-- **Why:** To cleanse the sanctuary and the people from the accumulated record
-  of sin.
+1. **Outer Court** (the cross)—Christ's death as our substitute; justification;
+   sins forgiven
+2. **Holy Place** (daily intercession)—Christ's ongoing ministry; sanctification;
+   transformation by grace
+3. **Most Holy Place** (Day of Atonement)—final judgment; blotting out of sins;
+   Satan bearing ultimate responsibility
 
-This service pointed to the final work of Christ in the heavenly sanctuary (the
-Investigative Judgment) before His second coming.
+[ILL] Consider a courtroom where a criminal stands guilty. The judge pronounces
+sentence: death. But another steps forward and says, "I will bear his penalty."
+The substitute dies; the criminal goes free—**pardoned**. But the court records
+still show the crime. Years later, a review of records takes place. The judge
+examines each case: Was the pardon accepted? Did the pardoned man live in
+gratitude and obedience, or did he return to crime? Based on this review, the
+record is either sealed in righteousness or the pardon is revoked. When the
+review is complete, the crimes of the faithful are permanently erased—and
+responsibility for having tempted them is placed upon the tempter himself, who
+is led away to destruction.
 
----
+This illustrates the investigative judgment—the cleansing of the heavenly
+sanctuary foreshadowed by the Day of Atonement. The sins of the righteous are
+finally blotted out, and Satan, the originator of sin, ultimately bears
+responsibility for the evil he has caused, though each person remains
+accountable for their own choice to sin.
 
-### Q16. How does one commit sin?
+### Righteousness by Faith and the Sanctuary
 
-**Verse:** “Whosoever committeth sin transgresseth also the law: for sin is the
-transgression of the law." 1 John 3:4.
+The entire sanctuary system proclaims one message: **salvation is by grace
+through faith, not by human works**.
 
-**Answer:** Sin is defined as the **transgression of the law** (the Ten
-Commandments).
+- The sinner could not save himself—he needed a **substitute**
+- The substitute must be **provided by God**—the sinner could not manufacture
+  his own salvation
+- Faith was essential—the offering was accepted only because it represented
+  **Christ's sacrifice**
+- The sinner's part was to **confess, believe, and receive**
 
-- **The Standard of Judgment:** You cannot know what sin is without the law. "I
-  had not known sin, but by the law" (Romans 7:7).
-- **The Remedy:** Because sin is breaking God’s law, and the law cannot change,
-  the only way to save the sinner was for Jesus to pay the penalty demanded by
-  that law.
+Yet faith that saves is never alone. True faith produces obedience:
 
----
+> _"Here is the patience of the saints: here are they that keep the commandments
+> of God, and the faith of Jesus."_ (Revelation 14:12)
 
-### Q17. And what is the wages of sin?
-
-**Verse:** “The wages of sin is death." Rom. 6:23.
-
-**Answer:** The penalty for sin is **death**. This is not merely physical death,
-which comes to all, but the "second death"—eternal separation from God. Because
-the law demands the life of the transgressor, either the sinner must die, or a
-sinless Substitute must die in their place.
-
----
-
-### Q18. When one of the common people thus sinned, what must he then do, to save his life?
-
-**Verse:** “And if anyone of the common people sin through ignorance, while he
-doeth somewhat against any of the commandments of the Lord,... then he shall
-bring his offering, a kid of the goats, a female without blemish, for his sin
-which he hath sinned. And he shall lay his hand upon the head of the sin
-offering, and slay the sin-offering in the place of the burnt offering." Lev.
-4:27-29.
-
-**Answer:** The sinner had to follow a specific process of **substitution**:
-
-1.  **Bring a Victim:** An innocent animal (representing Jesus) without blemish.
-2.  **Lay on Hands:** The sinner placed his hands on the animal's head and
-    confessed his specific sin. This symbolized the _transfer_ of guilt from the
-    sinner to the innocent victim.
-3.  **Slay the Victim:** The sinner (not the priest) had to kill the animal.
-    This impressed upon him the solemn truth that _his_ sin caused the death of
-    the Innocent One.
+The sanctuary teaches that Christ's work is not merely to forgive sins but to
+**cleanse from all unrighteousness** (1 John 1:9). The goal of atonement is a
+people fully reconciled to God—not only pardoned but purified, not only forgiven
+but transformed, not only declared righteous but _made_ righteous in character.
 
 ---
 
-### Q19. What was done with the blood?
+## Practical Application
 
-**Verse:** “And the priest shall take of the blood thereof with his finger, and
-put it upon the horns of the altar of burnt offering, and shall pour out all the
-blood thereof at the bottom of the altar." Lev. 4:30.
+### What the Sanctuary Teaches Us Today
 
-**Answer:** The priest took the blood—which now bore the guilt of the sin
-ceremonially—and placed it on the horns of the altar.
+**1. Sin is serious.** Every sacrifice reminded the worshipper that sin brings
+death. We must never treat transgression lightly. The cross, foreshadowed by
+every bleeding lamb, shows the infinite cost of redemption.
 
-- **Transfer of Record:** By this act, the sin was transferred from the sinner
-  to the victim, and through the blood, to the sanctuary. The sinner was
-  forgiven, but the record of the sin remained in the sanctuary until the Day of
-  Atonement.
-- **Forgiveness vs. Cleansing:** The daily service provided _forgiveness_
-  (Justification); the yearly service provided _cleansing_ (the blotting out of
-  sin).
+**2. Confession must be specific.** The Israelite laid hands on the lamb and
+confessed his particular sin. General prayers—"forgive all my sins"—lack the
+searching honesty God desires. Name your sins before God. Bring them to the
+cross.
 
----
+**3. We need a Substitute.** No human effort can atone for sin. Only Christ's
+blood can cover our guilt. We must come to God not in our own righteousness but
+clothed in Christ's merits.
 
-### Q20. How was the body of the sin offering to be disposed of?
+**4. Christ is ministering for us now.** Jesus is not idle in heaven. He is our
+High Priest, applying the benefits of His sacrifice to every believing soul
+(Hebrews 7:25). We may come boldly to the throne of grace (Hebrews 4:16).
 
-**Verse:** “This is the law of the sin-offering: In the place where the burnt
-offering is killed shall the sin offering be killed before the Lord; it is most
-holy. The priest that offereth it for sin shall eat it; in the holy place shall
-it be eaten." Lev. 6:25, 26. See verse 16.
+**5. A final cleansing is taking place.** We live in the antitypical Day of
+Atonement—the time when heaven's sanctuary is being cleansed and God's people
+are being prepared for Christ's return. This is a time for deep heart-searching,
+confession, and putting away of sin.
 
-**Answer:** In many cases, the priest was commanded to **eat a portion of the
-flesh** of the sin offering.
+**6. The law remains central.** God's Ten Commandments—the very law that lay
+inside the ark—remain the standard of righteousness. The sanctuary shows that
+grace does not abolish the law but satisfies its demands through the blood of
+Christ and empowers obedience through the Spirit.
 
-- **Bearing Iniquity:** Leviticus 10:17 explains why: "God hath given it you to
-  bear the iniquity of the congregation." When the priest ate the flesh, he
-  ceremonially took the sin upon himself.
-- **Type of Christ:** This illustrates how Christ became sin for us (2
-  Corinthians 5:21). He absorbs our sin into Himself to make atonement for us.
-
----
-
-### Q21. After the accumulation of the sins of the year in this way, what took place on the tenth day of the seventh month?
-
-**Verse:** “And this shall be a statue forever unto you: that in the seventh
-month, on the tenth day of the month, ye shall afflict your souls;... For on
-that day shall the priest make an atonement for you, to cleanse you, that ye may
-be clean from all your sins before the Lord." Lev. 16:29, 30.
-
-**Answer:** The **Day of Atonement** (Yom Kippur).
-
-- **The Cleansing:** On this day, the sanctuary itself was cleansed. The
-  accumulated record of sins (transferred in daily by the blood) was finally
-  removed.
-- **Afflicting the Soul:** This was a day of judgment. The people were to search
-  their hearts, repent, and humble themselves. Anyone not "afflicted"
-  (repentant) was cut off (Leviticus 23:29).
-- **Sanctification:** This points to the work of **Sanctification** and the
-  preparation for the final seal of God. We must not only be forgiven but
-  cleansed "from all unrighteousness" (1 John 1:9).
-
-**[ILL]** Think of the daily service as dirtying the dishes (transferring sin to
-the sanctuary) and the Day of Atonement as the washing of the dishes (cleansing
-the sanctuary). The house is not truly clean until the record of sin is blotted
-out.
+**7. Satan will bear his responsibility.** Though we suffer from his temptations
+and the world groans under his cruelty, the scapegoat ceremony assures us that
+Satan will ultimately bear the weight of all the sin he has caused. Justice will
+be done. Evil will not endure forever.
 
 ---
 
-### Q22. After making an offering for himself, what did the high priest next do?
+## Appeal
 
-**Verse:** “And he shall take the two goats, and present them before the Lord at
-the door of the tabernacle of the congregation. And Aaron shall cast lots upon
-the two goats; one lot for the lord, and the other lot for the scapegoat."
-Lev.16:7, 8.
+> _"For on that day shall the priest make an atonement for you, to cleanse you,
+> that ye may be clean from all your sins before the Lord."_ (Leviticus 16:30)
 
-**Answer:** He took two goats and cast lots.
+Dear friend, the sanctuary was not merely an ancient institution—it is God's
+invitation to you today. Christ, the true High Priest, stands ready to apply His
+blood to your case. He offers not only pardon but cleansing, not only
+forgiveness but power to overcome.
 
-1.  **The Lord's Goat:** Representing Christ.
-2.  **The Scapegoat (Azazel):** Representing Satan, the adversary and instigator
-    of sin.
+The Day of Atonement called Israel to "afflict their souls"—to engage in earnest
+self-examination and repentance. We live in the great antitypical Day of
+Atonement. Heaven's records are being reviewed. Christ's ministry in the Most
+Holy Place is nearing completion.
 
----
+Will you come to Him now? Will you confess your sins specifically, trusting in
+His blood alone? Will you surrender your heart fully, allowing Him to write His
+law within and prepare you for His coming?
 
-### Q23. What was done with the goat upon which the Lord's lot fell?
+The way into the holiest is open. The veil has been rent. Our great High Priest
+bids us come boldly (Hebrews 10:19–22). Let us not delay. Let us not presume
+upon mercy while clinging to sin. Let us enter in by faith, receive cleansing,
+and stand complete in Him.
 
-**Verse:** “Then shall he kill the goat of the sin offering, that is for the
-people, and bring his blood within the veil, and do with that blood as he did
-with the blood of the bullock, and sprinkle it upon the mercy seat, and before
-the mercy seat." Lev.16:15.
+> _"Now of the things which we have spoken this is the sum: We have such an high
+> priest, who is set on the right hand of the throne of the Majesty in the
+> heavens; a minister of the sanctuary, and of the true tabernacle, which the
+> Lord pitched, and not man."_ (Hebrews 8:1–2)
 
-**Answer:** The Lord's goat was **slain**.
-
-- **The Atonement:** This goat made the atonement for the people. Its blood was
-  brought into the Most Holy Place and sprinkled on the Mercy Seat.
-- **Justice Satisfied:** This represented Christ’s death satisfying the claims
-  of the law. The blood covered the broken commandments inside the ark.
-
----
-
-### Q24. Was it necessary to make this atonement?
-
-**Verse:** “And he shall make an atonement for the holy place, because of the
-uncleanness of the children of Israel, and because of their transgressions in
-all their sins; and so shall he do for the tabernacle of the congregation, that
-remaineth among them in the midst of their uncleanness." Lev. 16:16.
-
-**Answer:** Yes, it was necessary to make an atonement **for the Holy Place
-itself**. Because the sanctuary had "absorbed" the record of Israel's sins
-throughout the year via the blood of the daily sacrifices, the building itself
-was ceremonially unclean. It needed to be purified to remove those sins forever.
-
----
-
-### Q25. After the high priest came out of the sanctuary with the sins still on him, having atoned for them in the most holy place, what did he next do?
-
-**Verse:** ” And when he hath made an end of reconciling the holy place, and the
-tabernacle of the congregation, and the altar, he shall bring the live goat: and
-Aaron shall lay both his hands upon the head of the live goat, and confess over
-him all the iniquities of the children of Israel, and all their transgressions
-in all their sins, putting them upon the head of the goat, and shall send him
-away by the hand of a fit man into the wilderness." Lev. 16:20, 21.
-
-**Answer:** He placed the sins upon the head of the **Scapegoat**.
-
-- **Sequence is Vital:** Notice that the high priest had "made an end of
-  reconciling" _before_ he touched the scapegoat. The atonement for the people
-  was complete. The people were safe.
-- **Transfer to the Author:** Now, the High Priest (Christ) takes the sins that
-  He has carried for His people and places the responsibility back onto the
-  original instigator, Satan (Azazel).
-- **Not a Savior:** The scapegoat is _not_ slain. It makes no atonement. Satan
-  does not die for our sins; he pays the penalty for his part in tempting us to
-  sin.
-
----
-
-### Q26. Then who bore the sins of the people, after the high priest had put them off, and the camp was cleansed from them?
-
-**Verse:** “And the goat shall bear upon him all their iniquities unto a land
-not inhabited: and he shall let go the goat in the wilderness." Lev. 16:22.
-
-**Answer:** The **Scapegoat (Azazel/Satan)** bore the iniquities into a "land
-not inhabited" (the wilderness).
-
-- **The Banishing of Sin:** This represents the final removal of sin from the
-  universe. At the end of time, after the judgment is finished, Satan will be
-  bound in the "bottomless pit" (Revelation 20:1–3) bearing the weight of the
-  sins he caused.
-- **The Final Victory:** God’s people are clean, the sanctuary is cleansed, and
-  the author of sin is banished. The universe is restored to harmony.
-
-**[ILL]** If a criminal breaks into a home and coerces a child to help him
-steal, the law may forgive the child if they are repentant and return the goods,
-but the mastermind (the criminal) must bear the full weight of the punishment
-for the crime. Christ pays our debt, but Satan bears the punishment for
-instigating the rebellion.
+Christ is there—for you. Come to Him today.

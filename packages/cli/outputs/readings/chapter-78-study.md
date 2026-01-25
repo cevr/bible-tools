@@ -1,327 +1,174 @@
-### Q1. Did our Saviour abolish anything on the cross?
+# Bible Study: What Was Abolished by Christ?
 
-**“Having abolished in His flesh the enmity, even the law of commandments
-contained in ordinances." Eph. 2:15.**
+## Introduction
 
-**Answer:** Yes, Christ abolished a specific system of laws, but it is crucial
-to identify which one. The Apostle Paul specifies that it was the "law of
-commandments contained in **ordinances**." This refers to the ceremonial
-system—the Levitical types, shadows, sacrifices, and ritual requirements given
-to Israel to point forward to the Messiah.
-
-1.  **The Nature of the "Enmity":** Paul calls this ceremonial law the "enmity"
-    (or source of hostility) because it created a sharp division—a "middle wall
-    of partition"—between the Jewish people and the Gentile world. The rigid
-    requirements regarding circumcision, temple rituals, and ceremonial washings
-    made it impossible for Gentiles to fellowship fully with Jews.
-2.  **Abolished by Fulfillment:** This system was a "shadow of things to come"
-    (Colossians 2:17). When the body (Christ) appeared, the shadow was no longer
-    necessary. By dying on the cross, Jesus fulfilled the symbolic meaning of
-    every animal sacrifice. The veil of the temple was rent (Matthew 27:51),
-    signifying that the earthly ritual system was at an end.
-3.  **Distinction from the Moral Law:** We must distinguish between the
-    _Ceremonial Law_ (which was temporary, remedial, and pointed to Christ) and
-    the _Moral Law_ (the Ten Commandments, which are eternal). Christ abolished
-    the types and shadows because He is the substance; He did not abolish the
-    standard of righteousness.
-
-**Definitions:**
-
-- **Ceremonial Law:** The regulations regarding the earthly sanctuary,
-  priesthood, and sacrifices (Hebrews 9:1–10). It was a teaching tool until
-  Christ came.
-- **Atonement:** The reconciliation of God and man. In the Old Testament, this
-  was symbolized by animal blood; in the New Testament, it is accomplished by
-  the blood of Christ (Leviticus 17:11; Romans 5:11).
-
-[ILL] Imagine a blueprint for a magnificent building. While the building is
-under construction, the blueprint is essential. But once the building is
-finished, you don't live in the paper blueprint; you live in the building. The
-ceremonial law was the blueprint (the shadow); Christ is the building (the
-reality). Once the reality is here, the blueprint is set aside, but the laws of
-physics (gravity, structure) that hold the building up (representing the Moral
-Law) remain in force.
+One of the most misunderstood questions in Christianity concerns what Christ abolished at the cross. Many sincere believers assume that Calvary swept away all law, freeing Christians from any obligation to obey God's commandments. Yet Scripture presents a more careful distinction—one that preserves the eternal moral law while recognizing the end of the ceremonial system that pointed forward to Christ. Understanding this distinction is essential for every believer who desires to walk in faithful obedience to God.
 
 ---
 
-### Q2. What did He Himself say about the law?
+## Core Truths
 
-**“Think not that I am come to destroy the law or the prophets; I am not come to
-destroy, but to fulfill." Matt. 5:17.**
+### Christ's Own Testimony About the Law
 
-**Answer:** Christ is the author of the Law, and in His Sermon on the Mount, He
-clarifies His relationship to it.
+Before examining what was abolished, we must hear Christ's own words on the matter:
 
-1.  **Not to Destroy:** The word "destroy" means to dissolve, overthrow, or
-    annul. Jesus explicitly warns us _not to think_ that He came to do this. The
-    plan of salvation does not remove the government of God; it restores man to
-    harmony with it.
-2.  **To Fulfill:** The word "fulfill" (Greek _pleroo_) means "to fill up," "to
-    make full," or "to fully preach/exemplify." Christ fulfilled the law in two
-    ways:
-    - **Prophetically:** He met the requirements of the messianic predictions in
-      the "prophets."
-    - **Morally:** He lived out the Ten Commandments perfectly. He showed the
-      spiritual depth of the law—that it reaches the thoughts and intents of the
-      heart, not just outward actions (Matthew 5:21–22, 27–28).
-3.  **Righteousness by Faith:** Because Christ fulfilled the law perfectly, He
-    offers His perfect life to us. This is **Justification**—God crediting
-    Christ’s obedience to our account. He did not fulfill it so that we could go
-    on breaking it; He fulfilled it to provide the power for us to walk in His
-    steps (Romans 8:3–4).
+> _"Think not that I am come to destroy the law, or the prophets: I am not come to destroy, but to fulfil."_ (Matthew 5:17)
 
-**Definition:**
+> _"For verily I say unto you, Till heaven and earth pass, one jot or one tittle shall in no wise pass from the law, till all be fulfilled."_ (Matthew 5:18)
 
-- **Justification:** The legal act where God declares a repentant sinner
-  righteous based solely on the merits of Jesus Christ, not on the sinner's
-  works (Romans 3:24–28).
+Jesus anticipated the very confusion we face today. His emphatic "Think not" warns against the assumption that His mission was to abolish God's moral requirements. The law He came to "fulfil" was not cancelled but rather filled full of meaning—demonstrated in its true spiritual depth and honored by His perfect obedience.
 
----
+**Key insight**: Heaven and earth have not passed away. Therefore, by Christ's own testimony, the law remains intact.
 
-### Q3. How long did He say the law would endure?
+[DYK🔎] The Greek word for "destroy" (_kataluo_) in Matthew 5:17 literally means "to loosen down" or "demolish." Jesus explicitly denied any intention of dismantling God's law—He came to establish it by living it perfectly and revealing its true spiritual intent.
 
-**“For verily I say unto you, Till heaven and earth pass, one jot or one tittle
-shall in no wise pass from the law, till all be fulfilled." Matt. 5:18 (Luke
-16:17).**
+### Paul's High Regard for God's Law
 
-**Answer:** The moral law is as enduring as God's throne. Jesus uses the
-strongest possible language to affirm its permanence.
+The apostle Paul, often misunderstood as teaching against the law, actually held it in highest esteem:
 
-1.  **Till Heaven and Earth Pass:** As long as we are living on this earth, the
-    law of God remains in effect. It is the transcript of God's character—holy,
-    unchangeable, and eternal.
-2.  **Jot and Tittle:** The "jot" was the smallest letter in the Hebrew alphabet
-    (yod), and the "tittle" was a tiny stroke that distinguished one letter from
-    another. Jesus teaches that not even the smallest detail of God's moral
-    standard will be altered by His mission.
-3.  **The Sanctuary Connection:** In the earthly sanctuary, the Ten Commandments
-    were placed _inside_ the Ark of the Covenant, beneath the Mercy Seat (Exodus
-    25:16, 21). In the heavenly sanctuary, John the Revelator saw the "ark of
-    his testament" (Revelation 11:19). The law is the foundation of God's
-    government in heaven and earth; therefore, the gospel does not void it but
-    establishes it (Romans 3:31).
+> _"Wherefore the law is holy, and the commandment holy, and just, and good."_ (Romans 7:12)
 
-[ILL] If a man is convicted of a crime and the governor grants him a pardon,
-does that pardon abolish the law against the crime? No. The pardon frees the man
-from the penalty, but the law against the crime remains on the books so that
-society can function. Similarly, grace saves the sinner, but it does not abolish
-the law that defines sin.
+> _"For I delight in the law of God after the inward man."_ (Romans 7:22)
+
+A law that is **holy, just, and good**—and in which the apostle **delights**—cannot be the "enmity" that was abolished. Paul's delight in God's law reflects the experience of every truly converted heart (Psalm 119:97).
+
+### The Test of Love
+
+The apostle John provides the ultimate test:
+
+> _"For this is the love of God, that we keep His commandments: and His commandments are not grievous."_ (1 John 5:3)
+
+Something "not grievous" cannot be an "enmity" requiring abolition. The commandments are not burdens to the converted soul—they are the natural expression of love for God.
+
+[Q] **"But doesn't Paul say we're 'not under the law'? Doesn't that mean the law is abolished?"**
+
+Being "not under the law" (Romans 6:14) means we are no longer under its condemnation—not that we are free from its guidance. The very next verse asks, "Shall we sin, because we are not under the law?" Paul's answer: "God forbid" (Romans 6:15). Sin is still defined as transgression of the law (1 John 3:4). If the law were abolished, there could be no sin—yet sin clearly remains (1 John 1:8). We are under grace, which both pardons our past transgressions and empowers present obedience.
 
 ---
 
-### Q4. What did Paul say of the law of God?
+## Deeper Truths
 
-**“Wherefore the law is holy, and the commandment holy, and just, and good."
-Rom. 7:12.**
+### Two Distinct Laws in Scripture
 
-**Answer:** Far from being an "enmity" or a yoke of bondage, the Moral Law is
-described by Paul with three distinct attributes:
+Scripture reveals two distinct categories of law, and confusing them leads to serious error:
 
-1.  **Holy:** It comes from a holy God and requires holiness (separation from
-    sin) in His people (1 Peter 1:15–16).
-2.  **Just:** It is equitable and fair. It demands nothing that is not right. It
-    is the standard of the Great Judgment (Ecclesiastes 12:13–14).
-3.  **Good:** It is designed for man's happiness and protection. Like a
-    guardrail on a cliff, it is not there to restrict freedom, but to preserve
-    life (Deuteronomy 6:24).
+**1. The Moral Law (Ten Commandments)**
 
-Paul argues here that the problem is not the law; the problem is _sin_ and the
-_carnal nature_. The law acts as a mirror to show us the dirt on our faces
-(James 1:23–25), but the mirror is not the enemy—the dirt is.
+- Written by God's own finger on stone (Exodus 31:18)
+- Placed **inside** the Ark of the Covenant (Deuteronomy 10:5)
+- Eternal in nature, reflecting God's unchanging character (Psalm 111:7–8)
+- Called "the royal law" (James 2:8) and "the law of liberty" (James 2:12)
 
----
+**2. The Ceremonial Law (Law of Moses)**
 
-### Q5. How did he regard it?
+- Written by Moses in a book (Deuteronomy 31:24)
+- Placed **beside** the Ark of the Covenant (Deuteronomy 31:26)
+- Temporary by design, pointing forward to Christ (Colossians 2:16–17)
+- Called "the law of commandments contained in ordinances" (Ephesians 2:15)
 
-**“For I delight in the law of God after the inward man." Rom. 7:22.**
+[DYK🔎] The Hebrew word for the ceremonial law in Deuteronomy 31:26 describes it as a "witness against" Israel—anticipating their failures and pointing them to their need of a Saviour. The Ten Commandments, by contrast, were called a "testimony" (Exodus 25:16)—a reflection of God's eternal character.
 
-**Answer:** This verse highlights the difference between the unrenewed heart and
-the heart converted by the Holy Spirit.
+### What Ephesians 2:15 Actually Teaches
 
-1.  **The Inward Man:** This refers to the new nature born of the Spirit. The
-    carnal (fleshly) mind is at enmity with God and cannot be subject to His law
-    (Romans 8:7). However, when a person is born again, the "stony heart" of
-    rebellion is removed, and a "heart of flesh" is given (Ezekiel 36:26).
-2.  **Delight:** To the true believer, God's commandments are not a burden but a
-    joy. The Psalmist wrote, "I delight to do thy will, O my God: yea, thy law
-    is within my heart" (Psalm 40:8). This was Christ's experience, and it
-    becomes the experience of every Christian who abides in Him.
-3.  **Sanctification:** This process—where the law is written on the heart and
-    lived out in the life—is called sanctification. It is the work of a lifetime
-    where, through the Holy Spirit, the believer is transformed into the image
-    of Christ.
+The text often used to argue for law abolition actually proves the opposite:
 
-**Definition:**
+> _"Having abolished in his flesh the enmity, even the law of commandments contained in ordinances; for to make in himself of twain one new man, so making peace."_ (Ephesians 2:15)
 
-- **Sanctification:** The ongoing work of God's grace by which the believer is
-  cleansed from sin and made holy in character, resulting in obedience to God's
-  will (1 Thessalonians 4:3).
+Notice the context carefully (verses 12–14):
 
----
+- Gentiles were "aliens from the commonwealth of Israel"
+- They were "strangers from the covenants of promise"
+- Christ "hath broken down the middle wall of partition between us"
 
-### Q6. What does one show by keeping the commandments?
+**What was the "middle wall of partition"?** The ceremonial system—particularly circumcision and its related ordinances—that separated Jew from Gentile. This was the "enmity" abolished.
 
-**“For this is the love of God, that we keep His commandments; and His
-commandments are not grievous." 1 John 5:3.**
+> _"Circumcision is nothing, and uncircumcision is nothing, but the keeping of the commandments of God."_ (1 Corinthians 7:19)
 
-**Answer:** Obedience is the natural fruit and proof of love.
+Paul's statement is remarkably clear: circumcision is abolished, but "the commandments of God" remain binding. Two different laws—two different outcomes at the cross.
 
-1.  **Love as the Motive:** True obedience is never legalism (trying to earn
-    salvation by works). It is a response to being loved and saved. Jesus said,
-    "If ye love me, keep my commandments" (John 14:15).
-2.  **Not Grievous:** The commandments are only "grievous" (heavy/burdensome) to
-    those who love sin. To the one who loves God, His commands are the path of
-    life. When we are walking in the Spirit, we do not fulfill the lust of the
-    flesh (Galatians 5:16).
-3.  **Righteousness by Faith:** We cannot keep the commandments in our own
-    strength. We need **Imparted Righteousness**—Christ living His life through
-    us. As we surrender daily, He works in us "both to will and to do of his
-    good pleasure" (Philippians 2:13).
+[ILL] Consider a scaffolding erected around a building under construction. The scaffolding serves an essential purpose during construction—workers depend upon it, and the building cannot be completed without it. But once the building is finished, the scaffolding is removed. No one mourns its loss or considers the building incomplete without it. The ceremonial law was scaffolding—essential for pointing Israel forward to Christ. When the "building" (the Lamb of God) appeared, the scaffolding had served its purpose and was removed. But the building itself—the eternal law of God—remains forever.
 
-[ILL] A woman who marries a man she does not love finds his requests annoying
-and burdensome. But if she loves him deeply, doing things that please him is a
-joy, not a duty. The "marriage" to Christ (Romans 7:4) makes obedience a labor
-of love.
+### Sin Cannot Exist Without Law
+
+Paul establishes an irrefutable principle:
+
+> _"For until the law sin was in the world: but sin is not imputed when there is no law."_ (Romans 5:13)
+
+> _"Whosoever committeth sin transgresseth also the law: for sin is the law."_ (1 John 3:4)
+
+If the moral law were abolished, sin could not exist—for sin is defined as lawbreaking. Yet John writes to Christians:
+
+> _"If we say that we have no sin, we deceive ourselves, and the truth is not in us."_ (1 John 1:8)
+
+Sin remains because the law remains. The presence of sin in the world is itself proof that God's moral law continues in full force.
+
+[Q] **"But Colossians 2:14 says the handwriting of ordinances was nailed to the cross. Doesn't that include the Ten Commandments?"**
+
+Colossians 2:14 speaks of "the handwriting of ordinances that was against us, which was contrary to us." The Ten Commandments were written by God's finger, not human handwriting. The ceremonial "ordinances"—animal sacrifices, feast days, new moons, and sabbath days connected with the ceremonial system (verse 16)—these were shadows pointing to Christ (verse 17). When the Substance came, the shadows passed away. But the eternal moral law, written by God Himself, was never "contrary to us"—it is holy, just, and good (Romans 7:12).
 
 ---
 
-### Q7. Does sin still exist?
+## Principles and Great Controversy Themes
 
-**“If we say that we have no sin, we deceive ourselves, and the truth is not in
-us." 1 John 1:8.**
+### The Unchangeable Foundation
 
-**Answer:** The Bible is clear that sin is a present reality in the world and a
-constant danger to the believer.
+At the heart of the great controversy between Christ and Satan lies the question of God's law. Satan has always sought to set aside God's authority, beginning with his rebellion in heaven:
 
-1.  **Universal Condition:** "For all have sinned, and come short of the glory
-    of God" (Romans 3:23).
-2.  **The Need for a Saviour:** If sin were not real, we would not need a
-    Saviour or a High Priest in the heavenly sanctuary to advocate for us. The
-    fact that we need forgiveness implies that sin exists.
-3.  **Ongoing Battle:** While believers can have victory over sin, the presence
-    of a sinful nature and a sinful world means we must remain vigilant.
+> _"I will ascend above the heights of the clouds; I will be like the most High."_ (Isaiah 14:14)
 
----
+If Satan could convince humanity that God's law was changeable or abolishable, he would undermine the very foundation of God's government. But Christ's death, rather than abolishing the law, demonstrated its eternal nature. If the law could have been set aside, Christ need not have died. The cross is the supreme evidence that God's law cannot be changed.
 
-### Q8. Could there be sin now, if Christ abolished the law?
+### Sanctuary Connection
 
-**“For until the law sin was in the world; but sin is not imputed when there is
-no law." Rom. 5:13.**
+The distinction between moral and ceremonial law finds beautiful expression in the sanctuary:
 
-**Answer:** This is a crucial logical and theological point: **Law and Sin stand
-or fall together.**
+**In the Most Holy Place**, within the Ark of the Covenant, rested the Ten Commandments—the very foundation of God's throne and the standard of the final judgment (Revelation 11:19; Ecclesiastes 12:13–14).
 
-1.  **The Definition of Sin:** The Bible defines sin as "the transgression of
-    the law" (1 John 3:4).
-2.  **No Law = No Sin:** If the moral law was abolished at the cross, then there
-    is no longer any standard to measure righteousness. If there is no speed
-    limit, you cannot get a speeding ticket. If God abolished the Ten
-    Commandments, then murder, theft, and idolatry are no longer "sin" in a
-    legal sense.
-3.  **The Conclusion:** Since we know sin still exists (people still need a
-    Saviour), the Law that defines sin _must_ still exist. The fact that men are
-    sinners proves the law is in force.
+**In the outer court and holy place**, the ceremonial services—animal sacrifices, incense offerings, the daily ministration—all pointed forward to Christ's work. These were "a shadow of good things to come" (Hebrews 10:1), fulfilled when "the Lamb of God" offered Himself once for all (John 1:29; Hebrews 10:12).
+
+The ceremonial law led worshippers _to_ Christ. The moral law shows us our need _of_ Christ and guides our lives _after_ we receive Him. Both serve God's redemptive purpose—one as preparation, the other as eternal standard.
+
+### Righteousness by Faith and the Law
+
+The true relationship between faith and law is not opposition but harmony:
+
+> _"Do we then make void the law through faith? God forbid: yea, we establish the law."_ (Romans 3:31)
+
+Through faith in Christ, the believer receives:
+
+- **Imputed righteousness**: Christ's perfect obedience credited to our account (justification)
+- **Imparted righteousness**: Christ's character reproduced in our lives (sanctification)
+
+The law that once condemned us becomes our delight when written upon our hearts by the Holy Spirit (Hebrews 8:10). We keep the commandments not to earn salvation, but because Christ lives within us and His life naturally bears the fruit of obedience.
+
+> _"For what the law could not do, in that it was weak through the flesh, God sending his own Son in the likeness of sinful flesh, and for sin, condemned sin in the flesh: that the righteousness of the law might be fulfilled in us, who walk not after the flesh, but after the Spirit."_ (Romans 8:3–4)
 
 ---
 
-### Q9. What was made possible by abolishing the law of commandments contained in ordinances?
+## Practical Application
 
-**“That at that time ye were without Christ, being aliens from the commonwealth
-of Israel, and strangers from the covenants of promise, having no hope, and
-without God in the world; but now in Christ Jesus ye who sometimes were far off
-are made nigh by the blood of Christ. For He is our peace, who hath made both
-one, and hath broken down the middle wall of partition between us." Eph.
-2:12-14.**
+Understanding what Christ abolished—and what remains—has profound implications for daily Christian living:
 
-**Answer:** The abolition of the _ceremonial_ system had a glorious purpose: the
-unification of humanity in Christ.
+**1. We are free from ceremonial requirements.** No Christian is bound to observe animal sacrifices, circumcision, or the feast days that pointed forward to Christ. These served their purpose and ended at the cross.
 
-1.  **Access for All:** Under the old ceremonial system, Gentiles were
-    restricted from the inner courts of the temple. They were "aliens" and
-    "strangers." By fulfilling these types, Christ removed the barriers. Now,
-    anyone—Jew or Gentile—can approach the Father directly through the name of
-    Jesus.
-2.  **The Middle Wall:** This refers to the physical wall in the Jewish temple
-    courts that separated the Court of the Gentiles from the inner sanctuary.
-    Christ spiritually demolished this wall.
-3.  **One New Man:** The gospel brings people of all nations into one spiritual
-    family. We are no longer saved by becoming Jewish in ritual, but by becoming
-    Christian in faith.
+**2. We are bound by eternal moral principles.** The Ten Commandments remain God's standard of righteousness—including the fourth commandment, which calls us to remember the seventh-day Sabbath. No New Testament text exempts any of the ten from ongoing obligation.
 
-**Sanctuary Truth:** We now have a "High Priest," not of the order of Aaron
-(Levitical), but of Melchizedek (Hebrews 7:11–22). His ministry is in the
-heavenly sanctuary, open to all who come by faith (Hebrews 4:14–16).
+**3. We keep the commandments from love, not legalism.** The converted heart delights in God's law (Romans 7:22). Obedience flows not from fear of condemnation but from love for the Saviour who died for us.
+
+**4. We depend wholly on Christ for power to obey.** No human being can keep God's law in their own strength. But through faith, Christ's righteousness both covers and transforms us. He who commands also enables.
+
+**5. We test all teaching by Scripture.** Any doctrine that sets aside God's moral law should be rejected, regardless of how popular or persuasive it appears. "To the law and to the testimony: if they speak not according to this word, it is because there is no light in them" (Isaiah 8:20).
 
 ---
 
-### Q10. What was the chief thing that separated the Jews and the Gentiles?
+## Appeal
 
-**“And when Peter was come up to Jerusalem, they that were of the circumcision
-contended with him, saying, Thou wentest in to men uncircumcised, and didst eat
-with them." Acts 11:2, 3.**
+The cross of Christ did not destroy God's eternal standard of righteousness—it demonstrated its unchangeable nature and provided the only means of meeting its requirements. The ceremonial shadows passed away because the glorious Substance had come. But the moral law, reflecting the very character of God, stands forever.
 
-**Answer:** The separation was primarily based on ceremonial rituals and the
-"traditions of the elders" regarding purity.
+> _"The works of his hands are verity and judgment; all his commandments are sure. They stand fast for ever and ever, and are done in truth and uprightness."_ (Psalm 111:7–8)
 
-1.  **Ritual Separation:** The Jews believed that associating with Gentiles, and
-    specifically eating with them, rendered them ceremonially unclean. This was
-    a major barrier to the spread of the Gospel.
-2.  **The Vision of Peter:** God had to give Peter a vision (Acts 10) to show
-    him that "God is no respecter of persons" and that no human being should be
-    called "common or unclean" simply because they are a Gentile.
-3.  **Clarification:** The issue here was not the health laws of the Bible
-    (clean vs. unclean meats, Leviticus 11), which are based on physiology and
-    health, but rather the _ceremonial defilement_ associated with uncircumcised
-    people. Christ abolished the ritual segregation, enabling the church to be a
-    global movement.
+Dear friend, where do you stand in relation to God's law today? Have you received Christ's righteousness to cover your past transgressions? Have you invited Him to write His law upon your heart, empowering you to walk in joyful obedience?
 
----
+The same Saviour who died to redeem you from the curse of the law now lives to fulfill the righteousness of the law within you. Will you surrender your heart fully to Him today, trusting not in your own strength but in His mighty power to transform and keep you faithful unto the end?
 
-### Q11. Was circumcision done away in Christ?
-
-**“For in Christ Jesus neither circumcision availeth any- thing, nor
-uncircumcision, but a new creature." Gal. 6:15.**
-
-**Answer:** Yes, the physical rite of circumcision, which was the entrance sign
-into the Old Covenant, is no longer of value in the New Covenant.
-
-1.  **A New Sign:** In the New Testament, the sign of entrance is baptism
-    (Colossians 2:11–12), which represents the burial of the old life and
-    resurrection to newness of life.
-2.  **A New Creature:** What matters to God is not a mark in the flesh, but a
-    transformation of the character. This is the "circumcision of the heart"
-    (Romans 2:29).
-3.  **Regeneration:** To be a "new creature" (or new creation) is the essence of
-    the gospel. It means the old, selfish nature is replaced by the life of
-    Christ. "Therefore if any man be in Christ, he is a new creature: old things
-    are passed away; behold, all things are become new" (2 Corinthians 5:17).
-
----
-
-### Q12. After circumcision and the ordinances connected with it lost their force, what still remained of the utmost importance?
-
-**“Circumcision is nothing, and uncircumcision is nothing, but the keeping of
-the commandments of God." 1 Cor. 7:19.**
-
-**Answer:** This verse provides the definitive summary of the entire study. Paul
-explicitly contrasts the ritual law (circumcision) with the moral law
-(commandments of God).
-
-1.  **Ritual Law is "Nothing":** In terms of salvation or standing with God, the
-    ceremonial ordinances (circumcision, sacrifices, feast days) are now
-    nothing. They have passed away.
-2.  **Moral Law Remains:** In contrast, "the keeping of the commandments of God"
-    remains vital. The abolishing of the one did not affect the standing of the
-    other.
-3.  **The Conclusion of the Matter:**
-    - We are saved by **Grace** through **Faith** alone (Ephesians 2:8).
-    - But true faith establishes the **Law** (Romans 3:31).
-    - God’s people in the last days are identified by this dual characteristic:
-      "Here is the patience of the saints: here are they that **keep the
-      commandments of God**, and the **faith of Jesus**" (Revelation 14:12).
-
-[ILL] Consider a scaffolding and a house. The ceremonial law was the scaffolding
-used to build the house of faith. When the house (Christ’s work) was completed,
-the scaffolding was taken down. But the foundation (the Moral Law) remains. If
-you tear down the foundation, the house collapses. Christ removed the
-scaffolding, but He strengthened the foundation.
+_"For this is the love of God, that we keep His commandments: and His commandments are not grievous."_ (1 John 5:3)

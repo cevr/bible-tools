@@ -1,304 +1,147 @@
-### Q1. State the Lord's purpose concerning the law.
+# Bible Study: Magnified by Christ
 
-“The Lord is well pleased for His righteousness' sake; He will magnify the law
-and make it honorable." Isa. 42:21.
+## Introduction
 
-**Answer:** The prophet Isaiah reveals that the coming Messiah would not
-diminish the law of God, but rather "magnify" it. To understand this, we must
-look at the relationship between God and His law.
-
-1.  **The Character of God:** The verse states God does this "for His
-    righteousness' sake." The law is a transcript of God’s own character. Since
-    God is unchanging (Malachi 3:6), His law, which defines righteousness (Psalm
-    119:172), must also be unchanging.
-2.  **The Meaning of "Magnify":** To magnify does not mean to make something
-    larger than it really is (like a distortion), but to reveal its hidden
-    detail, breadth, and glory. Christ came to show that the commandment is
-    "exceeding broad" (Psalm 119:96).
-3.  **Restoring Honor:** Through the traditions of men and the hypocrisy of the
-    Pharisees, the law had been misrepresented as a burden or a ladder for
-    earning salvation. Christ came to strip away these human burdens and reveal
-    the law as a "law of liberty" (James 2:12) and a fence of protection for
-    God's people.
-
-- **Definition:** **The Law of God**: The Ten Commandments; the eternal moral
-  standard reflecting God’s character of love, justice, and holiness (Exodus
-  20:1-17; Romans 7:12).
-
-[ILL] **The Microscope:** If you look at a diamond with the naked eye, it looks
-beautiful. If you place it under a microscope (magnify it), you do not change
-the diamond, nor do you create a new stone. You simply reveal the depth,
-precision, and flawlessness that was already there but unseen. Christ’s life was
-the microscope that revealed the spiritual depth and beauty of God's law.
+The law of God stands at the center of the great controversy between Christ and Satan. While the enemy has worked throughout history to abolish, diminish, or pervert God's commandments, Christ came not to destroy but to magnify the law and make it honorable. This study reveals how Jesus, in both His life and death, demonstrated the eternal nature, spiritual depth, and unchangeable authority of His Father's law—and what this means for those who would follow Him today.
 
 ---
 
-### Q2. Why was it necessary to magnify the law?
+## Core Truths
 
-“It is time for thee, Lord, to work; for they have made void thy law." Ps.
-119:126.
+### God's Purpose for His Law
 
-**Answer:** The Psalmist calls for divine intervention because humanity has
-"made void" the law.
+The prophet Isaiah reveals the divine intention concerning God's law:
 
-1.  **Rebellion and Neglect:** To make "void" means to treat as empty, null, or
-    non-binding. In the history of Israel—and indeed all humanity—men have tried
-    to set aside God's requirements to follow their own inclinations (Romans
-    8:7).
-2.  **The Necessity of Intervention:** When the law is voided, the moral
-    standard collapses, and sin (which is the transgression of the law, 1 John
-    3:4) abounds. God must "work" to restore the authority of His government.
-3.  **The Great Controversy:** Satan’s primary attack in the Great Controversy
-    is against the law of God. He claims it cannot be kept or that it restricts
-    our freedom. Christ came to refute this lie by living out the law perfectly
-    in human flesh.
+> _"The Lord is well pleased for his righteousness' sake; he will magnify the law, and make it honourable."_ (Isaiah 42:21)
 
-- **Definition:** **Great Controversy**: The cosmic conflict between Christ and
-  Satan regarding the character of God, His law, and His sovereignty over the
-  universe (Revelation 12:7-9).
+**Magnify** means to enlarge, to show the greatness of, to reveal in fuller dimensions. God purposed that His law would not be seen as a mere list of prohibitions, but as a glorious revelation of His own righteous character—worthy of honor and admiration.
 
----
+[DYK🔎] The Hebrew word for "magnify" (_gadal_) is the same word used when Scripture speaks of magnifying the Lord Himself (Psalm 34:3). To magnify God's law is to magnify the Lawgiver, for the law is a transcript of His character.
 
-### Q3. How was the law "made void" when Christ was on the earth?
+### Why Magnification Was Necessary
 
-” And He said unto them, Full well ye reject the commandment of God, that ye may
-keep your own tradition." Mark 7:9 (Matt. 15:1-9).
+The psalmist reveals the urgent need:
 
-**Answer:** When Christ appeared, He did not find the religious leaders keeping
-the law too strictly; He found them evading it through "tradition."
+> _"It is time for thee, Lord, to work: for they have made void thy law."_ (Psalm 119:126)
 
-1.  **Replacing God with Self:** The Pharisees had created loopholes to avoid
-    the plain duties of the law. In the context of Mark 7, they used a tradition
-    called "Corban" to excuse themselves from caring for their elderly parents
-    (honoring father and mother), claiming their money was dedicated to the
-    temple instead.
-2.  **Vain Worship:** Jesus declared that worship based on human commandments is
-    "in vain" (Matthew 15:9).
-3.  **The Danger of Tradition:** Whenever church tradition, culture, or
-    political expediency is elevated above the "Thus saith the Lord," the law of
-    God is effectively made void. This is a warning to the church in every age.
+Throughout history, men have attempted to make God's law "void"—emptied of its true meaning, stripped of its binding authority, buried under human tradition. By the time Christ walked the earth, the religious leaders had so overlaid the commandments with their own additions and interpretations that the law's true character was obscured.
 
-[ILL] **The Painted Window:** Imagine a window meant to let in sunlight (God's
-Truth). If men paint over the glass with intricate designs and their own
-pictures (Traditions), the window may look colorful, but it no longer functions
-to let in the light. The room remains dark. Christ came to scrape away the paint
-so the clear light of the Law could shine again.
+Jesus confronted this directly:
+
+> _"Full well ye reject the commandment of God, that ye may keep your own tradition."_ (Mark 7:9)
+
+The Pharisees had created elaborate systems of human rules while nullifying the very commandments they claimed to uphold. They honored God with their lips while their hearts were far from Him (Matthew 15:8).
 
 ---
 
-### Q4. What was Christ's attitude toward the law?
+## Deeper Truths
 
-” Think not that I am come to destroy the law, or the prophets: I am not come to
-destroy, but to fulfill." Matt. 5:17.
+### Christ's Mission: Not to Destroy, but to Fulfill
 
-**Answer:** Christ explicitly denies any intention to abolish the moral law.
+Jesus spoke plainly about His relationship to the law:
 
-1.  **Destroy vs. Fulfill:** The word "fulfill" (_pleroo_ in Greek) means to
-    "fill to the full," or to "fill up." It is the opposite of "empty" or
-    "destroy."
-2.  **Living Example:** Christ fulfilled the law by obeying it perfectly. He
-    filled it full of meaning. Just as a baptismal vow is "fulfilled" when it is
-    kept, not when it is deleted, the law is fulfilled when lived out in
-    obedience.
-3.  **Prophetic Fulfillment:** He also fulfilled the predictions of the
-    "prophets" regarding the Messiah. He was the substance that the ceremonial
-    shadows pointed toward (Colossians 2:17). While the ceremonial laws
-    (sacrifices) met their fulfillment and end at the cross, the moral law (Ten
-    Commandments) was established forever.
+> _"Think not that I am come to destroy the law, or the prophets: I am not come to destroy, but to fulfil."_ (Matthew 5:17)
 
-- **Definition:** **Ceremonial Law**: The temporary system of types, sacrifices,
-  and festivals pointing forward to Christ’s death (Hebrews 10:1). **Moral
-  Law**: The eternal Ten Commandments revealing God's will for human conduct
-  (Exodus 20).
+**Fulfil** (_pleroo_ in Greek) means to fill up, to complete, to bring to full expression. Christ did not come to empty the law of its meaning but to fill it with its fullest significance—to demonstrate what perfect obedience looks like when lived out in human flesh.
 
-[ILL] **The Architect's Blueprint:** When a builder constructs a house according
-to a blueprint, he "fulfills" the plan. He does not tear up the blueprint and
-say, "I have destroyed it." No, by following it perfectly, he makes the plan a
-reality. Jesus came to make the blueprint of righteousness a reality in human
-life.
+[Q] **"Doesn't 'fulfill' mean Christ ended the law so we don't need to keep it?"**
 
----
+This interpretation contradicts Christ's own words in the very next verse: _"Till heaven and earth pass, one jot or one tittle shall in no wise pass from the law, till all be fulfilled"_ (Matthew 5:18). Heaven and earth have not passed away. Christ fulfilled the law by perfectly obeying it and by revealing its deepest spiritual meaning—not by abolishing it. If fulfilling meant abolishing, then Christ also "abolished" the prophets, which no one believes.
 
-### Q5. How did He then proceed to magnify the law before His hearers?
+### The Spiritual Depth of the Commandments
 
-"Ye have heard that it was said by them of old time, Thou shalt not kill; and
-whosoever shall kill shall be in danger of the judgment; but I say unto you,
-That whosoever is angry with his brother without a cause shall be in danger of
-the judgment." Matt. 5:21, 22. (See also 1 John 3:15.)
+Jesus proceeded to magnify the law by revealing its spiritual breadth and depth. The religious leaders had reduced the commandments to mere external compliance. Christ showed that God's law reaches to the thoughts and intents of the heart.
 
-**Answer:** Jesus magnified the law by moving from the outward act to the inward
-motive.
+**The Sixth Commandment Magnified:**
 
-1.  **The Spirituality of the Law:** Paul writes, "The law is spiritual" (Romans
-    7:14). It is not satisfied by merely refraining from stabbing someone.
-2.  **The Root of Murder:** Jesus taught that unjust anger, hatred, and contempt
-    ("Raca," or calling someone worthless) are the seeds of murder. In the eyes
-    of God, who looks on the heart (1 Samuel 16:7), harboring hatred is a
-    violation of the sixth commandment.
-3.  **The Need for a New Heart:** Because the law requires purity in the inward
-    parts, human effort alone cannot keep it. This drives us to Christ for a new
-    heart—this is the promise of the New Covenant: "I will put my laws into
-    their mind, and write them in their hearts" (Hebrews 8:10).
+> _"Ye have heard that it was said by them of old time, Thou shalt not kill; and whosoever shall kill shall be in danger of the judgment: But I say unto you, That whosoever is angry with his brother without a cause shall be in danger of the judgment."_ (Matthew 5:21-22)
+
+The apostle John later confirmed: _"Whosoever hateth his brother is a murderer"_ (1 John 3:15). Murder begins in the heart with hatred, anger, and contempt. The law condemns not merely the act but the root.
+
+**The Seventh Commandment Magnified:**
+
+> _"Ye have heard that it was said by them of old time, Thou shalt not commit adultery: But I say unto you, That whosoever looketh on a woman to lust after her hath committed adultery with her already in his heart."_ (Matthew 5:27-28)
+
+[ILL] Consider a tree with diseased roots. A gardener might prune the visible dead branches, but the tree remains sick at its core. The Pharisees were religious pruners—trimming external behavior while ignoring the corrupt heart beneath. Christ, the Divine Physician, addresses the root: the thoughts, desires, and affections. He came not merely to restrain the hand from sin, but to cleanse the heart that produces sin.
 
 ---
 
-### Q6. What did He say of the seventh commandment?
+## Principles and Great Controversy Themes
 
-"Ye have heard that it was said by them of old time, Thou shalt not commit
-adultery; but I say unto you, That whoever looketh on a woman to lust after her
-had committed adultery with her already in his heart." Matt. 5:27, 28.
+### The Law Cannot Be Abolished
 
-**Answer:** Here, the microscope is applied to the seventh commandment,
-revealing that God desires purity of thought as well as action.
+Paul's reasoning is profound:
 
-1.  **Sin Begins in the Mind:** James tells us that lust conceives and brings
-    forth sin (James 1:15). Christ shows that the commandment is broken the
-    moment the will consents to the sin, even if the physical opportunity is
-    lacking.
-2.  **The Standard of Judgment:** God will bring "every secret thing" into
-    judgment (Ecclesiastes 12:14). This magnification of the law reveals our
-    utter bankruptcy. We may appear righteous to men, but we are sinners before
-    God.
-3.  **Sanctification:** This high standard shows that true sanctification is not
-    just behavior modification; it is the cleansing of the soul temple by the
-    indwelling Spirit of God.
+> _"Because the law worketh wrath: for where no law is, there is no transgression."_ (Romans 4:15)
 
-- **Definition:** **Sanctification**: The ongoing work of the Holy Spirit in the
-  believer, imparting Christ's life to overcome sin and produce the fruit of
-  holiness (1 Thessalonians 4:3).
+If God could simply abolish His law, there would be no more sin, no condemnation, no need for a Savior. Satan has argued from the beginning that God's law is arbitrary, impossible to keep, and should be set aside. If this were true, God could have abolished the law in Eden and spared His Son the cross.
 
-[ILL] **The Weed:** If you only cut the top off a weed (outward sin), it will
-grow back because the root remains. To have a perfect lawn, you must pull the
-weed up by the root (inward lust). Christ’s magnification of the law targets the
-root of sin.
+But the law is a transcript of God's eternal, unchanging character. To abolish the law would be to change God Himself. The wages of sin is death because sin is contrary to the very nature of the God who is life.
 
----
+[DYK🔎] The word "jot" refers to the smallest Hebrew letter (yod), and "tittle" refers to the tiny marks distinguishing one Hebrew letter from another. Christ taught that even the smallest details of God's law would endure as long as heaven and earth exist.
 
-### Q7. Did Christ Himself keep the commandments?
+### Christ's Perfect Obedience
 
-“I have kept My Father's commandments, and abide in His love." John 15:10.
+Jesus testified of His own life:
 
-**Answer:** Yes, Christ was the only human being to ever keep the law perfectly.
+> _"I have kept my Father's commandments, and abide in his love."_ (John 15:10)
 
-1.  **The Sinless One:** Scripture testifies that He "was in all points tempted
-    like as we are, yet without sin" (Hebrews 4:15). He never had a rebellious
-    thought or an impure motive.
-2.  **The Foundation of Our Salvation:** Why is this important? Because Christ
-    is "The Lord Our Righteousness" (Jeremiah 23:6).
-    - **Imputed Righteousness:** His perfect life is credited to our account
-      when we believe (Justification).
-    - **Imparted Righteousness:** His victorious life is given to us to live
-      _through_ us by the Holy Spirit (Sanctification).
-3.  **Our Example:** Christ proved that humanity, connected to Divinity, can
-    obey God. He invites us to "abide" in His love, so that we too may keep the
-    commandments (John 14:15).
+In His humanity, Christ demonstrated that the law of God can be kept through divine power. He lived a sinless life—not by setting aside the law, but by perfectly fulfilling it. His life is both our example and our hope.
+
+### The Law Magnified in Christ's Death
+
+> _"For what the law could not do, in that it was weak through the flesh, God sending his own Son in the likeness of sinful flesh, and for sin, condemned sin in the flesh: That the righteousness of the law might be fulfilled in us, who walk not after the flesh, but after the Spirit."_ (Romans 8:3-4)
+
+The law could not save us—not because of any defect in the law, but because of weakness in our sinful flesh. We had broken the law, and the law justly condemned us. The law demanded death for transgression.
+
+> _"For when we were yet without strength, in due time Christ died for the ungodly."_ (Romans 5:6)
+
+Christ bore the curse of the law in our place: _"Christ hath redeemed us from the curse of the law, being made a curse for us"_ (Galatians 3:13). The fact that the law could curse even the Son of God demonstrates its enduring authority and unchangeable nature. The law that demanded Christ's death did not die with Him—it was magnified by His death.
+
+[ILL] A judge's son is brought before the court, guilty of a great crime. The law demands a heavy penalty. If the judge sets aside the law for his son, he is unjust and the law is dishonored. But if the judge upholds the law and then steps down from the bench to pay the penalty himself, both the law and mercy are magnified. So God in Christ upheld His law's righteous demands while providing the way of salvation for guilty sinners. The cross declares that the law is so holy it cannot be set aside, and that God's love is so great He would rather die than let us perish under its condemnation.
+
+### Sanctuary Connection
+
+In the earthly sanctuary, the Ten Commandments were placed within the ark of the covenant in the Most Holy Place, beneath the mercy seat (Exodus 25:21-22). This arrangement beautifully illustrates the gospel:
+
+- **The law** reveals sin and condemns the transgressor
+- **The mercy seat** (sprinkled with blood) covers the law and provides atonement
+- **The Shekinah glory** above the mercy seat represents God's presence dwelling with His people in mercy
+
+In Christ's heavenly ministry, He stands before the Father as our Advocate, His blood speaking mercy while the law remains unchanged. The investigative judgment now taking place examines whether we have, by faith in Christ, experienced the righteousness of the law fulfilled in us (Romans 8:4).
 
 ---
 
-### Q8. How long did He say the law would last?
+## Practical Application
 
-” For verily I say unto you, Till heaven and earth pass, one jot or one tittle
-shall in no wise pass from the law, till all be fulfilled." Matt. 5:18.
+This truth calls us to:
 
-**Answer:** The law is as enduring as the heavens and the earth.
+### 1. **Examine Our Hearts**
 
-1.  **Jot and Tittle:** The "jot" was the smallest Hebrew letter (yod), and the
-    "tittle" was a tiny stroke distinguishing one letter from another. Jesus
-    emphasized that not even the smallest detail of the moral law would be
-    altered.
-2.  **Immutable Nature:** Since the law is the foundation of God's government,
-    it cannot change. If the law could be changed to accommodate man's fallen
-    state, God would be admitting His law was imperfect.
-3.  **Till All Be Fulfilled:** This phrase parallels "till heaven and earth
-    pass." As long as we are in this world, the definition of sin remains. The
-    law points out sin; until sin is eternally destroyed and the new earth is
-    created, the law stands as the standard.
+Christ's magnification of the law reveals that external conformity is not enough. Are there seeds of anger, lust, covetousness, or pride in our hearts? The law is spiritual (Romans 7:14), and God looks upon the heart (1 Samuel 16:7).
 
----
+### 2. **Abandon Self-Righteousness**
 
-### Q9. Why did Christ come to earth?
+The Pharisees thought they kept the law while they had "made it void" through their traditions and superficial compliance. We must not trust in our own righteousness but in Christ alone.
 
-“For what the law could not do, in that it was weak through the flesh, God
-sending His own Son in the likeness of sinful flesh, and for sin, condemned sin
-in the flesh, that the righteousness of the law might be fulfilled in us, who
-walk not after the flesh, but after the Spirit." Rom. 8:3, 4.
+### 3. **Receive Christ's Righteousness**
 
-**Answer:** This passage is the heart of the gospel and the plan of salvation.
+> _"That the righteousness of the law might be fulfilled in us, who walk not after the flesh, but after the Spirit."_ (Romans 8:4)
 
-1.  **What the Law Could Not Do:** The law is like a mirror (James 1:23-25). It
-    can show you the dirt on your face (sin), but it has no soap or water to
-    wash it off. It commands righteousness but gives no power to the sinner to
-    perform it. It was "weak through the flesh" because our fallen nature cannot
-    obey it.
-2.  **Condemning Sin in the Flesh:** Christ took upon Himself our nature—"the
-    likeness of sinful flesh"—yet without sinning. By conquering temptation in a
-    human body, He broke the power of sin. He "condemned" sin—served it an
-    eviction notice.
-3.  **The Result - Righteousness by Faith:** Note the purpose: "That the
-    righteousness of the law might be fulfilled _in_ us."
-    - It is not just fulfilled _for_ us (justification), though that is the
-      foundation.
-    - It is fulfilled _in_ us (sanctification) as we walk by the Spirit.
-    - God’s plan is to restore us to obedience. The law is no longer an enemy
-      condemning us, but a delight written on the heart.
+God's purpose is not merely to forgive us but to transform us—to write His law in our hearts (Hebrews 8:10). Through the indwelling Spirit, the same life that kept the law perfectly in Jesus can keep it in us. This is not human effort but Christ living in us (Galatians 2:20).
 
-- **Definition:** **Justification**: God’s legal declaration that a repentant
-  sinner is righteous because of Christ’s merits (Romans 3:24). **Imputed
-  Righteousness**: Christ's credit given to us. **Imparted Righteousness**:
-  Christ's life lived in us.
+### 4. **Honor the Whole Law**
+
+If Christ magnified the law rather than abolishing it, we must honor all ten commandments—including the fourth, which commands the observance of the seventh-day Sabbath. The same Jesus who revealed the spiritual depth of the sixth and seventh commandments also said, _"The sabbath was made for man"_ (Mark 2:27) and kept it Himself throughout His life (Luke 4:16).
 
 ---
 
-### Q10. In order to accomplish this, what was it necessary for Christ to do?
+## Appeal
 
-” For when we were yet without strength, in due time Christ died for the
-ungodly." Rom. 5:6.
+> _"For verily I say unto you, Till heaven and earth pass, one jot or one tittle shall in no wise pass from the law, till all be fulfilled."_ (Matthew 5:18)
 
-**Answer:** It was necessary for Christ to die as a substitute.
+Dear friend, the law of God stands forever. It reveals both our need and God's character. Christ came not to lower its standard but to lift us up to meet it—not in our own strength, but by His indwelling life.
 
-1.  **Without Strength:** We were powerless to save ourselves or to pay the
-    penalty for our past sins.
-2.  **The Penalty Paid:** The wages of sin is death (Romans 6:23). The broken
-    law demanded the life of the transgressor. Jesus stepped in and paid that
-    debt.
-3.  **The Sanctuary Connection:** In the earthly sanctuary, the sinner brought a
-    lamb to the altar. He laid his hands on it, confessing his sin (transferring
-    guilt), and then the lamb was slain. Christ is the "Lamb of God" (John 1:29)
-    who took our guilt and died our death in the outer court (this earth), so
-    that we might live.
+Will you come to Jesus today, not as one who seeks to abolish His Father's commandments, but as one who loves them because they reveal the heart of God? Will you invite Him to write His law upon your heart, that the righteousness of the law might be fulfilled in you?
 
-- **Definition:** **Atonement**: The work by which God and man are reconciled
-  (brought back into oneness). It involves the sacrifice on the Cross and
-  Christ's ministry in the heavenly sanctuary.
-
----
-
-### Q11. But if the law could have been abolished, would not that have released men from condemnation?
-
-“Because the law worketh wrath; for where no law is, there is no transgression."
-Rom. 4:15.
-
-**Answer:** This is a logical argument proving the perpetuity of the law.
-
-1.  **The Definition of Sin:** "Sin is the transgression of the law" (1 John
-    3:4). If the law is abolished, there is no transgression. If there is no
-    transgression, there is no sin.
-2.  **No Need for a Savior:** If there is no sin, there is no need for a Savior
-    to die. If God could have simply abrogated (cancelled) the Ten Commandments,
-    He could have saved humanity without the suffering of the Cross.
-3.  **The Cost of the Cross:** The fact that Christ _did_ die proves that the
-    law could not be changed. The penalty had to be paid. The Cross is the
-    greatest evidence in the universe that the Law of God is immutable, holy,
-    just, and good.
-
-**NOTE.** - It is plain that if the law of God demanded the death of Christ, and
-had power to slay Him (Gal. 3:13), the law must still live, even after cursing
-the Son of God in our behalf. Then by yielding His life to the demands of the
-law, He magnified it in His death as well as in His life.
-
-[ILL] **The Governor and the Criminal:** Suppose a criminal is sentenced to
-death. If the Governor wants to save him, he cannot simply burn the law book
-that defines murder. If he did, he would create anarchy. Instead, if the
-Governor himself stepped down and took the penalty for the criminal, the law
-would be upheld (magnified) as just, while the criminal would be saved by grace.
-This is what Christ did at Calvary.
+The same Christ who magnified the law in His life and death offers to live out that same obedient life in you. _"I can do all things through Christ which strengtheneth me"_ (Philippians 4:13). Trust Him. Surrender to Him. Let His law become your delight, and His righteousness your covering.

@@ -1,241 +1,111 @@
-### Q1. To the believer what does Christ become? “For Christ is the end of the law for righteousness to everyone that believeth." Rom. 10:4.
+# Bible Study: The End of the Law
 
-**Answer:**
+## Introduction
 
-The Apostle Paul here presents the beautiful relationship between the law of God
-and the Son of God. To the believer, Christ becomes the very goal, purpose, and
-fulfillment of everything the law requires.
+Romans 10:4 declares that "Christ is the end of the law for righteousness to everyone that believeth." This verse has been tragically misunderstood by many to mean that Christ abolished the law. Yet when we allow Scripture to interpret Scripture, we discover a profound truth: Christ is not the termination of God's law, but its fulfillment, its goal, and its glorious realization in the life of every believer. Through faith in Christ, what the law could never accomplish in weak, sinful humanity becomes possible—true righteousness of heart and life.
 
-1.  **The Meaning of "End":** The word translated "end" is the Greek _telos_.
-    While it can mean "termination" in some contexts, in the context of God’s
-    eternal government, it signifies the "goal," "purpose," or "culmination."
-    Christ is not the _termination_ of the law in the sense of destroying it
-    (Matthew 5:17), but He is the _goal_ toward which the law points.
-2.  **The Function of the Law:** The moral law acts as a schoolmaster to bring
-    us to Christ (Galatians 3:24). It reveals the holiness of God and, by
-    contrast, the sinfulness of man (Romans 3:20). Once the law has convicted a
-    man of sin, it can do no more for him; it cannot justify or cleanse. It
-    points the sinner to Christ, who alone possesses the righteousness the law
-    demands.
-3.  **Righteousness by Faith:** The text says Christ is the end of the law _for
-    righteousness_.
-    - **Justification:** The law demands perfect righteousness, which no fallen
-      human can offer. Christ offers His perfect life to cover our past sins.
-      This is _imputed righteousness_—credited to our account (Romans 4:22–24).
-    - _Definition—Justification:_ The legal declaration by God that a repentant
-      sinner is righteous, not because of their own works, but solely because of
-      the merits of Jesus Christ (Romans 3:24–26).
-4.  **The Believer’s Privilege:** To "everyone that believeth," Christ becomes
-    the realization of the law's demand. We stop looking to our own
-    commandment-keeping as a method of salvation (which is legalism) and look to
-    Christ, who is the living embodiment of the law.
+## Core Truths
 
-**[ILL] Illustration:** Imagine a man looking through a telescope at a
-magnificent star. The telescope represents the law; its purpose is not to be
-looked _at_, but to be looked _through_. If the man focuses only on the glass
-and brass of the telescope, he sees nothing of the star. But if he uses the
-telescope as intended, his vision is carried to the star. Christ is the Star.
-The law is the instrument designed to focus our vision upon Him. We do not throw
-away the telescope, but we understand that its "end" or purpose is to reveal the
-glory of the Star.
+### The Meaning of "End" (Telos)
 
----
+The Greek word translated "end" in Romans 10:4 is _telos_, which carries rich meaning beyond mere termination.
 
-### Q2. In what sense is the word end (Greek, telos) sometimes used in the Scriptures? Object, intention, or design? "Ye have heard of the patience of Job, and have seen the end of the Lord." James 5:11.
+> "Ye have heard of the patience of Job, and have seen the end of the Lord; that the Lord is very pitiful, and of tender mercy." (James 5:11)
 
-**Answer:**
+Here "end" clearly means _purpose, intention, or goal_—not cessation. We do not say that the Lord ceased to exist! Rather, we see His ultimate design and objective revealed through Job's experience.
 
-Here, Scripture interprets Scripture. By examining how the apostles used the
-word _telos_ ("end"), we see that it refers to the final outcome, purpose, or
-intent of a thing, rather than its abolition.
+[DYK🔎] The Greek word _telos_ is used throughout the New Testament to mean "goal" or "purpose." It appears in 1 Timothy 1:5: "Now the end [*telos*] of the commandment is charity out of a pure heart." If _telos_ meant "abolition," this verse would absurdly suggest that love abolishes the commandment—the opposite of Paul's teaching!
 
-1.  **The Case of Job:** James speaks of "the end of the Lord" in the story of
-    Job. Does this mean the Lord ceased to exist? Certainly not. It refers to
-    the _conclusion_ or _purpose_ God had in Job's trials—which was to
-    demonstrate that "the Lord is very pitiful, and of tender mercy" (James
-    5:11). The "end" was the restoration and blessing of Job.
-2.  **Applying to the Law:** Similarly, when Paul speaks of Christ as the "end
-    of the law," he means that Christ is the _crowning design_ of the law. The
-    law was given to outline the character of God; Christ came to live out that
-    character in human flesh.
-3.  **The Consistency of God:** God’s law is a transcript of His character
-    (Psalm 19:7–9). Since God does not change (Malachi 3:6), His law—the
-    expression of His will—does not cease. Instead, its design is realized when
-    a sinner is transformed into the image of Jesus.
+Similarly, Romans 10:4 teaches that Christ is the _goal_ toward which the law has always pointed—the One in whom the law's righteous requirements find their complete fulfillment.
 
-**[ILL] Illustration:** Consider an architect's blueprint for a house. When the
-house is finally built, the blueprint has reached its "end" (_telos_). The
-blueprint is not destroyed or burned; rather, its purpose is fulfilled in the
-actual building. The building is the physical realization of what was on the
-paper. So Christ is the living realization of the written law.
+### The Original Design of God's Law
 
----
+What was the law's purpose from the beginning?
 
-### Q3. What was the object of the law?” And the commandment, which was ordained to life, I found to be unto death." Rom. 7:10.
+> "And the commandment, which was ordained to life, I found to be unto death." (Romans 7:10)
 
-**Answer:**
+The law was "ordained to life"—designed to lead humanity into abundant, eternal life. God never intended His law as a burden, but as a pathway to blessing. The Ten Commandments describe the character of love itself—the very nature of God expressed in principles of relationship with Him and our fellow beings.
 
-Paul reveals the original, dual nature of the law's interaction with humanity:
-it was designed for life, but due to sin, it results in the death of the
-self-sufficient sinner.
+[Q] **"If the law was ordained to life, why did Paul find it 'unto death'?"**
 
-1.  **Ordained to Life:** God created man to live in harmony with His law.
-    Obedience to the law of God is the condition of existence in the universe.
-    If Adam had remained obedient, the law would have been a guarantee of
-    eternal life and happiness (Proverbs 19:16; Matthew 19:17).
-2.  **Found to be Unto Death:** Because "all have sinned" (Romans 3:23), the
-    law—which cannot tolerate sin—condemns the transgressor. The law serves as a
-    diagnostic tool; it reveals the fatal disease of sin but offers no cure.
-    - _Definition—Condemnation:_ The judicial sentence of death passed upon the
-      sinner by the broken law (Romans 6:23).
-3.  **The Schoolmaster's Role:** By slaying our hope in our own righteousness
-    ("I found to be unto death"), the law drives us to seek life elsewhere. It
-    forces us to look away from ourselves to the Sanctuary in heaven, where
-    Christ our High Priest ministers.
-4.  **Sanctuary Insight:** In the earthly sanctuary, the law was inside the Ark
-    of the Covenant. Above it was the Mercy Seat, sprinkled with blood. The law
-    condemned the sinner to death, but the blood interposed to offer life. The
-    object of the law is to drive us to the Mercy Seat.
+This is the tragedy of sin. The law reveals God's perfect standard, but fallen humanity cannot keep it in their own strength. Like a mirror that shows our dirty face but cannot wash it, the law exposes sin but cannot remove it. Thus what was designed for life becomes, for the unrepentant sinner, a ministration of death—not because the law is evil, but because we are (Romans 7:12–14).
 
-**[ILL] Illustration:** A high-precision level is used by a builder to ensure a
-wall is straight. The "object" of the level is to ensure a perfect building.
-However, if a wall is built crookedly, the level reveals the error. The level
-does not fix the wall; it only declares, "This is crooked; it must come down."
-The law is that spiritual level. It was ordained to verify our perfection, but
-instead, it exposes our crookedness (sin) and declares we are unfit for heaven,
-prompting us to call for the Master Builder (Jesus) to rebuild us.
+### The True End of the Commandment
 
----
+> "Now the end of the commandment is charity out of a pure heart, and of a good conscience, and of faith unfeigned." (1 Timothy 1:5)
 
-### Q4. What further is the end, or object, of the law? “Now the end of the commandment is charity out of a pure heart." 1 Tim. 1:5.
+The law's ultimate goal is _love_—genuine, self-sacrificing love flowing from a transformed heart. This is not cold compliance but warm devotion.
 
-**Answer:**
+> "Love worketh no ill to his neighbour: therefore love is the fulfilling of the law." (Romans 13:10)
 
-The ultimate spiritual goal (_telos_) of the commandment is to produce a
-character defined by divine love.
+> "For this is the love of God, that we keep his commandments: and his commandments are not grievous." (1 John 5:3)
 
-1.  **Charity (Agape):** The KJV uses the word "charity," which is the
-    translation of the Greek _agape_—self-sacrificing, principled love. This is
-    not mere sentimental feeling, but the principle of God's own government (1
-    John 4:8).
-2.  **A Pure Heart:** Notice the source of this love: it flows "out of a pure
-    heart." The law requires inward purity, not just outward compliance (Psalm
-    51:6, 10). A distinct mark of the New Covenant is that God writes His law
-    _in the heart_ (Hebrews 8:10).
-3.  **Sanctification:** This verse describes the work of sanctification. The law
-    aims to restore the image of God in man. When a believer is fully
-    surrendered to Christ, the "end" of the commandment is realized in them
-    because their life becomes a life of love.
-    - _Definition—Sanctification:_ The ongoing process by which the Holy Spirit
-      imparts the nature of Christ to the believer, separating them from sin and
-      making them holy in character (1 Thessalonians 4:3).
+[ILL] Consider a young man deeply in love with his bride. He does not view his marriage vows as burdensome restrictions. "I must not look at other women. I must not abandon her. I must provide for her needs." No! His heart so overflows with love that faithfulness becomes his delight. He keeps the "law" of marriage not from cold duty, but from a heart captivated by love. So it is when Christ captures our hearts—obedience becomes joy, not bondage.
 
-**[ILL] Illustration:** If you plant an apple seed, the "end" or object of that
-seed is not just a sapling or leaves, but the fruit—the apple. The "seed" of the
-commandment is planted in the heart to bear the fruit of the Spirit, which is
-love (Galatians 5:22). If there is no fruit of love, the purpose of the
-commandment has not yet been realized in that life.
+## Deeper Truths
 
----
+### What the Law Could Not Do
 
-### Q5. What is charity, or love? “Love worketh no ill to his neighbor; therefore love is the fulfilling of the law." Rom. 13:10 (1 John 5:3).
+> "For what the law could not do, in that it was weak through the flesh, God sending his own Son in the likeness of sinful flesh, and for sin, condemned sin in the flesh: that the righteousness of the law might be fulfilled in us, who walk not after the flesh, but after the Spirit." (Romans 8:3–4)
 
-**Answer:**
+The law possessed no inherent weakness. Its limitation was "through the flesh"—through our fallen, sinful nature. The law could command righteousness but could not create it. It could demand love but could not produce it. It could threaten death for disobedience but could not empower obedience.
 
-The Bible defines love not as an emotion that overrides the law, but as the
-active principle of obedience to the law.
+[DYK🔎] The phrase "condemned sin in the flesh" reveals Christ's complete victory over sin in human nature. Jesus took upon Himself our fallen, weakened humanity—"the likeness of sinful flesh"—and in that very flesh where sin had reigned for millennia, He lived a life of perfect obedience, condemning sin's claim that human beings cannot keep God's law.
 
-1.  **Love as Action:** True love "worketh no ill." It does not steal, it does
-    not commit adultery, it does not covet, it does not kill. Therefore, one
-    cannot claim to have "Christian love" while willfully breaking God's
-    commandments.
-2.  **Fulfilling, not Replacing:** Romans 13:10 states love _is_ the fulfilling
-    of the law. It does not say love _replaces_ the law. To "fulfill" means to
-    fill it up full of meaning and action.
-3.  **The Test of Love:** The Apostle John clarifies: "For this is the love of
-    God, that we keep his commandments" (1 John 5:3). There is no genuine love
-    for God that results in rebellion against His government.
-4.  **Christ the Example:** Jesus said, "If ye keep my commandments, ye shall
-    abide in my love; even as I have kept my Father's commandments, and abide in
-    his love" (John 15:10). Christ’s love was demonstrated by His perfect
-    obedience.
+### Righteousness Fulfilled in Us
 
-**[ILL] Illustration:** A train needs two rails to run effectively. Let us call
-one rail "The Law" and the other rail "Love." If you try to run the train on the
-"Law" rail alone, it is heavy, grinding, and leads to legalism. If you try to
-run it on the "Love" rail alone (without the definition of the law), the train
-derails into sentimentalism and sin. The train of Christian life moves forward
-only when Love and Law are parallel, with Love being the power that moves us
-along the tracks of God's commandments.
+Notice carefully: the purpose of Christ's coming was "that the righteousness of the law might be fulfilled in us" (Romans 8:4). Not merely imputed to our account, though that is blessedly true in justification—but _fulfilled in us_, worked into the very fabric of our character through sanctification.
 
----
+The marginal reading of the Revised Version makes this even clearer: "That the requirement of the law might be fulfilled in us."
 
-### Q6. Why did God send His Son to the world?” For what the law could not do, in that it was weak through the flesh, God sending His own Son in the likeness of sinful flesh, and for sin, condemned sin in the flesh: that the righteousness of the law might be fulfilled in us." Rom. 8:3, 4.
+This is the heart of righteousness by faith: not that Christ kept the law so we don't have to, but that Christ's indwelling life enables us to keep the law from the heart!
 
-**Answer:**
+[Q] **"Doesn't this teaching lead to legalism—trying to earn salvation by works?"**
 
-This passage is the heart of the "Righteousness by Faith" message. It explains
-_why_ the law cannot save and _how_ Christ provides the remedy.
+Never! The text is clear: this righteousness is "fulfilled _in us_"—not _by us_ through human effort. It comes to those "who walk not after the flesh, but after the Spirit" (Romans 8:4). This is Christ living His obedient life through surrendered believers (Galatians 2:20). We do not work our way up to Christ; He comes down to live within us. The keeping of the law is the _fruit_ of salvation, not its _root_.
 
-1.  **The Law's Inability:** "What the law could not do." The law has no power
-    to save or strengthen. It acts like a mirror; a mirror can show you the dirt
-    on your face, but it cannot wash it off.
-2.  **Weakness of the Flesh:** The fault lies not in the law (which is "holy,
-    just, and good"—Romans 7:12), but in our "flesh." Our fallen nature is
-    antagonistic to God’s law (Romans 8:7). We are too weak to obey it in our
-    own strength.
-3.  **Christ's Incarnation:** God sent His Son "in the likeness of sinful
-    flesh." Christ took upon Himself our fallen humanity yet without sinning
-    (Hebrews 4:15). He met the temptations of life in the same territory where
-    Adam fell and where we struggle.
-4.  **Condemning Sin in the Flesh:** By living a perfect life _in human flesh_,
-    Jesus proved that sin is not a necessity. He "condemned sin"—He broke its
-    power and authority. He showed that humanity, combined with divinity, can
-    keep the law of God.
-    - _Definition—Atonement:_ The reconciliation of God and man through the
-      life, death, and priestly ministry of Christ. It includes both the payment
-      for sin (at the Cross) and the removal of sin from the sinner (in the
-      Sanctuary) (Leviticus 16; Hebrews 2:17).
+## Principles and Great Controversy Themes
 
-**[ILL] Illustration:** Imagine a man trapped in a deep pit. A rope is thrown
-down to him—this represents the Law. The rope is strong and good, but the man
-has two broken arms ("weak through the flesh"). The rope cannot save him, not
-because the rope is bad, but because the man is too weak to grab it. Christ does
-not just throw a rope; He climbs down into the pit ("likeness of sinful flesh"),
-takes the man in His arms, and carries him out. He does what the rope (the law)
-could not do.
+### The Sanctuary Connection
 
----
+In the earthly sanctuary, the law of God resided in the ark of the covenant within the Most Holy Place—the very heart of the sanctuary system. The mercy seat rested upon the law, and the Shekinah glory of God's presence dwelt between the cherubim above it. This arrangement reveals profound truth:
 
-### Q7. Then what is one enabled to do through Christ? “That the requirement of the law might be fulfilled in us." Rom. 8:4 (see margin of Revised Version).
+- God's mercy does not abolish His law but rests upon it
+- The blood of atonement was sprinkled toward the mercy seat, satisfying the law's claims while extending grace to the repentant sinner
+- God's presence dwells where His law is honored
 
-**Answer:**
+Christ, our High Priest, now ministers in the heavenly sanctuary where the original law resides. His work is not to diminish the law's claims but to write it upon the hearts of His people (Hebrews 8:10; 10:16).
 
-This is the glorious result of the Gospel. The plan of salvation aims not merely
-to forgive us, but to restore us to harmony with God’s law.
+### The Great Controversy Issue
 
-1.  **Fulfilled IN Us:** Notice the text does not say the righteousness of the
-    law is fulfilled _instead_ of us, but _in_ us. While our title to heaven is
-    Christ's righteousness imputed _for_ us, our fitness for heaven is Christ's
-    righteousness imparted _in_ us.
-2.  **Walking in the Spirit:** The verse continues, "who walk not after the
-    flesh, but after the Spirit" (Romans 8:4). Through the indwelling Spirit,
-    the believer is empowered to live a life of obedience.
-3.  **Imparted Righteousness:** This is the experience of having the law written
-    on the heart. It means that through faith, the believer actually begins to
-    live the life of Christ. The commandments are kept, not to _earn_ salvation,
-    but as the _fruit_ of a salvation already received.
-    - _Definition—Imparted Righteousness:_ The righteousness that God puts
-      _inside_ the believer, transforming their character and empowering them to
-      obey God's will (Galatians 2:20).
-4.  **Victory Over Sin:** This doctrine assures us that there is no known sin
-    that the Christian must bow to. "I can do all things through Christ which
-    strengtheneth me" (Philippians 4:13). The "requirement of the law" is love
-    and holiness; Christ gives us His own life to meet that requirement.
+At the heart of the cosmic conflict stands this question: Is God's law arbitrary and oppressive, or is it the perfect expression of His loving character? Satan claims God's requirements are unreasonable—that no one can keep His law. Christ's life and His work in believers answers this charge, demonstrating that through divine grace, human beings can indeed reflect God's character of love.
 
-**[ILL] Illustration:** Consider a glove. A glove cannot pick up a Bible or turn
-a page by itself; it is "weak." It has the _form_ of a hand (like the law has
-the form of righteousness), but no power. But if a living hand is inserted into
-the glove, the glove can do everything the hand does. We are the glove; Christ
-is the Hand. When He lives in us, the "righteousness of the law" is fulfilled in
-our lives because He is the one doing the work through us.
+[ILL] Imagine a pianist who claims a certain complex piece cannot be played. Then a master musician sits at the instrument and performs it flawlessly. The claim is answered—not by changing the music, but by demonstrating what skilled hands can accomplish. Christ has played the symphony of perfect obedience on the instrument of human nature. Now, through His Spirit dwelling within, He teaches our unskilled fingers to play the same beautiful melody.
+
+## Practical Application
+
+This truth transforms how we approach the Christian life:
+
+**Understanding**: Christ did not come to lower God's standard but to lift us up to meet it. He is both our perfect Example and our empowering Presence.
+
+**Response**: We must cease all self-effort to manufacture righteousness and instead surrender daily to Christ's indwelling life. "Lord, live Your life through me today."
+
+**Growth**: Victory over sin is progressive but real. Every temptation resisted by faith in Christ, every habitual sin overcome by His power, demonstrates that "the righteousness of the law" is being "fulfilled in us."
+
+Consider specific areas of your life where you struggle to obey God's will:
+
+- Do you battle with truthfulness? Christ is the Truth—let Him speak through you.
+- Do you wrestle with Sabbath observance? Christ is Lord of the Sabbath—let Him sanctify your time.
+- Do you struggle with covetousness? Christ is your all-sufficient portion—let His contentment fill your heart.
+
+In each case, the answer is not more human determination but deeper surrender to Christ's transforming presence.
+
+## Appeal
+
+> "I can do all things through Christ which strengtheneth me." (Philippians 4:13)
+
+Dear friend, Christ is the end—the glorious goal—of the law for everyone who believes. In Him, the law's righteous requirements can be fulfilled in your experience today. Not through your striving, but through His abiding. Not by your power, but by His Spirit.
+
+Will you cease trying to be good enough for God and instead receive Christ as your righteousness? He offers not only pardon for past failures but power for present victory. He stands ready to write His law of love upon your heart, transforming cold duty into warm devotion.
+
+Come to Him today—the One who is both the Author and Finisher of your faith, the Beginning and the End of your salvation, the fulfillment of the law in your life.

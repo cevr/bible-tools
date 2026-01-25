@@ -1,427 +1,183 @@
-### Q1. At the death of Christ, what miracle signified that the priestly work of the earthly sanctuary was finished?
+# Bible Study: The Atonement in the New Testament
 
-> “Jesus, when He had cried again with a loud voice, yielded up the ghost. And,
-> behold, the veil of the temple was rent in twain from the top to the bottom."
-> Matt. 27:50, 51.
+## Introduction
 
-**Answer:** The tearing of the temple veil was a divine signal that the earthly
-sacrificial system had met its fulfillment. For centuries, the heavy curtain
-separated the Holy Place from the Most Holy Place, barring the way to the
-visible presence of God (the Shekinah glory). Only the High Priest could enter,
-and that only once a year.
-
-When Christ died:
-
-1.  **The Type met the Antitype:** The earthly lamb was a shadow; Christ was the
-    substance. When the true "Lamb of God" died, the shadow was no longer
-    needed.
-2.  **The Way was Opened:** The tearing "from top to bottom" signified that God
-    Himself had removed the barrier. No longer do we need human priests to
-    mediate for us; the way to the Father is open through Jesus.
-3.  **The End of Levitical Exclusivity:** The earthly sanctuary lost its
-    sacredness. It was now merely a building; the true work of atonement shifted
-    to the heavenly realm.
-
-- **Definition—Type and Antitype:** In theology, a "type" is a divinely
-  appointed symbol or foreshadowing (like the sacrificial lamb). The "antitype"
-  is the reality or fulfillment of that symbol (Christ Himself).
-
-[ILL] Imagine a father who keeps a photograph of his son who is away at war. He
-cherishes the photo (the type). But when the son returns home and walks through
-the door (the antitype), the father puts the photo down to embrace the real
-person. To continue talking to the photo when the son is standing there would be
-foolish. The earthly sanctuary was the photo; Christ is the Son.
+The death of Jesus Christ on Calvary was not the end of His saving work, but the beginning of a new phase. When the veil of the temple was torn from top to bottom, Heaven declared that the earthly sanctuary system had served its purpose—the true Lamb had been slain. Yet the work of atonement was not complete at the cross. Christ ascended to minister as our High Priest in the heavenly sanctuary, the "true tabernacle, which the Lord pitched, and not man" (Hebrews 8:2). Understanding this heavenly ministry is essential to grasping the full scope of God's plan to restore sinners to perfect harmony with His holy law.
 
 ---
 
-### Q2. Where has the work of the sanctuary been conducted since the ascension of Christ?
+## Core Truths
 
-> “Now of the things which we have spoken this is the sum: We have such a High
-> Priest, who is set on the right hand of the throne of the Majesty in the
-> heavens." Heb. 8:1.
+### The Veil Torn: A Divine Declaration
 
-**Answer:** Since the ascension, the center of the plan of salvation is in
-heaven. The Bible is literal, not merely metaphorical, regarding this point.
-Just as there was a literal sanctuary on earth, there is a literal, physical
-reality in heaven where God rules and where Christ ministers.
+When Jesus breathed His last, something extraordinary occurred:
 
-- **Christ's Location:** He is at the "right hand" of the Father, a position of
-  authority and favor.
-- **Christ's Activity:** He is not inactive; He is working as our High Priest,
-  applying the benefits of His sacrifice to individual believers who come to Him
-  by faith (Hebrews 7:25).
+> _"Jesus, when He had cried again with a loud voice, yielded up the ghost. And, behold, the veil of the temple was rent in twain from the top to the bottom."_ (Matthew 27:50, 51)
 
-- **Definition—High Priest:** The mediator who represents the people before God.
-  In the earthly system, he carried the blood of the sacrifice into the
-  sanctuary. In heaven, Christ presents His own blood (His merits and perfect
-  life) on our behalf.
+This was no accident of nature. The veil—a heavy curtain separating the Holy Place from the Most Holy Place—was torn **from top to bottom**, signifying that God Himself had ended the earthly system. The priests standing in the temple that afternoon witnessed Heaven's own hand declaring: "The shadow has met the substance. The type has found its antitype."
 
----
+[DYK🔎] The temple veil was approximately 60 feet high, 30 feet wide, and four inches thick—so heavy it reportedly required 300 priests to hang it. No human hands could have torn it; this was unmistakably a divine act.
 
-### Q3. Who is this high priest?
+### Christ's Ministry Transferred to Heaven
 
-> “But Christ being come a high priest of good things to come, by a greater and
-> more perfect tabernacle, not made with hands." Heb. 9:11.
+Where does Christ now minister?
 
-**Answer:** Our High Priest is Jesus Christ. Unlike the sons of Aaron, who were
-sinful men subject to death, Christ is the sinless, eternal Son of God.
+> _"Now of the things which we have spoken this is the sum: We have such an High Priest, who is set on the right hand of the throne of the Majesty in the heavens; a minister of the sanctuary, and of the true tabernacle, which the Lord pitched, and not man."_ (Hebrews 8:1, 2)
 
-- **"Good things to come":** The earthly priests dealt with shadows; Christ
-  deals with the eternal realities—actual cleansing from sin, the blotting out
-  of the record of rebellion, and the restoration of face-to-face communion with
-  God.
-- **"Not made with hands":** The heavenly sanctuary is not a human construction.
-  It is the very dwelling place of God, the command center of the universe.
+The earthly sanctuary was always a **shadow** of heavenly realities (Hebrews 8:5). Moses was shown the pattern on Mount Sinai (Exodus 25:40), and everything built on earth pointed to something greater in heaven. Now that the true sacrifice has been offered, the ministry continues—not in a tent made by human hands, but in the very throne room of God.
 
-[ILL] If you are on trial for your life, you do not want a lawyer who is also a
-criminal and might die before the verdict is read. You want an advocate who has
-never lost a case, who is friends with the Judge, and who lives forever to
-ensure your freedom. That is Jesus, our High Priest.
+### Why Christ Could Not Be Priest on Earth
+
+Scripture makes a striking statement:
+
+> _"For if He were on earth, He should not be a priest, seeing that there are priests that offer gifts according to the law."_ (Hebrews 8:4)
+
+Christ came from the tribe of Judah, not Levi. Under the Mosaic system, He had no earthly right to priestly office. But His priesthood is of a different order—"after the order of Melchisedec" (Hebrews 7:17)—a royal priesthood, eternal and unchangeable, exercised in the courts above.
+
+[Q] **"If Jesus finished the work of salvation on the cross, why does He need to minister in heaven?"**
+
+The cross provided the sacrifice—the Lamb was slain once for all (Hebrews 10:10). But atonement involves more than sacrifice; it involves the **application** of that sacrifice to individual cases. In the earthly sanctuary, the lamb was killed in the outer court, but the blood was then brought **inside** the sanctuary and ministered by the priest. The killing of the lamb was essential, but it was not the whole atonement. So it is with Christ: His death provided the blood; His priestly ministry applies that blood to our cases before the throne of God.
 
 ---
 
-### Q4. Who erected this heavenly tabernacle, of which Christ is the minister?
+## Deeper Truths
 
-> “A minister of the sanctuary , and of the true tabernacle, which the Lord
-> pitched, and not man." Heb. 8:2.
+### The Heavenly Sanctuary Is Real
 
-**Answer:** The heavenly sanctuary was established by God Himself.
+Some have spiritualized the heavenly sanctuary into mere symbolism, but Scripture speaks of it in concrete terms:
 
-1.  **The Original:** The tabernacle Moses built in the wilderness was a copy.
-    The sanctuary in heaven is the original.
-2.  **The Scale:** The earthly was small and portable; the heavenly is vast
-    enough to accommodate the millions of angels and the throne of the Infinite
-    God (Daniel 7:9–10).
-3.  **The Minister:** Christ is the _Leitourgos_ (Minister/Public Servant) of
-    this true temple. His ministry is essential to our salvation. The death on
-    the cross provided the _sacrifice_, but the ministry in heaven provides the
-    _intercession_. Both are necessary.
+> _"For Christ is not entered into the holy places made with hands, which are the figures of the true."_ (Hebrews 9:24)
 
----
+Note carefully: the earthly holy places are called "figures of the true." The heavenly sanctuary is the **reality**; the earthly was the shadow. John beheld this reality in vision:
 
-### Q5. Could Christ be a priest while He was on earth, and before the old priesthood ceased?
+> _"And the temple of God was opened in heaven, and there was seen in His temple the ark of His testament."_ (Revelation 11:19)
 
-> “For if He were on earth, He should not be a priest, seeing that there are
-> priests that offer gifts according to the law." Heb 8:4.
+The ark of the covenant—containing the Ten Commandments—exists in heaven. The law of God, often dismissed as abolished, is enshrined at the very center of God's throne room. This is no small matter.
 
-**Answer:** No. While on earth, Jesus could not legally be a priest under the
-Mosaic Law.
+[DYK🔎] The Hebrew word for "ark" (_aron_) simply means "chest" or "box." But this particular chest, both earthly and heavenly, contains the moral constitution of God's government—His eternal, unchangeable law of love.
 
-- **Tribal Lineage:** The earthly law restricted the priesthood to the tribe of
-  Levi and the family of Aaron. Jesus was from the tribe of Judah (Hebrews
-  7:14).
-- **Separation of Duties:** On earth, Jesus acted as the _Sacrifice_ (the Lamb)
-  and the _Prophet_ (the Teacher). He could only enter His priestly office
-  _after_ He had offered the sacrifice (His death) and ascended to the true
-  Sanctuary in heaven.
-- **A New Order:** Christ is a priest "after the order of Melchizedek" (Psalm
-  110:4)—a priesthood that predates and supersedes the Levitical order.
+### The Heavenly Sanctuary Requires Cleansing
 
----
+Here is a truth that surprises many:
 
-### Q6. What did the service of the earthly priests signify?
+> _"It was therefore necessary that the patterns of things in the heavens should be purified with these; but the heavenly things themselves with better sacrifices than these."_ (Hebrews 9:23)
 
-> “There are priests that offer gifts according to the law: who serve unto the
-> example and shadow of heavenly things." Heb. 8:4, 5.
+How can the heavenly sanctuary need cleansing? Has sin defiled heaven? Not in the sense of moral corruption entering God's presence, but in the sense of **recorded sins** transferred there through confession and priestly mediation. Just as the sins of Israel were symbolically transferred to the earthly sanctuary through the blood of sacrifices, so the confessed sins of God's people are recorded in the heavenly sanctuary. These records must be addressed—cases examined, decisions rendered, and sin forever removed.
 
-**Answer:** The earthly service was an object lesson—a "shadow" designed to
-teach humanity how God deals with sin.
+[ILL] Consider a courtroom where cases are filed but not yet adjudicated. The courthouse itself is not corrupt, but it holds records of crimes awaiting judgment. When the judge renders verdicts and cases are closed, the courthouse is "cleansed" of pending business. So the heavenly sanctuary holds the records of confessed sins awaiting the great Day of Atonement, when all cases will be decided and sin forever removed from God's universe.
 
-- **The Shadow:** A shadow has no substance of its own; it only exists because
-  of the reality casting it. The earthly rituals (blood, incense, washing) had
-  no power to save in themselves (Hebrews 10:4). Their value lay only in
-  pointing the worshiper's faith to the coming Messiah.
-- **The Lesson:** The daily sacrifices taught that sin results in death
-  (justification). The daily washing and incense taught that we need constant
-  cleansing and prayer (sanctification). The yearly Day of Atonement taught that
-  God will eventually judge and eradicate sin from the universe (judgment).
+### The Day of Atonement: Type and Antitype
 
-- **Definition—Sanctification:** The process of being made holy. It is the work
-  of God's grace within the believer, transforming the character to be like
-  Jesus (1 Thessalonians 4:3).
+In the earthly sanctuary, the atonement was made once yearly on the tenth day of the seventh month (Leviticus 16). This was Israel's day of judgment:
+
+> _"For on that day shall the priest make an atonement for you, to cleanse you, that ye may be clean from all your sins before the LORD."_ (Leviticus 16:30)
+
+All who humbled their souls on that day were cleansed; all who did not were "cut off" from the congregation (Leviticus 23:29). This solemn day foreshadowed the final work Christ would perform in the heavenly sanctuary—a work of judgment and cleansing that would determine the eternal destiny of every soul.
+
+The earthly high priest made atonement year after year, but Christ offers Himself **once**:
+
+> _"Nor yet that He should offer Himself often, as the high priest entereth into the holy place every year with the blood of others... but now once in the end of the world hath He appeared to put away sin by the sacrifice of Himself."_ (Hebrews 9:25, 26)
+
+### The Scapegoat and the Final Removal of Sin
+
+On the Day of Atonement, two goats were presented: one was slain as a sin offering, the other—the scapegoat—was led into the wilderness bearing the confessed sins of Israel (Leviticus 16:20–22).
+
+The first goat represented Christ, whose blood makes atonement for sin. But what of the scapegoat? Notice that **no atonement was made by the scapegoat**—the sins were placed upon it only **after** the high priest had completed the atonement. The scapegoat bore responsibility for sins already atoned for.
+
+This fitly represents Satan, the originator of sin. When Christ finishes His priestly work, the sins of God's people—already atoned for and forgiven—will be placed upon Satan's head. He will bear the ultimate responsibility for the sins he tempted men to commit.
+
+> _"So Christ was once offered to bear the sins of many; and unto them that look for Him shall He appear the second time without sin unto salvation."_ (Hebrews 9:28)
+
+When Christ emerges from the heavenly sanctuary, He comes "without sin"—not carrying it, not bearing it—for it has been placed where it belongs: upon the author of rebellion himself.
+
+[Q] **"Isn't this teaching that Satan is our sin-bearer? Doesn't that diminish Christ's work?"**
+
+Not at all. Christ **alone** atones for sin. Satan has no atoning power whatsoever. But Satan is the **responsible party** for originating sin. Just as a crime boss may be held accountable for crimes committed by those he corrupted, so Satan will bear ultimate responsibility for the sins he instigated—not as an atoner, but as an accomplice and instigator receiving his just punishment.
 
 ---
 
-### Q7. What was the earthly sanctuary designed to be?
+## Principles and Great Controversy Themes
 
-> “The way into the holiest of all was not yet made manifest, while as the first
-> tabernacle was yet standing: which was a figure for the time then present."
-> Heb. 9:8, 9.
+### The Investigative Judgment
 
-**Answer:** It was a "figure" (parable) for that specific era.
+Before Christ returns, a work of judgment must occur. Consider:
 
-- **A Teaching Tool:** God used the earthly sanctuary to teach the ABCs of
-  salvation to a world darkened by sin. It showed that God is holy, man is
-  sinful, and a mediator is required for reconciliation.
-- **Limited Access:** In the earthly "figure," the common people could never
-  enter the sanctuary, and even the priests could not enter the Most Holy Place
-  (save the High Priest once a year). This illustrated that the way to full,
-  open fellowship with God was not yet fully revealed until Christ completed His
-  work.
+> _"But they which shall be accounted worthy to obtain that world, and the resurrection from the dead."_ (Luke 20:35)
 
----
+The phrase "accounted worthy" implies examination—a decision rendered **before** the resurrection occurs. When Jesus comes, He brings His reward with Him (Revelation 22:12); the decisions have already been made. This investigative judgment takes place while Christ ministers in the Most Holy Place.
 
-### Q8. Are there different apartments of the heavenly sanctuary in which Christ ministers?
+Daniel saw this judgment in vision:
 
-> “For Christ is not entered into the holy places made with hands, which are the
-> figures of the true." Heb. 9:24.
+> _"I beheld till the thrones were cast down, and the Ancient of days did sit... the judgment was set, and the books were opened."_ (Daniel 7:9, 10)
 
-**Answer:** Yes. The text uses the plural "holy places" (Greek: _hagia_), and
-speaks of the earthly as "figures" (plural) of the true.
+Immediately following, the Son of Man receives His kingdom:
 
-1.  **Structural Parallel:** Just as the earthly had a Holy Place and a Most
-    Holy Place, the heavenly sanctuary has corresponding phases of ministry.
-2.  **Two Phases of Ministry:**
-    - **Daily:** In the first apartment (Holy Place), Christ intercedes for us,
-      offering the merit of His blood and the prayers of the saints (represented
-      by incense). This secures our forgiveness and acceptance (Revelation
-      8:3–4).
-    - **Yearly (Antitypical):** In the second apartment (Most Holy Place),
-      Christ performs the work of judgment and cleansing—the final removal of
-      sin (Daniel 7:10; Revelation 11:19).
+> _"One like the Son of man came... to the Ancient of days, and they brought Him near before Him. And there was given Him dominion, and glory, and a kingdom."_ (Daniel 7:13, 14)
 
----
+### When Does This Cleansing Occur?
 
-### Q9. Does the heavenly sanctuary contain an ark of the testament (covenant)?
+Daniel was given a specific time:
 
-> "And the temple of God was opened in heaven, and there was seen in His temple
-> the ark of His testament." Rev. 11:19.
+> _"Unto two thousand and three hundred days; then shall the sanctuary be cleansed."_ (Daniel 8:14)
 
-**Answer:** Yes. The book of Revelation, describing a scene in the heavenly
-temple under the sounding of the seventh trumpet, reveals the "ark of His
-testament."
+This cannot refer to the earthly sanctuary, for the angel explained:
 
-- **The Contents:** In the earthly ark, the Ten Commandments (the testimony)
-  were stored. If the earthly was a copy of the heavenly, then the original Ten
-  Commandments—God's immutable standard of righteousness—exist in heaven.
-- **The Significance:** This proves that the Law of God was not abolished at the
-  cross. It remains beneath the Mercy Seat in heaven. The Judgment is based on
-  this Law (James 2:12).
-- **Righteousness by Faith Connection:** We cannot keep this holy Law in our own
-  strength. We need the blood on the Mercy Seat (justification) and the writing
-  of the Law in our hearts by the Spirit (sanctification/New Covenant - Hebrews
-  8:10).
+> _"Understand, O son of man: for at the time of the end shall be the vision."_ (Daniel 8:17)
+
+The earthly sanctuary was destroyed in A.D. 70. This prophecy reaches to the time of the end and points to the cleansing of the **heavenly** sanctuary—the great antitypical Day of Atonement.
+
+[DYK🔎] The 2,300-day prophecy, using the prophetic day-year principle (Numbers 14:34; Ezekiel 4:6), points to the year 1844, marking the beginning of Christ's final phase of ministry in the Most Holy Place of the heavenly sanctuary.
+
+### The Blotting Out of Sins
+
+Peter called the early Christians to a solemn preparation:
+
+> _"Repent ye therefore, and be converted, that your sins may be blotted out, when the times of refreshing shall come from the presence of the Lord."_ (Acts 3:19)
+
+Notice the sequence: repentance and conversion **now**, so that sins may be blotted out **then**. The blotting out of sins is a distinct work, connected with "the times of refreshing"—the final cleansing before Christ's return.
+
+What follows immediately?
+
+> _"And He shall send Jesus Christ, which before was preached unto you: whom the heaven must receive until the times of restitution of all things."_ (Acts 3:20, 21)
+
+The second coming follows the blotting out of sins. This is the glorious sequence: confession now, blotting out in the judgment, and then the appearing of our Lord.
 
 ---
 
-### Q10. The earthly sanctuary was cleansed by a high priest Is it necessary for the heavenly sanctuary also to come to a time of cleansing, or purifying?
+## Practical Application
 
-> “It was therefore necessary that the patterns of things in the heavens should
-> be purified with these; but the heavenly things themselves with better
-> sacrifices than these." Heb. 9:23.
+### Living in the Day of Atonement
 
-**Answer:** Yes, Scripture explicitly states it was "necessary" for the heavenly
-things to be purified (cleansed).
+If we are living in the antitypical Day of Atonement, what should characterize our lives?
 
-- **Why cleanse heaven?** Heaven itself is perfect, but the _record_ of the sins
-  of God's people is preserved there. When we confess our sins, they are
-  transferred, by faith, to Christ and recorded in the sanctuary books.
-- **The Day of Atonement:** In the earthly type, the sanctuary was "dirty"
-  because the sins of the people were transferred into it all year long. On the
-  Day of Atonement (Yom Kippur), the sanctuary was cleansed.
-- **The Antitype:** Before Christ returns, there must be a work of judgment to
-  examine the books, blot out the sins of the righteous, and formally separate
-  sin from God's people forever. This is the "cleansing of the sanctuary."
+1. **Deep Heart-Searching**: Israel was commanded to "afflict their souls" on that day (Leviticus 23:27). This was not mere external ritual, but deep self-examination and repentance. We too must search our hearts, confessing every known sin, that nothing may remain against us in the heavenly records.
 
-- **Definition—Atonement:** In the SDA understanding, this includes both the
-  sacrificial act (the Cross) and the priestly application of that sacrifice
-  (Ministry in the Sanctuary). The "Day of Atonement" refers specifically to the
-  final work of judgment.
+2. **Full Surrender to Christ**: Righteousness by faith means trusting wholly in Christ's merits—not our own works—while allowing His indwelling Spirit to produce genuine obedience. The judgment examines not merely profession, but character transformed by grace.
 
----
+3. **Watching and Waiting**: Those who "look for Him" will see Him appear "without sin unto salvation" (Hebrews 9:28). Are we among the waiting ones?
 
-### Q11. From what will it be cleansed, or purified?
+4. **Clearing the Records Now**: The only safe time to confess sin is **now**. Once a case is examined in the judgment, the decision is final. Let us not delay the work of repentance.
 
-> “Nor yet that He should offer Himself often, as the high priest entereth into
-> the holy place every year with the blood of others; for then must He often
-> have suffered since the foundation of the world: but now once in the end of
-> the world hath He appeared to put away sin by the sacrifice of Himself." Heb.
-> 9:25, 26.
+[ILL] A student preparing for final examinations does not wait until the exam begins to study. She reviews her notes, identifies weak areas, and seeks help **before** the test. So we, knowing that our cases will be examined in the heavenly court, must prepare now—confessing sin, seeking cleansing, and abiding in Christ.
 
-**Answer:** It is cleansed from the record of **sin**.
+### The Confidence of Faith
 
-- **Putting Away Sin:** The verse contrasts the repeated yearly sacrifices with
-  Christ's one-time sacrifice, but the _objective_ is the same: to "put away
-  sin."
-- **The Record:** Sins are recorded in heaven (Jeremiah 2:22; Revelation 20:12).
-  Forgiveness covers them, but the final cleansing "blots them out" (Acts 3:19).
-  This cleansing vindicates God's justice—showing that those who are saved have
-  truly entered into a relationship with Christ and have been "overcomers"
-  (Revelation 3:5).
+This solemn truth need not produce fear, but confidence:
 
-[ILL] A merchant keeps a ledger of debts (the record of sin). When a customer
-pays (confession/forgiveness), the merchant might write "Paid" next to the debt.
-But the record of the transaction remains in the book. At the end of the fiscal
-year, the accounts are finalized and the old debts are closed out completely so
-a new year can begin. The cleansing of the sanctuary is the final audit and
-closing of the books of sin.
+> _"Let us therefore come boldly unto the throne of grace, that we may obtain mercy, and find grace to help in time of need."_ (Hebrews 4:16)
+
+We have a High Priest who understands our weakness, who was "in all points tempted like as we are, yet without sin" (Hebrews 4:15). He intercedes with His own blood—infinitely sufficient for every repentant soul. The judgment is not designed to condemn the sincere believer, but to vindicate those who have trusted in Christ.
 
 ---
 
-### Q12. When the earthly high priest came out to the people after making the atonement, how did he transfer the sins of the people from himself?
+## Appeal
 
-> “And Aaron shall lay both his hands upon the head of the live goat, and
-> confess over him all the iniquities of the children of Israel, and all their
-> transgressions in all their sins, putting them upon the head of the goat."
-> Lev. 16:21.
+> _"For the Lord Himself shall descend from heaven with a shout, with the voice of the archangel, and with the trump of God: and the dead in Christ shall rise first: then we which are alive and remain shall be caught up together with them in the clouds, to meet the Lord in the air: and so shall we ever be with the Lord."_ (1 Thessalonians 4:16, 17)
 
-**Answer:** This occurred _after_ the High Priest had finished the work of
-reconciliation in the Most Holy Place.
+Beloved, our High Priest stands even now before the throne of God, pleading His blood on behalf of all who come to Him by faith. The hour is solemn; the judgment is proceeding; the cases of God's people are being examined. But Christ is able to "save them to the uttermost that come unto God by Him, seeing He ever liveth to make intercession for them" (Hebrews 7:25).
 
-1.  **The Azazel Goat:** He came out and placed his hands on the "scapegoat"
-    (Azazel).
-2.  **Transfer of Guilt:** He confessed the sins of Israel—which had already
-    been atoned for by the Lord's goat—onto the head of the live goat.
-3.  **Banishment:** This goat was not killed as a sacrifice; it was sent away
-    alive into the wilderness to die alone, taking the sins away from the camp
-    forever.
+Will you come to Him today? Will you confess every known sin, surrendering your life fully to His keeping? Will you trust not in your own righteousness, but in the merits of your Advocate?
 
----
+The sanctuary truth reveals that God has made full provision for your salvation—a complete sacrifice, a faithful Priest, and a certain promise: those who look for Him will see Him appear "without sin unto salvation."
 
-### Q13. How will it be when Christ has finished the atonement for his people?
-
-> “So Christ was once offered to bear the sins of many; and unto them that look
-> for Him shall He appear the second time without sin unto salvation." Heb.
-> 9:28.
-
-**Answer:** When Christ finishes His work in the heavenly sanctuary:
-
-1.  **Probation Closes:** He ceases His intercession. The sins of the righteous
-    have been blotted out.
-2.  **Placement on Satan:** Christ will place the responsibility for the sins of
-    the redeemed upon Satan (the antitypical Scapegoat). Satan is the originator
-    of sin and the tempter; while Christ paid the penalty for our guilt
-    (redemption), justice demands that the instigator of evil bear the final
-    consequence of his rebellion.
-3.  **Without Sin:** When Christ returns, He does not come to deal with sin
-    again (as a sin-bearer). He comes "without sin"—apart from the sin
-    problem—to rescue His waiting people.
-
-- **Clarification:** Satan does not save us. The scapegoat was not the
-  sacrifice. Christ's blood alone saves. Satan merely bears the final punishment
-  for the evil he caused, after the saints are saved.
-
----
-
-### Q14. When will the sins of the righteous be blotted out?
-
-> "Repent ye therefore, and be converted, that your sins may be blotted out,
-> when the times of refreshing shall come from the presence of the Lord." Acts
-> 3:19.
-
-**Answer:** The "blotting out" of sins is a specific event linked to the "times
-of refreshing" (the Latter Rain) and the final judgment work.
-
-- **Prerequisites:** Repentance and Conversion. To have sins blotted out, they
-  must first be confessed and forsaken.
-- **Righteousness by Faith:** We cannot hide one cherished sin. The blotting out
-  implies a people who have, by faith, allowed Christ to give them victory over
-  every known sin. The "Latter Rain" of the Holy Spirit cannot fall on hearts
-  filled with selfishness or rebellion.
-
----
-
-### Q15. What immediately follows the blotting out of sins?
-
-> “And He shall send Jesus Christ, which before was preached unto you, whom the
-> heaven must receive until the times of restitution of all things." Acts
-> 3:20, 21.
-
-**Answer:** The Second Coming of Jesus.
-
-- **Sequence:** First, the sanctuary is cleansed (judgment/blotting out). Then,
-  the mandate is given for Christ to return ("He shall send Jesus").
-- **Restitution:** This is the restoration of the earth to its Edenic beauty and
-  the restoration of man to God's presence.
-
----
-
-### Q16. While Christ as high priest is still before the Father, what is given Him?
-
-> “One like the Son of man came... to the Ancient of days, and they brought Him
-> near before Him. And there was given Him dominion, and glory, and a kingdom,
-> that all people, nations, and languages, should serve Him." Dan. 7:13, 14.
-
-**Answer:** At the conclusion of the judgment (which Daniel 7 describes), Christ
-receives His kingdom.
-
-- **The Coronation:** He changes His role from High Priest to King of Kings.
-- **The Kingdom:** This is not just a spiritual kingdom in the heart, but a
-  literal, eternal dominion that will displace all earthly governments. He
-  receives the subjects (His people) who have been vindicated in the judgment.
-
----
-
-### Q17. And when He comes to earth; what is His purpose?
-
-> “For the Lord Himself shall descend from heaven with a shout, with the voice
-> of the archangel, and with the trump of God; and the dead in Christ shall rise
-> first; then we which are alive and remain shall be caught up together with
-> them in the clouds to meet the Lord in the air; and so shall we everbe with
-> the Lord." 1 Thess. 4:16, 17.
-
-**Answer:** His purpose is to gather the subjects of His new kingdom.
-
-1.  **Resurrection:** To wake the "dead in Christ."
-2.  **Translation:** To catch up the living righteous.
-3.  **Reunion:** To take them "in the clouds" (away from the earth) to the
-    Father's house (John 14:1–3).
-
----
-
-### Q18. But before any are thus raised at Christ's coming, what decision must be rendered in their cases?
-
-> “But they which shall be accounted worthy to obtain that world, and the
-> resurrection from the dead." Luke 20:35.
-
-**Answer:** A decision of "worthiness."
-
-- **Investigative Judgment:** Before the resurrection occurs, there must be a
-  determination of _who_ is to be resurrected. Not everyone rises to life (some
-  rise to damnation, see John 5:29). Therefore, a judgment must take place
-  _before_ the Second Coming to distinguish the wheat from the tares.
-- **Accounted Worthy:** This worthiness is not based on human merit, for all
-  have sinned. It is based on:
-  1.  Faith in Jesus' atoning blood (Justification).
-  2.  A life that demonstrates that faith through obedience (Sanctification).
-  - "The robe of Christ's righteousness... can only be worn by those who have
-    surrendered their will to God."
-
----
-
-### Q19. Is there a specified time for the cleansing of the heavenly sanctuary?
-
-> “And he said unto me, Unto two thousand and three hundred days; then shall the
-> sanctuary be cleansed." Dan. 8:14.
-
-**Answer:** Yes, God set a specific prophetic time: 2,300 prophetic days.
-
-- **Prophetic Time:** In Bible prophecy, a day represents a literal year
-  (Numbers 14:34; Ezekiel 4:6). This is a period of 2,300 years.
-- **The Event:** At the end of this vast period, the "cleansing" (the
-  antitypical Day of Atonement/Judgment) begins. This marks the beginning of the
-  final phase of Christ's ministry.
-
----
-
-### Q20. How may one know that this does not refer to the earthly sanctuary?
-
-> “He said unto me, Understand, a son of man: for at the time of the end shall
-> be the vision." Dan. 8:17.
-
-**Answer:** The angel Gabriel explicitly stated that the vision applies to "the
-time of the end."
-
-- **Historical Context:** The earthly sanctuary was destroyed by the Romans in
-  A.D. 70. The 2,300-year prophecy (starting in 457 B.C. with the decree to
-  restore Jerusalem) extends to **1844 A.D.**
-- **Conclusion:** Since the earthly temple no longer existed in 1844, the
-  prophecy must refer to the _Heavenly Sanctuary_. In 1844, Christ entered the
-  Most Holy Place to begin the work of investigative judgment, preparing a
-  people for His return.
-
-[ILL] If a navigation app says, "You will arrive at your destination at 5:00
-PM," and at 5:00 PM you are not at the old house where you used to live, but
-standing in front of a new mansion, you know the destination was the mansion.
-The prophecy points to 1844. Since the earthly temple was gone, the
-"destination" of the prophecy is the Temple in Heaven.
+May we be among that blessed company.

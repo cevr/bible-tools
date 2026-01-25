@@ -1,449 +1,154 @@
-### Q1. What was shown upon the opening of the first seal?
-
-“And I saw when the Lamb opened one of the seals,... a white horse: and he that
-sat on him had a bow; and a crown was given unto him: and he went forth
-conquering, and to conquer." (Revelation 6:1, 2)
-
-**Answer:**
-
-The opening of the first seal reveals the spiritual condition of the Christian
-church during the apostolic age (the first century). This symbol establishes the
-standard against which all subsequent history is measured.
-
-1.  **The Symbol of the White Horse:**
-    - **Purity of Doctrine:** In the Bible, white represents purity and
-      righteousness (Isaiah 1:18; Revelation 19:8). This horse represents the
-      church in its pristine purity, freshly commissioned by Christ, carrying
-      the unadulterated "gospel of the kingdom" (Matthew 24:14).
-    - **Righteousness by Faith:** The riders of this era preached that salvation
-      is found in Christ alone. They did not rely on Jewish ceremonial laws or
-      pagan philosophy, but on "Christ our righteousness" (Jeremiah 23:6). The
-      message was clear: justification is a free gift of grace received by faith
-      (Romans 3:24–25).
-
-2.  **Conquering and to Conquer:**
-    - **The Power of the Word:** The rider holds a bow, a weapon of warfare, but
-      his warfare is spiritual. The early church, empowered by the Holy Spirit
-      at Pentecost, went forth with irresistible power. In a single generation,
-      the gospel was preached to the then-known world (Colossians 1:23).
-    - **The Crown (Stephanos):** The rider is given a crown of victory. Despite
-      persecution, the early church was triumphant because it held fast to the
-      Head, which is Christ.
-
-3.  **Sanctuary Connection:**
-    - This period corresponds to the lighting of the lamps in the Holy Place.
-      The light of the gospel shone brightly, illuminating a darkened world with
-      the truth of Christ’s high priestly ministry.
-
-**[ILL] Illustration:** Imagine a clear, mountain spring bursting forth from the
-rock. The water is crystal clear, life-giving, and powerful as it rushes down
-the mountain. This is the church of the first century—pure water of life flowing
-from the Rock of Ages. As the stream (history) continues, we will see pollutants
-(errors) entering the water, but here at the source, it is pure.
-
----
-
-### Q2. What went out upon the opening of the second seal?
-
-“And when he had opened the second seal,... there went out another horse that
-was red: and power was given to him that sat thereon to take peace from the
-earth, and that they should kill one another: and there was given unto him a
-great sword." (Revelation 6:3, 4)
-
-**Answer:**
-
-As we move into the second period (roughly A.D. 100 to 313), the color changes
-from white to red. This signifies a corruption of the faith and the entrance of
-serious error.
-
-1.  **The Red Horse – Corruption and Bloodshed:**
-    - **Loss of Purity:** Red is the color of sin (Isaiah 1:18) and blood. The
-      church began to compromise with the pagan world to avoid persecution and
-      gain popularity. The mystery of iniquity was already at work (2
-      Thessalonians 2:7).
-    - **Internal Strife:** The text says peace was taken from the earth. When
-      the church loses the "peace of God" which comes from resting solely in
-      Christ’s righteousness, it often turns to political power and internal
-      fighting. Theologians began debating philosophy rather than preaching the
-      simple gospel.
-
-2.  **The Great Sword:**
-    - **Persecution:** This period covers severe persecutions under the Roman
-      Caesars (such as Diocletian). However, the "sword" also suggests the
-      church beginning to wield secular power or desire the sword of the state
-      to enforce its decrees, a fatal error that would grow in the subsequent
-      seals.
-
-3.  **A Warning on Righteousness by Faith:**
-    - **Sanctification:** _Sanctification_ is the process of being made holy by
-      the indwelling Spirit (1 Peter 1:2). When the church stopped teaching that
-      the Spirit empowers us to live obediently, and instead began adopting
-      worldly customs, the "red" of sin began to stain her garments. We cannot
-      conquer sin while holding hands with the world (James 4:4).
-
-**[ILL] Illustration:** If you mix a few drops of red dye into a glass of pure
-water, the water is no longer clear. It may still look like water, but its
-nature has changed. The "Red Horse" era represents the church allowing the "dye"
-of worldly ambition and pagan philosophy to tint the pure water of the gospel.
-
----
-
-### Q3. What was the color of the symbol under the third seal?
-
-“And when he had opened the third seal, I heard the third beast say, Come and
-see. And I beheld, and lo, a black horse; and he that sat on him had a pair of
-balances in his hand." (Revelation 6:5)
-
-**Answer:**
-
-The third seal covers the period from the time of Constantine (approx. A.D. 313)
-to the rise of the Papacy in A.D. 538. The contrast is stark: from white
-(purity) to black (darkness).
-
-1.  **The Black Horse – Spiritual Darkness:**
-    - **Truth Obscured:** Black represents the absence of light. During this
-      time, the Bible was moved to the background, and human tradition took the
-      lead. The "falling away" predicted by Paul was fully underway (2
-      Thessalonians 2:3).
-    - **Absorption of Paganism:** The church adopted pagan festivals, image
-      worship, and philosophy to make Christianity more palatable to the
-      heathen.
-
-2.  **The Pair of Balances:**
-    - **Commercialism in Religion:** Balances are used for weighing and
-      commerce. This represents the church beginning to treat salvation as a
-      transaction. Righteousness was no longer viewed as a free gift from Christ
-      (Romans 6:23), but something to be weighed out based on human works and
-      penance.
-    - **Legalism vs. Grace:** This is the antithesis of Righteousness by Faith.
-      The "balances" suggest the terrible error that we can offer God our own
-      merits to outweigh our sins. The Bible teaches that our best works are
-      "filthy rags" (Isaiah 64:6) and only the weight of Christ’s merit can save
-      us.
-
-3.  **The Warning:**
-    - **Definition:** _Apostasy_ is a deliberate turning away from the truth.
-      This seal warns us that when we replace the Bible with human logic,
-      spiritual darkness is the inevitable result.
-
-**[ILL] Illustration:** Imagine a marketplace where a merchant sells bread. He
-uses scales to weigh the money against the goods. The church during this era
-turned the House of God into a marketplace, trying to "sell" the grace of God in
-exchange for penance, pilgrimage, and money, rather than pointing sinners to the
-free gift at the Cross.
-
----
-
-### Q4. What change was seen in the symbol of the fourth seal?
-
-“And when he had opened the fourth seal,... behold a pale horse: and his name
-that sat on him was Death, and Hell followed with him. And power was given unto
-them over the fourth part of the earth, to kill with sword, and with hunger, and
-with death, and with the beasts of the earth." (Revelation 6:7, 8)
-
-**Answer:**
-
-This seal represents the long period of the Dark Ages (A.D. 538 to the
-Reformation), where the Papal power exercised supreme authority. The color is
-"pale"—the color of a corpse or a dying plant.
-
-1.  **The Pale Horse – Spiritual Death:**
-    - **The Absence of the Gospel:** The "pale" color indicates that the
-      spiritual life of the church had been nearly extinguished. The Bible was
-      chained in monasteries and forbidden to the common people. Without the
-      "bread of life" (John 6:35), the people spiritually starved.
-    - **Syncretism:** The religion of this era was a sickly blend of
-      Christianity, paganism, and Judaism.
-
-2.  **Death and Hell (The Grave):**
-    - **Persecution:** This period saw the Inquisition and the martyrdom of
-      millions who refused to bow to church dogma. "Hell" here is the Greek word
-      _Hades_, meaning the grave. The apostate church became a persecuting
-      power, believing it was doing God service by killing His true children
-      (John 16:2).
-    - **The "Daily" Taken Away:** In the language of Daniel 8, the "daily"
-      (Christ's high priestly ministry in heaven) was obscured by an earthly
-      priesthood. Men were taught to look to earthly priests for forgiveness
-      rather than to Jesus in the heavenly sanctuary (1 Timothy 2:5).
-
-3.  **Righteousness by Faith Application:**
-    - When a system teaches that you must punish your body, pay money, or pray
-      to saints to be saved, it is a system of spiritual death. Life only comes
-      from union with Christ. "He that hath the Son hath life; and he that hath
-      not the Son of God hath not life" (1 John 5:12).
-
-**[ILL] Illustration:** A plant that is shut up in a dark cellar turns pale and
-yellowish; it has no chlorophyll, no life-vigor. During the Dark Ages, the "Sun
-of Righteousness" was shut out from the people by a ceiling of human tradition,
-and the church turned into a pale, dying plant.
-
----
-
-### Q5. On the opening of the fifth seal, what was seen under the altar?
-
-“And when he had opened the fifth seal, I saw under the altar the souls of them
-that were slain for the word of God, and for the testimony which they held."
-(Revelation 6:9)
-
-**Answer:**
-
-The fifth seal brings us to the time of the Reformation (starting around the
-1500s). The darkness is breaking, and the focus shifts to the cost of
-faithfulness.
-
-1.  **Under the Altar:**
-    - **Sanctuary Imagery:** In the earthly sanctuary, the blood of the
-      sacrifice was poured at the base of the altar of burnt offering (Leviticus
-      4:7). The martyrs are represented here symbolically; their lives (blood)
-      were poured out as an offering to God for the sake of the truth.
-    - **Symbolic Language:** This is not teaching that disembodied souls are
-      conscious under a physical altar in heaven. It is a figure of speech,
-      similar to God telling Cain, "The voice of thy brother's blood crieth unto
-      me from the ground" (Genesis 4:10).
-
-2.  **Slain for the Word:**
-    - These faithful ones died because they valued the "Word of God" above the
-      traditions of men. They possessed the "testimony" of Jesus.
-    - **Definition:** _The State of the Dead._ The Bible teaches that the dead
-      "know not any thing" (Ecclesiastes 9:5) and sleep until the resurrection.
-      This passage is a dramatic representation of justice demanding vindication
-      for God's slaughtered saints.
-
-**[ILL] Illustration:** In a court of law, evidence "speaks." We say, "The facts
-cry out for justice." The blood of the martyrs is the evidence of the cruelty of
-the apostate power, and in this seal, that evidence is brought before God's
-throne during the Reformation era as the Bible is reopened.
-
----
-
-### Q6. What were these martyrs represented as doing?
-
-“And they cried with a loud voice, saying, How long, O Lord, holy and true, dost
-thou not judge and avenge our blood on them that dwell on the earth?"
-(Revelation 6:10)
-
-**Answer:**
-
-This cry, "How long?" has been the plea of God's suffering people throughout the
-ages.
-
-1.  **The Cry for Justice:**
-    - God is a God of justice. He does not ignore the suffering of His people.
-      This cry marks the beginning of the time when God begins to examine the
-      books—a prelude to the Investigative Judgment.
-    - **Vindication of Character:** The martyrs were killed as "heretics" and
-      criminals. They are asking for God to vindicate their names and show that
-      they were actually the true believers.
-
-2.  **The "Earth Dwellers":**
-    - In Revelation, "them that dwell on the earth" usually refers to those who
-      have set their affections on this world and oppose God's truth. The
-      martyrs' cry is a call for God to end the reign of sin and establish His
-      kingdom of righteousness.
-
----
-
-### Q7. What was done for these martyrs because they thus cried?
-
-“And white robes were given unto everyone of them; and it was said unto them,
-That they Should rest yet for a little season, until their fellow servants also
-and their brethren, that should be killed as they were, should be fulfilled."
-(Revelation 6:11)
-
-**Answer:**
-
-This is a beautiful assurance of salvation and vindication.
-
-1.  **White Robes Given:**
-    - **Christ's Righteousness:** The white robe represents the imputed
-      righteousness of Christ (Zechariah 3:3–5; Revelation 19:8). Although the
-      world called them heretics and stripped them of their earthly dignity, God
-      declares them righteous.
-    - **Definition:** _Justification._ This is God's legal declaration that the
-      believer is righteous because of Jesus. The martyrs are declared saved and
-      secure.
-
-2.  **Rest for a Little Season:**
-    - They are to continue to "rest" (sleep in the grave) a little longer. This
-      confirms they are not currently in heaven, for if they were in heaven
-      enjoying bliss, they would not be crying out for vengeance. They wait for
-      the "better thing"—the resurrection at the last day (Hebrews 11:39–40).
-
-3.  **The "Fellow Servants":**
-    - Persecution was not over. There would be others (perhaps referring to the
-      final persecution under the Mark of the Beast) who would also stand
-      faithful unto death. God waits until the number of His elect is complete.
-
-**[ILL] Illustration:** A soldier dishonorably discharged for disobeying an
-unjust order is stripped of his rank. Years later, the King reviews the case,
-declares the soldier a hero, and awards him a medal of honor. The soldier may
-have died in disgrace, but the King’s record (the white robe) clears his name
-for all history.
-
----
-
-### Q8. What was first seen on the opening of the sixth seal?
-
-“And I beheld when He had opened the sixth seal, and, lo, there was a great
-earthquake." (Revelation 6:12)
-
-**Answer:**
-
-The sixth seal introduces the physical signs that herald the end of the age.
-These are historical markers pointing to the proximity of the Second Coming.
-
-1.  **The Great Earthquake (Lisbon, 1755):**
-    - **Historical Fulfillment:** On November 1, 1755, one of the most extensive
-      earthquakes in recorded history centered on Lisbon, Portugal. Its effects
-      were felt over 4 million square miles, including Europe, Africa, and
-      America.
-    - **Prophetic Significance:** Jesus predicted "earthquakes in divers places"
-      as the "beginning of sorrows" (Matthew 24:7–8). This event shook the
-      complacency of the world and sparked a renewed interest in the study of
-      prophecy and the end times.
-
-2.  **God's Alarm Clock:**
-    - Just as the Reformation (Fifth Seal) restored the Bible, the Sixth Seal
-      events are designed to wake the world to the reality that this earth is
-      not permanent. It calls men to prepare to meet their God (Amos 4:12).
-
----
-
-### Q9. What was to follow the great earthquake?
-
-“And the sun became black as sackcloth of hair, and the moon became as blood."
-(Revelation 6:12)
-
-**Answer:**
-
-Following the earthquake, the prophecy points to signs in the heavens.
-
-1.  **The Dark Day (May 19, 1780):**
-    - **Historical Fulfillment:** Twenty-five years after the earthquake, an
-      inexplicable darkness covered large parts of New England. It was so dark
-      at noon that candles had to be lit, and animals went to roost. The
-      following night, the moon appeared red as blood.
-    - **Biblical Confirmation:** This fulfills Joel 2:31: "The sun shall be
-      turned into darkness, and the moon into blood, before the great and
-      terrible day of the Lord come."
-
-2.  **Significance:**
-    - These signs occurred exactly in the timeframe predicted—after the severe
-      persecution of the "1260 years" (which ended in 1798) had been cut short
-      (Matthew 24:29). They served as a solemn announcement that the "time of
-      the end" had arrived.
-
-**[ILL] Illustration:** When a theater play is about to end, the house lights
-often flicker or dim to warn the audience that the finale is approaching. The
-Dark Day was nature's "dimming of the lights," warning the world that the drama
-of human history is nearing its close.
-
----
-
-### Q10. What was the next event under this seal?
-
-“And the stars of heaven fell unto the earth, even as a fig tree casteth her
-untimely figs, when she is shaken of a mighty wind." (Revelation 6:13)
-
-**Answer:**
-
-The sequence continues with the third great sign.
-
-1.  **The Falling of the Stars (November 13, 1833):**
-    - **Historical Fulfillment:** This refers to the Great Meteoric Shower of
-      1833, the most extensive and spectacular display of falling stars ever
-      recorded. It was seen across the entire North American continent.
-    - **Context:** This event occurred right as the Great Advent Awakening was
-      beginning. It gave a mighty impetus to the preaching of William Miller and
-      others who were proclaiming that "the hour of His judgment is come"
-      (Revelation 14:7).
-
-2.  **The Fig Tree Analogy:**
-    - Jesus used the fig tree to teach a lesson about readiness: "When his
-      branch is yet tender, and putteth forth leaves, ye know that summer is
-      nigh: So likewise ye... know that it is near, even at the doors" (Matthew
-      24:32–33).
-
----
-
-### Q11. What was to follow the sign of falling stars?
-
-“And the heaven departed as a scroll when it is rolled together: and every
-mountain and island were moved out of their places." (Revelation 6:14)
-
-**Answer:**
-
-We now stand between the falling of the stars (1833) and this next event. This
-verse describes the actual Second Coming of Christ.
-
-1.  **The Receding Heavens:**
-    - The atmosphere will part to reveal the King of Kings descending. This is
-      the "shaking" not just of earth, but of heaven (Hebrews 12:26).
-    - **The Great Displacement:** Every mountain and island moving indicates a
-      global cataclysm that reshapes the surface of the earth at the voice of
-      God.
-
-2.  **The Reaction of the Lost:**
-    - Verses 15-17 describe the kings of the earth and the rich men hiding in
-      the rocks, crying "Fall on us, and hide us from the face of him that
-      sitteth on the throne."
-    - **The Great Question:** They ask, "For the great day of his wrath is come;
-      and **who shall be able to stand?**"
-
-3.  **Righteousness by Faith – The Answer:**
-    - Who can stand? Only those who are "clothed in white raiment" (Revelation
-      3:5).
-    - Those who have the law of God written in their hearts (Hebrews 8:10) and
-      the faith of Jesus (Revelation 14:12).
-    - Victory over sin is not just a theory; it is the necessary preparation to
-      stand in the presence of a Holy God without being consumed.
-
-**[ILL] Illustration:** A scroll rolls up quickly and snaps shut. The sky, which
-has acted as a curtain hiding the spiritual realm from our eyes, will suddenly
-roll back. For those who know the Shepherd, seeing Him is joy. For those who
-have clung to sin, the purity of His presence is a consuming fire (Hebrews
-12:29).
-
----
-
-### Q12. After the sealing work brought to view in Rev. 7, which takes place under the sixth seal, how is the seventh seal introduced?
-
-“And when He had opened the seventh seal, there was silence in heaven about the
-space of half an hour." (Revelation 8:1)
-
-**Answer:**
-
-The seventh seal marks the climax of the history of redemption.
-
-1.  **Silence in Heaven:**
-    - **The Departure of the Hosts:** Heaven is usually filled with the sound of
-      praise (Revelation 4:8). Why silence? Because the King and all His angels
-      have left the courts of glory to come to earth to gather the elect
-      (Matthew 25:31).
-    - **Prophetic Time:** In prophecy, a "day" represents a year (Ezekiel 4:6).
-      Therefore, an "hour" is about two weeks, and "half an hour" is
-      approximately one week (7 days). This may represent the time it takes for
-      Christ to descend and gather His people.
-
-2.  **The Solemnity of the Event:**
-    - This silence emphasizes the awe-inspiring nature of the Second Advent. The
-      intercession in the sanctuary has ceased. The time for salvation is past.
-      The focus of the entire universe is on this one event: the rescue of the
-      Bride of Christ.
-
-3.  **The Sanctuary Connection:**
-    - **Definition:** _Atonement Completed._ The High Priest comes out of the
-      Most Holy Place to bless the waiting people. The work of removing sin is
-      finished.
-
-4.  **Practical Application:**
-    - If heaven is silent, watching this event, how should we be living? "What
-      manner of persons ought ye to be in all holy conversation and godliness?"
-      (2 Peter 3:11). We must ensure that our sins are blotted out now, before
-      that silence begins.
-
-**[ILL] Illustration:** Imagine a great bustling city that suddenly goes quiet
-because everyone has rushed to the gates to welcome a returning hero. The
-silence of the city speaks louder than the noise. Heaven's silence shouts the
-importance of the Second Coming—it is the event for which all creation has been
-groaning and waiting (Romans 8:22).
+# Bible Study: The Seven Seals
+
+## Introduction
+
+The seven seals of Revelation chapter 6 present a sweeping panorama of church history from apostolic times to the second coming of Christ. Unlike the seven trumpets, which symbolize wars and political upheavals, the seals reveal events of a religious nature—the spiritual condition of God's professed people through the ages. Understanding these symbols helps us recognize where we stand in earth's final hours and prepares us for the soon return of our Lord.
+
+## Core Truths
+
+### The Significance of Seven
+
+The number seven in Scripture denotes completion or perfection. Thus, the seven seals embrace the _whole_ of religious history from Christ's ascension to the close of probation. This is God's complete revelation of the church's journey through time.
+
+> _"And I saw when the Lamb opened one of the seals..."_ (Revelation 6:1)
+
+Notice who opens the seals—the **Lamb**. Only Christ, who was slain for our redemption, has the authority to unveil the mysteries of human history. This reminds us that all of history is under His sovereign control, even when events seem chaotic or evil appears to triumph.
+
+[DYK🔎] The Greek word for "seal" (_sphragis_) was used for the wax impression that secured official documents. Only the authorized person could break the seal and reveal the contents. Christ alone is worthy to open these seals because He alone conquered sin and death (Revelation 5:5-9).
+
+### The Four Horses: A Progressive Decline
+
+The first four seals present horses of different colors, representing the changing spiritual condition of the church:
+
+**First Seal: The White Horse (Apostolic Age)**
+
+> _"A white horse: and he that sat on him had a bow; and a crown was given unto him: and he went forth conquering, and to conquer."_ (Revelation 6:2)
+
+White symbolizes **purity**. This is the church in its apostolic glory—pure in doctrine, fervent in love, mighty in evangelism. The gospel went forth conquering hearts throughout the Roman world. Within one generation, Paul could write that the gospel had been "preached to every creature which is under heaven" (Colossians 1:23).
+
+**Second Seal: The Red Horse (Era of Corruption)**
+
+> _"There went out another horse that was red: and power was given to him that sat thereon to take peace from the earth."_ (Revelation 6:4)
+
+Red symbolizes **bloodshed and compromise**. The church began seeking alliance with secular power. Worldliness crept in. The purity of the white horse gave way to internal strife and persecution. This period extends to the time of Constantine, when a complete union of church and state was effected.
+
+[Q] **"Wasn't Constantine's conversion good for Christianity?"**
+
+On the surface, Constantine's Edict of Milan (AD 313) ended official persecution. However, this union of church and state proved spiritually disastrous. When the church married the world, she lost her prophetic voice. Pagans flooded into the church without genuine conversion, bringing their customs and philosophies. The church traded spiritual power for political influence—a bargain that always impoverishes God's people.
+
+**Third Seal: The Black Horse (Era of Spiritual Darkness)**
+
+> _"A black horse; and he that sat on him had a pair of balances in his hand."_ (Revelation 6:5)
+
+Black symbolizes **spiritual darkness**. From Constantine to the establishment of papal supremacy in AD 538, gross errors multiplied: veneration of saints, prayers to the dead, belief in purgatory, and the elevation of tradition above Scripture. The balances suggest that spiritual truth was being "weighed out" sparingly—rationed to the people by a clergy that claimed exclusive authority to interpret God's Word.
+
+**Fourth Seal: The Pale Horse (Era of Persecution)**
+
+> _"Behold a pale horse: and his name that sat on him was Death, and Hell followed with him."_ (Revelation 6:7-8)
+
+The word "pale" translates the Greek _chloros_—the sickly, yellowish-green color of decaying plants. This represents the spiritual death and physical persecution inflicted by the apostate church from AD 538 onward. Conservative estimates suggest that between 50 and 100 million people perished for their faith during the Dark Ages.
+
+[ILL] Consider a garden left untended. First, weeds appear among the flowers (compromise). Then the weeds multiply and choke out the light (darkness). Finally, the plants wither and die (death). So it was with the professed church of Christ. What began as slight departures from apostolic purity resulted in centuries of spiritual death.
+
+## Deeper Truths
+
+### The Fifth Seal: The Martyrs Remembered
+
+> _"I saw under the altar the souls of them that were slain for the word of God, and for the testimony which they held."_ (Revelation 6:9)
+
+The fifth seal marks a turning point. The Protestant Reformation exposed the true character of papal Rome, and suddenly the martyrs of previous centuries were seen in a new light. Those who had died as "heretics" were now recognized as faithful witnesses for truth.
+
+[Q] **"Doesn't this verse prove that the souls of the dead are conscious in heaven?"**
+
+The Bible consistently teaches that the dead "sleep" until the resurrection (Ecclesiastes 9:5-6; Psalm 146:4; John 11:11-14). Here, as in other passages, **personification** is used—things that are not are represented as though they were (Romans 4:17). Compare Genesis 4:10, where Abel's blood "cries" from the ground. The blood was not literally speaking; rather, it cried out figuratively for justice. Similarly, these martyrs symbolically cry for vindication.
+
+The "white robes" given to them represent the **righteousness** now ascribed to them. During the Reformation, the world finally saw that these martyrs were not heretics but heroes of faith.
+
+> _"It was said unto them, that they should rest yet for a little season, until their fellowservants also and their brethren, that should be killed as they were, should be fulfilled."_ (Revelation 6:11)
+
+Notice: they are told to **rest**—not rejoice in heaven's glory, but rest in their graves until the resurrection. More martyrs would yet fall before the end, and then all would be raised together to immortal glory.
+
+### The Sixth Seal: Signs in Heaven and Earth
+
+The sixth seal brings us to our own time with unmistakable signs:
+
+**The Great Earthquake (November 1, 1755)**
+
+> _"Lo, there was a great earthquake."_ (Revelation 6:12)
+
+The Lisbon earthquake struck on All Saints' Day when churches were packed with worshippers. Within minutes, 90,000 people perished. The earthquake affected four million square miles—the most extensive in recorded history at that time.
+
+[DYK🔎] The Lisbon earthquake generated a tsunami that reached the Caribbean, crossing the Atlantic Ocean. It was felt as far away as Finland and North Africa. Scientists today estimate its magnitude at 8.5-9.0 on the Richter scale.
+
+**The Dark Day (May 19, 1780)**
+
+> _"The sun became black as sackcloth of hair, and the moon became as blood."_ (Revelation 6:12)
+
+Eyewitnesses across New England described an unnatural darkness that could not be explained by eclipse, smoke, or clouds. Animals behaved as if night had come. Many believed the Day of Judgment had arrived. That night, the moon appeared blood-red—exactly as prophesied.
+
+Timothy Dwight, president of Yale College, recorded: "The darkness was such as to occasion farmers to leave their work in the field, and retire to their dwellings... Lights became necessary to the transaction of business within doors."
+
+**The Falling Stars (November 13, 1833)**
+
+> _"The stars of heaven fell unto the earth, even as a fig tree casteth her untimely figs, when she is shaken of a mighty wind."_ (Revelation 6:13)
+
+The great meteoric shower of 1833 was observed throughout North America. Estimates suggest 200,000 meteors fell per hour at the peak. Remarkably, observers noted that the meteors radiated outward from a single point in the constellation Leo—"as from one tree"—precisely matching John's description.
+
+[DYK🔎] A writer for the _Journal of Commerce_ observed: "Were I to hunt through nature for a simile, I could not find one so apt to illustrate the appearance of the heavens, as that which St. John uses in the prophecy." The falling stars did not descend gently like ripe fruit, but were "cast" like unripe figs torn violently from the branch.
+
+## Principles and Great Controversy Themes
+
+### The Sanctuary Connection
+
+The seals reveal the unfolding of the great controversy between Christ and Satan as played out in church history. Just as the sanctuary services revealed God's plan of redemption, the seals reveal how that plan has been attacked and defended through the ages:
+
+- The **white horse** represents the pure gospel going forth from the cross—the message of the outer court sacrifice proclaimed to the world
+- The **corruption** of subsequent seals shows Satan's attempt to counterfeit and obscure the true sanctuary ministry
+- The **martyrs under the altar** remind us that faithful witness often costs everything—the "altar" imagery connects to sacrifice
+- The **signs in heaven** announce that Christ's ministry in the Most Holy Place (the investigative judgment, beginning in 1844) was imminent
+
+### Where We Stand
+
+> _"The heaven departed as a scroll when it is rolled together; and every mountain and island were moved out of their places."_ (Revelation 6:14)
+
+The signs in the sun, moon, and stars are now history. We stand between the last of the heavenly signs and the actual rolling back of the heavens at Christ's return. The next event in prophetic sequence is the glorious appearing of our Lord!
+
+The sealing work of Revelation 7 (which occurs under the sixth seal) is now in progress. God is preparing a people who will stand in that great day—not in their own righteousness, but clothed in the white robes of Christ's righteousness.
+
+### The Seventh Seal: Solemn Silence
+
+> _"When He had opened the seventh seal, there was silence in heaven about the space of half an hour."_ (Revelation 8:1)
+
+When Christ returns, "all the holy angels" accompany Him (Matthew 25:31). If all heaven's inhabitants descend with Christ, silence naturally follows. Using prophetic time calculation (a day for a year, an hour being 1/24 of a prophetic day), half an hour equals approximately seven literal days—perhaps the time of the journey from heaven to earth and back.
+
+This silence speaks of the solemnity of redemption completed. All the drama of the ages, all the conflict of the great controversy, comes to its appointed end. Heaven itself pauses in reverent awe.
+
+## Practical Application
+
+### What the Seals Teach Us
+
+1. **History is under God's control.** Though evil has seemed to triumph through long centuries, the Lamb holds the scroll. Nothing has taken God by surprise. Every faithful witness is remembered.
+
+2. **Compromise leads to corruption.** The progression from white to red to black to pale warns us against any alliance with worldliness. The church that seeks the world's approval loses her spiritual power.
+
+3. **Faithfulness may cost everything.** The martyrs under the altar remind us that following Christ may lead to suffering. But "white robes" await all who are faithful unto death (Revelation 2:10).
+
+4. **The signs have been fulfilled.** We are living in the brief interval before the final events. The earthquake, the dark day, the falling stars—these are not future events but past history, pointing to the nearness of Christ's return.
+
+5. **Preparation is possible.** The sealing work of Revelation 7 shows that God will have a prepared people. Through Christ's righteousness imputed and imparted, we may stand in that day without fear.
+
+[Q] **"How can I be among the sealed?"**
+
+The seal of God is placed upon those who have surrendered fully to Christ and are keeping "the commandments of God, and the faith of Jesus" (Revelation 14:12). This is not legalistic obedience but the fruit of righteousness by faith—Christ living His life in us. As we behold Him daily in His Word, we are "changed into the same image from glory to glory" (2 Corinthians 3:18).
+
+## Appeal
+
+> _"The Lord is not slack concerning His promise, as some men count slackness; but is longsuffering to us-ward, not willing that any should perish, but that all should come to repentance."_ (2 Peter 3:9)
+
+The seven seals trace the path of God's people from apostolic purity through centuries of darkness to the blazing light of prophetic fulfillment in our own day. Every sign points to one reality: **Jesus is coming soon.**
+
+Will you be among those who cry, "Lo, this is our God; we have waited for Him" (Isaiah 25:9)? Or among those who call for rocks and mountains to hide them from His face?
+
+The choice is yours today. Christ stands ready to clothe you in His righteousness, to seal you for eternity. Surrender fully to Him now, while mercy lingers, while the door of probation remains open.
+
+_"He which testifieth these things saith, Surely I come quickly. Amen. Even so, come, Lord Jesus."_ (Revelation 22:20)

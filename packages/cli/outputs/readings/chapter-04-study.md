@@ -1,458 +1,206 @@
-### Q1. How powerful is the Word of God when brought into contact with one's life?
+# Bible Study: The Life-giving Word
 
-**Scripture:** "For the word of God is quick [literally, "living"], and
-powerful, and sharper than any two-edged sword, piercing even to the dividing
-asunder of soul and spirit, and of the joints and marrow, and is a discerner of
-the thoughts and intents of the heart." Hebrews 4:12.
+## Introduction
 
-**Answer:** The Word of God is not merely ink on paper; it is a living agent of
-divine power. When this Word enters the mind and heart, it performs a necessary
-and miraculous work in the plan of salvation.
-
-1.  **It is "Quick" (Living):** The Bible does not just contain history; it
-    contains life. When received by faith, the Word imparts the very life of
-    Christ to the believer (John 6:63). It is the seed of the new birth (1 Peter
-    1:23).
-2.  **It is a Sword of Conviction:** Before the High Priest can heal us, the
-    "sword" of the Spirit must cut away our self-deception. This connects to the
-    **Sanctuary** service: just as the sacrifice had to be slain before the
-    blood could be ministered for atonement, the "old man" of sin must be slain
-    by the convicting power of the Word (Romans 6:6; Romans 7:7).
-3.  **It Discerns the Heart:** We often do not know our own motives. The Word
-    acts as a mirror and a judge, revealing the secret sins and selfishness we
-    hide (Jeremiah 17:9–10). This discernment is essential for
-    **Sanctification**—the process of being made holy—because we cannot overcome
-    sins we do not acknowledge.
-
-- **Definition—Sanctification:** The work of God’s free grace, whereby we are
-  renewed in the whole man after the image of God, and are enabled more and more
-  to die unto sin and live unto righteousness (1 Thessalonians 4:3; 2
-  Thessalonians 2:13).
-
-**[ILL]** Imagine a surgeon who must remove a deep-seated tumor to save a
-patient's life. The scalpel must be sharp to cut accurately between healthy
-tissue and diseased tissue. If the knife is dull, it causes damage without
-healing. The Word of God is that sharp scalpel. It hurts to have our pride and
-cherished sins cut away, but it is the "wound of a friend" (Proverbs 27:6) that
-leads to healing and life.
+The Bible is not merely a book of religious instruction or ancient history—it is living bread sent down from heaven. Just as our bodies require daily nourishment to sustain physical life, so our souls must feed daily upon the Word of God to receive and maintain spiritual life. This study reveals the profound connection between Christ, the Living Word made flesh, and Scripture, the written Word given by His Spirit—both designed to impart the very life of God to those who receive them by faith.
 
 ---
 
-### Q2. What was Peter constrained to say about Christ's words?
+## Core Truths
 
-**Scripture:** "Then Simon Peter answered Him, Lord, to whom shall we go? Thou
-hast the words of eternal life." John 6:68.
+### The Word Is Living and Powerful
 
-**Answer:** Peter recognized that life is found nowhere else but in Christ. The
-world offers philosophy, entertainment, and legalism, but none contain the power
-to regenerate the soul.
+Scripture is unlike any other literature. It possesses inherent divine energy:
 
-1.  **The Source of Life:** Eternal life is not an inherent property of man; it
-    is a gift found only in the Son (1 John 5:11–12).
-2.  **Total Dependence:** Peter’s question, "To whom shall we go?" reflects the
-    heart of the converted believer. We do not look to ourselves, to earthly
-    priests, or to political powers for salvation. We look to the **High
-    Priest** in the heavenly sanctuary, Jesus Christ (Hebrews 8:1–2).
-3.  **Righteousness by Faith:** We cannot generate righteousness by our own
-    works. We must go to Him who "has the words," receiving His promises by
-    faith. When we believe His word, that word accomplishes what it says (Isaiah
-    55:11).
+> _"For the word of God is quick [living], and powerful, and sharper than any two-edged sword, piercing even to the dividing asunder of soul and spirit, and of the joints and marrow, and is a discerner of the thoughts and intents of the heart."_ (Hebrews 4:12)
 
-**[ILL]** A diver deep underwater relies entirely on the air line connected to
-the surface. If he disconnects to find air elsewhere, he dies. Similarly, the
-Christian is connected to heaven by the Word of Christ. To turn away from His
-words to human traditions or self-help is to cut the air line.
+The Greek word translated "quick" is _zōn_—literally, "living" or "alive." God's Word is not a dead letter but a living agent that:
 
----
+- **Penetrates** the deepest recesses of human nature
+- **Discerns** our hidden motives and secret thoughts
+- **Divides** between what is merely human and what is truly spiritual
 
-### Q3. What did Jesus declare regarding His Father's commandment?
+[DYK🔎] The phrase "sharper than any two-edged sword" uses the Greek _machaira_, referring to a short sword used in close combat. The Word does its work not from a distance but in intimate, personal engagement with the soul—cutting precisely where healing is needed.
 
-**Scripture:** "And I know that His commandment is life everlasting." John
-12:50.
+No other book possesses this quality. Human words may inform the mind; God's Word transforms the heart.
 
-**Answer:** Here is a profound truth often misunderstood: The Law and the Gospel
-are perfectly united.
+### The Words of Eternal Life
 
-1.  **The Law is Life:** The Ten Commandments are a transcript of God’s
-    character of love. In a sinless universe, the law is the pathway of life.
-    God never gave the law to be a burden, but to protect life (Romans 7:12).
-2.  **Harmony with the Gospel:** Satan portrays God's law as a restriction on
-    liberty. Jesus declares it "life everlasting." The Gospel does not abolish
-    the commandment; rather, the Gospel restores the power to _keep_ the
-    commandment through the indwelling Spirit (Romans 8:3–4).
-3.  **The New Covenant Promise:** God promises to write these very commandments
-    on our hearts (Hebrews 8:10). When the law is internal—part of our nature
-    through the new birth—obedience becomes a delight, not a drudgery (Psalm
-    40:8).
+When many disciples turned away from Jesus, He asked the twelve if they would also leave. Peter's response reveals the unique nature of Christ's teaching:
 
-- **Definition—The Law of God:** The moral standard of righteousness, summarized
-  in the Ten Commandments, revealing God’s character and exposing man’s sin
-  (Exodus 20; Romans 3:20; 7:7).
+> _"Then Simon Peter answered Him, Lord, to whom shall we go? Thou hast the words of eternal life."_ (John 6:68)
 
-**[ILL]** Think of a train. The tracks are the "commandments" that direct its
-path. Are the tracks a restriction to the train? No, they are the condition of
-its freedom and speed. If the train jumps the tracks to be "free," it results in
-a wreck and ruin. So it is with God's law; it is the track upon which the life
-of the believer runs smoothly to eternity.
+**Eternal life**: The Greek _zōē aiōnios_ means not merely life that lasts forever, but life of a different quality—the very life of God Himself imparted to the believer.
+
+Peter recognized that no philosopher, no religious teacher, no earthly wisdom could offer what Christ offered. His words were not about eternal life—they _contained_ eternal life.
+
+Jesus Himself affirmed this connection:
+
+> _"And I know that His commandment is life everlasting."_ (John 12:50)
+
+God's commandments are not arbitrary rules designed to restrict our joy. They are expressions of His character—and His character is life itself. To receive and obey His Word is to receive His life.
 
 ---
 
-### Q4. What great truth did God wish to teach us, when He gave the daily manna to feed the children of Israel?
+## Deeper Truths
 
-**Scripture:** "And He humbled thee, and suffered thee to hunger, and fed thee
-with manna, which thou knewest not, neither did thy fathers know; that He might
-make thee know that man doth not live by bread only, but by every word that
-proceedeth out of the mouth of the Lord doth man live." Deuteronomy 8:3.
+### The Lesson of the Manna
 
-**Answer:** The physical manna in the wilderness was a **type** (symbol) of
-spiritual reality.
+God taught Israel a profound spiritual truth through the wilderness experience:
 
-1.  **Dependence on the Word:** Just as the Israelites would physically perish
-    without the daily manna, our souls wither without the daily intake of God's
-    Word.
-2.  **"Every Word":** We are not to pick and choose which commandments or
-    promises we like. A complete Christian character requires submission to
-    _every_ word God has spoken.
-3.  **Humility and Faith:** God allowed them to hunger so they would realize
-    their helplessness. This is the essence of **Righteousness by Faith**:
-    realizing we have no spiritual food in ourselves, and looking entirely to
-    God to supply our need (Matthew 5:6).
+> _"And He humbled thee, and suffered thee to hunger, and fed thee with manna, which thou knewest not, neither did thy fathers know; that He might make thee know that man doth not live by bread only, but by every word that proceedeth out of the mouth of the Lord doth man live."_ (Deuteronomy 8:3)
 
-**[ILL]** A prescription medicine often comes with a specific dosage. If a
-patient decides to take only half the ingredients, or take it only once a month
-instead of daily, the cure will not work. We cannot expect spiritual victory if
-we neglect the daily "dosage" of God’s instruction and promises.
+Notice God's method: He _allowed_ them to hunger first. Why? So they would understand their absolute dependence upon His Word for life itself.
 
----
+[DYK🔎] The word "manna" comes from the Hebrew _man hu_, meaning "What is it?" (Exodus 16:15). Israel did not recognize this food—it was entirely new, sent directly from heaven. So it is with God's Word: it brings nourishment the world cannot provide and wisdom human reason cannot discover.
 
-### Q5. What happens when we feed upon the true, heavenly manna?
+The manna also taught several practical lessons about receiving God's Word:
 
-**Scripture:** "Thy words were found, and I did eat them; and Thy word was unto
-me the joy and rejoicing of mine heart: for I am called by Thy name, O Lord God
-of hosts." Jeremiah 15:16.
+1. **It came fresh each morning**—we cannot live on yesterday's spiritual food
+2. **It required gathering**—effort and intention are needed to receive it
+3. **It spoiled if hoarded**—truth must be lived and shared, not merely stored
+4. **It was sufficient for each day**—God provides exactly what we need
 
-**Answer:** Feeding on the Word produces a change in the affections and identity
-of the believer.
+### Feeding Upon the Word
 
-1.  **Internalization ("I did eat them"):** Reading the Bible is not enough; we
-    must "eat" it—meditate on it until it becomes a part of us. Just as food is
-    assimilated into our bloodstream to build tissue, the Word must be
-    assimilated to build character.
-2.  **Joy and Rejoicing:** The world seeks happiness in excitement and
-    possession. The Christian finds deep, abiding joy in the promises of God
-    (Psalm 119:103).
-3.  **Identity ("Called by Thy Name"):** When we partake of Christ (the Word),
-    we take His name. We belong to Him. This is **Justification**—being covered
-    by His name and His merit, so that when the Father looks at us, He sees the
-    Son.
+The prophet Jeremiah described his experience of receiving God's Word:
 
-- **Definition—Justification:** The legal act where God declares a penitent
-  sinner righteous, pardoning their sins and imputing Christ’s righteousness to
-  their account (Romans 3:24; 4:5).
+> _"Thy words were found, and I did eat them; and Thy word was unto me the joy and rejoicing of mine heart: for I am called by Thy name, O Lord God of hosts."_ (Jeremiah 15:16)
 
-**[ILL]** If a person is starving, looking at a picture of a banquet will not
-help. Reading a menu will not help. They must take the food into their mouth and
-swallow it. So it is with the Bible; having a Bible on the shelf does not feed
-the soul. We must open it and "digest" its meaning by faith.
+To "eat" the Word means more than reading or hearing. It means:
 
----
+- **Receiving** it into the innermost being
+- **Digesting** it through meditation and prayer
+- **Assimilating** it until it becomes part of our very nature
+- **Drawing strength** from it for daily living
 
-### Q6. What reference did Jesus make to this same life-giving manna?
+[ILL] Consider how food nourishes the body. We do not merely look at bread or admire its qualities—we must eat it. The bread must be taken into ourselves, broken down, and absorbed until it becomes part of our flesh and blood, giving us energy and life. So it must be with Scripture. We may study it academically, appreciate its beauty, and acknowledge its truth—yet remain spiritually starving. Only when we receive it by faith into our hearts, meditate upon it, and allow it to transform our thoughts and actions does it become life to us.
 
-**Scripture:** "But He answered and said, It is written, Man shall not live by
-bread alone, but by every word that proceedeth out of the mouth of God." Matthew
-4:4.
+### Christ's Example in Temptation
 
-**Answer:** Jesus quoted Deuteronomy 8:3 during His temptation in the
-wilderness. This is vital for our understanding of how to overcome sin.
+When Satan tempted Jesus in the wilderness, our Lord responded with this same truth:
 
-1.  **The Weapon of Victory:** Jesus overcame Satan not by using His divine
-    power (which was laid aside), but by using the Word of God. He met the
-    tempter with "It is written."
-2.  **Example for Humanity:** Jesus showed that a man, filled with the Holy
-    Spirit and relying on God's Word, can resist temptation. He condemns sin in
-    the flesh by showing that obedience is possible through faith (Romans 8:3).
-3.  **Priority of the Spiritual:** Satan tempted Jesus to satisfy physical
-    hunger at the expense of God's will. Jesus declared that spiritual obedience
-    is more necessary than physical life itself.
+> _"But He answered and said, It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God."_ (Matthew 4:4)
 
-**[ILL]** A soldier in battle does not invent a new weapon on the spot; he uses
-the sword he has been trained with. When temptation strikes—whether to pride,
-appetite, or anger—we must instantly wield the specific "It is written" that
-applies to that situation.
+After forty days of fasting, Jesus was physically hungry. Satan suggested He use divine power to satisfy that hunger. But Christ demonstrated that spiritual sustenance—obedience to His Father's Word—was more important than physical nourishment.
+
+This teaches us that:
+
+- **God's Word sustains us** even when physical circumstances are difficult
+- **Obedience to God's will** provides strength beyond natural means
+- **Every word** from God's mouth is necessary—not just selected portions
+
+[Q] **"But we have physical needs. Doesn't Jesus care about our bodies?"**
+
+Absolutely. Jesus later multiplied loaves and fish to feed hungry multitudes. He taught us to pray, "Give us this day our daily bread" (Matthew 6:11). But He established the priority: spiritual life comes first, and when we seek first God's kingdom and righteousness, our physical needs will also be supplied (Matthew 6:33). The Word of God does not replace physical bread—it gives physical bread its proper place.
+
+### Doing God's Will as Spiritual Food
+
+Jesus revealed how the Father's will became nourishment to Him:
+
+> _"Jesus saith unto them, My meat is to do the will of Him that sent Me, and to finish His work."_ (John 4:34)
+
+For Christ, obedience was not a burden but a feast. The disciples urged Him to eat physical food; He had found something more satisfying. Doing the Father's will strengthened Him inwardly in ways physical food could not.
+
+This principle applies to us: when we study God's Word and then _do_ what it says, we receive spiritual nourishment. Truth that remains theoretical starves the soul. Truth lived and practiced feeds it.
 
 ---
 
-### Q7. How did God's will for Christ's life become His food?
+## Principles and Great Controversy Themes
 
-**Scripture:** "Jesus saith unto them, My meat is to do the will of Him that
-sent Me, and to finish His work." John 4:34.
+### The Word Made Flesh
 
-**Answer:** For Jesus, obedience was not a draining duty, but a nourishing
-source of strength.
+Here we reach the heart of the mystery:
 
-1.  **Obedience as Sustenance:** Doing God's will refreshes the spirit. There is
-    a supernatural strength that comes to the believer who steps out in faith to
-    obey God (Isaiah 40:31).
-2.  **Finishing the Work:** Christ was focused on the Atonement. His "meat" was
-    to live a perfect life and offer a perfect sacrifice for us.
-3.  **Our Experience:** When we align our will with God's will, we find "rest
-    unto our souls" (Matthew 11:29). The struggle ceases when the surrender is
-    complete.
+> _"In the beginning was the Word, and the Word was with God, and the Word was God."_ (John 1:1)
 
-**[ILL]** Watch a musician who loves their art. They may practice for hours, yet
-they are energized, not exhausted, because they are doing what they love. When
-the law of God is written in the heart (Hebrews 8:10), doing His will becomes
-our "meat"—our passion and energy.
+> _"And the Word was made flesh, and dwelt among us."_ (John 1:14)
 
----
+> _"In Him was life; and the life was the light of men."_ (John 1:4)
 
-### Q8. What name is given to Jesus, since He was the Revealer of God's thought to mankind?
+Jesus Christ is called "the Word" (_Logos_ in Greek) because He is the full expression of God's thought, character, and will. What God wished to communicate to humanity, He embodied in His Son.
 
-**Scripture:** "In the beginning was the Word, and the Word was with God and the
-Word was God." John 1:1. "And He was clothed with a vesture dipped in blood: and
-His name is called The Word of God." Revelation 19:13.
+[DYK🔎] The apostle John also identifies Christ as "the Word of life" (1 John 1:1) and "The Word of God" (Revelation 19:13). This title appears in no other place in Scripture regarding any other being—it belongs uniquely to Christ.
 
-**Answer:** Jesus is the Living Word (Logos), the perfect expression of the
-Father’s mind.
+When Jesus took human flesh, the Divine thought was revealed in human form. When holy men wrote Scripture as they were "moved by the Holy Ghost" (2 Peter 1:21), the Divine thought was revealed in human language. Both revelations are called "the Word of God." Both are living. Both impart life.
 
-1.  **The Medium of Communication:** A "word" is a thought made audible or
-    visible. God's thoughts are hidden until revealed by Christ. If you want to
-    know what God is like, look at Jesus (John 14:9).
-2.  **The Creator:** "By the word of the Lord were the heavens made" (Psalm
-    33:6). Jesus is the active agent in Creation.
-3.  **The Victor:** In Revelation 19, He is the "Word of God" who judges and
-    makes war against sin. This points to the final resolution of the **Great
-    Controversy**, where the Word triumphs over the rebellion of Satan.
+**This is the mystery of godliness** (1 Timothy 3:16): the union of the Divine and human in Christ, and the same union of Divine truth and human language in Scripture.
 
-**[ILL]** If you have a thought in your mind, no one knows it. But if you speak,
-your thought takes flight and enters another person's mind. Jesus is God
-"speaking" Himself to humanity, so that we can know His heart.
+### Christ the Bread of Life
 
----
+Jesus made the connection explicit:
 
-### Q9. What did this Word become?
+> _"And Jesus said unto them, I am the bread of life: he that cometh to Me shall never hunger; and he that believeth on Me shall never thirst."_ (John 6:35)
 
-**Scripture:** "And the Word was made flesh, and dwelt among us." John 1:14.
+> _"As the living Father hath sent Me, and I live by the Father: so he that eateth Me, even he shall live by Me. This is that bread which came down from heaven: not as your fathers did eat manna, and are dead: he that eateth of this bread shall live for ever."_ (John 6:57–58)
 
-**Answer:** This is the mystery of the **Incarnation**—God becoming man.
+The manna in the wilderness sustained physical life temporarily—those who ate it eventually died. But Christ, the true Bread from heaven, imparts eternal life to all who feed upon Him by faith.
 
-1.  **Tabernacling Among Us:** The Greek word for "dwelt" implies "pitched His
-    tent." This is a direct **Sanctuary** reference. Christ is the true
-    Tabernacle where God meets with man (Hebrews 9:11).
-2.  **Partaking of Flesh:** To be our Saviour, He had to partake of the same
-    flesh and blood that we have (Hebrews 2:14). He took upon Himself our fallen
-    nature but without sinning, bridging the gap between a holy God and sinful
-    humanity.
-3.  **Jacob's Ladder:** By becoming flesh, Christ let down the ladder from
-    heaven to earth. He is the only way we can climb out of the pit of sin
-    (Genesis 28:12; John 1:51).
+[Q] **"What did Jesus mean by 'eating His flesh'? This sounds strange."**
 
-- **Definition—Incarnation:** The act of the Son of God assuming human nature,
-  becoming fully man while remaining fully God (Philippians 2:5–8).
+Jesus Himself explained:
 
-**[ILL]** A king who stays in his castle may issue laws, but he cannot fully
-understand the suffering of his peasant subjects. But if the king takes off his
-robes, puts on peasant clothes, lives in their huts, and eats their food, he
-understands them. Jesus did more than this; He became one of us to save us.
+> _"It is the spirit that quickeneth; the flesh profiteth nothing: the words that I speak unto you, they are spirit, and they are life."_ (John 6:63)
+
+To eat Christ's flesh is to receive His words by faith. His words are not merely information—they are "spirit and life." When we receive the Word of God in faith, we receive the very life and character of Christ into our souls.
+
+"He who by faith receives the word is receiving the very life and character of God." This is the great truth: Scripture is the medium through which Christ Himself comes to dwell in us.
+
+### The Sanctuary Connection
+
+In the sanctuary, the **table of showbread** stood in the holy place (Exodus 25:30). Twelve loaves, representing the twelve tribes, were placed fresh before the Lord each Sabbath. This bread symbolized:
+
+- Christ, the Bread of Life, ever present before the Father
+- The Word of God, sustaining spiritual life for God's people
+- The daily provision believers need as they walk with God
+
+Just as the priests ate this bread in the holy place (Leviticus 24:9), so believers today are called to feed daily upon Christ through His Word as they minister before God.
 
 ---
 
-### Q10. What was in this Word that we so much need?
+## Practical Application
 
-**Scripture:** "In Him was life; and the life was the light of men." John 1:4.
+### Tasting God's Goodness
 
-**Answer:** The desperate need of the human race is life, for we are "dead in
-trespasses and sins" (Ephesians 2:1).
+Scripture invites us to experience the Word personally:
 
-1.  **Original Life:** "In Christ is life, original, unborrowed, underived"
-    (_Desire of Ages_, p. 530). He has the power to resurrect the spiritually
-    dead.
-2.  **Life as Light:** This life brings moral clarity. It exposes the darkness
-    of sin and reveals the path of righteousness.
-3.  **Imparted Righteousness:** We do not just need a legal pardon
-    (justification); we need a new principle of life
-    (sanctification/regeneration). This life comes only from being in Christ, as
-    the branch is in the vine (John 15:5).
+> _"And have tasted the good word of God, and the powers of the world to come."_ (Hebrews 6:5)
 
-**[ILL]** A flashlight with dead batteries is useless, no matter how perfect the
-bulb is. The human soul is like that flashlight. We may have the form of
-religion, but without the "batteries"—the life of Christ within—we give no light
-to the world.
+> _"O taste and see that the Lord is good: blessed is the man that trusteth in Him."_ (Psalm 34:8)
 
----
+**Tasting** implies personal experience, not secondhand knowledge. We cannot live on another person's spiritual experience. Each soul must taste for itself.
 
-### Q11. What is Jesus therefore also called?
+And what do we discover when we taste? That "the Lord is good"—His Word satisfies, strengthens, and brings joy that nothing else can provide.
 
-**Scripture:** "That which was from the beginning, which we have heard, which we
-have seen with our eyes, which we have looked upon, and our hands have handled,
-of the Word of life." 1 John 1:1.
+### Asking for Daily Bread
 
-**Answer:** He is called the "Word of Life."
+Jesus taught us to pray:
 
-1.  **Tangible Reality:** John emphasizes that this Word is not a ghost or a
-    myth. They "handled" Him. Our faith is based on historical reality.
-2.  **Experiential Faith:** Just as the disciples touched Jesus physically, we
-    must "touch" Him spiritually by faith. The woman with the issue of blood
-    touched only the hem of His garment, but her faith drew power from Him (Mark
-    5:27–34).
-3.  **Resurrection Power:** Because He is the Word of Life, He could lay down
-    His life and take it up again. This guarantees our resurrection if we sleep
-    in Him (1 Thessalonians 4:14).
+> _"Give us this day our daily bread."_ (Matthew 6:11)
+
+This petition includes both physical and spiritual nourishment. Just as we need food each day for our bodies, we need fresh communion with God through His Word each day for our souls.
+
+**Practical steps for feeding on the Word:**
+
+1. **Set aside time daily**—morning is ideal, before the world crowds in
+2. **Come with hunger**—ask God to create appetite for His truth
+3. **Read with prayer**—invite the Holy Spirit to be your Teacher
+4. **Meditate on what you read**—let truth sink deep into your heart
+5. **Obey what you understand**—truth lived becomes life-giving
+6. **Share what you receive**—blessing increases when it flows to others
+
+[ILL] A man once visited a wise believer and noticed her Bible was worn, marked, and well-used. "You must love that book," he said. "I do," she replied, "but more importantly, I love the One who speaks to me through it. Every morning I sit with Him over these pages, and He feeds my soul. Some days I receive comfort; other days, correction. But always I receive life." This is the experience God desires for each of us.
 
 ---
 
-### Q12. What did Jesus declare Himself to be?
+## Appeal
 
-**Scripture:** "And Jesus said unto them, I am the bread of life: he that cometh
-to Me shall never hunger; and he that believeth on Me shall never thirst." John
-6:35.
+Friend, God offers you bread from heaven today—not stale theological concepts, but living truth that can transform your life. Christ Himself, through His Spirit and His Word, desires to enter your heart and make His abode with you.
 
-**Answer:**
+> _"Behold, I stand at the door, and knock: if any man hear My voice, and open the door, I will come in to him, and will sup with him, and he with Me."_ (Revelation 3:20)
 
-1.  **Satisfaction:** The world offers "bread" that does not satisfy (Isaiah
-    55:2)—wealth, fame, pleasure. Only Christ fills the void in the human heart.
-2.  **Sanctuary Type:** In the Holy Place of the earthly sanctuary, there was
-    the **Table of Shewbread** (Leviticus 24:5–9). It was always fresh, always
-    present before God. Jesus is the true Shewbread, the "Bread of the
-    Presence," sustaining His people daily.
-3.  **Invitation:** The condition is simple: "Come" and "Believe." Righteousness
-    is not achieved by climbing a mountain of works, but by coming to a Person.
+Will you open God's Word today with fresh hunger? Will you receive Christ's words as spirit and life? Will you taste and see that the Lord is good?
 
-**[ILL]** A man trying to quench his thirst by drinking salt water only becomes
-thirstier. Sin is salt water. Jesus is the fresh, living spring. Once the soul
-drinks of Him, the craving for the world's "salt water" dies away.
+The Word that spoke worlds into existence waits to speak life into your soul. The Bread that came down from heaven waits to satisfy your deepest hunger. Come and eat. Come and live.
 
----
-
-### Q13. What did He say would be given to those that partook of this God-given bread?
-
-**Scripture:** "As the living Father hath sent Me, and I live by the Father: so
-He that eateth Me, even he shall live by Me. This is that bread which came down
-from heaven: not as your fathers did eat manna, and are dead: he that eateth of
-this bread shall live for ever." John 6:57, 58.
-
-**Answer:**
-
-1.  **Union with God:** Jesus reveals the secret of His own earthly life: He
-    lived by total dependence on the Father. Now, He invites us to live by total
-    dependence on Him.
-2.  **Immortality:** The manna in the desert sustained physical life for a time,
-    but those men eventually died. The spiritual bread (Christ) imparts eternal
-    life.
-3.  **The Method:** We "eat" Him by receiving His words and His Spirit. This
-    assimilation changes our character. As we behold Him and feed on His truth,
-    we are changed into His image (2 Corinthians 3:18).
-
-- **Definition—Atonement:** Literally "At-one-ment." The condition of being at
-  one with God. Through eating the Bread of Life, the believer becomes one with
-  Christ, as Christ is one with the Father (John 17:21–23).
-
----
-
-### Q14. What did Jesus really mean when He said that we should eat His flesh?
-
-**Scripture:** "It is the spirit that quickeneth; the flesh profiteth nothing:
-the words that I speak unto you, they are spirit, and they are life." John 6:63.
-
-**Answer:** Jesus clarifies that He is not speaking of literal cannibalism or a
-sacramental ritual alone, but of a spiritual reality.
-
-1.  **Word = Spirit = Life:** The life of Christ is contained in His teachings
-    and promises. When we believe a promise of God, the Holy Spirit conveys the
-    power of that promise into our lives.
-2.  **The "Flesh Profiteth Nothing":** Outward rituals, human works, and
-    legalistic striving cannot produce righteousness. "All our righteousnesses
-    are as filthy rags" (Isaiah 64:6). Only the Spirit-filled Word can quicken
-    (make alive) the dead soul.
-3.  **Receiving the Character:** As the note in the lesson says, "He who by
-    faith receives the word is receiving the very life and character of God."
-    This is **Imparted Righteousness**—God's character becoming our character
-    through the agency of the Word.
-
-**[ILL]** Consider a seed. It looks like a dry, dead pebble. But inside that
-seed is a germ of life that contains the DNA of the entire plant. The Word of
-God is like that seed (Luke 8:11). When planted in the soil of the heart, it
-releases the life of Christ, producing the "fruit of the Spirit" (Galatians
-5:22–23).
-
----
-
-### Q15. What is it that God will let us taste right now?
-
-**Scripture:** "And have tasted the good word of God, and the powers of the
-world to come." Hebrews 6:5. (See Jeremiah 15:16.)
-
-**Answer:** Eternal life does not begin only when we die; it begins now.
-
-1.  **Tasting the Future:** We can experience the peace, victory, and holiness
-    of heaven while still on earth. This is the "power of the world to come."
-2.  **Preparation for Translation:** Those who live to see Christ return (the
-    144,000) must have the character of Christ fully reproduced in them. They
-    must taste the victory over sin _now_ to stand in that day (Revelation
-    14:1–5).
-3.  **The Good Word:** God's promises are "good." They are reliable. We taste
-    them by claiming them in the midst of trial and finding them true.
-
-**[ILL]** Before a wedding banquet, the cooks may taste the food to ensure it is
-perfect. In the Christian life, the Holy Spirit gives us a "foretaste" or a
-"down payment" (Ephesians 1:14) of the heavenly inheritance. We get a sample of
-heaven's peace in our hearts today.
-
----
-
-### Q16. Tasting it, what do we learn?
-
-**Scripture:** "O taste and see that the Lord is good: blessed is the man that
-trusteth in Him." Psalm 34:8.
-
-**Answer:**
-
-1.  **Experience over Theory:** One cannot know the taste of a fruit by looking
-    at a painting of it. You must bite into it. Similarly, skeptics may argue
-    about religion, but the believer _knows_ God is good because they have
-    experienced His delivering power.
-2.  **Trust brings Blessing:** The "blessed" (happy) man is the one who
-    trusts—not in his own strength, but in God. This is the foundation of the
-    **Third Angel's Message**—the patience of the saints and the faith of Jesus
-    (Revelation 14:12).
-3.  **God's Character:** The ultimate discovery is that God is _good_. Satan has
-    maligned God's character since Eden, portraying Him as severe or arbitrary.
-    The Word reveals God as "merciful and gracious, longsuffering, and abundant
-    in goodness and truth" (Exodus 34:6).
-
----
-
-### Q17. Does God want us to ask for this Bread daily?
-
-**Scripture:** "Give us this day our daily bread." Matthew 6:11.
-
-**Answer:** Yes, in the Lord's Prayer, Jesus teaches us the necessity of daily
-renewal.
-
-1.  **Physical and Spiritual:** While this petition covers our physical needs,
-    in the context of this study, it primarily points to the "Bread of Life." We
-    need fresh grace every morning.
-2.  **No Stored Manna:** In the wilderness, if the Israelites tried to hoard
-    manna for the next day, it bred worms and stank (Exodus 16:20). We cannot
-    live today on yesterday's religious experience. We need a fresh conversion,
-    a fresh look at the Cross, and a fresh infilling of the Spirit every day.
-3.  **Constant Dependence:** This prayer keeps us in a state of humble
-    dependence, which is the safest place for a Christian to be. It kills pride
-    and fosters faith.
-
-**[ILL]** We breathe constantly. We do not take a deep breath on Sunday and hope
-it lasts until Wednesday. We must breathe moment by moment. Prayer and the Word
-are the breath of the soul. To stop is to faint and die.
-
----
-
-**NOTE:** When "the Word became flesh, and dwelt among us," the thought of God
-was revealed in human flesh. When holy men of God "spake as they were moved by
-the Holy Ghost," the thought of God was revealed in human language. The union of
-the Divine and the human in the manifestation of God's thought in the flesh is
-the mystery of godliness and is the same mystery in the union of the Divine
-thought and human language. The two revelations of God, in human flesh and in
-human speech, are both called the Word of God, and both are the Word of life. He
-who fails to find Christ thus in the Scriptures will not be able to feed upon
-the Word as the life-giving Word.
+_"Lord, evermore give us this bread."_ (John 6:34)

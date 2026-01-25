@@ -1,394 +1,221 @@
-### Q1. By what means is all Scripture given?
+# Bible Study: The Sure Word of Prophecy
 
-"All Scripture is given by inspiration of God, and is profitable for doctrine,
-for reproof, for correction, for instruction in righteousness." 2 Tim. 3:16.
+## Introduction
 
-**Answer:**
-
-The Bible does not claim to be a mere collection of human wisdom or historical
-records; it claims to be the direct result of the **inspiration** of God.
-
-- **Defined:** _Inspiration_ (from the Greek _theopneustos_) literally means
-  "God-breathed." It is the process by which the Holy Spirit communicated God's
-  eternal truth to human agents, ensuring that the message recorded is the
-  authoritative Word of God (2 Peter 1:21).
-- **The Authority of the Word:** Because Scripture is breathed out by God, it
-  stands above human tradition, church councils, or personal feelings. It is the
-  supreme standard for all doctrine (teaching) and the test of all experience
-  (Isaiah 8:20).
-- **The Work of the Word:** The verse highlights a practical, four-fold purpose
-  for this inspiration:
-  1.  **Doctrine:** Teaching us the truth about God’s character and His law.
-  2.  **Reproof:** Convicting us of our sin and need for a Savior.
-  3.  **Correction:** restoring us to the right path when we have strayed.
-  4.  **Instruction in righteousness:** Training us how to live in harmony with
-      God's law.
-
-**[ILL]** Think of a musician playing a trumpet. The trumpet (the human writer)
-has a specific shape and tone, but the breath that flows through it and creates
-the melody comes entirely from the musician (the Holy Spirit). Without the
-breath, the instrument is silent; with it, a clear, certain sound is produced.
+In a world filled with uncertainty, confusion, and countless voices claiming truth, God has given His people an anchor—the "sure word of prophecy." This study explores the divine origin of Scripture, the purpose of biblical prophecy, and why we can trust the prophetic word more than even our own eyewitness experiences. Understanding how God has spoken through His prophets transforms Bible study from mere academic exercise into a life-changing encounter with the living God.
 
 ---
 
-### Q2. For what purpose?
+## Core Truths
 
-“That the man of God may be perfect, thoroughly furnished unto all good works."
-2 Tim. 3:17.
+### The Divine Origin of Scripture
 
-**Answer:**
+The Bible is not a collection of human opinions or ancient folklore. Its origin is supernatural:
 
-The ultimate goal of Bible study and prophecy is not merely to fill the head
-with facts, but to transform the character.
+> _"All Scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction, for instruction in righteousness: that the man of God may be perfect, thoroughly furnished unto all good works."_ (2 Timothy 3:16-17)
 
-- **Defined:** _Perfect_ in the biblical sense (Greek _artios_) often means
-  "complete," "mature," or "fitted for its purpose." It refers to a Christian
-  character that has been fully restored to the image of God through the grace
-  of Christ (Matthew 5:48; Colossians 1:28).
-- **Righteousness by Faith:** Note that the Scripture furnishes us unto "all
-  good works." We are not saved _by_ our works, but we are created in Christ
-  Jesus _unto_ good works (Ephesians 2:10). When the Word of God is received by
-  faith, it becomes an active power in the life, imparting the power to obey.
-  - **Sanctification:** This is the work of a lifetime—using the Word of God to
-    become "thoroughly furnished" or equipped to overcome every temptation and
-    reflect Christ’s love to the world.
-- **The Standard:** God’s law is the standard of righteousness, and the Word of
-  God provides the "equipment" (the promises, the warnings, and the revelation
-  of Christ) necessary to bring our lives into harmony with that standard.
+The word "inspiration" translates the Greek _theopneustos_, meaning literally **"God-breathed."** Scripture is the very breath of God committed to writing through human instruments.
 
-**[ILL]** A master carpenter brings a toolbox to a job site. The box contains
-every tool necessary to build a house—hammer, saw, level, and plane. The Bible
-is the Christian’s toolbox. It contains every spiritual tool needed to build a
-character that can stand the storms of life and fit us for heaven.
+[DYK🔎] The term _theopneustos_ appears only once in the entire Bible—here in 2 Timothy 3:16. Paul coined this unique word to emphasize that Scripture's origin is not human imagination but divine exhalation. Just as God breathed life into Adam (Genesis 2:7), He breathed His word into the prophets.
 
----
+**The fourfold purpose of Scripture:**
 
-### Q3. To whom do the things revealed belong?
+1. **Doctrine** — Teaching us what is true
+2. **Reproof** — Showing us what is wrong in our lives
+3. **Correction** — Guiding us back to the right path
+4. **Instruction in righteousness** — Training us to live godly lives
 
-“The secret things belong unto the Lord our God: but those things which are
-revealed belong unto us and to our children forever." Deut. 29:29.
+The goal is not merely knowledge but transformation—that we might be "perfect" (complete, mature) and equipped for every good work God calls us to perform.
 
-**Answer:**
+### How Prophecy Was Given
 
-While God is infinite and retains mysteries beyond our comprehension, He has
-given us specific revelations—especially prophecies—that become our property and
-inheritance.
+Peter pulls back the curtain on the prophetic process:
 
-- **Our Responsibility:** Prophecy is not given to satisfy idle curiosity, but
-  to be understood and applied. When God reveals a truth—such as the prophecies
-  regarding the time of the end or the sanctuary—we are responsible for that
-  light. To ignore it is to reject a gift from the King.
-- **For Our Children:** We are commanded to teach these truths to the next
-  generation. The "revealed things" (the plan of salvation, the law of God, the
-  history of His leading) are the legacy we leave to our families to guide them
-  through the perils of the last days.
-- **The Limits of Speculation:** We must study what is _revealed_ (the Bible)
-  rather than speculating on the _secret things_ (dates of Christ's return which
-  are not given, or mysteries God has not explained).
+> _"For the prophecy came not in old time by the will of man: but holy men of God spake as they were moved by the Holy Ghost."_ (2 Peter 1:21)
 
-**[ILL]** Imagine a wealthy father leaves a Last Will and Testament for his
-children. The children do not know the full extent of the father's business
-dealings (the secret things), but the Will explicitly outlines what has been
-given to them (the revealed things). It would be foolish for the heirs to ignore
-the Will that secures their inheritance.
+The prophets did not simply decide to prophesy. They were "moved"—the Greek _pheromenoi_ describes a ship carried along by the wind. The Holy Spirit was the divine wind; the prophets were the vessels carried along by His power.
+
+[Q] **"If human authors wrote the Bible, how can it be the Word of God?"**
+
+This is precisely Peter's point. The origin was not human will but divine impulse. The prophets contributed their vocabulary, style, and personality, yet the message came from God. A secretary may type a letter in her own handwriting, but the message belongs to the one who dictated it. So Scripture is truly God's Word expressed through human language.
+
+### The Spirit of Christ in the Prophets
+
+A remarkable truth often overlooked:
+
+> _"Searching what, or what manner of time the Spirit of Christ which was in them did signify, when it testified beforehand the sufferings of Christ, and the glory that should follow."_ (1 Peter 1:10-11)
+
+The same Spirit who later became incarnate in Jesus was the One speaking through the Old Testament prophets! This means:
+
+- **All Scripture points to Christ** — He is the central theme
+- **The prophets themselves did not fully understand** — They searched their own writings
+- **Prophecy reveals both suffering and glory** — The cross before the crown
+
+[ILL] Imagine a servant given a sealed letter to deliver to the king's bride. He carries it faithfully but cannot read its contents. Only when the bride opens it is the full message revealed. So the prophets carried messages whose depths they could not fully fathom, yet they delivered them faithfully, knowing they served not only their own generation but "us" who would later receive the fulfillment (1 Peter 1:12).
 
 ---
 
-### Q4. What is the last book of the Bible called?
+## Deeper Truths
 
-“The Revelation of Jesus Christ, which God gave unto Him." Rev. 1:1.
+### Revelation Belongs to God's People
 
-**Answer:**
+Moses declared a fundamental principle:
 
-The last book of the Bible is not primarily about beasts or dragons; it is the
-_Revelation of Jesus Christ_.
+> _"The secret things belong unto the Lord our God: but those things which are revealed belong unto us and to our children forever."_ (Deuteronomy 29:29)
 
-- **Defined:** _Revelation_ comes from the Greek _apokalypsis_, meaning an
-  "unveiling" or "uncovering."
-- **The Central Figure:** This book unveils Jesus in His work _after_ His
-  ascension. While the Gospels show Christ on earth as the suffering Sacrifice,
-  Revelation shows Him in heaven as the conquering King and our High Priest in
-  the heavenly sanctuary (Hebrews 8:1–2).
-- **The Sanctuary Context:** The book opens with Jesus walking among the
-  candlesticks (the Holy Place) and moves toward the opening of the temple of
-  God in heaven (Rev 11:19). It reveals His work of judgment and His final
-  victory over sin.
+There are mysteries God has not disclosed, and we must humbly accept this. But what He _has_ revealed is our rightful inheritance—to be studied, understood, and obeyed. We are not spiritual trespassers when we study prophecy; we are heirs claiming our Father's estate.
 
-**[ILL]** If a statue is covered by a thick canvas, you cannot see its form.
-When the canvas is pulled away, the statue is "revealed." The book of Revelation
-pulls back the curtain of the natural world so we can see the supernatural
-reality: Jesus Christ controlling the destiny of nations and caring for His
-church.
+[DYK🔎] The Hebrew word for "revealed" (_galah_) means to uncover, remove a veil, or make naked. God has stripped away the covering from certain truths so His children can see clearly. Prophecy is not meant to confuse but to illuminate.
 
----
+### The Book of Revelation: Christ Unveiled
 
-### Q5. What is said of those who read or study this book?
+The final book of Scripture bears a significant title:
 
-“Blessed is he that readeth, and they that hear the words of this prophecy, and
-keep those things which are written therein." Rev. 1:3.
+> _"The Revelation of Jesus Christ, which God gave unto Him."_ (Revelation 1:1)
 
-**Answer:**
+"Revelation" translates _apokalypsis_—an unveiling, an uncovering. This book does not conceal Christ; it reveals Him! Many avoid Revelation thinking it too mysterious, yet God pronounces a special blessing:
 
-A special blessing is pronounced upon those who engage with the prophecies of
-Revelation, but the blessing is conditional on three actions: Reading, Hearing,
-and Keeping.
+> _"Blessed is he that readeth, and they that hear the words of this prophecy, and keep those things which are written therein."_ (Revelation 1:3)
 
-- **Defined:** _Keeping_ the words of prophecy means obeying the instructions
-  found therein. It implies that the warnings and admonitions in Revelation are
-  practical for daily living.
-- **Harmony of Law and Gospel:** To "keep" the things written therein requires
-  the power of God. Revelation describes the saints as those who "keep the
-  commandments of God, and the faith of Jesus" (Rev. 14:12).
-  - **Justification:** We hear the message of Christ's blood washing us from sin
-    (Rev 1:5).
-  - **Sanctification:** We keep the message by allowing His life to produce
-    obedience in us.
-- **Urgency:** The verse adds, "for the time is at hand." Prophecy is a call to
-  immediate action—repentance and preparation for the judgment.
+This is the only book in Scripture that begins with a promised blessing for its readers. The blessing comes through three actions:
 
-**[ILL]** A doctor gives a patient a prescription for a life-saving cure. It is
-not enough to _read_ the prescription, nor just to _hear_ the doctor explain it.
-The patient is only blessed (healed) if he _keeps_ the instruction by actually
-taking the medicine.
+1. **Reading** — Personal engagement with the text
+2. **Hearing** — Receiving and understanding the message
+3. **Keeping** — Obeying what is written
 
----
+[Q] **"Isn't Revelation too symbolic and confusing for ordinary Christians to understand?"**
 
-### Q6. How were the Old Testament prophecies given?
+God would not promise a blessing for studying a book He never intended us to understand. The symbols of Revelation are largely explained elsewhere in Scripture—the beasts, the woman, the waters, the horns all have Old Testament roots. By letting Scripture interpret Scripture, the book opens to the humble, prayerful student. Jesus Himself directed His disciples to study Daniel (Matthew 24:15), and Revelation is Daniel's companion volume.
 
-“For the prophecy came not in old time by the will of man: but holy men of God
-spake as they were moved by the Holy Ghost." 2 Peter 1:21.
+### Prophecy: More Sure Than Experience
 
-**Answer:**
+Peter makes a startling claim. He had witnessed Christ's transfiguration—seeing His glory, hearing the Father's voice:
 
-The reliability of prophecy rests on its source. It did not originate in the
-"will of man"—human political calculation or guesswork.
+> _"For we have not followed cunningly devised fables, when we made known unto you the power and coming of our Lord Jesus Christ, but were eye-witnesses of His majesty... And this voice which came from heaven we heard, when we were with Him in the holy mount."_ (2 Peter 1:16, 18)
 
-- **The Agency:** The Holy Ghost (Holy Spirit) is the active agent. He "moved"
-  the prophets. The Greek word used here implies being carried along, like a
-  ship driven by the wind.
-- **Holy Men:** God chose individuals who were surrendered to Him to be His
-  vessels. While the writers retained their own personalities and vocabulary,
-  the thoughts and truths conveyed were entirely divine.
-- **Certainty:** Because the source is God, who knows the end from the beginning
-  (Isaiah 46:9–10), we can trust prophecy to be accurate even when it predicts
-  events thousands of years in the future.
+Yet Peter declares something even more reliable:
 
-**[ILL]** Consider a pen in the hand of a writer. The pen does not decide what
-to write; it yields to the movement of the writer's hand. The prophets were the
-pens; the Holy Spirit was the Writer.
+> _"We have also a more sure word of prophecy; whereunto ye do well that ye take heed, as unto a light that shineth in a dark place, until the day dawn, and the day star arise in your hearts."_ (2 Peter 1:19)
+
+**More sure than eyewitness testimony!** Why?
+
+- Human senses can be deceived
+- Memories fade and distort
+- Satan can counterfeit experiences
+- But fulfilled prophecy cannot be manufactured
+
+[ILL] A man may sincerely testify that he saw a ghost in his bedroom at midnight. We cannot verify his experience—perhaps he dreamed, perhaps his eyes deceived him, perhaps fear created phantoms. But if a prophet declares a century in advance that a specific king named Cyrus will decree the rebuilding of Jerusalem, and history records this very event (Isaiah 44:28; Ezra 1:1-3), we have evidence no skeptic can explain away. The Bible's fulfilled prophecies are God's signature, proving His authorship.
+
+### The Time of the End: Unsealing Daniel
+
+Christ Himself directed attention to Daniel's prophecies:
+
+> _"When ye therefore shall see the abomination of desolation, spoken of by Daniel the prophet, stand in the holy place (whoso readeth, let him understand)."_ (Matthew 24:15)
+
+Jesus expected His followers to study Daniel and understand its prophecies. Yet certain portions were sealed:
+
+> _"But thou, O Daniel, shut up the words, and seal the book, even to the time of the end: many shall run to and fro, and knowledge shall be increased."_ (Daniel 12:4)
+
+The "time of the end" would be marked by:
+
+- **Increased travel** — "Many shall run to and fro"
+- **Increased knowledge** — Particularly of prophetic truth
+- **Unsealing of Daniel's prophecies** — Understanding previously obscure passages
+
+[DYK🔎] The phrase "run to and fro" (_shut_) in Hebrew describes the movement of eyes scanning a document—searching, examining, studying diligently. The prophecy promised that in the time of the end, many would search Daniel's pages, and understanding would increase. The great prophetic awakening of the early 1800s, when students worldwide simultaneously discovered the prophecies of Daniel 8 and 9, fulfilled this prediction remarkably.
 
 ---
 
-### Q7. What is said of the interpretation of these prophecies?
+## Principles and Great Controversy Themes
 
-“Knowing this first, that no prophecy of the Scripture is of any private
-interpretation [impulse]." 2 Peter 1:20.
+### No Private Interpretation
 
-**Answer:**
+Peter warns:
 
-Because prophecy did not come from man (v. 21), it cannot be interpreted by
-man's private ideas or opinions.
+> _"Knowing this first, that no prophecy of the Scripture is of any private interpretation."_ (2 Peter 1:20)
 
-- **Defined:** _Private interpretation_ refers to forcing a meaning onto the
-  text that originates with the reader rather than the Author (the Holy Spirit).
-- **Scripture Interprets Scripture:** The only safe rule of Bible study is to
-  allow the Bible to explain itself. If a symbol is used in Revelation (like a
-  "beast"), we must look to other parts of Scripture (like Daniel) to find God's
-  definition of that symbol.
-- **Protection against Error:** This principle protects the church from false
-  teachers who twist Scripture to fit their own theories. We must ask, "What
-  saith the Lord?" rather than "What do I think this means?"
+The word "interpretation" translates _epilysis_—literally, "unloosing." Prophecy did not originate from the prophet's own "unloosing" or explanation. It came from God, and therefore:
 
-**[ILL]** If you find a single puzzle piece, you cannot force it into the puzzle
-wherever you choose. You must look at the shape and the surrounding picture to
-see where the creator of the puzzle intended it to fit. We do not force our
-meaning into the Bible; we let the Bible fit us into its truth.
+- **Scripture interprets Scripture** — We compare spiritual things with spiritual (1 Corinthians 2:13)
+- **No individual has monopoly on truth** — The community of believers, guided by the Spirit, studies together
+- **Private speculation is dangerous** — We must test all interpretations by the full counsel of God's Word
 
----
+This principle protects us from the twin errors of:
 
-### Q8. In giving their prophetic utterances, what did the prophets seek?
+1. **Rationalism** — Human reason as supreme judge
+2. **Mysticism** — Private "revelations" divorced from Scripture
 
-“Receiving the end of your faith, even the salvation of your souls. Of which
-salvation the prophets have inquired and searched diligently, who prophesied of
-the grace that should come unto you." 1 Peter 1:9, 10.
+### Prophecy and the Sanctuary
 
-**Answer:**
+The prophetic books, especially Daniel and Revelation, are deeply connected to the sanctuary:
 
-The central theme of all prophecy is the **salvation of the soul**.
+- **Daniel's visions** center on the sanctuary being "cast down" and "cleansed" (Daniel 8:11-14)
+- **Revelation** opens with Christ among the candlesticks (Revelation 1:12-13) and climaxes with the temple in heaven opened (Revelation 11:19; 15:5-8)
+- **The "time of the end"** coincides with the opening of the Most Holy Place ministry—the investigative judgment
 
-- **The Focus:** The prophets were not merely predicting the rise and fall of
-  empires for history's sake; they were tracing the "crimson thread" of
-  redemption. They searched diligently to understand how God would solve the
-  problem of sin.
-- **Grace:** They prophesied of the "grace that should come unto you." This
-  refers to the plan of salvation—God's unmerited favor in giving His Son to die
-  for sinners.
-- **Connection to Us:** The prophets of old longed to understand the very truths
-  that we are privileged to read clearly in the New Testament. We are living in
-  the days they looked forward to with hope.
+Prophecy is not abstract prediction; it unveils what God is doing in the heavenly sanctuary to save and vindicate His people. The "sure word of prophecy" shows us where we are in the stream of time and what Christ is accomplishing for us right now.
 
-**[ILL]** Imagine watchmen on a high city wall during a long night of war. They
-are scanning the horizon, not just to look at the landscape, but diligently
-searching for the arrival of the King who brings rescue. The prophets were those
-watchmen, searching for the Messiah.
+### The Great Controversy Connection
+
+Satan has always sought to obscure prophecy because it:
+
+- **Exposes his strategies** — The beasts, the false prophet, Babylon
+- **Reveals his defeat** — The stone crushing the image, the beast cast into the lake of fire
+- **Anchors faith** — Fulfilled prophecy proves God's sovereignty
+- **Prepares a people** — Those who understand the times can stand faithful
+
+The enemy promotes two opposite errors:
+
+1. **Neglect of prophecy** — "It's too hard to understand"
+2. **Sensationalism about prophecy** — Wild speculation that brings reproach
+
+God's people are called to balanced, reverent, diligent study—taking heed to the prophetic word "as unto a light that shineth in a dark place."
 
 ---
 
-### Q9. By whose spirit were they actuated?
+## Practical Application
 
-“Searching what, or what manner of time the Spirit of Christ which was in them
-did signify, when it testified beforehand the sufferings of Christ, and the
-glory that should follow." 1 Peter 1:11.
+### How to Study Prophecy Faithfully
 
-**Answer:**
+1. **Pray for the Holy Spirit's guidance** — The same Spirit who inspired the prophets must illuminate our understanding (John 16:13)
 
-This verse establishes a profound truth: It was the **Spirit of Christ** (the
-pre-incarnate Jesus working through the Holy Spirit) that inspired the Old
-Testament prophets.
+2. **Let Scripture interpret Scripture** — When you find a symbol, search for where Scripture defines it (e.g., waters = peoples, Revelation 17:15; beast = kingdom, Daniel 7:23)
 
-- **Christ the Author:** Jesus is the Word of God (John 1:1). He is the Author
-  of the entire Bible. When Isaiah or Jeremiah prophesied, it was the Spirit of
-  Christ speaking through them.
-- **The Two-Fold Message:** The Spirit testified of two great events:
-  1.  **The Sufferings of Christ:** His first coming as the Lamb of God to die
-      for our sins (Justification/Atonement).
-  2.  **The Glory that should follow:** His second coming as King of Kings and
-      His high priestly ministry (Final Deliverance/Glorification).
-- **Sanctuary Pattern:** This mirrors the sanctuary service—first the sacrifice
-  in the courtyard (sufferings), then the glory of the High Priest's work in the
-  sanctuary.
+3. **Study with humility** — Approach God's Word as a student, not a critic
 
-**[ILL]** If a man writes an autobiography, he knows his own story better than
-anyone else. The Bible is, in a sense, the autobiography of Christ, dictated to
-the prophets by His own Spirit before He even came to earth as a man.
+4. **Accept what is revealed; trust God with what is hidden** — Some details remain unclear; God will reveal more as we need it
 
----
+5. **Apply what you learn** — Prophecy is not given for curiosity but for transformation. The blessing comes to those who "keep those things which are written" (Revelation 1:3)
 
-### Q10. How did Peter confirm his former preaching on the coming of Christ?
+6. **Connect prophecy to Christ** — Every prophetic vision ultimately reveals Jesus—His character, His work, His kingdom
 
-“For we have not followed cunningly devised fables, when we made known unto you
-the power and coming of our Lord Jesus Christ, but were eye-witnesses of His
-majesty." 2 Peter 1:16.
+### Victory Over Spiritual Darkness
 
-**Answer:**
+The prophetic word is "a light that shineth in a dark place." In our dark world of:
 
-Peter affirms that the Christian faith is based on historical fact, not
-mythology ("cunningly devised fables").
+- Moral confusion
+- Spiritual deception
+- Uncertainty about the future
+- Demonic counterfeits
 
-- **Eyewitness Testimony:** The apostles did not invent the idea of Christ's
-  divinity. They saw His miracles; they saw Him raised from the dead; and
-  specifically, Peter refers here to the Transfiguration (Matt. 17:1–5).
-- **The Majesty:** Peter saw a preview of the Kingdom of Glory. He saw Jesus
-  glorified, speaking with Moses and Elijah. This proved that Jesus was indeed
-  the Son of God and that His promise to return in power is true.
+God has given us a lamp for our feet (Psalm 119:105). We need not walk in darkness or fear the future. The same God who predicted Babylon's fall, Persia's rise, Greece's conquests, and Rome's dominion—and who saw each fulfilled precisely—holds tomorrow in His hands.
+
+[ILL] A traveler lost in a dense forest at night sees a distant lighthouse beam. He cannot see the entire path, but as long as he keeps his eyes on that light, he will reach safety. So prophecy does not reveal every detail of the future, but it shows us enough to walk confidently toward the eternal kingdom. The "day star" will soon "arise in your hearts"—Christ Himself will come, and all shadows will flee.
 
 ---
 
-### Q11. When did the apostle see the majesty (kingship) of Christ, and hear the a probative words of God?
+## Appeal
 
-“And this voice which came from heaven we heard, when we were with Him in the
-holy mount." 2 Peter 1:18.
+> _"We have also a more sure word of prophecy; whereunto ye do well that ye take heed."_ (2 Peter 1:19)
 
-**Answer:**
+Friend, God has not left you in darkness. He has spoken through His prophets, confirmed His Word through fulfilled prophecy, and preserved it for your salvation. The question is not whether the prophetic word is reliable—it is whether you will take heed.
 
-The event took place on the "holy mount" (likely Mt. Tabor or Mt. Hermon) during
-the Transfiguration.
+Will you commit today to:
 
-- **Divine Confirmation:** Peter heard the literal voice of God the Father
-  saying, "This is my beloved Son, in whom I am well pleased."
-- **Significance:** This event anchors our faith in reality. It is not a
-  philosophical theory; it is an event that happened in time and space,
-  witnessed by credible men who were willing to die for what they saw.
+- **Read** the prophetic Scriptures with new earnestness?
+- **Hear** what the Spirit is saying to the churches?
+- **Keep** the things that are written, ordering your life by God's revealed will?
 
-**[ILL]** In a court of law, hearsay (rumor) is not admissible. The strongest
-evidence is a reliable witness who can say, "I was there, I saw it happen, and I
-heard the voice." Peter is offering sworn testimony to the church.
+The "time of the end" is upon us. Daniel's sealed book is open. The light is shining. May you walk in that light until the Day Star—Jesus Christ Himself—rises in your heart at His glorious appearing.
 
----
-
-### Q12. What other and more certain evidence did he have of the power and coming of Christ?
-
-“We have also a more sure word of prophecy; whereunto ye do well that ye take
-heed, as unto a light that shineth in a dark place, until the day dawn, and the
-day star arise in your hearts." 2 Peter 1:19.
-
-**Answer:**
-
-This is a startling statement. Peter says that prophecy is "more sure" even than
-his own eyewitness experience on the mount.
-
-- **Why "More Sure"?** Our senses can be deceived. We can misinterpret what we
-  see or hear. But the written Word of prophecy, fulfilled over centuries (the
-  rise and fall of Babylon, Medo-Persia, Greece, Rome), stands as an immovable
-  rock. It is objective evidence outside of ourselves.
-- **Light in a Dark Place:** This world is a "dark place" of sin and confusion.
-  Prophecy is the lamp that illuminates our path (Psalm 119:105), showing us
-  where we are in the stream of time.
-- **The Day Star:** The goal of prophecy is not just intellectual knowledge, but
-  that the "Day Star" (Christ) arises _in your hearts_.
-  - **Internal Experience:** As we study the sure word, Christ’s character is
-    formed within us (Galatians 4:19). The external word leads to an internal
-    reality—Christ in you, the hope of glory.
-
-**[ILL]** Imagine being on a ship in a storm at night. Lightning flashes
-(experiences) give brief, blinding glimpses of the surroundings, but they are
-gone in an instant. A lighthouse (prophecy) provides a steady, constant beam
-that guides the ship safely to the harbor. We should trust the steady light of
-prophecy over the flashes of feeling or experience.
-
----
-
-### Q13. To what prophecy did Christ refer His disciples when predicting the destruction of Jerusalem?
-
-“When ye therefore shall see the abomination of desolation, spoken of by Daniel
-the prophet, stand in the holy place (whoso readeth, let him understand)." Matt.
-24:15.
-
-**Answer:**
-
-Jesus specifically authenticated the **Book of Daniel**.
-
-- **The Abomination of Desolation:** Historically, this referred to the Roman
-  armies surrounding Jerusalem (Luke 21:20), which was a sign for Christians to
-  flee.
-- **Dual Application:** In the "time of the end," it also points to the work of
-  the antichrist power (the "little horn" of Daniel 7 and 8) which casts down
-  God's truth and attempts to change His law.
-- **"Let Him Understand":** Christ commands us to study Daniel. He implies that
-  our safety depends on understanding these prophecies. If Jesus studied and
-  quoted Daniel, how much more should we?
-
-**[ILL]** A tornado siren is designed to warn people of approaching danger. If
-you know what the siren sounds like, you can take shelter and live. Jesus points
-to the book of Daniel as the siren for the end times.
-
----
-
-### Q14. When were all the prophecies in the book of Daniel to be understood?
-
-“But thou, O Daniel, shut up the words, and seal the book, even to the time of
-the end: many shall run to and fro, and knowledge shall be increased." Dan.
-12:4.
-
-**Answer:**
-
-Certain portions of Daniel’s prophecies were "sealed" or hidden until a specific
-period known as the **Time of the End**.
-
-- **Defined:** _The Time of the End_ is a prophetic period beginning in 1798 (at
-  the conclusion of the 1260-year prophecy of Daniel 7:25).
-- **Running To and Fro:** This refers not only to modern travel but primarily to
-  "running to and fro" _through the pages of Scripture_. It describes diligent
-  Bible study.
-- **Knowledge Increased:** Since 1798, the understanding of the prophecies of
-  Daniel—specifically the 2300 days, the sanctuary message, and the
-  investigative judgment—has been opened to the church.
-- **Our Privilege:** We live in the time when the seal has been broken. We can
-  understand what Daniel himself did not fully comprehend. This places upon us
-  the solemn responsibility to share this "sure word of prophecy" with the world
-  before the final harvest.
-
-**[ILL]** A time-lock safe cannot be opened until the clock reaches the set
-hour. No amount of force or skill can open it early. God placed a "time-lock" on
-the prophecies of the last days. That time-lock expired at the "time of the
-end," and now the treasures of Daniel are open for all to see.
+> _"Blessed is he that readeth, and they that hear the words of this prophecy, and keep those things which are written therein: for the time is at hand."_ (Revelation 1:3)

@@ -1,360 +1,146 @@
-### Q1. What was the result of blotting out the handwriting of ordinances?
+# Bible Study: Ceremonial Sabbaths vs. The Sabbath of the Lord
 
-> “Blotting out the handwriting of ordinances that was against us, which was
-> contrary to us, and took it out of the way, nailing it to His cross... Let no
-> man therefore judge you in meat, or in drink, or in respect of a holy day, or
-> of the new moon, or of the sabbath days, which are a shadow of things to come;
-> but the body is of Christ.” **(Colossians 2:14–17)**
+## Introduction
 
-**Answer:**
-
-The result of this "blotting out" was the termination of the ceremonial
-system—the code of religious rituals, sacrifices, and yearly festivals that
-pointed forward to the coming Messiah. When the Apostle Paul speaks of the
-"handwriting of ordinances," he is referring to the ceremonial law, not the
-moral law of the Ten Commandments.
-
-1.  **Distinction Between Laws:** The Bible distinguishes between the moral law
-    (the character of God) and the ceremonial law (the remedy for sin). The
-    ceremonial law dealt with meats, drinks, divers washings, and carnal
-    ordinances imposed _until_ the time of reformation (Hebrews 9:10).
-2.  **Shadow vs. Body:** Paul explicitly states these ordinances were a
-    "shadow." A shadow has no substance of its own; it is merely a projection
-    cast by a solid body. The "body" (or substance) is Christ. Once the reality
-    (Christ) appeared, the shadow (the types and ceremonies) was no longer
-    needed.
-3.  **Nailed to the Cross:** When Jesus died on Calvary, the veil of the temple
-    was rent in twain (Matthew 27:51), signaling the end of the earthly
-    sacrificial system. We no longer offer lambs because the Lamb of God has
-    died. To continue in these shadows now is to deny that the Substance has
-    come.
-
-- **Term Definition:**
-  - **Ceremonial Law:** The system of sacrifices, festivals, and ritual washings
-    given to Israel to teach them the gospel in types and symbols. It was
-    temporary.
-  - **Moral Law:** The Ten Commandments, which define sin and righteousness.
-    They are eternal and unchangeable (Psalm 111:7–8).
-
-**[ILL] The Architect’s Blueprints:** Imagine an architect draws a detailed
-blueprint for a magnificent house. The workers use these drawings to guide every
-step of construction. But once the house is built, you do not live in the paper
-blueprints; you live in the house. The ceremonial law was the blueprint or
-"shadow" of the plan of salvation. Now that Christ (the House) is finished and
-present, we do not cling to the paper rolls of the old ritual system; we dwell
-in Him.
+One of the most misunderstood passages in Scripture is Colossians 2:14-17, where Paul speaks of something "nailed to the cross" and advises believers not to be judged regarding "sabbath days." Many sincere Christians conclude from this that the weekly seventh-day Sabbath was abolished at Calvary. However, a careful, scripture-with-scripture study reveals that Paul distinguishes between two entirely different institutions: the ceremonial sabbaths of the Mosaic system, which were shadows pointing to Christ, and the seventh-day Sabbath of creation, which commemorates God's completed work and remains "the Sabbath of the Lord."
 
 ---
 
-### Q2. Upon what were the ten commandments written?
+## Core Truths
 
-> “And He declared unto you His covenant, which He commanded you to perform,
-> even ten commandments; and He wrote them upon two tables of stone.”
-> **(Deuteronomy 4:13)**
+### The Handwriting of Ordinances
 
-**Answer:**
+Paul writes of "blotting out the handwriting of ordinances that was against us, which was contrary to us, and took it out of the way, nailing it to His cross" (Colossians 2:14). The key question is: **What was this "handwriting of ordinances"?**
 
-The Ten Commandments were written upon stone, signifying their durability,
-permanence, and unchangeable nature.
+The Greek word for "handwriting" (_cheirographon_) refers to a written document—a record written by hand. This stands in sharp contrast to the Ten Commandments, which were not written by human hand.
 
-1.  **Written by God:** Unlike the ceremonial laws which were dictated to Moses
-    and written in a book (Deuteronomy 31:24), the moral law was written
-    directly by God on stone. This indicates that the standard of righteousness
-    is not of human origin but divine.
-2.  **The New Covenant Connection:** Under the New Covenant, God does not
-    abolish this law. Instead, He transfers the writing from tables of stone to
-    the "fleshy tables of the heart" (2 Corinthians 3:3; Hebrews 8:10).
-3.  **Righteousness by Faith:** The problem was never the Law itself, but the
-    stony hearts of the people who could not keep it. Through **Justification**,
-    God forgives our transgressions of this law. Through **Sanctification**, He
-    writes the principles of this law—love to God and love to man—into our very
-    nature, empowering us to obey.
+> _"And the tables were the work of God, and the writing was the writing of God, graven upon the tables."_ (Exodus 32:16)
 
-- **Term Definition:**
-  - **Sanctification:** The ongoing work of the Holy Spirit to make the believer
-    holy, imparting the power to overcome sin and live in obedience to God’s law
-    (1 Thessalonians 4:3).
+[DYK🔎] The Ten Commandments were not merely written on stone—they were _engraved_ into stone by God's own finger (Exodus 31:18). The Hebrew word for "graven" (_charuth_) indicates something carved deeply, permanently. Such a law cannot be "blotted out" or "nailed" to anything—these expressions simply do not fit tablets of stone.
 
-**[ILL] The King’s Decree:** If a king writes a decree in sand on the seashore,
-the next tide washes it away; it is temporary. But if he carves his decree into
-granite rock, it is meant to stand for ages. God wrote the ceremonial ordinances
-on parchment (which decays), but He wrote His Ten Commandments on rock. This
-shows that while the method of atonement (sacrifices) would change, the
-definition of right and wrong (the Law) stands forever.
+### Two Different Laws, Two Different Purposes
 
----
+Scripture consistently distinguishes between:
 
-### Q3. In what manner were they written on these tables of stone?
+1. **The moral law of God** (Ten Commandments)—written by God on stone, placed _inside_ the ark of the covenant (Deuteronomy 10:1-5)
 
-> “And the tables were the work of God, and the writing was the writing of God,
-> graven upon the tables.” **(Exodus 32:16)**
+2. **The ceremonial law of Moses**—written by Moses in a book, placed _beside_ the ark as a witness against the people (Deuteronomy 31:24-26)
 
-**Answer:**
+Notice the language: the ceremonial law was "against" Israel and served as "a witness against thee." This aligns perfectly with Paul's description of something "against us, which was contrary to us."
 
-They were "graven" or engraved directly by the finger of God (Exodus 31:18).
+### The Sabbaths That Were Shadows
 
-1.  **Distinct from the "Handwriting" of Ordinances:** In Colossians 2:14, Paul
-    speaks of the "handwriting" (Greek: _cheirographon_, meaning hand-written
-    document) that was blotted out. This refers to Moses' handwriting in the
-    book of the law. The Ten Commandments, however, are the "writing of God."
-    God does not blot out His own character.
-2.  **The Basis of Judgment:** Since this law was written by God, it remains the
-    standard by which all humanity is judged (James 2:12).
-3.  **The Sanctuary:** In the earthly sanctuary, these tables of stone were
-    placed _inside_ the Ark of the Covenant, under the Mercy Seat (Deuteronomy
-    10:5). This symbolizes that God’s government is founded upon His law, but
-    His throne is covered by mercy for the repentant sinner.
+Paul continues: _"Let no man therefore judge you in meat, or in drink, or in respect of an holy day, or of the new moon, or of the sabbath days: which are a shadow of things to come; but the body is of Christ."_ (Colossians 2:16-17)
 
-**[ILL] The Constitution:** Every nation has temporary bylaws that change with
-the administration—like speed limits or tax codes. But the Constitution is the
-founding document that defines the nation itself. The ceremonial laws were the
-temporary bylaws for the nation of Israel. The Ten Commandments are the
-Constitution of the Universe. You cannot "blot out" the Constitution without
-destroying the government.
+These "sabbath days" are explicitly identified as **shadows** pointing to Christ. What were these shadowy sabbaths?
+
+> _"In the seventh month, in the first day of the month, shall ye have a sabbath."_ (Leviticus 23:24)
+
+> _"Also on the tenth day of this seventh month there shall be a day of atonement... It shall be unto you a sabbath of rest."_ (Leviticus 23:27, 32)
+
+These ceremonial sabbaths—the Feast of Trumpets, the Day of Atonement, the Feast of Tabernacles—were _annual_ sabbaths tied to the sacrificial system. They involved "meat offerings" and "drink offerings" (Leviticus 23:37)—the very things Paul mentions in Colossians 2:16.
+
+[DYK🔎] The annual feast sabbaths could fall on _any_ day of the week. The fifteenth of Nisan (first day of Unleavened Bread) might occur on a Tuesday one year and a Friday the next. This is fundamentally different from the seventh-day Sabbath, which is fixed to the weekly cycle established at creation.
 
 ---
 
-### Q4. For whom was the weekly Sabbath made?
+## Deeper Truths
 
-> “And He said unto them, The Sabbath was made for man, and not man for the
-> Sabbath.” **(Mark 2:27)**
+### The Weekly Sabbath Is Distinct
 
-**Answer:**
+Scripture itself carefully distinguishes the weekly Sabbath from the ceremonial sabbaths. After listing all the annual feasts and their sabbaths in Leviticus 23, God makes this crucial clarification:
 
-The Sabbath was made for "man"—meaning mankind, the human race—not exclusively
-for the Jews.
+> _"These are the feasts of the Lord, which ye shall proclaim to be holy convocations, to offer an offering made by fire unto the Lord... **Beside the sabbaths of the Lord**, and beside your gifts, and beside all your vows."_ (Leviticus 23:37-38)
 
-1.  **A Gift, Not a Burden:** Jesus clarifies that the Sabbath was designed as a
-    blessing ("for man"), not a burden to work against him.
-2.  **Universal Scope:** Since it was made for man, it applies to all men in all
-    ages. It is not a "shadow" that fades, but a necessity for human spiritual
-    and physical health.
-3.  **Not "Against Us":** Colossians 2:14 speaks of ordinances that were
-    "against us" and "contrary to us." The Sabbath, being made _for_ man’s
-    refreshment and communion with his Creator, cannot be the thing described as
-    being "against" him. It is a day of delight (Isaiah 58:13).
+The phrase "beside the sabbaths of the Lord" indicates that the ceremonial feast days were _in addition to_ and _separate from_ the regular weekly Sabbath. God Himself distinguishes between them.
 
-- **Righteousness by Faith Application:** The Sabbath is the ultimate sign of
-  Righteousness by Faith. On the Sabbath, we cease from our own works and rest
-  in God's work of creation and redemption (Hebrews 4:10). It reminds us that we
-  cannot save ourselves; we rest in the finished work of Christ.
+[Q] **"But doesn't Paul say 'sabbath days' plural, which must include the weekly Sabbath?"**
 
----
+The plurality refers to the multiple ceremonial sabbaths throughout the Jewish year—Passover, Unleavened Bread, Firstfruits, Pentecost, Trumpets, Day of Atonement, and Tabernacles. Each of these had its own sabbath rest requirements. Paul groups them together as a category of shadows now fulfilled in Christ. The weekly Sabbath, by contrast, is never called a shadow in Scripture—it is a _memorial_ of an already-completed reality: creation.
 
-### Q5. When was the Sabbath made?
+### The Weekly Sabbath: Made for Man, Not Against Him
 
-> “Thus the heavens and the earth were finished, and all the host of them... And
-> God blessed the seventh day, and sanctified it; because that in it He had
-> rested from all His work which God created and made.” **(Genesis 2:1–3)**
+Consider what Jesus declared about the seventh-day Sabbath:
 
-**Answer:**
+> _"The Sabbath was made for man, and not man for the Sabbath."_ (Mark 2:27)
 
-The Sabbath was made at the close of Creation week, long before the Jewish
-nation existed.
+[ILL] A loving father builds a beautiful garden for his children to enjoy. He sets aside one day each week for the family to rest together, walk through the garden, and remember his love. That day is not a burden—it is a gift, designed for their blessing. So God, at creation, fashioned the Sabbath for humanity's benefit, long before sin entered, long before any need for types and shadows pointing to a Redeemer.
 
-1.  **Pre-Fall Institution:** The Sabbath was established in Eden before sin
-    entered the world.
-2.  **Not a Shadow:** A "shadow" or type (like a sacrifice) is a remedy or
-    lesson pointing to a solution for sin. Since the Sabbath was made _before_
-    sin existed, it cannot be a shadow of redemption. It is a memorial of
-    creation.
-3.  **Sanctified in Time:** God "sanctified" (set apart for holy use) the
-    seventh day at the very foundation of the world. What God does forever
-    remains (Ecclesiastes 3:14).
+If the Sabbath was "made for man" as a blessing, how could it be among those things Paul describes as "against us" and "contrary to us"? The ceremonial system, with its constant reminders of sin through animal sacrifices and offerings, testified to man's guilt and need for atonement. But the weekly Sabbath testified to God's perfect creation and His desire for fellowship with mankind.
 
-**[ILL] The Wedding Ring:** A wedding ring is given at the marriage ceremony to
-mark the relationship. If the couple later gets into debt and needs a
-debt-repayment plan, that plan is temporary. Once the debt is paid, the plan
-ends. But the wedding ring remains because the marriage remains. The ceremonial
-law was the debt-payment plan (for sin); the Sabbath is the wedding ring of the
-Creator and His creation—it was there at the beginning and remains forever.
+### When Was the Weekly Sabbath Made?
+
+> _"Thus the heavens and the earth were finished, and all the host of them. And on the seventh day God ended His work which He had made; and He rested on the seventh day from all His work which He had made. And God blessed the seventh day, and sanctified it: because that in it He had rested from all His work which God created and made."_ (Genesis 2:1-3)
+
+The seventh-day Sabbath was instituted at creation—before sin, before the fall, before any need for a Savior from sin. At that time, man's condition was "very good" (Genesis 1:31). There was no curse, no condemnation, nothing "against" man.
+
+[DYK🔎] The Sabbath is the only institution that comes to us directly from Eden's sinless state. Marriage and the Sabbath—both were established before the fall and both remain God's design for humanity.
+
+The ceremonial sabbaths, by contrast, were given at Sinai as part of the sacrificial system—centuries after the fall, specifically designed to point forward to Christ's atoning work.
+
+### Shadows Versus Memorial
+
+Here is the crucial distinction:
+
+- **Ceremonial sabbaths** = _shadows_ pointing **forward** to Christ's redemptive work
+- **The weekly Sabbath** = a _memorial_ pointing **backward** to God's creative work
+
+> _"For in six days the Lord made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the Lord blessed the sabbath day, and hallowed it."_ (Exodus 20:11)
+
+A shadow ceases to exist when the substance arrives. When Christ came, the ceremonial shadows were no longer needed—"the body is of Christ" (Colossians 2:17). But a memorial of creation cannot cease to be relevant as long as creation exists. We are still the creatures of God's hand; He is still our Creator. The memorial of that reality remains as meaningful as ever.
 
 ---
 
-### Q6. What was man's condition then?
+## Principles and Great Controversy Themes
 
-> “And God saw every thing that He had made, and behold, it was very good. And
-> the evening and the morning were the sixth day.” **(Genesis 1:31)**
+### The Attack on God's Memorial
 
-**Answer:**
+Throughout the great controversy, Satan has sought to obscure God's authority as Creator. The weekly Sabbath stands as the perpetual sign of that authority:
 
-Man’s condition was "very good"—he was sinless, holy, and in perfect harmony
-with God.
+> _"It is a sign between me and the children of Israel for ever: for in six days the Lord made heaven and earth, and on the seventh day he rested, and was refreshed."_ (Exodus 31:17)
 
-1.  **A Sinless Institution:** Because the Sabbath was given to a sinless man,
-    it is an institution compatible with perfection. It is not merely a remedial
-    measure for sinners.
-2.  **Perpetuity:** Since the Sabbath was part of God's perfect plan before the
-    fall, it will continue to be part of His perfect plan in the New Earth.
-    Isaiah 66:22–23 confirms that in the new heavens and new earth, "from one
-    sabbath to another, shall all flesh come to worship before me, saith the
-    Lord."
+By confusing the ceremonial sabbaths (which were indeed nailed to the cross) with the weekly Sabbath (which predates sin and points to creation), the enemy has led many sincere believers to unwittingly set aside God's memorial of creation.
 
----
+### The Sanctuary Connection
 
-### Q7. Had man faithfully obeyed God from the beginning, would He have been counted a sinner?
+The ceremonial sabbaths were intimately connected with the earthly sanctuary services—particularly the Day of Atonement, which centered on the work in the Most Holy Place. These pointed forward to Christ's heavenly ministry. When Christ ascended to the heavenly sanctuary, He did not abolish the moral law contained in the ark there; rather, He began His high priestly work of applying His sacrifice to repentant sinners.
 
-> “For not the hearers of the law are just before God, but the doers of the law
-> shall be justified.” **(Romans 2:13)**
+[DYK🔎] In vision, John saw the heavenly temple opened, revealing "the ark of his testament" (Revelation 11:19). The law within that ark—including the fourth commandment—remains the standard of judgment and the transcript of God's character.
 
-**Answer:**
+### Righteousness by Faith and the Sabbath
 
-If man had faithfully obeyed God from the beginning, he would never have become
-a sinner, for "sin is the transgression of the law" (1 John 3:4). He would have
-remained just (righteous).
+The Sabbath, rightly understood, is a profound expression of righteousness by faith. We rest from our works as God rested from His. We cease our striving and trust in His completed work—both in creation and in redemption. Sabbath-keeping, when entered into by faith, is not legalism but the deepest expression of dependence upon God.
 
-1.  **The Definition of Righteousness:** Righteousness is simply perfect
-    obedience to God's law.
-2.  **The Human Dilemma:** Because all have sinned (Romans 3:23), no human can
-    now be justified (declared righteous) by their own attempts to keep the law,
-    for our past record condemns us.
-3.  **The Gospel Solution:**
-    - **Justification (Imputed Righteousness):** We admit we are lawbreakers. We
-      accept Christ's perfect life and death in our place. God looks at us and
-      sees Christ's obedience. We are "justified" by faith (Romans 5:1).
-    - **Sanctification (Imparted Righteousness):** Having been forgiven, Christ
-      now lives in us. He empowers us to become "doers of the law" through His
-      Spirit. We obey not to _earn_ salvation, but because we _have_ salvation
-      and a new heart.
+> _"There remaineth therefore a rest to the people of God. For he that is entered into his rest, he also hath ceased from his own works, as God did from his."_ (Hebrews 4:9-10)
 
-- **Term Definition:**
-  - **Imputed Righteousness:** The credit of Christ's perfect life given to the
-    sinner at conversion. It is our _title_ to heaven.
-  - **Imparted Righteousness:** The power of Christ working _in_ the sinner to
-    change their character. It is our _fitness_ for heaven.
+The Greek word for "rest" in Hebrews 4:9 is _sabbatismos_—literally, "a keeping of sabbath." This rest remains for God's people, not as a burden, but as a weekly entering into Christ's finished work.
 
 ---
 
-### Q8. For what purpose were the sabbaths instituted which formed a part of the "handwriting of ordinances?
+## Practical Application
 
-> “Which are a shadow of things to come; but the body is of Christ.”
-> **(Colossians 2:17)**
+Understanding this distinction has profound implications for the Christian life:
 
-**Answer:**
+1. **Freedom from confusion**: We need not be troubled when someone quotes Colossians 2 to suggest the weekly Sabbath is abolished. Scripture itself distinguishes the ceremonial from the moral.
 
-The ceremonial sabbaths (distinct from the weekly Sabbath) were instituted to
-serve as "shadows" pointing forward to the work of Christ in the plan of
-redemption.
+2. **Confidence in God's Word**: The more carefully we study, the more consistent Scripture becomes. God does not contradict Himself—His Sabbath commandment remains "the sabbath of the Lord" throughout all generations.
 
-1.  **Prophetic Teaching Tools:** These feast days (like Passover, Pentecost,
-    Tabernacles) were acted-out prophecies. For example, the Passover lamb
-    pointed to Christ's death; the Day of Atonement pointed to the final
-    judgment and cleansing of sin.
-2.  **Temporary Nature:** Once "the body" (Christ) arrived and fulfilled these
-    prophetic types, the shadows were no longer necessary. We do not need to
-    kill a Passover lamb because "Christ our passover is sacrificed for us" (1
-    Corinthians 5:7).
+3. **Joyful obedience**: The Sabbath is a gift, not a burden. It was made _for_ us, designed to bless us with rest, worship, and fellowship with our Creator.
 
-**[ILL] The Photo and the Person:** When a soldier goes to war, his wife keeps a
-photograph of him. She treasures it because it reminds her of him while he is
-absent. But when he walks through the door, she puts the photo down and embraces
-her husband. The ceremonial sabbaths were the "photo" of the coming Savior. Now
-that Jesus has come, we have the Person. We don't need the photo (the ceremonial
-shadows) anymore. However, we still keep the weekly Sabbath because it is not a
-photo of a missing Savior, but a day of present rest _with_ Him.
+4. **Witness to the Creator**: In an age of evolutionary confusion, the Sabbath stands as a weekly testimony that we serve a Creator God who made all things and rested on the seventh day.
+
+5. **Preparation for eternity**: The prophet Isaiah declares that in the new earth, "from one sabbath to another, shall all flesh come to worship before me, saith the Lord" (Isaiah 66:23). The Sabbath will continue throughout eternity—it would be strange indeed if it were abolished now, only to be restored later.
 
 ---
 
-### Q9. To what does the Sabbath of the fourth commandment direct the mind?
+## Appeal
 
-> “For in six days the Lord made heaven and earth, the sea, and all that in them
-> is, and rested the seventh day; wherefore the Lord blessed the Sabbath day,
-> and hallowed it.” **(Exodus 20:11)**
+The distinction between ceremonial sabbaths and the weekly Sabbath is not a minor technicality—it touches the heart of our relationship with God as Creator and Redeemer.
 
-**Answer:**
+> _"Remember the sabbath day, to keep it holy. Six days shalt thou labour, and do all thy work: but the seventh day is the sabbath of the Lord thy God."_ (Exodus 20:8-10)
 
-The fourth commandment directs the mind back to **Creation**.
+The ceremonial shadows have met their substance in Christ. The sacrifices, the feast days, the annual sabbaths—all pointed to Him who is the Lamb of God, and they are no longer binding. But the weekly Sabbath, given in Eden before sin, written by God's finger in stone, and distinguished in Scripture as "the sabbath of the Lord," remains the blessed memorial of creation and the sign of our loyalty to the Creator.
 
-1.  **The Sign of Authority:** The Sabbath identifies _who_ God is: the Creator
-    of heaven and earth. It distinguishes the true God from false gods who made
-    nothing (Jeremiah 10:11).
-2.  **Different Direction:** The ceremonial sabbaths pointed **forward** to the
-    Cross and the removal of sin. The weekly Sabbath points **backward** to the
-    Creation and the establishment of God's government.
-3.  **The Three Angels' Messages:** The call to worship the Creator in the last
-    days (Revelation 14:7) is a direct reference to the fourth commandment
-    language. In the final conflict, the issue will be worship—acknowledging
-    God's authority as Creator through His holy Sabbath.
+Will you accept this gift? Will you enter into God's rest, ceasing from your own works as He did from His? The Sabbath is not against you—it was made _for_ you, a weekly appointment with your Creator, a foretaste of the eternal rest that awaits the people of God.
 
----
-
-### Q10. Were there any sabbath days in the old dispensation that were local and shadowy?
-
-> “In the seventh month, in the first day of the month, shall ye have a
-> sabbath...” **(Leviticus 23:24)** “Also the tenth day of the seventh month
-> there shall be a day of atonement... It shall be unto you a sabbath of rest,
-> and ye shall afflict your souls.” **(Leviticus 23:27–32)**
-
-**Answer:**
-
-Yes, there were specific annual days called "sabbaths" that were distinct from
-the weekly seventh-day Sabbath.
-
-1.  **Floating Days:** These ceremonial sabbaths fell on specific dates of the
-    year (like the 10th day of the 7th month). Just like our birthday falls on a
-    different day of the week each year, these annual sabbaths could fall on a
-    Monday, Wednesday, or any day.
-2.  **Shadows of Redemption:** The text mentions the Day of Atonement (Yom
-    Kippur). This was a shadow of Christ's High Priestly ministry in the
-    heavenly sanctuary (Hebrews 8 & 9). It was "local" (for the Jewish economy)
-    and "shadowy" (predictive).
-3.  **Afflicting the Soul:** While the weekly Sabbath is a joyful celebration of
-    creation, the ceremonial sabbath of the Day of Atonement was a time of
-    "afflicting souls"—solemn judgment and repentance.
-
----
-
-### Q11. What were these days for?
-
-> “These are the feasts of the Lord, which ye shall proclaim to be holy
-> convocations, to offer an offering made by fire unto the Lord, a burnt
-> offering, and a meat offering, a sacrifice, and drink offerings, everything
-> upon his day.” **(Leviticus 23:37)**
-
-**Answer:**
-
-These days were for the administration of the ceremonial system—offerings,
-sacrifices, meat offerings, and drink offerings.
-
-1.  **The Context of Colossians 2:** Notice the list in Leviticus matches Paul's
-    list in Colossians 2:16: "meat, drink, holy day... sabbath days." Paul was
-    clearly referring to these annual feast days found in the ceremonial law,
-    which involved food and drink offerings.
-2.  **Dependency on Sacrifices:** These days were inextricably linked to the
-    shedding of animal blood. Since animal sacrifices ceased at the cross, the
-    days associated with them also lost their significance.
-
----
-
-### Q12. Were these entirely distinct from the seventh-day Sabbath?
-
-> “Beside the Sabbaths of the Lord, and beside your gifts, and beside all your
-> vows, and beside all your free will offerings, which ye give unto the Lord.”
-> **(Leviticus 23:38)**
-
-**Answer:**
-
-Yes, the Bible explicitly distinguishes them. Leviticus 23:38 draws a sharp line
-between the ceremonial feast days and "the Sabbaths of the Lord."
-
-1.  **"Beside" Means "In Addition To":** God commanded the yearly feasts
-    (Passover, etc.) to be kept _in addition to_ the weekly Sabbath. They are
-    not the same institution.
-2.  **Ownership:** The weekly Sabbath is called "The Sabbath of the **Lord**"
-    (Exodus 20:10). The ceremonial sabbaths are often referred to as "your
-    sabbaths" or "her sabbaths" (Hosea 2:11), belonging to the Jewish national
-    system.
-3.  **Conclusion:** The "handwriting of ordinances" nailed to the cross included
-    the yearly sabbaths (shadows). The "writing of God" on stone included the
-    weekly Sabbath (the memorial of creation). The Christian is free from the
-    Jewish feasts, but remains under the obligation of the Moral Law to love God
-    and keep His commandments (John 14:15; Revelation 14:12).
-
-**[ILL] The Two Books:** Imagine a doctor gives you two books. One is a book of
-"Emergency Procedures" for treating a specific disease you have. The other is a
-book of "Rules for Healthy Living" (diet, exercise, sleep). Once the disease is
-cured, you can throw away the Emergency Procedure book—it was temporary and
-remedial. But you never throw away the Rules for Healthy Living; they are for
-your permanent well-being. The Ceremonial Law was the emergency procedure for
-sin (pointing to the Cure, Jesus). The Moral Law (including the Sabbath) is the
-rule of healthy spiritual living for all eternity.
+_"Blessed is the man that doeth this, and the son of man that layeth hold on it; that keepeth the sabbath from polluting it, and keepeth his hand from doing any evil."_ (Isaiah 56:2)

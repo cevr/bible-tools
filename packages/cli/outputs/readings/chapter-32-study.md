@@ -1,524 +1,238 @@
-### Q1. What was the mission of Christ to the earth?
+# Bible Study: Regeneration
 
-“For the Son of man is come to seek and to save that which was lost." Luke
-19:10.
+## Introduction
 
-**Answer:** The mission of Jesus was not merely to teach morality or to set a
-good example, but to rescue a race that had completely separated itself from
-God. The language used here implies two great truths about the plan of
-salvation:
-
-1.  **The Condition of Man:** Humanity is described as "lost." A lost sheep
-    cannot find its own way back to the fold; it is disoriented and helpless.
-    Likewise, without Christ, humanity is alienated from the life of God
-    (Ephesians 4:18) and dead in trespasses and sins.
-2.  **The Initiative of God:** It is the Shepherd who goes out to find the
-    sheep. Salvation does not begin with man seeking God, but with God seeking
-    man. The Incarnation was the Son of God crossing the infinite gulf to find
-    us where we are.
-
-**[ILL]** Imagine a child wandering deep into a dark, dense forest until the
-path is gone and night falls. The child cannot "will" himself home. He needs a
-rescuer with a light to enter the forest, find him, and carry him out. Christ
-entered the "forest" of this fallen world to carry us home.
+Regeneration is the divine work by which God creates new life in the soul dead in sin. Far more than moral reform or religious improvement, regeneration is nothing less than a second birth—a complete re-creation by the power of the Holy Spirit. This study traces the golden thread of redemption from Eden lost to Eden restored, showing how God's plan encompasses not only the renewal of fallen humanity but the ultimate regeneration of the entire earth itself.
 
 ---
 
-### Q2. From what does Christ redeem us?
+## Core Truths
 
-“Christ hath redeemed us from the curse of the law, being made a curse for us."
-Gal. 3:13.
+### Christ's Mission: Seeking the Lost
 
-**Answer:** To understand redemption, we must understand what we are saved
-_from_.
+The very purpose of Christ's coming to earth was redemptive. Jesus declared:
 
-- **The Curse of the Law:** The law of God is holy, just, and good (Romans
-  7:12), but to the transgressor, it speaks only condemnation. The "curse" is
-  the penalty for breaking God's law, which is eternal death (Romans 6:23).
-- **Redemption:** This term means "to buy back" or "to release by payment of a
-  ransom."
-- **The Exchange:** Christ did not abolish the law; rather, He bore its penalty.
-  By hanging on the cross, He took the condemnation that belonged to us. This is
-  the heart of the atonement: He took our curse that we might have His blessing.
+> _"For the Son of man is come to seek and to save that which was lost."_ (Luke 19:10)
 
-**Definitions:**
+This single verse captures the entire gospel in miniature. Notice the active pursuit—Christ **came** to **seek**. Salvation is not humanity reaching up to God, but God reaching down to humanity. The shepherd does not wait for lost sheep to find their own way home; He goes after them.
 
-- **Atonement:** The work by which God and man are reconciled (at-one-ment)
-  through the sacrifice and priestly ministry of Jesus.
-- **Substitution:** Christ taking the sinner's place, receiving the punishment
-  the sinner deserved.
+**Redeemed from the curse**: Paul expands on what this salvation involves:
 
-**[ILL]** A man is found guilty of a capital crime and sentenced to death. The
-judge, stepping down from the bench, offers to take the prisoner's place in the
-execution chamber so the prisoner can go free. The law is upheld (the penalty is
-paid), but the sinner is saved. This is what Christ did at Calvary.
+> _"Christ hath redeemed us from the curse of the law, being made a curse for us."_ (Galatians 3:13)
+
+The "curse of the law" is death—the wages of sin (Romans 6:23). Christ did not remove the law; He bore its penalty in our place. The law remains holy, just, and good (Romans 7:12), but its condemning power over the repentant sinner is broken.
+
+[DYK🔎] The Greek word for "redeemed" (ἐξαγοράζω, _exagorazō_) means "to buy out of the marketplace." It was used for purchasing slaves to set them free. Christ paid the full price to liberate us from sin's slave market.
 
 ---
 
-### Q3. Who shall see God?
+### The New Birth: Becoming Children of God
 
-“Blessed are the pure in heart: for they shall see God." Matt. 5:8.
+Who shall ultimately see God and dwell in His presence?
 
-**Answer:** Salvation is more than a legal clearance from guilt; it is a
-transformation of nature.
+> _"Blessed are the pure in heart: for they shall see God."_ (Matthew 5:8)
 
-- **Internal Purity:** The Pharisees were concerned with external washing and
-  ceremonial cleanness, but Jesus points to the heart. A "pure heart" is one
-  that has been cleansed from the love of sin and deceit.
-- **The Beatific Vision:** To "see God" implies standing in His presence without
-  being consumed. Since God is a consuming fire to sin (Hebrews 12:29), only
-  those whose characters reflect His own righteousness can dwell in His presence
-  (Isaiah 33:14–17).
+Purity of heart is not natural to fallen humanity. It must be received. This is why Jesus told Nicodemus, "Ye must be born again" (John 3:7). The question then becomes: **How does one become a child of God?**
 
-This purity is not achieved by human scrubbing, but by the indwelling of the
-Holy Spirit, applying the blood of Christ to the conscience (Hebrews 9:14).
+> _"For ye are all the children of God by faith in Christ Jesus."_ (Galatians 3:26)
 
-**[ILL]** If you look through a window covered in mud, you cannot see the sun
-clearly, and the light cannot enter the room. Christ cleans the "window" of the
-soul so that the light of God’s countenance can shine in and through us.
+> _"Whosoever believeth that Jesus is the Christ is born of God."_ (1 John 5:1)
+
+**Faith** is the instrument through which we receive the new birth. But this is no mere intellectual agreement to historical facts about Jesus. Living faith transforms the life.
 
 ---
 
-### Q4. What relation must those who see God, sustain to Him in this life?
+### Living Faith: More Than Mental Assent
 
-“Beloved, now are we the sons of God, and it doth not yet appear what we shall
-be: but we know that, when He shall appear, we shall be like Him; for we shall
-see Him as He is." 1 John 3:2.
+[Q] **"If we are saved by faith alone, does it matter how we live?"**
 
-**Answer:** This verse establishes two vital points about the believer's
-standing:
+James addresses this directly:
 
-1.  **Present Reality:** We do not wait until heaven to become God's children.
-    "Now are we the sons of God." By receiving Christ, we are adopted into the
-    royal family immediately.
-2.  **Future Glory:** While our status is settled, our physical glorification
-    waits for the Second Coming. We are currently princes and princesses in
-    enemy territory, waiting for the King to return and restore our full
-    inheritance.
+> _"For as the body without the spirit is dead, so faith without works is dead also."_ (James 2:26)
 
-**Sanctuary Connection:** Just as the High Priest bore the names of the tribes
-of Israel on his breastplate into the Holy Place, Christ bears our names before
-the Father _now_. We are accepted in the Beloved today.
+This is not a contradiction of salvation by grace through faith. Rather, it describes the **nature** of saving faith. A living tree naturally produces fruit; a living faith naturally produces obedience. The works do not save us—they are evidence that we have been saved.
 
----
+John connects this truth to our prayer life:
 
-### Q5. How does one become a child of God?
+> _"And whatsoever we ask, we receive of Him, because we keep His commandments, and do those things that are pleasing in His sight."_ (1 John 3:22)
 
-“For ye are all the children of God by faith in Christ Jesus." Gal. 3:26.
+And regarding the conscience:
 
-**Answer:** Sonship is not hereditary (passed from parents), nor is it national
-(being born in a certain country), nor is it achieved by merit. It is solely "by
-faith in Christ Jesus."
+> _"Beloved, if our heart condemn us not, then have we confidence toward God."_ (1 John 3:20, 21)
 
-- **Faith:** This is not merely an intellectual assent to historical facts. It
-  is a transaction of the heart where the sinner lays hold of the merits of
-  Christ, trusting wholly in His righteousness for acceptance.
-- **The Exchange:** When we exercise faith, we exchange our poverty for His
-  wealth, our sin for His righteousness (2 Corinthians 5:21).
-
-**[ILL]** A beggar has no right to enter a palace. But if the King’s son takes
-the beggar by the hand and says, "He is with me," the beggar enters on the
-merits of the son. We enter the family of God holding the hand of Jesus by
-faith.
+When we knowingly continue in sin, our faith weakens and our confidence before God diminishes. Not because we are saved by our works, but because a divided heart cannot fully trust.
 
 ---
 
-### Q6. What is said of him who has faith in Christ?
+## Deeper Truths
 
-“Whosoever believeth that Jesus is the Christ is born of God." 1 John 5:1.
+### Justification and the Law
 
-**Answer:** Here the apostle connects _faith_ with the _new birth_.
+Here we must understand a vital distinction that has confused many sincere believers:
 
-- **Regeneration (The New Birth):** A supernatural work of the Holy Spirit where
-  the human heart is given a new spiritual life (John 3:3–5).
-- **The Connection:** True faith is the conduit through which this new life
-  flows. You cannot truly believe in Jesus as the Messiah without the Spirit of
-  God performing this miracle of birth in your soul.
+> _"Therefore by the deeds of the law there shall no flesh be justified in His sight: for by the law is the knowledge of sin."_ (Romans 3:20)
 
-**Definition:**
+The law cannot justify because that is not its function. A mirror reveals dirt on your face; it cannot wash the dirt away. The law reveals sin; it cannot remove sin. The law diagnoses; it does not cure.
 
-- **Born of God:** The impartation of a new nature; a change from being
-  self-centered to being God-centered.
+**How then are we justified?**
 
----
+> _"Therefore being justified by faith, we have peace with God through our Lord Jesus Christ."_ (Romans 5:1)
 
-### Q7. But what does living faith in Christ include?
+**Justification**: God's legal declaration that a repentant sinner is counted righteous because of Christ's merits credited to their account. It is not based on what we have done, but on what Christ has done for us.
 
-“For as the body without the Spirit is dead, so faith without works is dead
-also." James 2: 26.
-
-**Answer:** This is a crucial balance in the doctrine of Righteousness by Faith.
-
-1.  **Faith is the Root, Works are the Fruit:** We are not saved _by_ our works,
-    but we are not saved _without_ works that follow faith.
-2.  **Dead Faith:** A profession of religion that produces no change in
-    behavior, no obedience, and no love, is lifeless. It is a "body without the
-    spirit"—a corpse.
-3.  **Living Faith:** Real faith inevitably works by love and purifies the soul
-    (Galatians 5:6). If the life of Christ is truly in the heart, the works of
-    Christ will appear in the life.
-
-**[ILL]** Consider a fruit tree. It does not produce apples to _become_ an apple
-tree; it produces apples because it _is_ an apple tree. If a tree never produces
-leaves or fruit, we know it is dead at the roots. Works are the visible proof of
-the life flowing through the roots of faith.
+[ILL] Imagine a criminal standing before a judge, clearly guilty of a capital offense. The evidence is overwhelming; the verdict is certain. But just before sentencing, the judge's own son steps forward and says, "I will take his punishment. Let him go free." The judge, in perfect justice, accepts the substitution. The guilty man walks out of the courtroom—not innocent of the crime, but pardoned. His record shows "debt paid in full." This is justification: Christ took our condemnation so we could receive His acquittal.
 
 ---
 
-### Q8. When is faith effectual?
+### From Death to Life: The Work of Regeneration
 
-“And whatsoever we ask, we receive of Him, because we keep His commandments, and
-do those things that are pleasing in His sight." 1 John 3:22.
+Paul describes our condition before regeneration in stark terms:
 
-**Answer:** Faith is not a magic word; it is a relationship.
+> _"For I was alive without the law once: but when the commandment came, sin revived, and I died."_ (Romans 7:9)
 
-- **The Condition of Answered Prayer:** There is a direct link between our
-  obedience and our confidence in prayer. If we willfully cherish sin (breaking
-  His commandments), we cut ourselves off from the channel of blessing (Psalm
-  66:18; Isaiah 59:2).
-- **Pleasing Him:** The believer who has been justified by grace delights to do
-  God’s will. The law, which was once an enemy, is now written on the heart
-  (Hebrews 8:10).
+Before we understood God's holy requirements, we felt spiritually "alive"—comfortable in our sins. But when the law did its work of conviction, we recognized our true state: spiritually dead, condemned, helpless.
 
-**Sanctuary Connection:** In the earthly sanctuary, the incense (representing
-the prayers of saints) was offered on the Golden Altar. This altar was situated
-directly before the veil of the Most Holy Place, where the Law of God was kept
-in the Ark. Prayer and the Law are close companions.
+How does God remedy this death?
 
----
+> _"Even when we were dead in sins, hath quickened us together with Christ."_ (Ephesians 2:5)
 
-### Q9. Is it necessary to do the things that we know are pleasing to God in order to maintain living faith?
+**Quickened**: Made alive. The same power that raised Christ from the tomb raises dead souls to spiritual life.
 
-“For if our heart condemn us, God is greater than our heart, and knoweth all
-things. Beloved, if our heart condemn us not, then have we confidence toward
-God." 1 John 3:20, 21.
+Paul gives this work a specific name:
 
-**Answer:** Yes. A guilty conscience paralyzes faith.
+> _"According to His mercy He saved us, by the washing of regeneration, and renewing of the Holy Ghost."_ (Titus 3:5)
 
-- **The Condemning Heart:** When we knowingly walk contrary to God's will, our
-  confidence evaporates. We cannot come "boldly to the throne of grace" (Hebrews
-  4:16) while holding hands with sin.
-- **God's Greatness:** The text also offers comfort. "God is greater than our
-  heart." Sometimes we feel condemned even when we have repented. God knows the
-  difference between a weak, struggling heart that desires Him and a rebellious,
-  defiant heart.
-- **Victory:** To maintain living faith, we must claim the power of Christ to
-  overcome every known sin.
+**Regeneration**: From the Greek _palingenesia_ (παλιγγενεσία)—literally "birth again" or "genesis again." It is a complete re-creation of the inner person.
 
-**[ILL]** A child who has broken a vase and hidden the pieces feels fearful and
-shy around his father. The relationship is strained by the secret. Once the
-child confesses and is forgiven, he runs to his father with confidence again.
-Obedience and a clear conscience restore boldness.
+[DYK🔎] The word _palingenesia_ appears only twice in the New Testament—once referring to individual new birth (Titus 3:5) and once referring to the cosmic renewal at Christ's second coming (Matthew 19:28). This links personal regeneration with the ultimate regeneration of all creation!
 
 ---
 
-### Q10. But still, will keeping the law justify anyone? If not, why not?
+### The Evidence of New Life
 
-“Therefore by the deeds of the law there shall no flesh be justified in His
-sight; for by the law is the knowledge of sin." Rom. 3:20.
+How do we know if regeneration has truly occurred? John provides a clear test:
 
-**Answer:** This is the cornerstone of the Gospel: **Legalism cannot save.**
+> _"We know that we have passed from death unto life, because we love the brethren. He that loveth not his brother abideth in death."_ (1 John 3:14)
 
-- **The Function of the Law:** The law is a standard of righteousness. Like a
-  mirror, its purpose is to reveal defects, not to remove them. A mirror can
-  show you that your face is dirty, but you cannot wash your face with the
-  mirror.
-- **Why it cannot justify:**
-  1.  We have already sinned. Future obedience cannot pay for past crimes.
-  2.  Our nature is fallen. Without Christ, even our "best" works are tainted
-      with selfishness (Isaiah 64:6).
-
-**Definition:**
-
-- **Justification:** The legal declaration by God that a sinner is righteous.
-  This standing is granted solely based on the merits of Jesus, not the behavior
-  of the sinner.
+Love for fellow believers is the unmistakable fruit of the new birth. Where there is spiritual life, there will be love—not merely sentimental feeling, but self-sacrificing commitment to others' good.
 
 ---
 
-### Q11. How are we justified?
+## Principles and Great Controversy Themes
 
-“Therefore being justified by faith, we have peace with God through our Lord
-Jesus Christ." Rom. 5:1.
+### The Cosmic Scope of Redemption
 
-**Answer:**
+Regeneration is not merely personal—it is planetary. To understand this, we must trace the story from Eden.
 
-- **The Instrument:** Justification is by _faith_. Faith is the hand that
-  accepts the gift.
-- **The Result:** Peace with God. The war is over. The sinner is no longer an
-  enemy but a reconciled friend.
-- **The Source:** "Through our Lord Jesus Christ." It is His perfect life (which
-  satisfied the law's precept) and His sacrificial death (which satisfied the
-  law's penalty) that constitute our righteousness.
+**Before the fall**, humanity had access to the tree of life:
 
-**RBF (Righteousness by Faith):** We do not have peace because we have conquered
-all our sins; we have peace because Christ has conquered. From this platform of
-peace, we then go on to conquer sin in His power.
+> _"And out of the ground made the Lord God to grow every tree that is pleasant to the sight, and good for food; the tree of life also in the midst of the garden."_ (Genesis 2:9)
 
----
+**After transgression**, that access was barred:
 
-### Q12. In what condition were we before being justified?
+> _"So He drove out the man; and He placed at the east of the garden of Eden cherubim, and a flaming sword which turned every way, to keep the way of the tree of life."_ (Genesis 3:24)
 
-“For I was alive without the law once: but when the commandment came, sin
-revived, and I died." Rom. 7:9.
+The curse extended to the very ground:
 
-**Answer:** Paul describes the experience of conviction:
+> _"Cursed is the ground for thy sake; in sorrow shalt thou eat of it all the days of thy life."_ (Genesis 3:17)
 
-1.  **Alive without the law:** Before he understood the spiritual depth of the
-    law (especially the 10th commandment against coveting), Paul felt
-    self-righteous and spiritually "alive."
-2.  **The Commandment came:** When the Holy Spirit applied the law to his
-    conscience, he saw the true nature of his heart.
-3.  **I died:** His self-confidence was shattered. He realized he was
-    spiritually dead. This "death" to self-righteousness is a necessary step
-    before true regeneration can occur. You cannot be saved until you realize
-    you are lost.
+[Q] **"Did Satan gain actual authority over the earth through Adam's fall?"**
+
+Scripture indicates that he did. When Adam yielded to temptation, he forfeited his dominion:
+
+> _"For of whom a man is overcome, of the same is he brought in bondage."_ (2 Peter 2:19)
+
+Satan himself claimed this authority when tempting Christ:
+
+> _"And the devil said unto Him, All this power will I give thee, and the glory of them: for that is delivered unto me."_ (Luke 4:6)
+
+Jesus did not dispute this claim. Satan had become "the prince of this world" (John 12:31). But Christ came to reclaim what was lost—both the people and the planet.
 
 ---
 
-### Q13. How does God take away condemnation?
+### The Purchased Possession
 
-“Even when we were dead in sins, hath quickened us together with Christ." Eph.
-2:5.
+Paul reveals that redemption encompasses more than souls:
 
-**Answer:** When we are lying "dead" in our guilt and helplessness, God
-intervenes.
+> _"In whom also after that ye believed, ye were sealed with that Holy Spirit of promise, which is the earnest of our inheritance until the redemption of the purchased possession, unto the praise of His glory."_ (Ephesians 1:13, 14)
 
-- **Quickened:** This old English word means "made alive."
-- **Together with Christ:** Just as God raised Jesus from the physical dead, He
-  raises the believer from spiritual death. This is the resurrection power of
-  God working in the soul. Grace meets us in the grave of our sin and brings us
-  out.
+The "purchased possession" awaiting redemption is the earth itself. The Holy Spirit in our hearts is the **earnest**—a down payment guaranteeing the full inheritance to come.
 
-**[ILL]** Lazarus was dead in the tomb. He could not help himself. Jesus came
-and spoke the word of life, "Lazarus, come forth!" Regeneration is a miracle of
-resurrection power in the human spirit.
+**How will the earth be cleansed from the curse?**
 
----
+> _"Looking for and hasting unto the coming of the day of God, wherein the heavens being on fire shall be dissolved, and the elements shall melt with fervent heat? Nevertheless we, according to His promise, look for new heavens and a new earth, wherein dwelleth righteousness."_ (2 Peter 3:12, 13)
 
-### Q14. What does the apostle, in another place call this quickening?
+**When will this cosmic regeneration occur?**
 
-“According to His mercy He saved us, by the washing of regeneration, and
-renewing of the Holy Ghost." Titus 3:5.
+> _"And Jesus said unto them, Verily I say unto you, That ye which have followed Me, in the regeneration when the Son of man shall sit in the throne of His glory, ye also shall sit upon twelve thrones, judging the twelve tribes of Israel."_ (Matthew 19:28)
 
-**Answer:** Here the process is given its theological name: **Regeneration.**
-
-- **Washing:** This refers to the cleansing from the guilt of past sins
-  (symbolized by baptism and the Laver in the sanctuary).
-- **Renewing of the Holy Ghost:** This is the daily impartation of power to live
-  a new life. It is not enough to be forgiven (washed); we must be refilled
-  (renewed) so that we do not return to the mire of sin.
-
-**Definition:**
-
-- **Regeneration:** From the Greek _palingenesia_ (palin = again, genesis =
-  birth/creation). It literally means to be created again.
+Here Jesus uses the same word—_palingenesia_—to describe the renewal of all things at His glorious return. Personal regeneration now foreshadows planetary regeneration then.
 
 ---
 
-### Q15. What is one evidence of regeneration?
+### Sanctuary Shadows
 
-“We know that we have passed from death unto life, because we love the brethren.
-He that loveth not his brother abideth in death." 1 John 3:14.
+The sanctuary service beautifully illustrates regeneration:
 
-**Answer:** The surest test of the new birth is not a feeling or a vision, but a
-change in relationship with others.
+- At the **altar of burnt offering** (outer court), the sinner brought a sacrifice pointing to Christ's substitutionary death—the basis of our justification.
+- At the **laver**, the priests washed before entering the holy place—symbolizing the "washing of regeneration" (Titus 3:5).
+- In the **holy place**, the candlestick (Holy Spirit's light), the table of showbread (Word of God), and the altar of incense (prayer) sustained the spiritual life of regenerated believers—ongoing sanctification.
+- The **Most Holy Place** ministry pointed forward to the final cleansing and the complete eradication of sin from the universe.
 
-- **From Selfishness to Love:** The natural heart is selfish. It seeks its own
-  way. The regenerated heart possesses the love of Christ.
-- **The Test:** If we harbor hatred, grudge-holding, or indifference toward
-  fellow believers, we "abide in death." The fruit of the Spirit is love
-  (Galatians 5:22).
-
-**[ILL]** Take a piece of cold iron; it has no attraction to other iron. But
-coil a wire around it and run electricity through it—it becomes a magnet and
-draws other iron to itself. When the "electricity" of the Holy Spirit enters a
-man, he naturally draws near to and loves the brethren.
+Just as the sanctuary moved from justification (altar) through sanctification (daily ministry) to final cleansing (Day of Atonement), so God's work in us moves from new birth through character development to complete restoration.
 
 ---
 
-### Q16. Before man's fall, to what did he especially have access?
+### The Final Restoration
 
-“And out of the ground made the Lord God to grow every tree that is pleasant to
-the sight, and good for food; the tree of life also in the midst of the garden."
-Gen. 2:9.
+What will the regenerated earth look like?
 
-**Answer:**
+> _"For the earth shall be filled with the knowledge of the glory of the Lord, as the waters cover the sea."_ (Habakkuk 2:14)
 
-- **The Tree of Life:** This tree was the medium through which God sustained the
-  immortality of the human race. Adam and Eve were not inherently immortal (only
-  God is, 1 Timothy 6:16); their life was conditional upon obedience and access
-  to this tree.
+Will the curse ever return?
 
----
+> _"And there shall be no more curse: but the throne of God and of the Lamb shall be in it; and His servants shall serve Him."_ (Revelation 22:3)
 
-### Q17. After Adam transgressed, what was done to him?
+**No more curse**—eternally secure. What Adam lost, Christ restores—and more. For the redeemed will never again be subject to the possibility of falling.
 
-“So He drove out the man; and He placed at the east of the garden of Eden
-cherubim, and a flaming sword which turned every way, to keep the way of the
-tree of life." Gen. 3:24.
+Will the tree of life be restored to humanity?
 
-**Answer:**
+> _"Blessed are they that do His commandments, that they may have right to the tree of life, and may enter in through the gates into the city."_ (Revelation 22:14)
 
-- **Access Denied:** Because man sinned, he was cut off from the source of
-  endless life.
-- **Mercy in Judgment:** This was an act of mercy. To allow a sinner to eat of
-  the tree of life would be to immortalize sin. God would not permit an eternal
-  sinner to exist in misery. Therefore, man became subject to death.
+[DYK🔎] Notice: Those who "do His commandments" have "right to the tree of life." This is not legalism—it is the fruit of regeneration. Those born again by the Spirit love God's law and keep it from the heart (Ezekiel 36:26, 27). Obedience is not the root of salvation but its fruit; yet without that fruit, there is no life.
 
 ---
 
-### Q18. What was cursed because of the fall?
+## Practical Application
 
-“Cursed is the ground for thy sake; in sorrow shalt thou eat of it all the days
-of thy life." Gen. 3:17.
+### What Does This Mean for Daily Living?
 
-**Answer:** The effects of sin were not limited to man's nature; they infected
-the physical creation.
+1. **Rest in Christ's finished work**. Justification is complete the moment you believe. You cannot add to it by your efforts. Stop trying to earn what has already been given.
 
-- **Cosmic Regeneration:** The "regeneration" spoken of in the Bible involves
-  not just the saving of souls, but the healing of the earth itself. The thorns,
-  thistles, and decay we see in nature are the result of the curse man brought
-  upon his dominion.
+2. **Cooperate with the Spirit's ongoing work**. Regeneration begins a process. The same power that created new life in you will sustain and grow that life—if you submit daily. "Work out your own salvation with fear and trembling. For it is God which worketh in you" (Philippians 2:12, 13).
 
----
+3. **Test yourself by love**. Do you love the brethren? Not in feeling only, but in patient, self-denying service? This is the evidence that you have passed from death to life.
 
-### Q19. In the sin of our first parents, to whom did they yield their inheritance?
+4. **Keep your conscience clear**. When you know something is wrong, don't do it. When you know something is right, do it. A condemning heart blocks confidence before God and weakens faith.
 
-“While they promise them liberty, they themselves are the servants of
-corruption: for of whom a man is overcome, of the same is he brought in
-bondage." 2 Peter 2:19.
+5. **Live in hope of the regeneration**. The same God who is renewing your heart will renew the heavens and the earth. Let this blessed hope purify your life today: "Every man that hath this hope in him purifieth himself, even as He is pure" (1 John 3:3).
 
-**Answer:** This is a principle of spiritual law: You are the slave of the one
-you choose to obey (Romans 6:16).
-
-- **The Lost Dominion:** God gave Adam dominion over the earth (Genesis 1:26).
-  When Adam obeyed Satan, he surrendered that dominion. He became a captive, and
-  Satan became the "god of this world" (2 Corinthians 4:4).
+[ILL] A caterpillar does not become a butterfly by trying harder to be beautiful. It submits to a process—the cocoon, the waiting, the transformation wrought by unseen forces. When it emerges, it is no longer the same creature. So the regenerated soul does not improve the old life; it receives an entirely new one. Our part is to enter the cocoon of surrender and let God do His transforming work.
 
 ---
 
-### Q20. After the fall of man, did the earth pass into the hands of Satan?
+## Appeal
 
-“And the Devil, taking Him [Jesus] up into a high mountain, showed unto Him all
-the kingdoms of the world in a moment of time, And the Devil said unto Him, All
-this power will I give thee, and the glory of them: for that is delivered unto
-me; and to whomsoever I will, I give it." Luke 4:5, 6.
+> _"Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new."_ (2 Corinthians 5:17)
 
-**Answer:** Yes. Jesus did not dispute Satan's claim that the kingdoms had been
-"delivered unto him." Satan is the usurper who currently holds sway over the
-planet through the agency of sin. Christ came as the "Second Adam" to win back
-the territory the first Adam lost.
+Friend, have you been born again? Not merely convinced of truth, not merely a church member, not merely trying to live a good life—but **regenerated** by the power of the Holy Spirit?
 
----
+If not, Christ is seeking you today. He came to save that which was lost. He stands at the door of your heart and knocks (Revelation 3:20). Will you open to Him?
 
-### Q21. Will the possession purchased by the blood of Christ, be restored again to man?
+If you have already received this new birth, are you walking in its power? Are you experiencing the "washing of regeneration and renewing of the Holy Ghost" day by day? Or have you settled into a form of godliness without the power?
 
-“In whom also, after that ye believed, ye were sealed with that Holy Spirit of
-promise, which is the earnest [pledge] of our inheritance until the redemption
-of the purchased possession, unto the praise of His glory." Eph. 1:13, 14.
+The same God who spoke worlds into existence can speak new life into your soul. The same power that will one day regenerate the earth is available now to regenerate your heart.
 
-**Answer:**
+"Behold, I make all things new" (Revelation 21:5).
 
-- **The Purchased Possession:** This refers to the earth itself, originally
-  given to man.
-- **The Earnest:** The Holy Spirit in our hearts is the "down payment" or
-  guarantee that the full restoration is coming.
-- **Future Hope:** Redemption includes the resurrection of the body (Romans
-  8:23) and the restoration of the earth. The plan of salvation is not complete
-  until the physical world is reclaimed from the enemy.
-
-**Sanctuary Connection:** The Day of Atonement (Leviticus 16) involved not only
-cleansing the people but cleansing the physical sanctuary itself. God will
-cleanse the universe.
-
----
-
-### Q22. But in redeeming the possession, the earth, as well as man, must be cleansed from the curse. How will this be done? and what will be the result?
-
-“Looking for and hasting unto the coming of the day of God, wherein the heavens
-being on fire shall be dissolved, and the elements shall melt with fervent heat?
-Nevertheless we, according to His promise, look for new heavens and a new earth,
-wherein dwelleth righteousness." 2 Peter 3:12, 13.
-
-**Answer:**
-
-- **The Cleansing Fire:** Just as the old world was cleansed by water (the
-  Flood), the present world will be cleansed by fire. This fire will eradicate
-  every trace of sin, Satan, death, and the curse (Malachi 4:1–3).
-- **The Result:** From the ashes of the purified earth, God will re-create a
-  "New Earth." It will be the home of the righteous, free from the stain of sin.
-
----
-
-### Q23. When will the regeneration of the earth take place?
-
-“And Jesus said unto them, Verily I say unto you, That ye which have followed
-Me, in the regeneration when the Son of man shall sit in the throne of His
-glory, ye also shall sit upon twelve thrones, judging the twelve tribes of
-Israel." Matt. 19:28.
-
-**Answer:** Jesus explicitly refers to the making new of all things as "the
-regeneration."
-
-- **Timing:** This occurs when the "Son of man shall sit in the throne of His
-  glory," which points to the establishment of His eternal kingdom after the
-  eradication of sin.
-- **Parallel:** Just as the individual must be born again (regenerated) by the
-  Spirit to see the kingdom, the earth must be born again (regenerated) by fire
-  to become the kingdom.
-
----
-
-### Q24. What will be the condition of the earth when redeemed?
-
-“For the earth shall be filled with the knowledge of the glory of the Lord, as
-the waters cover the sea." Hab. 2:14; (Num.14:21).
-
-**Answer:** The Great Controversy ends with the complete vindication of God's
-character.
-
-- **Glory Restored:** The "glory" of the Lord is His character of love (Exodus
-  33:18–19; 34:6–7). The entire earth, once marred by the selfishness of sin,
-  will pulse with the love of God. Creation will perfectly reflect the Creator
-  once again.
-
----
-
-### Q25. Will the earth ever be cursed again, when once redeemed?
-
-“And there shall be no more curse: but the throne of God and of the Lamb shall
-be in it; and His servants shall serve Him." Rev. 22:3.
-
-**Answer:**
-
-- **Security:** The security of the redeemed is eternal. "Affliction shall not
-  rise up the second time" (Nahum 1:9).
-- **Why?** The redeemed have seen the terrible cost of sin (the death of Christ)
-  and the terrible result of sin (the history of this world). They are immune to
-  sin not because God forces their will, but because they love Him supremely and
-  have the law written on their hearts.
-
----
-
-### Q26. Will man regain the right to the tree of life which was forfeited through sin?
-
-“Blessed are they that do His commandments, that they may have right to the tree
-of life, and may enter in through the gates into the city." Rev. 22:14.
-
-**Answer:** The story of the Bible ends where it began: with man and the Tree of
-Life.
-
-- **Restoration:** What Adam lost, Christ regained.
-- **The Character of the Redeemed:** They "do His commandments." This is not
-  legalism; it is the description of those who have been washed, regenerated,
-  and sanctified by the blood of the Lamb. Because they are restored to harmony
-  with God's law (His character), they can safely live forever.
-- **The Grand Finale:** The regeneration is complete. The soul is restored to
-  God's image, and the earth is restored to Edenic beauty.
-
-**[ILL]** The Bible is like a circle. It begins in Eden with no sin, a tree of
-life, and God walking with man. The circle is broken by sin. But through the
-cross of Christ, the line curves back until the circle is closed in Revelation:
-Eden restored, no sin, the tree of life accessible, and "God himself shall be
-with them" (Revelation 21:3).
+Will you let Him make **you** new—today?

@@ -1,354 +1,154 @@
-### Q1. What attributes did Christ ascribe to His Father while addressing Him just before His trial in Gethsemane?
+# Bible Study: The Attributes of God
 
-"And now I am no more in the world, but these are in the world, and I come to
-thee. Holy Father, keep through thine own name those whom thou hast given me,
-that they may be one, as we are." "O righteous Father, the world hath not known
-thee: but I have known thee, and these have known that thou hast sent me." John
-17:11, 25.
+## Introduction
 
-**Answer:** In His great intercessory prayer, often called the "High Priestly
-Prayer," Christ focuses on two foundational attributes of God: His **holiness**
-and His **righteousness**.
-
-1.  **The Holy Father:**
-    - **Holiness defined:** Absolute purity, moral perfection, and complete
-      separation from sin (Isaiah 6:3; Habakkuk 1:13).
-    - Christ appeals to the Father's holiness because He is asking God to keep
-      His disciples separate from the evil of the world. Just as the vessels in
-      the earthly sanctuary were "holy" (set apart for God's use), the believer
-      is to be set apart from sin.
-    - **Sanctuary Connection:** In the earthly sanctuary, the High Priest bore
-      the names of Israel into the Holy Place. Here, Christ, our great High
-      Priest, bears His people before the "Holy Father," preparing to make the
-      final atonement.
-
-2.  **The Righteous Father:**
-    - **Righteousness defined:** The quality of being right, just, and acting in
-      perfect accordance with God’s own law of love (Psalm 119:172).
-    - Christ appeals to God’s righteousness to distinguish between the world
-      (which rejects God) and the disciples (who accepted Him). It is a
-      righteous act for God to acknowledge those who have received His Son.
-
-3.  **The Believer’s Need:**
-    - Because God is holy and righteous, and man is sinful, a mediator is
-      required. We cannot stand before a Holy God in our own filthy rags (Isaiah
-      64:6). We need Christ to cover us with His merit and to wash us by His
-      Spirit.
-
-[ILL] **Illustration:** Imagine a surgeon preparing for a delicate operation. He
-must be perfectly clean and sterile (holy) to save the patient's life; any
-contamination causes death. God’s holiness is not merely a barrier to keep us
-away, but a purity that must be imparted to us so that we can live in His
-presence without being consumed.
+Who is God? What is He like? These questions have occupied the minds of philosophers and seekers throughout human history, yet the answer lies not in human speculation but in divine revelation. Scripture draws back the veil to show us a God whose character is perfect in holiness, boundless in mercy, and unchanging through all eternity. Most remarkably, these very attributes are shared fully by Jesus Christ—revealing the profound unity of the Godhead and giving us confidence that when we see Jesus, we see the Father (John 14:9).
 
 ---
 
-### Q2. Does Christ possess these attributes?
+## Core Truths
 
-"Because thou wilt not leave my soul in hell, neither wilt thou suffer thine
-Holy One to see corruption." Acts 2:27. "He shall see of the travail of his
-soul, and shall be satisfied: by his knowledge shall my righteous servant
-justify many; for he shall bear their iniquities." Isaiah 53:11.
+### The Holiness and Righteousness of God
 
-**Answer:** Yes, the Scriptures explicitly attribute the same holiness and
-righteousness to Jesus Christ. He is not merely a good man; He is the divine Son
-of God.
+In Christ's most intimate prayer before Gethsemane, He addressed His Father with two profound titles:
 
-1.  **The Holy One:**
-    - Christ passed through a world of sin without being tainted by it. He was
-      "holy, harmless, undefiled, separate from sinners" (Hebrews 7:26). Because
-      He was the "Holy One," the grave could not hold Him; sin is the cause of
-      death, but in Him was no sin (1 John 3:5).
+> _"Holy Father, keep through thine own name those whom thou hast given me."_ (John 17:11)
 
-2.  **The Righteous Servant Who Justifies:**
-    - **Justification defined:** The legal declaration by God that a repentant
-      sinner is righteous, based solely on the merits of Christ (Romans 3:24).
-    - Isaiah 53:11 reveals the heart of the gospel: Christ is the "righteous
-      servant." He does not just _possess_ righteousness; He _provides_ it.
-    - **Righteousness by Faith:** We are justified not by our own works, but "by
-      his knowledge" (knowing and trusting Him). Because He bore our iniquities
-      (substitution), He can credit His perfect life to our account.
-    - Furthermore, He does not leave us in sin. He justifies us so that we may
-      become righteous in character, partaking of His divine nature (2 Peter
-      1:4).
+> _"O righteous Father, the world hath not known thee: but I have known thee."_ (John 17:25)
 
-[ILL] **Illustration:** If a man is drowning in debt and facing prison, he
-cannot pay his way out. If a wealthy friend pays the debt in full, the man is
-free. But Christ does more than pay the debt; He adopts the debtor into the
-royal family and teaches him how to manage the King’s resources. Christ’s
-righteousness clears our past (justification) and transforms our future
-(sanctification).
+**Holiness** means God is utterly separate from sin—pure, set apart, morally perfect. **Righteousness** speaks of His character as always doing what is right, just, and true. These are not merely abstract qualities; they define the very essence of who God is.
+
+[DYK🔎] The Hebrew word for "holy" (_qadosh_) appears over 600 times in the Old Testament. Its root meaning is "to cut" or "to separate"—indicating that God is completely distinct from all that is common, impure, or sinful.
+
+### Christ Shares These Divine Attributes
+
+The same holiness and righteousness belong to Christ:
+
+> _"Thou wilt not leave my soul in hell, neither wilt thou suffer thine Holy One to see corruption."_ (Acts 2:27)
+
+> _"By his knowledge shall my righteous servant justify many; for he shall bear their iniquities."_ (Isaiah 53:11)
+
+Peter, quoting David's prophecy, identified Jesus as "the Holy One" whose body would not see decay. Isaiah proclaimed Him as the "righteous servant" who would bear our sins. Here is a mystery of infinite love: the Holy One became sin for us (2 Corinthians 5:21), the Righteous One bore the penalty of the unrighteous (1 Peter 3:18).
 
 ---
 
-### Q3. What is said about the goodness of God?
+## Deeper Truths
 
-"And the LORD passed by before him, and proclaimed, The LORD, The LORD God,
-merciful and gracious, longsuffering, and abundant in goodness and truth."
-Exodus 34:6.
+### The Goodness and Mercy of God
 
-**Answer:** When Moses asked to see God’s glory, God revealed His character.
-This text is central to understanding the Great Controversy—Satan claims God is
-severe and exacting, but God reveals Himself as abundant in goodness.
+When Moses asked to see God's glory, the Lord revealed His character:
 
-- **Merciful:** Treating us better than we deserve; withholding the immediate
-  punishment sin merits.
-- **Gracious:** Giving us the favor and power we do not deserve.
-- **Longsuffering:** Patient with our weaknesses and slow to anger.
-- **Abundant in Goodness and Truth:** God’s resources of love are inexhaustible.
+> _"The LORD, The LORD God, merciful and gracious, longsuffering, and abundant in goodness and truth."_ (Exodus 34:6)
 
-**Key Insight:** The glory of God is His character. To be changed into His image
-means we, too, must become merciful, gracious, and truthful through the
-indwelling of Christ.
+This is God's own self-description—not power, not wrath, but **mercy, grace, patience, goodness, and truth**. This is what God considers His glory.
 
-[ILL] **Illustration:** A rebellion breaks out in a kingdom. The king has the
-power to crush the rebels instantly. Instead, he visits them unarmed, offering
-food, medicine, and pardon, patiently waiting for them to lay down their arms.
-This is the picture of God’s "longsuffering" and "goodness" toward a rebellious
-world.
+> _"The LORD is merciful and gracious, slow to anger, and plenteous in mercy."_ (Psalm 103:8)
 
----
+> _"But thou, O Lord, art a God full of compassion, and gracious, longsuffering, and plenteous in mercy and truth."_ (Psalm 86:15)
 
-### Q4. What was the nature of Christ's work while among men?
+[Q] **"If God is so merciful, why does He permit suffering and judgment?"**
 
-"How God anointed Jesus of Nazareth with the Holy Ghost and with power: who went
-about doing good, and healing all that were oppressed of the devil; for God was
-with him." Acts 10:38.
+God's mercy is not indifference to sin—it is patience that gives opportunity for repentance (2 Peter 3:9). His longsuffering delays judgment, giving every soul time to turn from destruction. Yet His righteousness requires that unrepented sin ultimately meet its consequence. Mercy and justice meet perfectly at the cross, where God "might be just, and the justifier of him which believeth in Jesus" (Romans 3:26).
 
-**Answer:** Christ was the express image of the Father (Hebrews 1:3).
-Consequently, His life on earth was a practical demonstration of the attributes
-listed in Exodus 34:6.
+### Christ: The Embodiment of God's Goodness
 
-1.  **Active Benevolence:**
-    - He "went about doing good." His religion was practical. He did not live in
-      a cloister but mingled with the people, desiring their good.
-2.  **Conflict with Satan:**
-    - He healed those "oppressed of the devil." Sickness and sin are the work of
-      the enemy. Christ came to destroy the works of the devil (1 John 3:8).
-3.  **The Pattern for Believers:**
-    - **Sanctification defined:** The process of becoming like Christ in
-      character.
-    - If we are abiding in Christ, we will do the works of Christ. We cannot
-      claim to have His righteousness if we are indifferent to the suffering of
-      others. Faith works by love (Galatians 5:6).
+What was the nature of Christ's earthly ministry?
 
-[ILL] **Illustration:** A stream that receives water from a spring but has no
-outlet becomes a stagnant swamp. A stream that receives and gives flows clear
-and sweet. The Christian who receives God’s goodness but does not "go about
-doing good" becomes spiritually stagnant.
+> _"God anointed Jesus of Nazareth with the Holy Ghost and with power: who went about doing good, and healing all that were oppressed of the devil; for God was with him."_ (Acts 10:38)
 
----
+Christ's life was the visible demonstration of the Father's goodness. Every healing, every act of compassion, every word of hope declared: **this is what God is like**. The Father's heart beats with the same mercy Christ showed to the woman caught in adultery, the same compassion He extended to the leper, the same patience He gave to doubting Thomas.
 
-### Q5. What is said of the mercy of God?
+[ILL] A child who has never met his father may have strange ideas about him—perhaps imagining him as harsh or distant. But when he finally meets him and finds kindness, patience, and love, all false pictures vanish. So it was with humanity. Satan had painted God as arbitrary and severe. But when Jesus came, doing good and healing all oppressed by the devil, the true character of the Father was revealed. "He that hath seen me hath seen the Father" (John 14:9).
 
-"The LORD is merciful and gracious, slow to anger, and plenteous in mercy."
-Psalms 103:8.
+### God's Faithfulness and Truth
 
-**Answer:** The Psalmist reiterates the revelation given to Moses. "Plenteous in
-mercy" implies that God’s mercy is not in short supply; it overflows.
+> _"Know therefore that the LORD thy God, he is God, the faithful God, which keepeth covenant and mercy with them that love him and keep his commandments to a thousand generations."_ (Deuteronomy 7:9)
 
-- **Slow to Anger:** God does not strike at the first offense. He gives time for
-  repentance (2 Peter 3:9).
-- **The Purpose of Mercy:** God’s mercy is not permission to sin, but a bridge
-  to restoration. "The goodness of God leadeth thee to repentance" (Romans 2:4).
-- **Sanctuary Imagery:** In the sanctuary, the cover of the Ark was called the
-  "Mercy Seat." It was placed _above_ the Ten Commandments. This teaches that
-  while the Law requires obedience, Mercy makes a way for the transgressor to be
-  cleansed and restored to obedience through the blood of sprinkling.
+**Faithfulness** means God keeps His word—always. Every promise He makes, He fulfills. His covenant with His people stretches across "a thousand generations"—an expression of perpetuity.
 
-[ILL] **Illustration:** A child breaks a valuable vase. The father has the right
-to be angry and punish. Instead, he hugs the weeping child and says, "I forgive
-you; let us sweep this up together." That is mercy—it restores the relationship
-so the child desires to be careful in the future.
+And Christ declared:
+
+> _"I am the way, the truth, and the life: no man cometh unto the Father, but by me."_ (John 14:6)
+
+Christ did not merely speak truth; He **is** truth. In Him, every promise of God finds its "Yea" and "Amen" (2 Corinthians 1:20). He is the faithful and true witness (Revelation 3:14), the embodiment of all that is reliable and trustworthy.
+
+[DYK🔎] The Hebrew word for "truth" (_emeth_) comes from the same root as "Amen"—meaning firm, established, reliable. When we say "Amen" at the end of a prayer, we are affirming that God is trustworthy to fulfill what has been asked.
+
+### The Wisdom and Justice of God
+
+> _"Behold, God is mighty, and despiseth not any: he is mighty in strength and wisdom."_ (Job 36:5)
+
+God's wisdom is not mere knowledge but perfect understanding applied rightly in every situation. He sees the end from the beginning and works all things according to the counsel of His will (Ephesians 1:11).
+
+Even as a child, Christ demonstrated this divine attribute:
+
+> _"And the child grew, and waxed strong in spirit, filled with wisdom: and the grace of God was upon him."_ (Luke 2:40)
+
+And His justice is proclaimed in the most emphatic terms:
+
+> _"He is the Rock, his work is perfect: for all his ways are judgment: a God of truth and without iniquity, just and right is he."_ (Deuteronomy 32:4)
+
+**Perfect**—without flaw. **Just**—rendering to each their due. **Right**—always morally correct. These qualities assure us that the final judgment will be utterly fair, completely transparent, and infinitely wise.
 
 ---
 
-### Q6. Is He compassionate?
+## Principles and Great Controversy Themes
 
-"But thou, O Lord, art a God full of compassion, and gracious, longsuffering,
-and plenteous in mercy and truth." Psalms 86:15.
+### The Unchanging God
 
-**Answer:** Yes, He is "full of compassion." The original language often implies
-a visceral reaction—a feeling of deep pity and sorrow for the suffering of
-another.
+> _"Of old hast thou laid the foundation of the earth: and the heavens are the work of thy hands. They shall perish, but thou shalt endure: yea, all of them shall wax old like a garment; as a vesture shalt thou change them, and they shall be changed: But thou art the same, and thy years shall have no end."_ (Psalm 102:25-27)
 
-- **Our High Priest:** We do not have a High Priest who cannot be touched with
-  the feeling of our infirmities (Hebrews 4:15). Christ feels every pang of
-  sorrow and every struggle against temptation that we face.
-- **Basis for Confidence:** Because He is compassionate, we can "come boldly
-  unto the throne of grace" (Hebrews 4:16). We need not fear that He is
-  indifferent to our struggles with sin. He stands ready to help us overcome.
+Creation itself will grow old and be changed. Stars will burn out; the heavens will be rolled together as a scroll (Isaiah 34:4). But God remains **the same**—His character never shifts, His promises never fail, His love never diminishes.
 
-[ILL] **Illustration:** When a shepherd sees a sheep caught in thorns, bleeding
-and frightened, he does not feel anger; he feels pity. He gently disentangles
-the sheep and carries it home. This is the compassion of God toward the sinner
-caught in the thorns of bad habits and guilt.
+[DYK🔎] The book of Hebrews quotes this very passage and applies it directly to Christ (Hebrews 1:10-12), demonstrating that Jesus shares the Father's eternal, unchanging nature.
 
----
+This immutability is our anchor in the great controversy between good and evil. Satan has charged that God's law is arbitrary and changeable, that His requirements are unjust. But the unchanging character of God proves that His law—which is a reflection of His character—is eternal, righteous, and good (Romans 7:12).
 
-### Q7. How did Moses represent God's faithfulness in keeping covenant with his people?
+### The Mystery Beyond Our Finding
 
-"Know therefore that the LORD thy God, he is God, the faithful God, which
-keepeth covenant and mercy with them that love him and keep his commandments to
-a thousand generations." Deuteronomy 7:9.
+> _"O the depth of the riches both of the wisdom and knowledge of God! how unsearchable are his judgments, and his ways past finding out!"_ (Romans 11:33)
 
-**Answer:** God is defined here as the "faithful God" who keeps His covenant.
+Can man ever fully comprehend God? Never. His wisdom is inexhaustible, His ways unfathomable. We will spend eternity learning more of His character, and still there will be infinite depths to explore.
 
-1.  **Covenant Defined:** A binding agreement or compact between God and man.
-    - In the **New Covenant**, God promises to write His law in our hearts and
-      minds (Hebrews 8:10).
-2.  **God’s Part:** He is faithful. If we surrender to Him, He _will_ complete
-    the work of sanctification in us (Philippians 1:6; 1 Thessalonians 5:24).
-3.  **Man’s Part:** The text specifies "them that love him and keep his
-    commandments."
-    - True love for God is demonstrated by obedience (John 14:15).
-    - We do not obey _to start_ the covenant; we obey as the _fruit_ of the
-      covenant relationship.
-    - God is faithful to give us the power to obey if we choose to love and
-      serve Him.
+[Q] **"If we cannot fully understand God, how can we trust Him?"**
 
-[ILL] **Illustration:** In a marriage, the husband and wife pledge faithfulness
-"until death." God is the perfect Husband to His people (Jeremiah 3:14). He
-never breaks His vow. Even when we stumble, if we return to Him, we find His
-faithfulness still standing like a mighty rock.
+We trust Him not because we comprehend all His ways, but because we have seen His character revealed in Christ. A child does not understand all his father's decisions, yet trusts him because he knows his father's heart. So with us—we have seen the Father's heart at Calvary. That is enough to trust Him with the things we cannot yet understand.
+
+### The Sanctuary and God's Character
+
+In the earthly sanctuary, God's attributes were continually displayed:
+
+- **Holiness**: The Most Holy Place, where only the high priest could enter once a year, declared God's unapproachable purity
+- **Mercy**: The mercy seat, where blood was sprinkled, showed that God provides a way of forgiveness
+- **Justice**: The ark beneath the mercy seat contained the law—broken by sinners, yet covered by atoning blood
+- **Faithfulness**: The continual services, morning and evening, demonstrated God's unceasing provision for His people
+
+In the heavenly sanctuary, Christ now ministers these same attributes. His righteousness covers our guilt; His holiness purifies our characters; His mercy intercedes for our weaknesses; His faithfulness sustains us until the work is complete.
 
 ---
 
-### Q8. Is Christ also the embodiment of truth?
+## Practical Application
 
-"Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto
-the Father, but by me." John 14:6.
+### How Should These Truths Change Us?
 
-**Answer:** Christ does not merely _teach_ the truth; He _is_ the Truth.
+1. **Confidence in Prayer**: We approach a holy God, yet one who is merciful, gracious, and longsuffering. We need not fear rejection, for Christ has opened the way (Hebrews 4:16).
 
-- **The Reality of God:** To know the truth is to know Jesus. All doctrines (the
-  Sabbath, the State of the Dead, the Sanctuary) are only valid because they
-  reveal something about Jesus and His character.
-- **Freedom from Error:** "The truth shall make you free" (John 8:32). Embracing
-  Christ frees us from the deception of Satan and the slavery of sin.
-- **The Only Way:** There is no other path to the Father. We cannot bypass
-  Christ’s sacrifice or His mediation. He is the ladder connecting earth to
-  heaven (Genesis 28:12; John 1:51).
+2. **Trust in Trials**: God's faithfulness extends to a thousand generations. Whatever promise He has made to you, He will keep. "He is faithful that promised" (Hebrews 10:23).
 
-[ILL] **Illustration:** A map can show you the route to a destination, but a
-guide goes with you. Christ is not just the map (doctrine); He is the Guide (The
-Way) who walks the path with us, ensuring we reach the Father.
+3. **Surrender in Judgment**: His justice is perfect; His ways are right. We can trust His decisions even when we do not understand them. The same God who showed mercy at Calvary will show mercy at the judgment seat.
+
+4. **Transformation of Character**: Beholding these attributes, we are changed into the same image (2 Corinthians 3:18). As we contemplate His holiness, we become holy. As we receive His mercy, we become merciful. As we rest in His faithfulness, we become faithful.
+
+[ILL] Consider how a bride prepares for her wedding day. She studies every detail of her beloved—his preferences, his character, his ways—that she might be suited to him. So the church, the bride of Christ, is to study the character of her Lord, that she might reflect His image and be ready when He comes. "Every man that hath this hope in him purifieth himself, even as he is pure" (1 John 3:3).
 
 ---
 
-### Q9. How is the wisdom of God represented?
+## Appeal
 
-"Behold, God is mighty, and despiseth not any: he is mighty in strength and
-wisdom." Job 36:5.
+> _"O the depth of the riches both of the wisdom and knowledge of God! how unsearchable are his judgments, and his ways past finding out!"_ (Romans 11:33)
 
-**Answer:** God combines infinite power ("mighty in strength") with infinite
-intelligence ("wisdom").
+We cannot search out God to perfection—but we can know Him in Christ. And knowing Him is eternal life (John 17:3).
 
-- **Perfect Understanding:** God knows the end from the beginning (Isaiah
-  46:10). He understands the intricate web of cause and effect in our lives.
-- **Despiseth Not Any:** Remarkably, this text links God’s greatness with His
-  humility. He does not overlook the lowly. His wisdom is used to save the
-  humblest sinner.
-- **Trusting His Wisdom:** Because God is all-wise, His plan for our lives—even
-  when it includes trials—is better than our own plans. "All things work
-  together for good" to those who love God (Romans 8:28).
+Will you surrender today to this holy, righteous, merciful, faithful, wise, and just God? He invites you not to understand all His ways, but to trust His heart. The same attributes that seem too lofty to reach have come down to us in Jesus. In Christ, holiness bends low to lift the sinner. In Christ, justice and mercy embrace at the cross. In Christ, the unsearchable God makes Himself known.
 
-[ILL] **Illustration:** A master weaver sees the whole pattern of the tapestry,
-while the observer only sees the tangled threads on the backside. We must trust
-the Weaver’s wisdom even when the threads of our life seem confused and dark.
-
----
-
-### Q10. What is said of the wisdom of Christ?
-
-"And the child grew, and waxed strong in spirit, filled with wisdom; and the
-grace of God was upon him." Luke 2:40.
-
-**Answer:** This verse highlights the humanity of Christ and His development.
-
-- **Growth in Wisdom:** Though divine, Christ took upon Himself human nature. He
-  learned as we must learn—through study of the Scriptures, nature, and
-  communion with His Father.
-- **Our Example:** This proves that wisdom is available to us. If Christ, in
-  human flesh, could be "filled with wisdom" through the Spirit, so can we. "If
-  any of you lack wisdom, let him ask of God..." (James 1:5).
-- **Christ Our Wisdom:** The Apostle Paul tells us that Christ "is made unto us
-  wisdom" (1 Corinthians 1:30). We do not have to rely on our own faulty
-  reasoning; we can have the mind of Christ (Philippians 2:5).
-
-[ILL] **Illustration:** As a flower opens to the sun to receive light and color,
-so the human mind of Jesus opened to the Father to receive wisdom. We are to
-follow this same pattern of daily opening our hearts to heaven.
-
----
-
-### Q11. In what strong language is the perfect justice of God proclaimed?
-
-"He is the Rock, his work is perfect; for all his ways are judgment: a God of
-truth and without iniquity, just and right is he." Deuteronomy 32:4.
-
-**Answer:** Here God is described as the "Rock," a symbol of stability and
-immutability. His fundamental attribute is justice.
-
-- **All His Ways are Judgment:** God does nothing arbitrary. Every decision is
-  based on perfect righteousness and fairness.
-- **Without Iniquity:** There is no shadow of turning in Him.
-- **Justice and the Gospel:** Many think justice contradicts mercy. In the Great
-  Controversy, Satan accused God of being unjust. The Cross demonstrated that
-  God is both "just, and the justifier of him which believeth in Jesus" (Romans
-  3:26). He did not set aside the law to save us; He paid the penalty of the law
-  Himself. This establishes the law (Romans 3:31) while saving the sinner.
-
-[ILL] **Illustration:** A building built on sand will shift and crack when the
-storm comes. A building anchored into bedrock stands firm. God’s government is
-built on the bedrock of justice; therefore, the universe is safe in His hands.
-
----
-
-### Q12. How long will these attributes exist?
-
-"Of old hast thou laid the foundation of the earth: and the heavens are the work
-of thy hands. They shall perish, but thou shalt endure: yea, all of them shall
-wax old like a garment; as a vesture shalt thou change them, and they shall be
-changed: But thou art the same, and thy years shall have no end." Psalms
-102:25-27.
-
-**Answer:** God is eternal and immutable (unchanging).
-
-- **"Thou Art the Same":** Creation may wear out (entropy), but the Creator
-  remains.
-- **Comfort for the Believer:** Because God does not change, His promises do not
-  expire (Malachi 3:6). The same mercy offered to David and Peter is offered to
-  us. The same power that parted the Red Sea is available to help us overcome
-  sin today.
-- **The Eternal Gospel:** The plan of salvation is called the "everlasting
-  gospel" (Revelation 14:6). It is based on the unchangeable character of God.
-
-[ILL] **Illustration:** Clouds constantly change shape and position, blocking
-the sun or letting it shine. But the sun itself remains constant. Our feelings
-and circumstances change like clouds, but God, the Sun of Righteousness, remains
-forever the same.
-
----
-
-### Q13. Can man ever really find out God?
-
-"O the depth of the riches both of the wisdom and knowledge of God: how
-unsearchable are his judgments, and his ways past finding out!" Romans 11:33.
-
-**Answer:** While God has revealed His character (love, justice, mercy), the
-infinite depths of His being are beyond human comprehension.
-
-- **The Finite cannot grasp the Infinite:** We can know God truly, but we can
-  never know Him fully.
-- **Eternity of Study:** This is the joy of the redeemed. Throughout the
-  ceaseless ages of eternity, we will be learning more of the wisdom and love of
-  God, specifically revealed in the plan of salvation (Ephesians 2:7).
-- **Humility:** This truth should make us humble. When we cannot understand
-  God’s providence in our lives, we must trust His heart even when we cannot
-  trace His hand. We walk by faith, not by sight.
-
-[ILL] **Illustration:** A small child may know and love their father, trusting
-him completely, yet understand very little of the father's professional work or
-the complex decisions he makes to protect the family. We are the children; God
-is the Father. We know He loves us, even when His ways are "past finding out."
+"Acquaint now thyself with him, and be at peace: thereby good shall come unto thee" (Job 22:21).

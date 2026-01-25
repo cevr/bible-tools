@@ -1,245 +1,150 @@
-### Q1. According to the words of the angel to Daniel, when might the world look for an increase of knowledge?
+# Bible Study: Increase of Knowledge
 
-**“But thou, O Daniel, shut up the words, and seal the book, even to the time of
-the end; many shall run to and fro, and knowledge shall be increased.” (Daniel
-12:4)**
+## Introduction
 
-**Answer:**
+Daniel 12:4 predicts that in "the time of the end," knowledge would dramatically increase and many would "run to and fro." This prophecy, sealed for centuries, has found remarkable fulfillment in modern times—not by accident, but by divine design. God has orchestrated history to prepare the world for the final proclamation of the gospel before Christ's return.
 
-The angel Gabriel instructed Daniel to seal the prophecies of his book until a
-specific period known as the "time of the end." This indicates that the full
-understanding of Daniel’s prophecies—particularly the long time lines and the
-sanctuary service—would be obscured or suppressed until that appointed time
-arrived.
+## Core Truths
 
-1.  **The Unsealing of the Book:** The "sealing" refers to the comprehension of
-    the prophecy. Once the "time of the end" began, men and women would be led
-    by the Holy Spirit to study the Scriptures with renewed intensity.
-2.  **Running To and Fro:** In the Hebrew idiom, to "run to and fro" (_shut_)
-    implies a diligent, intense scrutiny of the Scriptures (Amos 8:12; 2
-    Chronicles 16:9). It is not merely tourists traveling the globe, but Bible
-    students turning the pages back and forth, comparing scripture with
-    scripture (Isaiah 28:10), to understand the truth for their time.
-3.  **Twofold Increase:**
-    - **Prophetic Knowledge:** Since the end of the 18th century, the book of
-      Daniel has been opened to human understanding. The truths regarding the
-      sanctuary, the judgment, and the return of Christ have been restored.
-    - **General Knowledge:** As the text implies, the lifting of the suppression
-      of God's Word often correlates with an awakening of the human mind in
-      science and industry, provided by God to facilitate the spreading of the
-      Gospel.
+### The Sealed Book Opened
 
-_Definitions:_
+Daniel received visions he could not fully understand. The angel's instruction was clear:
 
-- **Time of the End:** A specific period in prophecy beginning in 1798,
-  following the end of the 1260-year papal supremacy, and leading up to the
-  second coming of Christ (Daniel 11:35; 12:9).
+> _"But thou, O Daniel, shut up the words, and seal the book, even to the time of the end: many shall run to and fro, and knowledge shall be increased."_ (Daniel 12:4)
 
-**[ILL]** Imagine a captain given a sealed envelope with orders: "Do not open
-until you reach the Cape of Good Hope." While the ship is in the Atlantic, the
-contents are a mystery. But the moment the ship reaches the coordinate, the seal
-is broken, and the instructions become "present truth" vital for the next leg of
-the journey. Similarly, God reserved special light for the final generation to
-navigate the perils of the last days.
+This sealing was not permanent—it had a definite expiration: **"the time of the end."** The very truths Daniel recorded would become clear to God's people when that appointed time arrived.
 
----
+[DYK🔎] The Hebrew phrase translated "run to and fro" (_shut_) is the same word used in Amos 8:12 to describe people searching diligently for something. In Daniel's context, it suggests an intensive searching of Scripture—people would examine prophecy with renewed understanding in the last days.
 
-### Q2. Under the Roman power, how long were the saints to be persecuted?
+### The Time of the End Identified
 
-**“And some of them of understanding shall fall, to try them, and to purge, and
-to make them white, even to the time of the end: because it is yet for a time
-appointed.” (Daniel 11:35)**
+Scripture provides clear markers for when "the time of the end" would begin:
 
-**Answer:**
+> _"And some of them of understanding shall fall, to try them, and to purge, and to make them white, even to the time of the end: because it is yet for a time appointed."_ (Daniel 11:35)
 
-The prophecy predicts a long, dark period where God's faithful people would
-suffer under a persecuting power. This period was appointed to last until the
-"time of the end."
+> _"And he shall speak great words against the Most High, and shall wear out the saints of the Most High, and think to change times and laws: and they shall be given into his hand until a time and times and the dividing of time."_ (Daniel 7:25)
 
-1.  **The Purpose of Trial:** The verse explains _why_ God allows His saints to
-    suffer: "to try them, and to purge, and to make them white." This is the
-    language of the refinery.
-    - **Purging:** Removing the dross of sin and worldliness.
-    - **Making White:** A symbol of the righteousness of saints (Revelation
-      19:8).
-2.  **Righteousness by Faith in Suffering:** We cannot purify ourselves. We are
-    cleansed by the blood of Jesus (Justification) and refined by His Spirit
-    through the discipline of life (Sanctification). God uses trials not to
-    destroy us, but to drive us to Christ, so that we may partake of His
-    holiness (Hebrews 12:10).
-3.  **The Limit of Satan's Wrath:** God set a "time appointed." He limits the
-    power of the enemy. He promised that for the elect's sake, those days would
-    be shortened (Matthew 24:22), preventing the total extinction of His church.
+**Time and times and the dividing of time** equals 3½ prophetic years, or **1,260 prophetic days**. Using the day-for-a-year principle (Numbers 14:34; Ezekiel 4:6), this represents 1,260 literal years of papal persecution.
 
-_Definitions:_
+- **Beginning**: AD 538 (when the last Arian opposition to papal supremacy was removed)
+- **Ending**: AD 1798 (when the papal power received its "deadly wound" through Napoleon's general Berthier)
 
-- **Sanctification:** The ongoing work of God’s grace by which the believer is
-  separated from sin and made holy in character, empowered by the indwelling
-  Christ (1 Thessalonians 5:23; 2 Thessalonians 2:13).
+The "time of the end" therefore **began in 1798**—and it is precisely from this date that we witness the explosion of knowledge and invention.
 
-**[ILL]** A silversmith holds a piece of silver over the hottest part of the
-fire. He does not leave it there to be destroyed, but watches it closely. He
-knows the silver is refined only when he can see his own reflection perfectly
-mirrored in it. So God allows us to be in the "furnace of affliction" until the
-image of Jesus is perfectly reflected in our characters (Malachi 3:3).
+[Q] **"Isn't 'increase of knowledge' just about general education or technology?"**
 
----
+While the prophecy has certainly been fulfilled in scientific and technological advancement, its primary focus is on _understanding of prophecy itself_. The book of Daniel, "sealed" for centuries, would be "opened" and understood by God's people. Both meanings have been remarkably fulfilled since 1798—knowledge has increased in every sphere, and prophetic understanding has been restored to the church.
 
-### Q3. How long, according to the prophecy, was the little horn, which represents the Roman power, to persecute the saints?
+## Deeper Truths
 
-**“And he shall speak great words against the Most High, and shall wear out the
-saints of the Most High, and think to change times and laws; and they shall be
-given into his hand until a time and times and the dividing of time.” (Daniel
-7:25)**
+### The Explosion of Invention—By Divine Design
 
-**Answer:**
+Consider what has emerged since 1798:
 
-This verse gives the specific mathematical calculation for the period of
-persecution mentioned in the previous question.
+| Invention            | Year |
+| -------------------- | ---- |
+| Steamboat            | 1807 |
+| Steam printing press | 1811 |
+| Railroad             | 1825 |
+| Reaper and mower     | 1833 |
+| Telegraph            | 1837 |
+| Sewing machine       | 1846 |
+| Telephone            | 1876 |
+| Automobile           | 1886 |
+| Radio                | 1895 |
+| Airplane             | 1903 |
 
-1.  **The Prophetic Calculation:**
-    - **Time:** One year (Jewish reckoning of 360 days).
-    - **Times:** Two years (720 days).
-    - **Dividing of Time:** Half a year (180 days).
-    - **Total:** 360 + 720 + 180 = 1,260 prophetic days.
-2.  **Day-Year Principle:** In Bible prophecy, a day represents a literal year
-    (Numbers 14:34; Ezekiel 4:6). Thus, this power would hold supremacy for
-    1,260 years.
-3.  **Historical Fulfillment:** The supremacy of the Papacy (the "Little Horn")
-    was established in **538 A.D.** when the last Arian opposition (the
-    Ostrogoths) was removed. Adding 1,260 years brings us to **1798 A.D.**
-4.  **The Deadly Wound:** In 1798, Berthier, a general of Napoleon, entered
-    Rome, took the Pope prisoner, and declared the political rule of the Papacy
-    at an end. This marked the beginning of the "Time of the End."
-5.  **Changing Times and Laws:** This power would attempt to alter God's
-    law—specifically the Sabbath (the only commandment dealing with time). True
-    righteousness leads a believer to obey God's original law through faith in
-    Jesus, rather than following human traditions (Acts 5:29; Matthew 15:9).
+[DYK🔎] The _London Spectator_ observed: "More has been done in the course of our lifetime than in all the previous existence of the race." For thousands of years, humanity traveled no faster than a horse could run. Then, within a single century, steam power, electricity, and flight transformed human capability entirely.
 
-_Definitions:_
+**Why this sudden burst?** The timing is not coincidental. God has providentially released knowledge to enable the fulfillment of another crucial prophecy:
 
-- **Little Horn:** The politico-religious power described in Daniel 7 that grows
-  out of the collapse of the Roman Empire, historically identified by Protestant
-  reformers as the Papacy.
+> _"And this gospel of the kingdom shall be preached in all the world for a witness unto all nations; and then shall the end come."_ (Matthew 24:14)
 
-**[ILL]** If you have a map that says "Walk 1,260 paces north to find the
-treasure," and you stop at 500, you will not find it. God gave a precise map of
-history. He marked the exact years (538 to 1798) so that when the time arrived,
-His people could identify where they were in the stream of time and have
-confidence in the accuracy of His Word.
+[ILL] Consider a farmer who has fields to harvest but only a hand scythe. The work would take lifetimes. But give him a combine harvester, and the same field can be gathered in days. God has given His church the "harvesting equipment" of modern technology—rapid transit, instant communication, mass printing—precisely because the final harvest must reach every nation, kindred, tongue, and people (Revelation 14:6) in one generation.
 
----
+### The Gospel Connection
 
-### Q4. In the line of scientific inventions, have there been any remarkable developments since 1798?
+Luther, Wesley, and other great reformers could not preach that Christ's coming was "near" in the prophetic sense. Why?
 
-**"More has been done in the course of our lifetime than in all the previous
-existence of the race." — _London Spectator_ (19th Century)** **“The great facts
-of the nineteenth century stand out so conspicuously above the achievements of
-any preceding century...” — _Union Hand-Book, 1870_**
+1. The 1,260 years of Daniel 7:25 had not yet ended
+2. The signs of Matthew 24:29-30 had not yet occurred
+3. The means to reach "all the world" did not exist
 
-**Answer:**
+But since 1798:
 
-Yes. Following the year 1798 (the start of the "time of the end"), the world
-witnessed an explosion of scientific and technological progress unequaled in
-human history.
+- The prophetic time periods have been fulfilled
+- The signs in sun, moon, and stars have occurred (1780, 1833)
+- Technology has enabled global gospel proclamation
 
-1.  **Historical Context:** For thousands of years, from the time of Abraham to
-    the time of George Washington, methods of travel (horse, wind-powered ship)
-    and communication (written letters) remained virtually unchanged.
-2.  **The Sudden Change:** Suddenly, in the 19th century, the human mind was
-    unlocked. Steam power, electricity, and mechanization revolutionized life.
-3.  **God’s Providence:** This was not an accident of evolution, but a divine
-    providence. Just as the book of Daniel was unsealed (prophetic knowledge
-    increased), God unsealed the secrets of nature (scientific knowledge
-    increased).
+Christ declared:
 
-**[ILL]** Compare a candle to an electric light bulb. For millenniums, men
-pushed back the darkness with fire (torches, oil lamps, candles). Then, almost
-instantly in the scope of history, we harnessed electricity to banish the night.
-This physical light is a parallel to the immense spiritual light God poured out
-at the same time to banish the darkness of error.
+> _"When ye shall see all these things, know that it is near, even at the doors."_ (Matthew 24:33)
 
----
+**We are that generation.**
 
-### Q5. When were some of the principal inventions brought out?
+## Principles and Great Controversy Themes
 
-**The steamboat in 1807; steam printing-press in 1811; railroad cars in 1825;
-reaper and mower in 1833; telegraph in 1837; sewing-machine in 1846; telephone
-in 1876; air travel; radio and other communication marvels. It will be noted
-that none of these inventions were before 1798.**
+### God's Appointed Times
 
-**Answer:**
+Scripture repeatedly emphasizes that God works according to "appointed times":
 
-The timing of these inventions aligns perfectly with the "Time of the End"
-prophecy. God provided these tools for a specific spiritual purpose.
+- The judgment is an appointed time: _"Because he hath appointed a day, in the which he will judge the world in righteousness"_ (Acts 17:31)
+- The end is an appointed time: _"For the vision is yet for an appointed time, but at the end it shall speak, and not lie"_ (Habakkuk 2:3)
+- Even the "time of the end" was appointed in God's mind before Daniel wrote (Daniel 8:19)
 
-1.  **Tools for the Harvest:** The Gospel commission requires the message to go
-    "to every nation, and kindred, and tongue, and people" (Revelation 14:6).
-    - **Steam Press & Internet:** To produce the Bible and truth-filled
-      literature by the millions.
-    - **Rail, Air, & Auto:** To transport missionaries swiftly.
-    - **Telegraph, Radio, & Digital:** To communicate the warning message
-      instantly across oceans.
-2.  **A Warning for the Last Generation:** As the note in the lesson states, one
-    generation must hear the final warning. Slow travel would make this
-    impossible. God accelerated human invention to match the urgency of the
-    judgment hour.
-3.  **Stewardship of Technology:** For the Christian, technology is not for mere
-    entertainment or ease. It is a talent entrusted to us to finish the work of
-    God. We use these tools to point men to Christ our Righteousness.
+[DYK🔎] The Hebrew word for "appointed time" (_moed_) is the same word used for the sanctuary festivals in Leviticus 23. Just as the earthly feasts occurred at precise times pointing to Christ's work, so the prophetic time periods point to specific moments in the heavenly sanctuary ministry.
 
-_Definitions:_
+### The Sanctuary and Prophetic Understanding
 
-- **Providence:** God’s faithful and effective care and guidance over the
-  affairs of men and the history of the world to accomplish His purpose (Romans
-  8:28).
+The opening of Daniel's sealed book coincides with the opening of the Most Holy Place in the heavenly sanctuary. In 1844—within the "time of the end"—Christ began His final work of investigative judgment (Daniel 8:14). As this work began in heaven, understanding of these very truths was restored to God's people on earth.
 
-**[ILL]** The Roman Empire built excellent paved roads to move their armies and
-collect taxes. They did it for selfish power. But when Christ came, those same
-roads became the highways for the Apostles to spread the Gospel to the known
-world. Today, the world builds the internet for commerce and vanity, but God’s
-people must use it as the "Roman roads" of the last days to carry the Three
-Angels' Messages.
+The increase of knowledge is not merely intellectual—it is **spiritual**. God is preparing a people who understand the times and know what they ought to do (1 Chronicles 12:32).
 
----
+### The Great Controversy Climax
 
-### Q6. What has the Saviour said should precede the end?
+Satan has long worked to obscure prophetic truth. During the 1,260 years of persecution, Bibles were chained, prophecy was misinterpreted, and darkness covered the earth. But God's word cannot be forever silenced.
 
-**“And this gospel of the kingdom shall be preached in all the world for a
-witness unto all nations; and then shall the end come.” (Matthew 24:14)**
+The unsealing of Daniel, the advent movement, the restoration of truth, and the technological explosion are all part of God's final strategy in the great controversy—preparing every nation to hear heaven's final appeal before probation closes.
 
-**Answer:**
+[Q] **"But hasn't every generation thought they were the last?"**
 
-Jesus links the increase of knowledge and the "Time of the End" directly to the
-completion of the Gospel commission. The end cannot come until the world has
-been warned and invited to the marriage supper of the Lamb.
+Previous generations lacked the specific prophetic markers that now exist. They did not see:
 
-1.  **The Content of the Message:** It is the "Gospel of the Kingdom." This
-    includes:
-    - **The Good News:** Christ has paid the penalty for sin (Justification).
-    - **The Power:** Christ can restore the law of love in the heart
-      (Sanctification).
-    - **The Kingdom:** Christ is coming to destroy sin and set up His eternal
-      reign.
-2.  **A Witness to All:** It does not say all will be converted, but all will
-    have a "witness"—an opportunity to choose. The message separates the wheat
-    from the tares.
-3.  **Preparation for the End:** The preaching of this Gospel coincides with
-    Christ's work in the Most Holy Place of the heavenly sanctuary. He is
-    blotting out the sins of those who accept Him. When the message is finished,
-    probation closes, and He returns.
-4.  **Our Responsibility:** Since we have the _knowledge_ (prophecy unsealed)
-    and the _means_ (inventions), we are without excuse if we do not finish the
-    work.
+- The completion of the 1,260-year prophecy
+- The darkening of the sun and moon (May 19, 1780)
+- The falling of the stars (November 13, 1833)
+- The beginning of the judgment hour message (1844)
+- The global capacity to reach every nation
 
-_Definitions:_
+We are not guessing—we are reading the fulfilled signs Christ Himself gave.
 
-- **Gospel:** Literally "Good News." The revelation of God's plan to save
-  humanity from the penalty and power of sin through the life, death, and
-  resurrection of Jesus Christ (Romans 1:16).
+## Practical Application
 
-**[ILL]** Imagine a city where a deadly dam is about to burst. The authorities
-have the knowledge of the danger and the vehicles to reach the people. If they
-sit comfortably in their office and do not use the vehicles to warn the
-citizens, the blood of the people is on their hands. We possess the knowledge of
-Christ's coming and the technology to tell the world. We must go.
+### What This Means for Us
+
+1. **We live in the most solemn period of earth's history.** The investigative judgment is ongoing. Our names will come up in review. Are we ready?
+
+2. **Technology is a sacred trust.** The same tools that can distract and destroy can also spread the gospel. How are we using the increase of knowledge?
+
+3. **Time is short.** Every fulfilled prophecy declares that Christ's coming is "at the doors." This is not a time for spiritual slumber but for earnest preparation.
+
+4. **The truth must go forward.** We are called to be co-laborers with heaven in reaching every nation. Will we use the resources God has provided?
+
+### Questions for Self-Examination
+
+- Am I personally studying the prophecies that God has unsealed for this generation?
+- Am I using technology as a tool for the gospel or merely for entertainment?
+- Do I live with the solemn awareness that the judgment is now in session?
+- Am I actively sharing the message of Christ's soon return?
+
+## Appeal
+
+> _"The night is far spent, the day is at hand: let us therefore cast off the works of darkness, and let us put on the armour of light."_ (Romans 13:12)
+
+Beloved, we are not in darkness that that day should overtake us as a thief (1 Thessalonians 5:4). God has given us the unsealed prophecies, the fulfilled signs, and the means to reach the world. What more could He do?
+
+The question now is not whether the prophecies are true—history has vindicated them beyond doubt. The question is: **What will we do with this knowledge?**
+
+Christ stands at the door. The final message is going forth. Will you be among those who hasten His coming by sharing His truth? Will you surrender fully to His work of preparation in your heart?
+
+The increase of knowledge points to one certain reality: **Jesus is coming soon.** May we be found watching, working, and waiting for His glorious appearing.

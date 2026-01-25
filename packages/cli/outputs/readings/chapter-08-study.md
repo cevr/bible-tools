@@ -1,422 +1,184 @@
-### Chapter 8: Creation and Redemption
+# Bible Study: Creation and Redemption
 
-This study explores the profound link between the physical creation of the
-universe and the spiritual re-creation of the human soul. In the light of the
-**Three Angels’ Messages** (Revelation 14:6–12), we understand that the God who
-calls for our worship is the Creator. This truth is vital for understanding
-**Righteousness by Faith**: the same power that spoke worlds into existence is
-the only power capable of creating a clean heart in a sinner.
+## Introduction
+
+The opening verse of Scripture reveals a truth so profound that all Christian experience rests upon it: God is Creator. Yet this is far more than ancient history—it is the very foundation of our salvation. The same power that spoke worlds into existence is the power that transforms sinful hearts. Creation and redemption are not separate works of God; they are one continuous demonstration of divine love, both accomplished through Christ and memorialized in the Sabbath.
 
 ---
 
-### Q1. What grand truth is revealed in the first verse in the Bible?
+## Core Truths
 
-**"In the beginning God created the heaven and the earth." Genesis 1:1.**
+### The Creator God Distinguished from All Others
 
-**Answer:** The Bible opens with the foundational truth of all religion: God is
-the Creator. Before there was matter, energy, or time, there was God. This verse
-establishes His absolute authority over everything that exists.
+_"In the beginning God created the heaven and the earth."_ (Genesis 1:1)
 
-- **The Source of All Reality:** The universe did not come into being by chance
-  or accident; it was the purposeful act of an infinite Mind.
-- **Creation _Ex Nihilo_:** God created "out of nothing" (Hebrews 11:3). He did
-  not rearrange existing matter; He spoke, and it came to be.
-- **Implications for the Sinner:** If God is the Creator of the physical heavens
-  and earth, He is the owner of them. This establishes His right to rule and His
-  right to our obedience. Furthermore, if God can call light out of darkness in
-  the physical world (Genesis 1:3), He alone can shine the light of His glory
-  into the darkness of the human heart (2 Corinthians 4:6).
+This majestic declaration establishes the most fundamental truth of Scripture: there is one God, and He is the source of all that exists. The Bible repeatedly draws a sharp contrast between the true God and every false deity based on this single criterion—creative power.
 
-**[ILL] Illustration:** Imagine a master artist who paints a beautiful portrait.
-The canvas, the paint, and the image belong to the artist because he created
-them. The painting has no life of its own separate from what the artist gave it.
-In the same way, we belong to God by right of creation. We are His workmanship.
+_"The gods that have not made the heavens and the earth, even they shall perish from the earth, and from under these heavens."_ (Jeremiah 10:11)
 
----
+**Creator**: One who brings into existence that which had no prior existence—not from pre-existing materials, but by the power of His word alone (Hebrews 11:3).
 
-### Q2. What Bible contrast is repeatedly drawn between the true God and false gods?
+[DYK🔎] The Hebrew word for "create" (_bara_) in Genesis 1:1 is used exclusively of God's activity in the Old Testament. Human beings can _make_ or _form_ things from existing materials, but only God can _bara_—call into existence out of nothing.
 
-**"Thus shall ye say unto them, The gods that have not made the heavens and the
-earth, even they shall perish from the earth, and from under these heavens. The
-portion of Jacob is not like them, for he is the former of all things; and
-Israel is the rod of his inheritance: The Lord of hosts is His name." Jeremiah
-10:11-16. (See Jeremiah 14:22; Acts 17:22-29; Revelation 14:6-10.)**
+This truth mattered deeply to the apostles. When Paul stood before the philosophers of Athens, he began not with the cross, but with creation: _"God that made the world and all things therein, seeing that He is Lord of heaven and earth, dwelleth not in temples made with hands"_ (Acts 17:24). The Creator God cannot be confined to human systems or fashioned by human imagination.
 
-**Answer:** Throughout Scripture, the distinguishing mark of the true God is His
-creative power. False gods—whether statues of wood and stone or modern idols of
-self, money, or power—cannot create life.
+### Christ: The Agent of Creation
 
-- **The Test of Divinity:** The prophet Jeremiah points out that any "god" who
-  did not make the heavens will perish. Only the Life-Giver has immortality.
-- **The Call of the Final Judgment:** In Revelation 14:7, the first angel calls
-  the world to "worship Him that made heaven, and earth, and the sea." In the
-  last days, the issue of worship centers on recognizing the Creator's authority
-  versus human or satanic authority.
-- **The Portion of Jacob:** The believer’s God is "the former of all things." We
-  do not worship a distant philosophical concept, but the personal Architect of
-  the universe.
+_"All things were made by Him; and without Him was not any thing made that was made."_ (John 1:3)
 
-**[ILL] Illustration:** If you were trapped in a burning building, a statue of a
-fireman could not save you, no matter how beautifully carved it was. It has no
-breath and no power. You need a living fireman with the power to act. False gods
-are like statues; the Creator is the living Rescuer.
+Scripture reveals that the Father worked through the Son in bringing all things into existence. This is no secondary role—Christ is the active agent of creative power.
+
+_"For by Him were all things created, that are in heaven, and that are in earth, visible and invisible, whether they be thrones, or dominions, or principalities, or powers: all things were created by Him, and for Him: and He is before all things, and by Him all things consist."_ (Colossians 1:16-17)
+
+Notice carefully: all things were created **by** Him, **for** Him, and are held together **in** Him. Christ is not merely the instrument of creation—He is its purpose and its sustaining power.
+
+[DYK🔎] The phrase "by Him all things consist" (Colossians 1:17) uses the Greek word _synestēken_, meaning "to hold together" or "to cohere." Scientists today recognize that atoms should fly apart, yet some force holds matter together. Scripture reveals that force has a name: Jesus Christ.
 
 ---
 
-### Q3. Through whom did God work in the creation of all things?
+## Deeper Truths
 
-**"In the beginning was the Word, and the Word was with God, and the Word was
-God. The same was in the beginning with God. All things were made by Him; and
-without Him was not any thing made that was made." John 1:1-3.**
+### Creation Power Is Redemption Power
 
-**Answer:** The active agent in Creation was Jesus Christ, "the Word." While the
-Father is the source, the Son is the One through whom the worlds were framed
-(Hebrews 1:2).
+Here we discover one of Scripture's most encouraging truths: **the same power that created the universe is the power that saves sinners**.
 
-- **The Divinity of Christ:** This text confirms that Jesus is fully God,
-  eternal and uncreated. He was "with God" and "was God" from the beginning.
-- **The Power of the Word:** In Genesis, we read, "God said..." In John, we see
-  that this "Word" is a Person. Jesus is the expression of the Father's thought
-  and power.
-- **Righteousness by Faith:** This is a comforting truth for the sinner. The One
-  who died on Calvary to save you is the same One who designed the galaxies. If
-  the Creator is your Saviour, there is no sin too strong for Him to conquer.
+_"But now thus saith the Lord that created thee, O Jacob, and He that formed thee, O Israel, Fear not: for I have redeemed thee, I have called thee by thy name; thou art Mine."_ (Isaiah 43:1)
 
-**Term Definition:**
+God identifies Himself to His people simultaneously as Creator and Redeemer. These are not separate offices—they are expressions of the same divine character and the same divine power.
 
-- **The Word (Logos):** A title for Jesus Christ, indicating that He is the
-  self-expression of God’s mind and power, both in Creation and in Redemption.
+David understood this connection when, broken by sin, he cried out:
 
----
+_"Create in me a clean heart, O God; and renew a right spirit within me."_ (Psalm 51:10)
 
-### Q4. Through whom is our redemption provided?
+**Clean heart**: Not merely an improved heart or a reformed heart, but a _created_ heart—something brought into existence where only corruption existed before.
 
-**"But God commendeth His love toward us, in that, while we were yet sinners,
-Christ died for us. Much more then, being now justified by His blood, we shall
-be saved from wrath through Him." Romans 5:8-9.**
+David did not ask God to _repair_ his heart. He knew that sin had so corrupted his nature that only an act of creation could restore him. He used the same word (_bara_) that describes God's original creative work in Genesis.
 
-**Answer:** The Creator is the only One who could be the Redeemer. Redemption is
-provided through Jesus Christ alone.
+[Q] **"Isn't sanctification simply a gradual improvement of our natural character?"**
 
-- **God’s Initiative:** Notice that God loved us "while we were yet sinners." He
-  does not wait for us to make ourselves good before He offers salvation.
-- **Justified by His Blood:** To be _justified_ means to be declared righteous
-  by God's legal decree. Because Jesus paid the penalty for the broken Law
-  (death), God can legally forgive the sinner who has faith in Jesus (Romans
-  3:26).
-- **Saved from Wrath:** "Wrath" is the inevitable result of sin—separation from
-  God and eventual death. Christ saves us from this by taking our place.
+Scripture presents a more radical reality. Paul declares: _"For we are His workmanship, created in Christ Jesus unto good works"_ (Ephesians 2:10). The Greek word for "workmanship" (_poiēma_) gives us our English word "poem"—we are God's masterpiece, His creative work. Sanctification is not human improvement but divine re-creation. We do not polish the old nature; God creates something entirely new (2 Corinthians 5:17).
 
-**Term Definition:**
+### Christ: Creator, Redeemer, and Head of the Church
 
-- **Justification:** The act of God whereby He declares a repentant sinner to be
-  righteous, not because of the sinner's deeds, but because of Christ's perfect
-  life and sacrificial death credited to their account.
-- **Redemption:** Literally "buying back." The process of freeing a slave by
-  paying a ransom. Christ's blood is the price paid to rescue us from the
-  slavery of sin.
+Colossians 1 presents the most comprehensive statement of Christ's role in both creation and redemption:
 
----
+_"And He is the head of the body, the church: who is the beginning, the firstborn from the dead; that in all things He might have the preeminence."_ (Colossians 1:18)
 
-### Q5. What passage of Scripture speaks of the Creator as Redeemer?
+The One who created all things is the same One who leads the church. The One who sustains the universe is the same One who sustains every struggling believer. There is no separation between cosmic power and personal salvation.
 
-**"But now thus saith the Lord that created thee, O Jacob, and He that formed
-thee, O Israel, Fear not: for I have redeemed thee, I have called thee by thy
-name; thou art Mine." Isaiah 43:1.**
+[ILL] Consider a master artist who creates a magnificent painting. Years later, vandals damage the work—slashing the canvas, smearing the colors. Who is best qualified to restore it? Only the original artist truly knows what the painting was meant to be. Only his hand can bring it back to the original vision.
 
-**Answer:** Here, God claims a double ownership over His people. He says, "I
-made you, and I bought you back."
+So it is with humanity. Sin has marred and defaced God's image in us. But the same Christ who created us in the beginning knows exactly what we were designed to be. He alone can restore the original masterpiece.
 
-- **Personal Care:** He calls us "by name." The Creator of billions of stars
-  knows the individual trial of every human heart.
-- **The Guarantee of Success:** Because He "formed" us, He knows how we work. He
-  knows the specific weaknesses of our temperament and heredity. As our
-  Redeemer, He knows exactly how to apply His grace to heal those specific
-  flaws.
-- **No Fear:** The command "Fear not" is based on His power. If the One who made
-  you says, "You are mine," no enemy can pluck you out of His hand (John 10:28).
+### The Keeping Power of the Creator
 
-**[ILL] Illustration:** A young boy once carved a toy boat. One day, it drifted
-away on a river and was lost. Months later, he saw his boat for sale in a store
-window. He emptied his piggy bank and bought it. As he held it, he said, "You
-are twice mine. I made you, and now I have bought you." This is what Jesus says
-to us.
+Scripture draws a remarkable parallel between God's sustaining power in nature and His keeping power in the believer's life.
+
+_"Lift up your eyes on high, and behold who hath created these things, that bringeth out their host by number: He calleth them all by names by the greatness of His might, for that He is strong in power; not one faileth."_ (Isaiah 40:26)
+
+**Not one faileth**: Among the countless billions of stars, not a single one strays from its course or fails to appear at the appointed time. God's power holds each one in its place.
+
+If this is true of stars, what does it mean for you?
+
+_"Now unto Him that is able to keep you from falling, and to present you faultless before the presence of His glory with exceeding joy."_ (Jude 24)
+
+The same power that keeps galaxies in orbit is available to keep you from falling into sin. The same voice that called light out of darkness can speak peace into your troubled heart. The same hand that shaped the mountains can mold your character into the image of Christ.
+
+[DYK🔎] Astronomers estimate there are more than 200 billion trillion stars in the observable universe—and Isaiah says God "calleth them all by names." If He knows each star by name, how much more does He know you? (Matthew 10:30)
+
+### The Exceeding Greatness of His Power
+
+Paul prays that believers might understand the resources available to them:
+
+_"That ye may know... what is the exceeding greatness of His power to us-ward who believe, according to the working of His mighty power, which He wrought in Christ, when He raised Him from the dead."_ (Ephesians 1:18-20)
+
+**Exceeding greatness**: Paul piles up terms for power in this passage—_dynamis_ (inherent power), _energeia_ (effective working), _kratos_ (manifested strength), _ischus_ (might). He is straining language itself to convey the unlimited resources available to every believer.
+
+This power is measured by the resurrection of Christ. The same energy that broke the bands of death and raised Jesus from the tomb is the power working in you to overcome sin. You are not left to struggle against temptation in your own strength. Creation power—resurrection power—is available to transform your life.
 
 ---
 
-### Q6. Which prayer of David reveals that God's redemptive work of man is a creative work?
+## Principles and Great Controversy Themes
 
-**“Create in me a clean heart, O God; and renew a right spirit within me." Psalm
-51:10.**
+### The Sabbath: Memorial of Creation, Sign of Redemption
 
-**Answer:** David uses the Hebrew word _bara_ (create)—the same word used in
-Genesis 1:1—to describe what needs to happen inside his heart.
+The Sabbath stands as the perpetual link between creation and redemption:
 
-- **More than Repair:** David does not ask God to "improve" his old heart or
-  "patch up" his character. He asks for a _creation_. The carnal mind is "enmity
-  against God" (Romans 8:7) and cannot be fixed; it must be replaced by the mind
-  of Christ.
-- **The New Birth:** This is what Jesus meant when He told Nicodemus, "Ye must
-  be born again" (John 3:3–7). Conversion is a supernatural act of creation
-  where God implants a new principle of life.
-- **Sanctification:** To "renew a right spirit" is the daily work of
-  sanctification—keeping the heart in tune with God through the indwelling
-  Spirit.
+_"Remember the Sabbath day, to keep it holy... for in six days the Lord made heaven and earth, the sea, and all that in them is, and rested the seventh day."_ (Exodus 20:8, 11)
 
-**Term Definition:**
+_"Moreover also I gave them My sabbaths, to be a sign between Me and them, that they might know that I am the Lord that sanctify them."_ (Ezekiel 20:12)
 
-- **Sanctification:** The ongoing process of being made holy. It is the work of
-  the Holy Spirit in the believer’s life, imparting Christ’s power to overcome
-  sin and live in obedience to God’s law.
+**Sanctify**: To make holy, to set apart from common use—the same creative power that made the world in six days is the power that makes sinners holy.
 
----
+The Sabbath thus carries a double significance:
 
-### Q7. Where are we told that Christ, the active agent in creation, is also the head of the church?
+1. **Memorial of Creation**: We rest because God rested after creating
+2. **Sign of Sanctification**: We rest because God is working in us what we cannot work in ourselves
 
-**"For by Him were all things created, that are in heaven, and that are in
-earth, visible and invisible, whether they be thrones, or dominions, or
-principalities, or powers: all things were created by Him, and for Him: and He
-is before all things, and by Him all things consist. And He is the head of the
-body, the church: who is the beginning, the firstborn from the dead; that in all
-things He might have the preeminence." Colossians 1:16-18.**
+When we keep Sabbath, we acknowledge both truths: God is our Creator, and God is our Redeemer. We cease from our own works and rest in His finished work—whether the finished work of creation or the finished work of salvation (Hebrews 4:9-10).
 
-**Answer:** This majestic passage links the physical universe and the spiritual
-church under one Head: Jesus Christ.
+[Q] **"Why does it matter whether God created by speaking or through natural processes over millions of years?"**
 
-- **By Him All Things Consist:** The word "consist" means "to hold together."
-  Scientists look for the force that holds the atom together; the Bible says it
-  is the power of Christ. If He withdrew His power for a moment, the universe
-  would disintegrate.
-- **Head of the Church:** Just as He sustains the physical laws of nature, He
-  sustains the spiritual life of the church. The church is His "body," meaning
-  it is the vehicle through which He works in the world today.
-- **Preeminence:** Christ must be first in everything—in the cosmos and in our
-  individual lives. We cannot have a "little bit" of Jesus; He must be Lord of
-  all.
+The connection between creation and redemption answers this profoundly. If creation required millions of years of gradual development, then redemption must also be a gradual process of evolutionary improvement. But Scripture presents both as acts of divine power through the Word.
 
-**[ILL] Illustration:** The brain controls the physical body. If the connection
-between the head and the hand is severed, the hand becomes paralyzed and
-lifeless. Similarly, a Christian or a church that is disconnected from Christ
-(the Head) has no spiritual life or power to do good.
+_"For He spake, and it was done; He commanded, and it stood fast."_ (Psalm 33:9)
+
+Just as God spoke worlds into existence instantaneously, so He speaks righteousness into the believing heart. The thief on the cross was not told to gradually improve over millions of years—he was promised Paradise that very day. The same Word that created light can create a clean heart in a moment.
+
+### The Sanctuary Connection
+
+In the heavenly sanctuary, Christ continues His creative-redemptive work. As our High Priest, He applies to believers the benefits of His sacrifice:
+
+- **The Outer Court** (the cross): Christ's death provides the foundation for our new creation—without the shedding of blood, there is no remission (Hebrews 9:22)
+- **The Holy Place** (daily ministry): Christ's ongoing intercession sustains our spiritual life, just as His power sustains the universe moment by moment
+- **The Most Holy Place** (final atonement): Christ's work of blotting out sin completes the re-creation, preparing a people to stand faultless before God's glory
+
+The sanctuary reveals that redemption is not merely forgiveness—it is restoration. God is not satisfied to merely pardon sinners; He re-creates them in the image of His Son.
+
+### Why God Alone Is Worthy of Worship
+
+_"Thou art worthy, O Lord, to receive glory and honour and power: for Thou hast created all things."_ (Revelation 4:11)
+
+In the great controversy between good and evil, the question of worship is central. Satan desires the worship that belongs to God alone. The first angel's message calls humanity back to worship the Creator:
+
+_"Fear God, and give glory to Him... and worship Him that made heaven, and earth, and the sea, and the fountains of waters."_ (Revelation 14:7)
+
+This message uses creation language directly from the fourth commandment. In the final conflict, the Sabbath—memorial of creation—becomes the test of loyalty. Those who acknowledge God as Creator and Redeemer will honor His memorial; those who follow human traditions will worship the creature rather than the Creator (Romans 1:25).
 
 ---
 
-### Q8. What scripture clearly shows that it is God's creative power which transforms the believer?
+## Practical Application
 
-**"For we are His workmanship, created in Christ Jesus unto good works, which
-God hath before ordained that we should walk in them." Ephesians 2:10.**
+### Living by Creation Power
 
-**Answer:** Salvation is not something we achieve; it is something God works in
-us. We are His "workmanship" (Greek: _poiema_, from which we get "poem" or
-"masterpiece").
+Understanding the connection between creation and redemption transforms how we approach the Christian life:
 
-- **Created Unto Good Works:** Notice the order. We are not created _by_ good
-  works, but _unto_ good works. Works are the fruit, not the root, of salvation.
-- **Righteousness by Faith in Action:** This verse destroys legalism. A legalist
-  tries to do good works to create a right standing with God. The gospel says
-  God creates us anew in Christ, and the natural result of that new life is good
-  works (obedience to the Law).
-- **God's Plan:** God has "ordained" (prepared beforehand) a path of obedience
-  for us. When we walk in His commandments, we are fulfilling the design the
-  Creator intended for humanity.
+**1. Stop trying to create yourself.**
+You cannot reform your own heart any more than you can create a star. Cease struggling in your own strength and surrender to the Creator's transforming power.
 
-**[ILL] Illustration:** A sculptor takes a rough, jagged stone and chisels it
-into a beautiful statue. The stone does not shape itself; it yields to the
-sculptor's hand. We are the stone; God is the Sculptor. Our part is to yield and
-trust; His part is to shape our character.
+_"It is God which worketh in you both to will and to do of His good pleasure."_ (Philippians 2:13)
+
+**2. Trust the Word that speaks things into existence.**
+The same Word that said "Let there be light" can speak victory into your life. When you read Scripture and claim its promises by faith, you are connecting with creative power.
+
+**3. Rest in the finished work.**
+As the Sabbath commemorates God's completed creation, so we rest in Christ's completed salvation. We do not work _for_ righteousness; we work _from_ righteousness already received.
+
+**4. Expect transformation, not mere improvement.**
+God does not tinker with the old nature—He creates new creatures. Whatever habit binds you, whatever sin besets you, the Creator can make all things new.
+
+[ILL] A caterpillar does not become a butterfly by trying harder to fly. It must undergo metamorphosis—a complete transformation from within. So the believer is not improved by effort but transformed by the indwelling life of Christ. We cooperate with this process by surrendering, not by striving.
 
 ---
 
-### Q9. Who is it that keeps the stars in their places in the heavens?
+## Appeal
 
-**"To whom then will ye liken Me, or shall I be equal? saith the Holy One. Lift
-up your eyes on high, and behold who hath created these things, that bringeth
-out their host by number: He calleth them all by names by the greatness of His
-might, for that He is strong in power; not one faileth." Isaiah 40:25-26.**
+_"Now unto Him that is able to keep you from falling, and to present you faultless before the presence of His glory with exceeding joy, to the only wise God our Saviour, be glory and majesty, dominion and power, both now and ever. Amen."_ (Jude 24-25)
 
-**Answer:** God challenges us to look at the stars. He directs the movements of
-the heavenly bodies with absolute precision.
+The God who created the heavens is able to create in you a clean heart. The Christ who sustains the universe is able to keep you from falling. The same power that raised Jesus from the dead is available to raise you from spiritual death into newness of life.
 
-- **"Not One Faileth":** Because of God's strength, every star keeps its
-  appointed path.
-- **Sovereign Power:** The "host" of heaven refers to the billions of stars. If
-  God can manage the complexity of the cosmos, ensuring that massive suns do not
-  collide but stay in their orbits, He is "strong in power."
-- **Application:** This verse is written to comfort Israel (see verse 27). God
-  is asking, "If I can take care of the universe, don't you think I can take
-  care of you?"
+Will you trust Him today? Not merely to forgive your sins, but to re-create you? Not merely to pardon the past, but to transform the present and secure the future?
 
----
+The Creator Himself offers to be your Redeemer. The One who spoke worlds into existence speaks to you now: "Fear not: for I have redeemed thee, I have called thee by thy name; thou art Mine."
 
-### Q10. What can the same Creator do for you and me?
-
-**"Now unto Him that is able to keep you from falling, and to present you
-faultless before the presence of His glory with exceeding joy, to the only wise
-God our Saviour, be glory and majesty, dominion and power, both now and ever.
-Amen." Jude 24-25.**
-
-**Answer:** This is one of the most encouraging promises in the Bible. The same
-power that keeps the stars from falling (Isaiah 40:26) is pledged to keep the
-believer from falling into sin.
-
-- **Able to Keep:** We often say, "I can't stop sinning." That is true; _we_
-  can't. But He _is able_. The victory is in His ability, not ours.
-- **Faultless:** This connects to the Sanctuary service. The goal of the High
-  Priest's work is to cleanse the people so they may stand before God's glory
-  without fault. This implies a character fully restored to the image of
-  God—loving what God loves and hating sin.
-- **Righteousness Imparted:** This is practical godliness. It is not just
-  forgiveness for the past, but power for the present to live a life that brings
-  "exceeding joy" to God.
-
-**[ILL] Illustration:** A toddler learning to walk on a rocky path will surely
-fall if left alone. But if a strong father holds the child's hand, the child is
-safe. The child keeps from falling not by their own strength, but by the
-strength of the father's grip. Our "grip" is faith; His grip is omnipotence.
-
----
-
-### Q11. How much of this power is available to help us in our need?
-
-**"That the God of our Lord Jesus Christ, the Father of glory, may give unto you
-the spirit of wisdom and revelation in the knowledge of Him: the eyes of your
-understanding being en. lightened; that ye may know what is the hope of His
-calling, and what the riches of the glory of His inheritance in the saints, and
-what is the exceeding greatness of His power to us-ward who believe, according
-to the working of His mighty power, which He wrought in Christ, when He raised
-Him from the dead, and set Him at His own right hand in the heavenly places."
-Ephesians 1:17-20.**
-
-**Answer:** Paul prays that our eyes might be opened to the magnitude of power
-available to us.
-
-- **Resurrection Power:** The standard of measurement for the power available to
-  a Christian is the power that raised Jesus from the dead. This was the
-  greatest display of power in history—overcoming death, hell, and the grave.
-- **To Us-ward Who Believe:** This power is directed toward us. It is not locked
-  away in heaven; it is accessible by faith.
-- **Victory over Spiritual Death:** If God can raise a dead body to life, He can
-  raise a soul dead in trespasses and sins (Ephesians 2:1) to a life of
-  righteousness. There is no habit, addiction, or character flaw that can
-  withstand resurrection power.
-
----
-
-### Q12. Who sustains the universe and keeps it each moment?
-
-**"And He [Christ] is before all things, and in Him all things hold together. "
-Colossians 1:17, R.V., margin.**
-
-**Answer:** Christ is the Sustainer. The universe is not a clock that was wound
-up and left to run on its own. It requires the constant, moment-by-moment
-exercise of divine power to exist.
-
-- **Dependence:** This teaches us absolute dependence. Every breath we take is a
-  gift from Christ, even to the wicked.
-- **Spiritual Parallel:** Just as we cannot exist physically for a moment
-  without His sustaining power, we cannot exist spiritually (remain righteous)
-  for a moment without constant communion with Him. "Without Me ye can do
-  nothing" (John 15:5).
-
----
-
-### Q13. Of what great truth is the Seventh-day Sabbath a memorial and a sign?
-
-**"But to us there is but one God, the Father, of whom are all things, and we in
-him; and one Lord Jesus Christ, by whom are all things, and we by him." 1
-Corinthians 8:6.**
-
-**Answer:** While 1 Corinthians 8:6 establishes the truth of the One Creator God
-and Jesus Christ the agent of creation, the Sabbath is the specific memorial
-that enshrines this truth in time.
-
-- **Identifying the True God:** As we saw in Jeremiah 10, the true God is the
-  Creator. The Sabbath is the "sign" or "seal" of that authority because it
-  points back to the act of Creation.
-- **We by Him:** We exist "by Him." Keeping the Sabbath is an acknowledgment
-  that we are not self-made gods, but creatures dependent on the Lord Jesus
-  Christ for life and breath. It is a weekly act of surrender to His
-  sovereignty.
-
----
-
-### Q14. The Sabbath is a memorial of Creation. Is it also a sign of God's power to redeem us?
-
-**"Remember the Sabbath day, to keep it holy. Six days shalt thou labour, and do
-all thy work: but the seventh day is the Sabbath of the Lord thy God... for in
-six days the Lord made heaven and earth... and rested the seventh day..." Exodus
-20:8-11.**
-
-**"It is a sign between Me and the children of Israel for ever: for in six days
-the Lord made heaven and earth, and on the seventh day He rested, and was
-refreshed." Exodus 31:17.**
-
-**"Moreover also I gave them My sabbaths, to be a sign between Me and them, that
-they might know that I am the Lord that sanctify them." Ezekiel 20:12.**
-
-**Answer:** Yes. The Sabbath has a dual significance: it commemorates the first
-creation (Genesis) and signifies the new creation (Redemption/Sanctification).
-
-- **Memorial of Creation (Exodus 20):** The commandment begins with "Remember"
-  because it points backward to the finished work of Creation. By resting, we
-  acknowledge God as the Builder of the world.
-- **Sign of Sanctification (Ezekiel 20):** The Sabbath is also a sign that "I am
-  the Lord that sanctify them." Sanctification is the work of recreation in the
-  heart. By resting on the Sabbath, we signify that we cannot save ourselves by
-  our own works. We rest in the finished work of Christ.
-- **Resting in Grace:** Just as God finished Creation and rested, Christ
-  finished Redemption on the cross and rested in the tomb over the Sabbath. The
-  Sabbath is the perfect symbol of **Righteousness by Faith**—ceasing from our
-  own struggles to earn salvation and trusting in God's power to make us holy.
-
-**Term Definition:**
-
-- **Sign/Seal:** An external mark that indicates internal reality or ownership.
-  The Sabbath is God's mark of authority and the believer's pledge of allegiance
-  to the Creator.
-
----
-
-### Q15. Why is God worthy to receive our worship, praise and honor?
-
-**"Thou are worthy, O Lord, to receive glory and honor and power: for Thou hast
-created all things, and for Thy pleasure they are and were created." Revelation
-4:11.**
-
-**Answer:** In the heavenly throne room, the fundamental reason given for
-worshiping God is His role as Creator.
-
-- **The Basis of Worthiness:** We do not worship God merely because He is
-  powerful, but because He is the Source of our being. He created us "for His
-  pleasure"—to live in love and harmony with His character.
-- **The Final Conflict:** The book of Revelation presents a conflict between
-  worshiping the Beast (a false system of authority) and worshiping the Creator
-  (Revelation 14:7). Acknowledging God as Creator—and keeping the Sabbath which
-  honors Him as such—is central to the final test of loyalty.
-- **Gospel Restoration:** Redemption restores us to the purpose for which we
-  were created: to glorify God and enjoy Him forever.
-
-**[ILL] Illustration:** An inventor receives the patent and the credit for his
-invention. It would be theft to give the credit to another. When we worship, we
-give "glory and honor" to the One who holds the patent on life itself.
-
----
-
-### Summary Note on Creation and the Gospel
-
-The Bible presents Creation and Redemption as two parts of the same work.
-Redemption is simply "creation restored."
-
-- **The Danger of Evolution:** As noted in the study outline, the theory of
-  evolution strikes at the heart of the gospel. If man gradually ascended from
-  animals, there was no "fall" of man in Eden. If there was no fall, there is no
-  sin. If there is no sin, there is no need for a Saviour or an Atonement.
-  Evolution inevitably leads to the idea that man can save himself through
-  progress.
-- **The Creative Word:** The gospel teaches that we are helpless in sin, dead in
-  trespasses. We need the same power that said "Let there be light" to say to
-  our hearts, "Thy sins be forgiven thee."
-- **The Witness of the Sabbath:** By keeping the seventh-day Sabbath, we testify
-  against the theory of evolution and witness to the world that we believe in
-  the personal, powerful God who created the world in six literal days and is
-  able to re-create us in His image.
+Come to Him. Rest in His finished work. Let His creative power do in you what you could never do for yourself. He who began a good work in you will complete it (Philippians 1:6)—for He is the Creator, and He finishes what He starts.

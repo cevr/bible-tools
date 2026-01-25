@@ -1,430 +1,208 @@
-### Q1. Against whose worship are the dwellers of earth warned by the third angel?
+# Bible Study: The Third Angel's Message
 
-“And the third angel followed them, saying with a loud voice, If any man worship
-the beast and his image, and receive his mark in his forehead, or in his hand,
-the same shall drink of the wine of the wrath of God.” Rev. 14:9.
+## Introduction
 
-**Answer:** The third angel’s message contains the most solemn warning to be
-found in the entire Bible. It warns the inhabitants of the earth against
-worshipping **the beast and his image** and against receiving his **mark**. This
-message reveals that in the final days of earth's history, the central conflict
-will not be merely political, but deeply spiritual—a battle over worship.
-
-1.  **The Object of Worship:** Worship is an act of allegiance. By worshipping
-    the beast, humanity aligns itself with a system that opposes God’s
-    government and His law.
-2.  **The Wrath of God:** This is defined as God’s judgment against sin unmixed
-    with mercy (Revelation 14:10). It is the final outpouring of justice upon
-    those who stubbornly refuse the offer of salvation and choose rebellion.
-3.  **The Necessity of Choice:** Every human being will eventually be brought to
-    a decision point. There will be no neutral ground; one will either receive
-    the seal of God (Revelation 7:2–3) or the mark of the beast.
-
-**Key Definitions:**
-
-- **Worship:** In Scripture, true worship is the outward expression of an inward
-  loyalty and obedience to the Creator (Exodus 20:8–11; Revelation 14:7).
-- **The Beast:** In prophecy, a beast represents a kingdom or political power
-  (Daniel 7:17, 23).
-
-> [ILL] **The Danger Sign:** Imagine a bridge has washed away on a dark,
-> mountain road. A man stands before the drop-off, frantically waving a red
-> lantern and shouting at approaching cars to stop. His "loud voice" and urgent
-> manner are not born of anger at the drivers, but of a desperate desire to save
-> them from destruction. Similarly, the Third Angel’s warning, though stern, is
-> a message of love from God, striving to save humanity from the fatal
-> consequences of false worship.
+The third angel's message of Revelation 14 constitutes the most solemn warning ever given to humanity—a divine alert against receiving the mark of the beast, coupled with a call to keep God's commandments and the faith of Jesus. This message reveals the final battle line in the great controversy: will we worship the Creator according to His revealed will, or bow to a counterfeit system of worship? Understanding this prophecy prepares God's people for the decisive crisis ahead.
 
 ---
 
-### Q2. What beast had been seen coming up out of the sea?
+## Core Truths
 
-“And I stood upon the sand of the sea, and saw a beast rise up out of the sea,
-having seven heads and ten horns, and upon his horns ten crowns, and upon his
-heads the name of blasphemy.” Rev. 13:1.
+### The Solemn Warning
 
-**Answer:** The prophet John sees a beast rising from the "sea." In Bible
-prophecy, water or "sea" represents multitudes of people, nations, and tongues
-(Revelation 17:15). This power, therefore, arises from a densely populated area.
+The third angel follows the first two with heaven's most urgent proclamation:
 
-1.  **Identity of the Beast:** Students of the historicist interpretation of
-    prophecy identify this beast as the **Papacy** (the Roman Church-State
-    power) which rose to dominance among the nations of Europe after the fall of
-    the pagan Roman Empire. It shares the characteristics of the four beasts of
-    Daniel 7—the lion, bear, leopard, and dragon—indicating it absorbed the
-    philosophies and methods of the empires before it (Babylon, Medo-Persia,
-    Greece, and Rome).
-2.  **Blasphemy:** The beast bears the name of blasphemy. Biblically, blasphemy
-    is defined as a man claiming to be God (John 10:33) or claiming the power to
-    forgive sins (Mark 2:7). This power claims prerogatives that belong only to
-    Christ.
+> _"And the third angel followed them, saying with a loud voice, If any man worship the beast and his image, and receive his mark in his forehead, or in his hand, the same shall drink of the wine of the wrath of God."_ (Revelation 14:9–10)
 
-**Sanctuary Connection:** The earthly sanctuary had a High Priest who interceded
-for the people. This beast power diverts the attention of men from the true High
-Priest in the heavenly sanctuary (Jesus) to an earthly priesthood, obscuring the
-"daily" ministry of Christ (Daniel 8:11–12).
+This warning concerns:
 
----
+- **The beast** — a power demanding false worship
+- **The image of the beast** — a replica of that power's character and methods
+- **The mark** — a sign of allegiance to this counterfeit system
 
-### Q3. What power was given to this beast?
+The consequence—"the wine of the wrath of God"—is the seven last plagues poured out without mixture of mercy (Revelation 15:1). No warning in Scripture carries weightier consequences.
 
-“And it was given unto him to make war with the saints, and to overcome them;
-and power was given him over all kindreds, and tongues, and nations.” Rev. 13:7
+[DYK🔎] The phrase "without mixture" in Revelation 14:10 refers to wine not diluted with water. In the ancient world, wine was typically mixed with water to reduce its potency. God's wrath upon those who worship the beast will be undiluted—full strength—because mercy's day has closed.
 
-**Answer:** This power is described as a persecuting force. It does not merely
-teach error; it uses force to "make war" against those who dissent from its
-dogmas.
+### Identifying the Beast Power
 
-1.  **War with the Saints:** History records the "Dark Ages," a period of 1260
-    years (prophetically called "a time, and times, and half a time" in Daniel
-    7:25 and Revelation 12:14), wherein millions of Christians were persecuted
-    for holding to the Bible alone.
-2.  **Universal Authority:** The text indicates a global influence. During its
-    supremacy, this power dictated the conscience of the "civilized" world.
+The Scriptures provide clear identifying marks for this beast:
 
-**Righteousness by Faith:** True Christianity never uses force to compel
-conscience. Jesus says, "If any man hear my words, and believe not, I judge him
-not" (John 12:47) in this present age. The Spirit of Christ wins the heart by
-love (Jeremiah 31:3). Any system that uses the sword to enforce worship is
-operating contrary to the Spirit of Jesus.
+> _"And I stood upon the sand of the sea, and saw a beast rise up out of the sea, having seven heads and ten horns, and upon his horns ten crowns, and upon his heads the name of blasphemy."_ (Revelation 13:1)
 
----
+**Key characteristics:**
 
-### Q4. What was the result of his overcoming the saints?
+- **Rises from the sea** — emerges from a populated, established region (Revelation 17:15: "waters... are peoples, and multitudes")
+- **Has blasphemous names** — claims divine prerogatives
+- **Makes war with the saints** — persecutes God's faithful people (Revelation 13:7)
+- **Receives worldwide worship** — "all that dwell upon the earth shall worship him" (Revelation 13:8)
 
-“And all that dwell upon the earth shall worship him, whose names are not
-written in the book of life of the Lamb slain from the foundation of the world.”
-Rev. 13:8.
+The parallel symbol in Revelation 17—the woman "drunken with the blood of the saints, and with the blood of the martyrs of Jesus" (verse 6)—confirms this power's persecuting nature. History records that millions died during the medieval period for refusing to compromise their faith.
 
-**Answer:** The result of this power's influence is nearly universal worship.
-The verse draws a sharp line of distinction: the only ones who do _not_ worship
-the beast are those whose names are in the **Book of Life**.
+[DYK🔎] Historians estimate that between 50 and 150 million people perished during the centuries of religious persecution in Europe. Fox's Book of Martyrs and other historical records document the systematic destruction of those who held Scripture above church tradition.
 
-1.  **The Book of Life:** This is the registry of the heavenly sanctuary,
-    containing the names of those who have accepted Jesus Christ as their Savior
-    and Lord (Philippians 4:3; Revelation 3:5).
-2.  **The Lamb Slain:** The plan of salvation was not an afterthought. Before
-    the creation of the world, the Godhead covenanted to save man at the cost of
-    the Son’s life (1 Peter 1:19–20). This assurance gives the believer the
-    strength to stand against the majority.
+### The Two-Horned Beast
 
-**Key Definition:**
+A second power enters the prophetic scene:
 
-- **Atonement:** The work of reconciliation. The "Lamb slain" refers to the
-  sacrifice of Christ, which provides the blood (life) to cover the sinner and
-  cleanse the record of sin.
+> _"And I beheld another beast coming up out of the earth; and he had two horns like a lamb, and he spake as a dragon."_ (Revelation 13:11)
 
-> [ILL] **The Anchor:** A ship in a storm may be tossed by waves, but if its
-> anchor is secure in the bedrock, it will not drift onto the rocks. The world
-> is the storm; the Beast provides a false harbor. But those written in the Book
-> of Life have their anchor cast "within the veil" (Hebrews 6:19)—they are held
-> secure by Christ, the Slain Lamb.
+**Distinct characteristics:**
+
+- **Rises from the earth** — emerges from a sparsely populated region
+- **Lamb-like horns** — appears peaceful, Christian, freedom-loving
+- **Speaks as a dragon** — eventually enforces worship through coercion
+
+This nation appears at the time when the first beast receives its deadly wound (around 1798), rises in a new territory, professes Christian principles, yet ultimately betrays those principles by forcing religious observance.
+
+**This beast's work:**
+
+- Commands an **image to the beast** to be made (verse 14)
+- Causes all to receive **a mark** (verse 16)
+- Enforces economic penalties: **"no man might buy or sell"** without the mark (verse 17)
+- Finally, decrees that **non-worshipers should be killed** (verse 15)
+
+[Q] **"Isn't this interpretation just anti-Catholic bias?"**
+
+Historicist interpretation—the method used by virtually all Protestant Reformers—follows scriptural markers rather than prejudice. The identifying features are drawn directly from the biblical text: duration of power (1,260 years), location, blasphemous claims, persecution of saints, and wound that heals. The Reformers—Luther, Calvin, Knox, Wesley, and others—unanimously identified this power based on these biblical criteria, not from personal animosity. Our concern is not with individual Catholics, whom we regard as fellow seekers of truth, but with a _system_ that claims prerogatives belonging only to God.
 
 ---
 
-### Q5. What did the "mother of harlots" do to the saints?
+## Deeper Truths
 
-” And I saw the woman drunken with the blood of the saints, and with the blood
-of the martyrs of Jesus.” Rev. 17:6.
+### The Mark vs. The Seal
 
-**Answer:** In Revelation 17, the same power described as a beast in chapter 13
-is depicted as a woman. In prophecy, a pure woman represents God’s true church
-(Jeremiah 6:2; 2 Corinthians 11:2), while a harlot represents an apostate church
-that has left her true husband (Christ) to form alliances with the kings of the
-earth.
+Scripture sets the mark of the beast in direct contrast with the seal of God:
 
-1.  **Drunken with Blood:** This vivid imagery describes the terrible extent of
-    persecution. The apostate church became intoxicated with the power to
-    destroy those who upheld the "testimony of Jesus."
-2.  **Martyrs of Jesus:** These are they who loved not their lives unto the
-    death (Revelation 12:11). Their blood witnesses to the truth that obedience
-    to God is more precious than life itself.
+| **Seal of God** (Revelation 7:2–3) | **Mark of the Beast** (Revelation 13:16–17) |
+| ---------------------------------- | ------------------------------------------- |
+| Placed on the **forehead**         | Placed on **forehead or hand**              |
+| Identifies God's servants          | Identifies beast's followers                |
+| Connected with God's law           | Connected with beast's law                  |
+| Voluntary, from the heart          | Involves coercion and economic pressure     |
 
----
+The forehead represents the **mind**—willing, intelligent worship. The hand represents **actions**—compliance from expediency rather than conviction. God accepts only heart service; the beast accepts either.
 
-### Q6. And what did she succeed in accomplishing by her course?
+[DYK🔎] The Hebrew word for "seal" (_chotham_) refers to an official mark of authentication, ownership, and authority. Ancient kings sealed documents with their signet ring containing their name, title, and territory. The fourth commandment—the Sabbath—contains all three elements of God's seal: His name ("the LORD thy God"), His title ("that made"), and His territory ("heaven and earth, the sea, and all that in them is") (Exodus 20:8–11).
 
-“The inhabitants of the earth have been made drunk with the wine of her
-fornication.” Rev. 17:2.
+### The Commandments of God and the Faith of Jesus
 
-**Answer:** Through her alliances and influence, this power has spiritually
-intoxicated the world.
+Against the mark of the beast, God presents His identifying sign:
 
-1.  **The Wine of Babylon:** This represents false doctrines and illegal unions
-    between church and state. Just as wine confuses the mind and impairs
-    judgment, false doctrine confuses the spiritual understanding.
-2.  **Spiritual Fornication:** This is the biblical term for when the church
-    seeks the support of the state to enforce her decrees, rather than trusting
-    in the power of the Holy Spirit and the Word of God.
+> _"Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus."_ (Revelation 14:12)
 
-> **Note from Source:** The beast of Rev. 13, and the woman of Rev. 17, are
-> identical. They are symbols of the Roman Church. She put to death millions of
-> saints, and finally so nearly overcame the whole world that even "the kings of
-> the earth" were subdued, and made to pay her homage and worship.
+**"The commandments of God"** — What does Scripture define as God's commandments?
 
----
+> _"And He declared unto you His covenant, which He commanded you to perform, even ten commandments; and He wrote them upon two tables of stone."_ (Deuteronomy 4:13)
 
-### Q7. What other beast was seen to arise after the one last described?
+These ten precepts are complete and unalterable:
 
-” And I beheld another beast coming up out of the earth; and he had two horns
-like a lamb, and he spake as a dragon.” Rev. 13:11.
+> _"These words the LORD spake unto all your assembly in the mount... with a great voice; and He added no more."_ (Deuteronomy 5:22)
 
-**Answer:** As the first beast (Papal Rome) received its "deadly wound" (Rev
-13:3) at the end of the 1260-year prophecy (specifically around 1798 AD), John
-sees a new power rising.
+**"The faith of Jesus"** — This phrase carries dual meaning:
 
-1.  **Out of the Earth:** Unlike the first beast which rose from the "sea"
-    (crowded nations), this one rises from the "earth"—representing a sparsely
-    populated, new territory. Prophetic students identify this as the **United
-    States of America**.
-2.  **Lamb-like Horns:** The horns have no crowns (unlike the first beast),
-    indicating a government without a king—a republic. The "lamb-like" quality
-    suggests youthfulness, innocence, and Christian professions (freedom of
-    conscience, separation of church and state).
-3.  **Spake as a Dragon:** The prophecy predicts a change in character. While
-    appearing mild and Christian-like in its constitution, it will eventually
-    "speak" (legislate) with the intolerance of the dragon (Satan/Pagan Rome).
+1. **Faith in Jesus** — trust in His atoning sacrifice and priestly ministry
+2. **The faith which Jesus had** — the same quality of faith He demonstrated, enabling perfect obedience through dependence on the Father
 
-> **Note from Source:** This symbol represents the United States of America. For
-> confirmation of this, see reading on "The Last Nation Noticed in Prophecy."
+The final generation keeps **all** the commandments—not through human effort, but through Christ living within (Galatians 2:20).
+
+[Q] **"Didn't Christ abolish the law at the cross?"**
+
+Scripture declares the opposite. Jesus said, _"Think not that I am come to destroy the law, or the prophets: I am not come to destroy, but to fulfil"_ (Matthew 5:17). The word "fulfil" means to fill full—to demonstrate its deepest meaning—not to abolish. He continued: _"Till heaven and earth pass, one jot or one tittle shall in no wise pass from the law"_ (verse 18). The ceremonial laws pointing to Christ's sacrifice ended at the cross (Colossians 2:14–17), but the moral law—the ten commandments—remains God's eternal standard of righteousness (Romans 3:31; 7:12; James 2:10–12).
+
+### The Heart of the Controversy
+
+James illuminates why partial obedience fails:
+
+> _"For whosoever shall keep the whole law, and yet offend in one point, he is guilty of all. For He that said, Do not commit adultery, said also, Do not kill."_ (James 2:10–11)
+
+The issue is not merely external compliance but loyalty to the _Lawgiver_. Breaking one commandment—even while keeping nine—reveals a heart that reserves the right to choose which divine commands to obey. This is the spirit of the beast's worship: human authority determining religious observance rather than divine command.
+
+[ILL] A married man may be faithful to his wife in ninety-nine ways, but if he breaks his vow in one way, he is unfaithful. The wedding ring on his finger does not prove his loyalty if his heart wanders elsewhere. So it is with God's law. We may keep nine commandments perfectly, but if we deliberately violate the fourth because human tradition says we may, we have set man's word above God's. The wedding ring of our covenant—the Sabbath—becomes meaningless when our hearts follow another.
 
 ---
 
-### Q8. What is the two-horned beast to do?
+## Principles and Great Controversy Themes
 
-“Saying to them that dwell on the earth, that they should make an image to the
-beast which had the wound by a sword, and did live.” Rev. 13:14.
+### The Sanctuary Connection
 
-**Answer:** The United States is prophesied to lead the world in creating an
-**"image to the beast."**
+The third angel's message is inseparable from the sanctuary truth. In the Most Holy Place of the heavenly sanctuary stands the ark of God's covenant containing His ten commandments (Revelation 11:19). The investigative judgment now in session examines whether professed believers truly keep God's commandments through the faith of Jesus.
 
-1.  **What is an Image?** An image is a likeness or a copy. The first beast was
-    a church clothed with civil power to enforce its dogmas. An "image" to that
-    beast would be a similar system—Protestantism in America seeking the aid of
-    the state to enforce religious observances.
-2.  **Restoring Authority:** By doing this, the second beast heals the influence
-    of the first beast, bringing back the methods of the Dark Ages under a
-    modern guise.
+**The sanctuary reveals:**
 
-**Key Definition:**
+- **Outer court** (cross): Christ's sacrifice provides forgiveness for transgression of the law
+- **Holy place** (daily ministry): Christ's intercession provides power for daily victory over sin
+- **Most Holy Place** (final atonement): Christ's investigative work prepares a people who fully reflect His character—commandment keepers in heart and practice
 
-- **Image of the Beast:** A union of church and state in the United States,
-  where religious apostasy leads to the use of civil law to enforce religious
-  duty.
+Those who receive the mark of the beast have rejected heaven's sanctuary ministry, choosing human mediation and human authority over God's appointed way.
 
----
+### Righteousness by Faith and the Commandments
 
-### Q9. What will the two horned beast require all under its jurisdiction to receive?
+How can sinful humans keep God's holy law? Not by self-effort, but through Christ:
 
-” And he causeth all, both small and great, rich and poor, free and bond, to
-receive a mark in their right hand, or in their foreheads.” Rev. 13:16.
+> _"I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me."_ (Galatians 2:20)
 
-**Answer:** The ultimate aim of this image is to enforce the reception of a
-**mark**. This is not a literal tattoo, but a sign of allegiance.
+**Righteousness by faith produces commandment keepers:**
 
-1.  **The Forehead:** Represents the mind, the intellect, and the conscience.
-    Those who receive the mark here are those who are intellectually convinced
-    of the system's doctrines or who have been deceived.
-2.  **The Hand:** Represents labor and action. Those who receive the mark here
-    may not believe the doctrines, but they comply for the sake of convenience,
-    business, or fear of persecution.
-3.  **Universal Enforcement:** The verse emphasizes that no class of society is
-    exempt—"small and great, rich and poor."
+- Christ's righteousness **imputed** — we stand forgiven before God
+- Christ's righteousness **imparted** — His obedient life is reproduced in us
+- The law is written **in our hearts** — we love to do God's will (Hebrews 8:10)
+- We keep commandments **not to be saved** but **because we are saved**
 
-**Righteousness by Faith:** God seals His people in the forehead (Revelation
-7:3), but never in the hand. God wants a service of love and conviction, not
-forced compliance. The enemy, however, is satisfied with forced obedience (the
-hand) if he cannot capture the heart.
+The beast system offers a counterfeit: human works, church merit, and altered commandments. True faith receives Christ's gift of righteousness that transforms the life.
+
+[DYK🔎] The phrase "here is the patience of the saints" (Revelation 14:12) uses the Greek word _hupomone_, meaning enduring steadfastness under trial. This same word describes Job's perseverance (James 5:11). The final generation will need this endurance when they cannot buy or sell, and face a death decree, yet they trust fully in God and refuse to worship the beast.
+
+### The Dragon's Wrath Against the Remnant
+
+> _"And the dragon was wroth with the woman, and went to make war with the remnant of her seed, which keep the commandments of God, and have the testimony of Jesus Christ."_ (Revelation 12:17)
+
+Two characteristics identify the remnant church:
+
+1. **Keep the commandments of God** — including the Sabbath
+2. **Have the testimony of Jesus** — the spirit of prophecy (Revelation 19:10)
+
+Satan's fury is directed specifically against commandment keepers. The final persecution arises not because of murder, theft, or immorality, but because faithful believers refuse to violate God's law by receiving a counterfeit mark.
 
 ---
 
-### Q10. What will be the result?
+## Practical Application
 
-“And that no man might buy or sell, save he that had the mark, or the name of
-the beast, or the number of his name.” Rev. 13:17.
+### Preparing for the Crisis
 
-**Answer:** The penalty for refusing the mark is an economic boycott. This is a
-severe test of faith.
+The third angel's message calls us to:
 
-1.  **Total Dependence:** When the ability to participate in the economy is
-    removed, the believer is thrown entirely upon the providence of God.
-2.  **The Promise:** Just as God fed Elijah by the brook and the Israelites with
-    manna, He promises to sustain His people. "Bread shall be given him; his
-    waters shall be sure" (Isaiah 33:16).
+1. **Study the commandments of God** — Know what they require; examine every detail of the ten precepts (Psalm 119:97–104)
 
-> [ILL] **The Bird on the Branch:** A bird sleeping on a branch does not worry
-> if the branch breaks, because its trust is not in the branch, but in its own
-> wings. The Christian's trust is not in the "branch" of the world's economy,
-> but in the "wings" of the Almighty (Psalm 91:4).
+2. **Cultivate faith in Jesus** — Daily surrender brings Christ's indwelling presence, making obedience possible (John 15:4–5)
 
----
+3. **Separate from spiritual Babylon** — Come out of false systems of worship before the final crisis (Revelation 18:4)
 
-### Q11. How much power is to be given to the image of the beast?
+4. **Practice present faithfulness** — Those who compromise now will not stand then; obedience in small things prepares for obedience in great ones (Luke 16:10)
 
-” And he had power to give life unto the image of the beast, that the image of
-the beast should both speak, and cause that as many as would not worship the
-image of the beast should be killed.” Rev. 13:15.
+5. **Receive the seal of God** — The Sabbath, kept from a heart renewed by grace, identifies us as belonging to the Creator
 
-**Answer:** The boycott escalates to a death decree. The "image" (the apostate
-Protestant civil power) will eventually mirror the Papal intolerance of the past
-by mandating death for dissenters.
+### Questions for Self-Examination
 
-1.  **"Speak" and "Cause":** A nation "speaks" through its legislative laws and
-    "causes" (acts) through its executive/police power.
-2.  **The Final Test:** This brings the world to the final conflict of the Great
-    Controversy. It is the ultimate test of whether a man loves his life more
-    than he loves Jesus (Matthew 16:25).
+- Am I keeping all ten commandments, including the fourth, from love to God?
+- Am I trusting Christ's righteousness or depending on my own works?
+- Have I fully separated from false worship systems?
+- Am I prepared to stand faithful even when buying and selling are forbidden?
 
 ---
 
-### Q12. After uttering His warning by the third angel against all this, what does God offer instead, as that which will manifest the patience of the saints?
+## Appeal
 
-“Here is the patience of the saints; here are they that keep the commandments of
-God, and the faith of Jesus." Rev. 14:12,
+> _"He that hath an ear, let him hear what the Spirit saith unto the churches."_ (Revelation 3:22)
 
-**Answer:** In stark contrast to those who worship the beast, God points to a
-remnant group. They are identified by two specific characteristics:
+The third angel's message divides humanity into two classes: those who worship the beast and those who keep the commandments of God. There is no middle ground. Every soul must choose.
 
-1.  **They Keep the Commandments of God:** While the world follows the
-    traditions of the beast, this group upholds God's immutable law.
-2.  **They Have the Faith of Jesus:** They do not merely have faith _in_ Jesus
-    (as a distant Savior), but they possess the _faith of_ Jesus. This is the
-    same quality of trust and dependence on the Father that Jesus had during His
-    earthly life—a faith that can endure the cross and despise the shame.
+But hear the gracious invitation: God does not call us to keep His commandments in our own strength. He offers Christ—His righteousness, His indwelling power, His victorious life—to live within us, producing the obedience we could never manufacture.
 
-**Righteousness by Faith:** This verse is the perfect definition of
-Righteousness by Faith.
+The question is not, "Can I stand?" but "Will I let Christ stand in me?"
 
-- **Justification:** We are saved by the faith of Jesus.
-- **Sanctification:** That faith works in us to produce obedience to the
-  Commandments. We do not keep the commandments _to get_ saved; we keep them
-  because we _are_ saved and the life of Christ is living out His law within us
-  (Galatians 2:20).
+Today, while mercy lingers, receive His gift. Let His law be written in your heart. Become, by His grace, one of those who "keep the commandments of God, and the faith of Jesus."
 
----
+The third angel's message is not merely a warning—it is heaven's final appeal of love, calling you to stand on the side of your Creator before probation closes forever.
 
-### Q13. What does the Bible set forth as the "commandments of God?
-
-“And the Lord spake unto you out of the midst of the fire;... and He declared
-unto you His covenant, which He commanded you to perform, even ten commandments;
-and He wrote them upon two tables of stone." Deut. 4:12, 13.
-
-**Answer:** The "Commandments of God" mentioned in Revelation 14:12 are the
-**Ten Commandments** given at Sinai.
-
-1.  **The Covenant:** God calls the Ten Commandments "His covenant." It is the
-    standard of agreement between God and His people. Under the New Covenant,
-    these same laws are written not on stone, but on the heart (Hebrews 8:10).
-2.  **Moral Law:** These are not ceremonial suggestions but the eternal moral
-    law of the universe, reflecting God’s character of love.
-
----
-
-### Q14. Were these ten commandments the complete law of God?
-
-“These words the Lord spake unto all your assembly in the mount out of the midst
-of the fire, of the cloud, and of the thick darkness, with a great voice; and He
-added no more. And He wrote them in two tables of stone." Deut. 5:22.
-
-**Answer:** The text emphasizes, "He added no more."
-
-1.  **Completeness:** The Ten Commandments are a complete summary of human duty
-    to God (first four) and duty to man (last six).
-2.  **Distinction:** God spoke these ten audibly and wrote them with His own
-    finger. This distinguishes them from the ceremonial laws (regarding
-    sacrifices and festivals) which were written by Moses and were types
-    pointing forward to Christ. The moral law remains the standard of
-    righteousness.
-
----
-
-### Q15. Why should the law of God be obeyed?
-
-“Whosoever committeth sin transgresseth also the law; for sin is the
-transgression of the law." 1 John 3:4.
-
-**Answer:** Obedience is necessary because the Law is the detector of sin.
-
-1.  **Definition of Sin:** The Bible defines sin as "the transgression of the
-    law" (anomian - lawlessness). Without the law, we have no knowledge of what
-    sin is (Romans 3:20).
-2.  **The Gospel Connection:** If there is no law, there is no sin. If there is
-    no sin, there is no need for a Savior. Therefore, abolishing the law would
-    abolish the Gospel. Jesus came to save His people _from_ their sins (Matthew
-    1:21), meaning He came to bring them back into harmony with God’s law.
-
-**Righteousness by Faith:** We cannot obey the law in our own strength. The
-carnal mind is hostile to God's law (Romans 8:7). Only when Christ dwells in the
-heart by faith can the "righteousness of the law" be fulfilled in us (Romans
-8:4).
-
----
-
-### Q16. How much of the law should one keep to be called a commandment keeper?
-
-“For whosoever shall keep the whole law, and yet offend in one point, he is
-guilty of all." James 2:10.
-
-**Answer:** God's law is not a list of separate rules, but a unified whole
-representing His character.
-
-1.  **Unity of the Law:** To break one commandment is to break the principle of
-    love and rebellion against the Lawgiver.
-2.  **No "Small" Sins:** In the crisis of the last days, the test may come on
-    just one specific point (such as the Sabbath, the 4th commandment). To yield
-    on one point is to surrender the authority of God to the authority of the
-    beast.
-
-> [ILL] **The Broken Chain:** If you hang a heavy weight by a chain of ten
-> links, how many links need to break for the weight to fall? Only one. It does
-> not matter if the other nine are strong; if one breaks, the connection is
-> severed. So it is with our connection to God’s will.
-
----
-
-### Q17. How does the apostle illustrate his meaning in this statement?
-
-“For He that said, Do not commit adultery, said also, Do not kill. Now if thou
-commit no adultery, yet if thou kill, thou art become a transgressor of the
-law." James 2:11.
-
-**Answer:** James illustrates that the authority behind the law is God Himself.
-
-1.  **The Lawgiver:** We do not keep the commandments because they seem logical
-    or convenient; we keep them because "He said."
-2.  **The Issue of Worship:** This brings us back to the Third Angel's Message.
-    If we accept the Beast's modification of God's law (specifically the change
-    of the Sabbath to Sunday, which tradition admits is a mark of church
-    authority), we are respecting the beast above the Lawgiver.
-
-> **Note from Source:** If keeping the commandments of God and the faith of
-> Jesus will be proof against worshiping the beast and his image, and receiving
-> his mark, then it is plain that those who do worship the beast do not keep the
-> commandments. It is also established by this that the great religious
-> controversy of the last generation is to be over the commandments of God.
-
----
-
-### Q18. Why will the remnant church be persecuted?
-
-“And the dragon was wroth with the woman, and went to make war with the remnant
-of her seed, which keep the commandments of God, and have the testimony of Jesus
-Christ." Rev. 12:17.
-
-**Answer:** The final persecution arises because of the Dragon's wrath against
-the specific characteristics of the Remnant.
-
-1.  **Two Distinguishing Marks:** The Remnant are identified by:
-    - **Commandment Keeping:** They restore the downtrodden law of God,
-      including the Sabbath.
-    - **Testimony of Jesus:** Revelation 19:10 defines this as "the spirit of
-      prophecy."
-2.  **The Cause of War:** The world and the apostate church cannot tolerate a
-    group that refuses to bow to human tradition and insists on obeying God
-    rather than men (Acts 5:29). The life of Christ in His saints is a constant
-    rebuke to sin.
-
-**Conclusion & Promise:** Though the war is fierce, the outcome is assured. The
-saints are described in Revelation 15:2 as standing on the sea of glass, having
-gotten the victory over the beast, his image, his mark, and the number of his
-name. Through the "Faith of Jesus," we can be more than conquerors.
+> _"Blessed are they that do his commandments, that they may have right to the tree of life, and may enter in through the gates into the city."_ (Revelation 22:14)

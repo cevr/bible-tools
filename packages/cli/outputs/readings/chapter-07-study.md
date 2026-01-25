@@ -1,238 +1,199 @@
-### Q1. What do the four beasts of Daniel 7 represent in the stream of history?
+# Bible Study: The Prophetic Timeline of Daniel 7-9
 
-**"Daniel spake and said, I saw in my vision by night, and, behold, the four
-winds of the heaven strove upon the great sea. And four great beasts came up
-from the sea, diverse one from another." (Daniel 7:2–3)**
+## Introduction
 
-**Answer:** According to the sure word of prophecy, the four beasts represent
-four successive world empires that would arise from the agitation of the nations
-("winds" striving on the "sea," representing peoples/multitudes, Revelation
-17:15). As outlined in the provided text and confirmed by history:
-
-1.  **The Lion:** Represents **Babylon** (605–538 B.C.).
-2.  **The Bear:** Represents **Medo-Persia** (538–334 B.C.). The bear raising
-    itself on one side signifies the dominance of the Persians over the Medes.
-3.  **The Leopard:** Represents **Grecia** (334–168 B.C.). The four wings
-    symbolize the speed of Alexander’s conquests. After Alexander's death, the
-    kingdom was divided into four parts (the four heads).
-4.  **The Terrible Beast:** Represents **Pagan Rome** (168 B.C. to the 5th
-    Century A.D.). This iron monarchy crushed the nations of the earth.
-
-The prophecy indicates that this fourth beast would eventually be broken into
-ten kingdoms (the ten horns), corresponding to the divided nations of Europe.
-
-- **Key Definition:**
-  - **Prophecy:** History written in advance by God, demonstrating His
-    sovereignty over the rise and fall of nations (Isaiah 46:9–10).
-
-**[ILL]** Imagine a relay race where a torch is passed from one runner to
-another. In Daniel 7, the "torch" of world dominance is passed from Babylon to
-Medo-Persia, to Greece, and finally to Rome. God gave this preview not merely to
-teach history, but to show that He knows the end from the beginning and that all
-earthly power is temporary. The only Kingdom that shall stand forever is the
-Kingdom of Christ (Daniel 2:44).
+Daniel chapters 7, 8, and 9 form an interconnected prophetic masterpiece revealing God's foreknowledge of world empires and His ultimate plan to restore His people and cleanse His sanctuary. These prophecies, spanning from ancient Babylon to the final work of Christ in heaven, demonstrate that history unfolds under divine supervision—and that we live in the most solemn period of earth's history.
 
 ---
 
-### Q2. Who is the "little horn" power described in Daniel 7, and what did it do?
+## Core Truths
 
-**"I considered the horns, and, behold, there came up among them another little
-horn, before whom there were three of the first horns plucked up by the
-roots..." (Daniel 7:8)**
+### The Four Beasts of Daniel 7: A Prophetic Panorama
 
-**Answer:** The text identifies the "little horn" as **Papal Rome**. This power
-did not arise as a separate beast but grew out of the fourth beast (Rome) among
-the ten horns (divided Europe).
+Daniel 7 presents a vision of four great beasts arising from the sea, representing successive world empires that would dominate God's people:
 
-- **Historical Identification:** It gained full supremacy by **538 A.D.**,
-  shortly after the uprooting of three opposing Arian tribes: the Heruli,
-  Vandals, and Ostrogoths.
-- **Characteristics (Daniel 7:25):**
-  - **Blasphemy:** Speaking great words against the Most High.
-  - **Persecution:** Wearing out the saints of the Most High.
-  - **Changing God's Law:** Thinking to change "times and laws."
+> _"These great beasts, which are four, are four kings, which shall arise out of the earth."_ (Daniel 7:17)
 
-This power represents a religious-political system that seeks to obscure the
-work of Christ. While Christ teaches that salvation is by faith alone in His
-merits (Romans 3:28), this earthly system substituted human works and an earthly
-priesthood.
+- **The Lion** — Babylon (605–538 B.C.), the golden kingdom of Nebuchadnezzar
+- **The Bear** — Medo-Persia (538–334 B.C.), raised up on one side, depicting Persian dominance
+- **The Leopard** — Grecia (334–168 B.C.), with four wings and four heads representing Alexander's swift conquests and the subsequent fourfold division of his empire
+- **The Terrible Beast** — Pagan Rome (168 B.C.–5th century A.D.), dreadful and exceedingly strong, with ten horns representing the divided kingdoms of Europe
 
-- **Righteousness by Faith Application:** The "little horn" represents the
-  spirit of _anti-Christ_, which is ultimately the spirit of self-dependence.
-  Any system that places a human being or human works in the place of Christ's
-  mediation is an attack on the Gospel. Our standing before God relies solely on
-  the High Priest in heaven, Jesus Christ (1 Timothy 2:5), not on earthly
-  priests or pontiffs.
+[DYK🔎] The sequence of empires in Daniel 7 precisely parallels Daniel 2's metallic image (gold, silver, brass, iron)—God gave the same prophecy twice, in different symbols, to establish certainty (Genesis 41:32).
 
----
+### The Little Horn: A Power Against God
 
-### Q3. What symbols are introduced in Daniel 8, and how do they parallel Daniel 7?
+From among the ten horns arose a "little horn" power—Papal Rome—which gained full ecclesiastical and political authority by 538 A.D. after uprooting three opposing kingdoms: the Heruli, Vandals, and Ostrogoths.
 
-**"The ram which thou sawest having two horns are the kings of Media and Persia.
-And the rough goat is the king of Grecia..." (Daniel 8:20–21)**
+> _"And he shall speak great words against the most High, and shall wear out the saints of the most High, and think to change times and laws."_ (Daniel 7:25)
 
-**Answer:** Daniel 8 provides an "event prophecy" that parallels Daniel 7 but
-focuses more intensely on the attack against the Sanctuary.
+This power would:
 
-1.  **The Ram:** Corresponds to the Bear of Daniel 7—**Medo-Persia** (538–334
-    B.C.).
-2.  **The He-Goat:** Corresponds to the Leopard of Daniel 7—**Grecia** (334–168
-    B.C.).
-    - The "notable horn" was **Alexander the Great**, who conquered the known
-      world in roughly ten years.
-    - When he was broken (died) in 323 B.C., four horns came up, representing
-      the division of his empire into four Hellenistic kingdoms.
-3.  **The Little Horn (Daniel 8):** Corresponds to the Terrible Beast and Little
-    Horn of Daniel 7 combined. It begins as **Pagan Rome** (conquering
-    geographically) and transitions into **Papal Rome** (conquering
-    spiritually).
+- **Speak blasphemies** against God (Daniel 7:8, 20; 8:11)
+- **Persecute God's people** throughout the Dark Ages (Daniel 7:21, 25; 8:10, 24–25)
+- **Cast down truth** and exalt tradition above Scripture (Daniel 8:12, 25)
+- **Attempt to change God's law**—particularly the Sabbath commandment (Daniel 7:25)
 
-**[ILL]** Think of a camera lens zooming in. Daniel 2 showed the statue (broad
-view). Daniel 7 showed beasts (political nature). Daniel 8 zooms in specifically
-on the conflict between these powers and the **Sanctuary of God**. The focus
-shifts from "who rules the earth" to "who is attacking God's plan of salvation."
+[Q] **"Isn't it presumptuous to identify a specific religious power as the little horn?"**
+
+Scripture itself provides the identifying marks. We do not judge individuals within any system, but we must recognize prophetic fulfillment. The Reformers—Luther, Calvin, Wesley, and many others—universally identified this power from Scripture. Our concern is faithfulness to God's word, not antagonism toward any people. God has sincere followers in every communion (Revelation 18:4).
 
 ---
 
-### Q4. How does the Little Horn of Daniel 8 attack the Sanctuary and the Law?
+## Deeper Truths
 
-**"Yea, he magnified himself even to the prince of the host, and by him the
-daily sacrifice was taken away, and the place of his sanctuary was cast down."
-(Daniel 8:11)**
+### Daniel 8: The Ram, the Goat, and the Sanctuary
 
-**Answer:** The "little horn" (Papal phase) is described as casting truth to the
-ground. Its attack is three-fold:
+Daniel 8 parallels chapter 7 but begins later in prophetic history:
 
-1.  **Against the People:** Persecuting the saints (Daniel 8:24).
-2.  **Against the Truth:** Attempting to change the Law of God (Daniel 7:25),
-    specifically the Sabbath, which is the seal of God’s authority.
-3.  **Against the Sanctuary:** It "cast down" the place of God's sanctuary.
-    Since the earthly temple was destroyed in A.D. 70, this attack is against
-    the **Heavenly Sanctuary**.
+- **The Ram** — Medo-Persia (Daniel 8:20)
+- **The He-Goat** — Grecia, with its "notable horn" representing Alexander the Great (Daniel 8:21)
 
-By establishing an earthly priesthood, the mass, and the confessionals, the
-Papacy obscured the minds of men from the _true_ Daily Ministry (intercession)
-of Jesus in heaven. It set up an earthly counterfeit, directing eyes to man
-rather than to Christ.
+> _"Therefore the he goat waxed very great: and when he was strong, the great horn was broken; and for it came up four notable ones toward the four winds of heaven."_ (Daniel 8:8)
 
-- **Key Definition:**
-  - **The "Daily" (Tamid):** The continual ministry of Christ as our High Priest
-    in the Holy Place, interceding for us and supplying grace (Hebrews 7:25).
+[DYK🔎] Alexander the Great conquered the known world in only ten years, yet died at age 32. His empire immediately divided among four generals—Cassander, Lysimachus, Seleucus, and Ptolemy—exactly as prophesied.
 
----
+From one of these divisions arose another little horn—first Pagan Rome, then transitioning into Papal Rome. This power would:
 
-### Q5. What specific time prophecy is introduced in Daniel 8:14?
+- **Magnify himself even to the prince of the host** (Daniel 8:11)—claiming titles belonging to Christ alone
+- **Take away the daily** and **cast down the sanctuary** (Daniel 8:11)—obscuring Christ's heavenly ministry through an earthly counterfeit priesthood
+- **Cast down the truth to the ground** (Daniel 8:12)
 
-**"And he said unto me, Unto two thousand and three hundred days; then shall the
-sanctuary be cleansed." (Daniel 8:14)**
+### The 2300 Day Prophecy: Heaven's Timeline
 
-**Answer:** This is the longest time prophecy in the Bible. While the angel
-Gabriel explained the _beasts_ in Daniel 8, the _time_ element was not
-immediately explained, causing Daniel to faint (Daniel 8:27). It was not until
-Daniel 9 that Gabriel returned to give the "key" to unlock this 2300-day period.
+The TIME prophecy of Daniel 8 stands as the longest prophetic period in Scripture:
 
-- **The Day-Year Principle:** In Bible prophecy, a symbolic day equals a literal
-  year.
-  - Numbers 14:34: "Each day for a year."
-  - Ezekiel 4:6: "I have appointed thee each day for a year."
-- Therefore, 2300 prophetic days = **2300 literal years**.
+> _"Unto two thousand and three hundred days; then shall the sanctuary be cleansed."_ (Daniel 8:14)
 
-**[ILL]** If you have a map that says "1 inch = 100 miles," you cannot measure
-the distance with a ruler and say, "It is only 3 inches." You must apply the
-scale. Prophecy has a scale: 1 prophetic day = 1 solar year. Without this key,
-the prophecy remains a mystery; with it, it becomes a precise clock of history.
+Gabriel explained the EVENT prophecy (the beasts) but left the TIME prophecy unexplained. Daniel was overwhelmed:
+
+> _"And I Daniel fainted, and was sick certain days; afterward I rose up, and did the king's business; and I was astonished at the vision, but none understood it."_ (Daniel 8:27)
+
+[ILL] Imagine receiving a sealed letter containing momentous news, but being told you could not open it yet. Daniel carried the burden of this unexplained time prophecy, not knowing when the sanctuary would be cleansed or what that cleansing meant. His prayer in chapter 9 arose from this very burden.
+
+### Daniel 9: The Key That Unlocks the Timeline
+
+Daniel's heartfelt prayer (Daniel 9:1–19) brought Gabriel back to complete the explanation:
+
+> _"O Daniel, I am now come forth to give thee skill and understanding... therefore understand the matter, and consider the vision."_ (Daniel 9:22–23)
+
+The **Seventy Week Prophecy** (Daniel 9:24–27) is "cut off" (Hebrew: _chatak_) from the larger 2300-year prophecy. These 490 years were allotted to the Jewish nation to fulfill their covenant mission.
+
+**The Starting Point**: The decree of Artaxerxes in 457 B.C. (Ezra 7:6–8) to restore Jerusalem's government.
+
+> _"Know therefore and understand, that from the going forth of the commandment to restore and to build Jerusalem unto the Messiah the Prince shall be seven weeks, and threescore and two weeks."_ (Daniel 9:25)
+
+[DYK🔎] In Bible prophecy, a day represents a year (Numbers 14:34; Ezekiel 4:6). This principle unlocks the meaning of prophetic time periods throughout Daniel and Revelation.
 
 ---
 
-### Q6. What is the "Seventy Weeks" prophecy, and when does the timeline begin?
+## The Prophetic Timeline Revealed
 
-**"Seventy weeks are determined upon thy people and upon thy holy city... Know
-therefore and understand, that from the going forth of the commandment to
-restore and to build Jerusalem..." (Daniel 9:24–25)**
+### The 70 Weeks (490 Years) for Israel
 
-**Answer:** The 70 weeks (490 prophetic days, or 490 years) were "determined" or
-literally **"cut off"** from the longer 2300-year prophecy. This time was
-allotted specifically to the Jewish nation to finish their probation.
+| Period   | Years     | Event                                    |
+| -------- | --------- | ---------------------------------------- |
+| 7 weeks  | 49 years  | Jerusalem rebuilt (457–408 B.C.)         |
+| 62 weeks | 434 years | To Messiah the Prince (408 B.C.–A.D. 27) |
+| ½ week   | 3½ years  | Christ's ministry (A.D. 27–31)           |
+| ½ week   | 3½ years  | Gospel to Jews (A.D. 31–34)              |
 
-- **The Start Date:** The timeline begins with the decree of Artaxerxes to
-  restore and build Jerusalem.
-  - Scripture records this in Ezra 7:6-8.
-  - Historical Date: **457 B.C.** (Autumn).
-- **The Math:**
-  - 70 weeks x 7 days/week = 490 days (years).
-  - Starting at 457 B.C., the 490 years end in **A.D. 34**.
+**Key Fulfillments:**
 
-- **Key Definition:**
-  - **Probation:** A period of testing or trial. God gave the Jewish nation 490
-    years to accept the Messiah and fulfill their mission to the world.
+- **A.D. 27** — Jesus baptized and anointed for ministry: _"The Spirit of the Lord is upon me, because he hath anointed me"_ (Luke 4:18). Jesus began preaching, _"The time is fulfilled"_ (Mark 1:15).
 
----
+- **A.D. 31** — "In the midst of the week he shall cause the sacrifice and the oblation to cease" (Daniel 9:27). Christ crucified; the temple veil torn (Matthew 27:51). The sacrificial system met its fulfillment.
 
-### Q7. How does the Seventy-Week prophecy pinpoint the Messiah?
+- **A.D. 34** — Stephen stoned; gospel goes to Gentiles (Acts 7–8). Jewish national probation as God's exclusive covenant people closes.
 
-**"And after threescore and two weeks shall Messiah be cut off, but not for
-himself..." (Daniel 9:26)**
+[Q] **"How can we be certain A.D. 27 was the correct year for Christ's baptism?"**
 
-**Answer:** This prophecy is the mathematical proof of Jesus’ Messiahship.
+History confirms Artaxerxes' seventh year as 457 B.C. Adding 483 years (69 weeks) brings us precisely to A.D. 27. Luke 3:1 places Jesus' baptism in "the fifteenth year of the reign of Tiberius Caesar"—which historians date to A.D. 27. The prophecy was fulfilled to the exact year.
 
-1.  **Seven Weeks (49 years):** Rebuilding the walls/streets of Jerusalem
-    (completed 408 B.C.).
-2.  **Sixty-Two Weeks (434 years):** Brings us to the "anointing" of the
-    Messiah.
-    - 408 B.C. + 434 years = **A.D. 27**.
-    - In A.D. 27, Jesus was baptized and anointed by the Holy Spirit (Luke
-      3:21-22; Acts 10:38). "Messiah" means "Anointed One."
-3.  **The Final Week (7 years):** From A.D. 27 to A.D. 34.
-    - **"In the midst of the week" (A.D. 31):** Messiah was "cut off"
-      (crucified). His death caused the sacrifice and oblation to cease (Daniel
-      9:27) because the veil of the temple was torn; the earthly type met the
-      Antitype.
-    - **End of the Week (A.D. 34):** The stoning of Stephen marked the rejection
-      of the gospel by the Sanhedrin. The gospel then went to the Gentiles (Acts
-      7:59; 8:1,4).
+### The Remaining 1810 Years
 
-- **Righteousness by Faith:** Christ was "cut off, but not for Himself." He was
-  cut off for _us_. This is the heart of the Gospel—Substitution. He took our
-  death so that we might have His life. Our justification is grounded in this
-  historical event predicted centuries in advance.
+After the 490 years ended in A.D. 34, **1810 years** remained of the 2300-year prophecy:
+
+**457 B.C. + 2300 years = A.D. 1844**
+
+> _"Unto two thousand and three hundred days; then shall the sanctuary be cleansed."_ (Daniel 8:14)
 
 ---
 
-### Q8. When does the 2300-year prophecy end, and what is the "Cleansing of the Sanctuary"?
+## Principles and Great Controversy Themes
 
-**"Unto two thousand and three hundred days; then shall the sanctuary be
-cleansed." (Daniel 8:14)**
+### The Heavenly Sanctuary and Christ's Ministry
 
-**Answer:** Since the 70 weeks (490 years) were the first part of the 2300
-years:
+The earthly sanctuary was a "shadow" and "pattern" of heavenly realities (Hebrews 8:1–5; 9:23–24). Just as the earthly high priest entered the Most Holy Place once yearly on the Day of Atonement to cleanse the sanctuary (Leviticus 16), so Christ, our heavenly High Priest, entered upon a final phase of ministry in 1844.
 
-- **Total:** 2300 years.
-- **Subtract:** 490 years (ended in A.D. 34).
-- **Remaining:** 1810 years.
-- **Calculation:** A.D. 34 + 1810 = **A.D. 1844**.
+> _"We have such an high priest, who is set on the right hand of the throne of the Majesty in the heavens; A minister of the sanctuary, and of the true tabernacle, which the Lord pitched, and not man."_ (Hebrews 8:1–2)
 
-In 1844, Jesus did not return to the earth (as many early Advent believers
-mistakenly hoped), but He entered the **Most Holy Place** of the heavenly
-sanctuary to begin His final work: the **Cleansing of the Sanctuary**.
+**The Cleansing of the Sanctuary:**
 
-- **The Meaning of the Cleansing:**
-  - In the earthly type (Leviticus 16), the sanctuary was cleansed once a year
-    on the Day of Atonement (Yom Kippur).
-  - This symbolized the removal of the record of sin from God's house.
-  - In 1844, Christ began the work of **Investigative Judgment**, reviewing the
-    lives of believers to blot out sins before His return.
+In the earthly type, the Day of Atonement involved:
 
-- **Experiential Application (Righteousness by Faith):** While Christ cleanses
-  the sanctuary in heaven, a corresponding work must take place in the hearts of
-  His people on earth. We must afflict our souls (repentance) and cooperate with
-  Him to have every sin rooted out of our lives. _"Christ is waiting with
-  longing desire for the manifestation of Himself in His church. When the
-  character of Christ shall be perfectly reproduced in His people, then He will
-  come to claim them as His own."_ (Christ's Object Lessons, p. 69).
+- The removal of accumulated sins from the sanctuary
+- The vindication of God's character and law
+- A solemn time of heart-searching for Israel (Leviticus 16:29–31)
 
-**[ILL]** Imagine a courtroom. Before the Judge delivers the verdict and the
-rewards, there is an examination of the evidence. 1844 marked the opening of the
-books in heaven. As our High Priest, Jesus stands to plead His blood for every
-repentant sinner. The question in this judgment is not "Are you good enough?"
-but "Are you covered by the Blood, and has your faith produced the fruit of
-obedience?" (Revelation 14:12).
+In the heavenly antitype, since 1844:
+
+- Christ examines the records of all who have professed His name
+- The investigative judgment determines who among the dead and living are truly His
+- God's people are called to deep heart-searching and putting away of sin
+
+[ILL] In ancient Israel, while the high priest ministered in the Most Holy Place, the people outside were to afflict their souls, searching their hearts and confessing every sin. Anyone who did not participate was "cut off" from Israel (Leviticus 23:29). We live in the antitypical Day of Atonement. The heavenly High Priest is completing His work. This is no time for spiritual carelessness.
+
+### The Great Controversy in Daniel's Prophecies
+
+Throughout Daniel 7–9, we see the cosmic conflict between Christ and Satan:
+
+- **Satan's work through earthly powers**: Persecution, blasphemy, casting down truth, attempting to change God's law
+- **Christ's ultimate victory**: _"The judgment shall sit, and they shall take away his dominion"_ (Daniel 7:26)
+- **The saints vindicated**: _"The saints of the most High shall take the kingdom, and possess the kingdom for ever"_ (Daniel 7:18)
+
+The little horn's attack on the "daily" (Christ's continual priestly ministry) and the "sanctuary" (God's throne of grace) reveals Satan's strategy: obscure the way of salvation, substitute human priests for the divine Mediator, and direct worship away from heaven to earthly counterfeits.
+
+---
+
+## Practical Application
+
+### Living in the Antitypical Day of Atonement
+
+We live in the most solemn period of earth's history. Christ's work in the Most Holy Place will soon be complete. What does this mean for us?
+
+**1. Heart-Searching and Confession**
+
+> _"Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting."_ (Psalm 139:23–24)
+
+Every known sin must be confessed and forsaken. Christ's blood is available now; it will not always be so.
+
+**2. Confidence in Our High Priest**
+
+> _"Let us therefore come boldly unto the throne of grace, that we may obtain mercy, and find grace to help in time of need."_ (Hebrews 4:16)
+
+The investigative judgment is not cause for fear but for confidence. We have an Advocate who pleads His own blood on our behalf (1 John 2:1).
+
+**3. Character Preparation**
+
+> _"He that is unjust, let him be unjust still... he that is righteous, let him be righteous still: and he that is holy, let him be holy still."_ (Revelation 22:11)
+
+A time is coming when probation closes and character is forever fixed. Now is the time, through Christ's indwelling power, to develop characters that reflect His image.
+
+**4. Proclaiming the Three Angels' Messages**
+
+The judgment-hour message of Revelation 14:6–7 calls the world to _"Fear God, and give glory to him; for the hour of his judgment is come."_ We are to be heralds of this solemn truth.
+
+---
+
+## Appeal
+
+> _"And, behold, I come quickly; and my reward is with me, to give every man according as his work shall be."_ (Revelation 22:12)
+
+Beloved, we stand at the end of the longest time prophecy in Scripture. The 2300 years have run their course. Christ is now completing His high-priestly work in heaven's Most Holy Place. Soon He will lay aside His priestly garments and come as King of kings.
+
+The question before each of us is this: Is my name being confessed before the Father and His angels? (Revelation 3:5) Have I committed my life fully to Christ, allowing Him not only to forgive my sins but to cleanse my character?
+
+If you have never surrendered to Jesus, do so today. If you have grown cold or careless, return to Him now. He is faithful to forgive and to cleanse (1 John 1:9). The door of mercy still stands open—but it will not remain so forever.
+
+_"Today if ye will hear his voice, harden not your hearts."_ (Hebrews 4:7)

@@ -1,681 +1,338 @@
-### Q1. For what purpose did Christ come into the world?
-
-"This is a faithful saying, and worthy of all acceptation, that Christ Jesus
-came into the world to save sinners; of whom I am chief."-1 Tim. 1:15.
-
-**Answer:** The primary mission of Jesus Christ was a rescue mission. He did not
-come merely to teach morality or to set a good example, though He did both; He
-came to address a desperate emergency—the problem of sin that separated humanity
-from God (Isaiah 59:2).
-
-- **To Save, Not Condemn:** Christ’s purpose was salvation. The world was
-  already under condemnation; He came to offer a way of escape (John 3:17).
-- **For Sinners:** The gospel is specifically for those who recognize their
-  need. Just as a physician is for the sick (Matthew 9:12), the Saviour is for
-  the sinner. This text encourages even the "chief" of sinners that they are not
-  beyond the reach of His grace.
-- **The Great Controversy:** In the conflict between good and evil, Christ
-  entered the enemy's territory (this world) to reclaim His lost possession—the
-  human race (Luke 19:10).
-
-**[ILL] The Lifeboat:** Imagine a ship sinking in a stormy ocean. A captain does
-not launch a lifeboat to teach the drowning passengers how to swim better; he
-launches it to pull them out of the water. We are drowning in sin; Christ is the
-Lifeboat who comes to pull us to safety.
-
----
-
-### Q2. Can we obtain salvation through any other source?
-
-"Neither is there salvation in any other: for there is none other name under
-heaven given among men, whereby we must be saved."-Acts 4:12.
-
-**Answer:** The Bible presents an exclusive path to salvation. Because the
-problem is infinite—rebellion against the infinite God and the violation of His
-eternal law—only an infinite sacrifice could provide the remedy.
-
-- **The Unique Position of Christ:** As both fully God and fully man, Jesus is
-  the only "ladder" connecting earth to heaven (Genesis 28:12; John 1:51). No
-  angel, human priest, or religious system can bridge the gap caused by sin.
-- **No Human Merit:** We cannot save ourselves by good works, philosophy, or
-  penance. Salvation is found entirely in the _Person_ of Jesus Christ.
-- **Definition - Atonement:** The reconciliation of God and man through the
-  life, death, and high priestly ministry of Jesus Christ. It literally means
-  "at-one-ment" (Romans 5:11).
-
-**[ILL] The Key:** If you lose the key to your front door, you might try a
-hundred other keys, a stick, or a wire. But only the key cut by the locksmith to
-fit the tumblers of that specific lock will open the door. Christ is the only
-One who fits the requirements of the broken Law and the love of the Father; He
-alone unlocks heaven for us.
-
----
-
-### Q3. From what does Christ save His people?
-
-"Thou shalt call His name Jesus; for He shall save His people from their
-sins"-Matt. 1:21.
-
-**Answer:** This is a foundational truth of the everlasting gospel. Christ’s
-salvation is not merely from the _penalty_ of sin (hell/death), but from the
-_power_ and _presence_ of sin itself.
-
-- **Saved _From_ Sin, Not _In_ Sin:** God cannot save a man while he clings to
-  his rebellion. To be saved means to be delivered from the practice and rule of
-  iniquity.
-- **Justification and Sanctification:**
-  - _Justification:_ He saves us from the _guilt_ of past sins (Romans 3:24-25).
-  - _Sanctification:_ He saves us from the _power_ of sin in our daily lives (1
-    Thessalonians 4:3).
-- **Restoration:** The goal is to restore the image of God in man. A Saviour who
-  only forgave but left the sinner enslaved to vice would be an incomplete
-  Saviour. His grace is power to overcome (Romans 6:14).
-
-**[ILL] The Doctor:** If a patient has a deadly infection, he does not want a
-doctor who merely gives him painkillers so he doesn't feel the death working in
-him. He wants a doctor who kills the infection and restores health. Jesus is the
-Great Physician who cures the disease of sin, not just the symptoms.
-
----
-
-### Q4. In the case of the woman who washed the Saviour's feet in the house of Simon the Pharisee, what was said to her because of her act?
-
-"And He said to the woman, Thy faith hath saved thee; go in peace."-Luke 7:50.
-
-**Answer:** This woman came to Jesus burdened with guilt. Her act of washing His
-feet was an expression of deep repentance and love.
-
-- **Faith as the Instrument:** It was not the washing of feet that saved her,
-  but her faith in Jesus as the Sin-Bearer. Faith is the hand that grasps the
-  gift of salvation (Ephesians 2:8).
-- **Justification by Faith:** In that moment, she was justified—declared
-  righteous. Her past record of sin was wiped clean because she trusted in
-  Christ.
-- **Peace:** The result of justification is peace with God (Romans 5:1). The war
-  between her soul and God’s law was over; she was now on God’s side.
-- **Continued Faith:** As the note in the source material suggests, this
-  salvation was a current reality ("thy faith _hath_ saved thee"). To remain
-  saved, she would need to continue walking in that faith, for faith is a living
-  connection, not a one-time transaction.
-
-**[ILL] The Pardon:** A prisoner on death row receives a governor's pardon. At
-that moment, he is "saved" from execution. But if he leaves the prison and
-immediately commits another crime, he falls under the law's condemnation again.
-We must walk in the liberty Christ gives us (Galatians 5:1).
-
----
-
-### Q5. Who only will finally be saved?
+# Bible Study: Salvation
 
-"But he that shall endure unto the end, the same shall be saved."-Matt. 24:13.
-
-**Answer:** While we accept Christ by faith today, the Bible teaches that the
-Christian life is a marathon, not a sprint.
-
-- **Perseverance:** Salvation is a process that begins with conversion and ends
-  with final deliverance at Christ’s coming. We must "hold fast" the confidence
-  we had at the beginning (Hebrews 3:14).
-- **The Danger of Drawing Back:** God takes no pleasure in those who draw back
-  (Hebrews 10:38). The doctrine of "once saved, always saved" is not supported
-  here; one must endure.
-- **Daily Dependence:** Enduring to the end implies a daily, moment-by-moment
-  abiding in Christ. We are saved today if we are in Christ today.
-
-**[ILL] The Harvest:** A farmer plants a seed. It sprouts (conversion). It grows
-(sanctification). But the crop is only "saved" when it is finally harvested into
-the barn. If a storm destroys it or it withers before harvest, the early growth
-is in vain. We must ripen into the full character of Christ (Mark 4:28-29).
+## Introduction
 
----
-
-### Q6. If one has had the assurance of sins forgiven, but has afterward turned from his righteousness, what will be the result?
-
-"But when the righteous turneth away from his righteousness, and committeth
-iniquity, and doeth according to all the abominations that the wicked man doeth,
-shall he live? All his righteousness that he hath done shall not be mentioned:
-in his trespass that he hath trespassed, and in his sin that he hath sinned, in
-them shall he die."-Eze. 18:24.
-
-**Answer:** This solemn text clarifies the conditional nature of the covenant.
-God deals with us based on our present relationship with Him, not just our past
-history.
-
-- **The Reality of Apostasy:** It is possible for a righteous man (a justified
-  believer) to turn away and return to a life of sin.
-- **The Sanctuary Truth:** In the earthly sanctuary, sins were transferred to
-  the tabernacle throughout the year. They were not finally "blotted out" until
-  the Day of Atonement (Leviticus 16). If a man confessed but later forsook God,
-  his past forgiveness did not secure him; his sins would return upon his own
-  head.
-- **Holy Living:** This underscores the necessity of _Righteousness by Faith_—a
-  righteousness that remains and grows. God demands a heart that remains loyal.
+Salvation is the great theme of Scripture—God's work to rescue humanity from sin
+and death and restore us to eternal life in Him. This study traces the pathway
+from our lost condition to our glorious inheritance as children of God, showing
+that salvation is wholly Christ's work, received by faith, and secured by
+endurance to the end.
 
-**[ILL] The Citizenship:** An immigrant may be granted citizenship in a new
-country. But if that citizen later commits treason against the government, their
-citizenship can be revoked. We are citizens of heaven, but we must not commit
-treason by returning to the service of Satan.
+## Core Truths
 
----
+### The Purpose of Christ's Coming
 
-### Q7. In the parable, when one who owed his lord ten thousand talents was unable to pay, at his own request what did his master do for him?
+_"This is a faithful saying, and worthy of all acceptation, that Christ Jesus
+came into the world to save sinners"_ (1 Timothy 1:15).
 
-"Then the lord of that servant was moved with compassion, and loosed him, and
-forgave him the debt."-Matt. 18:27.
+The apostle Paul declares this truth "worthy of all acceptation"—deserving
+universal welcome and belief. Jesus did not come merely to teach, to heal, or to
+set an example. He came **to save sinners**.
 
-**Answer:**
+- **Salvation**: Deliverance from sin's penalty (death) and power (bondage),
+  resulting in restoration to eternal life with God (Romans 6:23; John 17:3).
 
-- **The Impossible Debt:** Ten thousand talents represents an unpayable
-  sum—millions of dollars in today's terms. This represents our sin debt to God.
-  We cannot pay it; we are spiritually bankrupt.
-- **The Character of God:** The master was "moved with compassion." God delights
-  in mercy (Micah 7:18).
-- **Full Forgiveness:** The debt was not merely reduced; it was forgiven
-  entirely. This represents Justification—the complete cancellation of our
-  record of sin through the blood of Christ.
+_"Neither is there salvation in any other: for there is none other name under
+heaven given among men, whereby we must be saved"_ (Acts 4:12).
 
----
+This is exclusive, not exclusive in arrogance, but in truth. A drowning man
+cannot choose which lifeguard saves him—there is only one in the water. Christ
+alone has the power and authority to rescue humanity.
 
-### Q8. After receiving forgiveness for his enormous debt, what did the servant do to another who owed him but a hundred pence, and asked for mercy?
+[DYK🔎] The name "Jesus" (Greek: _Iēsous_; Hebrew: _Yeshua_) literally means
+"Yahweh saves" or "Yahweh is salvation." His very name declares His mission.
 
-"And his fellow-servant fell down at his feet, and be-sought him, saying, Have
-patience with me, and I will pay thee all. And he would not: but went and cast
-him into prison, till he should pay the debt."-Matt. 18:29, 30.
+### Salvation From Sin, Not In Sin
 
-**Answer:**
+_"Thou shalt call His name Jesus; for He shall save His people from their sins"_
+(Matthew 1:21).
 
-- **The Test of Character:** The servant had received mercy (justification), but
-  he had not been changed by it (sanctification). His heart remained hard and
-  selfish.
-- **Inconsistency:** He was forgiven a mountain but refused to forgive a
-  molehill. This shows that while he accepted the _benefit_ of salvation, he
-  rejected the _spirit_ of the Saviour.
-- **Definition - Imparted Righteousness:** God gives us grace not just to clear
-  our record, but to change our hearts so we treat others as He treats us. This
-  servant lacked this imparted grace.
+Note carefully: **from** their sins, not **in** their sins. Christ did not come
+to excuse sin or to permit continued rebellion while granting heaven's
+assurance. He came to deliver us from sin's dominion—its guilt, its power, and
+ultimately its presence.
 
----
+[Q] **"But aren't we saved the moment we believe?"**
 
-### Q9. What was then done with this unmerciful servant?
+Scripture presents salvation in three tenses:
 
-"Then his lord, after that he had called him, said unto him, 0 thou wicked
-servant, I forgave thee all that debt, because thou desiredst me. Shouldest not
-thou also have had compassion on thy fellow-servant, even as I had pity on thee?
-And his lord was wroth, and delivered him to the tormentors, till he should pay
-all that was due unto him."-Matt. 18:32-34.
+1. **Past** (justification): We have been saved from sin's penalty (Ephesians
+   2:8)
+2. **Present** (sanctification): We are being saved from sin's power (1
+   Corinthians 1:18; Philippians 2:12)
+3. **Future** (glorification): We shall be saved from sin's presence (Romans
+   5:9-10; 1 Peter 1:5)
 
-**Answer:**
+The woman who washed Christ's feet was told, _"Thy faith hath saved thee; go in
+peace"_ (Luke 7:50). She was healed of her sinful condition at that moment—her
+past sins forgiven. Yet this did not guarantee her eternal salvation apart from
+continued faithfulness.
 
-- **Revocation of Pardon:** This is a startling truth. The forgiveness
-  previously granted was revoked. The debt returned.
-- **The Principle:** God's forgiveness is a transformational gift. If we refuse
-  to channel God's love to others, we cut ourselves off from the Source of love.
-  "Faith without works is dead" (James 2:26).
-- **Investigative Judgment:** This parable illustrates the investigative
-  judgment. Our lives are reviewed to see if our faith was genuine. If the fruit
-  of the Spirit (love, mercy) is missing, the profession of faith was vain.
+### Endurance Required
 
----
+_"But he that shall endure unto the end, the same shall be saved"_ (Matthew
+24:13).
 
-### Q10. What application of the parable did the Saviour make?
+This is not salvation by works but salvation demonstrated through perseverance.
+True faith produces endurance; counterfeit faith collapses under trial.
 
-"So likewise shall My heavenly Father do also unto you, if ye from your hearts
-forgive not every one his brother their trespasses."-Matt. 18:35.
+_"But when the righteous turneth away from his righteousness, and committeth
+iniquity... in his sin that he hath sinned, in them shall he die"_ (Ezekiel
+18:24).
 
-**Answer:**
+[ILL] Consider a patient receiving treatment for a deadly disease. The physician
+prescribes a full course of medicine. If the patient takes the first dose and
+declares himself cured, abandoning the treatment, the disease will return and
+destroy him. He was genuinely receiving healing—but healing is a process that
+must continue to completion. So it is with salvation: we are genuinely saved
+when we receive Christ, but we must continue in Him to the end.
 
-- **Heart Work:** God looks at the heart. Outward profession is not enough;
-  there must be a "faith which worketh by love" (Galatians 5:6).
-- **Conditional Salvation:** As the note in the source text states, eternal
-  salvation is not secured until the end. We are conditionally saved from
-  consequences, but if we revert to the character of Satan (unforgiveness), we
-  incur the debt again.
-- **The Lord's Prayer:** "Forgive us our debts, as we forgive our debtors"
-  (Matthew 6:12).
+## Deeper Truths
 
-**[ILL] The Pipe:** A pipe is designed to let water flow through it. If the pipe
-is blocked at the outlet, no fresh water can come in the inlet. If we block the
-flow of mercy to others, we block the flow of God's mercy to ourselves.
+### The Parable of the Unmerciful Servant
 
----
+Christ told of a servant who owed his master ten thousand talents—an
+incomprehensible debt, equivalent to millions in modern currency. When he could
+not pay, his master _"was moved with compassion, and loosed him, and forgave him
+the debt"_ (Matthew 18:27).
 
-### Q11. What is the end, object, or design of faith?
+Yet this same servant, finding a fellow servant who owed him a mere hundred
+pence, refused to show mercy and had him imprisoned.
 
-"Receiving the end of your faith, even the salvation of your souls"-1 Peter 1:9.
+The master's response was severe: _"I forgave thee all that debt, because thou
+desiredst me. Shouldest not thou also have had compassion on thy fellow-servant,
+even as I had pity on thee?"_ (Matthew 18:32-33). The forgiven debt was
+reinstated; the servant was delivered to the tormentors.
 
-**Answer:**
+Christ's application pierces the heart: _"So likewise shall My heavenly Father
+do also unto you, if ye from your hearts forgive not every one his brother their
+trespasses"_ (Matthew 18:35).
 
-- **The Goal:** Faith is not an end in itself; it is the means to an end. The
-  goal is the complete restoration of the soul—salvation from sin, self, and
-  death.
-- **Soul Salvation:** This encompasses the whole person—mind, character, and
-  eventually the body at the resurrection.
+[DYK🔎] Ten thousand talents represented approximately 200,000 years of wages
+for a common laborer—a debt no human could ever repay. This illustrates the
+infinite debt our sin creates before a holy God, which only infinite mercy can
+cancel.
 
----
+This parable demolishes the notion of "once saved, always saved" as popularly
+taught. The servant was genuinely forgiven—his debt truly cancelled—yet his
+subsequent actions revealed an unchanged heart, and the forgiveness was
+withdrawn.
 
-### Q12. Does one receive this salvation when he first believes?
+[Q] **"Does this mean we can lose our salvation over small failures?"**
 
-"And that, knowing the time, now it is high time to awake out of sleep; for now
-is our salvation nearer than when we believed." Rom. 13:11.
+No. The issue is not occasional failure but a fundamental change of heart—a
+return to the spirit of unforgiveness and hardness. The servant's unforgiving
+spirit proved that grace had not transformed him. Those who have truly
+experienced God's mercy will extend mercy to others (Matthew 5:7; James 2:13).
 
-**Answer:**
+### Salvation Nearer Than When We Believed
 
-- **Already/Not Yet:** In one sense, we are saved when we believe
-  (justification). In another sense, salvation is a future event we are
-  approaching (glorification).
-- **Nearer:** Every day of faithful walking with Jesus brings us closer to the
-  final deliverance from this dark world.
-- **The Blessed Hope:** We look forward to the time when the "body of this
-  death" (Romans 7:24) will be exchanged for immortality.
+_"Now is our salvation nearer than when we believed"_ (Romans 13:11).
 
----
+Paul writes to believers who had already exercised faith, yet speaks of
+salvation as future—something they were approaching but had not yet fully
+received. This confirms that while justification is complete at conversion, the
+fullness of salvation awaits the second coming.
 
-### Q13. How is one kept, or preserved, until that salvation is given? and when is it to be revealed?
+_"Who are kept by the power of God through faith unto salvation ready to be
+revealed in the last time"_ (1 Peter 1:5).
 
-"Who are kept by the power of God through faith unto salvation ready to be
-revealed in the last time."-1 Peter 1:5.
+We are **kept**—not by our own strength, but by God's power. Yet this keeping
+operates **through faith**—our continued trust and surrender to Christ.
 
-**Answer:**
+_"Unto them that look for Him shall He appear the second time without sin unto
+salvation"_ (Hebrews 9:28).
 
-- **Kept by God's Power:** We do not keep ourselves. We are "kept" (guarded like
-  a fortress) by God.
-  - _Definition - Sanctification:_ The continuous process of being "kept" by the
-    Holy Spirit, setting us apart for holy use and growing in grace.
-- **Through Faith:** God provides the power, but we must provide the consent
-  (faith). We must choose to remain in the fortress.
-- **The Last Time:** The final consummation of salvation happens at the Second
-  Coming.
+Final salvation comes at Christ's return. Those who "look for Him" are those
+whose faith has produced a life of anticipation and preparation.
 
-**[ILL] The Anchor:** A ship in a storm is safe not because the captain holds
-the anchor chain, but because the anchor holds the ground. Our faith is the
-chain; Christ is the Anchor (Hebrews 6:19). As long as the chain is connected,
-we are kept.
+## Principles and Great Controversy Themes
 
----
+### The Condition of Humanity
 
-### Q14. Who will receive that salvation?
+_"The Scripture hath concluded all under sin"_ (Galatians 3:22). _"For all have
+sinned, and come short of the glory of God"_ (Romans 3:23).
 
-"So Christ was once offered to bear the sins of many; and unto them that look
-for Him shall He appear the second time without sin unto salvation."-Heb. 9:28.
+This is humanity's universal condition—not merely committing sins, but being
+_under sin_, enslaved to its power. The law reveals our guilt; it cannot remove
+it.
 
-**Answer:**
+_"The wages of sin is death"_ (Romans 6:23).
 
-- **Those Who Look for Him:** This implies an attitude of expectancy and
-  preparation. Those who love His appearing (2 Timothy 4:8) are those whose
-  hearts are in harmony with Him.
-- **Without Sin:**
-  - _First Coming:_ He came _with_ sin—not His own, but bearing ours as the
-    Lamb.
-  - _Second Coming:_ He comes _apart from_ sin. The sin problem has been dealt
-    with in the heavenly sanctuary. He comes now as King of Kings to collect His
-    people.
+Death is not arbitrary punishment but natural consequence. Sin separates from
+God, who is the source of life; separation from life is death.
 
----
+### The Gift of Life in Christ
 
-### Q15. In what condition are all men naturally?
+_"The gift of God is eternal life through Jesus Christ our Lord"_ (Romans 6:23).
+_"This is the record, that God hath given to us eternal life, and this life is
+in His Son"_ (1 John 5:11).
 
-"But the Scripture hath concluded all under sin." Gal. 3:22. "For all have
-sinned, and come short of the glory of God." Rom.3:23.
+Eternal life is not something we achieve but something we **receive**. It exists
+in Christ, and we possess it only by possessing Him.
 
-**Answer:**
+_"He that hath the Son hath life; and he that hath not the Son of God hath not
+life"_ (1 John 5:12).
 
-- **Universal Need:** There is no distinction. Rich or poor, educated or
-  ignorant, all are infected with the virus of sin.
-- **"Under Sin":** This phrase implies being under the power and condemnation of
-  sin. We are born captives (Psalm 51:5).
-- **Short of Glory:** God’s glory is His character (Exodus 33:18-19). We have
-  fallen short of the character of love and righteousness for which we were
-  created.
+[DYK🔎] The Greek word for "hath" (ἔχω, _echō_) in this verse implies present,
+continuous possession. Eternal life is not merely a future reward but a present
+reality for those who abide in Christ.
 
----
+### Christ in Us: The Hope of Glory
 
-### Q16. What is the wages of sin?
+_"Know ye not your own selves, how that Jesus Christ is in you, except ye be
+reprobates?"_ (2 Corinthians 13:5).
 
-"The wages of sin is death." Rom. 6:23.
+Paul presents Christ dwelling within as the distinguishing mark of genuine
+Christianity. A profession without this indwelling reality is counterfeit.
 
-**Answer:**
+_"I live; yet not I, but Christ liveth in me: and the life which I now live in
+the flesh I live by the faith of the Son of God"_ (Galatians 2:20).
 
-- **Wages:** Something earned or deserved. We have "earned" death by our
-  rebellion.
-- **Death:** This refers ultimately to the "second death" (Revelation
-  20:14)—eternal separation from God, the Source of life. It is not eternal
-  torment, but the cessation of being. Sin is self-destructive; it cuts the
-  lifeline to the Creator.
+This is the mystery of righteousness by faith: **Christ's life replacing
+ours**. We do not merely try harder to obey; we yield our wills to Christ, and
+His life manifests through us. Obedience flows from His presence, not our
+effort.
 
----
+_"Even when we were dead in sins, hath quickened us together with Christ"_
+(Ephesians 2:5).
 
-### Q17. What is the gift of God?
+Before conversion, we were spiritually dead—incapable of producing life or
+righteousness. Christ's quickening power alone raises us to new life.
 
-"The gift of God is eternal life." Rom. 6:23.
+### The New Birth
 
-**Answer:**
+_"Being born again, not of corruptible seed, but of incorruptible, by the word
+of God, which liveth and abideth forever"_ (1 Peter 1:23).
 
-- **A Gift:** Eternal life cannot be earned. It is a free gift (Gr. _charisma_).
-- **Contrast:** Wages are earned; gifts are received. The most moral person
-  cannot earn heaven, and the worst sinner is not denied the offer of the gift
-  if they will accept it.
+**New birth**: The spiritual transformation by which a sinner, dead in
+trespasses, is made alive by the Holy Spirit and becomes a child of God (John
+3:3-8).
 
----
+The old life cannot be reformed; it must be replaced. As physical birth brings a
+person into a new world, so spiritual birth brings us into the kingdom of God.
 
-### Q18. In whom is now this gift?
+### The Seed of Promise
 
-"This is the record, that God hath given to us eternal life, and this life is in
-His Son." 1 John 5:11.
+When Adam and Eve sinned, God immediately announced the plan of redemption:
 
-**Answer:**
+_"I will put enmity between thee and the woman, and between thy seed and her
+seed; it shall bruise thy head, and thou shalt bruise his heel"_ (Genesis 3:15).
 
-- **Life is in the Son:** Eternal life is not an abstract commodity God hands
-  out; it is found _in a Person_. We have life only by having Jesus.
-- **Vine and Branches:** As a branch has life only while connected to the vine
-  (John 15:5), we have spiritual life only while connected to Christ.
-- **Righteousness by Faith:** This is the core of the message—Christ _is_ our
-  righteousness and our life. We do not have it apart from Him.
+This first gospel promise pointed to Christ, who would crush Satan's power while
+suffering in the conflict.
 
----
-
-### Q19. How many may have this life?
-
-"And the Spirit and the bride say, Come. And let him that heareth say, Come. And
-let him that is athirst come. And whosoever will, let him take the water of life
-freely." Rev. 22: 17. "He that hath the Son hath life; and he that hath not the
-Son of God hath not life." 1 John 5:12.
-
-**Answer:**
-
-- **Whosoever Will:** The invitation is universal. God has predestined that
-  "whosoever believes" shall be saved. The choice lies with the individual.
-- **The Condition:** The only condition is to be "athirst"—to recognize one's
-  need.
-- **Having the Son:** Possession of Christ is the deciding factor. It is not
-  church membership or heritage, but a vital connection with the Son of God.
-
----
-
-### Q20. How must one have Christ?
-
-"Know ye not your own selves, how that Jesus Christ is in you, except ye be
-reprobates?" 2 Cor. 13:5.
-
-**Answer:**
-
-- **Christ in You:** Christianity is not just Christ _for_ us (on the cross) or
-  Christ _above_ us (in heaven), but Christ _in_ us (by the Spirit).
-- **The Mystery:** Paul calls this the "riches of the glory of this mystery...
-  Christ in you, the hope of glory" (Colossians 1:27).
-- **Reprobates:** Without this indwelling presence, we fail the test. We are
-  counterfeit Christians.
-
-**[ILL] The Glove:** A glove can do nothing by itself. But if a hand fills the
-glove, it can work, lift, and act. We are the glove; Christ is the hand. He must
-be _in_ us to perform His will.
-
----
-
-### Q21. How do we really have Christ in us unto eternal life?
-
-"He that believeth on Me hath everlasting life." John 6:47.
-
-**Answer:**
-
-- **Believing:** This is not mere intellectual assent (even demons believe and
-  tremble, James 2:19). Biblical belief is a surrendering trust. It means taking
-  God at His word and staking one's life on it.
-- **Eating His Flesh:** In context (John 6:53-63), believing is equated with
-  eating His flesh—internalizing His word and His life until they become part of
-  our being.
-
----
-
-### Q22. What follows the reception of Christ?
-
-"I live; yet not I, but Christ liveth in me; and the life which I now live in
-the flesh I live by the faith of the Son of God." Gal.2:20.
-
-**Answer:**
-
-- **The Exchanged Life:** The "I" (the old selfish ego) is crucified. A new
-  occupant takes over the residence of the heart—Christ.
-- **Living by Faith:** The Christian life is lived by the "faith _of_ the Son of
-  God." We rely on His faithfulness and His power.
-- **Victory:** Because Christ lived a victorious life, if He lives in me, He
-  will live that same victorious life through me today. This is the secret of
-  overcoming sin.
-
-**[ILL] The Driver:** It is like sliding over from the driver's seat and letting
-Jesus take the wheel. He doesn't just give directions from the back seat; He
-drives the car.
-
----
-
-### Q23. How are all regarded before they are quickened with Christ?
-
-"God, who is rich in mercy, for His great love wherewith He loved us, even when
-we were dead in sins, hath quickened us together with Christ." Eph. 2:4-5.
-
-**Answer:**
-
-- **Dead in Sins:** A dead man cannot help himself. He cannot "decide" to be
-  better. He needs a resurrection.
-- **Quickened:** This Old English word means "made alive." Conversion is a
-  spiritual resurrection from the grave of sin.
-- **Rich in Mercy:** God loved us while we were still corpses in the graveyard
-  of sin. This proves salvation is entirely by His grace.
-
----
-
-### Q24. What is this spiritual transition from death to life called?
-
-"Being born again, not of corruptible seed; but of incorruptible, by the word of
-God, which liveth and abideth forever." 1 Peter 1:23.
-
-**Answer:**
-
-- **The New Birth:** Just as we had a physical birth to enter this world, we
-  must have a spiritual birth to enter the Kingdom of God (John 3:3).
-- **Definition - Regeneration:** The act of God's Spirit imparting new life and
-  a new nature to the believer (Titus 3:5).
-- **The Seed:** The agent of this birth is the "Word of God." When the Word is
-  received into the heart by faith, it germinates and produces a new life—the
-  life of Christ.
-
----
-
-### Q25. When our first parents transgressed, what was done to prevent them from living forever in sin?
-
-"And now, lest he put forth his hand, and take also of the tree of life, and
-eat, and live forever." "So He drove out the man; and He placed at the east of
-the garden of Eden cherubim, and a flaming sword which turned every way, to keep
-the way of the tree of life." Gen. 3:22, 24.
-
-**Answer:**
-
-- **Mercy in Disguise:** It would have been a terrible tragedy for man to become
-  an immortal sinner. Sin entails misery. To live forever in misery would be
-  hell.
-- **Barred Access:** God cut off access to the literal Tree of Life so that the
-  cycle of sin and misery would have a limit (death).
-- **The Solution:** Death is the only way out of the sin problem. We must die
-  (in Christ) to be raised to newness of life.
-
----
-
-### Q26. By whom did the Lord say that Satan, the originator of sin, should be destroyed?
-
-"I will put enmity between thee and the woman, and between thy seed and her
-seed; it shall bruise thy head, and thou shalt bruise his heel." Gen. 3:15.
-
-**Answer:**
-
-- **The First Gospel Promise (Protoevangelium):** Immediately after the fall,
-  God promised a Deliverer.
-- **The Seed:** The "Seed of the woman" is Jesus Christ (Galatians 4:4).
-- **Bruised Head:** Christ would deliver a fatal blow to Satan's kingdom (the
-  head).
-- **Bruised Heel:** Satan would wound Christ (the crucifixion), but this wound
-  would not be final or fatal to His mission; in fact, it would be the means of
-  His victory.
-
----
-
-### Q27. For what purpose did Christ die?
-
-"Forasmuch then as the children are partakers of flesh and blood, He also
+_"Forasmuch then as the children are partakers of flesh and blood, He also
 Himself likewise took part of the same; that through death He might destroy him
-that had the power of death, that is, the Devil." Heb. 2:14.
+that had the power of death, that is, the devil"_ (Hebrews 2:14).
 
-**Answer:**
+Christ's death was not defeat but victory—the decisive blow against Satan's
+dominion.
 
-- **Destroying the Destroyer:** Christ partook of human nature so He could die.
-  By dying, He paid the penalty of sin, thereby breaking Satan's legal hold over
-  the human race.
-- **The Power of Death:** Satan uses death as a terror weapon. But Christ, by
-  rising from the dead, tore the keys of death from Satan's hand (Revelation
-  1:18).
+[DYK🔎] The Hebrew word for "bruise" in Genesis 3:15 (_shuph_) can also mean
+"crush" or "strike." Satan would wound Christ's heel (the cross), but Christ
+would crush Satan's head (permanent destruction of his kingdom).
 
----
+### Abraham's Faith
 
-### Q28. How early was it determined that Christ should die?
+_"The Lord appeared unto Abram, and said, Unto thy seed will I give this land"_
+(Genesis 12:7). _"In thy seed shall all the kindreds of the earth be blessed"_
+(Acts 3:25).
 
-"And all that dwell upon the earth shall worship him, whose names are not
-written in the book of life of the Lamb slain from the foundation of the world."
-Rev. 13:8.
+_"Now to Abraham and his seed were the promises made. He saith not, And to
+seeds, as of many; but as of one, And to thy seed, which is Christ"_ (Galatians
+3:16).
 
-**Answer:**
+The promise to Abraham pointed to Christ. Abraham believed in the coming
+Redeemer, and _"it was counted unto him for righteousness"_ (Romans 4:3).
 
-- **The Everlasting Covenant:** The plan of salvation was not an afterthought
-  devised when Adam sinned. The Godhead had a plan in place "before the
-  foundation of the world" (1 Peter 1:20).
-- **Costly Grace:** Before God created a being with free will, He counted the
-  cost and committed Himself to the sacrifice of the Son.
+Abraham was justified by faith—the same faith that justifies us today. The
+gospel was preached to Abraham (Galatians 3:8); we stand in the same covenant of
+grace.
 
----
+[Q] **"If Abraham was justified by faith, why was the law given?"**
 
-### Q29. Through whom was Abraham to receive the promise of God?
+_"If righteousness come by the law, then Christ is dead in vain"_ (Galatians
+2:21).
 
-"The Lord appeared unto Abram, and said, Unto thy seed will give this land."
-Gen. 12:7.
+The law was never intended as a means of salvation. It reveals sin's nature and
+our need for a Savior. The law is the diagnosis; Christ is the cure.
 
-**Answer:**
+_"The Scripture hath concluded all under sin, that the promise by faith of Jesus
+Christ might be given to them that believe"_ (Galatians 3:22).
 
-- **The Covenant:** God called Abraham and made a covenant with him, which
-  included the promise of land and a posterity.
-- **Significance:** This covenant is the basis of the gospel story in the Old
-  Testament.
+The law shuts every mouth and shows all the world guilty before God (Romans
+3:19), so that we might receive righteousness through faith alone.
 
----
+### Children and Heirs
 
-### Q30. How far was the promise to Abraham to extend?
+_"Jesus saith unto him, I am the way, the truth, and the life: no man cometh
+unto the Father, but by Me"_ (John 14:6).
 
-"And in thy seed shall all the kindreds of the earth be blessed." Acts 3:25.
+Christ is the exclusive path to the Father—not one option among many, but the
+only way.
 
-**Answer:**
+_"For ye are all the children of God by faith in Christ Jesus"_ (Galatians
+3:26).
 
-- **Universal Blessing:** The promise was not just for the Jewish nation.
-  Through Abraham's line, a blessing would flow to every family (kindred) on
-  earth.
-- **Gospel Mission:** This is the mandate for global evangelism.
+Through faith, we become God's children—not servants only, but sons and
+daughters with full inheritance rights.
 
----
+_"If children, then heirs; heirs of God, and joint-heirs with Christ"_ (Romans
+8:17).
 
-### Q31. To whom does the "seed" of the Old Testament refer?
+[ILL] When a wealthy father adopts a child from poverty, that child receives not
+merely food and shelter but the full legal standing of a natural-born heir. All
+the father's riches become the child's inheritance. So God has adopted us into
+His family; all the riches of heaven become ours in Christ.
 
-"Now to Abraham and his seed were the promises made. He saith not, And to
-seeds,as of many; but as of one, And to thy seed, which is Christ." Gal. 3:16.
+### Sanctuary Connection
 
-**Answer:**
+The earthly sanctuary illustrated the plan of salvation:
 
-- **Christ the Center:** Paul clarifies that the ultimate fulfillment of the
-  covenant is not the literal nation of Israel, but the Person of Jesus Christ.
-- **One Seed:** All promises of God are "Yes" and "Amen" in Christ (2
-  Corinthians 1:20).
+- **Altar of sacrifice (outer court)**: Christ's death for our sins—justification
+- **Daily ministry (holy place)**: Christ's ongoing intercession—sanctification
+- **Day of Atonement (most holy place)**: Final cleansing and vindication—glorification
 
----
+In the heavenly sanctuary, Christ now ministers as our High Priest, applying His
+blood to our cases, interceding for our weaknesses, and preparing a people who
+will stand in the judgment. Salvation is not merely a past event but an ongoing
+relationship with our living Savior.
 
-### Q32. How did the Lord regard Abraham's faith?
+## Practical Application
 
-"Abraham believed God, and it was counted unto him for righteousness." Rom. 4:3.
+This truth calls us to:
 
-**Answer:**
+1. **Receive Christ fully**—not merely as Savior from penalty, but as Lord of
+   our lives. He must dwell within by faith.
 
-- **Imputed Righteousness:** This is the classic text on Justification by Faith.
-  Abraham had no righteousness of his own to offer. He simply believed God's
-  promise.
-- **"Counted":** God credited Christ's righteousness to Abraham's account. This
-  shows that salvation has always been by faith, in the Old Testament as well as
-  the New.
+2. **Rest in His righteousness**—cease attempting to earn salvation through
+   works; trust wholly in Christ's merits.
 
----
+3. **Abide in Him daily**—salvation is maintained through continued faith and
+   surrender. Neglect of this relationship brings spiritual death.
 
-### Q33. Since man had sinned, if righteousness could come by the law, then what must we conclude?
+4. **Extend mercy to others**—those who have received the infinite forgiveness
+   of God will freely forgive those who wrong them.
 
-"If righteousness come by the law, then Christ is dead in vain." Gal. 2:21.
+5. **Look for His appearing**—live in expectation of Christ's return, when
+   salvation will be complete.
 
-**Answer:**
+6. **Examine ourselves**—is Christ truly in us? Is His life manifesting through
+   ours? Or do we have only a form of godliness?
 
-- **The Law Cannot Save:** The Law is a mirror; it shows us the dirt on our face
-  (sin), but it is not soap—it cannot wash it off (Romans 3:20).
-- **The Necessity of the Cross:** If we could save ourselves by obeying the
-  commandments, Jesus did not need to die. The fact that He died proves that
-  human obedience to the law could never justify a sinner.
-- **Law and Gospel:** The Law points us to the Gospel (our need). The Gospel
-  empowers us to keep the Law (our gratitude and new nature).
+_"And the Spirit and the bride say, Come. And let him that heareth say, Come.
+And let him that is athirst come. And whosoever will, let him take the water of
+life freely"_ (Revelation 22:17).
 
----
+## Appeal
 
-### Q34. Why have all been reckoned under sin?
+_"He that hath the Son hath life; and he that hath not the Son of God hath not
+life"_ (1 John 5:12).
 
-"But the Scripture hath concluded all under sin, that the promise by faith of
-Christ Jesus might be given to them that believe." Gal. 3:22.
+There are only two conditions: having Christ or not having Him. There is no
+middle ground. **Do you have the Son?** Not merely knowledge about Him, but
+Christ Himself living within—His thoughts becoming your thoughts, His desires
+your desires, His life your life?
 
-**Answer:**
+If you have wandered, return today. The parable of the unmerciful servant warns
+that past forgiveness does not guarantee future security apart from a
+transformed heart. But the same Christ who forgave the great debt stands ready
+to forgive again and to complete His work in you.
 
-- **Level Ground:** God declares everyone a sinner so that He can offer
-  salvation to everyone on the same basis—faith in Christ. No one can brag; no
-  one need despair.
+If you have never fully surrendered, the invitation stands: _"Whosoever will,
+let him take the water of life freely."_
 
----
-
-### Q35. What does Christ become to the true believer?
-
-"Jesus saith unto him, I am the way, the truth, and the life; no man cometh unto
-the Father, but by Me." John 14:6.
-
-**Answer:**
-
-- **The Way:** Without Him, there is no going.
-- **The Truth:** Without Him, there is no knowing.
-- **The Life:** Without Him, there is no living.
-- **Access:** He is our Mediator in the Heavenly Sanctuary, the only avenue by
-  which we approach the throne of Grace.
-
----
-
-### Q36. How then do all become children of God?
-
-"For ye are all the children of God by faith in Christ Jesus." Gal. 3:26.
-
-**Answer:**
-
-- **Adoption:** We are not natural-born children of God (spiritually); we are
-  "children of wrath" by nature (Ephesians 2:3). We become children of God by
-  adoption through faith.
-- **Family Status:** Faith brings us into the royal family.
-
----
-
-### Q37. If children of God, what is our prospect?
-
-"If children, then heirs; heirs of God, and joint-heirs with Christ." Rom. 8:17.
-
-**Answer:**
-
-- **Inheritance:** Because Christ is the Heir of all things (Hebrews 1:2), and
-  we are "in Christ," we share in His inheritance.
-- **The Future:** This inheritance includes the earth made new, a character free
-  from sin, and eternal life in the presence of the Father.
-- **Suffering:** The verse (Rom 8:17) continues to say we suffer with Him that
-  we may be glorified with Him. The path to the crown is via the cross.
-
-**[ILL] The Prince:** A beggar adopted by the King becomes a prince. He may
-still have the scars of his past life, but his status has changed completely. He
-now has access to the treasury and the future of the Kingdom. Through Christ, we
-are that adopted prince.
+Salvation is Christ—receiving Him, abiding in Him, and being kept by His power
+through faith unto that day when He appears "the second time without sin unto
+salvation." May that glorious hope be yours.

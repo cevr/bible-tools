@@ -1,512 +1,220 @@
-### Q1. What promise is made to those who look for the appearing of Christ?
+# Bible Study: The Manner of Christ's Coming
 
-“So Christ was once offered to bear the sins of many; and unto them that look
-for Him shall He appear the second time without sin unto salvation." Heb. 9:28.
+## Introduction
 
-**Answer:**
-
-The promise is a complete and final **salvation**—a deliverance from the very
-presence of sin and from this dying world.
-
-- **"Once offered to bear the sins":** At His first coming, Christ appeared as
-  the "Lamb of God" (John 1:29). He came to the outer court of this earth to
-  offer Himself as a sacrifice. He bore our sins in His own body on the tree (1
-  Peter 2:24). This was the work of **Justification**—providing the legal right
-  for sinners to be forgiven.
-- **"Without sin":** When He returns, He does not come as a sin-bearer to make
-  another atonement. His work as High Priest in the heavenly sanctuary will be
-  finished. He comes as a conquering King to claim His people.
-- **"Unto them that look for Him":** This implies an active state of
-  preparation, not merely a passive waiting. To "look" for Him means to live
-  with the eye of faith fixed on Jesus, allowing Him to do His work of
-  **Sanctification** in our hearts today.
-
-**The Sanctuary Connection:** In the earthly sanctuary service, the people
-waited outside while the High Priest went into the Most Holy Place on the Day of
-Atonement. They anxiously "looked for" his return, for when he came out, the
-work of cleansing was done, and their sins were symbolically banished (Leviticus
-16). Just so, Christ is currently in the heavenly Most Holy Place. When He
-finishes His work of judgment, He will step out to bless His waiting people.
-
-> **Definition:** **Justification:** The legal act where God declares a
-> repentant sinner righteous because of Christ’s sacrifice (Romans 3:24).
-> **Sanctification:** The process where the Holy Spirit transforms the
-> believer’s character to be like Jesus (1 Thessalonians 4:3).
-
-[ILL] Imagine a family waiting for a father to return from a long war. They do
-not forget him; they keep his picture on the mantle, they talk of him daily, and
-they keep the house ready for his arrival. This is how the believer "looks" for
-Jesus—by keeping the heartswept and garnished by grace, ready to welcome the
-King.
+The second coming of Jesus Christ stands as the "blessed hope" of every believer—the climactic event toward which all sacred history moves. Yet how will Christ return? Will it be secret or visible? Spiritual or literal? The Bible answers these questions with unmistakable clarity, revealing a coming so glorious, so overwhelming, that no human eye will miss it. Understanding the _manner_ of Christ's return guards us against deception and kindles our hearts with eager anticipation.
 
 ---
 
-### Q2. How many will receive a reward when He comes?
+## Core Truths
 
-“For the Son of man shall come in the glory of His Father with His angels; and
-then He shall reward every man according to his works." Matt. 16:27.
+### A Promise for Those Who Watch
 
-**Answer:**
+The Christian faith is inseparably linked to expectation. We are not merely forgiven sinners; we are _waiting_ people:
 
-**Every man**—without exception—will receive a reward. There are only two
-classes: those who receive the reward of eternal life, and those who receive the
-wages of sin.
+> _"So Christ was once offered to bear the sins of many; and unto them that look for Him shall He appear the second time without sin unto salvation."_ (Hebrews 9:28)
 
-- **According to his works:** This verse is often misunderstood. We are not
-  saved _by_ our works (Ephesians 2:8-9), but we are judged _by_ them. Why?
-  Because works are the infallible evidence of faith.
-  - If Christ dwells in the heart by faith, the life will naturally produce
-    "good fruit" (Matthew 7:17).
-  - A profession of faith without obedience is dead (James 2:26).
-- **The Investigative Judgment:** Before Christ returns to give these rewards,
-  there must be an examination of the records in heaven to determine who has
-  retained the "robe of righteousness" and who has cast it aside. When He comes,
-  His reward is _with_ Him (Revelation 22:12), meaning the decision has already
-  been made.
+Notice the connection: Christ's _first_ coming dealt with sin's penalty at the cross; His _second_ coming will bring final deliverance—"without sin unto salvation." This is not merely rescue _from_ sin's consequences, but the completion of God's work _in_ us. Those who "look for Him" are those whose hearts are prepared, whose lives are oriented toward heaven.
 
-**Righteousness by Faith:** True righteousness is not a human modification of
-behavior; it is the life of Christ implanted in the believer. When God judges us
-"according to works," He is looking to see if the works flow from a heart
-renewed by His Spirit. He crowns His own grace in us.
+**Every person will be rewarded according to their works:**
 
-[ILL] A fruit tree is not an apple tree _because_ it bears apples; it bears
-apples because it _is_ an apple tree. The fruit is the proof of the tree’s
-nature. At the harvest, the farmer rewards the tree based on the fruit. So God
-looks at our works as the evidence of whether we are truly grafted into the
-Vine, Christ Jesus (John 15:5).
+> _"For the Son of man shall come in the glory of His Father with His angels; and then He shall reward every man according to his works."_ (Matthew 16:27)
+
+[DYK🔎] The Greek word translated "reward" (_apodidōmi_) means "to give back, to render what is due." Christ comes not merely to rescue but to _settle accounts_—to vindicate the righteous and execute judgment upon the wicked. This is not salvation by works, but the demonstration that genuine faith produces a transformed life (James 2:17-18).
 
 ---
 
-### Q3. Did the disciples think that death would be the second coming of Christ?
+### Death Is Not the Second Coming
 
-“Peter seeing him [John] saith to Jesus, Lord, and what shall this man do? Jesus
-saith unto him, If I will that he tarry till I come, what is that to thee?
-follow thou Me. Then went this saying abroad among the brethren, that that
-disciple should not die: yet Jesus said not unto him, he shall not die; but, If
-I will that he tarry till I come, what is that to thee?" John 21:21-23.
+A common misunderstanding, even among the early disciples, confused death with Christ's return:
 
-**Answer:**
+> _"Then went this saying abroad among the brethren, that that disciple should not die: yet Jesus said not unto him, He shall not die; but, If I will that he tarry till I come, what is that to thee?"_ (John 21:23)
 
-No, the disciples clearly understood that death and the Second Coming were two
-entirely different events.
+The disciples themselves recognized that Christ's "coming" was something _distinct_ from death. If death were the second coming, then John's possible survival until Christ returned would be meaningless—for John would simply die and "meet Christ" that way regardless.
 
-- **The Misunderstanding:** The disciples thought Jesus meant John would _never_
-  die but would live until the Second Advent.
-- **The Distinction:** Jesus contrasted "dying" with "tarrying till I come." If
-  death were the same as the Second Coming, Jesus’ words would make no sense.
-- **The Biblical Truth:** The Bible consistently teaches that death is a "sleep"
-  (John 11:11-14). The dead do not immediately go to heaven to receive their
-  reward; they rest in the grave until the resurrection at the last day (John
-  6:40).
+[Q] **"Don't believers go to be with Christ at death? Isn't that essentially His coming for them?"**
 
-**Theological Point:** If the righteous went straight to heaven at death, there
-would be no need for a general resurrection or a Second Coming to "receive"
-them. The glory of the Advent is that it breaks the bands of death.
+Scripture does teach that death for the believer is a "sleep" in Christ (1 Thessalonians 4:13-14), a restful unconsciousness until the resurrection. But the _second coming_ is a cosmic, visible, bodily event—not an individual, invisible, spiritual experience. Paul longed not merely for death, but for the resurrection at Christ's appearing (Philippians 3:20-21; 2 Timothy 4:8). The distinction matters: the dead saints await the _same event_ the living saints await—the glorious return.
 
 ---
 
-### Q4. If death is not the coming of Christ, how will He come?
+### A Literal, Visible, Personal Return
 
-“And when He had spoken these things, while they beheld, He was taken up; and a
-cloud received Him out of their sight. And while they looked steadfastly toward
-heaven as He went up, behold, two men stood by them in white apparel; which also
-said, Ye men of Galilee, why stand ye gazing up into heaven? this same Jesus
-which is taken up from you into heaven, shall so come in like manner as ye have
-seen Him go into heaven." Acts 1:9-11 (Rev. 14:14).
+The manner of Christ's departure determines the manner of His return:
 
-**Answer:**
+> _"This same Jesus, which is taken up from you into heaven, shall so come in like manner as ye have seen Him go into heaven."_ (Acts 1:11)
 
-He will come **in like manner** as He went. The ascension sets the pattern for
-the return.
+Consider what the disciples witnessed:
 
-1.  **Personal:** It will be "this same Jesus"—not a spirit, not a metaphor, but
-    the Savior with the nail prints in His hands (Zechariah 13:6).
-2.  **Visible:** They "beheld" Him and "looked steadfastly." It was not a secret
-    disappearance.
-3.  **Physical:** He was taken up bodily.
-4.  **With Clouds:** A cloud received Him; He returns with clouds (Rev 1:7).
+- A **literal, bodily** Jesus ascending
+- **Visibly**, "while they beheld"
+- **Upward**, into the clouds of heaven
+- **Personally**—"this same Jesus"
 
-**Righteousness by Faith Application:** Because it is "this same Jesus"
-returning—the One who loved us and gave Himself for us—we need not fear the
-judgment if we are abiding in Him. The Judge is our Friend and Savior.
+His return will mirror His departure: literal, bodily, visible, personal, and accompanied by clouds.
 
-[ILL] If a friend leaves your house by walking out the front door and down the
-driveway, and promises to return "in like manner," you do not expect him to
-manifest as a ghost in the attic or send a text message. You expect to see him
-walk up the driveway and through the door. Jesus returns physically and visibly.
+> _"Behold, He cometh with clouds; and every eye shall see Him, and they also which pierced Him."_ (Revelation 1:7)
+
+[DYK🔎] The phrase "every eye shall see Him" uses the Greek _pas ophthalmos_—literally, "all eyes." This universal visibility refutes any notion of a secret rapture or invisible spiritual coming. Even those who crucified Him—representing the wicked of all ages—will witness His return.
+
+[ILL] Imagine the rising sun. No one needs to announce it or point it out. From the highest mountain to the lowest valley, its light fills the sky. So shall be the coming of the Son of man: _"For as the lightning cometh out of the east, and shineth even unto the west; so shall also the coming of the Son of man be"_ (Matthew 24:27). There will be no hidden corners, no secret arrivals. Every human being—living or resurrected—will behold His glory.
 
 ---
 
-### Q5. How many will behold Him when He comes?
+## Deeper Truths
 
-“Behold, He cometh with clouds; and every eye shall see Him, and they also which
-pierced Him." Rev. 1:7.
+### The Sounds of Heaven
 
-**Answer:**
+Christ's coming will not be silent:
 
-**Every eye shall see Him.**
+> _"The Lord Himself shall descend from heaven with a shout, with the voice of the archangel, and with the trump of God."_ (1 Thessalonians 4:16)
 
-- **Universal Visibility:** The Second Coming is not a secret event known only
-  to the faithful. It is the most public event in human history. The wicked and
-  the righteous alike will witness it (Matthew 24:30).
-- **"They also which pierced Him":** This refers to a special resurrection of
-  those who were instrumental in Christ's suffering and the persecution of His
-  truth, raised to witness His glorification (Daniel 12:2; Matthew 26:64).
+Three sounds accompany His descent:
 
----
+1. **A shout**—the commanding voice of the King of kings
+2. **The voice of the archangel**—Michael, who is Christ Himself (see Jude 9; Daniel 12:1; John 5:28-29)
+3. **The trump of God**—the resurrection trumpet that shatters death's dominion
 
-### Q6. What wonderful demonstration will accompany the Lord's coming?
+> _"The trumpet shall sound, and the dead shall be raised incorruptible, and we shall be changed."_ (1 Corinthians 15:52)
 
-“The Lord Himself shall descend from heaven with a shout, with the voice of the
-archangel, and with the trump of God." 1 Thess. 4:16.
+[Q] **"Who is Michael the archangel? Is Jesus really an angel?"**
 
-**Answer:**
-
-The Coming will be accompanied by overwhelming sound and authority. It includes:
-
-1.  **A Shout:** The command of the King of Kings.
-2.  **The Voice of the Archangel:** Michael (Christ) asserting dominion over
-    death.
-3.  **The Trump of God:** This trumpet wakes the dead.
-
-This dispels the theory of a "secret rapture." A shout, a voice, and a trumpet
-are the loudest things described in Scripture. It is a wake-up call to the
-nations and to the sleeping saints.
-
-> **Definition:** **Archangel:** The "chief messenger" or commander of the
-> angels. In Scripture, this title is associated with Michael (Jude 9), who is
-> identified as the pre-incarnate Christ in His role as protector of His people
-> (Daniel 12:1).
+The name "Michael" means "Who is like God?"—a fitting title for Christ, who is the express image of the Father (Hebrews 1:3). In Jude 9, Michael disputes with Satan over Moses' body—and Moses was resurrected (Matthew 17:3). In Daniel 12:1, Michael "stands up" to deliver God's people at the end of time. In John 5:28-29, Jesus declares that the dead will hear _His voice_ and come forth. The "archangel" is not a created being but the Commander of heaven's hosts—Christ Himself.
 
 ---
 
-### Q7. What will then take place?
+### The Resurrection: Hope of the Ages
 
-“We shall not all sleep, but we shall all be changed, in a moment, in the
-twinkling of an eye, at the last trump; for the trumpet shall sound, and the
-dead shall be raised incorruptible, and we shall be changed." 1 Cor. 15:51, 52.
-(1 Thess. 4:16-17).
+The saints of old did not expect to receive their reward at death:
 
-**Answer:**
+> _"And these all, having obtained a good report through faith, received not the promise: God having provided some better thing for us, that they without us should not be made perfect."_ (Hebrews 11:39-40)
 
-Two miraculous events occur simultaneously:
+Abraham, Moses, David, Daniel—none of them have yet received the promised inheritance. They sleep in their graves, awaiting the resurrection morning when _together_ with the living saints they will be "made perfect." This corporate redemption reveals God's beautiful purpose: no one enters heaven alone. The family of God will be gathered _together_ at Christ's return.
 
-1.  **Resurrection:** The righteous dead are raised with "incorruptible" bodies.
-    They are no longer subject to disease, aging, or death.
-2.  **Translation:** The righteous living are "changed." Their mortal bodies are
-    instantly transformed into immortal bodies without tasting death.
+**Job's triumphant hope:**
 
-**A Crucial Doctrine:** This passage proves that humans do not possess natural
-immortality. We must be _changed_ to become immortal. Immortality is a gift
-brought by Christ at His coming (2 Timothy 1:10), not something we possess from
-birth.
+> _"For I know that my Redeemer liveth, and that He shall stand at the latter day upon the earth: and though after my skin worms destroy this body, yet in my flesh shall I see God."_ (Job 19:25-26)
 
-**Sanctification of the Body:** While our characters must be purified by grace
-_before_ He comes, our physical bodies are glorified _when_ He comes
-(Philippians 3:21).
+Even in the depths of suffering, Job clung not to the hope of death but to the hope of _resurrection_—of seeing God "in my flesh," with his own eyes, "at the latter day."
+
+[DYK🔎] The Hebrew word for "Redeemer" in Job 19:25 is _goel_—the kinsman-redeemer who had the right and responsibility to buy back a relative's lost inheritance and avenge their blood. Christ is our _Goel_: He has the right (as our Brother, Hebrews 2:11-14) to redeem us from the grave and avenge us against the great enemy, death.
 
 ---
 
-### Q8. Have not the martyrs of old gone to their reward?
+### The Glory of His Appearing
 
-“And these all, having obtained a good report through faith, received not the
-promise, God having provided some better thing for us, that they without us
-should not be made perfect." Heb. 11:39, 40.
+Scripture labors to describe the indescribable brightness of Christ's return:
 
-**Answer:**
+**Christ's transfigured glory:**
 
-No, they have not yet received the final reward.
+> _"His face did shine as the sun, and His raiment was white as the light."_ (Matthew 17:2)
 
-- **"Received not the promise":** Though they are saved by faith, they are
-  currently sleeping in the grave.
-- **"They without us should not be made perfect":** God's plan is for the entire
-  family of the redeemed—from Adam to the last believer—to be gathered home
-  _together_.
-- This highlights the communal nature of salvation. Paul, David, and the martyrs
-  are waiting for _us_. We will all enter the pearly gates at the same time.
+**The glory of angels:**
 
-[ILL] Consider a graduation ceremony. Students may finish their exams at
-different times during the week, but they do not receive their diplomas until
-the ceremony where the whole class gathers. So it is with the saints; they sleep
-in peace until the Grand Graduation Day at the resurrection.
+> _"His face as the appearance of lightning, and his eyes as lamps of fire, and his arms and his feet like in color to polished brass."_ (Daniel 10:6)
 
----
+**The glory of the Father:**
 
-### Q9. When were the disciples to be recompensed?
+> _"As the appearance of the bow that is in the cloud in the day of rain, so was the appearance of the brightness round about. This was the appearance of the likeness of the glory of the Lord."_ (Ezekiel 1:28)
 
-“For thou shalt be recompensed at the resurrection of the just." Luke 14:14.
+When Christ returns, He comes in _threefold glory_:
 
-**Answer:**
+> _"When He shall come in His own glory, and in His Father's, and of the holy angels."_ (Luke 9:26)
 
-The reward is given **at the resurrection of the just.**
-
-Jesus places the timing of the reward at the resurrection, not at the moment of
-death. This confirms the teaching that between death and the resurrection, the
-dead are asleep, awaiting the call of the Life-giver.
+[ILL] When ancient Israel camped at Sinai, the glory of God upon the mountain was so overwhelming that even the animals were forbidden to touch it, and Moses himself trembled with fear (Hebrews 12:21). Yet that was but a veiled manifestation. At Christ's return, the full, unveiled glory of heaven will stream across the sky—ten thousand times ten thousand angels, each blazing with celestial fire, surrounding the Son of man whose countenance outshines the sun. No wonder the wicked cry for the rocks and mountains to hide them (Revelation 6:15-17).
 
 ---
 
-### Q10. How is this to be brought about?
+## Principles and Great Controversy Themes
 
-“If I go and prepare a place for you, I will come again, and receive you unto
-Myself." John 14:3.
+### The Sanctuary Connection
 
-**Answer:**
+Christ's second coming is the _culmination_ of His high priestly ministry in the heavenly sanctuary:
 
-It is brought about by the personal return of Jesus to **receive** His people.
+- In the **outer court** (the cross), Christ offered Himself as the sacrifice for sin—"once offered to bear the sins of many" (Hebrews 9:28).
+- In the **holy place**, Christ has ministered His blood on behalf of repentant sinners, interceding for their forgiveness and transformation.
+- In the **Most Holy Place**, Christ now conducts the investigative judgment (Daniel 7:9-14), the antitypical Day of Atonement, determining who has truly accepted His righteousness.
 
-- **"Receive you unto Myself":** This is the language of a marriage. Christ is
-  the Bridegroom coming to claim His bride (the Church).
-- **The Preparation:** He is preparing a place (the New Jerusalem). We must
-  allow Him to prepare _us_ for that place.
+When this work is complete—when every case has been decided—Christ lays aside His priestly garments and puts on His kingly robes. He "comes out" of the sanctuary (as the high priest emerged on the Day of Atonement) to bless His waiting people with final salvation.
 
-**Righteousness by Faith:** Heaven is a place of perfect holiness. Unless we
-have the character of Christ (the law written on the heart), we would not be
-happy there. We are fitted for heaven by the imparted righteousness of Christ
-now, so that we are at home with Him then.
+> _"So Christ was once offered to bear the sins of many; and unto them that look for Him shall He appear the second time without sin unto salvation."_ (Hebrews 9:28)
+
+The phrase "without sin" (_chōris hamartias_) means Christ comes no longer to deal with sin as a priest but to deliver His people as a King. The sin question has been settled. The atonement is complete. He comes to claim His own.
 
 ---
 
-### Q11. What was Enoch's belief about this event?
+### The Great Controversy's Climax
 
-“And Enoch also, the seventh from Adam, prophesied of these, saying, Behold, the
-Lord cometh with ten thousand of His saints, to execute judgment upon all." Jude
-14-15.
+From Eden to Patmos, the conflict between Christ and Satan has raged over one central question: _Who is worthy of worship and trust?_ Satan has accused God of injustice; he has deceived humanity into rebellion; he has persecuted the faithful through the ages.
 
-**Answer:**
+At Christ's return, every question is answered. The universe beholds:
 
-Enoch, one of the earliest prophets, believed:
+- The **faithfulness** of those who loved not their lives unto death
+- The **justice** of God in rewarding the righteous and judging the wicked
+- The **love** of Christ, who gave Himself for sinners and now welcomes them home
 
-1.  The Lord is coming with **myriads of holy ones** (angels, see Matt 25:31).
-2.  The purpose is to **execute judgment**.
+Enoch, the seventh from Adam, prophesied of this day:
 
-**Executive vs. Investigative Judgment:** The _investigative_ judgment happens
-in heaven before He comes (Daniel 7:9-10). When He returns, He executes that
-judgment—saving the righteous and separating the ungodly.
+> _"Behold, the Lord cometh with ten thousands of His saints, to execute judgment upon all."_ (Jude 14-15)
 
----
+Daniel saw it in vision:
 
-### Q12. What was Job's hope when in the depths of affliction?
+> _"At that time shall Michael stand up, the great prince which standeth for the children of thy people... and at that time thy people shall be delivered, every one that shall be found written in the book."_ (Daniel 12:1)
 
-“For I know that my Redeemer liveth, and that He shall stand at the latter day
-upon the earth, And though after my skin worms destroy this body, yet in my
-flesh shall I see God; whom I shall see for myself, and mine eyes shall behold,
-and not another." Job 19:25-27.
-
-**Answer:**
-
-Job’s hope was in a literal, bodily resurrection.
-
-- **"In my flesh shall I see God":** Job understood that even though his body
-  would decompose ("worms destroy this body"), God would recreate him. He did
-  not expect to see God as a disembodied spirit, but in restored flesh.
-- **"My Redeemer liveth":** The resurrection is guaranteed because our Redeemer
-  lives. Because He conquered the grave, we shall live also (John 14:19).
+The "standing up" of Michael signals the close of probation—the end of intercession. What follows is deliverance for those whose names remain in the Lamb's book of life, and destruction for those who have rejected mercy.
 
 ---
 
-### Q13. How did David express himself on this point?
+### Righteousness by Faith and Readiness
 
-“For He cometh, for He cometh to judge the earth; He shall judge the world with
-righteousness, and the people with His truth." Ps. 96:13.
+How shall we be ready for such a coming? Not by fearful striving, but by faithful resting in Christ's finished work _and_ His ongoing sanctifying power.
 
-**Answer:**
+Paul, facing execution in Rome, did not despair:
 
-David rejoiced that the Lord comes to **judge**.
+> _"Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day: and not to me only, but unto all them also that love His appearing."_ (2 Timothy 4:8)
 
-- For the believer who is covered in the righteousness of Christ, judgment is
-  good news. It means vindication, deliverance from oppression, and the setting
-  right of all wrongs.
-- **"With His truth":** God's law is the standard of truth. The judgment reveals
-  that God’s law was holy, just, and good, and that His government is based on
-  love.
+Notice: the crown is given to those who "love His appearing." To love Christ's coming is to love Christ Himself—to long for His presence, to yearn for sin's end, to desire complete restoration to God's image.
 
----
+John reveals the transforming power of this hope:
 
-### Q14. Did Daniel teach this same sentiment?
+> _"We know that, when He shall appear, we shall be like Him; for we shall see Him as He is."_ (1 John 3:2)
 
-“And at that time shall Michael stand up, the great prince which standeth for
-the children of thy people;... and at that time thy people shall be delivered
-everyone that shall be found written in the book." Dan. 12:1.
+And then adds:
 
-**Answer:**
+> _"Every man that hath this hope in him purifieth himself, even as He is pure."_ (1 John 3:3)
 
-Yes. Daniel connects the "standing up" of Michael with the **deliverance** of
-God’s people.
+The hope of Christ's return is not passive waiting but active preparation. Yet even our purification is Christ's work in us: _"Faithful is He that calleth you, who also will do it"_ (1 Thessalonians 5:24).
 
-- **"Michael stand up":** In the language of courts, a judge sits to hear a case
-  and stands up to render the verdict. This signifies the close of human
-  probation. The intercessory work in the sanctuary ceases.
-- **"Written in the book":** Only those who have their names retained in the
-  Lamb’s Book of Life—those who have overcome sin by the blood of the Lamb (Rev
-  3:5; 12:11)—will be delivered.
+[Q] **"How can I be ready when I still struggle with sin?"**
 
-**Practical Application:** Now is the time, while the High Priest is seated, to
-ensure our names are in that book through repentance and surrendering our will
-to God.
+The key is not sinless perfection achieved by human effort, but honest surrender to Christ's sanctifying grace. The investigative judgment examines not whether we are perfect, but whether we are _in Christ_—whether we have accepted His righteousness as our own and allowed His Spirit to transform our characters. Those who are trusting in Christ moment by moment, confessing and forsaking known sins, growing in grace—these are "looking for Him" and will "appear the second time without sin unto salvation."
 
 ---
 
-### Q15. In what splendor will the Saviour come?
+## Practical Application
 
-“For whosoever shall be ashamed of Me and of My words, of him shall the Son of
-man be ashamed, when He shall come in His own glory, and in His Father's, and of
-the holy angels." Luke 9:26.
+### Living in Light of His Coming
 
-**Answer:**
+1. **Guard against deception.** Jesus warned that false christs and false prophets would arise, claiming secret comings or hidden appearances (Matthew 24:23-26). Knowing that Christ's return is _visible, audible, and unmistakable_ protects us from every counterfeit.
 
-He comes in a threefold glory:
+2. **Cultivate watchfulness.** "Watch and pray" was Christ's repeated counsel (Mark 13:33-37). This means staying spiritually alert through daily communion with God—Bible study, prayer, and obedience—so that day does not overtake us as a thief.
 
-1.  **His own glory** (as the Conqueror of sin and death).
-2.  **His Father’s glory** (the infinite majesty of the Godhead).
-3.  **The glory of the holy angels** (countless millions of shining beings).
+3. **Cherish the hope.** Paul calls Christ's return "the blessed hope" (Titus 2:13). Let it be blessed to you! When trials press, remember: "Yet a little while, and He that shall come will come, and will not tarry" (Hebrews 10:37).
 
-This glory is a "consuming fire" to sin (Hebrews 12:29). Therefore, only those
-who have been purified by grace and possess the righteousness of faith can
-endure the brightness of His coming. To the wicked, this glory is terrifying; to
-the righteous, it is the light of home.
+4. **Share the message.** If Christ's return is certain, glorious, and soon, then the world must know. The three angels' messages (Revelation 14:6-12) are God's final warning and invitation. We are called not only to wait for Him but to _hasten_ His coming by proclaiming the gospel (Matthew 24:14; 2 Peter 3:11-12).
+
+5. **Let hope purify.** Every day, ask the Spirit to search your heart. Confess known sins. Claim victory through Christ's indwelling power. "He that hath this hope in him purifieth himself, even as He is pure" (1 John 3:3).
 
 ---
 
-### Q16. When Christ, at the transfiguration, represented His future glory, how did He appear?
+## Appeal
 
-“And was transfigured before them; and His face did shine as the sun, and His
-raiment was white as the light." Matt 17:2.
+_"Then shall the King say unto them on His right hand, Come, ye blessed of My Father, inherit the kingdom prepared for you from the foundation of the world."_ (Matthew 25:34)
 
-**Answer:**
+From before the foundation of the world, God prepared a kingdom for you. Before you were born, before you had done good or evil, before you even knew there was a Saviour, Christ loved you and longed to welcome you home.
 
-He appeared as a being of light.
+The question is not whether He will come—_He will_. The question is whether you will be ready. Will you hear those words, "Come, ye blessed"? Or will you be among those who cry for the rocks and mountains to hide them from His face?
 
-- **Face as the sun:** Radiating divine energy and purity.
-- **Raiment white as light:** Symbolizing the perfect righteousness that clothes
-  Him and His people.
+Today, if you hear His voice, harden not your heart. Surrender every idol. Confess every sin. Trust wholly in His righteousness. And lift up your head, for your redemption draws near.
 
-The Transfiguration was a miniature representation of the Kingdom of Glory.
-
----
-
-### Q17. What is the appearance of an angel?
-
-“His body also was like the beryl, and his face as the appearance of lightning,
-and his eyes as lamps of fire, and his arms and his feet like in color to
-polished brass, and the voice of his words like the voice of a multitude." Dan.
-10:6.
-
-**Answer:**
-
-A single angel appears with terrifying majesty—like lightning and fire.
-
-- If one angel caused the Roman guards at the tomb to fall as dead men (Matthew
-  28:2-4), imagine the scene when _all_ the holy angels accompany Christ!
-- This emphasizes why we need a Savior to stand before such power.
-
----
-
-### Q18. What is the appearance of the glory of God Himself?
-
-“And from the appearance of His loins even downward, I saw as it were the
-appearance of fire, and it had brightness round about. As the appearance of the
-bow that is in the cloud in the day of rain, so was the appearance of the
-brightness round about. This was the appearance of the likeness of the glory of
-the Lord." Eze. 1:27, 28.
-
-**Answer:**
-
-Ezekiel describes God’s glory as **fire** and **brightness**, surrounded by a
-**rainbow**.
-
-- **The Fire:** Represents God's holiness and His reaction to sin (Deuteronomy
-  4:24).
-- **The Rainbow:** Represents God's covenant of mercy and grace (Genesis 9:13;
-  Revelation 4:3).
-
-**The Gospel in the Glory:** Even in the overwhelming brightness of His justice
-(fire), the rainbow of promise encircles the throne. For the believer, God is
-both Just and the Justifier (Romans 3:26).
-
----
-
-### Q19. For what was Paul waiting when in his Roman dungeon?
-
-“Henceforth there is laid up for me a crown of righteousness, which the Lord,
-the righteous judge, shall give me at that day; and not to me only, but unto all
-them also that love His appearing." 2 Tim. 4:8.
-
-**Answer:**
-
-Paul was waiting for the **crown of righteousness**.
-
-- Note that Paul did not expect the crown at the moment of his beheading, but
-  "at that day"—the day of Christ’s appearing.
-- **Loving His appearing:** Those who love sin are afraid of His appearing.
-  Those who love righteousness long for it.
-- **The Crown:** It is called a crown of _righteousness_ because it is given to
-  those who have allowed Christ to work His righteousness in them. It is the
-  crown of a victor who has overcome the world through faith (1 John 5:4).
-
----
-
-### Q20. How will the Saviour be seen of those who are finally permitted to behold Him?
-
-“But we know that, when He shall appear, we shall be like Him; for we shall see
-Him as He is." 1 John 3:2.
-
-**Answer:**
-
-The saved will see Him **as He is** because they will be **like Him**.
-
-- **Moral Likeness:** Before He comes, we must be like Him in character—loving,
-  pure, and obedient to the Father. This is the work of sanctification.
-- **Physical Likeness:** When He comes, our vile bodies are changed to be like
-  His glorious body.
-- Only the pure in heart shall see God (Matthew 5:8). The beholding of Christ
-  transforms us (2 Corinthians 3:18).
-
----
-
-### Q21. What description does the beloved John give of His appearance?
-
-“His eyes were as a flame of fire; and His feet like unto fine brass, as if they
-burned in a furnace; and His voice as the sound of many waters... And His
-countenance was as the sun shineth in his strength." Rev. 1:14-16.
-
-**Answer:**
-
-John describes the glorified Christ in terms of power and judgment:
-
-- **Eyes of fire:** Nothing is hidden from Him. He sees the secrets of the
-  heart.
-- **Feet of brass:** Strength and stability.
-- **Voice of many waters:** Overwhelming authority.
-- **Countenance as the sun:** Unapproachable light.
-
-This is not the "lowly Nazarene" in weakness, but the King of Kings.
-
----
-
-### Q22. When He shall have gathered together His elect (Matt. 24:31), if we are among them, what shall we hear from the Saviour?
-
-"Then shall the King say unto them on His right hand, Come, ye blessed of My
-Father, inherit the kingdom prepared for you from the foundation of the world."
-Matt. 25:34.
-
-**Answer:**
-
-The sweetest words ever spoken: **"Come, ye blessed... inherit the kingdom."**
-
-- **"Blessed of My Father":** We are accepted in the Beloved.
-- **"Inherit":** We are children of the King, joint-heirs with Christ (Romans
-  8:17).
-- **"Prepared for you":** God never intended for man to die. The plan of
-  salvation restores what Adam lost—the kingdom of peace, face-to-face communion
-  with God, and a life of eternal development.
-
-**Appeal:** To hear these words then, we must hear His voice now saying, "Come
-unto me, all ye that labor and are heavy laden" (Matthew 11:28). If we come to
-Him now for grace, we shall come to Him then for glory.
-
-[ILL] When a ship has been tossed by storms for weeks, risking destruction in
-the dark waves, nothing is sweeter to the captain and crew than the sight of the
-harbor lights and the call of the pilot to guide them in. This world is the
-storm-tossed sea. Christ is the Pilot. The Second Coming is the entrance to the
-harbor of eternal peace. Let us be ready for that day.
+Even so, come, Lord Jesus.
