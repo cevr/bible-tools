@@ -57,7 +57,7 @@ export const generate = Effect.fn('generate')(function* (
 
   const message = response.text;
 
-  yield* Effect.log(`response: \n\n ${message}`);
+  yield* Effect.logDebug(`response: \n\n ${message}`);
 
   const filename = yield* Effect.tryPromise({
     try: () =>

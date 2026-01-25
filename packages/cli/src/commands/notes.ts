@@ -1,6 +1,6 @@
 import { Command, Options } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
-import { Console, Effect } from 'effect';
+import { Console, Effect, Schema } from 'effect';
 
 import {
   makeAppleNoteFromMarkdown,
@@ -17,9 +17,11 @@ const jsonFlag = Options.boolean('json').pipe(
 const list = Command.make('list', { json: jsonFlag }, (args) =>
   Effect.gen(function* () {
     const notes = yield* listNotes();
+    const encodeJson = Schema.encode(Schema.parseJson({ space: 2 }));
 
     if (args.json) {
-      yield* Console.log(JSON.stringify(notes, null, 2));
+      const jsonOutput = yield* encodeJson(notes);
+      yield* Console.log(jsonOutput);
     } else {
       if (notes.length === 0) {
         yield* Console.log('No notes found.');

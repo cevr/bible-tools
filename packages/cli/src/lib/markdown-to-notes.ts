@@ -199,13 +199,11 @@ export const updateAppleNoteFromMarkdown = Effect.fn('updateAppleNoteFromMarkdow
   const res = yield* appleScript.exec(appleScriptCommand);
 
   if (res.startsWith('Error:')) {
-    return yield* Effect.fail(
-      new MarkdownParseError({
-        message: `Failed to update note: ${res}`,
-        cause: res,
-        content: markdownContent,
-      }),
-    );
+    return yield* new MarkdownParseError({
+      message: `Failed to update note: ${res}`,
+      cause: res,
+      content: markdownContent,
+    });
   }
 
   // Success

@@ -2,7 +2,7 @@ import { Command, Options } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
 import { generateText } from 'ai';
 import { format } from 'date-fns';
-import { Data, Effect, Option, Schedule } from 'effect';
+import { Data, Effect, Option, Schedule, Schema } from 'effect';
 import { join } from 'path';
 
 import {
@@ -34,7 +34,7 @@ const generateMessage = Command.make('generate', { topic, model }, (args) =>
     const fs = yield* FileSystem.FileSystem;
     const startTime = Date.now();
 
-    yield* Effect.log(`topic: ${args.topic}`);
+    yield* Effect.logDebug(`topic: ${args.topic}`);
 
     const systemPrompt = yield* fs
       .readFile(getPromptPath('messages', 'generate.md'))
@@ -246,6 +246,7 @@ const json = Options.boolean('json').pipe(
 const listMessages = Command.make('list', { json }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
+    const encodeJson = Schema.encode(Schema.parseJson({ space: 2 }));
 
     const messagesDir = getOutputsPath('messages');
     const files = yield* fs
@@ -258,7 +259,8 @@ const listMessages = Command.make('list', { json }, (args) =>
       .sort((a, b) => b.localeCompare(a));
 
     if (args.json) {
-      yield* Effect.log(JSON.stringify(filePaths, null, 2));
+      const jsonOutput = yield* encodeJson(filePaths);
+      yield* Effect.log(jsonOutput);
     } else {
       if (filePaths.length === 0) {
         yield* Effect.log('No messages found.');

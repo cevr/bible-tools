@@ -13,7 +13,7 @@ import { isSearchQuery, parseEGWRef } from '@bible/core/egw';
 import { Command } from '@effect/cli';
 // Core imports needed for both CLI and TUI
 import { BunContext, BunRuntime } from '@effect/platform-bun';
-import { Effect, Layer } from 'effect';
+import { Effect, Layer, LogLevel, Logger } from 'effect';
 
 import { concordance, verse } from './commands/bible.js';
 import { egwWithSubcommands } from './commands/egw.js';
@@ -29,6 +29,8 @@ import { printSummary, trace, traceAsync, traceSync } from './instrumentation/tr
 // Lightweight CLI command imports (no TUI dependencies)
 import { AppleScriptLive } from './services/apple-script.js';
 import { ChimeLive } from './services/chime.js';
+import { cliOptions, CliOptions } from './services/cli-options.js';
+import { CliLoggerLive } from './services/logger.js';
 import type { ModelService } from './tui/context/model.js';
 
 trace('process start');
@@ -206,7 +208,7 @@ async function main() {
     trace('CLI mode');
 
     const command = traceSync('Command.make', () =>
-      Command.make('bible').pipe(
+      Command.make('bible', cliOptions).pipe(
         Command.withSubcommands([
           concordance,
           verse,
@@ -218,6 +220,10 @@ async function main() {
           readings,
           exportOutput,
         ]),
+        Command.provideSync(CliOptions, ({ verbose }) => ({ verbose })),
+        Command.transformHandler((effect, { verbose }) =>
+          effect.pipe(Logger.withMinimumLogLevel(verbose ? LogLevel.Debug : LogLevel.Info)),
+        ),
       ),
     );
 
@@ -228,7 +234,12 @@ async function main() {
       }),
     );
 
-    const ServicesLayer = Layer.mergeAll(AppleScriptLive, ChimeLive, BunContext.layer);
+    const ServicesLayer = Layer.mergeAll(
+      AppleScriptLive,
+      ChimeLive,
+      CliLoggerLive,
+      BunContext.layer,
+    );
 
     trace('starting Effect execution');
 

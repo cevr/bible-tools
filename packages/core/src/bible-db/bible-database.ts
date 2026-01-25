@@ -309,15 +309,13 @@ export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
       // Check if database exists
       const exists = yield* fs.exists(dbPath);
       if (!exists) {
-        return yield* Effect.fail(
-          new RecordNotFoundError({
-            entity: 'BibleDatabase',
-            id: dbPath,
-            context: {
-              message: `Bible database not found at ${dbPath}. Run 'bun run sync:bible' to create it.`,
-            },
-          }),
-        );
+        return yield* new RecordNotFoundError({
+          entity: 'BibleDatabase',
+          id: dbPath,
+          context: {
+            message: `Bible database not found at ${dbPath}. Run 'bun run sync:bible' to create it.`,
+          },
+        });
       }
 
       // Open database connection

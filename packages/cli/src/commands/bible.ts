@@ -1,7 +1,7 @@
 import { BunContext } from '@effect/platform-bun';
 import { Args, Command } from '@effect/cli';
 import { BibleDatabase, type ConcordanceResult, type StrongsEntry } from '@bible/core/bible-db';
-import { Console, Effect, Layer, Option } from 'effect';
+import { Console, Effect, Layer, Option, Runtime } from 'effect';
 
 import { BibleData, BibleDataLive } from '~/src/data/bible/data';
 import { getVersesForQuery, parseVerseQuery } from '~/src/data/bible/parse';
@@ -42,6 +42,8 @@ export const verse = Command.make('verse', { query }, (args) =>
   Effect.gen(function* () {
     const data = yield* BibleData;
     const queryStr = args.query.join(' ').trim();
+    const runtime = yield* Effect.runtime();
+    const runSync = Runtime.runSync(runtime);
 
     if (!queryStr) {
       yield* Console.log('Usage: bible verse <reference or search query>');
@@ -58,11 +60,11 @@ export const verse = Command.make('verse', { query }, (args) =>
 
     // Create sync wrapper for parse functions
     const syncData: BibleDataSyncService = {
-      getBooks: () => Effect.runSync(data.getBooks()),
-      getBook: (n) => Effect.runSync(data.getBook(n)),
-      getChapter: (b, c) => Effect.runSync(data.getChapter(b, c)),
-      getVerse: (b, c, v) => Effect.runSync(data.getVerse(b, c, v)),
-      searchVerses: (q, l) => Effect.runSync(data.searchVerses(q, l)),
+      getBooks: () => runSync(data.getBooks()),
+      getBook: (n) => runSync(data.getBook(n)),
+      getChapter: (b, c) => runSync(data.getChapter(b, c)),
+      getVerse: (b, c, v) => runSync(data.getVerse(b, c, v)),
+      searchVerses: (q, l) => runSync(data.searchVerses(q, l)),
       parseReference: data.parseReference,
       getNextChapter: data.getNextChapter,
       getPrevChapter: data.getPrevChapter,

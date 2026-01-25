@@ -356,12 +356,10 @@ export class GeminiFileSearchClient extends Context.Tag('@bible/gemini/Client')<
             });
             const store = yield* searchStoresRecursive(pager, displayName);
             if (!store) {
-              return yield* Effect.fail(
-                new GeminiFileSearchError({
-                  message: `Store with display name '${displayName}' not found`,
-                  cause: undefined,
-                }),
-              );
+              return yield* new GeminiFileSearchError({
+                message: `Store with display name '${displayName}' not found`,
+                cause: undefined,
+              });
             }
             return store;
           }).pipe(Effect.retry(retrySchedule)),
@@ -445,15 +443,12 @@ export class GeminiFileSearchClient extends Context.Tag('@bible/gemini/Client')<
           fileSearchStoreName: string,
           getConfig: (filePath: string) => Schemas.UploadConfig,
         ) =>
-          Effect.gen(function* () {
-            // Convert array to stream and process with concurrency
-            return yield* Stream.fromIterable(filePaths).pipe(
-              Stream.flatMap((filePath) =>
-                Stream.fromEffect(uploadFile(filePath, fileSearchStoreName, getConfig(filePath))),
-              ),
-              Stream.runCollect,
-            );
-          }),
+          Stream.fromIterable(filePaths).pipe(
+            Stream.flatMap((filePath) =>
+              Stream.fromEffect(uploadFile(filePath, fileSearchStoreName, getConfig(filePath))),
+            ),
+            Stream.runCollect,
+          ),
 
         generateContent: (
           model: string,
@@ -591,12 +586,10 @@ export class GeminiFileSearchClient extends Context.Tag('@bible/gemini/Client')<
             });
             const document = yield* searchDocumentsRecursive(pager, displayName);
             if (!document) {
-              return yield* Effect.fail(
-                new GeminiFileSearchError({
-                  message: `Document '${displayName}' not found in store`,
-                  cause: undefined,
-                }),
-              );
+              return yield* new GeminiFileSearchError({
+                message: `Document '${displayName}' not found in store`,
+                cause: undefined,
+              });
             }
             return document;
           }).pipe(Effect.retry(retrySchedule)),
@@ -684,19 +677,17 @@ export class GeminiFileSearchClient extends Context.Tag('@bible/gemini/Client')<
           }),
 
         deleteDocument: (documentName: string, force: boolean = true) =>
-          Effect.gen(function* () {
-            yield* Effect.tryPromise({
-              try: () =>
-                ai.fileSearchStores.documents.delete({
-                  name: documentName,
-                  config: { force },
-                }),
-              catch: (error) =>
-                new GeminiFileSearchError({
-                  message: `Failed to delete document: ${documentName}`,
-                  cause: error,
-                }),
-            });
+          Effect.tryPromise({
+            try: () =>
+              ai.fileSearchStores.documents.delete({
+                name: documentName,
+                config: { force },
+              }),
+            catch: (error) =>
+              new GeminiFileSearchError({
+                message: `Failed to delete document: ${documentName}`,
+                cause: error,
+              }),
           }).pipe(Effect.retry(retrySchedule)),
 
         updateDocument: (
@@ -739,7 +730,7 @@ export class GeminiFileSearchClient extends Context.Tag('@bible/gemini/Client')<
                 if (error.message.includes('not found')) {
                   return Effect.void;
                 }
-                return Effect.fail(error);
+                return error;
               }),
             );
 
@@ -781,19 +772,17 @@ export class GeminiFileSearchClient extends Context.Tag('@bible/gemini/Client')<
           }),
 
         deleteStore: (storeName: string, force: boolean = true) =>
-          Effect.gen(function* () {
-            yield* Effect.tryPromise({
-              try: () =>
-                ai.fileSearchStores.delete({
-                  name: storeName,
-                  config: { force },
-                }),
-              catch: (error) =>
-                new GeminiFileSearchError({
-                  message: `Failed to delete store: ${storeName}`,
-                  cause: error,
-                }),
-            });
+          Effect.tryPromise({
+            try: () =>
+              ai.fileSearchStores.delete({
+                name: storeName,
+                config: { force },
+              }),
+            catch: (error) =>
+              new GeminiFileSearchError({
+                message: `Failed to delete store: ${storeName}`,
+                cause: error,
+              }),
           }).pipe(Effect.retry(retrySchedule)),
       };
     }),

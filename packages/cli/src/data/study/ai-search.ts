@@ -1,6 +1,6 @@
 import type { LanguageModel } from 'ai';
 import { generateText } from 'ai';
-import { Context, Data, Effect, Layer } from 'effect';
+import { Context, Data, Effect, Layer, Runtime } from 'effect';
 
 import { Model } from '../../services/model.js';
 import { BibleData } from '../bible/data.js';
@@ -117,14 +117,16 @@ export const AISearchLive = Layer.effect(
     const model = yield* Model;
     const data = yield* BibleData;
     const state = yield* BibleState;
+    const runtime = yield* Effect.runtime();
+    const runSync = Runtime.runSync(runtime);
     // Model service from Effect gives us { high, low } directly
     // Create sync wrapper for AI search (only needs parseReference which is sync)
     const syncData: BibleDataSyncService = {
-      getBooks: () => Effect.runSync(data.getBooks()),
-      getBook: (n) => Effect.runSync(data.getBook(n)),
-      getChapter: (b, c) => Effect.runSync(data.getChapter(b, c)),
-      getVerse: (b, c, v) => Effect.runSync(data.getVerse(b, c, v)),
-      searchVerses: (q, l) => Effect.runSync(data.searchVerses(q, l)),
+      getBooks: () => runSync(data.getBooks()),
+      getBook: (n) => runSync(data.getBook(n)),
+      getChapter: (b, c) => runSync(data.getChapter(b, c)),
+      getVerse: (b, c, v) => runSync(data.getVerse(b, c, v)),
+      searchVerses: (q, l) => runSync(data.searchVerses(q, l)),
       parseReference: data.parseReference,
       getNextChapter: data.getNextChapter,
       getPrevChapter: data.getPrevChapter,

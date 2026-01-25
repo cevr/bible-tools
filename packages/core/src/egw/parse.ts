@@ -16,8 +16,7 @@ import { Effect, Option, Schema } from 'effect';
 /**
  * Parsed EGW Reference - single paragraph
  */
-export const EGWParagraphRef = Schema.Struct({
-  _tag: Schema.Literal('paragraph'),
+export const EGWParagraphRef = Schema.TaggedStruct('paragraph', {
   bookCode: Schema.String,
   page: Schema.Number,
   paragraph: Schema.Number,
@@ -28,8 +27,7 @@ export type EGWParagraphRef = Schema.Schema.Type<typeof EGWParagraphRef>;
 /**
  * Parsed EGW Reference - paragraph range on same page
  */
-export const EGWParagraphRangeRef = Schema.Struct({
-  _tag: Schema.Literal('paragraph-range'),
+export const EGWParagraphRangeRef = Schema.TaggedStruct('paragraph-range', {
   bookCode: Schema.String,
   page: Schema.Number,
   paragraphStart: Schema.Number,
@@ -41,8 +39,7 @@ export type EGWParagraphRangeRef = Schema.Schema.Type<typeof EGWParagraphRangeRe
 /**
  * Parsed EGW Reference - single page (all paragraphs)
  */
-export const EGWPageRef = Schema.Struct({
-  _tag: Schema.Literal('page'),
+export const EGWPageRef = Schema.TaggedStruct('page', {
   bookCode: Schema.String,
   page: Schema.Number,
 });
@@ -52,8 +49,7 @@ export type EGWPageRef = Schema.Schema.Type<typeof EGWPageRef>;
 /**
  * Parsed EGW Reference - page range
  */
-export const EGWPageRangeRef = Schema.Struct({
-  _tag: Schema.Literal('page-range'),
+export const EGWPageRangeRef = Schema.TaggedStruct('page-range', {
   bookCode: Schema.String,
   pageStart: Schema.Number,
   pageEnd: Schema.Number,
@@ -64,8 +60,7 @@ export type EGWPageRangeRef = Schema.Schema.Type<typeof EGWPageRangeRef>;
 /**
  * Parsed EGW Reference - book only (whole book)
  */
-export const EGWBookRef = Schema.Struct({
-  _tag: Schema.Literal('book'),
+export const EGWBookRef = Schema.TaggedStruct('book', {
   bookCode: Schema.String,
 });
 
@@ -74,8 +69,7 @@ export type EGWBookRef = Schema.Schema.Type<typeof EGWBookRef>;
 /**
  * Search query (not a reference)
  */
-export const EGWSearchQuery = Schema.Struct({
-  _tag: Schema.Literal('search'),
+export const EGWSearchQuery = Schema.TaggedStruct('search', {
   query: Schema.String,
 });
 

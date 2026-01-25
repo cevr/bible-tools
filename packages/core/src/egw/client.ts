@@ -30,6 +30,8 @@ export class EGWApiError extends Schema.TaggedError<EGWApiError>()('EGWApiError'
   message: Schema.String,
 }) {}
 
+const encodeJson = Schema.encodeSync(Schema.parseJson({ space: 2 }));
+
 // ============================================================================
 // Service Interface
 // ============================================================================
@@ -214,13 +216,12 @@ export class EGWApiClient extends Context.Tag('@bible/egw/Client')<
 
           return yield* HttpClientResponse.schemaBodyJson(PaginatedResponse)(response);
         }).pipe(
-          Effect.catchAll((error) =>
-            Effect.fail(
+          Effect.mapError(
+            (error) =>
               new EGWApiError({
                 message: `Failed to fetch books page: ${url}`,
                 cause: error,
               }),
-            ),
           ),
           Effect.retry(retrySchedule),
         );
@@ -352,9 +353,9 @@ export class EGWApiClient extends Context.Tag('@bible/egw/Client')<
                   const raw = yield* response.json;
                   yield* Effect.logError(
                     `Failed to parse TOC for book ${bookId}. Raw response:`,
-                    JSON.stringify(raw, null, 2),
+                    encodeJson(raw),
                   );
-                  return yield* Effect.fail(error);
+                  return yield* error;
                 }),
               ),
             );

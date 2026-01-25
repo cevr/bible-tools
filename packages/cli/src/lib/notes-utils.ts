@@ -135,13 +135,11 @@ export const getNoteContent = Effect.fn('getNoteContent')(function* (noteId: str
 
   // Check if AppleScript returned an error message
   if (content.startsWith('Error:')) {
-    return yield* Effect.fail(
-      new NoteOperationError({
-        message: `Failed to get content for note ID ${noteId}: ${content}`,
-        script,
-        scriptOutput: content,
-      }),
-    );
+    return yield* new NoteOperationError({
+      message: `Failed to get content for note ID ${noteId}: ${content}`,
+      script,
+      scriptOutput: content,
+    });
   }
 
   yield* Effect.log(`✅ Content fetched for note ID: ${noteId}.`);
@@ -185,13 +183,11 @@ export const updateNoteContent = Effect.fn('updateNoteContent')(function* (
   );
 
   if (!result.startsWith('Success')) {
-    return yield* Effect.fail(
-      new NoteOperationError({
-        message: `Failed to update content for note ID ${noteId}: ${result}`,
-        script,
-        scriptOutput: result,
-      }),
-    );
+    return yield* new NoteOperationError({
+      message: `Failed to update content for note ID ${noteId}: ${result}`,
+      script,
+      scriptOutput: result,
+    });
   }
 
   yield* Effect.log(`✅ Content updated for note ID: ${noteId}.`);
@@ -228,13 +224,11 @@ export const deleteNote = Effect.fn('deleteNote')(function* (noteId: string) {
   );
 
   if (!result.startsWith('Success')) {
-    return yield* Effect.fail(
-      new NoteOperationError({
-        message: `Failed to delete note ID ${noteId}: ${result}`,
-        script,
-        scriptOutput: result,
-      }),
-    );
+    return yield* new NoteOperationError({
+      message: `Failed to delete note ID ${noteId}: ${result}`,
+      script,
+      scriptOutput: result,
+    });
   }
 
   yield* Effect.log(`✅ Note deleted: ${noteId}.`);
@@ -279,13 +273,11 @@ export const createNote = Effect.fn('createNote')(function* (title: string, body
 
   // Basic check if the output looks like a note ID (contains hyphens) or an error
   if (newNoteId.startsWith('Error:') || !newNoteId.includes('-')) {
-    return yield* Effect.fail(
-      new NoteOperationError({
-        message: `Failed to create note "${title}": ${newNoteId}`,
-        script,
-        scriptOutput: newNoteId,
-      }),
-    );
+    return yield* new NoteOperationError({
+      message: `Failed to create note "${title}": ${newNoteId}`,
+      script,
+      scriptOutput: newNoteId,
+    });
   }
 
   yield* Effect.log(`✅ Note created with ID: ${newNoteId}.`);
@@ -350,13 +342,11 @@ export const findNoteByTitle = Effect.fn('findNoteByTitle')(function* (
   }
 
   if (result.startsWith('Error:')) {
-    return yield* Effect.fail(
-      new NoteOperationError({
-        message: `Failed to find note "${title}": ${result}`,
-        script,
-        scriptOutput: result,
-      }),
-    );
+    return yield* new NoteOperationError({
+      message: `Failed to find note "${title}": ${result}`,
+      script,
+      scriptOutput: result,
+    });
   }
 
   yield* Effect.log(`✅ Found note "${title}" with ID: ${result}`);

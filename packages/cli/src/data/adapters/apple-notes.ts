@@ -59,7 +59,8 @@ export const AppleNotesExportLayer = Layer.succeed(
 
       // Use provided title or extract from content
       const finalNoteTitle = pipe(
-        Option.some(title).pipe(Option.filter((t) => t.length > 0)),
+        Option.some(title),
+        Option.filter((t) => t.length > 0),
         Option.orElse(() => extractTitleFromMarkdown(content)),
         Option.getOrElse(() => 'Untitled Note'),
       );

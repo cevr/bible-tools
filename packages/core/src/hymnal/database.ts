@@ -116,15 +116,13 @@ export class HymnalDatabase extends Context.Tag('@bible/hymnal/Database')<
       // Check if database exists
       const exists = yield* fs.exists(dbPath);
       if (!exists) {
-        return yield* Effect.fail(
-          new RecordNotFoundError({
-            entity: 'HymnalDatabase',
-            id: dbPath,
-            context: {
-              message: `Hymnal database not found at ${dbPath}.`,
-            },
-          }),
-        );
+        return yield* new RecordNotFoundError({
+          entity: 'HymnalDatabase',
+          id: dbPath,
+          context: {
+            message: `Hymnal database not found at ${dbPath}.`,
+          },
+        });
       }
 
       // Open database connection (readonly)

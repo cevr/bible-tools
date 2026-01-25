@@ -244,12 +244,10 @@ export class EGWAuth extends Context.Tag('@bible/egw/Auth')<EGWAuth, EGWAuthServ
 
       const refreshToken = Effect.fn('EGWAuth.refreshToken')(function* (token: AccessToken) {
         if (!token.refreshToken) {
-          return yield* Effect.fail(
-            new EGWAuthError({
-              message: 'No refresh token available',
-              cause: undefined,
-            }),
-          );
+          return yield* new EGWAuthError({
+            message: 'No refresh token available',
+            cause: undefined,
+          });
         }
 
         yield* Effect.logDebug('Refreshing EGW access token');

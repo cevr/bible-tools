@@ -1,6 +1,6 @@
 import { Args, Command, Options } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
-import { Effect, Option, pipe } from 'effect';
+import { Effect, Option, Schema, pipe } from 'effect';
 import { join } from 'path';
 
 import { matchArrayEnum, msToMinutes, spin } from '~/src/lib/general';
@@ -52,7 +52,7 @@ const processChapters = Command.make('process', { model, chapter, target }, (arg
     const generateSlides = targets.includes('slides');
     const generateSpeakerNotes = targets.includes('speaker-notes');
 
-    yield* Effect.log(`Targets: ${targets.join(', ')}`);
+    yield* Effect.logDebug(`Targets: ${targets.join(', ')}`);
 
     // Read the system prompts
     const studyPrompt = yield* fs
@@ -86,7 +86,7 @@ const processChapters = Command.make('process', { model, chapter, target }, (arg
       onNone: () => allChapterFiles,
     });
 
-    yield* Effect.log(`Found ${chapterFiles.length} chapter files to process`);
+    yield* Effect.logDebug(`Found ${chapterFiles.length} chapter files to process`);
 
     // If specific chapter requested, process it (overwrite existing)
     // Otherwise, filter to unprocessed chapters based on selected targets
@@ -152,12 +152,12 @@ const processChapters = Command.make('process', { model, chapter, target }, (arg
           if (needStudyContent) {
             if (studyExists && !forceOverwrite && !generateStudy) {
               // Just read existing study for downstream use
-              yield* Effect.log(`Reading existing study for dependencies...`);
+              yield* Effect.logDebug(`Reading existing study for dependencies...`);
               studyContent = yield* fs
                 .readFile(studyOutputFile)
                 .pipe(Effect.map((i) => new TextDecoder().decode(i)));
             } else if (studyExists && !forceOverwrite) {
-              yield* Effect.log(`Skipping study (already exists)...`);
+              yield* Effect.logDebug(`Skipping study (already exists)...`);
               studyContent = yield* fs
                 .readFile(studyOutputFile)
                 .pipe(Effect.map((i) => new TextDecoder().decode(i)));
@@ -193,12 +193,12 @@ const processChapters = Command.make('process', { model, chapter, target }, (arg
           if (needSlidesContent) {
             if (slidesExists && !forceOverwrite && !generateSlides) {
               // Just read existing slides for downstream use
-              yield* Effect.log(`Reading existing slides for dependencies...`);
+              yield* Effect.logDebug(`Reading existing slides for dependencies...`);
               slidesContent = yield* fs
                 .readFile(slidesOutputFile)
                 .pipe(Effect.map((i) => new TextDecoder().decode(i)));
             } else if (slidesExists && !forceOverwrite) {
-              yield* Effect.log(`Skipping slides (already exists)...`);
+              yield* Effect.logDebug(`Skipping slides (already exists)...`);
               slidesContent = yield* fs
                 .readFile(slidesOutputFile)
                 .pipe(Effect.map((i) => new TextDecoder().decode(i)));
@@ -224,7 +224,7 @@ const processChapters = Command.make('process', { model, chapter, target }, (arg
           if (generateSpeakerNotes) {
             const speakerNotesExists = yield* fs.exists(speakerNotesOutputFile);
             if (speakerNotesExists && !forceOverwrite) {
-              yield* Effect.log(`Skipping speaker notes (already exists)...`);
+              yield* Effect.logDebug(`Skipping speaker notes (already exists)...`);
             } else {
               const combinedInput = `## Study Notes\n\n${studyContent}\n\n## Slide Notes\n\n${slidesContent}`;
               const { response: speakerNotesContent } = yield* generate(
@@ -240,7 +240,7 @@ const processChapters = Command.make('process', { model, chapter, target }, (arg
             }
           }
 
-          yield* Effect.log(
+          yield* Effect.logDebug(
             `[${index + 1}/${chaptersToProcess.length}] ✓ Completed ${chapterFile}`,
           );
         }).pipe(
@@ -317,6 +317,7 @@ const json = Options.boolean('json').pipe(
 const listReadings = Command.make('list', { json }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
+    const encodeJson = Schema.encode(Schema.parseJson({ space: 2 }));
 
     const outputDir = getOutputsPath('readings');
     const files = yield* fs
@@ -333,7 +334,8 @@ const listReadings = Command.make('list', { json }, (args) =>
       });
 
     if (args.json) {
-      yield* Effect.log(JSON.stringify(filePaths, null, 2));
+      const jsonOutput = yield* encodeJson(filePaths);
+      yield* Effect.log(jsonOutput);
     } else {
       if (filePaths.length === 0) {
         yield* Effect.log('No readings found.');

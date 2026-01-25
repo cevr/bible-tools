@@ -28,11 +28,12 @@
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "test": "bun --filter '*' test",
-    "gate": "bun run typecheck && bun run lint && bun run fmt:check",
+    "gate": "concurrently -n type,lint,fmt,test -c blue,yellow,magenta,green \"bun run typecheck\" \"bun run lint\" \"bun run fmt\" \"bun run test\"",
     "prepare": "lefthook install"
   },
   "devDependencies": {
     "@effect/language-service": "^0.72.0",
+    "concurrently": "^9.2.1",
     "lefthook": "^2.0.15",
     "oxfmt": "^0.26.0",
     "oxlint": "^1.41.0",

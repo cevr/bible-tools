@@ -141,7 +141,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
               return geminiClient.createStore(displayName);
             }
             // Re-throw other errors
-            return Effect.fail(error);
+            return error;
           }),
         );
 
@@ -302,7 +302,7 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
                               error instanceof Error ? error.message : String(error),
                             )
                             .pipe(Effect.ignore);
-                          return yield* Effect.fail(error);
+                          return yield* error;
                         }),
                       ),
                     );
@@ -330,18 +330,12 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
             documentsUploaded,
           };
         }).pipe(
-          Effect.catchAll((error) =>
-            Effect.gen(function* () {
-              // Individual paragraph failures are already tracked
-              // Book-level status will be aggregated from paragraph statuses
-
-              return yield* Effect.fail(
-                new EGWGeminiError({
-                  message: `Failed to upload book: ${options.book.book_id}`,
-                  cause: error,
-                }),
-              );
-            }),
+          Effect.mapError(
+            (error) =>
+              new EGWGeminiError({
+                message: `Failed to upload book: ${options.book.book_id}`,
+                cause: error,
+              }),
           ),
         );
 
@@ -353,12 +347,10 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
           // Find the store
           const store = yield* geminiClient.findStoreByDisplayName(options.storeDisplayName);
           if (!store) {
-            return yield* Effect.fail(
-              new EGWGeminiError({
-                message: `Store not found: ${options.storeDisplayName}`,
-                cause: undefined,
-              }),
-            );
+            return yield* new EGWGeminiError({
+              message: `Store not found: ${options.storeDisplayName}`,
+              cause: undefined,
+            });
           }
 
           // Generate content using the store
@@ -376,13 +368,12 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
             store,
           };
         }).pipe(
-          Effect.catchAll((error) =>
-            Effect.fail(
+          Effect.mapError(
+            (error) =>
               new EGWGeminiError({
                 message: `Failed to query store: ${options.storeDisplayName}`,
                 cause: error,
               }),
-            ),
           ),
         );
 
@@ -515,13 +506,12 @@ export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
             uploadedBooks: [...results],
           };
         }).pipe(
-          Effect.catchAll((error) =>
-            Effect.fail(
+          Effect.mapError(
+            (error) =>
               new EGWGeminiError({
                 message: `Failed to upload all EGW writings`,
                 cause: error,
               }),
-            ),
           ),
         );
 

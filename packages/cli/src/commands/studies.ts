@@ -1,7 +1,7 @@
 import { Command, Options } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
 import { format } from 'date-fns';
-import { Effect } from 'effect';
+import { Effect, Schema } from 'effect';
 import { join } from 'path';
 
 import { msToMinutes, spin } from '~/src/lib/general';
@@ -22,7 +22,7 @@ const generateStudy = Command.make('generate', { topic, model }, (args) =>
     const fs = yield* FileSystem.FileSystem;
     const startTime = Date.now();
 
-    yield* Effect.log(`topic: ${args.topic}`);
+    yield* Effect.logDebug(`topic: ${args.topic}`);
 
     const systemPrompt = yield* fs
       .readFile(getPromptPath('studies', 'generate.md'))
@@ -148,6 +148,7 @@ const json = Options.boolean('json').pipe(
 const listStudies = Command.make('list', { json }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
+    const encodeJson = Schema.encode(Schema.parseJson({ space: 2 }));
 
     const studiesDir = getOutputsPath('studies');
     const files = yield* fs
@@ -160,7 +161,8 @@ const listStudies = Command.make('list', { json }, (args) =>
       .sort((a, b) => b.localeCompare(a));
 
     if (args.json) {
-      yield* Effect.log(JSON.stringify(filePaths, null, 2));
+      const jsonOutput = yield* encodeJson(filePaths);
+      yield* Effect.log(jsonOutput);
     } else {
       if (filePaths.length === 0) {
         yield* Effect.log('No studies found.');
