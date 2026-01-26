@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * EGW Bible References Popup
  *

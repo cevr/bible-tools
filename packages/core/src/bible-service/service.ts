@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * Bible Service - Unified Bible data access
  *
@@ -88,7 +89,7 @@ export interface BibleServiceShape {
 // Service Definition
 // ============================================================================
 
-export class BibleService extends Context.Tag('@bible/core/BibleService')<
+export class BibleService extends Context.Tag('@bible/core/bible-service/service/BibleService')<
   BibleService,
   BibleServiceShape
 >() {

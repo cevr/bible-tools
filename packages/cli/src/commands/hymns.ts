@@ -1,3 +1,4 @@
+// @effect-diagnostics strictEffectProvide:off
 /**
  * Hymns Command
  *
@@ -61,7 +62,7 @@ const getCommand = Command.make('get', { hymnNumber }, (args) =>
       .getHymn(args.hymnNumber as HymnId)
       .pipe(Effect.catchAll(() => Effect.succeed(null)));
 
-    if (!hymn) {
+    if (hymn === null) {
       yield* Console.log(`Hymn #${args.hymnNumber} not found.`);
       yield* Console.log('Valid range: 1-920');
       return;
@@ -78,7 +79,7 @@ const searchCommand = Command.make('search', { searchQuery }, (args) =>
     const service = yield* HymnalService;
     const query = args.searchQuery.join(' ').trim();
 
-    if (!query) {
+    if (query.length === 0) {
       yield* Console.log('Usage: bible hymns search <query>');
       yield* Console.log('');
       yield* Console.log('Examples:');

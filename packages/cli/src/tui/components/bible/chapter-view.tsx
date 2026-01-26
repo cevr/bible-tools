@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 import type { ScrollBoxRenderable } from '@opentui/core';
 import { createMemo, For, Show } from 'solid-js';
 

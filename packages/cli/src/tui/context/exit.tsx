@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 import { createContext, useContext, type ParentProps } from 'solid-js';
 
 type ExitHandler = () => void;

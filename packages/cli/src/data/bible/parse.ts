@@ -60,7 +60,7 @@ export function getVersesForQuery(
     case 'single': {
       const verseNum = query.ref.verse ?? 1;
       const verse = data.getVerse(query.ref.book, query.ref.chapter, verseNum);
-      return verse ? [verse] : [];
+      return verse !== undefined ? [verse] : [];
     }
 
     case 'chapter': {
@@ -82,7 +82,7 @@ export function getVersesForQuery(
 
     case 'fullBook': {
       const book = data.getBook(query.book);
-      if (!book) return [];
+      if (book === undefined) return [];
       const verses: Verse[] = [];
       for (let ch = 1; ch <= book.chapters; ch++) {
         verses.push(...data.getChapter(query.book, ch));

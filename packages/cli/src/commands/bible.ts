@@ -1,3 +1,4 @@
+// @effect-diagnostics strictEffectProvide:off
 import { BunContext } from '@effect/platform-bun';
 import { Args, Command } from '@effect/cli';
 import { BibleDatabase, type ConcordanceResult, type StrongsEntry } from '@bible/core/bible-db';
@@ -13,9 +14,10 @@ const query = Args.text({ name: 'query' }).pipe(Args.repeated);
 // Format a single verse for output
 function formatVerse(verse: Verse): string {
   const book = getBook(verse.book);
-  const ref = book
-    ? `${book.name} ${verse.chapter}:${verse.verse}`
-    : `${verse.book} ${verse.chapter}:${verse.verse}`;
+  const ref =
+    book !== undefined
+      ? `${book.name} ${verse.chapter}:${verse.verse}`
+      : `${verse.book} ${verse.chapter}:${verse.verse}`;
   return `${ref}\n${verse.text}`;
 }
 
@@ -45,7 +47,7 @@ export const verse = Command.make('verse', { query }, (args) =>
     const runtime = yield* Effect.runtime();
     const runSync = Runtime.runSync(runtime);
 
-    if (!queryStr) {
+    if (queryStr.length === 0) {
       yield* Console.log('Usage: bible verse <reference or search query>');
       yield* Console.log('');
       yield* Console.log('Examples:');
@@ -114,7 +116,7 @@ export const concordance = Command.make('concordance', { query }, (args) =>
     const db = yield* BibleDatabase;
     const queryStr = args.query.join(' ').trim();
 
-    if (!queryStr) {
+    if (queryStr.length === 0) {
       yield* Console.log("Usage: bible concordance <Strong's number or English word>");
       yield* Console.log('');
       yield* Console.log('Examples:');

@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 import { createContext, createMemo, createSignal, useContext, type ParentProps } from 'solid-js';
 
 import {

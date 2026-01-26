@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * useRuntime hook for Effect integration with Solid.js
  *

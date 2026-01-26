@@ -78,7 +78,7 @@ export type SimpleMetadata = Record<string, string | number | string[]>;
 export function toCustomMetadata(
   metadata: SimpleMetadata | CustomMetadata[] | undefined,
 ): CustomMetadata[] | undefined {
-  if (!metadata) return undefined;
+  if (metadata === undefined) return undefined;
 
   // If already in CustomMetadata[] format, normalize it
   if (Array.isArray(metadata)) {

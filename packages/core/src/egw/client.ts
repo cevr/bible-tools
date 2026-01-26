@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * EGW API Client using Effect-TS
  * Adapted from Spotify client patterns with Effect-TS
@@ -88,7 +89,7 @@ export interface EGWApiClientService {
 /**
  * EGW API Client Service
  */
-export class EGWApiClient extends Context.Tag('@bible/egw/Client')<
+export class EGWApiClient extends Context.Tag('@bible/core/egw/client/EGWApiClient')<
   EGWApiClient,
   EGWApiClientService
 >() {

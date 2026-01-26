@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 // Theme types and registry
 
 export interface Theme {

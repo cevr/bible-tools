@@ -61,7 +61,9 @@ const exportNote = Command.make('export', { file, noteId: optionalNoteId, folder
     } else {
       // Create new note
       const folderName = args.folder._tag === 'Some' ? args.folder.value : undefined;
-      yield* Effect.log(`Creating new note${folderName ? ` in folder "${folderName}"` : ''}...`);
+      yield* Effect.log(
+        `Creating new note${folderName !== undefined ? ` in folder "${folderName}"` : ''}...`,
+      );
       const title = yield* makeAppleNoteFromMarkdown(markdownContent, {
         folder: folderName,
       });

@@ -1,3 +1,4 @@
+// @effect-diagnostics strictEffectProvide:off
 import { Command } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
 import { Effect } from 'effect';
@@ -22,7 +23,7 @@ export const exportOutput = Command.make('export', { files, folder }, (args) =>
     const targetFolder = args.folder._tag === 'Some' ? args.folder.value : undefined;
 
     yield* Effect.log(
-      `Exporting ${args.files.length} file(s) to Apple Notes${targetFolder ? ` (folder: ${targetFolder})` : ''}...`,
+      `Exporting ${args.files.length} file(s) to Apple Notes${targetFolder !== undefined ? ` (folder: ${targetFolder})` : ''}...`,
     );
 
     for (const filePath of args.files) {

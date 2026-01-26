@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * EGW Paragraph Database Service using SQLite
  *
@@ -280,10 +281,9 @@ export interface EGWParagraphDatabaseService {
 /**
  * EGW Paragraph Database Service
  */
-export class EGWParagraphDatabase extends Context.Tag('@bible/egw-db/ParagraphDatabase')<
-  EGWParagraphDatabase,
-  EGWParagraphDatabaseService
->() {
+export class EGWParagraphDatabase extends Context.Tag(
+  '@bible/core/egw-db/book-database/EGWParagraphDatabase',
+)<EGWParagraphDatabase, EGWParagraphDatabaseService>() {
   /**
    * Live implementation using SQLite database.
    * Requires FileSystem and Path from @effect/platform.

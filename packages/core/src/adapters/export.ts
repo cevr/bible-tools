@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 import { Context, Effect, Layer, Schema } from 'effect';
 
 /**
@@ -46,7 +47,7 @@ export interface ExportAdapterService {
 /**
  * Adapter for exporting content to various destinations.
  */
-export class ExportAdapter extends Context.Tag('@bible/adapters/Export')<
+export class ExportAdapter extends Context.Tag('@bible/core/adapters/export/ExportAdapter')<
   ExportAdapter,
   ExportAdapterService
 >() {

@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 import { type LanguageModel } from 'ai';
 import { Context, Layer, Schema } from 'effect';
 
@@ -27,7 +28,10 @@ export interface ModelConfig {
  * AI Service for text generation operations.
  * This service provides the configured AI models to use for generation.
  */
-export class AiService extends Context.Tag('@bible/ai/Service')<AiService, ModelConfig>() {
+export class AiService extends Context.Tag('@bible/core/ai/service/AiService')<
+  AiService,
+  ModelConfig
+>() {
   /**
    * Live implementation using real AI models.
    * Caller must provide the model configuration.

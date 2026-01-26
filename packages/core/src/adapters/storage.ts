@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 import { Context, Effect, Layer, Schema } from 'effect';
 
 /**
@@ -58,7 +59,7 @@ export interface StorageAdapterService {
 /**
  * Adapter for persistent storage operations.
  */
-export class StorageAdapter extends Context.Tag('@bible/adapters/Storage')<
+export class StorageAdapter extends Context.Tag('@bible/core/adapters/storage/StorageAdapter')<
   StorageAdapter,
   StorageAdapterService
 >() {

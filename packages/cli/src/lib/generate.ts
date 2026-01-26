@@ -6,11 +6,15 @@ import { Model } from '~/src/services/model';
 import { doneChime } from './done-chime';
 import { spin } from './general';
 
-class GenerateResponseError extends Data.TaggedError('GenerateResponseError')<{
+class GenerateResponseError extends Data.TaggedError(
+  '@bible/cli/lib/generate/GenerateResponseError',
+)<{
   cause: unknown;
 }> {}
 
-class GenerateFilenameError extends Data.TaggedError('GenerateFilenameError')<{
+class GenerateFilenameError extends Data.TaggedError(
+  '@bible/cli/lib/generate/GenerateFilenameError',
+)<{
   cause: unknown;
 }> {}
 
@@ -78,7 +82,7 @@ export const generate = Effect.fn('generate')(function* (
       }),
   });
 
-  if (!options?.skipChime) {
+  if (options?.skipChime !== true) {
     yield* doneChime;
   }
 

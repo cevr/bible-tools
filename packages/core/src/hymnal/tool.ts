@@ -101,14 +101,14 @@ function executeHymnalTool(input: HymnalToolInput): Effect.Effect<string, never,
         const hymn = yield* service
           .getHymn(input.hymnNumber as HymnId)
           .pipe(Effect.catchAll(() => Effect.succeed(null)));
-        if (!hymn) {
+        if (hymn === null) {
           return `No hymn found with number ${input.hymnNumber}`;
         }
         return formatHymnFull(hymn);
       }
 
       case 'search': {
-        if (!input.query) {
+        if (input.query === undefined || input.query.length === 0) {
           return 'Error: query is required for search action';
         }
         const results = yield* service
@@ -143,7 +143,7 @@ function executeHymnalTool(input: HymnalToolInput): Effect.Effect<string, never,
       }
 
       case 'byTheme': {
-        if (!input.query) {
+        if (input.query === undefined || input.query.length === 0) {
           return 'Error: query is required for byTheme action';
         }
         const results = yield* service

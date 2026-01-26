@@ -21,31 +21,33 @@ import {
 } from '~/src/prompts/sabbath-school/prompts';
 import { Model } from '~/src/services/model';
 
-class OutlineError extends Data.TaggedError('OutlineError')<{
+class OutlineError extends Data.TaggedError('@bible/cli/commands/sabbath-school/OutlineError')<{
   context: SabbathSchoolContext;
   cause: unknown;
 }> {}
 
-class DownloadError extends Data.TaggedError('DownloadError')<{
+class DownloadError extends Data.TaggedError('@bible/cli/commands/sabbath-school/DownloadError')<{
   week: number;
   cause: unknown;
 }> {}
 
-class CheerioError extends Data.TaggedError('CheerioError')<{
+class CheerioError extends Data.TaggedError('@bible/cli/commands/sabbath-school/CheerioError')<{
   week: number;
   cause: unknown;
 }> {}
 
-class MissingPdfError extends Data.TaggedError('MissingPdfError')<{
+class MissingPdfError extends Data.TaggedError(
+  '@bible/cli/commands/sabbath-school/MissingPdfError',
+)<{
   quarter: number;
 }> {}
 
-class ReviewError extends Data.TaggedError('ReviewError')<{
+class ReviewError extends Data.TaggedError('@bible/cli/commands/sabbath-school/ReviewError')<{
   context: SabbathSchoolContext;
   cause: unknown;
 }> {}
 
-class ReviseError extends Data.TaggedError('ReviseError')<{
+class ReviseError extends Data.TaggedError('@bible/cli/commands/sabbath-school/ReviseError')<{
   context: SabbathSchoolContext;
   cause: unknown;
 }> {}
@@ -124,7 +126,7 @@ const findQuarterUrls = Effect.fn('findQuarterUrls')(function* (year: number, qu
     const text = $(element).text().trim();
     const href = $(element).attr('href');
 
-    if (!href) return;
+    if (href === undefined) return;
 
     if (text === 'Teachers PDF') {
       currentFiles.lessonPdf = href;
@@ -133,7 +135,7 @@ const findQuarterUrls = Effect.fn('findQuarterUrls')(function* (year: number, qu
     }
 
     // If we have both files, we've completed a week
-    if (currentFiles.lessonPdf && currentFiles.egwPdf) {
+    if (currentFiles.lessonPdf !== undefined && currentFiles.egwPdf !== undefined) {
       weekUrls.push({
         weekNumber: currentWeek,
         files: {
@@ -531,7 +533,7 @@ const exportQuarter = Command.make('export', { year, quarter, week }, ({ year, q
         const { frontmatter, content: outlineText } = parseFrontmatter(rawContent);
 
         // Skip if already exported
-        if (frontmatter.apple_note_id) {
+        if (frontmatter.apple_note_id !== undefined) {
           yield* Effect.log(`Skipped (already exported): week ${weekNumber}`);
           return;
         }

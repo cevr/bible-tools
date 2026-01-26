@@ -146,7 +146,9 @@ const generateFromNoteMessage = Command.make('from-note', { noteId }, (args) =>
   }),
 );
 
-class GenerateTopicResponseError extends Data.TaggedError('GenerateTopicResponseError')<{
+class GenerateTopicResponseError extends Data.TaggedError(
+  '@bible/cli/commands/messages/GenerateTopicResponseError',
+)<{
   cause: unknown;
 }> {}
 
@@ -219,7 +221,7 @@ const syncMessages = Command.make('sync', { dryRun }, (args) =>
       const { frontmatter, content } = parseFrontmatter<{ apple_note_id?: string }>(rawContent);
 
       // Skip if already has apple_note_id
-      if (frontmatter.apple_note_id) {
+      if (frontmatter.apple_note_id !== undefined) {
         skipped++;
         continue;
       }

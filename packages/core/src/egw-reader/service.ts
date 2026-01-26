@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * EGW Reader Service
  *
@@ -115,10 +116,9 @@ export interface EGWReaderServiceShape {
  *
  * Provides high-level reading operations on EGW writings.
  */
-export class EGWReaderService extends Context.Tag('@bible/egw-reader/Service')<
-  EGWReaderService,
-  EGWReaderServiceShape
->() {
+export class EGWReaderService extends Context.Tag(
+  '@bible/core/egw-reader/service/EGWReaderService',
+)<EGWReaderService, EGWReaderServiceShape>() {
   /**
    * Live implementation using EGWParagraphDatabase.
    */

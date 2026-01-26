@@ -7,7 +7,10 @@ export interface CliOptionsService {
   readonly verbose: boolean;
 }
 
-export class CliOptions extends Context.Tag('CliOptions')<CliOptions, CliOptionsService>() {}
+export class CliOptions extends Context.Tag('@bible/cli/services/cli-options/CliOptions')<
+  CliOptions,
+  CliOptionsService
+>() {}
 
 export const verbose = Options.boolean('verbose').pipe(
   Options.withAlias('v'),

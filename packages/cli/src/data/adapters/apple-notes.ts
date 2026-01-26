@@ -66,7 +66,7 @@ export const AppleNotesExportLayer = Layer.succeed(
       );
 
       yield* Effect.log(`Using note title: "${finalNoteTitle}"`);
-      if (options?.folder) {
+      if (options?.folder !== undefined) {
         yield* Effect.log(`Target folder: "${options.folder}"`);
       }
 
@@ -93,8 +93,9 @@ export const AppleNotesExportLayer = Layer.succeed(
       // Construct AppleScript command - with or without folder
       yield* Effect.log('Constructing AppleScript command...');
 
-      const appleScriptCommand = options?.folder
-        ? `
+      const appleScriptCommand =
+        options?.folder !== undefined
+          ? `
         tell application "Notes"
           set targetFolder to missing value
           repeat with f in folders
@@ -110,7 +111,7 @@ export const AppleNotesExportLayer = Layer.succeed(
           make new note at targetFolder with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
         end tell
       `
-        : `
+          : `
         tell application "Notes"
           make new note with properties {name:"${escapedNoteTitle}", body:"${escapedHtmlBody.trim()}"}
         end tell
@@ -129,7 +130,7 @@ export const AppleNotesExportLayer = Layer.succeed(
         ),
       );
 
-      const folderInfo = options?.folder ? ` in folder "${options.folder}"` : '';
+      const folderInfo = options?.folder !== undefined ? ` in folder "${options.folder}"` : '';
       yield* Effect.log(`Success! Note "${finalNoteTitle}" created in Apple Notes${folderInfo}.`);
     }),
   }),

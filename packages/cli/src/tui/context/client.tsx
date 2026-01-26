@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * ClientProvider - Unified RPC-style client for Bible and EGW services
  *

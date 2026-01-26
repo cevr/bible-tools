@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * EGW-Gemini Integration Service
  *
@@ -105,10 +106,9 @@ export interface EGWGeminiServiceShape {
 /**
  * EGW-Gemini Integration Service
  */
-export class EGWGeminiService extends Context.Tag('@bible/egw-gemini/Service')<
-  EGWGeminiService,
-  EGWGeminiServiceShape
->() {
+export class EGWGeminiService extends Context.Tag(
+  '@bible/core/egw-gemini/service/EGWGeminiService',
+)<EGWGeminiService, EGWGeminiServiceShape>() {
   /**
    * Live implementation using EGW API, Gemini, and upload status tracking.
    */

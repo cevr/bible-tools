@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * EGW Service - Unified EGW writings access
  *
@@ -100,7 +101,7 @@ export interface EGWServiceShape {
 // Service Definition
 // ============================================================================
 
-export class EGWService extends Context.Tag('@bible/core/EGWService')<
+export class EGWService extends Context.Tag('@bible/core/egw-service/service/EGWService')<
   EGWService,
   EGWServiceShape
 >() {

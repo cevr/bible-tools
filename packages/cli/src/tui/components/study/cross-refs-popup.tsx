@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off strictEffectProvide:off
 /**
  * Cross-References Popup
  *

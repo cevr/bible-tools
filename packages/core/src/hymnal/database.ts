@@ -59,7 +59,7 @@ function getFirstLine(json: string): string {
   try {
     const parsed = JSON.parse(json) as RawVerse[];
     const first = parsed[0];
-    if (first?.text) {
+    if (first?.text !== undefined) {
       const firstLine = first.text.split('\n')[0] ?? '';
       return firstLine.slice(0, 60) + (firstLine.length > 60 ? '...' : '');
     }
@@ -92,7 +92,7 @@ export interface HymnalDatabaseService {
 // Service Definition
 // ============================================================================
 
-export class HymnalDatabase extends Context.Tag('@bible/hymnal/Database')<
+export class HymnalDatabase extends Context.Tag('@bible/core/hymnal/database/HymnalDatabase')<
   HymnalDatabase,
   HymnalDatabaseService
 >() {
@@ -145,7 +145,7 @@ export class HymnalDatabase extends Context.Tag('@bible/hymnal/Database')<
           try: () => {
             const row = db.query<HymnRow, [number]>('SELECT * FROM hymns WHERE id = ?').get(id);
 
-            if (!row) return Option.none();
+            if (row === null) return Option.none();
 
             return Option.some(
               new Hymn({

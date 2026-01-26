@@ -108,7 +108,7 @@ export const model = Options.text('model').pipe(
   Options.optional,
   Options.mapEffect(extractModel),
 );
-export class Model extends Context.Tag('Model')<
+export class Model extends Context.Tag('@bible/cli/services/model')<
   Model,
   Effect.Effect.Success<ReturnType<typeof extractModel>>
 >() {}

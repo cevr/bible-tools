@@ -15,7 +15,7 @@ export interface ChimeService {
   readonly play: Effect.Effect<void, UnknownException>;
 }
 
-export class Chime extends Context.Tag('Chime')<Chime, ChimeService>() {}
+export class Chime extends Context.Tag('@bible/cli/services/chime')<Chime, ChimeService>() {}
 
 /**
  * Live implementation using Bun shell to call afplay.

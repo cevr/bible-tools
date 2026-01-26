@@ -37,7 +37,10 @@ export interface BibleDataService {
 }
 
 // Effect service tag
-export class BibleData extends Context.Tag('BibleData')<BibleData, BibleDataService>() {}
+export class BibleData extends Context.Tag('@bible/cli/data/bible/data/BibleData')<
+  BibleData,
+  BibleDataService
+>() {}
 
 // Create the service implementation backed by BibleDatabase
 const makeBibleDataService = Effect.gen(function* () {
@@ -150,12 +153,12 @@ const makeBibleDataService = Effect.gen(function* () {
     // Synchronous helpers that don't need database access
     parseReference(ref: string): Reference | undefined {
       const input = ref.trim().toLowerCase();
-      if (!input) return undefined;
+      if (input.length === 0) return undefined;
 
       const chapterVerseMatch = input.match(/(\d+)(?::(\d+))?$/);
-      if (!chapterVerseMatch) {
+      if (chapterVerseMatch === null) {
         const bookNum = BOOK_ALIASES[input];
-        if (bookNum) {
+        if (bookNum !== undefined) {
           return { book: bookNum, chapter: 1, verse: 1 };
         }
         return undefined;
@@ -163,47 +166,47 @@ const makeBibleDataService = Effect.gen(function* () {
 
       const chapterStr = chapterVerseMatch[1];
       const verseStr = chapterVerseMatch[2];
-      if (!chapterStr) return undefined;
+      if (chapterStr === undefined) return undefined;
 
       const chapter = parseInt(chapterStr, 10);
-      const verse = verseStr ? parseInt(verseStr, 10) : undefined;
+      const verse = verseStr !== undefined ? parseInt(verseStr, 10) : undefined;
 
       let bookPart = input.slice(0, chapterVerseMatch.index).trim();
 
-      if (!bookPart) {
+      if (bookPart.length === 0) {
         const numberedBookMatch = input.match(/^(\d+\s*[a-z]+)/);
-        if (numberedBookMatch?.[1]) {
+        if (numberedBookMatch?.[1] !== undefined) {
           bookPart = numberedBookMatch[1];
         }
       }
 
-      if (!bookPart) return undefined;
+      if (bookPart.length === 0) return undefined;
 
       let bookNum: number | undefined = BOOK_ALIASES[bookPart];
 
-      if (!bookNum) {
+      if (bookNum === undefined) {
         const noSpaces = bookPart.replace(/\s+/g, '');
         bookNum = BOOK_ALIASES[noSpaces];
       }
-      if (!bookNum) {
+      if (bookNum === undefined) {
         const withSpace = bookPart.replace(/^(\d)([a-z])/, '$1 $2');
         bookNum = BOOK_ALIASES[withSpace];
       }
-      if (!bookNum) {
+      if (bookNum === undefined) {
         const bookMatches = matchSorter(BOOKS, bookPart, {
           keys: ['name'],
           threshold: matchSorter.rankings.WORD_STARTS_WITH,
         });
         const firstMatch = bookMatches[0];
-        if (firstMatch) {
+        if (firstMatch !== undefined) {
           bookNum = firstMatch.number;
         }
       }
 
-      if (!bookNum) return undefined;
+      if (bookNum === undefined) return undefined;
 
       const book = bookMap.get(bookNum);
-      if (!book || chapter < 1 || chapter > book.chapters) {
+      if (book === undefined || chapter < 1 || chapter > book.chapters) {
         return undefined;
       }
 

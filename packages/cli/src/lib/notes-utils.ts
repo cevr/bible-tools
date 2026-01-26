@@ -11,7 +11,7 @@ const execCommand = Effect.fn('execCommand')(function* (command: string[]) {
   return yield* Effect.tryPromise(async () => {
     const text = await new Response(result.stdout).text();
     const errorText = await new Response(result.stderr).text();
-    if (errorText) {
+    if (errorText.length > 0) {
       throw new Error(`AppleScript Error: ${errorText}`);
     }
     return text.trim(); // Trim whitespace/newlines from output
@@ -26,7 +26,7 @@ export interface NoteListItem {
   modificationDate: string;
 }
 
-class NoteOperationError extends Data.TaggedError('NoteOperationError')<{
+class NoteOperationError extends Data.TaggedError('@bible/cli/lib/notes-utils/NoteOperationError')<{
   message: string;
   cause?: unknown;
   script?: string;

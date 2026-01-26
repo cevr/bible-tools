@@ -51,7 +51,7 @@ export function trace(label: string, metadata?: Record<string, unknown>): void {
   const timestampMs = elapsed();
   entries.push({ label, timestampMs, metadata });
 
-  const metaStr = metadata ? ` ${JSON.stringify(metadata)}` : '';
+  const metaStr = metadata !== undefined ? ` ${JSON.stringify(metadata)}` : '';
   console.error(`[TRACE] ${timestampMs.toFixed(2)}ms | ${label}${metaStr}`);
 }
 
@@ -67,7 +67,7 @@ export function traceSync<T>(label: string, fn: () => T, metadata?: Record<strin
     const durationMs = elapsed() - startMs;
     entries.push({ label, timestampMs: startMs, durationMs, metadata });
 
-    const metaStr = metadata ? ` ${JSON.stringify(metadata)}` : '';
+    const metaStr = metadata !== undefined ? ` ${JSON.stringify(metadata)}` : '';
     console.error(
       `[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms)${metaStr}`,
     );
@@ -103,7 +103,7 @@ export async function traceAsync<T>(
     const durationMs = elapsed() - startMs;
     entries.push({ label, timestampMs: startMs, durationMs, metadata });
 
-    const metaStr = metadata ? ` ${JSON.stringify(metadata)}` : '';
+    const metaStr = metadata !== undefined ? ` ${JSON.stringify(metadata)}` : '';
     console.error(
       `[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms)${metaStr}`,
     );
@@ -134,7 +134,7 @@ export function startSpan(label: string, metadata?: Record<string, unknown>): ()
     const durationMs = elapsed() - startMs;
     entries.push({ label, timestampMs: startMs, durationMs, metadata });
 
-    const metaStr = metadata ? ` ${JSON.stringify(metadata)}` : '';
+    const metaStr = metadata !== undefined ? ` ${JSON.stringify(metadata)}` : '';
     console.error(
       `[TRACE] ${(startMs + durationMs).toFixed(2)}ms | ${label} (${durationMs.toFixed(2)}ms)${metaStr}`,
     );

@@ -1,3 +1,4 @@
+// @effect-diagnostics strictEffectProvide:off strictBooleanExpressions:off
 /**
  * Bible Tools CLI Entry Point
  *
@@ -97,7 +98,7 @@ function tryCreateModelService(aiSdk: Awaited<ReturnType<typeof loadAiSdks>>): M
 
   // Try Gemini first
   const geminiKey = process.env.GEMINI_API_KEY;
-  if (geminiKey) {
+  if (geminiKey !== undefined) {
     const provider = createGoogleGenerativeAI({ apiKey: geminiKey });
     return {
       models: {
@@ -109,7 +110,7 @@ function tryCreateModelService(aiSdk: Awaited<ReturnType<typeof loadAiSdks>>): M
 
   // Try OpenAI
   const openaiKey = process.env.OPENAI_API_KEY;
-  if (openaiKey) {
+  if (openaiKey !== undefined) {
     const provider = createOpenAI({ apiKey: openaiKey });
     return {
       models: {
@@ -121,7 +122,7 @@ function tryCreateModelService(aiSdk: Awaited<ReturnType<typeof loadAiSdks>>): M
 
   // Try Anthropic
   const anthropicKey = process.env.ANTHROPIC_API_KEY;
-  if (anthropicKey) {
+  if (anthropicKey !== undefined) {
     const provider = createAnthropic({ apiKey: anthropicKey });
     return {
       models: {
@@ -186,7 +187,7 @@ async function main() {
     const refArgs = args.slice(2); // Skip "egw" and "open"
     const egwRef = parseEgwReferenceFromArgs(refArgs);
 
-    if (refArgs.length > 0 && !egwRef) {
+    if (refArgs.length > 0 && egwRef === undefined) {
       console.error(`Could not parse EGW reference: "${refArgs.join(' ')}"`);
       console.error('Examples: PP 351.1, DA 1, GC 100');
       process.exit(1);
@@ -258,7 +259,7 @@ async function main() {
     const refArgs = args.slice(1);
     const ref = await parseReferenceFromArgs(refArgs);
 
-    if (refArgs.length > 0 && !ref) {
+    if (refArgs.length > 0 && ref === undefined) {
       console.error(`Could not parse reference: "${refArgs.join(' ')}"`);
       console.error('Examples: john 3:16, gen 1:1, 1 cor 13, psalms');
       process.exit(1);

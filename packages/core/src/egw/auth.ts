@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * EGW Authentication Service using Effect-TS
  * Adapted from Spotify auth patterns with Effect-TS
@@ -117,7 +118,10 @@ export interface EGWAuthService {
 /**
  * EGW Authentication Service
  */
-export class EGWAuth extends Context.Tag('@bible/egw/Auth')<EGWAuth, EGWAuthService>() {
+export class EGWAuth extends Context.Tag('@bible/core/egw/auth/EGWAuth')<
+  EGWAuth,
+  EGWAuthService
+>() {
   /**
    * Live implementation using OAuth2 client credentials flow.
    */

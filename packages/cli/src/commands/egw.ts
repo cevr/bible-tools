@@ -7,6 +7,7 @@
  * - `bible egw open "PP 351.1"` - Open TUI at refcode (handled by main.ts)
  */
 
+// @effect-diagnostics strictEffectProvide:off
 import { formatEGWRef, isSearchQuery, parseEGWRef } from '@bible/core/egw';
 import { Args, Command } from '@effect/cli';
 import { Console, Effect } from 'effect';
@@ -21,7 +22,7 @@ export const egw = Command.make('egw', { query }, (args) =>
   Effect.gen(function* () {
     const queryStr = args.query.join(' ').trim();
 
-    if (!queryStr) {
+    if (queryStr.length === 0) {
       yield* Console.log('Usage: bible egw <refcode or search query>');
       yield* Console.log('');
       yield* Console.log('Examples:');
@@ -91,7 +92,7 @@ export const egwOpen = Command.make('open', { query }, (args) =>
   Effect.gen(function* () {
     const queryStr = args.query.join(' ').trim();
 
-    if (!queryStr) {
+    if (queryStr.length === 0) {
       yield* Console.log('Usage: bible egw open <refcode>');
       yield* Console.log('');
       yield* Console.log('Opens the EGW reader TUI at the specified location.');
@@ -116,7 +117,7 @@ export const egwWithSubcommands = Command.make('egw', { query }, (args) =>
   Effect.gen(function* () {
     // If query is provided at top level, treat as lookup
     const queryStr = args.query.join(' ').trim();
-    if (queryStr) {
+    if (queryStr.length > 0) {
       // Re-run the main egw logic
       const parsed = parseEGWRef(queryStr);
 

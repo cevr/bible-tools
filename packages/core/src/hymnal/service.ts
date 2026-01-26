@@ -153,7 +153,7 @@ export interface HymnalServiceShape {
 // Service Definition
 // ============================================================================
 
-export class HymnalService extends Context.Tag('@bible/core/HymnalService')<
+export class HymnalService extends Context.Tag('@bible/core/hymnal/service/HymnalService')<
   HymnalService,
   HymnalServiceShape
 >() {
@@ -206,7 +206,7 @@ export class HymnalService extends Context.Tag('@bible/core/HymnalService')<
         // Find matching category IDs
         const categoryIds = THEME_CATEGORY_MAP[normalizedTheme];
 
-        if (categoryIds && categoryIds.length > 0) {
+        if (categoryIds !== undefined && categoryIds.length > 0) {
           // Get hymns from matching categories
           const results: HymnSummary[] = [];
           for (const catId of categoryIds) {

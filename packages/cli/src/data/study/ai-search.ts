@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 import type { LanguageModel } from 'ai';
 import { generateText } from 'ai';
 import { Context, Data, Effect, Layer, Runtime } from 'effect';
@@ -8,7 +9,9 @@ import { BibleState, type BibleStateService } from '../bible/state.js';
 import type { BibleDataSyncService, Reference } from '../bible/types.js';
 
 // Tagged error for AI search failures
-export class AISearchError extends Data.TaggedError('AISearchError')<{
+export class AISearchError extends Data.TaggedError(
+  '@bible/cli/data/study/ai-search/AISearchError',
+)<{
   readonly message: string;
   readonly cause?: unknown;
 }> {}
@@ -19,7 +22,10 @@ export interface AISearchService {
 }
 
 // Effect service tag
-export class AISearch extends Context.Tag('AISearch')<AISearch, AISearchService>() {}
+export class AISearch extends Context.Tag('@bible/cli/data/study/ai-search/AISearch')<
+  AISearch,
+  AISearchService
+>() {}
 
 // System prompt for Bible verse search
 const SYSTEM_PROMPT = `You are a Bible verse search assistant. Given a topic or question, return the most relevant Bible verses.
@@ -41,7 +47,7 @@ function parseAIResponse(response: string, dataService: BibleDataSyncService): R
   try {
     // Extract JSON from response (in case there's extra text)
     const jsonMatch = response.match(/\[[\s\S]*\]/);
-    if (!jsonMatch) return [];
+    if (jsonMatch === null) return [];
 
     const parsed = JSON.parse(jsonMatch[0]) as Array<{
       book: string;
@@ -52,11 +58,12 @@ function parseAIResponse(response: string, dataService: BibleDataSyncService): R
     const refs: Reference[] = [];
     for (const item of parsed) {
       // Use the data service to parse and validate
-      const refStr = item.verse
-        ? `${item.book} ${item.chapter}:${item.verse}`
-        : `${item.book} ${item.chapter}`;
+      const refStr =
+        item.verse !== undefined
+          ? `${item.book} ${item.chapter}:${item.verse}`
+          : `${item.book} ${item.chapter}`;
       const ref = dataService.parseReference(refStr);
-      if (ref) {
+      if (ref !== undefined) {
         refs.push(ref);
       }
     }
@@ -78,7 +85,7 @@ function createAISearchService(
         try: async () => {
           // Check cache first
           const cached = stateService.getCachedAISearch(query);
-          if (cached) {
+          if (cached !== undefined) {
             return cached;
           }
 
@@ -94,7 +101,7 @@ function createAISearchService(
           const refs = parseAIResponse(result.text, dataService);
 
           // Cache results
-          if (refs.length > 0) {
+          if (refs !== undefined && refs.length > 0) {
             stateService.setCachedAISearch(query, refs);
           }
 

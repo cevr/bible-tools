@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * Bible Database Service
  *
@@ -282,7 +283,7 @@ export interface BibleDatabaseService {
 // Service Definition
 // ============================================================================
 
-export class BibleDatabase extends Context.Tag('@bible/bible-db/Database')<
+export class BibleDatabase extends Context.Tag('@bible/core/bible-db/bible-database/BibleDatabase')<
   BibleDatabase,
   BibleDatabaseService
 >() {

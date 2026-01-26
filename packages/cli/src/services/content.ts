@@ -31,7 +31,7 @@ type ContentExportError =
   | Cause.UnknownException;
 
 // Service interface with proper error/context types
-export class ContentService extends Context.Tag('@bible/ContentService')<
+export class ContentService extends Context.Tag('@bible/cli/services/content/ContentService')<
   ContentService,
   {
     readonly list: (json: boolean) => Effect.Effect<void, ContentListError>;
@@ -118,7 +118,7 @@ export class ContentService extends Context.Tag('@bible/ContentService')<
 
               const { frontmatter, content } = parseFrontmatter(rawContent);
 
-              if (frontmatter.apple_note_id) {
+              if (frontmatter.apple_note_id !== undefined) {
                 yield* Effect.log(`Skipped (already exported): ${filePath}`);
                 continue;
               }

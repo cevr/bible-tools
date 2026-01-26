@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * EGW Upload Status Service using SQLite
  *
@@ -128,10 +129,9 @@ export interface EGWUploadStatusService {
 /**
  * EGW Upload Status Service
  */
-export class EGWUploadStatus extends Context.Tag('@bible/egw-gemini/UploadStatus')<
-  EGWUploadStatus,
-  EGWUploadStatusService
->() {
+export class EGWUploadStatus extends Context.Tag(
+  '@bible/core/egw-gemini/upload-status/EGWUploadStatus',
+)<EGWUploadStatus, EGWUploadStatusService>() {
   /**
    * Live implementation using SQLite database.
    */

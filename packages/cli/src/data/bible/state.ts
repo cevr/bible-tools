@@ -119,7 +119,10 @@ export interface BibleStateService {
 }
 
 // Effect service tag
-export class BibleState extends Context.Tag('BibleState')<BibleState, BibleStateService>() {}
+export class BibleState extends Context.Tag('@bible/cli/data/bible/state/BibleState')<
+  BibleState,
+  BibleStateService
+>() {}
 
 // Create the service implementation
 function createBibleStateService(): BibleStateService {
@@ -277,7 +280,7 @@ function createBibleStateService(): BibleStateService {
 
     getCachedAISearch(query: string): Reference[] | undefined {
       const row = getCacheStmt.get(query.toLowerCase().trim());
-      if (!row) return undefined;
+      if (row === null) return undefined;
 
       // Check if cache is expired
       if (Date.now() - row.cached_at > CACHE_EXPIRY_MS) {
@@ -297,7 +300,7 @@ function createBibleStateService(): BibleStateService {
 
     getCachedPalette(): CachedPalette | undefined {
       const row = getPaletteStmt.get();
-      if (!row) return undefined;
+      if (row === null) return undefined;
 
       // Check if cache is expired
       if (Date.now() - row.cached_at > PALETTE_CACHE_EXPIRY_MS) {
@@ -320,7 +323,7 @@ function createBibleStateService(): BibleStateService {
 
     getLastEGWPosition(): EGWPosition | undefined {
       const row = getEGWPositionStmt.get();
-      if (!row) return undefined;
+      if (row === null) return undefined;
       return {
         bookCode: row.book_code,
         page: row.page ?? undefined,

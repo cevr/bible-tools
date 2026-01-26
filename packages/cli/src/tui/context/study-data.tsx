@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off anyUnknownInErrorContext:off
 /**
  * Study Data Context
  *

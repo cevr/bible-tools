@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 import { Show } from 'solid-js';
 
 import { useTheme } from '../../context/theme.js';

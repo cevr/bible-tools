@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * EGW Commentary Service
  *
@@ -68,10 +69,9 @@ export interface EGWCommentaryServiceShape {
  *
  * Provides commentary lookup from EGW Bible Commentary volumes.
  */
-export class EGWCommentaryService extends Context.Tag('@bible/egw-commentary/Service')<
-  EGWCommentaryService,
-  EGWCommentaryServiceShape
->() {
+export class EGWCommentaryService extends Context.Tag(
+  '@bible/core/egw-commentary/service/EGWCommentaryService',
+)<EGWCommentaryService, EGWCommentaryServiceShape>() {
   /**
    * Live implementation using EGWParagraphDatabase.
    */

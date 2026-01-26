@@ -1,3 +1,4 @@
+// @effect-diagnostics strictBooleanExpressions:off
 /**
  * Gemini File Search API Client using Effect-TS
  * Based on https://www.philschmid.de/gemini-file-search-javascript
@@ -136,10 +137,9 @@ export interface GeminiFileSearchClientService {
 /**
  * Gemini File Search Client Service
  */
-export class GeminiFileSearchClient extends Context.Tag('@bible/gemini/Client')<
-  GeminiFileSearchClient,
-  GeminiFileSearchClientService
->() {
+export class GeminiFileSearchClient extends Context.Tag(
+  '@bible/core/gemini/client/GeminiFileSearchClient',
+)<GeminiFileSearchClient, GeminiFileSearchClientService>() {
   /**
    * Live implementation using Google AI API.
    */
@@ -302,7 +302,7 @@ export class GeminiFileSearchClient extends Context.Tag('@bible/gemini/Client')<
             displayName: config.displayName,
             customMetadata: apiMetadata as CustomMetadata[],
           };
-          if (config.chunkingConfig?.whiteSpaceConfig) {
+          if (config.chunkingConfig?.whiteSpaceConfig !== undefined) {
             uploadConfig.chunkingConfig = {
               whiteSpaceConfig: config.chunkingConfig.whiteSpaceConfig,
             };
@@ -416,7 +416,7 @@ export class GeminiFileSearchClient extends Context.Tag('@bible/gemini/Client')<
               displayName: config.displayName,
               customMetadata: apiMetadata as CustomMetadata[],
             };
-            if (config.chunkingConfig?.whiteSpaceConfig) {
+            if (config.chunkingConfig?.whiteSpaceConfig !== undefined) {
               uploadConfig.chunkingConfig = {
                 whiteSpaceConfig: config.chunkingConfig.whiteSpaceConfig,
               };
@@ -711,7 +711,7 @@ export class GeminiFileSearchClient extends Context.Tag('@bible/gemini/Client')<
                   }),
               });
               const existingDoc = yield* searchDocumentsRecursive(pager, displayName);
-              if (existingDoc) {
+              if (existingDoc !== null) {
                 yield* Effect.tryPromise({
                   try: () =>
                     ai.fileSearchStores.documents.delete({
@@ -749,7 +749,7 @@ export class GeminiFileSearchClient extends Context.Tag('@bible/gemini/Client')<
               displayName,
               customMetadata: apiMetadata as CustomMetadata[],
             };
-            if (config?.chunkingConfig?.whiteSpaceConfig) {
+            if (config?.chunkingConfig?.whiteSpaceConfig !== undefined) {
               uploadConfig.chunkingConfig = {
                 whiteSpaceConfig: config.chunkingConfig.whiteSpaceConfig,
               };
