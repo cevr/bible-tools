@@ -12,7 +12,7 @@ describe('sabbath-school commands', () => {
     it('should skip already processed weeks', async () => {
       const result = await runCli(
         sabbathSchool,
-        ['process', '--year', '2024', '--quarter', '1', '--week', '1'],
+        ['process', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
         {
           files: {
             files: {
@@ -54,7 +54,7 @@ describe('sabbath-school commands', () => {
 
       const result = await runCli(
         sabbathSchool,
-        ['process', '--year', '2024', '--quarter', '1', '--week', '1'],
+        ['process', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
         {
           files: {
             files: {},
@@ -110,7 +110,7 @@ describe('sabbath-school commands', () => {
 
       const result = await runCli(
         sabbathSchool,
-        ['process', '--year', '2024', '--quarter', '1', '--week', '1'],
+        ['process', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
         {
           files: {
             files: {},
@@ -164,7 +164,7 @@ describe('sabbath-school commands', () => {
     it('should revise existing outline', async () => {
       const result = await runCli(
         sabbathSchool,
-        ['revise', '--year', '2024', '--quarter', '1', '--week', '1'],
+        ['revise', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
         {
           files: {
             files: {
@@ -204,7 +204,7 @@ describe('sabbath-school commands', () => {
     it('should skip revision when not needed', async () => {
       const result = await runCli(
         sabbathSchool,
-        ['revise', '--year', '2024', '--quarter', '1', '--week', '1'],
+        ['revise', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
         {
           files: {
             files: {
@@ -241,7 +241,7 @@ describe('sabbath-school commands', () => {
     it('should handle missing outline file', async () => {
       const result = await runCli(
         sabbathSchool,
-        ['revise', '--year', '2024', '--quarter', '1', '--week', '1'],
+        ['revise', '--year', '2024', '--quarter', '1', '--week', '1', '--model', 'gemini'],
         {
           files: {
             files: {},

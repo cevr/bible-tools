@@ -14,12 +14,12 @@ import { generate } from '~/src/lib/generate';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
 import { getNoteContent } from '~/src/lib/notes-utils';
 import { getOutputsPath, getPromptPath } from '~/src/lib/paths';
-import { Model } from '~/src/services/model';
+import { Model, requiredModel } from '~/src/services/model';
 
-const generateStudy = Command.make('generate', { topic }, (args) =>
+const generateStudy = Command.make('generate', { topic, model: requiredModel }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const model = yield* Model;
+    const model = args.model;
     const startTime = Date.now();
 
     yield* Effect.logDebug(`topic: ${args.topic}`);
@@ -77,13 +77,13 @@ const generateStudy = Command.make('generate', { topic }, (args) =>
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(`Study generated successfully! (Total time: ${totalTime})`);
     yield* Effect.log(`Output: ${filePath}`);
-  }),
+  }).pipe(Effect.provideService(Model, args.model)),
 );
 
-const generateFromNoteStudy = Command.make('from-note', { noteId }, (args) =>
+const generateFromNoteStudy = Command.make('from-note', { noteId, model: requiredModel }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const model = yield* Model;
+    const model = args.model;
 
     const startTime = Date.now();
 
@@ -137,7 +137,7 @@ const generateFromNoteStudy = Command.make('from-note', { noteId }, (args) =>
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(`Study generated successfully! (Total time: ${totalTime})`);
     yield* Effect.log(`Output: ${filePath}`);
-  }),
+  }).pipe(Effect.provideService(Model, args.model)),
 );
 
 export const studies = Command.make('studies').pipe(

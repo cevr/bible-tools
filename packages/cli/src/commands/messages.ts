@@ -17,12 +17,12 @@ import { findNoteByTitle, getNoteContent } from '~/src/lib/notes-utils';
 import { extractTitleFromMarkdown } from '~/src/lib/apple-notes-utils';
 import { getOutputsPath, getPromptPath } from '~/src/lib/paths';
 import { generateTopicPrompt } from '~/src/prompts/messages/generate-topic';
-import { Model } from '~/src/services/model';
+import { Model, requiredModel } from '~/src/services/model';
 
-const generateMessage = Command.make('generate', { topic }, (args) =>
+const generateMessage = Command.make('generate', { topic, model: requiredModel }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const model = yield* Model;
+    const model = args.model;
     const startTime = Date.now();
 
     yield* Effect.logDebug(`topic: ${args.topic}`);
@@ -80,70 +80,73 @@ const generateMessage = Command.make('generate', { topic }, (args) =>
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(`Message generated successfully! (Total time: ${totalTime})`);
     yield* Effect.log(`Output: ${filePath}`);
-  }),
+  }).pipe(Effect.provideService(Model, args.model)),
 );
 
-const generateFromNoteMessage = Command.make('from-note', { noteId }, (args) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
-    const model = yield* Model;
-    const startTime = Date.now();
-    const note = yield* getNoteContent(args.noteId);
+const generateFromNoteMessage = Command.make(
+  'from-note',
+  { noteId, model: requiredModel },
+  (args) =>
+    Effect.gen(function* () {
+      const fs = yield* FileSystem.FileSystem;
+      const model = args.model;
+      const startTime = Date.now();
+      const note = yield* getNoteContent(args.noteId);
 
-    const systemPrompt = yield* fs
-      .readFile(getPromptPath('messages', 'generate.md'))
-      .pipe(Effect.map((i) => new TextDecoder().decode(i)));
+      const systemPrompt = yield* fs
+        .readFile(getPromptPath('messages', 'generate.md'))
+        .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const { filename, response } = yield* generate(systemPrompt, note).pipe(
-      Effect.provideService(Model, model),
-    );
+      const { filename, response } = yield* generate(systemPrompt, note).pipe(
+        Effect.provideService(Model, model),
+      );
 
-    const messagesDir = getOutputsPath('messages');
+      const messagesDir = getOutputsPath('messages');
 
-    const fileName = `${format(new Date(), 'yyyy-MM-dd')}-${filename}.md`;
-    const filePath = join(messagesDir, fileName);
+      const fileName = `${format(new Date(), 'yyyy-MM-dd')}-${filename}.md`;
+      const filePath = join(messagesDir, fileName);
 
-    // Create frontmatter
-    const frontmatter = new MessageFrontmatter({
-      created_at: new Date().toISOString(),
-      topic: `from-note:${args.noteId}`,
-      apple_note_id: Option.none(),
-    });
+      // Create frontmatter
+      const frontmatter = new MessageFrontmatter({
+        created_at: new Date().toISOString(),
+        topic: `from-note:${args.noteId}`,
+        apple_note_id: Option.none(),
+      });
 
-    yield* spin(
-      'Ensuring messages directory exists',
-      fs.makeDirectory(messagesDir).pipe(Effect.ignore),
-    );
+      yield* spin(
+        'Ensuring messages directory exists',
+        fs.makeDirectory(messagesDir).pipe(Effect.ignore),
+      );
 
-    // Write initial file with frontmatter
-    const contentWithFrontmatter = stringifyFrontmatter(
-      {
-        created_at: frontmatter.created_at,
-        topic: frontmatter.topic,
-      },
-      response,
-    );
-    yield* spin(
-      'Writing message to file: ' + fileName,
-      fs.writeFile(filePath, new TextEncoder().encode(contentWithFrontmatter)),
-    );
+      // Write initial file with frontmatter
+      const contentWithFrontmatter = stringifyFrontmatter(
+        {
+          created_at: frontmatter.created_at,
+          topic: frontmatter.topic,
+        },
+        response,
+      );
+      yield* spin(
+        'Writing message to file: ' + fileName,
+        fs.writeFile(filePath, new TextEncoder().encode(contentWithFrontmatter)),
+      );
 
-    // Export to Apple Notes and get the note ID
-    const { noteId: appleNoteId } = yield* spin(
-      'Adding message to notes',
-      makeAppleNoteFromMarkdown(response, { folder: 'messages' }),
-    );
+      // Export to Apple Notes and get the note ID
+      const { noteId: appleNoteId } = yield* spin(
+        'Adding message to notes',
+        makeAppleNoteFromMarkdown(response, { folder: 'messages' }),
+      );
 
-    // Update file with apple_note_id in frontmatter
-    const finalContent = updateFrontmatter(contentWithFrontmatter, {
-      apple_note_id: appleNoteId,
-    });
-    yield* fs.writeFile(filePath, new TextEncoder().encode(finalContent));
+      // Update file with apple_note_id in frontmatter
+      const finalContent = updateFrontmatter(contentWithFrontmatter, {
+        apple_note_id: appleNoteId,
+      });
+      yield* fs.writeFile(filePath, new TextEncoder().encode(finalContent));
 
-    const totalTime = msToMinutes(Date.now() - startTime);
-    yield* Effect.log(`Message generated successfully! (Total time: ${totalTime})`);
-    yield* Effect.log(`Output: ${filePath}`);
-  }),
+      const totalTime = msToMinutes(Date.now() - startTime);
+      yield* Effect.log(`Message generated successfully! (Total time: ${totalTime})`);
+      yield* Effect.log(`Output: ${filePath}`);
+    }).pipe(Effect.provideService(Model, args.model)),
 );
 
 class GenerateTopicResponseError extends Data.TaggedError(
@@ -152,10 +155,10 @@ class GenerateTopicResponseError extends Data.TaggedError(
   cause: unknown;
 }> {}
 
-const generateTopic = Command.make('generate-topic', {}, () =>
+const generateTopic = Command.make('generate-topic', { model: requiredModel }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const model = yield* Model;
+    const model = args.model;
 
     const previousMessages = yield* fs.readDirectory(getOutputsPath('messages'));
 
@@ -188,7 +191,7 @@ const generateTopic = Command.make('generate-topic', {}, () =>
 
     const message = response.text;
     yield* Effect.log(`topic: \n\n ${message}`);
-  }),
+  }).pipe(Effect.provideService(Model, args.model)),
 );
 
 const syncMessages = Command.make('sync', { dryRun }, (args) =>

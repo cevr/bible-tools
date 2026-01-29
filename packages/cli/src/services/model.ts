@@ -26,84 +26,75 @@ const getEnvKey = (
   return Option.fromNullable(value).pipe(Option.filter((v) => v.length > 0));
 };
 
-const extractModel = Effect.fn('extractModel')(
-  function* (modelOption: Option.Option<string>) {
-    const google: Option.Option<ProviderConfig> = getEnvKey('GEMINI_API_KEY').pipe(
-      Option.map((googleKey) => {
-        const modelProvider = createGoogleGenerativeAI({ apiKey: googleKey });
-        return {
-          models: {
-            high: modelProvider('gemini-3-pro-preview'),
-            low: modelProvider('gemini-2.5-flash-lite'),
-          },
-          provider: Provider.Gemini,
-        };
-      }),
-    );
-
-    const openai: Option.Option<ProviderConfig> = getEnvKey('OPENAI_API_KEY').pipe(
-      Option.map((openaiKey) => {
-        const modelProvider = createOpenAI({ apiKey: openaiKey });
-        return {
-          models: {
-            high: modelProvider('gpt-5.2'),
-            low: modelProvider('gpt-4.1-nano'),
-          },
-          provider: Provider.OpenAI,
-        };
-      }),
-    );
-
-    const anthropic: Option.Option<ProviderConfig> = getEnvKey('ANTHROPIC_API_KEY').pipe(
-      Option.map((anthropicKey) => {
-        const modelProvider = createAnthropic({ apiKey: anthropicKey });
-        return {
-          models: {
-            high: modelProvider('claude-opus-4-5'),
-            low: modelProvider('claude-haiku-4-5'),
-          },
-          provider: Provider.Anthropic,
-        };
-      }),
-    );
-
-    const models = Option.reduceCompact(
-      [google, openai, anthropic],
-      [] as ProviderConfig[],
-      (acc, model) => [...acc, model],
-    );
-
-    if (models.length === 0) {
-      return yield* Effect.dieMessage('No model provider found');
-    }
-
-    const model = modelOption.pipe(
-      Option.flatMap((model) => matchEnum(Provider, model)),
-      Option.flatMap((model) =>
-        Option.fromNullable(models.find((m) => m.provider === model)?.models),
-      ),
-    );
-
-    return yield* Option.match(model, {
-      onNone: () =>
-        Effect.fail(
-          ValidationError.invalidValue(
-            HelpDoc.p(
-              `--model is required. Available: ${models.map((m) => m.provider).join(', ')}`,
-            ),
-          ),
-        ),
-      onSome: Effect.succeed,
-    });
-  },
-  Effect.mapError(() =>
-    ValidationError.invalidArgument({
-      _tag: 'Empty',
+const extractModel = Effect.fn('extractModel')(function* (modelOption: Option.Option<string>) {
+  const google: Option.Option<ProviderConfig> = getEnvKey('GEMINI_API_KEY').pipe(
+    Option.map((googleKey) => {
+      const modelProvider = createGoogleGenerativeAI({ apiKey: googleKey });
+      return {
+        models: {
+          high: modelProvider('gemini-3-pro-preview'),
+          low: modelProvider('gemini-2.5-flash-lite'),
+        },
+        provider: Provider.Gemini,
+      };
     }),
-  ),
-);
+  );
 
-export const model = Options.text('model').pipe(
+  const openai: Option.Option<ProviderConfig> = getEnvKey('OPENAI_API_KEY').pipe(
+    Option.map((openaiKey) => {
+      const modelProvider = createOpenAI({ apiKey: openaiKey });
+      return {
+        models: {
+          high: modelProvider('gpt-5.2'),
+          low: modelProvider('gpt-4.1-nano'),
+        },
+        provider: Provider.OpenAI,
+      };
+    }),
+  );
+
+  const anthropic: Option.Option<ProviderConfig> = getEnvKey('ANTHROPIC_API_KEY').pipe(
+    Option.map((anthropicKey) => {
+      const modelProvider = createAnthropic({ apiKey: anthropicKey });
+      return {
+        models: {
+          high: modelProvider('claude-opus-4-5'),
+          low: modelProvider('claude-haiku-4-5'),
+        },
+        provider: Provider.Anthropic,
+      };
+    }),
+  );
+
+  const models = Option.reduceCompact(
+    [google, openai, anthropic],
+    [] as ProviderConfig[],
+    (acc, model) => [...acc, model],
+  );
+
+  if (models.length === 0) {
+    return yield* Effect.dieMessage('No model provider found');
+  }
+
+  const model = modelOption.pipe(
+    Option.flatMap((model) => matchEnum(Provider, model)),
+    Option.flatMap((model) =>
+      Option.fromNullable(models.find((m) => m.provider === model)?.models),
+    ),
+  );
+
+  return yield* Option.match(model, {
+    onNone: () =>
+      Effect.fail(
+        ValidationError.invalidValue(
+          HelpDoc.p(`--model is required. Available: ${models.map((m) => m.provider).join(', ')}`),
+        ),
+      ),
+    onSome: Effect.succeed,
+  });
+});
+
+export const requiredModel = Options.text('model').pipe(
   Options.withAlias('m'),
   Options.optional,
   Options.mapEffect(extractModel),

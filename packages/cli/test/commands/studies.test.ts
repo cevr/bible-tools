@@ -10,21 +10,25 @@ describe('studies commands', () => {
 
   describe('generate command', () => {
     it('should generate a study from topic', async () => {
-      const result = await runCli(studies, ['generate', '--topic', 'The Sanctuary'], {
-        files: {
+      const result = await runCli(
+        studies,
+        ['generate', '--topic', 'The Sanctuary', '--model', 'gemini'],
+        {
           files: {
-            [`${process.cwd()}/src/prompts/studies/generate.md`]:
-              'You are a Bible study generator...',
+            files: {
+              [`${process.cwd()}/src/prompts/studies/generate.md`]:
+                'You are a Bible study generator...',
+            },
+            directories: [],
           },
-          directories: [],
-        },
-        model: {
-          responses: {
-            high: ['# The Sanctuary\n\nA comprehensive study on the sanctuary...'],
-            low: ['the-sanctuary-study'],
+          model: {
+            responses: {
+              high: ['# The Sanctuary\n\nA comprehensive study on the sanctuary...'],
+              low: ['the-sanctuary-study'],
+            },
           },
         },
-      });
+      );
 
       expect(result.success).toBe(true);
       expectContains(result.calls, [
@@ -39,20 +43,24 @@ describe('studies commands', () => {
     });
 
     it('should create studies directory if it does not exist', async () => {
-      const result = await runCli(studies, ['generate', '--topic', 'Prophecy'], {
-        files: {
+      const result = await runCli(
+        studies,
+        ['generate', '--topic', 'Prophecy', '--model', 'gemini'],
+        {
           files: {
-            [`${process.cwd()}/src/prompts/studies/generate.md`]: 'System prompt...',
+            files: {
+              [`${process.cwd()}/src/prompts/studies/generate.md`]: 'System prompt...',
+            },
+            directories: [],
           },
-          directories: [],
-        },
-        model: {
-          responses: {
-            high: ['# Prophecy\n\nContent about prophecy...'],
-            low: ['prophecy-study'],
+          model: {
+            responses: {
+              high: ['# Prophecy\n\nContent about prophecy...'],
+              low: ['prophecy-study'],
+            },
           },
         },
-      });
+      );
 
       expect(result.success).toBe(true);
       expectContains(result.calls, [
@@ -66,7 +74,15 @@ describe('studies commands', () => {
     it('should revise an existing study', async () => {
       const result = await runCli(
         studies,
-        ['revise', '--file', '/path/to/study.md', '--instructions', 'Make it more interactive'],
+        [
+          'revise',
+          '--file',
+          '/path/to/study.md',
+          '--instructions',
+          'Make it more interactive',
+          '--model',
+          'gemini',
+        ],
         {
           files: {
             files: {
@@ -96,7 +112,15 @@ describe('studies commands', () => {
     it('should fail when study file does not exist', async () => {
       const result = await runCli(
         studies,
-        ['revise', '--file', '/path/to/nonexistent.md', '--instructions', 'Improve it'],
+        [
+          'revise',
+          '--file',
+          '/path/to/nonexistent.md',
+          '--instructions',
+          'Improve it',
+          '--model',
+          'gemini',
+        ],
         {
           files: {
             files: {

@@ -6,6 +6,7 @@ import { Effect, Option } from 'effect';
 import type { ContentTypeConfig } from './types';
 import { file, files, folder, instructions, json } from './options';
 import { ContentService } from '~/src/services/content';
+import { Model, requiredModel } from '~/src/services/model';
 
 export const makeListCommand = <F extends Schema.Schema.AnyNoContext>(
   config: ContentTypeConfig<F>,
@@ -20,10 +21,11 @@ export const makeListCommand = <F extends Schema.Schema.AnyNoContext>(
 export const makeReviseCommand = <F extends Schema.Schema.AnyNoContext>(
   config: ContentTypeConfig<F>,
 ) =>
-  Command.make('revise', { file, instructions }, (args) =>
+  Command.make('revise', { file, instructions, model: requiredModel }, (args) =>
     ContentService.pipe(
       Effect.flatMap((service) => service.revise(args.file, args.instructions)),
       Effect.provide(ContentService.make(config)),
+      Effect.provideService(Model, args.model),
     ),
   );
 

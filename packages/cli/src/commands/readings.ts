@@ -14,7 +14,7 @@ import {
   updateAppleNoteFromMarkdown,
 } from '~/src/lib/markdown-to-notes';
 import { getCliRoot, getOutputsPath, getPromptPath } from '~/src/lib/paths';
-import { Model } from '~/src/services/model';
+import { Model, requiredModel } from '~/src/services/model';
 
 const targetTypes = ['study', 'slides', 'speaker-notes'] as const;
 type TargetType = (typeof targetTypes)[number];
@@ -37,10 +37,10 @@ const exportToNotes = Options.boolean('export').pipe(
 
 const processChapters = Command.make(
   'process',
-  { chapter, target, export: exportToNotes },
+  { chapter, target, export: exportToNotes, model: requiredModel },
   (args) =>
     Effect.gen(function* () {
-      const model = yield* Model;
+      const model = args.model;
       const fs = yield* FileSystem.FileSystem;
       const startTime = Date.now();
 
@@ -378,7 +378,7 @@ const processChapters = Command.make(
 
       const totalTime = msToMinutes(Date.now() - startTime);
       yield* Effect.log(`\nAll chapters processed successfully! (Total time: ${totalTime})`);
-    }),
+    }).pipe(Effect.provideService(Model, args.model)),
 );
 
 export const readings = Command.make('readings').pipe(
