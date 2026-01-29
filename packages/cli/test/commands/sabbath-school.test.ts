@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'bun:test';
 
 import { sabbathSchool } from '../../src/commands/sabbath-school.js';
 import { expectCallCount, expectContains, expectNoCalls, runCli } from '../lib/run-cli.js';

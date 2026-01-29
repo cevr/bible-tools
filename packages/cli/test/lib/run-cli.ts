@@ -1,6 +1,6 @@
 import { Command } from '@effect/cli';
 import { Effect, Exit, Logger } from 'effect';
-import { expect } from 'vitest';
+import { expect } from 'bun:test';
 
 import { getCallSequence, type ServiceCall } from './sequence-recorder.js';
 import { createTestLayer, type TestLayerConfig } from './test-layer.js';

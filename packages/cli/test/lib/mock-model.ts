@@ -1,7 +1,7 @@
 import type { LanguageModel } from 'ai';
 import { generateObject, generateText } from 'ai';
 import { Layer } from 'effect';
-import { vi } from 'vitest';
+import type { mock } from 'bun:test';
 
 import { Model } from '../../src/services/model.js';
 import type { ServiceCall } from './sequence-recorder.js';
@@ -31,7 +31,7 @@ export interface MockModelState {
  *
  * Since the CLI uses the `ai` package's generateText/generateObject functions
  * with the Model service providing LanguageModel instances, we need to:
- * 1. Mock the generateText/generateObject functions via vi.mock
+ * 1. Mock the generateText/generateObject functions via mock.module
  * 2. Provide a mock Model layer that provides mock LanguageModel instances
  * 3. Record calls to track what was invoked (via shared state, not Effect context)
  */
@@ -66,7 +66,8 @@ export const createMockModelLayer = (config: MockModelConfig) => {
   };
 
   // Configure the mocked generateText function
-  vi.mocked(generateText).mockImplementation(async (options) => {
+  const mockGenerateText = generateText as ReturnType<typeof mock>;
+  mockGenerateText.mockImplementation(async (options: Parameters<typeof generateText>[0]) => {
     const model = options.model as Record<string, unknown>;
 
     // Try multiple ways to get the modelId
@@ -121,7 +122,8 @@ export const createMockModelLayer = (config: MockModelConfig) => {
   });
 
   // Configure the mocked generateObject function
-  vi.mocked(generateObject).mockImplementation(async (options) => {
+  const mockGenerateObject = generateObject as ReturnType<typeof mock>;
+  mockGenerateObject.mockImplementation(async (options: Parameters<typeof generateObject>[0]) => {
     const model = options.model as Record<string, unknown>;
 
     let modelId = 'unknown';
@@ -151,7 +153,7 @@ export const createMockModelLayer = (config: MockModelConfig) => {
     });
 
     return {
-      object: typeof response === 'object' ? response : JSON.parse(response),
+      object: typeof response === 'object' ? response : JSON.parse(response as string),
       finishReason: 'stop' as const,
       usage: { promptTokens: 0, completionTokens: 0 },
       rawCall: { rawPrompt: null, rawSettings: {} },
@@ -183,6 +185,8 @@ export const createMockModelLayer = (config: MockModelConfig) => {
  * Call this in beforeEach to ensure clean state.
  */
 export const resetModelMocks = () => {
-  vi.mocked(generateText).mockReset();
-  vi.mocked(generateObject).mockReset();
+  const mockGenerateText = generateText as ReturnType<typeof mock>;
+  const mockGenerateObject = generateObject as ReturnType<typeof mock>;
+  mockGenerateText.mockReset();
+  mockGenerateObject.mockReset();
 };

@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'bun:test';
 
 import { studies } from '../../src/commands/studies.js';
 import { expectContains, expectSequence, runCli } from '../lib/run-cli.js';

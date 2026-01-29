@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'bun:test';
 
 import { egw, egwOpen, egwWithSubcommands } from '../../src/commands/egw.js';
 import { runCli } from '../lib/run-cli.js';

@@ -1,4 +1,4 @@
-import { vi } from 'vitest';
+import { mock } from 'bun:test';
 
 // Set up mock environment variables before any tests run
 // This is needed because the model extraction reads from env
@@ -8,13 +8,13 @@ process.env.ANTHROPIC_API_KEY = 'test-anthropic-key';
 
 // Mock the 'ai' package for generateText/generateObject
 // The actual mock implementations are provided by test layers
-vi.mock('ai', () => ({
-  generateText: vi.fn(),
-  generateObject: vi.fn(),
+mock.module('ai', () => ({
+  generateText: mock(),
+  generateObject: mock(),
 }));
 
 // Mock the AI SDK providers to return our mock models
-vi.mock('@ai-sdk/google', () => ({
+mock.module('@ai-sdk/google', () => ({
   createGoogleGenerativeAI: () => (modelId: string) => ({
     specificationVersion: 'v1',
     provider: 'google',
@@ -23,7 +23,7 @@ vi.mock('@ai-sdk/google', () => ({
   }),
 }));
 
-vi.mock('@ai-sdk/openai', () => ({
+mock.module('@ai-sdk/openai', () => ({
   createOpenAI: () => (modelId: string) => ({
     specificationVersion: 'v1',
     provider: 'openai',
@@ -32,7 +32,7 @@ vi.mock('@ai-sdk/openai', () => ({
   }),
 }));
 
-vi.mock('@ai-sdk/anthropic', () => ({
+mock.module('@ai-sdk/anthropic', () => ({
   createAnthropic: () => (modelId: string) => ({
     specificationVersion: 'v1',
     provider: 'anthropic',

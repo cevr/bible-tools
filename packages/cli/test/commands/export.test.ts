@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'bun:test';
 
 import { exportOutput } from '../../src/commands/export.js';
 import { expectCallCount, expectNoCalls, expectSequence, runCli } from '../lib/run-cli.js';

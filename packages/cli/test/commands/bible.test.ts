@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'bun:test';
 
 import { isStrongsNumber } from '../../src/commands/bible.js';
 import type { BibleDataService } from '../../src/data/bible/data.js';

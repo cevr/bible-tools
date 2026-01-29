@@ -13,7 +13,6 @@ import {
   type MockAppleScriptConfig,
   type MockAppleScriptState,
 } from './mock-apple-script.js';
-import { createMockBunShell, createMockBunSpawn, type MockBunConfig } from './mock-bun.js';
 import { createMockChimeLayer, type MockChimeState } from './mock-chime.js';
 import { createMockFileSystemLayer, type MockFileSystemConfig } from './mock-filesystem.js';
 import { installMockFetch, type MockHttpConfig, type MockHttpState } from './mock-http.js';
@@ -30,8 +29,6 @@ export interface TestLayerConfig {
   model?: MockModelConfig;
   /** Mock HTTP responses */
   http?: MockHttpConfig;
-  /** Mock Bun configuration (legacy - prefer appleScript for new tests) */
-  bun?: MockBunConfig;
   /** Mock AppleScript configuration */
   appleScript?: MockAppleScriptConfig;
 }
@@ -86,23 +83,6 @@ export const createTestLayer = (config: TestLayerConfig = {}): TestLayerState =>
     cleanupFns.push(fetchResult.cleanup);
   }
 
-  // Legacy: Install mock Bun globals for any code still using Bun directly
-  // This can be removed once all code uses the service layers
-  const bunConfig = config.bun ?? config.appleScript ?? {};
-  const legacyBunState = { calls: [] as ServiceCall[] };
-  const mockSpawn = createMockBunSpawn(bunConfig, legacyBunState);
-  const mockShell = createMockBunShell(bunConfig, legacyBunState);
-
-  const originalBun = globalThis.Bun;
-  (globalThis as Record<string, unknown>).Bun = {
-    ...((globalThis.Bun as object) ?? {}),
-    spawn: mockSpawn,
-    $: mockShell,
-  };
-  cleanupFns.push(() => {
-    (globalThis as Record<string, unknown>).Bun = originalBun;
-  });
-
   // Create a mock Path layer (use real path implementation since it's pure computation)
   const mockPath = Layer.succeed(Path.Path, {
     ...path,
@@ -137,7 +117,6 @@ export const createTestLayer = (config: TestLayerConfig = {}): TestLayerState =>
       // External calls (recorded outside Effect context)
       ...mockModel.state.calls,
       ...(httpState?.calls ?? []),
-      ...legacyBunState.calls,
     ],
   };
 };

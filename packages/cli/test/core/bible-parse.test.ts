@@ -9,7 +9,7 @@ import {
   parseBibleQuery,
   ParsedBibleQueryConstructors as ParsedQuery,
 } from '@bible/core/bible-reader';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'bun:test';
 
 describe('Bible reference parser (core)', () => {
   describe('parseBibleQuery', () => {

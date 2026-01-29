@@ -5,7 +5,7 @@ import {
   isSearchQuery,
   parseEGWRef,
 } from '@bible/core/egw';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'bun:test';
 
 describe('EGW reference parser', () => {
   describe('parseEGWRef', () => {
