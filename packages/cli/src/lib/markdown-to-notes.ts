@@ -1,5 +1,4 @@
-import { Data, Effect, Option, pipe, Schema } from 'effect';
-import { marked } from 'marked';
+import { Data, Effect, Option, pipe } from 'effect';
 
 import { AppleScript } from '~/src/services/apple-script';
 import {
@@ -30,17 +29,15 @@ export interface CreateSimpleNoteOptions {
 }
 
 const parseMarkdown = Effect.fn('parseMarkdown')(function* (content: string) {
-  const result = yield* Effect.try({
-    try: () => marked.parse(content),
+  return yield* Effect.try({
+    try: () => Bun.markdown.html(content),
     catch: (cause: unknown) =>
       new MarkdownParseError({
         message: `Markdown parsing failed`,
         cause,
         content,
       }),
-  }).pipe(Effect.flatMap(Schema.decodeUnknown(Schema.String)));
-
-  return result;
+  });
 });
 
 /**

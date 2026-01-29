@@ -1,8 +1,6 @@
 import type { ExportOptions } from '@bible/core/adapters';
 import { ExportAdapter, ExportError } from '@bible/core/adapters';
-import Bun from 'bun';
 import { Effect, Layer, Option, pipe, Schema } from 'effect';
-import { marked } from 'marked';
 
 import {
   escapeAppleScriptString,
@@ -30,17 +28,15 @@ const execCommand = Effect.fn('execCommand')(function* (command: string[]) {
 });
 
 const parseMarkdown = Effect.fn('parseMarkdown')(function* (content: string) {
-  const result = yield* Effect.try({
-    try: () => marked.parse(content),
+  return yield* Effect.try({
+    try: () => Bun.markdown.html(content),
     catch: (cause: unknown) =>
       new MarkdownParseError({
         message: 'Markdown parsing failed',
         cause,
         content,
       }),
-  }).pipe(Effect.flatMap(Schema.decodeUnknown(Schema.String)));
-
-  return result;
+  });
 });
 
 /**
