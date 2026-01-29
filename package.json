@@ -23,10 +23,10 @@
   },
   "devDependencies": {
     "@effect/language-service": "^0.72.0",
-    "lefthook": "^2.0.15",
-    "oxfmt": "^0.26.0",
-    "oxlint": "^1.41.0",
-    "turbo": "^2.7.6",
+    "lefthook": "^2.0.16",
+    "oxfmt": "^0.27.0",
+    "oxlint": "^1.42.0",
+    "turbo": "^2.8.0",
     "typescript": "^5.9.3"
   },
   "packageManager": "bun@1.3.6",
@@ -39,5 +39,8 @@
     "ai": "6.0.49",
     "typescript": "5.9.3",
     "effect": "3.19.15"
+  },
+  "patchedDependencies": {
+    "@effect/cli@0.73.1": "patches/@effect%2Fcli@0.73.1.patch"
   }
 }
