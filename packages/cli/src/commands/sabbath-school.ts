@@ -1,6 +1,5 @@
 import { Command, Options } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
-import { generateObject, generateText } from 'ai';
 import * as cheerio from 'cheerio';
 import { Array, Data, Effect, Option, Schema, Stream } from 'effect';
 import { join } from 'path';
@@ -19,7 +18,8 @@ import {
   reviseSystemPrompt,
   reviseUserPrompt,
 } from '~/src/prompts/sabbath-school/prompts';
-import { Model, requiredModel } from '~/src/services/model';
+import { AI } from '~/src/services/ai';
+import { requiredModel } from '~/src/services/model';
 
 class OutlineError extends Data.TaggedError('@bible/cli/commands/sabbath-school/OutlineError')<{
   context: SabbathSchoolContext;
@@ -184,35 +184,37 @@ const reviseOutline = Effect.fn('reviseOutline')(function* (
   context: SabbathSchoolContext,
   text: string,
 ) {
-  const models = yield* Model;
+  const ai = yield* AI;
 
   yield* Effect.log(`Checking if revision is needed...`);
-  const reviewResponse = yield* Effect.tryPromise({
-    try: () =>
-      generateObject({
-        model: models.high,
-        messages: [
-          { role: 'system', content: reviewCheckSystemPrompt },
-          { role: 'user', content: reviewCheckUserPrompt(text) },
-        ],
-        schema: z.object({
-          needsRevision: z.boolean().describe('Whether the outline needs revision'),
-          revisionPoints: z
-            .array(z.string())
-            .describe('Specific points where the outline FAILS to meet the prompt requirements'),
-          comments: z
-            .string()
-            .describe(
-              'Brief overall comment on the adherence or specific strengths/weaknesses, keep it concise. Use empty string if no comments.',
-            ),
-        }),
+  const reviewResponse = yield* ai
+    .generateObject({
+      model: 'high',
+      messages: [
+        { role: 'system', content: reviewCheckSystemPrompt },
+        { role: 'user', content: reviewCheckUserPrompt(text) },
+      ],
+      schema: z.object({
+        needsRevision: z.boolean().describe('Whether the outline needs revision'),
+        revisionPoints: z
+          .array(z.string())
+          .describe('Specific points where the outline FAILS to meet the prompt requirements'),
+        comments: z
+          .string()
+          .describe(
+            'Brief overall comment on the adherence or specific strengths/weaknesses, keep it concise. Use empty string if no comments.',
+          ),
       }),
-    catch: (cause: unknown) =>
-      new ReviewError({
-        context,
-        cause,
-      }),
-  });
+    })
+    .pipe(
+      Effect.mapError(
+        (cause) =>
+          new ReviewError({
+            context,
+            cause,
+          }),
+      ),
+    );
 
   const needsRevision = reviewResponse.object.needsRevision;
 
@@ -223,25 +225,24 @@ const reviseOutline = Effect.fn('reviseOutline')(function* (
 
   yield* Effect.log(`Revising outline...`);
 
-  const revisedOutline = yield* Effect.tryPromise({
-    try: () =>
-      generateText({
-        model: models.high,
-        messages: [
-          { role: 'system', content: outlineSystemPrompt },
-          { role: 'system', content: reviseSystemPrompt },
-          {
-            role: 'user',
-            content: reviseUserPrompt(reviewResponse.object, text),
-          },
-        ],
-      }),
-    catch: (cause: unknown) =>
-      new ReviseError({
-        context,
-        cause,
-      }),
-  });
+  const revisedOutline = yield* ai
+    .generateText({
+      model: 'high',
+      messages: [
+        { role: 'system', content: outlineSystemPrompt },
+        { role: 'system', content: reviseSystemPrompt },
+        { role: 'user', content: reviseUserPrompt(reviewResponse.object, text) },
+      ],
+    })
+    .pipe(
+      Effect.mapError(
+        (cause) =>
+          new ReviseError({
+            context,
+            cause,
+          }),
+      ),
+    );
 
   return Option.some(revisedOutline.text);
 });
@@ -255,43 +256,34 @@ const generateOutline = Effect.fn('generateOutline')(function* (
   lessonPdfBuffer: ArrayBuffer,
   egwPdfBuffer: ArrayBuffer,
 ) {
-  const models = yield* Model;
+  const ai = yield* AI;
 
   yield* Effect.log(`Generating outline...`);
 
-  const response = yield* Effect.tryPromise({
-    try: () =>
-      generateText({
-        model: models.high,
-        messages: [
-          { role: 'system', content: outlineSystemPrompt },
-          {
-            role: 'user',
-            content: [
-              {
-                type: 'text',
-                text: outlineUserPrompt(context),
-              },
-              {
-                type: 'file',
-                mediaType: 'application/pdf',
-                data: lessonPdfBuffer,
-              },
-              {
-                type: 'file',
-                mediaType: 'application/pdf',
-                data: egwPdfBuffer,
-              },
-            ],
-          },
-        ],
-      }),
-    catch: (cause: unknown) =>
-      new OutlineError({
-        context,
-        cause,
-      }),
-  });
+  const response = yield* ai
+    .generateText({
+      model: 'high',
+      messages: [
+        { role: 'system', content: outlineSystemPrompt },
+        {
+          role: 'user',
+          content: [
+            { type: 'text', text: outlineUserPrompt(context) },
+            { type: 'file', mimeType: 'application/pdf', data: lessonPdfBuffer },
+            { type: 'file', mimeType: 'application/pdf', data: egwPdfBuffer },
+          ],
+        },
+      ],
+    })
+    .pipe(
+      Effect.mapError(
+        (cause) =>
+          new OutlineError({
+            context,
+            cause,
+          }),
+      ),
+    );
 
   return response.text;
 });
@@ -309,7 +301,7 @@ const makeSabbathSchoolFrontmatter = (year: number, quarter: number, week: numbe
 const processQuarter = Command.make(
   'process',
   { year, quarter, week, model: requiredModel },
-  ({ year, quarter, week, model }) =>
+  ({ year, quarter, week }) =>
     Effect.gen(function* () {
       yield* Effect.log(
         `Starting download for Q${quarter} ${year}${
@@ -373,12 +365,12 @@ const processQuarter = Command.make(
                 { year, quarter, week: urls.weekNumber },
                 lessonPdf,
                 egwPdf,
-              ).pipe(Effect.provideService(Model, model));
+              );
 
               const revision = yield* reviseOutline(
                 { year, quarter, week: urls.weekNumber },
                 outline,
-              ).pipe(Effect.provideService(Model, model));
+              );
 
               outline = Option.match(revision, {
                 onSome: (text) => text,
@@ -418,13 +410,13 @@ const processQuarter = Command.make(
       );
 
       yield* Effect.log(`\nDownload complete`);
-    }).pipe(Effect.provideService(Model, model)),
-);
+    }),
+).pipe(Command.provide(({ model }) => AI.fromModel(model)));
 
 const reviseQuarter = Command.make(
   'revise',
   { year, quarter, week, model: requiredModel },
-  ({ year, quarter, week, model }) =>
+  ({ year, quarter, week }) =>
     Effect.gen(function* () {
       const startTime = Date.now();
 
@@ -468,7 +460,7 @@ const reviseQuarter = Command.make(
             const revisedOutline = yield* reviseOutline(
               { year, quarter, week: weekNumber },
               outlineText,
-            ).pipe(Effect.provideService(Model, model));
+            );
 
             yield* Option.match(revisedOutline, {
               onSome: (text) =>
@@ -497,8 +489,8 @@ const reviseQuarter = Command.make(
 
       const totalTime = msToMinutes(Date.now() - startTime);
       yield* Effect.log(`\nRevision complete (${totalTime})`);
-    }).pipe(Effect.provideService(Model, model)),
-);
+    }),
+).pipe(Command.provide(({ model }) => AI.fromModel(model)));
 
 const exportQuarter = Command.make('export', { year, quarter, week }, ({ year, quarter, week }) =>
   Effect.gen(function* () {

@@ -1,6 +1,5 @@
 import { Command } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
-import { generateText } from 'ai';
 import { format } from 'date-fns';
 import { Data, Effect, Option, Schedule } from 'effect';
 import { join } from 'path';
@@ -17,12 +16,12 @@ import { findNoteByTitle, getNoteContent } from '~/src/lib/notes-utils';
 import { extractTitleFromMarkdown } from '~/src/lib/apple-notes-utils';
 import { getOutputsPath, getPromptPath } from '~/src/lib/paths';
 import { generateTopicPrompt } from '~/src/prompts/messages/generate-topic';
-import { Model, requiredModel } from '~/src/services/model';
+import { AI } from '~/src/services/ai';
+import { requiredModel } from '~/src/services/model';
 
 const generateMessage = Command.make('generate', { topic, model: requiredModel }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const model = args.model;
     const startTime = Date.now();
 
     yield* Effect.logDebug(`topic: ${args.topic}`);
@@ -31,9 +30,7 @@ const generateMessage = Command.make('generate', { topic, model: requiredModel }
       .readFile(getPromptPath('messages', 'generate.md'))
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const { filename, response } = yield* generate(systemPrompt, args.topic).pipe(
-      Effect.provideService(Model, model),
-    );
+    const { filename, response } = yield* generate(systemPrompt, args.topic);
 
     const messagesDir = getOutputsPath('messages');
 
@@ -80,8 +77,8 @@ const generateMessage = Command.make('generate', { topic, model: requiredModel }
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(`Message generated successfully! (Total time: ${totalTime})`);
     yield* Effect.log(`Output: ${filePath}`);
-  }).pipe(Effect.provideService(Model, args.model)),
-);
+  }),
+).pipe(Command.provide((args) => AI.fromModel(args.model)));
 
 const generateFromNoteMessage = Command.make(
   'from-note',
@@ -89,7 +86,6 @@ const generateFromNoteMessage = Command.make(
   (args) =>
     Effect.gen(function* () {
       const fs = yield* FileSystem.FileSystem;
-      const model = args.model;
       const startTime = Date.now();
       const note = yield* getNoteContent(args.noteId);
 
@@ -97,9 +93,7 @@ const generateFromNoteMessage = Command.make(
         .readFile(getPromptPath('messages', 'generate.md'))
         .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-      const { filename, response } = yield* generate(systemPrompt, note).pipe(
-        Effect.provideService(Model, model),
-      );
+      const { filename, response } = yield* generate(systemPrompt, note);
 
       const messagesDir = getOutputsPath('messages');
 
@@ -146,8 +140,8 @@ const generateFromNoteMessage = Command.make(
       const totalTime = msToMinutes(Date.now() - startTime);
       yield* Effect.log(`Message generated successfully! (Total time: ${totalTime})`);
       yield* Effect.log(`Output: ${filePath}`);
-    }).pipe(Effect.provideService(Model, args.model)),
-);
+    }),
+).pipe(Command.provide((args) => AI.fromModel(args.model)));
 
 class GenerateTopicResponseError extends Data.TaggedError(
   '@bible/cli/commands/messages/GenerateTopicResponseError',
@@ -155,10 +149,10 @@ class GenerateTopicResponseError extends Data.TaggedError(
   cause: unknown;
 }> {}
 
-const generateTopic = Command.make('generate-topic', { model: requiredModel }, (args) =>
+const generateTopic = Command.make('generate-topic', { model: requiredModel }, () =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const model = args.model;
+    const ai = yield* AI;
 
     const previousMessages = yield* fs.readDirectory(getOutputsPath('messages'));
 
@@ -166,33 +160,29 @@ const generateTopic = Command.make('generate-topic', { model: requiredModel }, (
 
     const response = yield* spin(
       'Generating...',
-      Effect.tryPromise({
-        try: () =>
-          generateText({
-            model: model.high,
-            messages: [
-              {
-                role: 'system',
-                content: systemPrompt,
-              },
-            ],
+      ai
+        .generateText({
+          model: 'high',
+          messages: [{ role: 'system', content: systemPrompt }],
+        })
+        .pipe(
+          Effect.mapError(
+            (cause) =>
+              new GenerateTopicResponseError({
+                cause,
+              }),
+          ),
+          Effect.retry({
+            times: 3,
+            schedule: Schedule.spaced(500),
           }),
-        catch: (cause: unknown) =>
-          new GenerateTopicResponseError({
-            cause,
-          }),
-      }).pipe(
-        Effect.retry({
-          times: 3,
-          schedule: Schedule.spaced(500),
-        }),
-      ),
+        ),
     );
 
     const message = response.text;
     yield* Effect.log(`topic: \n\n ${message}`);
-  }).pipe(Effect.provideService(Model, args.model)),
-);
+  }),
+).pipe(Command.provide((args) => AI.fromModel(args.model)));
 
 const syncMessages = Command.make('sync', { dryRun }, (args) =>
   Effect.gen(function* () {

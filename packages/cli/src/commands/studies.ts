@@ -14,12 +14,12 @@ import { generate } from '~/src/lib/generate';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
 import { getNoteContent } from '~/src/lib/notes-utils';
 import { getOutputsPath, getPromptPath } from '~/src/lib/paths';
-import { Model, requiredModel } from '~/src/services/model';
+import { AI } from '~/src/services/ai';
+import { requiredModel } from '~/src/services/model';
 
 const generateStudy = Command.make('generate', { topic, model: requiredModel }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const model = args.model;
     const startTime = Date.now();
 
     yield* Effect.logDebug(`topic: ${args.topic}`);
@@ -28,9 +28,7 @@ const generateStudy = Command.make('generate', { topic, model: requiredModel }, 
       .readFile(getPromptPath('studies', 'generate.md'))
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const { filename, response } = yield* generate(systemPrompt, args.topic).pipe(
-      Effect.provideService(Model, model),
-    );
+    const { filename, response } = yield* generate(systemPrompt, args.topic);
 
     const studiesDir = getOutputsPath('studies');
 
@@ -77,14 +75,12 @@ const generateStudy = Command.make('generate', { topic, model: requiredModel }, 
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(`Study generated successfully! (Total time: ${totalTime})`);
     yield* Effect.log(`Output: ${filePath}`);
-  }).pipe(Effect.provideService(Model, args.model)),
-);
+  }),
+).pipe(Command.provide((args) => AI.fromModel(args.model)));
 
 const generateFromNoteStudy = Command.make('from-note', { noteId, model: requiredModel }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const model = args.model;
-
     const startTime = Date.now();
 
     const note = yield* getNoteContent(args.noteId);
@@ -93,9 +89,7 @@ const generateFromNoteStudy = Command.make('from-note', { noteId, model: require
       .readFile(getPromptPath('studies', 'generate.md'))
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const { filename, response } = yield* generate(systemPrompt, note).pipe(
-      Effect.provideService(Model, model),
-    );
+    const { filename, response } = yield* generate(systemPrompt, note);
 
     const studiesDir = getOutputsPath('studies');
 
@@ -137,8 +131,8 @@ const generateFromNoteStudy = Command.make('from-note', { noteId, model: require
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(`Study generated successfully! (Total time: ${totalTime})`);
     yield* Effect.log(`Output: ${filePath}`);
-  }).pipe(Effect.provideService(Model, args.model)),
-);
+  }),
+).pipe(Command.provide((args) => AI.fromModel(args.model)));
 
 export const studies = Command.make('studies').pipe(
   Command.withSubcommands([

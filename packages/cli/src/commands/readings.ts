@@ -14,7 +14,8 @@ import {
   updateAppleNoteFromMarkdown,
 } from '~/src/lib/markdown-to-notes';
 import { getCliRoot, getOutputsPath, getPromptPath } from '~/src/lib/paths';
-import { Model, requiredModel } from '~/src/services/model';
+import { AI } from '~/src/services/ai';
+import { requiredModel } from '~/src/services/model';
 
 const targetTypes = ['study', 'slides', 'speaker-notes'] as const;
 type TargetType = (typeof targetTypes)[number];
@@ -40,7 +41,6 @@ const processChapters = Command.make(
   { chapter, target, export: exportToNotes, model: requiredModel },
   (args) =>
     Effect.gen(function* () {
-      const model = args.model;
       const fs = yield* FileSystem.FileSystem;
       const startTime = Date.now();
 
@@ -281,7 +281,7 @@ const processChapters = Command.make(
 
                 const { response } = yield* generate(studyPrompt, chapterContent, {
                   skipChime: true,
-                }).pipe(Effect.provideService(Model, model));
+                });
                 studyContent = response;
 
                 yield* writeWithFrontmatter(studyOutputFile, studyContent, chapterNum, 'study');
@@ -318,7 +318,7 @@ const processChapters = Command.make(
                 // Generate slides if requested OR if it doesn't exist but is needed
                 const { response } = yield* generate(slidesPrompt, studyContent, {
                   skipChime: true,
-                }).pipe(Effect.provideService(Model, model));
+                });
                 slidesContent = response;
 
                 yield* writeWithFrontmatter(slidesOutputFile, slidesContent, chapterNum, 'slides');
@@ -343,7 +343,7 @@ const processChapters = Command.make(
                   speakerNotesPrompt,
                   combinedInput,
                   { skipChime: true },
-                ).pipe(Effect.provideService(Model, model));
+                );
 
                 yield* writeWithFrontmatter(
                   speakerNotesOutputFile,
@@ -378,8 +378,8 @@ const processChapters = Command.make(
 
       const totalTime = msToMinutes(Date.now() - startTime);
       yield* Effect.log(`\nAll chapters processed successfully! (Total time: ${totalTime})`);
-    }).pipe(Effect.provideService(Model, args.model)),
-);
+    }),
+).pipe(Command.provide((args) => AI.fromModel(args.model)));
 
 export const readings = Command.make('readings').pipe(
   Command.withSubcommands([
