@@ -28,7 +28,7 @@ describe('readings commands', () => {
               [`${process.cwd()}/src/prompts/readings/generate-study.md`]: 'Study prompt...',
             },
           },
-          model: {
+          ai: {
             responses: {
               high: ['# Revised Study\n\nMore detailed content...'],
               low: [],
@@ -41,7 +41,7 @@ describe('readings commands', () => {
       expectContains(result.calls, [
         { _tag: 'FileSystem.readFile' }, // read study
         { _tag: 'FileSystem.readFile' }, // read prompt
-        { _tag: 'Model.generateText' }, // revise
+        { _tag: 'AI.generateText' }, // revise
         { _tag: 'Chime.play' },
         { _tag: 'FileSystem.writeFile' }, // write revised
       ]);
@@ -66,7 +66,7 @@ describe('readings commands', () => {
               [`${process.cwd()}/src/prompts/readings/generate-slides.md`]: 'Slides prompt...',
             },
           },
-          model: {
+          ai: {
             responses: {
               high: ['# Simplified Slides\n\nSimpler content...'],
               low: [],
@@ -80,7 +80,7 @@ describe('readings commands', () => {
       expectContains(result.calls, [
         { _tag: 'FileSystem.readFile' },
         { _tag: 'FileSystem.readFile' },
-        { _tag: 'Model.generateText' },
+        { _tag: 'AI.generateText' },
       ]);
     });
 
@@ -104,7 +104,7 @@ describe('readings commands', () => {
                 'Speaker notes prompt...',
             },
           },
-          model: {
+          ai: {
             responses: {
               high: ['# Conversational Notes\n\nFriendly content...'],
               low: [],
@@ -117,7 +117,7 @@ describe('readings commands', () => {
       expectContains(result.calls, [
         { _tag: 'FileSystem.readFile' },
         { _tag: 'FileSystem.readFile' },
-        { _tag: 'Model.generateText' },
+        { _tag: 'AI.generateText' },
       ]);
     });
 
@@ -139,7 +139,7 @@ describe('readings commands', () => {
               [`${process.cwd()}/src/prompts/readings/generate-study.md`]: 'Prompt...',
             },
           },
-          model: {
+          ai: {
             responses: { high: [], low: [] },
           },
         },

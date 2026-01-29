@@ -13,8 +13,8 @@ import {
   updateAppleNoteFromMarkdown,
   type MarkdownParseError,
 } from '~/src/lib/markdown-to-notes';
+import type { AI } from '~/src/services/ai';
 import type { AppleScript } from '~/src/services/apple-script';
-import type { Model } from '~/src/services/model';
 import type { Chime } from '~/src/services/chime';
 
 type ContentListError = ParseResult.ParseError;
@@ -38,7 +38,7 @@ export class ContentService extends Context.Tag('@bible/cli/services/content/Con
     readonly revise: (
       filePath: string,
       instructions: string,
-    ) => Effect.Effect<void, ContentReviseError, Model | AppleScript | Chime>;
+    ) => Effect.Effect<void, ContentReviseError, AI | AppleScript | Chime>;
     readonly export: (
       filePaths: readonly string[],
       folder?: string,

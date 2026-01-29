@@ -4,10 +4,11 @@ import type { FileSystem } from '@effect/platform';
 import { Path } from '@effect/platform';
 import { Layer } from 'effect';
 
+import type { AI } from '../../src/services/ai.js';
 import type { AppleScript } from '../../src/services/apple-script.js';
 import type { Chime } from '../../src/services/chime.js';
-import type { Model } from '../../src/services/model.js';
 
+import { createMockAILayer, type MockAIConfig } from './mock-ai.js';
 import {
   createMockAppleScriptLayer,
   type MockAppleScriptConfig,
@@ -16,7 +17,6 @@ import {
 import { createMockChimeLayer, type MockChimeState } from './mock-chime.js';
 import { createMockFileSystemLayer, type MockFileSystemConfig } from './mock-filesystem.js';
 import { installMockFetch, type MockHttpConfig, type MockHttpState } from './mock-http.js';
-import { createMockModelLayer, type MockModelConfig } from './mock-model.js';
 import { CallSequenceLayer, type CallSequence, type ServiceCall } from './sequence-recorder.js';
 
 /**
@@ -25,8 +25,8 @@ import { CallSequenceLayer, type CallSequence, type ServiceCall } from './sequen
 export interface TestLayerConfig {
   /** Mock file system state */
   files?: MockFileSystemConfig;
-  /** Mock model responses */
-  model?: MockModelConfig;
+  /** Mock AI responses */
+  ai?: MockAIConfig;
   /** Mock HTTP responses */
   http?: MockHttpConfig;
   /** Mock AppleScript configuration */
@@ -42,7 +42,7 @@ export interface TestLayerState {
   cleanup: () => void;
   /** The composed layer to provide to the CLI */
   layer: Layer.Layer<
-    FileSystem.FileSystem | Path.Path | Model | AppleScript | Chime | CallSequence,
+    FileSystem.FileSystem | Path.Path | AI | AppleScript | Chime | CallSequence,
     never,
     never
   >;
@@ -67,8 +67,8 @@ export const createTestLayer = (config: TestLayerConfig = {}): TestLayerState =>
   // Create mock file system
   const mockFs = createMockFileSystemLayer(config.files ?? { files: {}, directories: [] });
 
-  // Create mock model
-  const mockModel = createMockModelLayer(config.model ?? { responses: { high: [], low: [] } });
+  // Create mock AI
+  const mockAI = createMockAILayer(config.ai ?? { responses: { high: [], low: [] } });
 
   // Create mock AppleScript service
   const mockAppleScript = createMockAppleScriptLayer(config.appleScript ?? {}, appleScriptState);
@@ -97,7 +97,7 @@ export const createTestLayer = (config: TestLayerConfig = {}): TestLayerState =>
   const composedLayer = Layer.mergeAll(
     CallSequenceLayer,
     mockFs.layer,
-    mockModel.layer,
+    mockAI.layer,
     mockAppleScript,
     mockChime,
     mockPath,
@@ -115,7 +115,7 @@ export const createTestLayer = (config: TestLayerConfig = {}): TestLayerState =>
       ...appleScriptState.calls,
       ...chimeState.calls,
       // External calls (recorded outside Effect context)
-      ...mockModel.state.calls,
+      ...mockAI.state.calls,
       ...(httpState?.calls ?? []),
     ],
   };

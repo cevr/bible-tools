@@ -21,7 +21,7 @@ describe('messages commands', () => {
             },
             directories: [],
           },
-          model: {
+          ai: {
             responses: {
               high: ['# Faith and Works\n\nA message about faith and works...'],
               low: ['faith-and-works'],
@@ -34,8 +34,8 @@ describe('messages commands', () => {
       // Check all expected calls are present (order varies due to async)
       expectContains(result.calls, [
         { _tag: 'FileSystem.readFile' }, // system prompt
-        { _tag: 'Model.generateText', model: 'high' }, // generate content
-        { _tag: 'Model.generateText', model: 'low' }, // generate filename
+        { _tag: 'AI.generateText', model: 'high' }, // generate content
+        { _tag: 'AI.generateText', model: 'low' }, // generate filename
         { _tag: 'Chime.play' }, // done chime
         { _tag: 'FileSystem.makeDirectory' }, // ensure dir exists
         { _tag: 'FileSystem.writeFile' }, // write message
@@ -51,7 +51,7 @@ describe('messages commands', () => {
           },
           directories: [],
         },
-        model: {
+        ai: {
           responses: {
             high: ['# Grace\n\nContent about grace...'],
             low: ['grace-message'],
@@ -87,7 +87,7 @@ describe('messages commands', () => {
               [`${process.cwd()}/src/prompts/messages/generate.md`]: 'System prompt...',
             },
           },
-          model: {
+          ai: {
             responses: {
               high: ['# Revised Message\n\nImproved content with scriptures...'],
               low: [],
@@ -100,7 +100,7 @@ describe('messages commands', () => {
       expectContains(result.calls, [
         { _tag: 'FileSystem.readFile' }, // read message
         { _tag: 'FileSystem.readFile' }, // read system prompt
-        { _tag: 'Model.generateText' }, // revise
+        { _tag: 'AI.generateText' }, // revise
         { _tag: 'Chime.play' }, // done chime
         { _tag: 'FileSystem.writeFile' }, // write revised
       ]);
@@ -124,7 +124,7 @@ describe('messages commands', () => {
               [`${process.cwd()}/src/prompts/messages/generate.md`]: 'System prompt...',
             },
           },
-          model: {
+          ai: {
             responses: { high: [], low: [] },
           },
         },
@@ -144,7 +144,7 @@ describe('messages commands', () => {
           },
           directories: [`${process.cwd()}/outputs/messages`],
         },
-        model: {
+        ai: {
           responses: {
             high: ['1. The Power of Prayer\n2. Walking in the Spirit\n3. Biblical Stewardship'],
             low: [],
@@ -155,7 +155,7 @@ describe('messages commands', () => {
       expect(result.success).toBe(true);
       expectContains(result.calls, [
         { _tag: 'FileSystem.readDirectory' }, // list existing messages
-        { _tag: 'Model.generateText' }, // generate topics
+        { _tag: 'AI.generateText' }, // generate topics
       ]);
     });
   });

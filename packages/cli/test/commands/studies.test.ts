@@ -21,7 +21,7 @@ describe('studies commands', () => {
             },
             directories: [],
           },
-          model: {
+          ai: {
             responses: {
               high: ['# The Sanctuary\n\nA comprehensive study on the sanctuary...'],
               low: ['the-sanctuary-study'],
@@ -33,8 +33,8 @@ describe('studies commands', () => {
       expect(result.success).toBe(true);
       expectContains(result.calls, [
         { _tag: 'FileSystem.readFile' }, // system prompt
-        { _tag: 'Model.generateText', model: 'high' }, // generate content
-        { _tag: 'Model.generateText', model: 'low' }, // generate filename
+        { _tag: 'AI.generateText', model: 'high' }, // generate content
+        { _tag: 'AI.generateText', model: 'low' }, // generate filename
         { _tag: 'Chime.play' }, // done chime
         { _tag: 'FileSystem.makeDirectory' }, // ensure dir exists
         { _tag: 'FileSystem.writeFile' }, // write study
@@ -53,7 +53,7 @@ describe('studies commands', () => {
             },
             directories: [],
           },
-          model: {
+          ai: {
             responses: {
               high: ['# Prophecy\n\nContent about prophecy...'],
               low: ['prophecy-study'],
@@ -90,7 +90,7 @@ describe('studies commands', () => {
               [`${process.cwd()}/src/prompts/studies/generate.md`]: 'System prompt...',
             },
           },
-          model: {
+          ai: {
             responses: {
               high: ['# Interactive Study\n\nImproved content with questions...'],
               low: [],
@@ -103,7 +103,7 @@ describe('studies commands', () => {
       expectContains(result.calls, [
         { _tag: 'FileSystem.readFile' }, // read study
         { _tag: 'FileSystem.readFile' }, // read system prompt
-        { _tag: 'Model.generateText' }, // revise
+        { _tag: 'AI.generateText' }, // revise
         { _tag: 'Chime.play' }, // done chime
         { _tag: 'FileSystem.writeFile' }, // write revised
       ]);
@@ -127,7 +127,7 @@ describe('studies commands', () => {
               [`${process.cwd()}/src/prompts/studies/generate.md`]: 'System prompt...',
             },
           },
-          model: {
+          ai: {
             responses: { high: [], low: [] },
           },
         },

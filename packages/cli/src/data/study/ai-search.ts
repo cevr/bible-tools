@@ -1,9 +1,9 @@
 // @effect-diagnostics strictBooleanExpressions:off
-import type { LanguageModel } from 'ai';
 import { generateText } from 'ai';
+import type { LanguageModel } from 'ai';
 import { Context, Data, Effect, Layer, Runtime } from 'effect';
 
-import { Model } from '../../services/model.js';
+import { AI } from '../../services/ai.js';
 import { BibleData } from '../bible/data.js';
 import { BibleState, type BibleStateService } from '../bible/state.js';
 import type { BibleDataSyncService, Reference } from '../bible/types.js';
@@ -73,61 +73,54 @@ function parseAIResponse(response: string, dataService: BibleDataSyncService): R
   }
 }
 
-// Create the AI search service
-function createAISearchService(
-  modelService: { models: { low: LanguageModel } },
-  dataService: BibleDataSyncService,
-  stateService: BibleStateService,
-): AISearchService {
-  return {
-    searchByTopic(query: string): Effect.Effect<Reference[], AISearchError> {
-      return Effect.tryPromise({
-        try: async () => {
-          // Check cache first
-          const cached = stateService.getCachedAISearch(query);
-          if (cached !== undefined) {
-            return cached;
-          }
+// Standalone async function for TUI use (without Effect context)
+// Takes the dependencies directly as parameters
+export async function searchBibleByTopic(
+  query: string,
+  model: { models: { low: LanguageModel } },
+  data: BibleDataSyncService,
+  state: BibleStateService,
+): Promise<Reference[]> {
+  // Check cache first
+  const cached = state.getCachedAISearch(query);
+  if (cached !== undefined) {
+    return cached;
+  }
 
-          // Call AI model
-          const result = await generateText({
-            model: modelService.models.low,
-            system: SYSTEM_PROMPT,
-            prompt: `Find Bible verses about: ${query}`,
-            maxOutputTokens: 500,
-          });
+  try {
+    const result = await generateText({
+      model: model.models.low,
+      system: SYSTEM_PROMPT,
+      messages: [{ role: 'user', content: `Find Bible verses about: ${query}` }],
+      maxOutputTokens: 500,
+    });
 
-          // Parse response
-          const refs = parseAIResponse(result.text, dataService);
+    // Parse response
+    const refs = parseAIResponse(result.text, data);
 
-          // Cache results
-          if (refs !== undefined && refs.length > 0) {
-            stateService.setCachedAISearch(query, refs);
-          }
+    // Cache results
+    if (refs.length > 0) {
+      state.setCachedAISearch(query, refs);
+    }
 
-          return refs;
-        },
-        catch: (error) =>
-          new AISearchError({
-            message: `AI search failed: ${error}`,
-            cause: error,
-          }),
-      });
-    },
-  };
+    return refs;
+  } catch (error) {
+    console.error('AI search failed:', error);
+    return [];
+  }
 }
 
-// Create a live layer (requires Model, BibleData, and BibleState)
+// Create a live layer (requires AI, BibleData, and BibleState)
 export const AISearchLive = Layer.effect(
   AISearch,
   Effect.gen(function* () {
-    const model = yield* Model;
+    const ai = yield* AI;
     const data = yield* BibleData;
     const state = yield* BibleState;
     const runtime = yield* Effect.runtime();
     const runSync = Runtime.runSync(runtime);
-    // Model service from Effect gives us { high, low } directly
-    // Create sync wrapper for AI search (only needs parseReference which is sync)
+
+    // Create sync wrapper for data service (only needs parseReference which is sync)
     const syncData: BibleDataSyncService = {
       getBooks: () => runSync(data.getBooks()),
       getBook: (n) => runSync(data.getBook(n)),
@@ -138,41 +131,45 @@ export const AISearchLive = Layer.effect(
       getNextChapter: data.getNextChapter,
       getPrevChapter: data.getPrevChapter,
     };
-    return createAISearchService({ models: model }, syncData, state);
+
+    return {
+      searchByTopic(query: string): Effect.Effect<Reference[], AISearchError> {
+        return Effect.gen(function* () {
+          // Check cache first
+          const cached = state.getCachedAISearch(query);
+          if (cached !== undefined) {
+            return cached;
+          }
+
+          // Call AI model
+          const result = yield* ai
+            .generateText({
+              model: 'low',
+              system: SYSTEM_PROMPT,
+              messages: [{ role: 'user', content: `Find Bible verses about: ${query}` }],
+              maxOutputTokens: 500,
+            })
+            .pipe(
+              Effect.mapError(
+                (error) =>
+                  new AISearchError({
+                    message: `AI search failed: ${error}`,
+                    cause: error,
+                  }),
+              ),
+            );
+
+          // Parse response
+          const refs = parseAIResponse(result.text, syncData);
+
+          // Cache results
+          if (refs !== undefined && refs.length > 0) {
+            state.setCachedAISearch(query, refs);
+          }
+
+          return refs;
+        });
+      },
+    };
   }),
 );
-
-// Standalone function for use outside Effect context
-export async function searchBibleByTopic(
-  query: string,
-  modelService: { models: { low: LanguageModel } },
-  dataService: BibleDataSyncService,
-  stateService: BibleStateService,
-): Promise<Reference[]> {
-  // Check cache first
-  const cached = stateService.getCachedAISearch(query);
-  if (cached) {
-    return cached;
-  }
-
-  try {
-    const result = await generateText({
-      model: modelService.models.low,
-      system: SYSTEM_PROMPT,
-      prompt: `Find Bible verses about: ${query}`,
-      maxOutputTokens: 500,
-    });
-
-    const refs = parseAIResponse(result.text, dataService);
-
-    // Cache results
-    if (refs.length > 0) {
-      stateService.setCachedAISearch(query, refs);
-    }
-
-    return refs;
-  } catch (error) {
-    console.error('AI search error:', error);
-    return [];
-  }
-}

@@ -22,7 +22,7 @@ describe('sabbath-school commands', () => {
             },
             directories: [`${process.cwd()}/outputs/sabbath-school`],
           },
-          model: {
+          ai: {
             responses: { high: [], low: [] },
           },
           http: {
@@ -43,7 +43,7 @@ describe('sabbath-school commands', () => {
       // Should check if file exists but not generate new content
       expectContains(result.calls, [{ _tag: 'FileSystem.exists' }]);
       // No model calls because file already exists
-      expectNoCalls(result.calls, 'Model.generateText');
+      expectNoCalls(result.calls, 'AI.generateText');
     });
 
     it('should download PDFs and generate outline for missing week', async () => {
@@ -60,7 +60,7 @@ describe('sabbath-school commands', () => {
             files: {},
             directories: [],
           },
-          model: {
+          ai: {
             responses: {
               high: [
                 // generateOutline response
@@ -96,8 +96,8 @@ describe('sabbath-school commands', () => {
         { _tag: 'HTTP.fetch' }, // sabbath.school page
         { _tag: 'HTTP.fetch' }, // lesson PDF
         { _tag: 'HTTP.fetch' }, // EGW PDF
-        { _tag: 'Model.generateText' }, // generateOutline
-        { _tag: 'Model.generateObject' }, // review check
+        { _tag: 'AI.generateText' }, // generateOutline
+        { _tag: 'AI.generateObject' }, // review check
         { _tag: 'FileSystem.writeFile' }, // save outline
       ]);
     });
@@ -116,7 +116,7 @@ describe('sabbath-school commands', () => {
             files: {},
             directories: [],
           },
-          model: {
+          ai: {
             responses: {
               high: [
                 // generateOutline response
@@ -154,9 +154,9 @@ describe('sabbath-school commands', () => {
 
       expect(result.success).toBe(true);
       // Should have 2 generateText calls: generate + revise
-      expectCallCount(result.calls, 'Model.generateText', 2);
+      expectCallCount(result.calls, 'AI.generateText', 2);
       // Should have 1 generateObject call: review
-      expectCallCount(result.calls, 'Model.generateObject', 1);
+      expectCallCount(result.calls, 'AI.generateObject', 1);
     });
   });
 
@@ -173,7 +173,7 @@ describe('sabbath-school commands', () => {
             },
             directories: [`${process.cwd()}/outputs/sabbath-school`],
           },
-          model: {
+          ai: {
             responses: {
               high: [
                 // review check (needs revision)
@@ -195,8 +195,8 @@ describe('sabbath-school commands', () => {
       expectContains(result.calls, [
         { _tag: 'FileSystem.exists' },
         { _tag: 'FileSystem.readFile' },
-        { _tag: 'Model.generateObject' }, // review
-        { _tag: 'Model.generateText' }, // revise
+        { _tag: 'AI.generateObject' }, // review
+        { _tag: 'AI.generateText' }, // revise
         { _tag: 'FileSystem.writeFile' },
       ]);
     });
@@ -213,7 +213,7 @@ describe('sabbath-school commands', () => {
             },
             directories: [`${process.cwd()}/outputs/sabbath-school`],
           },
-          model: {
+          ai: {
             responses: {
               high: [
                 // review check (no revision needed)
@@ -231,8 +231,8 @@ describe('sabbath-school commands', () => {
 
       expect(result.success).toBe(true);
       // Should only have review check, no revision
-      expectCallCount(result.calls, 'Model.generateObject', 1);
-      expectNoCalls(result.calls, 'Model.generateText');
+      expectCallCount(result.calls, 'AI.generateObject', 1);
+      expectNoCalls(result.calls, 'AI.generateText');
       // Should not write since no changes
       const writeCount = result.calls.filter((c) => c._tag === 'FileSystem.writeFile').length;
       expect(writeCount).toBe(0);
@@ -247,7 +247,7 @@ describe('sabbath-school commands', () => {
             files: {},
             directories: [],
           },
-          model: {
+          ai: {
             responses: { high: [], low: [] },
           },
         },
@@ -255,8 +255,8 @@ describe('sabbath-school commands', () => {
 
       expect(result.success).toBe(true);
       // No model calls since file doesn't exist
-      expectNoCalls(result.calls, 'Model.generateText');
-      expectNoCalls(result.calls, 'Model.generateObject');
+      expectNoCalls(result.calls, 'AI.generateText');
+      expectNoCalls(result.calls, 'AI.generateObject');
     });
   });
 

@@ -1,8 +1,7 @@
-import { generateText } from 'ai';
 import { Data, Effect } from 'effect';
 import type { NonEmptyArray } from 'effect/Array';
 
-import { Model } from '~/src/services/model';
+import { AI } from '~/src/services/ai';
 
 import { doneChime } from './done-chime';
 import { spin } from './general';
@@ -27,30 +26,26 @@ export const revise = Effect.fn('revise')(function* ({
   systemPrompt,
   instructions,
 }: ReviserContext) {
-  const models = yield* Model;
+  const ai = yield* AI;
 
   const reviseResponse = yield* spin(
     'Revising text',
-    Effect.tryPromise({
-      try: () =>
-        generateText({
-          model: models.high,
-          messages: [
-            {
-              role: 'system',
-              content: systemPrompt,
-            },
-            {
-              role: 'user',
-              content: userRevisePrompt(cycles, instructions),
-            },
-          ],
-        }),
-      catch: (cause: unknown) =>
-        new ReviewError({
-          cause,
-        }),
-    }),
+    ai
+      .generateText({
+        model: 'high',
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userRevisePrompt(cycles, instructions) },
+        ],
+      })
+      .pipe(
+        Effect.mapError(
+          (cause) =>
+            new ReviewError({
+              cause,
+            }),
+        ),
+      ),
   );
 
   yield* doneChime;
