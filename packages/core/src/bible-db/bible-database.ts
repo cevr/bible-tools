@@ -302,10 +302,11 @@ export class BibleDatabase extends Context.Tag('@bible/core/bible-db/bible-datab
       const path = yield* Path.Path;
 
       // Determine database path
-      // Priority: env var > repo path
-      const repoDbPath = path.resolve(import.meta.dir, '../../data/bible.db');
+      // Priority: env var > ~/.bible/bible.db
+      const homeDir = process.env.HOME ?? process.env.USERPROFILE ?? '.';
+      const defaultDbPath = path.join(homeDir, '.bible', 'bible.db');
 
-      const dbPath = yield* Config.string('BIBLE_DB_PATH').pipe(Config.withDefault(repoDbPath));
+      const dbPath = yield* Config.string('BIBLE_DB_PATH').pipe(Config.withDefault(defaultDbPath));
 
       // Check if database exists
       const exists = yield* fs.exists(dbPath);

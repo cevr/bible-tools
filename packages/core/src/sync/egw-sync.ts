@@ -186,7 +186,7 @@ export const syncEgwBooks = (options: SyncOptions = {}) =>
               (item.puborder !== undefined && item.puborder !== null),
           )
           .map((tocItem) => {
-            if (tocItem.para_id) {
+            if (tocItem.para_id !== undefined && tocItem.para_id !== null) {
               // Extract the paragraph number after the dot (e.g., "84.68" → "68")
               const match = tocItem.para_id.match(/\.(\d+)$/);
               return match?.[1] ?? String(tocItem.puborder);

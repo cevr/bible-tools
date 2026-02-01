@@ -281,7 +281,14 @@ export function App(props: AppProps) {
   const [runtime] = createResource(getAppRuntime);
 
   return (
-    <Show when={runtime()} fallback={<box>Loading...</box>}>
+    <Show
+      when={runtime()}
+      fallback={
+        <box>
+          <text>Loading...</text>
+        </box>
+      }
+    >
       {(rt) => <AppWithRuntime {...props} runtime={rt()} />}
     </Show>
   );

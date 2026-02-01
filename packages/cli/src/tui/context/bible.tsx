@@ -1,16 +1,18 @@
 // @effect-diagnostics strictBooleanExpressions:off strictEffectProvide:off
-import { Effect } from 'effect';
+import { Runtime } from 'effect';
 import {
   createContext,
   createResource,
+  Show,
   useContext,
   type ParentProps,
   type Resource,
 } from 'solid-js';
 
-import { BibleData, BibleDataLive, type BibleDataService } from '../../data/bible/data.js';
+import { BibleData } from '../../data/bible/data.js';
 import type { BibleDataSyncService } from '../../data/bible/types.js';
-import { BibleState, BibleStateLive, type BibleStateService } from '../../data/bible/state.js';
+import { BibleState, type BibleStateService } from '../../data/bible/state.js';
+import { useAppRuntime, type AppServices } from '../lib/index.js';
 
 // Combined services for the Bible viewer
 interface BibleContextValue {
@@ -23,37 +25,16 @@ interface BibleContextValue {
 
 const BibleContext = createContext<BibleContextValue>();
 
-// Cache services at module level
-let cachedDataService: BibleDataService | null = null;
-let cachedStateService: BibleStateService | null = null;
-
-async function initBibleServices(): Promise<{
-  data: BibleDataService;
-  state: BibleStateService;
-}> {
-  if (!cachedDataService) {
-    // BibleDataLive includes BibleDatabase.Default which is scoped
-    cachedDataService = await Effect.runPromise(
-      Effect.scoped(Effect.provide(BibleData, BibleDataLive)),
-    );
-  }
-
-  if (!cachedStateService) {
-    // BibleStateLive is scoped - use Effect.scoped to properly manage lifecycle
-    cachedStateService = await Effect.runPromise(
-      Effect.scoped(Effect.provide(BibleState, BibleStateLive)),
-    );
-  }
-
-  return {
-    data: cachedDataService,
-    state: cachedStateService,
-  };
-}
-
 export function BibleProvider(props: ParentProps) {
-  // Use createResource to load services in background
-  const [services] = createResource(initBibleServices);
+  const runtime = useAppRuntime<AppServices>();
+  const runSync = Runtime.runSync(runtime);
+
+  // Get services from the app runtime (scope stays alive)
+  const [services] = createResource(async () => {
+    const data = await Runtime.runPromise(runtime)(BibleData);
+    const state = await Runtime.runPromise(runtime)(BibleState);
+    return { data, state };
+  });
 
   // Create sync wrapper that runs Effects synchronously
   // This works because the database connection is already open after init
@@ -74,11 +55,11 @@ export function BibleProvider(props: ParentProps) {
     }
 
     return {
-      getBooks: () => Effect.runSync(svc.data.getBooks()),
-      getBook: (n) => Effect.runSync(svc.data.getBook(n)),
-      getChapter: (b, c) => Effect.runSync(svc.data.getChapter(b, c)),
-      getVerse: (b, c, v) => Effect.runSync(svc.data.getVerse(b, c, v)),
-      searchVerses: (q, l) => Effect.runSync(svc.data.searchVerses(q, l)),
+      getBooks: () => runSync(svc.data.getBooks()),
+      getBook: (n) => runSync(svc.data.getBook(n)),
+      getChapter: (b, c) => runSync(svc.data.getChapter(b, c)),
+      getVerse: (b, c, v) => runSync(svc.data.getVerse(b, c, v)),
+      searchVerses: (q, l) => runSync(svc.data.searchVerses(q, l)),
       parseReference: (ref) => svc.data.parseReference(ref),
       getNextChapter: (b, c) => svc.data.getNextChapter(b, c),
       getPrevChapter: (b, c) => svc.data.getPrevChapter(b, c),
@@ -101,7 +82,20 @@ export function BibleProvider(props: ParentProps) {
     },
   };
 
-  return <BibleContext.Provider value={value}>{props.children}</BibleContext.Provider>;
+  return (
+    <BibleContext.Provider value={value}>
+      <Show
+        when={services()}
+        fallback={
+          <box>
+            <text>Loading...</text>
+          </box>
+        }
+      >
+        {props.children}
+      </Show>
+    </BibleContext.Provider>
+  );
 }
 
 export function useBible(): BibleContextValue {

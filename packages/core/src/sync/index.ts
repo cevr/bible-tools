@@ -9,3 +9,5 @@ export {
   type SyncResult,
   type SyncStatusSummary,
 } from './egw-sync.js';
+
+export { ensureBibleDb } from './bible-db-sync.js';

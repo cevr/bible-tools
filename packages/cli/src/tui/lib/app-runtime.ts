@@ -10,6 +10,7 @@ import { BibleService } from '@bible/core/bible-service';
 import { EGWParagraphDatabase } from '@bible/core/egw-db';
 import { EGWReaderService } from '@bible/core/egw-reader';
 import { EGWService } from '@bible/core/egw-service';
+import { ensureBibleDb } from '@bible/core/sync';
 import { BunContext } from '@effect/platform-bun';
 import { Effect, Layer, ManagedRuntime } from 'effect';
 
@@ -31,6 +32,17 @@ export type AppServices =
   | BibleDatabase;
 
 /**
+ * BibleDatabase layer that ensures bible.db is downloaded before connecting.
+ * Uses Layer.unwrapEffect to sequence: sync first, then build the real layer.
+ */
+const BibleDatabaseWithSync = Layer.unwrapEffect(
+  ensureBibleDb.pipe(
+    Effect.catchAll(() => Effect.void),
+    Effect.as(BibleDatabase.Default),
+  ),
+);
+
+/**
  * Combined app layer with all dependencies
  *
  * Layer composition order matters - dependencies go later in provideMerge chain.
@@ -46,7 +58,7 @@ export const AppLayer = Layer.mergeAll(
   EGWReaderService.Default,
 ).pipe(
   Layer.provideMerge(EGWParagraphDatabase.Default),
-  Layer.provideMerge(BibleDatabase.Default),
+  Layer.provideMerge(BibleDatabaseWithSync),
   Layer.provideMerge(BunContext.layer),
 );
 
