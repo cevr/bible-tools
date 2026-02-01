@@ -48,6 +48,7 @@ type TextSegment =
   | { type: 'highlight'; text: string }
   | { type: 'redLetter'; text: string }
   | { type: 'redLetterItalic'; text: string }
+  | { type: 'redLetterQuote'; text: string }
   | { type: 'margin'; noteIndex: number };
 
 /**
@@ -89,10 +90,9 @@ function applyRedLetterSegments(segments: TextSegment[]): TextSegment[] {
     const parts = segment.text.split(/(\u2039[^\u203A]*\u203A)/);
     for (const part of parts) {
       if (part.startsWith('\u2039') && part.endsWith('\u203A')) {
-        result.push({
-          type: 'redLetter',
-          text: '\u201C' + part.slice(1, -1) + '\u201D',
-        });
+        result.push({ type: 'redLetterQuote', text: '\u201C' });
+        result.push({ type: 'redLetter', text: part.slice(1, -1) });
+        result.push({ type: 'redLetterQuote', text: '\u201D' });
       } else if (part) {
         result.push({ type: 'text', text: part });
       }
@@ -274,7 +274,7 @@ export function Verse(props: VerseProps) {
               </span>
             );
           }
-          if (segment.type === 'redLetter') {
+          if (segment.type === 'redLetter' || segment.type === 'redLetterQuote') {
             return <span style={{ fg: theme().verseNumber }}>{segment.text}</span>;
           }
           return <span>{segment.text}</span>;
@@ -369,8 +369,17 @@ export function VerseParagraph(props: VerseParagraphProps) {
       <For each={parts.filter(Boolean)}>
         {(part) => {
           if (part.startsWith('\u2039') && part.endsWith('\u203A')) {
-            const replaced = '\u201C' + part.slice(1, -1) + '\u201D';
-            return renderItalicText(replaced, isHighlight, true);
+            const inner = part.slice(1, -1);
+            const quoteStyle = isHighlight
+              ? { fg: theme().background, bg: theme().warning }
+              : { fg: theme().verseNumber };
+            return (
+              <span>
+                <span style={quoteStyle}>{'\u201C'}</span>
+                {renderItalicText(inner, isHighlight, true)}
+                <span style={quoteStyle}>{'\u201D'}</span>
+              </span>
+            );
           }
           return renderItalicText(part, isHighlight, false);
         }}
