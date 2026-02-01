@@ -5,6 +5,8 @@ import { Array, Data, Effect, Option, Schema, Stream } from 'effect';
 import { join } from 'path';
 import { z } from 'zod';
 
+import { makeSyncCommand } from '~/src/lib/content/commands';
+import { SabbathSchoolConfig } from '~/src/lib/content/configs';
 import { SabbathSchoolFrontmatter } from '~/src/lib/content/schemas';
 import { parseFrontmatter, stringifyFrontmatter, updateFrontmatter } from '~/src/lib/frontmatter';
 import { msToMinutes } from '~/src/lib/general';
@@ -561,9 +563,9 @@ const exportQuarter = Command.make('export', { year, quarter, week }, ({ year, q
 
 export const sabbathSchool = Command.make('sabbath-school').pipe(
   Command.withSubcommands([
-    //
     processQuarter,
     reviseQuarter,
     exportQuarter,
+    makeSyncCommand(SabbathSchoolConfig),
   ]),
 );

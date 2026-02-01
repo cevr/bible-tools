@@ -5,7 +5,12 @@ import { Effect, Option } from 'effect';
 import { join } from 'path';
 
 import { StudiesConfig } from '~/src/lib/content/configs';
-import { makeListCommand, makeReviseCommand, makeExportCommand } from '~/src/lib/content/commands';
+import {
+  makeListCommand,
+  makeReviseCommand,
+  makeExportCommand,
+  makeSyncCommand,
+} from '~/src/lib/content/commands';
 import { StudyFrontmatter } from '~/src/lib/content/schemas';
 import { topic, noteId } from '~/src/lib/content/options';
 import { stringifyFrontmatter, updateFrontmatter } from '~/src/lib/frontmatter';
@@ -139,6 +144,7 @@ export const studies = Command.make('studies').pipe(
     generateStudy,
     generateFromNoteStudy,
     makeReviseCommand(StudiesConfig),
+    makeSyncCommand(StudiesConfig),
     makeListCommand(StudiesConfig),
     makeExportCommand(StudiesConfig),
   ]),

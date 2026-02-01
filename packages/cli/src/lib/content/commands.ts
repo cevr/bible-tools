@@ -44,3 +44,13 @@ export const makeExportCommand = <F extends Schema.Schema.AnyNoContext>(
       Effect.provide(ContentService.make(config)),
     ),
   );
+
+export const makeSyncCommand = <F extends Schema.Schema.AnyNoContext>(
+  config: ContentTypeConfig<F>,
+) =>
+  Command.make('sync', { files }, (args) =>
+    ContentService.pipe(
+      Effect.flatMap((service) => service.sync(args.files)),
+      Effect.provide(ContentService.make(config)),
+    ),
+  );

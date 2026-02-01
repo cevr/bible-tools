@@ -136,9 +136,8 @@ export const expectSequence = (actual: ServiceCall[], expected: Array<Partial<Se
     }
 
     if (!found) {
-      // Build a helpful error message
       const actualTags = actual.map((c) => c._tag).join(', ');
-      expect.fail(
+      throw new Error(
         `Expected call ${JSON.stringify(expectedCall)} not found in sequence.\n` +
           `Actual calls: [${actualTags}]`,
       );
@@ -194,13 +193,12 @@ export const expectContains = (actual: ServiceCall[], expected: Array<Partial<Se
     });
 
     if (!found) {
-      // Find calls with matching _tag to show more context
       const matchingCalls = actual.filter((c) => c._tag === expectedCall._tag);
       const actualSummary =
         matchingCalls.length > 0
           ? `Matching calls: ${JSON.stringify(matchingCalls, null, 2)}`
           : `All calls: ${JSON.stringify(actual.map((c) => c._tag))}`;
-      expect.fail(
+      throw new Error(
         `Expected call ${JSON.stringify(expectedCall)} not found in calls.\n` + actualSummary,
       );
     }

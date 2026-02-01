@@ -29,6 +29,7 @@ type ContentExportError =
   | PlatformError.PlatformError
   | MarkdownParseError
   | Cause.UnknownException;
+type ContentSyncError = PlatformError.PlatformError | MarkdownParseError | Cause.UnknownException;
 
 // Service interface with proper error/context types
 export class ContentService extends Context.Tag('@bible/cli/services/content/ContentService')<
@@ -43,6 +44,9 @@ export class ContentService extends Context.Tag('@bible/cli/services/content/Con
       filePaths: readonly string[],
       folder?: string,
     ) => Effect.Effect<void, ContentExportError, AppleScript>;
+    readonly sync: (
+      filePaths: readonly string[],
+    ) => Effect.Effect<void, ContentSyncError, AppleScript>;
   }
 >() {
   static make = <F extends Schema.Schema.AnyNoContext>(config: ContentTypeConfig<F>) =>
@@ -134,10 +138,37 @@ export class ContentService extends Context.Tag('@bible/cli/services/content/Con
             }
           });
 
+        const syncImpl = (filePaths: readonly string[]) =>
+          Effect.gen(function* () {
+            const targetFolder = config.notesFolder;
+
+            for (const filePath of filePaths) {
+              const rawContent = yield* fs
+                .readFile(filePath)
+                .pipe(Effect.map((i) => new TextDecoder().decode(i)));
+
+              const { frontmatter, content } = parseFrontmatter(rawContent);
+              const appleNoteId = frontmatter.apple_note_id;
+
+              if (typeof appleNoteId === 'string') {
+                yield* updateAppleNoteFromMarkdown(appleNoteId, content);
+                yield* Effect.log(`Synced (updated): ${filePath}`);
+              } else {
+                const { noteId } = yield* makeAppleNoteFromMarkdown(content, {
+                  folder: targetFolder,
+                });
+                const updated = updateFrontmatter(rawContent, { apple_note_id: noteId });
+                yield* fs.writeFile(filePath, new TextEncoder().encode(updated));
+                yield* Effect.log(`Synced (created): ${filePath} -> ${noteId}`);
+              }
+            }
+          });
+
         return ContentService.of({
           list,
           revise: reviseImpl,
           export: exportImpl,
+          sync: syncImpl,
         });
       }),
     );

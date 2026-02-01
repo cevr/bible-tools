@@ -1,4 +1,5 @@
-import { beforeEach, describe, expect, it } from 'bun:test';
+import { beforeEach, it } from 'bun:test';
+import { describe, expect } from 'effect-bun-test';
 
 import { sabbathSchool } from '../../src/commands/sabbath-school.js';
 import { expectCallCount, expectContains, expectNoCalls, runCli } from '../lib/run-cli.js';
@@ -257,6 +258,40 @@ describe('sabbath-school commands', () => {
       // No model calls since file doesn't exist
       expectNoCalls(result.calls, 'AI.generateText');
       expectNoCalls(result.calls, 'AI.generateObject');
+    });
+  });
+
+  describe('sync command', () => {
+    it('should update existing Apple Note when apple_note_id present', async () => {
+      const result = await runCli(sabbathSchool, ['sync', '--files', '/path/to/2024-Q1-W1.md'], {
+        files: {
+          files: {
+            '/path/to/2024-Q1-W1.md':
+              '---\ncreated_at: "2024-01-01"\nyear: 2024\nquarter: 1\nweek: 1\napple_note_id: "note-123"\n---\n\n# Outline\n\nContent...',
+          },
+        },
+      });
+
+      expect(result.success).toBe(true);
+      expectContains(result.calls, [{ _tag: 'FileSystem.readFile' }, { _tag: 'AppleScript.exec' }]);
+    });
+
+    it('should create new Apple Note and write ID back when no apple_note_id', async () => {
+      const result = await runCli(sabbathSchool, ['sync', '--files', '/path/to/2024-Q1-W1.md'], {
+        files: {
+          files: {
+            '/path/to/2024-Q1-W1.md':
+              '---\ncreated_at: "2024-01-01"\nyear: 2024\nquarter: 1\nweek: 1\n---\n\n# Outline\n\nContent...',
+          },
+        },
+      });
+
+      expect(result.success).toBe(true);
+      expectContains(result.calls, [
+        { _tag: 'FileSystem.readFile' },
+        { _tag: 'AppleScript.exec' },
+        { _tag: 'FileSystem.writeFile' },
+      ]);
     });
   });
 

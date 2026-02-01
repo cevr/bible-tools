@@ -5,7 +5,12 @@ import { Data, Effect, Option, Schedule } from 'effect';
 import { join } from 'path';
 
 import { MessagesConfig } from '~/src/lib/content/configs';
-import { makeListCommand, makeReviseCommand, makeExportCommand } from '~/src/lib/content/commands';
+import {
+  makeListCommand,
+  makeReviseCommand,
+  makeExportCommand,
+  makeSyncCommand,
+} from '~/src/lib/content/commands';
 import { MessageFrontmatter } from '~/src/lib/content/schemas';
 import { topic, noteId, dryRun } from '~/src/lib/content/options';
 import { parseFrontmatter, stringifyFrontmatter, updateFrontmatter } from '~/src/lib/frontmatter';
@@ -184,7 +189,7 @@ const generateTopic = Command.make('generate-topic', { model: requiredModel }, (
   }),
 ).pipe(Command.provide((args) => AI.fromModel(args.model)));
 
-const syncMessages = Command.make('sync', { dryRun }, (args) =>
+const syncMessages = Command.make('link', { dryRun }, (args) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
 
@@ -270,6 +275,7 @@ export const messages = Command.make('messages').pipe(
     generateTopic,
     syncMessages,
     makeReviseCommand(MessagesConfig),
+    makeSyncCommand(MessagesConfig),
     makeListCommand(MessagesConfig),
     makeExportCommand(MessagesConfig),
   ]),

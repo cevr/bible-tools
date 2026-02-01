@@ -96,7 +96,40 @@ apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1374'
 
 [DYK🔎] Law given at Sinai exactly fifty days after Exodus — parallels Pentecost, fifty days after resurrection. Sinai: law on stone tablets. Pentecost: law on human hearts (Jer 31:33). External law pointed to internal transformation God always intended.
 
-[→] sin created two problems for humanity
+[→] this new reality was tested immediately — in the very first family
+
+---
+
+## Recap — The First Test: Cain and Abel
+
+- in our last study we saw Cain and Abel as the first visible distinction between two approaches to God
+- after the Fall, every human faces the same choice they faced
+- **two classes of people — two religions — persist to this day**
+
+### Abel — Faith and Obedience (Genesis 4:4)
+
+- brought a lamb — "firstlings of the flock"
+- recognized he was a sinner needing a substitute
+- followed God's requirement to the letter
+- accepted that the problem was IN him and the solution had to come from OUTSIDE him
+- [→] this is the posture that receives transformation — the one who says "I cannot fix myself"
+
+### Cain — Self-Effort and Human Judgment (Genesis 4:3)
+
+- brought "fruit of the ground" — product of his own labor on the cursed earth
+- substituted his own judgment for God's explicit requirement
+- offered God the work of his own hands
+- represents those who believe they can meet the standard on their own terms
+- [→] Cain offered "self" — the very principle that replaced love after the Fall
+
+[ILL] Two patients with the same deadly disease. One admits he is helpless and takes the doctor's prescribed medicine — he is cured. The other insists he can heal himself with his own remedies — he gets worse. The second patient hates the first, because the first man's cure exposes the second man's failure. Cain hated Abel because Abel's faith exposed Cain's self-reliance.
+
+- **these two responses define every person's stance before God**
+  - every religion, every era, every individual
+  - God's way (faith + obedience) or my way (self-effort + human reasoning)
+  - this is not an ancient story — it is the ongoing human condition
+
+[→] Cain's failure exposes the two problems every human faces
 
 ---
 
@@ -263,6 +296,7 @@ apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1374'
 - **before sin, law didn't need codification** — unfallen beings naturally love
 - **sin fundamentally changed humanity** — cannot consistently do good (Rom 7:18-19)
 - **law had to become external** — Sinai was gracious response to broken internal nature
+- **Cain and Abel represent two universal responses to God's law** — self-effort and human judgment (Cain) vs. faith and obedience to God's requirements (Abel); these two classes persist in every era (Gen 4:3-4)
 - **two problems**: sin leads to death; we cannot stop sinning
 - **Christ addresses both together** — paralytic's healing, adulteress's pardon
 - **God most interested in Problem 2** — forgiveness alone cannot prepare for His presence (Exod 33:20; Heb 12:14)

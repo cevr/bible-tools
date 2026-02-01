@@ -4,7 +4,12 @@ import { Effect, Option, pipe } from 'effect';
 import { join } from 'path';
 
 import { ReadingsConfig } from '~/src/lib/content/configs';
-import { makeListCommand, makeReviseCommand, makeExportCommand } from '~/src/lib/content/commands';
+import {
+  makeListCommand,
+  makeReviseCommand,
+  makeExportCommand,
+  makeSyncCommand,
+} from '~/src/lib/content/commands';
 import { ReadingFrontmatter, type ReadingType } from '~/src/lib/content/schemas';
 import { parseFrontmatter, stringifyFrontmatter, updateFrontmatter } from '~/src/lib/frontmatter';
 import { matchArrayEnum, msToMinutes, spin } from '~/src/lib/general';
@@ -385,6 +390,7 @@ export const readings = Command.make('readings').pipe(
   Command.withSubcommands([
     processChapters,
     makeReviseCommand(ReadingsConfig),
+    makeSyncCommand(ReadingsConfig),
     makeListCommand(ReadingsConfig),
     makeExportCommand(ReadingsConfig),
   ]),
