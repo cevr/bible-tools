@@ -44,9 +44,36 @@ function toSuperscript(n: number): string {
 
 type TextSegment =
   | { type: 'text'; text: string }
+  | { type: 'italic'; text: string }
   | { type: 'highlight'; text: string }
   | { type: 'redLetter'; text: string }
+  | { type: 'redLetterItalic'; text: string }
   | { type: 'margin'; noteIndex: number };
+
+/**
+ * Split text segments on [brackets] into italic segments.
+ * KJV uses square brackets to denote words added by translators for clarity.
+ * Handles both 'text' → 'italic' and 'redLetter' → 'redLetterItalic'.
+ */
+function applyItalicSegments(segments: TextSegment[]): TextSegment[] {
+  const result: TextSegment[] = [];
+  for (const segment of segments) {
+    if (segment.type !== 'text' && segment.type !== 'redLetter') {
+      result.push(segment);
+      continue;
+    }
+    const italicType = segment.type === 'redLetter' ? 'redLetterItalic' : 'italic';
+    const parts = segment.text.split(/(\[[^\]]+\])/);
+    for (const part of parts) {
+      if (part.startsWith('[') && part.endsWith(']')) {
+        result.push({ type: italicType, text: part.slice(1, -1) });
+      } else if (part) {
+        result.push({ type: segment.type, text: part });
+      }
+    }
+  }
+  return result;
+}
 
 /**
  * Split text segments on ‹› (single angle quotation marks) into redLetter segments.
@@ -174,17 +201,17 @@ function segmentVerseText(
       }
     }
 
-    return applyRedLetterSegments(finalSegments);
+    return applyItalicSegments(applyRedLetterSegments(finalSegments));
   }
 
-  return applyRedLetterSegments(segments);
+  return applyItalicSegments(applyRedLetterSegments(segments));
 }
 
 export function Verse(props: VerseProps) {
   const { theme } = useTheme();
 
-  // Clean up verse text (remove pilcrow and brackets)
-  const cleanText = () => props.verse.text.replace(/^\u00b6\s*/, '').replace(/\[([^\]]+)\]/g, '$1');
+  // Clean up verse text (remove pilcrow, preserve brackets for italic rendering)
+  const cleanText = () => props.verse.text.replace(/^\u00b6\s*/, '');
 
   const segments = createMemo(() =>
     segmentVerseText(cleanText(), props.marginNotes ?? [], props.searchQuery),
@@ -237,6 +264,16 @@ export function Verse(props: VerseProps) {
               </span>
             );
           }
+          if (segment.type === 'italic') {
+            return <i>{segment.text}</i>;
+          }
+          if (segment.type === 'redLetterItalic') {
+            return (
+              <span style={{ fg: theme().verseNumber }}>
+                <i>{segment.text}</i>
+              </span>
+            );
+          }
           if (segment.type === 'redLetter') {
             return <span style={{ fg: theme().verseNumber }}>{segment.text}</span>;
           }
@@ -284,21 +321,30 @@ interface VerseParagraphProps {
 export function VerseParagraph(props: VerseParagraphProps) {
   const { theme } = useTheme();
 
-  const renderRedLetterText = (text: string, isHighlight: boolean) => {
-    const parts = text.split(/(\u2039[^\u203A]*\u203A)/);
+  const renderItalicText = (text: string, isHighlight: boolean, isRedLetter: boolean) => {
+    const bracketParts = text.split(/(\[[^\]]+\])/);
     return (
-      <For each={parts.filter(Boolean)}>
+      <For each={bracketParts.filter(Boolean)}>
         {(part) => {
-          if (part.startsWith('\u2039') && part.endsWith('\u203A')) {
-            const replaced = '\u201C' + part.slice(1, -1) + '\u201D';
+          if (part.startsWith('[') && part.endsWith(']')) {
+            const inner = part.slice(1, -1);
             if (isHighlight) {
               return (
                 <span style={{ fg: theme().background, bg: theme().warning }}>
-                  <strong>{replaced}</strong>
+                  <strong>
+                    <i>{inner}</i>
+                  </strong>
                 </span>
               );
             }
-            return <span style={{ fg: theme().verseNumber }}>{replaced}</span>;
+            if (isRedLetter) {
+              return (
+                <span style={{ fg: theme().verseNumber }}>
+                  <i>{inner}</i>
+                </span>
+              );
+            }
+            return <i>{inner}</i>;
           }
           if (isHighlight) {
             return (
@@ -307,7 +353,26 @@ export function VerseParagraph(props: VerseParagraphProps) {
               </span>
             );
           }
+          if (isRedLetter) {
+            return <span style={{ fg: theme().verseNumber }}>{part}</span>;
+          }
           return <span>{part}</span>;
+        }}
+      </For>
+    );
+  };
+
+  const renderRedLetterText = (text: string, isHighlight: boolean) => {
+    // Split on red-letter delimiters first, then handle brackets within each part
+    const parts = text.split(/(\u2039[^\u203A]*\u203A)/);
+    return (
+      <For each={parts.filter(Boolean)}>
+        {(part) => {
+          if (part.startsWith('\u2039') && part.endsWith('\u203A')) {
+            const replaced = '\u201C' + part.slice(1, -1) + '\u201D';
+            return renderItalicText(replaced, isHighlight, true);
+          }
+          return renderItalicText(part, isHighlight, false);
         }}
       </For>
     );
@@ -354,7 +419,7 @@ export function VerseParagraph(props: VerseParagraphProps) {
       <text fg={theme().verseText} wrapMode="word">
         <For each={props.verses}>
           {(verse, index) => {
-            const cleanText = verse.text.replace(/^\u00b6\s*/, '').replace(/\[([^\]]+)\]/g, '$1');
+            const cleanText = verse.text.replace(/^\u00b6\s*/, '');
 
             const isHighlighted = () => props.highlightedVerse === verse.verse;
             const isSearchMatch = () => props.searchMatchVerses?.includes(verse.verse) ?? false;
