@@ -52,7 +52,7 @@ apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p750'
 ## Introduction — The Journey's End Demands a Decision (5 min)
 
 - Series recap in one sentence each:
-  - Part 1: Sanctuary = God dwelling with man (Exodus 25:8)
+  - Part 1: Humans created as witnesses to answer Satan's charges against God's character (Eph 3:10; Job 1:9–11)
   - Part 2: Christ IS the sanctuary fulfilled (John 2:19–21)
   - Part 3: Paganism counterfeited every truth (Dan 8:11–12)
   - Part 4: Prophecy exposed the counterfeit, 1844 began judgment (Dan 8:14)
@@ -65,29 +65,46 @@ apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p750'
 
 ## Section 1 — What God Is Waiting For (7 min)
 
-### A. The Perfecting Work of Christ
+### A. God Waits for a Rebuke to the Accuser
+
+- Job 1:9–11 — Satan's original charge: Job serves God only for blessing
+  - "Doth Job fear God for nought?"
+  - Accusation: God's people are self-interested, not genuinely loyal
+  - [WB]: SATAN'S CHARGE: "They only serve You for reward" (Job 1:9–11)
+- Revelation 12:10 — The accuser still active, accusing brethren day and night
+  - Same charges from Eden, from Job, still pressed in heaven's court
+- Ephesians 3:10 — Principalities and powers learn God's wisdom through the church
+  - This is why we were created: witnesses in the cosmic controversy
+  - The church is the answer to Satan's accusations
+- [RQ]: If Satan still accuses God's people, who will silence him? (Rev 12:10)
+- Job's faithfulness answered the accusation — "Though He slay me, yet will I trust Him" (Job 13:15)
+  - [WB]: JOB PATTERN: Accusation → Test → Faithfulness → Satan Rebuked
+- The 144,000 are the ultimate answer to Satan — final generation under final pressure
+- [EB]: Revelation 12:11 — They overcame by blood of Lamb and word of testimony
+
+### B. Christ's Perfecting Work Produces the Rebuke
 
 - Hebrews 10:12–14 — One sacrifice, ongoing perfecting of the sanctified
-  - "Perfected" = character completion, not sinless perfection claimed
-  - [WB]: Cross (DONE) → Intercession (NOW) → Perfected saints (GOAL) (Heb 10:14)
+  - "Perfected" = character completion that answers Satan's charges
+  - [WB]: Cross (DONE) → Intercession (NOW) → Perfected saints (REBUKE TO SATAN) (Heb 10:14)
 - 2 Corinthians 3:18 — Changed into same image, glory to glory
   - Sanctuary goal: God's image restored in man
-- [RQ]: What is Christ's intercession accomplishing in His people right now? (Heb 10:14)
-
-### B. Christ Waiting for His Image Reproduced
-
 - [EGW]: "Christ is waiting with longing desire for the manifestation of Himself in His church. When the character of Christ shall be perfectly reproduced in His people, then He will come to claim them as His own." (COL 69.1)
 - Genesis 1:26–27 connected to Revelation 14:1 — Image of God → Name of Father in forehead
   - [WB]: Gen 1:26 "Image of God" = Rev 14:1 "Father's name in foreheads"
-- Character = the issue; not numbers, not programs, not institutions
-- [Aside]: A photograph develops gradually — features emerge until the image is complete. So God's character emerges in His people until Christ recognizes His own reflection.
+- Character reproduction is the vindication Satan fears
+  - When God's people love Him for Himself alone, Satan's case collapses
+- [Aside]: A photograph develops gradually — features emerge until the image is complete. So God's character emerges in His people until Christ recognizes His own reflection — and Satan's lies are exposed.
 
 ### C. Why Delay?
 
 - 2 Peter 3:9 — Not willing any should perish
-- But also: Not willing to claim an incomplete harvest
+- But also: The rebuke is not yet complete
+  - The case against Satan must be fully answered before judgment closes
+  - God will not close the court until the evidence is in
 - [EB]: Malachi 3:2–3 — He shall sit as a refiner, purifying sons of Levi
 - [EB]: James 5:7 — Farmer waits for precious fruit with patience
+- [RQ]: What is Christ's intercession accomplishing in His people right now? (Heb 10:14)
 
 ---
 
