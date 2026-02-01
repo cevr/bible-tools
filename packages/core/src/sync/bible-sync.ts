@@ -444,6 +444,18 @@ async function syncBible(force: boolean): Promise<void> {
   // Close database
   db.close();
 
+  // Copy to runtime location (~/.bible/bible.db)
+  const homeDir = process.env.HOME ?? process.env.USERPROFILE;
+  if (homeDir) {
+    const runtimeDir = path.join(homeDir, '.bible');
+    const runtimeDbPath = path.join(runtimeDir, 'bible.db');
+    if (!fs.existsSync(runtimeDir)) {
+      fs.mkdirSync(runtimeDir, { recursive: true });
+    }
+    fs.copyFileSync(DB_PATH, runtimeDbPath);
+    console.log(`\nCopied to runtime location: ${runtimeDbPath}`);
+  }
+
   // Report final size
   const stats = fs.statSync(DB_PATH);
   const sizeMB = (stats.size / 1024 / 1024).toFixed(2);
