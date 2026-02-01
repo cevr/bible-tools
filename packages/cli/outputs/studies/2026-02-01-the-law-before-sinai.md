@@ -41,6 +41,12 @@ apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1374'
   - love to God (commandments 1-4)
   - love to fellow beings (commandments 5-10)
 
+- **Jesus confirmed this directly** (Matt 19:16-17)
+  - rich young ruler: "what good thing shall I do, that I may have eternal life?"
+  - Jesus's answer: "keep the commandments" — then lists love-to-neighbor commands (vv. 18-19)
+  - when asked "which commandments lead to life?" Jesus points to love
+  - [→] in Jesus's own words, eternal life and love-commandments are inseparable
+
 [DYK🔎] Hebrew "torah" doesn't mean "rules" — means "instruction, teaching." God's law was always loving instruction, not arbitrary restriction.
 
 - **God IS love** (1 John 4:8)
@@ -293,6 +299,7 @@ apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1374'
 ## Key Truths
 
 - **law IS love** — God's character in relational principles (Matt 22:37-40; 1 John 4:8)
+- **Jesus equates eternal life with commandment-keeping** — "if thou wilt enter into life, keep the commandments" (Matt 19:17); then lists love-to-neighbor commands
 - **before sin, law didn't need codification** — unfallen beings naturally love
 - **sin fundamentally changed humanity** — cannot consistently do good (Rom 7:18-19)
 - **law had to become external** — Sinai was gracious response to broken internal nature
