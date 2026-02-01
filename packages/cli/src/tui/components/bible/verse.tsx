@@ -1,5 +1,5 @@
 // @effect-diagnostics strictBooleanExpressions:off
-import { createMemo, For, Show } from 'solid-js';
+import { createMemo, For } from 'solid-js';
 
 import type { Verse as VerseType } from '../../../data/bible/types.js';
 import type { MarginNoteCompat as MarginNote, WordWithStrongs } from '../../context/study-data.js';
@@ -45,7 +45,34 @@ function toSuperscript(n: number): string {
 type TextSegment =
   | { type: 'text'; text: string }
   | { type: 'highlight'; text: string }
+  | { type: 'redLetter'; text: string }
   | { type: 'margin'; noteIndex: number };
+
+/**
+ * Split text segments on ‹› (single angle quotation marks) into redLetter segments.
+ * Replaces ‹ with \u201C and › with \u201D in the rendered text.
+ */
+function applyRedLetterSegments(segments: TextSegment[]): TextSegment[] {
+  const result: TextSegment[] = [];
+  for (const segment of segments) {
+    if (segment.type !== 'text') {
+      result.push(segment);
+      continue;
+    }
+    const parts = segment.text.split(/(\u2039[^\u203A]*\u203A)/);
+    for (const part of parts) {
+      if (part.startsWith('\u2039') && part.endsWith('\u203A')) {
+        result.push({
+          type: 'redLetter',
+          text: '\u201C' + part.slice(1, -1) + '\u201D',
+        });
+      } else if (part) {
+        result.push({ type: 'text', text: part });
+      }
+    }
+  }
+  return result;
+}
 
 /**
  * Split verse text into segments with margin note superscripts inserted after matching phrases.
@@ -147,10 +174,10 @@ function segmentVerseText(
       }
     }
 
-    return finalSegments;
+    return applyRedLetterSegments(finalSegments);
   }
 
-  return segments;
+  return applyRedLetterSegments(segments);
 }
 
 export function Verse(props: VerseProps) {
@@ -210,6 +237,9 @@ export function Verse(props: VerseProps) {
               </span>
             );
           }
+          if (segment.type === 'redLetter') {
+            return <span style={{ fg: theme().verseNumber }}>{segment.text}</span>;
+          }
           return <span>{segment.text}</span>;
         }}
       </For>
@@ -254,9 +284,38 @@ interface VerseParagraphProps {
 export function VerseParagraph(props: VerseParagraphProps) {
   const { theme } = useTheme();
 
+  const renderRedLetterText = (text: string, isHighlight: boolean) => {
+    const parts = text.split(/(\u2039[^\u203A]*\u203A)/);
+    return (
+      <For each={parts.filter(Boolean)}>
+        {(part) => {
+          if (part.startsWith('\u2039') && part.endsWith('\u203A')) {
+            const replaced = '\u201C' + part.slice(1, -1) + '\u201D';
+            if (isHighlight) {
+              return (
+                <span style={{ fg: theme().background, bg: theme().warning }}>
+                  <strong>{replaced}</strong>
+                </span>
+              );
+            }
+            return <span style={{ fg: theme().verseNumber }}>{replaced}</span>;
+          }
+          if (isHighlight) {
+            return (
+              <span style={{ fg: theme().background, bg: theme().warning }}>
+                <strong>{part}</strong>
+              </span>
+            );
+          }
+          return <span>{part}</span>;
+        }}
+      </For>
+    );
+  };
+
   const renderTextWithHighlights = (text: string, query: string | undefined) => {
     if (!query || query.length < 2) {
-      return <span>{text}</span>;
+      return renderRedLetterText(text, false);
     }
 
     const segments: Array<{ text: string; highlight: boolean }> = [];
@@ -282,19 +341,11 @@ export function VerseParagraph(props: VerseParagraphProps) {
     }
 
     if (segments.length === 0) {
-      return <span>{text}</span>;
+      return renderRedLetterText(text, false);
     }
 
     return (
-      <For each={segments}>
-        {(segment) => (
-          <Show when={segment.highlight} fallback={<span>{segment.text}</span>}>
-            <span style={{ fg: theme().background, bg: theme().warning }}>
-              <strong>{segment.text}</strong>
-            </span>
-          </Show>
-        )}
-      </For>
+      <For each={segments}>{(segment) => renderRedLetterText(segment.text, segment.highlight)}</For>
     );
   };
 

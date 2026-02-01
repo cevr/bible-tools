@@ -2,7 +2,7 @@
 /**
  * Clean Bible Assets
  *
- * One-time cleanup of HTML entities in JSON source files.
+ * One-time cleanup of encoding issues in JSON source files.
  * Run: bun run packages/core/scripts/clean-assets.ts
  */
 
@@ -15,20 +15,21 @@ function decodeHtmlEntities(text: string): string {
   return text.replace(/&#(\d+)/g, (_, code) => String.fromCharCode(parseInt(code, 10)));
 }
 
-// Clean strongs.json
+// Clean strongs.json — HTML entities in definitions
 const strongsPath = path.join(ASSETS_DIR, 'strongs.json');
 console.log('Cleaning strongs.json...');
 const strongs = JSON.parse(fs.readFileSync(strongsPath, 'utf-8'));
 
-let fixed = 0;
-for (const [key, entry] of Object.entries<{ lemma: string; xlit?: string; def: string }>(strongs)) {
+let strongsFixed = 0;
+for (const [, entry] of Object.entries<{ lemma: string; xlit?: string; def: string }>(strongs)) {
   const cleaned = decodeHtmlEntities(entry.def);
   if (cleaned !== entry.def) {
     entry.def = cleaned;
-    fixed++;
+    strongsFixed++;
   }
 }
 
 fs.writeFileSync(strongsPath, JSON.stringify(strongs, null, 2) + '\n');
-console.log(`  Fixed ${fixed} entries`);
+console.log(`  Fixed ${strongsFixed} definitions`);
+
 console.log('Done');
