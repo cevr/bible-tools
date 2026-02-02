@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@effect/language-service": "catalog:",
-    "@playwright/test": "^1.58.0",
+    "@playwright/test": "^1.58.1",
     "@tailwindcss/vite": "^4.1.18",
     "@types/bun": "catalog:",
     "concurrently": "^9.2.1",
