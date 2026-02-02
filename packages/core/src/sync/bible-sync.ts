@@ -184,7 +184,7 @@ function parseVerseKey(key: string): { book: number; chapter: number; verse: num
   const parts = key.split('.');
   if (parts.length !== 3) return null;
   const [bookStr, chapterStr, verseStr] = parts;
-  if (!bookStr || !chapterStr || !verseStr) return null;
+  if (bookStr === undefined || chapterStr === undefined || verseStr === undefined) return null;
   return {
     book: parseInt(bookStr, 10),
     chapter: parseInt(chapterStr, 10),
@@ -282,7 +282,7 @@ async function syncBible(force: boolean): Promise<void> {
     db.transaction(() => {
       for (const [key, data] of batch) {
         const source = parseVerseKey(key);
-        if (!source) continue;
+        if (source === null) continue;
         for (const ref of data.refs) {
           insertCrossRef.run(
             source.book,
@@ -346,8 +346,8 @@ async function syncBible(force: boolean): Promise<void> {
       for (const verseData of batch) {
         for (let wordIdx = 0; wordIdx < verseData.words.length; wordIdx++) {
           const word = verseData.words[wordIdx];
-          if (!word) continue;
-          const strongsJson = word.strongs ? JSON.stringify(word.strongs) : null;
+          if (word === undefined) continue;
+          const strongsJson = word.strongs !== undefined ? JSON.stringify(word.strongs) : null;
           insertVerseWord.run(
             verseData.book,
             verseData.chapter,
@@ -359,7 +359,7 @@ async function syncBible(force: boolean): Promise<void> {
           verseWordCount++;
 
           // Build inverted index
-          if (word.strongs) {
+          if (word.strongs !== undefined) {
             for (const num of word.strongs) {
               insertStrongsVerse.run(
                 num.toUpperCase(),
@@ -398,10 +398,10 @@ async function syncBible(force: boolean): Promise<void> {
     db.transaction(() => {
       for (const [key, notes] of batch) {
         const source = parseVerseKey(key);
-        if (!source) continue;
+        if (source === null) continue;
         for (let noteIdx = 0; noteIdx < notes.length; noteIdx++) {
           const note = notes[noteIdx];
-          if (!note) continue;
+          if (note === undefined) continue;
           insertMarginNote.run(
             source.book,
             source.chapter,
@@ -446,7 +446,7 @@ async function syncBible(force: boolean): Promise<void> {
 
   // Copy to runtime location (~/.bible/bible.db)
   const homeDir = process.env.HOME ?? process.env.USERPROFILE;
-  if (homeDir) {
+  if (homeDir !== undefined) {
     const runtimeDir = path.join(homeDir, '.bible');
     const runtimeDbPath = path.join(runtimeDir, 'bible.db');
     if (!fs.existsSync(runtimeDir)) {
@@ -464,14 +464,18 @@ async function syncBible(force: boolean): Promise<void> {
   console.log(`Size: ${sizeMB} MB`);
 }
 
+export { syncBible };
+
 // ============================================================================
-// CLI Entry Point
+// CLI Entry Point (when run directly)
 // ============================================================================
 
-const args = process.argv.slice(2);
-const force = args.includes('--force');
+if (import.meta.main) {
+  const args = process.argv.slice(2);
+  const force = args.includes('--force');
 
-syncBible(force).catch((err) => {
-  console.error('Sync failed:', err);
-  process.exit(1);
-});
+  syncBible(force).catch((err) => {
+    console.error('Sync failed:', err);
+    process.exit(1);
+  });
+}

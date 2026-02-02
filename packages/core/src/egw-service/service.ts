@@ -190,8 +190,8 @@ export class EGWService extends Context.Tag('@bible/core/egw-service/service/EGW
                 p.element_type === 'title',
             )?.content ?? null;
 
-          // Calculate total pages
-          const totalPages = Math.ceil(book.paragraph_count / 10) || 1;
+          // Get actual max page from database
+          const totalPages = yield* db.getMaxPage(book.book_id);
 
           return new EGWPageResponse({
             book: new EGWBook({
@@ -239,9 +239,9 @@ export class EGWService extends Context.Tag('@bible/core/egw-service/service/EGW
       const search = (
         query: string,
         limit: number = 50,
-        _bookCode?: string,
+        bookCode?: string,
       ): Effect.Effect<readonly EGWSearchResult[], ParagraphDatabaseError> =>
-        db.searchParagraphs(query, limit).pipe(
+        db.searchParagraphs(query, limit, bookCode).pipe(
           Effect.map((results) =>
             results.map(
               (r) =>
@@ -251,7 +251,7 @@ export class EGWService extends Context.Tag('@bible/core/egw-service/service/EGW
                   content: r.content ?? null,
                   puborder: r.puborder,
                   bookCode: r.bookCode,
-                  bookTitle: r.bookCode, // We don't have title in search results
+                  bookTitle: r.bookTitle,
                 }),
             ),
           ),

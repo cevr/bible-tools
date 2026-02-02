@@ -1,63 +1,60 @@
 import { describe, expect, it } from 'bun:test';
 
-import { egw, egwOpen, egwWithSubcommands } from '../../src/commands/egw.js';
+import { egwOpen, egwWithSubcommands } from '../../src/commands/egw.js';
 import { runCli } from '../lib/run-cli.js';
 
 describe('egw commands', () => {
   describe('egw command', () => {
     it('should show help when no query provided', async () => {
-      const result = await runCli(egw, []);
+      const result = await runCli(egwWithSubcommands, []);
 
       expect(result.success).toBe(true);
-      // Command outputs help text
     });
 
     it('should parse single paragraph reference', async () => {
-      const result = await runCli(egw, ['PP', '351.1']);
+      const result = await runCli(egwWithSubcommands, ['PP', '351.1']);
 
       expect(result.success).toBe(true);
-      // Output includes parsed reference info
     });
 
     it('should parse paragraph range reference', async () => {
-      const result = await runCli(egw, ['PP', '351.1-5']);
+      const result = await runCli(egwWithSubcommands, ['PP', '351.1-5']);
 
       expect(result.success).toBe(true);
     });
 
     it('should parse page reference', async () => {
-      const result = await runCli(egw, ['PP', '351']);
+      const result = await runCli(egwWithSubcommands, ['PP', '351']);
 
       expect(result.success).toBe(true);
     });
 
     it('should parse page range reference', async () => {
-      const result = await runCli(egw, ['PP', '351-355']);
+      const result = await runCli(egwWithSubcommands, ['PP', '351-355']);
 
       expect(result.success).toBe(true);
     });
 
     it('should parse book reference', async () => {
-      const result = await runCli(egw, ['PP']);
+      const result = await runCli(egwWithSubcommands, ['PP']);
 
       expect(result.success).toBe(true);
     });
 
     it('should handle numbered book codes', async () => {
-      const result = await runCli(egw, ['1BC', '1111.2']);
+      const result = await runCli(egwWithSubcommands, ['1BC', '1111.2']);
 
       expect(result.success).toBe(true);
     });
 
     it('should handle search queries', async () => {
-      const result = await runCli(egw, ['great', 'controversy']);
+      const result = await runCli(egwWithSubcommands, ['great', 'controversy']);
 
       expect(result.success).toBe(true);
-      // Falls back to search
     });
 
     it('should handle quoted reference', async () => {
-      const result = await runCli(egw, ['PP 351.1']);
+      const result = await runCli(egwWithSubcommands, ['PP 351.1']);
 
       expect(result.success).toBe(true);
     });

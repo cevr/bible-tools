@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import type { LanguageModel } from 'ai';
-import { generateObject as aiGenerateObject, generateText as aiGenerateText } from 'ai';
-import { Context, Effect, Layer, Option, Schema } from 'effect';
-import type { Schema as ZodSchema, infer as ZodInfer } from 'zod';
+import type { LanguageModel, ModelMessage } from 'ai';
+import { generateObject as aiGenerateObject, generateText as aiGenerateText, jsonSchema } from 'ai';
+import { Context, Effect, JSONSchema, Layer, Option, Schema } from 'effect';
 
 import { Model } from './model';
 
@@ -22,21 +20,41 @@ export type ModelService = {
 interface GenerateTextOptions {
   model?: Quality;
   system?: string;
-  messages: Array<{ role: string; content: unknown }>;
+  messages: Array<ModelMessage>;
   maxOutputTokens?: number;
 }
 
-interface GenerateObjectOptions<T extends ZodSchema> {
+interface GenerateObjectOptions<A, I, R> {
   model?: Quality;
-  messages: Array<{ role: string; content: unknown }>;
-  schema: T;
+  messages: Array<ModelMessage>;
+  schema: Schema.Schema<A, I, R>;
 }
 
 export interface AIService {
   readonly generateText: (options: GenerateTextOptions) => Effect.Effect<{ text: string }, AIError>;
-  readonly generateObject: <T extends ZodSchema>(
-    options: GenerateObjectOptions<T>,
-  ) => Effect.Effect<{ object: ZodInfer<T> }, AIError>;
+  readonly generateObject: <A>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- I (encoded type) is irrelevant; we only decode from unknown
+    options: GenerateObjectOptions<A, any, never>,
+  ) => Effect.Effect<{ object: A }, AIError>;
+}
+
+/**
+ * Convert an Effect Schema to an AI SDK schema.
+ * Uses JSONSchema.make for the JSON schema and Schema.decodeUnknownSync for validation.
+ */
+function toAISchema<A, I>(schema: Schema.Schema<A, I, never>) {
+  const js = JSONSchema.make(schema);
+  const decode = Schema.decodeUnknownSync(schema);
+  return jsonSchema<A>(js, {
+    validate: (value) => {
+      try {
+        const result = decode(value);
+        return { success: true, value: result } as const;
+      } catch (e) {
+        return { success: false, error: e instanceof Error ? e : new Error(String(e)) } as const;
+      }
+    },
+  });
 }
 
 export class AI extends Context.Tag('@bible/cli/services/ai')<AI, AIService>() {
@@ -78,7 +96,7 @@ export class AI extends Context.Tag('@bible/cli/services/ai')<AI, AIService>() {
             const result = await aiGenerateText({
               model: getModel(options.model),
               system: options.system,
-              messages: options.messages as any,
+              messages: options.messages,
               maxOutputTokens: options.maxOutputTokens,
             });
             return { text: result.text };
@@ -90,15 +108,19 @@ export class AI extends Context.Tag('@bible/cli/services/ai')<AI, AIService>() {
             }),
         }),
 
-      generateObject: (options) =>
+      generateObject: <A>(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- I (encoded type) is irrelevant; we only decode from unknown
+        options: GenerateObjectOptions<A, any, never>,
+      ) =>
         Effect.tryPromise({
           try: async () => {
+            const aiSchema = toAISchema(options.schema);
             const result = await aiGenerateObject({
               model: getModel(options.model),
-              messages: options.messages as any,
-              schema: options.schema,
-            } as any);
-            return { object: result.object as ZodInfer<typeof options.schema> };
+              messages: options.messages,
+              schema: aiSchema,
+            });
+            return { object: result.object };
           },
           catch: (error) =>
             new AIError({

@@ -3,7 +3,6 @@ import { FileSystem } from '@effect/platform';
 import * as cheerio from 'cheerio';
 import { Array, Data, Effect, Option, Schema, Stream } from 'effect';
 import { join } from 'path';
-import { z } from 'zod';
 
 import { makeSyncCommand } from '~/src/lib/content/commands';
 import { SabbathSchoolConfig } from '~/src/lib/content/configs';
@@ -196,16 +195,17 @@ const reviseOutline = Effect.fn('reviseOutline')(function* (
         { role: 'system', content: reviewCheckSystemPrompt },
         { role: 'user', content: reviewCheckUserPrompt(text) },
       ],
-      schema: z.object({
-        needsRevision: z.boolean().describe('Whether the outline needs revision'),
-        revisionPoints: z
-          .array(z.string())
-          .describe('Specific points where the outline FAILS to meet the prompt requirements'),
-        comments: z
-          .string()
-          .describe(
+      schema: Schema.Struct({
+        needsRevision: Schema.Boolean.annotations({
+          description: 'Whether the outline needs revision',
+        }),
+        revisionPoints: Schema.Array(Schema.String).annotations({
+          description: 'Specific points where the outline FAILS to meet the prompt requirements',
+        }),
+        comments: Schema.String.annotations({
+          description:
             'Brief overall comment on the adherence or specific strengths/weaknesses, keep it concise. Use empty string if no comments.',
-          ),
+        }),
       }),
     })
     .pipe(
@@ -271,8 +271,8 @@ const generateOutline = Effect.fn('generateOutline')(function* (
           role: 'user',
           content: [
             { type: 'text', text: outlineUserPrompt(context) },
-            { type: 'file', mimeType: 'application/pdf', data: lessonPdfBuffer },
-            { type: 'file', mimeType: 'application/pdf', data: egwPdfBuffer },
+            { type: 'file', mediaType: 'application/pdf', data: lessonPdfBuffer },
+            { type: 'file', mediaType: 'application/pdf', data: egwPdfBuffer },
           ],
         },
       ],

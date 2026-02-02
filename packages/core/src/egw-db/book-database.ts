@@ -222,10 +222,12 @@ export interface EGWParagraphDatabaseService {
   readonly searchParagraphs: (
     query: string,
     limit?: number,
+    bookCode?: string,
   ) => Effect.Effect<
-    readonly (EGWSchemas.Paragraph & { bookCode: string })[],
+    readonly (EGWSchemas.Paragraph & { bookCode: string; bookTitle: string })[],
     ParagraphDatabaseError
   >;
+  readonly getMaxPage: (bookId: number) => Effect.Effect<number, ParagraphDatabaseError>;
 
   // Bible reference operations
   readonly storeBibleRef: (
@@ -577,10 +579,10 @@ export class EGWParagraphDatabase extends Context.Tag(
       `);
 
       const searchParagraphsQuery = db.query<
-        ParagraphRow & { book_code: string },
+        ParagraphRow & { book_code: string; book_title: string },
         { $query: string; $limit: number }
       >(`
-        SELECT p.*, b.book_code
+        SELECT p.*, b.book_code, b.book_title
         FROM paragraphs p
         JOIN paragraphs_fts fts ON p.rowid = fts.rowid
         JOIN books b ON p.book_id = b.book_id
@@ -1039,16 +1041,40 @@ export class EGWParagraphDatabase extends Context.Tag(
 
       /**
        * Search paragraphs using FTS5 full-text search
+       * Optionally scoped to a specific book by bookCode
        */
       const searchParagraphs = (
         query: string,
         limit = 50,
+        bookCode?: string,
       ): Effect.Effect<
-        readonly (EGWSchemas.Paragraph & { bookCode: string })[],
+        readonly (EGWSchemas.Paragraph & { bookCode: string; bookTitle: string })[],
         ParagraphDatabaseError
       > =>
         Effect.try({
           try: () => {
+            if (bookCode) {
+              // Book-scoped search
+              const rows = db
+                .query<
+                  ParagraphRow & { book_code: string; book_title: string },
+                  { $query: string; $limit: number; $bookCode: string }
+                >(
+                  `SELECT p.*, b.book_code, b.book_title
+                   FROM paragraphs p
+                   JOIN paragraphs_fts fts ON p.rowid = fts.rowid
+                   JOIN books b ON p.book_id = b.book_id
+                   WHERE paragraphs_fts MATCH $query
+                     AND b.book_code = $bookCode COLLATE NOCASE
+                   LIMIT $limit`,
+                )
+                .all({ $query: query, $limit: limit, $bookCode: bookCode });
+              return rows.map((row) => ({
+                ...rowToParagraph(row),
+                bookCode: row.book_code,
+                bookTitle: row.book_title,
+              }));
+            }
             const rows = searchParagraphsQuery.all({
               $query: query,
               $limit: limit,
@@ -1056,11 +1082,33 @@ export class EGWParagraphDatabase extends Context.Tag(
             return rows.map((row) => ({
               ...rowToParagraph(row),
               bookCode: row.book_code,
+              bookTitle: row.book_title,
             }));
           },
           catch: (error) =>
             new DatabaseQueryError({
               operation: 'searchParagraphs',
+              cause: error,
+            }),
+        });
+
+      /**
+       * Get the maximum page number for a book
+       */
+      const getMaxPage = (bookId: number): Effect.Effect<number, ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => {
+            const row = db
+              .query<{ max_page: number | null }, { $bookId: number }>(
+                `SELECT MAX(page_number) as max_page FROM paragraphs WHERE book_id = $bookId`,
+              )
+              .get({ $bookId: bookId });
+            return row?.max_page ?? 1;
+          },
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'getMaxPage',
+              bookId,
               cause: error,
             }),
         });
@@ -1284,6 +1332,7 @@ export class EGWParagraphDatabase extends Context.Tag(
         getParagraphsByPage,
         getChapterHeadings,
         searchParagraphs,
+        getMaxPage,
         // Bible reference operations
         storeBibleRef,
         storeBibleRefsBatch,
@@ -1336,6 +1385,7 @@ export class EGWParagraphDatabase extends Context.Tag(
       getParagraphsByPage: () => Effect.succeed([]),
       getChapterHeadings: () => Effect.succeed([]),
       searchParagraphs: () => Effect.succeed([]),
+      getMaxPage: () => Effect.succeed(1),
       storeBibleRef: () => Effect.void,
       storeBibleRefsBatch: (refs) => Effect.succeed(refs.length),
       getParagraphsByBibleRef: () => Effect.succeed([]),

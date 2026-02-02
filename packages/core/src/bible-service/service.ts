@@ -10,6 +10,7 @@ import { Context, Effect, Layer, Option, Schema } from 'effect';
 
 import { BibleDatabase } from '../bible-db/bible-database.js';
 import type { BibleDatabaseError } from '../bible-db/bible-database.js';
+import { RecordNotFoundError } from '../errors/index.js';
 
 // ============================================================================
 // Types
@@ -153,7 +154,10 @@ export class BibleService extends Context.Tag('@bible/core/bible-service/service
       ): Effect.Effect<ChapterResponse, BibleDatabaseError> =>
         Effect.gen(function* () {
           const bookOpt = yield* db.getBook(bookNum);
-          const book = Option.getOrThrow(bookOpt);
+          const book = Option.getOrThrowWith(
+            bookOpt,
+            () => new RecordNotFoundError({ entity: 'Book', id: String(bookNum) }),
+          );
 
           const verses = yield* db.getChapter(bookNum, chapterNum);
 

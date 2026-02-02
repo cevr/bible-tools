@@ -24,6 +24,7 @@ import { messages } from './commands/messages.js';
 import { readings } from './commands/readings.js';
 import { sabbathSchool } from './commands/sabbath-school.js';
 import { studies } from './commands/studies.js';
+import { sync } from './commands/sync.js';
 // Types only (no runtime cost)
 import type { Reference } from './data/bible/types.js';
 import { printSummary, trace, traceAsync, traceSync } from './instrumentation/trace.js';
@@ -51,6 +52,7 @@ const cliSubcommands = [
   'studies',
   'readings',
   'export',
+  'sync',
 ];
 const args = process.argv.slice(2);
 const hasSubcommand = args.some((arg) => cliSubcommands.includes(arg));
@@ -220,6 +222,7 @@ async function main() {
           studies,
           readings,
           exportOutput,
+          sync,
         ]),
         Command.provideSync(CliOptions, ({ verbose }) => ({ verbose })),
         Command.transformHandler((effect, { verbose }) =>

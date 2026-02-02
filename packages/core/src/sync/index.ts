@@ -11,3 +11,4 @@ export {
 } from './egw-sync.js';
 
 export { ensureBibleDb } from './bible-db-sync.js';
+export { syncBible } from './bible-sync.js';

@@ -138,11 +138,5 @@ export const loadDatabaseConfig = Config.all({
  * Load Gemini config from environment.
  */
 export const loadGeminiConfig = Config.all({
-  apiKey: Config.redacted('GOOGLE_AI_API_KEY').pipe(
-    Config.withDefault(
-      process.env.GOOGLE_AI_API_KEY
-        ? Redacted.make(process.env.GOOGLE_AI_API_KEY)
-        : Redacted.make(''),
-    ),
-  ),
+  apiKey: Config.redacted('GOOGLE_AI_API_KEY').pipe(Config.withDefault(Redacted.make(''))),
 });
