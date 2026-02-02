@@ -79,22 +79,54 @@ function applyItalicSegments(segments: TextSegment[]): TextSegment[] {
 /**
  * Split text segments on ‹› (single angle quotation marks) into redLetter segments.
  * Replaces ‹ with \u201C and › with \u201D in the rendered text.
+ * Tracks red-letter state across segment boundaries so that margin note
+ * superscripts inserted mid-quote don't break the parsing.
  */
 function applyRedLetterSegments(segments: TextSegment[]): TextSegment[] {
   const result: TextSegment[] = [];
+  let inRedLetter = false;
+
   for (const segment of segments) {
     if (segment.type !== 'text') {
+      // Non-text segments (margin, highlight) pass through; red-letter state persists
       result.push(segment);
       continue;
     }
-    const parts = segment.text.split(/(\u2039[^\u203A]*\u203A)/);
-    for (const part of parts) {
-      if (part.startsWith('\u2039') && part.endsWith('\u203A')) {
-        result.push({ type: 'redLetterQuote', text: '\u201C' });
-        result.push({ type: 'redLetter', text: part.slice(1, -1) });
-        result.push({ type: 'redLetterQuote', text: '\u201D' });
-      } else if (part) {
-        result.push({ type: 'text', text: part });
+
+    let text = segment.text;
+    while (text.length > 0) {
+      if (inRedLetter) {
+        const closeIdx = text.indexOf('\u203A');
+        if (closeIdx === -1) {
+          // No closing delimiter in this segment — entire text is red-letter
+          result.push({ type: 'redLetter', text });
+          text = '';
+        } else {
+          // Found closing delimiter
+          if (closeIdx > 0) {
+            result.push({ type: 'redLetter', text: text.slice(0, closeIdx) });
+          }
+          result.push({ type: 'redLetterQuote', text: '\u201D' });
+          inRedLetter = false;
+          text = text.slice(closeIdx + 1);
+        }
+      } else {
+        const openIdx = text.indexOf('\u2039');
+        if (openIdx === -1) {
+          // No opening delimiter — plain text
+          if (text.length > 0) {
+            result.push({ type: 'text', text });
+          }
+          text = '';
+        } else {
+          // Found opening delimiter
+          if (openIdx > 0) {
+            result.push({ type: 'text', text: text.slice(0, openIdx) });
+          }
+          result.push({ type: 'redLetterQuote', text: '\u201C' });
+          inRedLetter = true;
+          text = text.slice(openIdx + 1);
+        }
       }
     }
   }
