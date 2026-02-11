@@ -146,6 +146,7 @@ export const bibleTools = {
         chapter: r.chapter,
         verse: r.verse,
         verseEnd: r.verseEnd,
+        source: r.source,
         preview: r.previewText,
       }));
     },

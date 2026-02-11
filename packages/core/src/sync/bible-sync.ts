@@ -272,11 +272,11 @@ async function syncBible(force: boolean): Promise<void> {
   console.log(`Inserting cross-references for ${crossRefEntries.length} verses...`);
   const insertCrossRef = db.prepare(
     `INSERT OR IGNORE INTO cross_refs
-     (book, chapter, verse, ref_book, ref_chapter, ref_verse, ref_verse_end)
-     VALUES (?, ?, ?, ?, ?, ?, ?)`,
+     (book, chapter, verse, ref_book, ref_chapter, ref_verse, ref_verse_end, source)
+     VALUES (?, ?, ?, ?, ?, ?, ?, 'openbible')`,
   );
   let crossRefCount = 0;
-  const CROSSREF_BATCH_SIZE = 500;
+  const CROSSREF_BATCH_SIZE = 2000;
   for (let i = 0; i < crossRefEntries.length; i += CROSSREF_BATCH_SIZE) {
     const batch = crossRefEntries.slice(i, i + CROSSREF_BATCH_SIZE);
     db.transaction(() => {
@@ -301,7 +301,54 @@ async function syncBible(force: boolean): Promise<void> {
       `\r  Progress: ${Math.min(i + CROSSREF_BATCH_SIZE, crossRefEntries.length)}/${crossRefEntries.length}`,
     );
   }
-  console.log(`\n  Inserted ${crossRefCount} cross-references\n`);
+  console.log(`\n  Inserted ${crossRefCount} cross-references (openbible)\n`);
+
+  // Load and insert TSKe cross-references
+  const tskeJsonPath = path.join(ASSETS_DIR, 'cross-refs-tske.json');
+  if (fs.existsSync(tskeJsonPath)) {
+    const tskeCrossRefs = loadJson<CrossRefsData>('cross-refs-tske.json');
+    const tskeEntries = Object.entries(tskeCrossRefs);
+    console.log(`Inserting TSKe cross-references for ${tskeEntries.length} verses...`);
+    const insertTskeCrossRef = db.prepare(
+      `INSERT OR IGNORE INTO cross_refs
+       (book, chapter, verse, ref_book, ref_chapter, ref_verse, ref_verse_end, source)
+       VALUES (?, ?, ?, ?, ?, ?, ?, 'tske')`,
+    );
+    let tskeCount = 0;
+    for (let i = 0; i < tskeEntries.length; i += CROSSREF_BATCH_SIZE) {
+      const batch = tskeEntries.slice(i, i + CROSSREF_BATCH_SIZE);
+      db.transaction(() => {
+        for (const [key, data] of batch) {
+          const source = parseVerseKey(key);
+          if (source === null) continue;
+          for (const ref of data.refs) {
+            insertTskeCrossRef.run(
+              source.book,
+              source.chapter,
+              source.verse,
+              ref.book,
+              ref.chapter,
+              ref.verse ?? null,
+              ref.verseEnd ?? null,
+            );
+            tskeCount++;
+          }
+        }
+      })();
+      process.stdout.write(
+        `\r  Progress: ${Math.min(i + CROSSREF_BATCH_SIZE, tskeEntries.length)}/${tskeEntries.length}`,
+      );
+    }
+    console.log(`\n  Inserted ${tskeCount} cross-references (tske)\n`);
+  } else {
+    console.log('Skipping TSKe cross-references (cross-refs-tske.json not found)\n');
+  }
+
+  // Report combined cross-ref count
+  const totalCrossRefsRow = db
+    .query<{ count: number }, []>('SELECT COUNT(*) as count FROM cross_refs')
+    .get();
+  console.log(`  Total cross-references in database: ${totalCrossRefsRow?.count ?? 0}\n`);
 
   // Load and insert Strong's definitions
   const strongs = loadJson<StrongsData>('strongs.json');

@@ -96,6 +96,7 @@ export const CrossRefRow = Schema.Struct({
   ref_chapter: Schema.Number,
   ref_verse: Schema.NullOr(Schema.Number),
   ref_verse_end: Schema.NullOr(Schema.Number),
+  source: Schema.Literal('openbible', 'tske'),
   preview_text: Schema.NullOr(Schema.String),
 });
 export type CrossRefRow = Schema.Schema.Type<typeof CrossRefRow>;
@@ -167,6 +168,7 @@ export interface CrossReference {
   chapter: number;
   verse: number | null;
   verseEnd: number | null;
+  source: 'openbible' | 'tske';
   previewText: string | null;
 }
 
@@ -475,7 +477,7 @@ export class BibleDatabase extends Context.Tag('@bible/core/bible-db/bible-datab
           try: () => {
             const rows = db
               .query<CrossRefRow, [number, number, number]>(
-                `SELECT ref_book, ref_chapter, ref_verse, ref_verse_end, preview_text
+                `SELECT ref_book, ref_chapter, ref_verse, ref_verse_end, source, preview_text
                  FROM cross_refs
                  WHERE book = ? AND chapter = ? AND verse = ?`,
               )
@@ -486,6 +488,7 @@ export class BibleDatabase extends Context.Tag('@bible/core/bible-db/bible-datab
               chapter: r.ref_chapter,
               verse: r.ref_verse,
               verseEnd: r.ref_verse_end,
+              source: r.source,
               previewText: r.preview_text,
             }));
           },

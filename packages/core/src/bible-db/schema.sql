@@ -74,6 +74,7 @@ CREATE TABLE IF NOT EXISTS cross_refs (
   ref_chapter INTEGER NOT NULL,
   ref_verse INTEGER,
   ref_verse_end INTEGER,
+  source TEXT NOT NULL DEFAULT 'openbible' CHECK(source IN ('openbible', 'tske')),
   -- Denormalized preview for fast display
   preview_text TEXT,
   PRIMARY KEY (book, chapter, verse, ref_book, ref_chapter, ref_verse),
@@ -140,6 +141,7 @@ CREATE INDEX IF NOT EXISTS idx_verses_book_chapter ON verses(version_code, book,
 -- Cross-reference lookups (both directions)
 CREATE INDEX IF NOT EXISTS idx_cross_refs_source ON cross_refs(book, chapter, verse);
 CREATE INDEX IF NOT EXISTS idx_cross_refs_target ON cross_refs(ref_book, ref_chapter, ref_verse);
+CREATE INDEX IF NOT EXISTS idx_cross_refs_source_col ON cross_refs(source);
 
 -- Strong's lookups
 CREATE INDEX IF NOT EXISTS idx_strongs_language ON strongs(language);
