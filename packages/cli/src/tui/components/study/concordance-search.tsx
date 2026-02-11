@@ -7,7 +7,7 @@
  */
 
 import type { ScrollBoxRenderable } from '@opentui/core';
-import { useKeyboard } from '@opentui/solid';
+import { useModalKeyboard } from '../../hooks/use-modal-keyboard.js';
 import { createMemo, createSignal, For, Show } from 'solid-js';
 
 import type { Reference } from '../../../data/bible/types.js';
@@ -136,7 +136,7 @@ export function ConcordanceSearch(props: ConcordanceSearchProps) {
     setSelectedIndex(0);
   };
 
-  useKeyboard((key) => {
+  useModalKeyboard((key) => {
     if (key.name === 'escape') {
       props.onClose();
       return;

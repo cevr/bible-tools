@@ -59,6 +59,29 @@ export const createMockAILayer = (config: MockAIConfig) => {
       });
     },
 
+    generateTextWithTools: (options) => {
+      const quality = options.model ?? 'high';
+      const responses = config.responses[quality];
+      const index = quality === 'high' ? state.highIndex++ : state.lowIndex++;
+      const response = responses[index] ?? `mock ${quality} response ${index}`;
+
+      const prompt =
+        options.messages
+          ?.filter((m) => m.role === 'user')
+          .map((m) => (typeof m.content === 'string' ? m.content : '[complex]'))
+          .join(' ') ?? '';
+
+      state.calls.push({
+        _tag: 'AI.generateTextWithTools',
+        model: quality,
+        prompt: prompt.slice(0, 100),
+      });
+
+      return Effect.succeed({
+        text: typeof response === 'string' ? response : JSON.stringify(response),
+      });
+    },
+
     generateObject: (options) => {
       const quality = options.model ?? 'high';
       const responses = config.responses[quality];

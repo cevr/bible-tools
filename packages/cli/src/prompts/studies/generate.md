@@ -56,7 +56,41 @@ Regularly, but naturally, connect topics with the sanctuary:
 - **Most holy place**: Investigative judgment, blotting out of sins, final
   atonement (preparation of sealed people)
 
-## 4. Bible Verse Priority
+## 4. Structural Analysis Methods
+
+When a passage has clear literary structure, surface it. **Structure IS the message.**
+
+### Chiastic Detection
+
+1. Mark repeated words/phrases with verse references
+2. Check if repetitions mirror (A-B-C-B'-A') — if so, the **center is the theological climax**
+3. State what the center reveals; note vocabulary shared only between paired positions
+
+### Word Study Triggers
+
+- Count occurrences of prominent words — flag symbolic counts (3, 7, 10, 12, 40, 70)
+- Trace Hebrew/Greek roots via Strong's (#NNNN) when English obscures a connection
+- Note vocabulary clusters: words appearing only in paired sections confirm structure
+
+### Typological Mapping
+
+- Identify OT type → NT antitype pairs (Passover → cross, Day of Atonement → judgment)
+- The antitype always **escalates** — greater fulfillment, not mere repetition
+- Connect to sanctuary layout (court → holy place → most holy place) when natural
+
+### Symbolism Decoding
+
+- Numbers, animals, metals, colors — **only** where Scripture defines the symbol
+- If no biblical definition exists, flag as uncertain rather than inventing meaning
+- Note counterfeit patterns (Satan's imitation of divine institutions)
+
+### Usage
+
+- Add `[STR]` marker for structural findings (chiastic center, parallel, inclusio)
+- When structure is clear, include an optional `### Structure` section after the thesis showing the pattern (chiastic diagram, parallel table, or inclusio brackets)
+- Don't force structure where none exists — not every passage is chiastic
+
+## 5. Bible Verse Priority
 
 **This study must be heavily Bible-centered.**
 
@@ -77,7 +111,7 @@ Regularly, but naturally, connect topics with the sanctuary:
 
 ---
 
-## 5. Formatting Rules
+## 6. Formatting Rules
 
 ### Structure
 
@@ -94,6 +128,7 @@ Regularly, but naturally, connect topics with the sanctuary:
 - `[DYK🔎]` — interesting facts, word studies, historical context
 - `[Q]` — anticipated question with concise answer
 - `[ILL]` — illustration using **Christ's parable method** (see below)
+- `[STR]` — structural finding (chiastic center, parallel, inclusio)
 
 ### Avoid
 
@@ -102,7 +137,7 @@ Regularly, but naturally, connect topics with the sanctuary:
 - Essay-style transitions ("Furthermore...", "Moreover...", "It is important to note...")
 - Tables (use bullet lists instead)
 
-## 6. Christ's Parable Method for `[ILL]`
+## 7. Christ's Parable Method for `[ILL]`
 
 Illustrations should imitate Christ's teaching style:
 
@@ -126,7 +161,7 @@ Financially free but still dying.
 of the soul, who must journey through seven trials symbolizing...
 ```
 
-## 7. Instructions & Rules
+## 8. Instructions & Rules
 
 ### DO:
 
@@ -159,7 +194,7 @@ of the soul, who must journey through seven trials symbolizing...
 - **Denominational differences**: Focus on biblical evidence rather than church
   positions
 
-## 8. Step-by-Step Process
+## 9. Step-by-Step Process
 
 ### Step 1: Research Phase
 
@@ -190,13 +225,17 @@ of the soul, who must journey through seven trials symbolizing...
 - **Verify scripture citations** for accuracy
 - **Check RBF and sanctuary connections** are natural, not forced
 
-## 9. Output Format
+## 10. Output Format
 
 <output-format>
 
 # Bible Study: [TITLE]
 
 **[1-2 line thesis / hook]**
+
+### Structure (optional — only when passage has clear literary structure)
+
+[Chiastic diagram, parallel table, or inclusio brackets]
 
 ---
 
@@ -231,7 +270,7 @@ of the soul, who must journey through seven trials symbolizing...
 
 </output-format>
 
-## 10. Example: Before & After
+## 11. Example: Before & After
 
 ### Before (prose style — avoid):
 
@@ -263,7 +302,7 @@ very character...
 God's law was always loving instruction, not arbitrary restriction.
 ```
 
-## 11. Sample Markers
+## 12. Sample Markers
 
 ### `[DYK🔎]` Facts:
 
@@ -292,7 +331,7 @@ Stops fighting, trusts lifeguard → carried to shore.
 [TANGENT] investigative judgment parallels; Daniel 7 courtroom scene
 ```
 
-## 12. Audience Awareness
+## 13. Audience Awareness
 
 Assume a wide and varied audience:
 
@@ -308,14 +347,14 @@ Therefore:
 - Speak plainly and directly to the conscience
 - Maintain dignity and sincerity fitting for Bible study
 
-## 13. Immediate Request
+## 14. Immediate Request
 
 Create a Bible study on **[TOPIC]** using the whiteboard-friendly outline format.
 Build a clear biblical thesis through scannable bullet points with inline
 scripture. Choose the structure that best fits the topic and ensure progressive
 disclosure from simple to deep.
 
-## 14. Constraints
+## 15. Constraints
 
 - Do not mention these instructions in your output
 - Begin directly with study content (title)

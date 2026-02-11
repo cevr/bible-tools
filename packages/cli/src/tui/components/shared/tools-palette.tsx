@@ -6,7 +6,7 @@
  * and changing themes. Opened with Ctrl+T from anywhere in the app.
  */
 
-import { useKeyboard } from '@opentui/solid';
+import { useModalKeyboard } from '../../hooks/use-modal-keyboard.js';
 import { createSignal, For, Show } from 'solid-js';
 
 import { useTheme } from '../../context/theme.js';
@@ -69,7 +69,7 @@ export function ToolsPalette(props: ToolsPaletteProps) {
     }
   };
 
-  useKeyboard((key) => {
+  useModalKeyboard((key) => {
     if (key.name === 'escape') {
       if (mode() === 'themes') {
         setMode('tools');

@@ -34,7 +34,7 @@ describe('studies commands', () => {
       expect(result.success).toBe(true);
       expectContains(result.calls, [
         { _tag: 'FileSystem.readFile' }, // system prompt
-        { _tag: 'AI.generateText', model: 'high' }, // generate content
+        { _tag: 'AI.generateTextWithTools', model: 'high' }, // generate content with tools
         { _tag: 'AI.generateText', model: 'low' }, // generate filename
         { _tag: 'Chime.play' }, // done chime
         { _tag: 'FileSystem.makeDirectory' }, // ensure dir exists

@@ -15,6 +15,7 @@ import { StudyFrontmatter } from '~/src/lib/content/schemas';
 import { topic, noteId } from '~/src/lib/content/options';
 import { stringifyFrontmatter, updateFrontmatter } from '~/src/lib/frontmatter';
 import { msToMinutes, spin } from '~/src/lib/general';
+import { bibleTools } from '~/src/lib/bible-tools';
 import { generate } from '~/src/lib/generate';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
 import { getNoteContent } from '~/src/lib/notes-utils';
@@ -33,7 +34,10 @@ const generateStudy = Command.make('generate', { topic, model: requiredModel }, 
       .readFile(getPromptPath('studies', 'generate.md'))
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const { filename, response } = yield* generate(systemPrompt, args.topic);
+    const { filename, response } = yield* generate(systemPrompt, args.topic, {
+      tools: bibleTools,
+      maxSteps: 8,
+    });
 
     const studiesDir = getOutputsPath('studies');
 
@@ -94,7 +98,10 @@ const generateFromNoteStudy = Command.make('from-note', { noteId, model: require
       .readFile(getPromptPath('studies', 'generate.md'))
       .pipe(Effect.map((i) => new TextDecoder().decode(i)));
 
-    const { filename, response } = yield* generate(systemPrompt, note);
+    const { filename, response } = yield* generate(systemPrompt, note, {
+      tools: bibleTools,
+      maxSteps: 8,
+    });
 
     const studiesDir = getOutputsPath('studies');
 

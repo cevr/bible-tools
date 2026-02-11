@@ -1,3 +1,4 @@
+import type { ToolSet } from 'ai';
 import { Data, Effect, Schedule } from 'effect';
 
 import { AI } from '~/src/services/ai';
@@ -25,32 +26,43 @@ class GenerateFilenameError extends Data.TaggedError(
 export const generate = Effect.fn('generate')(function* (
   systemPrompt: string,
   prompt: string,
-  options?: { skipChime?: boolean },
+  options?: { skipChime?: boolean; tools?: ToolSet; maxSteps?: number },
 ) {
   const ai = yield* AI;
 
+  const generateEffect =
+    options?.tools !== undefined
+      ? ai.generateTextWithTools({
+          model: 'high',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: prompt },
+          ],
+          tools: options.tools,
+          maxSteps: options.maxSteps,
+        })
+      : ai.generateText({
+          model: 'high',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: prompt },
+          ],
+        });
+
   const response = yield* spin(
     'Generating...',
-    ai
-      .generateText({
-        model: 'high',
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: prompt },
-        ],
-      })
-      .pipe(
-        Effect.mapError(
-          (cause) =>
-            new GenerateResponseError({
-              cause,
-            }),
-        ),
-        Effect.retry({
-          times: 3,
-          schedule: Schedule.spaced(500),
-        }),
+    generateEffect.pipe(
+      Effect.mapError(
+        (cause) =>
+          new GenerateResponseError({
+            cause,
+          }),
       ),
+      Effect.retry({
+        times: 3,
+        schedule: Schedule.spaced(500),
+      }),
+    ),
   );
 
   const message = response.text;

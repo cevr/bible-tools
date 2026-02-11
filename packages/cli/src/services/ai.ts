@@ -1,5 +1,10 @@
-import type { LanguageModel, ModelMessage } from 'ai';
-import { generateObject as aiGenerateObject, generateText as aiGenerateText, jsonSchema } from 'ai';
+import type { LanguageModel, ModelMessage, ToolSet } from 'ai';
+import {
+  generateObject as aiGenerateObject,
+  generateText as aiGenerateText,
+  jsonSchema,
+  stepCountIs,
+} from 'ai';
 import { Context, Effect, JSONSchema, Layer, Option, Schema } from 'effect';
 
 import { Model } from './model';
@@ -24,6 +29,11 @@ interface GenerateTextOptions {
   maxOutputTokens?: number;
 }
 
+interface GenerateTextWithToolsOptions extends GenerateTextOptions {
+  tools: ToolSet;
+  maxSteps?: number;
+}
+
 interface GenerateObjectOptions<A, I, R> {
   model?: Quality;
   messages: Array<ModelMessage>;
@@ -32,6 +42,9 @@ interface GenerateObjectOptions<A, I, R> {
 
 export interface AIService {
   readonly generateText: (options: GenerateTextOptions) => Effect.Effect<{ text: string }, AIError>;
+  readonly generateTextWithTools: (
+    options: GenerateTextWithToolsOptions,
+  ) => Effect.Effect<{ text: string }, AIError>;
   readonly generateObject: <A>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any -- I (encoded type) is irrelevant; we only decode from unknown
     options: GenerateObjectOptions<A, any, never>,
@@ -104,6 +117,26 @@ export class AI extends Context.Tag('@bible/cli/services/ai')<AI, AIService>() {
           catch: (error) =>
             new AIError({
               operation: 'generateText',
+              cause: error,
+            }),
+        }),
+
+      generateTextWithTools: (options) =>
+        Effect.tryPromise({
+          try: async () => {
+            const result = await aiGenerateText({
+              model: getModel(options.model),
+              system: options.system,
+              messages: options.messages,
+              maxOutputTokens: options.maxOutputTokens,
+              tools: options.tools,
+              stopWhen: stepCountIs(options.maxSteps ?? 5),
+            });
+            return { text: result.text };
+          },
+          catch: (error) =>
+            new AIError({
+              operation: 'generateTextWithTools',
               cause: error,
             }),
         }),

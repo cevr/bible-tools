@@ -16,6 +16,7 @@ import { Command } from '@effect/cli';
 import { BunContext, BunRuntime } from '@effect/platform-bun';
 import { Effect, Layer, LogLevel, Logger } from 'effect';
 
+import { analyze } from './commands/analyze.js';
 import { concordance, verse } from './commands/bible.js';
 import { egwWithSubcommands } from './commands/egw.js';
 import { exportOutput } from './commands/export.js';
@@ -43,6 +44,7 @@ trace('CLI command imports complete');
 
 // Check if any CLI subcommand is specified
 const cliSubcommands = [
+  'analyze',
   'concordance',
   'verse',
   'egw',
@@ -213,6 +215,7 @@ async function main() {
     const command = traceSync('Command.make', () =>
       Command.make('bible', cliOptions).pipe(
         Command.withSubcommands([
+          analyze,
           concordance,
           verse,
           egwWithSubcommands,

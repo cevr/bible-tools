@@ -1,4 +1,4 @@
-import { useKeyboard } from '@opentui/solid';
+import { useModalKeyboard } from '../../hooks/use-modal-keyboard.js';
 
 import {
   PaletteFooter,
@@ -37,7 +37,7 @@ interface PaletteContentProps {
 function PaletteContent(props: PaletteContentProps) {
   const { moveSelection, selectCurrent } = usePalette();
 
-  useKeyboard((key) => {
+  useModalKeyboard((key) => {
     if (key.name === 'escape') {
       props.onClose();
       return;

@@ -22,7 +22,8 @@
     "./types": "./src/types/index.ts",
     "./bible-service": "./src/bible-service/index.ts",
     "./egw-service": "./src/egw-service/index.ts",
-    "./hymnal": "./src/hymnal/index.ts"
+    "./hymnal": "./src/hymnal/index.ts",
+    "./structural-analysis": "./src/structural-analysis/index.ts"
   },
   "scripts": {
     "prepare": "effect-language-service patch",

@@ -35,6 +35,17 @@ export class ReadingFrontmatter extends Schema.Class<ReadingFrontmatter>('Readin
   apple_note_id: Schema.optionalWith(AppleNoteId, { as: 'Option' }),
 }) {}
 
+// Analyze frontmatter
+export const AnalyzeDepth = Schema.Literal('shallow', 'deep');
+export type AnalyzeDepth = typeof AnalyzeDepth.Type;
+
+export class AnalyzeFrontmatter extends Schema.Class<AnalyzeFrontmatter>('AnalyzeFrontmatter')({
+  created_at: Schema.String,
+  passage: Schema.String,
+  depth: AnalyzeDepth,
+  apple_note_id: Schema.optionalWith(AppleNoteId, { as: 'Option' }),
+}) {}
+
 // Sabbath School frontmatter
 export class SabbathSchoolFrontmatter extends Schema.Class<SabbathSchoolFrontmatter>(
   'SabbathSchoolFrontmatter',

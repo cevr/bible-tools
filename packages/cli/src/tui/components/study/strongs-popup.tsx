@@ -6,7 +6,7 @@
  * Displays Hebrew/Greek word, transliteration, pronunciation, and definition.
  */
 
-import { useKeyboard } from '@opentui/solid';
+import { useModalKeyboard } from '../../hooks/use-modal-keyboard.js';
 import { createMemo, For, Show } from 'solid-js';
 
 import { useStudyData, type WordWithStrongs } from '../../context/study-data.js';
@@ -29,7 +29,7 @@ export function StrongsPopup(props: StrongsPopupProps) {
       .filter((e): e is NonNullable<typeof e> => e !== null);
   });
 
-  useKeyboard((key) => {
+  useModalKeyboard((key) => {
     if (key.name === 'escape' || key.name === 'return') {
       props.onClose();
       return;

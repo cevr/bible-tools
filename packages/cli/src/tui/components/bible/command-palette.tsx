@@ -11,7 +11,7 @@
  */
 
 import type { ScrollBoxRenderable } from '@opentui/core';
-import { useKeyboard } from '@opentui/solid';
+import { useModalKeyboard } from '../../hooks/use-modal-keyboard.js';
 import { createEffect, createMemo, createSignal, For, onCleanup, Show } from 'solid-js';
 
 import { BOOKS, formatReference, type Book, type Reference } from '../../../data/bible/types.js';
@@ -234,7 +234,7 @@ export function BibleCommandPalette(props: BibleCommandPaletteProps) {
     props.onClose();
   };
 
-  useKeyboard((key) => {
+  useModalKeyboard((key) => {
     if (key.name === 'escape') {
       props.onClose();
       return;

@@ -2,20 +2,28 @@
 /**
  * Cross-References Popup
  *
- * Shows cross-references, margin notes, and EGW commentary for the currently selected verse.
+ * Shows cross-references, margin notes, EGW commentary, and structural analysis
+ * for the currently selected verse.
  * Navigate with j/k or up/down, select with Enter, close with Escape.
  * Switch between pages with h/l or left/right arrows.
  *
  * Pages:
  * 1. Cross-references & Margin Notes
  * 2. EGW Commentary (from Bible Commentary volumes)
+ * 3. Structural Analysis (word frequency, Strong's data)
  */
 
+import { BibleDatabase } from '@bible/core/bible-db';
 import { EGWCommentaryService, type CommentaryEntry } from '@bible/core/egw-commentary';
 import { EGWParagraphDatabase } from '@bible/core/egw-db';
+import {
+  StructuralAnalysis,
+  type WordFrequencyEntry,
+  type PassageContext,
+} from '@bible/core/structural-analysis';
 import { BunContext } from '@effect/platform-bun';
 import type { ScrollBoxRenderable } from '@opentui/core';
-import { useKeyboard } from '@opentui/solid';
+import { useModalKeyboard } from '../../hooks/use-modal-keyboard.js';
 import { Effect, Layer } from 'effect';
 import { createMemo, createSignal, For, Show } from 'solid-js';
 
@@ -28,7 +36,9 @@ import { useScrollSync } from '../../hooks/use-scroll-sync.js';
 import { formatNoteType } from '../bible/verse.js';
 
 /** Page type for the popup */
-type PopupPage = 'crossrefs' | 'commentary';
+type PopupPage = 'crossrefs' | 'commentary' | 'structure';
+
+const PAGES: PopupPage[] = ['crossrefs', 'commentary', 'structure'];
 
 interface CrossRefsPopupProps {
   verseRef: Reference;
@@ -45,8 +55,12 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
   const [commentary, setCommentary] = createSignal<readonly CommentaryEntry[]>([]);
   const [commentaryLoading, setCommentaryLoading] = createSignal(false);
   const [selectedCommentaryIndex, setSelectedCommentaryIndex] = createSignal(0);
+  const [structureData, setStructureData] = createSignal<PassageContext | null>(null);
+  const [structureLoading, setStructureLoading] = createSignal(false);
+  const [selectedStructureIndex, setSelectedStructureIndex] = createSignal(0);
   let scrollRef: ScrollBoxRenderable | undefined = undefined;
   let commentaryScrollRef: ScrollBoxRenderable | undefined = undefined;
+  let structureScrollRef: ScrollBoxRenderable | undefined = undefined;
 
   // Get cross-references for this verse
   const crossRefs = createMemo(() => {
@@ -76,18 +90,52 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
     });
   });
 
+  // Derived structure data for rendering
+  const structureWords = createMemo((): readonly WordFrequencyEntry[] => {
+    const ctx = structureData();
+    if (!ctx) return [];
+    // Show top 20 words + all symbolic entries
+    const top = ctx.wordFrequency.entries.slice(0, 20);
+    const symbolic = ctx.wordFrequency.symbolicEntries;
+    // Merge, deduplicating
+    const seen = new Set(top.map((e) => e.word));
+    const extra = symbolic.filter((e) => !seen.has(e.word));
+    return [...top, ...extra];
+  });
+
+  const structureStrongs = createMemo(() => {
+    const ctx = structureData();
+    if (!ctx) return [];
+    // Get Strong's entries for current verse's words
+    const verse = props.verseRef.verse ?? 1;
+    const words = ctx.words.get(verse) ?? [];
+    const strongsNums = new Set<string>();
+    for (const w of words) {
+      if (w.strongsNumbers) {
+        for (const sn of w.strongsNumbers) strongsNums.add(sn);
+      }
+    }
+    return [...strongsNums]
+      .map((sn) => ctx.strongsEntries.get(sn))
+      .filter((e): e is NonNullable<typeof e> => e != null);
+  });
+
   const moveSelection = (delta: number) => {
-    if (currentPage() === 'crossrefs') {
+    const page = currentPage();
+    if (page === 'crossrefs') {
       setSelectedIndex((i) => {
         const maxIndex = refsWithPreviews().length - 1;
-        const newIndex = i + delta;
-        return Math.max(0, Math.min(maxIndex, newIndex));
+        return Math.max(0, Math.min(maxIndex, i + delta));
       });
-    } else {
+    } else if (page === 'commentary') {
       setSelectedCommentaryIndex((i) => {
         const maxIndex = commentary().length - 1;
-        const newIndex = i + delta;
-        return Math.max(0, Math.min(maxIndex, newIndex));
+        return Math.max(0, Math.min(maxIndex, i + delta));
+      });
+    } else {
+      setSelectedStructureIndex((i) => {
+        const maxIndex = structureWords().length + structureStrongs().length - 1;
+        return Math.max(0, Math.min(maxIndex, i + delta));
       });
     }
   };
@@ -101,6 +149,10 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
     getRef: () => commentaryScrollRef,
   });
 
+  useScrollSync(() => `structure-${selectedStructureIndex()}`, {
+    getRef: () => structureScrollRef,
+  });
+
   const selectCurrent = () => {
     if (currentPage() === 'crossrefs') {
       const refs = refsWithPreviews();
@@ -109,19 +161,22 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
         props.onNavigate(selected.ref);
       }
     }
-    // Commentary doesn't navigate anywhere, just shows text
+    // Commentary and structure don't navigate
   };
 
-  // Switch between pages
+  // Switch between pages (cycle through 3 pages)
   const switchPage = (direction: 'left' | 'right') => {
-    if (direction === 'left' && currentPage() === 'commentary') {
-      setCurrentPage('crossrefs');
-    } else if (direction === 'right' && currentPage() === 'crossrefs') {
-      setCurrentPage('commentary');
-      // Load commentary if not already loaded
-      if (commentary().length === 0 && !commentaryLoading()) {
-        loadCommentary();
-      }
+    const idx = PAGES.indexOf(currentPage());
+    const nextIdx =
+      direction === 'right' ? (idx + 1) % PAGES.length : (idx - 1 + PAGES.length) % PAGES.length;
+    const nextPage = PAGES[nextIdx] ?? 'crossrefs';
+    setCurrentPage(nextPage);
+
+    if (nextPage === 'commentary' && commentary().length === 0 && !commentaryLoading()) {
+      loadCommentary();
+    }
+    if (nextPage === 'structure' && structureData() === null && !structureLoading()) {
+      loadStructure();
     }
   };
 
@@ -156,7 +211,39 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
       });
   };
 
-  useKeyboard((key) => {
+  // Load structural analysis data
+  const loadStructure = () => {
+    setStructureLoading(true);
+
+    const StructuralLayer = StructuralAnalysis.Live.pipe(
+      Layer.provideMerge(BibleDatabase.Default),
+      Layer.provideMerge(BunContext.layer),
+    );
+
+    const verse = props.verseRef.verse ?? 1;
+
+    Effect.runPromise(
+      Effect.gen(function* () {
+        const service = yield* StructuralAnalysis;
+        return yield* service.getPassageContext(
+          props.verseRef.book,
+          props.verseRef.chapter,
+          verse,
+          verse,
+        );
+      }).pipe(Effect.provide(StructuralLayer), Effect.scoped),
+    )
+      .then((result) => {
+        setStructureData(result);
+        setStructureLoading(false);
+      })
+      .catch(() => {
+        setStructureData(null);
+        setStructureLoading(false);
+      });
+  };
+
+  useModalKeyboard((key) => {
     if (key.name === 'escape') {
       props.onClose();
       return;
@@ -198,6 +285,7 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
   const hasCrossRefs = () => refsWithPreviews().length > 0;
   const hasContent = () => hasMarginNotes() || hasCrossRefs();
   const hasCommentary = () => commentary().length > 0;
+  const hasStructure = () => structureData() !== null;
 
   return (
     <box
@@ -221,6 +309,10 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
           <text fg={theme().textMuted}>|</text>
           <text fg={currentPage() === 'commentary' ? theme().accent : theme().textMuted}>
             {currentPage() === 'commentary' ? <strong>[EGW]</strong> : 'EGW'}
+          </text>
+          <text fg={theme().textMuted}>|</text>
+          <text fg={currentPage() === 'structure' ? theme().accent : theme().textMuted}>
+            {currentPage() === 'structure' ? <strong>[Struct]</strong> : 'Struct'}
           </text>
         </box>
       </box>
@@ -375,6 +467,107 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
         </Show>
       </Show>
 
+      {/* Structure Page */}
+      <Show when={currentPage() === 'structure'}>
+        <Show
+          when={!structureLoading()}
+          fallback={<text fg={theme().textMuted}>Loading structural data...</text>}
+        >
+          <Show
+            when={hasStructure()}
+            fallback={<text fg={theme().textMuted}>No structural data available</text>}
+          >
+            <scrollbox
+              ref={(el) => (structureScrollRef = el)}
+              focused={false}
+              style={{
+                height: 12,
+                rootOptions: {
+                  backgroundColor: theme().backgroundPanel,
+                },
+                wrapperOptions: {
+                  backgroundColor: theme().backgroundPanel,
+                },
+                viewportOptions: {
+                  backgroundColor: theme().backgroundPanel,
+                },
+                contentOptions: {
+                  backgroundColor: theme().backgroundPanel,
+                },
+                scrollbarOptions: {
+                  showArrows: false,
+                  trackOptions: {
+                    foregroundColor: theme().accent,
+                    backgroundColor: theme().border,
+                  },
+                },
+              }}
+            >
+              {/* Word Frequency */}
+              <Show when={structureWords().length > 0}>
+                <text fg={theme().textMuted} marginBottom={0}>
+                  <strong>Word Frequency</strong>
+                </text>
+                <For each={structureWords()}>
+                  {(entry, index) => {
+                    const isSelected = () => index() === selectedStructureIndex();
+                    const symbolic = entry.symbolicCount !== null;
+                    return (
+                      <text
+                        id={`structure-${index()}`}
+                        fg={
+                          symbolic
+                            ? theme().accent
+                            : isSelected()
+                              ? theme().text
+                              : theme().textMuted
+                        }
+                      >
+                        {isSelected() ? '▶ ' : '  '}
+                        {entry.word.padEnd(20, ' ')} {String(entry.count).padStart(3, ' ')}x
+                        {symbolic ? ` (${entry.symbolicCount})` : ''}
+                      </text>
+                    );
+                  }}
+                </For>
+              </Show>
+
+              {/* Strong's Entries for current verse */}
+              <Show when={structureStrongs().length > 0}>
+                <text fg={theme().textMuted} marginTop={1} marginBottom={0}>
+                  <strong>Strong's (this verse)</strong>
+                </text>
+                <For each={structureStrongs()}>
+                  {(entry, index) => {
+                    const globalIdx = () => structureWords().length + index();
+                    const isSelected = () => globalIdx() === selectedStructureIndex();
+                    const lang = entry.number.startsWith('H') ? 'Heb' : 'Grk';
+                    return (
+                      <box
+                        id={`structure-${globalIdx()}`}
+                        flexDirection="column"
+                        marginBottom={0}
+                        backgroundColor={isSelected() ? theme().verseHighlight : undefined}
+                        paddingLeft={1}
+                      >
+                        <text fg={isSelected() ? theme().accent : theme().textMuted}>
+                          {entry.number} [{lang}] {entry.lemma} (
+                          {entry.transliteration ?? entry.lemma})
+                        </text>
+                        <text fg={theme().text} wrapMode="word">
+                          {entry.definition.slice(0, 120)}
+                          {entry.definition.length > 120 ? '...' : ''}
+                        </text>
+                      </box>
+                    );
+                  }}
+                </For>
+              </Show>
+            </scrollbox>
+          </Show>
+        </Show>
+      </Show>
+
       {/* Footer */}
       <box marginTop={1}>
         <text fg={theme().textMuted}>
@@ -386,6 +579,10 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
             {'  '}
           </Show>
           <Show when={currentPage() === 'commentary' && hasCommentary()}>
+            <span style={{ fg: theme().accent }}>↑↓</span> scroll
+            {'  '}
+          </Show>
+          <Show when={currentPage() === 'structure' && hasStructure()}>
             <span style={{ fg: theme().accent }}>↑↓</span> scroll
             {'  '}
           </Show>

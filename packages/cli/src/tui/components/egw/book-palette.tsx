@@ -6,7 +6,7 @@
  * Similar to the Bible command palette but lists EGW books.
  */
 
-import { useKeyboard } from '@opentui/solid';
+import { useModalKeyboard } from '../../hooks/use-modal-keyboard.js';
 import { createMemo, createSignal, For, onMount, Show } from 'solid-js';
 
 import { useEGWNavigation } from '../../context/egw-navigation.js';
@@ -46,7 +46,7 @@ export function EGWBookPalette(props: EGWBookPaletteProps) {
   };
 
   // Handle key input
-  useKeyboard((key) => {
+  useModalKeyboard((key) => {
     if (key.name === 'escape') {
       props.onClose();
       return;

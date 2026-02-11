@@ -1,4 +1,4 @@
-import { useKeyboard } from '@opentui/solid';
+import { useModalKeyboard } from '../../hooks/use-modal-keyboard.js';
 import { createSignal, onMount, Show } from 'solid-js';
 
 import { useSearch } from '../../context/search.js';
@@ -19,7 +19,7 @@ export function SearchBox(props: SearchBoxProps) {
     setTimeout(() => setReady(true), 16); // ~1 frame
   });
 
-  useKeyboard((key) => {
+  useModalKeyboard((key) => {
     // Escape - close search
     if (key.name === 'escape') {
       props.onClose();

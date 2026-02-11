@@ -197,10 +197,7 @@ export function BibleView(_props: BibleViewProps) {
   };
 
   useKeyboard((key) => {
-    // Skip if popups are open (they handle their own keyboard input)
-    if (isSpecificOverlayOpen('cross-refs') || isSpecificOverlayOpen('strongs')) return;
-
-    // Skip if other overlays are open (command palette, etc.)
+    // Skip if any overlay is open (popups call stopPropagation themselves)
     if (isOverlayOpen()) return;
 
     // Skip if search is active (SearchBox handles its own input)

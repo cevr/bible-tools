@@ -1,10 +1,21 @@
 import type { ContentTypeConfig } from './types';
 import {
+  AnalyzeFrontmatter,
   MessageFrontmatter,
   StudyFrontmatter,
   ReadingFrontmatter,
   SabbathSchoolFrontmatter,
 } from './schemas';
+
+export const AnalyzeConfig: ContentTypeConfig<typeof AnalyzeFrontmatter> = {
+  name: 'analyze',
+  displayName: 'Analysis',
+  outputDir: 'analyze',
+  notesFolder: 'analysis',
+  promptResolver: { _tag: 'single', file: 'system.md' },
+  frontmatterSchema: AnalyzeFrontmatter,
+  sortStrategy: { _tag: 'date-desc' },
+};
 
 export const MessagesConfig: ContentTypeConfig<typeof MessageFrontmatter> = {
   name: 'messages',
