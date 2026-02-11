@@ -7,6 +7,40 @@ import { Context, Effect, Layer } from 'effect';
 
 import type { Bookmark, HistoryEntry, Position, Preferences, Reference } from './types.js';
 
+// Cross-reference classification types
+export const CROSS_REF_TYPES = [
+  'quotation',
+  'allusion',
+  'parallel',
+  'typological',
+  'prophecy',
+  'sanctuary',
+  'recapitulation',
+  'thematic',
+] as const;
+export type CrossRefType = (typeof CROSS_REF_TYPES)[number];
+
+export interface CrossRefClassification {
+  refBook: number;
+  refChapter: number;
+  refVerse: number | null;
+  refVerseEnd: number | null;
+  type: CrossRefType;
+  confidence: number | null;
+  classifiedAt: number;
+}
+
+export interface UserCrossRef {
+  id: string;
+  refBook: number;
+  refChapter: number;
+  refVerse: number | null;
+  refVerseEnd: number | null;
+  type: CrossRefType | null;
+  note: string | null;
+  createdAt: number;
+}
+
 // State storage directory
 const STATE_DIR = join(homedir(), '.bible-tools');
 const DB_PATH = join(STATE_DIR, 'state.db');
@@ -80,6 +114,43 @@ function initDatabase(db: Database) {
 
     -- Create index for history queries
     CREATE INDEX IF NOT EXISTS idx_history_visited_at ON history(visited_at DESC);
+
+    -- Cross-reference classifications (AI-generated, cached permanently)
+    CREATE TABLE IF NOT EXISTS cross_ref_classifications (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      source_book INTEGER NOT NULL,
+      source_chapter INTEGER NOT NULL,
+      source_verse INTEGER NOT NULL,
+      ref_book INTEGER NOT NULL,
+      ref_chapter INTEGER NOT NULL,
+      ref_verse INTEGER,
+      ref_verse_end INTEGER,
+      type TEXT NOT NULL,
+      confidence REAL,
+      classified_at INTEGER NOT NULL,
+      UNIQUE(source_book, source_chapter, source_verse, ref_book, ref_chapter, COALESCE(ref_verse, 0))
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_classifications_source
+      ON cross_ref_classifications(source_book, source_chapter, source_verse);
+
+    -- User-added cross-references
+    CREATE TABLE IF NOT EXISTS user_cross_refs (
+      id TEXT PRIMARY KEY,
+      source_book INTEGER NOT NULL,
+      source_chapter INTEGER NOT NULL,
+      source_verse INTEGER NOT NULL,
+      ref_book INTEGER NOT NULL,
+      ref_chapter INTEGER NOT NULL,
+      ref_verse INTEGER,
+      ref_verse_end INTEGER,
+      type TEXT,
+      note TEXT,
+      created_at INTEGER NOT NULL
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_user_cross_refs_source
+      ON user_cross_refs(source_book, source_chapter, source_verse);
   `);
 }
 
@@ -115,6 +186,25 @@ export interface BibleStateService {
   readonly setCachedPalette: (palette: CachedPalette) => void;
   readonly getLastEGWPosition: () => EGWPosition | undefined;
   readonly setLastEGWPosition: (pos: EGWPosition) => void;
+  readonly getClassifications: (
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => CrossRefClassification[];
+  readonly setClassifications: (
+    book: number,
+    chapter: number,
+    verse: number,
+    classifications: CrossRefClassification[],
+  ) => void;
+  readonly hasClassifications: (book: number, chapter: number, verse: number) => boolean;
+  readonly getUserCrossRefs: (book: number, chapter: number, verse: number) => UserCrossRef[];
+  readonly addUserCrossRef: (
+    source: { book: number; chapter: number; verse: number },
+    target: { book: number; chapter: number; verse?: number; verseEnd?: number },
+    options?: { type?: CrossRefType; note?: string },
+  ) => UserCrossRef;
+  readonly removeUserCrossRef: (id: string) => void;
   readonly close: () => void;
 }
 
@@ -196,6 +286,49 @@ function createBibleStateService(): BibleStateService {
   const setEGWPositionStmt = db.prepare(
     'INSERT OR REPLACE INTO egw_position (id, book_code, page, paragraph, puborder) VALUES (1, ?, ?, ?, ?)',
   );
+
+  // Cross-reference classification statements
+  const getClassificationsStmt = db.prepare<
+    {
+      ref_book: number;
+      ref_chapter: number;
+      ref_verse: number | null;
+      ref_verse_end: number | null;
+      type: string;
+      confidence: number | null;
+      classified_at: number;
+    },
+    [number, number, number]
+  >(
+    'SELECT ref_book, ref_chapter, ref_verse, ref_verse_end, type, confidence, classified_at FROM cross_ref_classifications WHERE source_book = ? AND source_chapter = ? AND source_verse = ?',
+  );
+  const hasClassificationsStmt = db.prepare<{ cnt: number }, [number, number, number]>(
+    'SELECT COUNT(*) as cnt FROM cross_ref_classifications WHERE source_book = ? AND source_chapter = ? AND source_verse = ?',
+  );
+  const insertClassificationStmt = db.prepare(
+    'INSERT OR REPLACE INTO cross_ref_classifications (source_book, source_chapter, source_verse, ref_book, ref_chapter, ref_verse, ref_verse_end, type, confidence, classified_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+  );
+
+  // User cross-ref statements
+  const getUserCrossRefsStmt = db.prepare<
+    {
+      id: string;
+      ref_book: number;
+      ref_chapter: number;
+      ref_verse: number | null;
+      ref_verse_end: number | null;
+      type: string | null;
+      note: string | null;
+      created_at: number;
+    },
+    [number, number, number]
+  >(
+    'SELECT id, ref_book, ref_chapter, ref_verse, ref_verse_end, type, note, created_at FROM user_cross_refs WHERE source_book = ? AND source_chapter = ? AND source_verse = ? ORDER BY created_at DESC',
+  );
+  const addUserCrossRefStmt = db.prepare(
+    'INSERT INTO user_cross_refs (id, source_book, source_chapter, source_verse, ref_book, ref_chapter, ref_verse, ref_verse_end, type, note, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+  );
+  const removeUserCrossRefStmt = db.prepare('DELETE FROM user_cross_refs WHERE id = ?');
 
   // Cache expiry: 24 hours for AI search
   const CACHE_EXPIRY_MS = 24 * 60 * 60 * 1000;
@@ -339,6 +472,98 @@ function createBibleStateService(): BibleStateService {
         pos.paragraph ?? null,
         pos.puborder ?? null,
       );
+    },
+
+    getClassifications(book: number, chapter: number, verse: number): CrossRefClassification[] {
+      const rows = getClassificationsStmt.all(book, chapter, verse);
+      return rows.map((row) => ({
+        refBook: row.ref_book,
+        refChapter: row.ref_chapter,
+        refVerse: row.ref_verse,
+        refVerseEnd: row.ref_verse_end,
+        type: row.type as CrossRefType,
+        confidence: row.confidence,
+        classifiedAt: row.classified_at,
+      }));
+    },
+
+    setClassifications(
+      book: number,
+      chapter: number,
+      verse: number,
+      classifications: CrossRefClassification[],
+    ): void {
+      db.transaction(() => {
+        for (const c of classifications) {
+          insertClassificationStmt.run(
+            book,
+            chapter,
+            verse,
+            c.refBook,
+            c.refChapter,
+            c.refVerse ?? null,
+            c.refVerseEnd ?? null,
+            c.type,
+            c.confidence ?? null,
+            c.classifiedAt,
+          );
+        }
+      })();
+    },
+
+    hasClassifications(book: number, chapter: number, verse: number): boolean {
+      const row = hasClassificationsStmt.get(book, chapter, verse);
+      return row !== null && row.cnt > 0;
+    },
+
+    getUserCrossRefs(book: number, chapter: number, verse: number): UserCrossRef[] {
+      const rows = getUserCrossRefsStmt.all(book, chapter, verse);
+      return rows.map((row) => ({
+        id: row.id,
+        refBook: row.ref_book,
+        refChapter: row.ref_chapter,
+        refVerse: row.ref_verse,
+        refVerseEnd: row.ref_verse_end,
+        type: row.type as CrossRefType | null,
+        note: row.note,
+        createdAt: row.created_at,
+      }));
+    },
+
+    addUserCrossRef(
+      source: { book: number; chapter: number; verse: number },
+      target: { book: number; chapter: number; verse?: number; verseEnd?: number },
+      options?: { type?: CrossRefType; note?: string },
+    ): UserCrossRef {
+      const id = crypto.randomUUID();
+      const createdAt = Date.now();
+      addUserCrossRefStmt.run(
+        id,
+        source.book,
+        source.chapter,
+        source.verse,
+        target.book,
+        target.chapter,
+        target.verse ?? null,
+        target.verseEnd ?? null,
+        options?.type ?? null,
+        options?.note ?? null,
+        createdAt,
+      );
+      return {
+        id,
+        refBook: target.book,
+        refChapter: target.chapter,
+        refVerse: target.verse ?? null,
+        refVerseEnd: target.verseEnd ?? null,
+        type: options?.type ?? null,
+        note: options?.note ?? null,
+        createdAt,
+      };
+    },
+
+    removeUserCrossRef(id: string): void {
+      removeUserCrossRefStmt.run(id);
     },
 
     close(): void {

@@ -18,8 +18,10 @@ import { AI } from '~/src/services/ai';
 import { requiredModel } from '~/src/services/model';
 
 import { BibleData, BibleDataLive } from '~/src/data/bible/data';
+import { BibleState, BibleStateLive } from '~/src/data/bible/state';
 import { parseVerseQuery, getVersesForQuery } from '~/src/data/bible/parse';
 import type { BibleDataSyncService } from '~/src/data/bible/types';
+import { createCrossRefService, type ClassifiedCrossReference } from '~/src/data/study/cross-refs';
 
 const passage = Args.text({ name: 'passage' }).pipe(Args.repeated);
 
@@ -35,10 +37,26 @@ const DeepModeLive = StructuralAnalysis.Live.pipe(
   Layer.provideMerge(BunContext.layer),
 );
 
+/** Short type labels for cross-ref classifications */
+const TYPE_LABELS: Record<string, string> = {
+  quotation: 'QUO',
+  allusion: 'ALL',
+  parallel: 'PAR',
+  typological: 'TYP',
+  prophecy: 'PRO',
+  sanctuary: 'SAN',
+  recapitulation: 'REC',
+  thematic: 'THM',
+};
+
 /**
  * Format PassageContext into a structured text block for the AI prompt.
  */
-function formatPassageContext(passageStr: string, ctx: PassageContext): string {
+function formatPassageContext(
+  passageStr: string,
+  ctx: PassageContext,
+  enrichedCrossRefs?: Map<number, ClassifiedCrossReference[]>,
+): string {
   const sections: string[] = [];
 
   // 1. Verse text
@@ -74,15 +92,32 @@ function formatPassageContext(passageStr: string, ctx: PassageContext): string {
     sections.push(`## Strong's Entries\n${entries.join('\n')}`);
   }
 
-  // 4. Cross-references
+  // 4. Cross-references (enriched with types when available)
   const crossRefLines: string[] = [];
-  for (const [v, refs] of ctx.crossRefs) {
-    if (refs.length > 0) {
-      const refStrs = refs.map(
-        (r) =>
-          `${r.book}:${r.chapter}:${r.verse ?? ''}${r.previewText !== null ? ` — ${r.previewText}` : ''}`,
-      );
-      crossRefLines.push(`v${v}: ${refStrs.join('; ')}`);
+  if (enrichedCrossRefs !== undefined && enrichedCrossRefs.size > 0) {
+    for (const [v, refs] of enrichedCrossRefs) {
+      if (refs.length > 0) {
+        const refStrs = refs.map((r) => {
+          const typeTag =
+            r.classification !== null
+              ? `[${TYPE_LABELS[r.classification] ?? r.classification}] `
+              : '';
+          const userTag = r.isUserAdded ? '(user) ' : '';
+          const preview = r.previewText !== null ? ` — ${r.previewText}` : '';
+          return `${typeTag}${userTag}${r.book}:${r.chapter}:${r.verse ?? ''}${preview}`;
+        });
+        crossRefLines.push(`v${v}: ${refStrs.join('; ')}`);
+      }
+    }
+  } else {
+    for (const [v, refs] of ctx.crossRefs) {
+      if (refs.length > 0) {
+        const refStrs = refs.map(
+          (r) =>
+            `${r.book}:${r.chapter}:${r.verse ?? ''}${r.previewText !== null ? ` — ${r.previewText}` : ''}`,
+        );
+        crossRefLines.push(`v${v}: ${refStrs.join('; ')}`);
+      }
     }
   }
   if (crossRefLines.length > 0) {
@@ -177,7 +212,18 @@ export const analyze = Command.make('analyze', { passage, depth, model: required
             }).pipe(Effect.provide(DeepModeLive), Effect.scoped),
           );
 
-          const contextStr = formatPassageContext(passageStr, passageContext);
+          // Enrich cross-refs with cached classifications + user refs
+          const state = yield* BibleState;
+          const crossRefSvc = createCrossRefService(state);
+          const enrichedCrossRefs = new Map<number, ClassifiedCrossReference[]>();
+          for (let v = verseStart; v <= verseEnd; v++) {
+            const enriched = crossRefSvc.getCrossRefs(book, chapter, v);
+            if (enriched.length > 0) {
+              enrichedCrossRefs.set(v, enriched);
+            }
+          }
+
+          const contextStr = formatPassageContext(passageStr, passageContext, enrichedCrossRefs);
           if (contextStr.length > 0) {
             userPrompt = `${contextStr}\n\n---\n\n${userPrompt}`;
           }
@@ -229,5 +275,5 @@ export const analyze = Command.make('analyze', { passage, depth, model: required
     const totalTime = msToMinutes(Date.now() - startTime);
     yield* Effect.log(`Analysis generated successfully! (Total time: ${totalTime})`);
     yield* Effect.log(`Output: ${filePath}`);
-  }).pipe(Effect.provide(BibleDataLive)),
+  }).pipe(Effect.provide(Layer.mergeAll(BibleDataLive, BibleStateLive))),
 ).pipe(Command.provide((args) => AI.fromModel(args.model)));

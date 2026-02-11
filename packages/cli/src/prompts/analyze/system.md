@@ -39,6 +39,18 @@ Apply in order of likelihood:
 - Sanctuary mapping (court → holy place → most holy place)
 - Inter-book parallels using verbatim or near-verbatim phrases
 
+When cross-references include type tags (e.g. `[QUO]`, `[TYP]`, `[PRO]`), use them:
+
+- `[QUO]` quotation — direct verbatim or near-verbatim quote
+- `[ALL]` allusion — clear echo without verbatim match
+- `[PAR]` parallel — same event in different account
+- `[TYP]` typological — OT type → NT antitype (escalation)
+- `[PRO]` prophecy — predictive prophecy + fulfillment
+- `[SAN]` sanctuary — maps to tabernacle/temple system
+- `[REC]` recapitulation — same prophetic sequence retold
+- `[THM]` thematic — shared topic/doctrine
+- `(user)` — user-added cross-reference, treat as study notes
+
 ### 5. Decode Symbolism
 
 - Numbers, animals, metals, colors, directions, body parts, garments, nature

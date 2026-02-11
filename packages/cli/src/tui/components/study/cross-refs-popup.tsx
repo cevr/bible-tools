@@ -7,6 +7,12 @@
  * Navigate with j/k or up/down, select with Enter, close with Escape.
  * Switch between pages with h/l or left/right arrows.
  *
+ * Cross-ref features:
+ * - Type badges [QUO] [TYP] etc. when classified
+ * - `c` to classify via AI
+ * - `a` to add user cross-reference
+ * - `d` to delete user cross-reference
+ *
  * Pages:
  * 1. Cross-references & Margin Notes
  * 2. EGW Commentary (from Bible Commentary volumes)
@@ -27,13 +33,37 @@ import { useModalKeyboard } from '../../hooks/use-modal-keyboard.js';
 import { Effect, Layer } from 'effect';
 import { createMemo, createSignal, For, Show } from 'solid-js';
 
+import { CROSS_REF_TYPES, type CrossRefType } from '../../../data/bible/state.js';
 import type { Reference } from '../../../data/bible/types.js';
 import { formatReference, getBook } from '../../../data/bible/types.js';
 import { useBibleData } from '../../context/bible.js';
-import { useStudyData } from '../../context/study-data.js';
+import { useModel } from '../../context/model.js';
+import { useStudyData, type ClassifiedCrossReference } from '../../context/study-data.js';
 import { useTheme } from '../../context/theme.js';
 import { useScrollSync } from '../../hooks/use-scroll-sync.js';
 import { formatNoteType } from '../bible/verse.js';
+
+/** Convert ClassifiedCrossReference (null) to Reference (undefined) */
+function toReference(ref: ClassifiedCrossReference): Reference {
+  return {
+    book: ref.book,
+    chapter: ref.chapter,
+    verse: ref.verse ?? undefined,
+    verseEnd: ref.verseEnd ?? undefined,
+  };
+}
+
+/** Type badge abbreviations and colors */
+const TYPE_BADGES: Record<CrossRefType, { label: string; color: string }> = {
+  quotation: { label: 'QUO', color: '#e06c75' },
+  allusion: { label: 'ALL', color: '#c678dd' },
+  parallel: { label: 'PAR', color: '#61afef' },
+  typological: { label: 'TYP', color: '#e5c07b' },
+  prophecy: { label: 'PRO', color: '#d19a66' },
+  sanctuary: { label: 'SAN', color: '#56b6c2' },
+  recapitulation: { label: 'REC', color: '#98c379' },
+  thematic: { label: 'THM', color: '#abb2bf' },
+};
 
 /** Page type for the popup */
 type PopupPage = 'crossrefs' | 'commentary' | 'structure';
@@ -50,6 +80,7 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
   const { theme } = useTheme();
   const data = useBibleData();
   const studyData = useStudyData();
+  const model = useModel();
   const [selectedIndex, setSelectedIndex] = createSignal(0);
   const [currentPage, setCurrentPage] = createSignal<PopupPage>('crossrefs');
   const [commentary, setCommentary] = createSignal<readonly CommentaryEntry[]>([]);
@@ -58,12 +89,21 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
   const [structureData, setStructureData] = createSignal<PassageContext | null>(null);
   const [structureLoading, setStructureLoading] = createSignal(false);
   const [selectedStructureIndex, setSelectedStructureIndex] = createSignal(0);
+  const [classifying, setClassifying] = createSignal(false);
+  const [addingRef, setAddingRef] = createSignal(false);
+  const [addRefInput, setAddRefInput] = createSignal('');
+  const [typingMode, setTypingMode] = createSignal(false);
+  const [typePickerIndex, setTypePickerIndex] = createSignal(0);
+  // Increment to force crossRefs re-evaluation
+  const [refreshKey, setRefreshKey] = createSignal(0);
   let scrollRef: ScrollBoxRenderable | undefined = undefined;
   let commentaryScrollRef: ScrollBoxRenderable | undefined = undefined;
   let structureScrollRef: ScrollBoxRenderable | undefined = undefined;
 
   // Get cross-references for this verse
   const crossRefs = createMemo(() => {
+    // Track refreshKey to re-evaluate after classify/add/delete
+    refreshKey();
     const verse = props.verseRef.verse ?? 1;
     return studyData.getCrossRefs(props.verseRef.book, props.verseRef.chapter, verse);
   });
@@ -77,14 +117,16 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
   // Get preview text for each reference
   const refsWithPreviews = createMemo(() => {
     return crossRefs().map((ref) => {
-      const verse = data.getVerse(ref.book, ref.chapter, ref.verse ?? 1);
-      let preview = '';
-      if (verse) {
-        preview = verse.text
-          .replace(/\u00b6\s*/, '')
-          .replace(/\[.*?\]/g, '')
-          .slice(0, 50);
-        if (verse.text.length > 50) preview += '...';
+      let preview = ref.previewText ?? '';
+      if (preview === '') {
+        const verse = data.getVerse(ref.book, ref.chapter, ref.verse ?? 1);
+        if (verse) {
+          preview = verse.text
+            .replace(/\u00b6\s*/, '')
+            .replace(/\[.*?\]/g, '')
+            .slice(0, 50);
+          if (verse.text.length > 50) preview += '...';
+        }
       }
       return { ref, preview };
     });
@@ -158,7 +200,7 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
       const refs = refsWithPreviews();
       const selected = refs[selectedIndex()];
       if (selected) {
-        props.onNavigate(selected.ref);
+        props.onNavigate(toReference(selected.ref));
       }
     }
     // Commentary and structure don't navigate
@@ -243,7 +285,141 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
       });
   };
 
+  // Classify a single selected cross-ref via AI
+  const handleClassify = () => {
+    if (classifying() || model === null) return;
+    const refs = refsWithPreviews();
+    const selected = refs[selectedIndex()];
+    if (!selected) return;
+    setClassifying(true);
+    const verse = props.verseRef.verse ?? 1;
+    studyData
+      .classifyRef(
+        { book: props.verseRef.book, chapter: props.verseRef.chapter, verse },
+        selected.ref,
+        model.models,
+      )
+      .then(() => {
+        setRefreshKey((k) => k + 1);
+        setClassifying(false);
+      })
+      .catch(() => {
+        setClassifying(false);
+      });
+  };
+
+  // Classify all unclassified cross-refs via AI (batch)
+  const handleClassifyAll = () => {
+    if (classifying() || model === null) return;
+    setClassifying(true);
+    const verse = props.verseRef.verse ?? 1;
+    studyData
+      .classifyVerse(props.verseRef.book, props.verseRef.chapter, verse, model.models)
+      .then(() => {
+        setRefreshKey((k) => k + 1);
+        setClassifying(false);
+      })
+      .catch(() => {
+        setClassifying(false);
+      });
+  };
+
+  // Manually set type on selected cross-ref
+  const handleSetType = (type: CrossRefType) => {
+    const refs = refsWithPreviews();
+    const selected = refs[selectedIndex()];
+    if (!selected) return;
+    const verse = props.verseRef.verse ?? 1;
+    studyData.setRefType(
+      { book: props.verseRef.book, chapter: props.verseRef.chapter, verse },
+      selected.ref,
+      type,
+    );
+    setTypingMode(false);
+    setRefreshKey((k) => k + 1);
+  };
+
+  // Add user cross-reference
+  const handleAddRef = () => {
+    const input = addRefInput().trim();
+    if (input === '') return;
+
+    const parsed = data.parseReference(input);
+    if (parsed === undefined) return;
+
+    const verse = props.verseRef.verse ?? 1;
+    studyData.addUserCrossRef(
+      { book: props.verseRef.book, chapter: props.verseRef.chapter, verse },
+      { book: parsed.book, chapter: parsed.chapter, verse: parsed.verse },
+    );
+    setAddingRef(false);
+    setAddRefInput('');
+    setRefreshKey((k) => k + 1);
+  };
+
+  // Delete selected user cross-reference
+  const handleDeleteRef = () => {
+    const refs = refsWithPreviews();
+    const selected = refs[selectedIndex()];
+    if (!selected || !selected.ref.isUserAdded || selected.ref.userRefId === null) return;
+
+    studyData.removeUserCrossRef(selected.ref.userRefId);
+    setRefreshKey((k) => k + 1);
+
+    // Adjust selection if needed
+    const newLength = refsWithPreviews().length - 1;
+    if (selectedIndex() >= newLength && newLength > 0) {
+      setSelectedIndex(newLength - 1);
+    }
+  };
+
   useModalKeyboard((key) => {
+    // Type picker mode
+    if (typingMode()) {
+      if (key.name === 'escape') {
+        setTypingMode(false);
+        return;
+      }
+      if (key.name === 'return') {
+        const type = CROSS_REF_TYPES[typePickerIndex()];
+        if (type !== undefined) handleSetType(type);
+        return;
+      }
+      if (key.name === 'left' || key.sequence === 'h') {
+        setTypePickerIndex((i) => Math.max(0, i - 1));
+        return;
+      }
+      if (key.name === 'right' || key.sequence === 'l') {
+        setTypePickerIndex((i) => Math.min(CROSS_REF_TYPES.length - 1, i + 1));
+        return;
+      }
+      return;
+    }
+
+    // Add-ref input mode
+    if (addingRef()) {
+      if (key.name === 'escape') {
+        setAddingRef(false);
+        setAddRefInput('');
+        return;
+      }
+      if (key.name === 'return') {
+        handleAddRef();
+        return;
+      }
+      if (key.name === 'backspace') {
+        setAddRefInput((q) => q.slice(0, -1));
+        return;
+      }
+      // Character input
+      if (key.sequence && key.sequence.length === 1 && !key.ctrl) {
+        setAddRefInput((q) => q + key.sequence);
+        return;
+      }
+      return;
+    }
+
+    // Normal mode
     if (key.name === 'escape') {
       props.onClose();
       return;
@@ -274,6 +450,48 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
       switchPage('right');
       return;
     }
+
+    // Cross-refs page keybindings
+    if (currentPage() === 'crossrefs') {
+      // c = classify selected ref, C = classify all
+      if (key.sequence === 'c' && !key.shift && !classifying()) {
+        handleClassify();
+        return;
+      }
+
+      if (key.sequence === 'C' && !classifying()) {
+        handleClassifyAll();
+        return;
+      }
+
+      // t = manual type picker
+      if (key.sequence === 't') {
+        const refs = refsWithPreviews();
+        if (refs.length > 0) {
+          // Pre-select current type if ref is already classified
+          const selected = refs[selectedIndex()];
+          if (selected?.ref.classification) {
+            const idx = CROSS_REF_TYPES.indexOf(selected.ref.classification);
+            setTypePickerIndex(idx >= 0 ? idx : 0);
+          } else {
+            setTypePickerIndex(0);
+          }
+          setTypingMode(true);
+        }
+        return;
+      }
+
+      if (key.sequence === 'a') {
+        setAddingRef(true);
+        setAddRefInput('');
+        return;
+      }
+
+      if (key.sequence === 'd') {
+        handleDeleteRef();
+        return;
+      }
+    }
   });
 
   const sourceBook = getBook(props.verseRef.book);
@@ -294,7 +512,7 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
       borderColor={theme().border}
       backgroundColor={theme().backgroundPanel}
       width={65}
-      maxHeight={20}
+      maxHeight={22}
       padding={1}
     >
       {/* Header with tabs */}
@@ -316,6 +534,11 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
           </text>
         </box>
       </box>
+
+      {/* Classifying indicator */}
+      <Show when={classifying()}>
+        <text fg={theme().accent}>Classifying cross-references...</text>
+      </Show>
 
       {/* Cross-References Page */}
       <Show when={currentPage() === 'crossrefs'}>
@@ -377,14 +600,21 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
                 <For each={refsWithPreviews()}>
                   {(item, index) => {
                     const isSelected = () => index() === selectedIndex();
-                    const refText = formatReference(item.ref);
-                    const paddedRef = refText.padEnd(25, ' ');
+                    const refText = formatReference(toReference(item.ref));
+                    const paddedRef = refText.padEnd(18, ' ');
+                    const badge = item.ref.classification
+                      ? TYPE_BADGES[item.ref.classification]
+                      : null;
+                    const prefix = item.ref.isUserAdded ? ' * ' : badge ? '' : '   ';
+                    const badgeStr = badge ? `[${badge.label}]` : '';
                     return (
                       <text
                         id={`crossref-${index()}`}
                         fg={isSelected() ? theme().accent : theme().textMuted}
                       >
                         {isSelected() ? '▶ ' : '  '}
+                        {badge ? <span style={{ fg: badge.color }}>{badgeStr}</span> : prefix}
+                        {badge ? ' ' : ''}
                         <span
                           style={{
                             fg: isSelected() ? theme().accent : theme().text,
@@ -400,6 +630,50 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
               </scrollbox>
             </box>
           </Show>
+        </Show>
+
+        {/* Add reference input */}
+        <Show when={addingRef()}>
+          <box
+            border
+            borderColor={theme().borderFocused}
+            paddingLeft={1}
+            paddingRight={1}
+            marginTop={1}
+          >
+            <text fg={theme().text}>
+              Add ref:{' '}
+              {addRefInput() || (
+                <span style={{ fg: theme().textMuted }}>Type reference (e.g. John 3:16)...</span>
+              )}
+              <span style={{ fg: theme().accent }}>_</span>
+            </text>
+          </box>
+        </Show>
+
+        {/* Type picker */}
+        <Show when={typingMode()}>
+          <box
+            border
+            borderColor={theme().borderFocused}
+            paddingLeft={1}
+            paddingRight={1}
+            marginTop={1}
+            flexDirection="row"
+            gap={1}
+          >
+            <For each={[...CROSS_REF_TYPES]}>
+              {(type, index) => {
+                const badge = TYPE_BADGES[type];
+                const isSelected = () => index() === typePickerIndex();
+                return (
+                  <text fg={isSelected() ? badge.color : theme().textMuted}>
+                    {isSelected() ? <strong>[{badge.label}]</strong> : ` ${badge.label} `}
+                  </text>
+                );
+              }}
+            </For>
+          </box>
         </Show>
       </Show>
 
@@ -571,22 +845,37 @@ export function CrossRefsPopup(props: CrossRefsPopupProps) {
       {/* Footer */}
       <box marginTop={1}>
         <text fg={theme().textMuted}>
-          <span style={{ fg: theme().accent }}>←→</span> pages
-          {'  '}
-          <Show when={currentPage() === 'crossrefs' && hasCrossRefs()}>
-            <span style={{ fg: theme().accent }}>↑↓</span> nav •{' '}
-            <span style={{ fg: theme().accent }}>Enter</span> select
-            {'  '}
+          <Show when={typingMode()}>
+            <span style={{ fg: theme().accent }}>←→</span> select •{' '}
+            <span style={{ fg: theme().accent }}>Enter</span> set •{' '}
+            <span style={{ fg: theme().accent }}>Esc</span> cancel
           </Show>
-          <Show when={currentPage() === 'commentary' && hasCommentary()}>
-            <span style={{ fg: theme().accent }}>↑↓</span> scroll
-            {'  '}
+          <Show when={addingRef()}>
+            <span style={{ fg: theme().accent }}>Enter</span> add •{' '}
+            <span style={{ fg: theme().accent }}>Esc</span> cancel
           </Show>
-          <Show when={currentPage() === 'structure' && hasStructure()}>
-            <span style={{ fg: theme().accent }}>↑↓</span> scroll
+          <Show when={!addingRef() && !typingMode()}>
+            <span style={{ fg: theme().accent }}>←→</span> pages
             {'  '}
+            <Show when={currentPage() === 'crossrefs' && hasCrossRefs()}>
+              <span style={{ fg: theme().accent }}>↑↓</span> nav •{' '}
+              <span style={{ fg: theme().accent }}>Enter</span> go •{' '}
+              <span style={{ fg: theme().accent }}>c</span> classify •{' '}
+              <span style={{ fg: theme().accent }}>C</span> all •{' '}
+              <span style={{ fg: theme().accent }}>t</span> type •{' '}
+              <span style={{ fg: theme().accent }}>a</span> add
+              {'  '}
+            </Show>
+            <Show when={currentPage() === 'commentary' && hasCommentary()}>
+              <span style={{ fg: theme().accent }}>↑↓</span> scroll
+              {'  '}
+            </Show>
+            <Show when={currentPage() === 'structure' && hasStructure()}>
+              <span style={{ fg: theme().accent }}>↑↓</span> scroll
+              {'  '}
+            </Show>
+            <span style={{ fg: theme().accent }}>Esc</span> close
           </Show>
-          <span style={{ fg: theme().accent }}>Esc</span> close
         </text>
       </box>
     </box>

@@ -16,12 +16,31 @@ import { BunContext } from '@effect/platform-bun';
 import { tool, jsonSchema } from 'ai';
 import { Effect, Layer, ManagedRuntime, Option } from 'effect';
 
-// Shared layer + runtime for tool execution
-const BibleToolsLayer = BibleDatabase.Default.pipe(Layer.provideMerge(BunContext.layer));
+import { BibleState, BibleStateLive } from '../data/bible/state.js';
+import { createCrossRefService } from '../data/study/cross-refs.js';
+
+// Shared layer + runtime for tool execution (includes BibleState for cross-ref classifications)
+const BibleToolsLayer = Layer.mergeAll(BibleStateLive).pipe(
+  Layer.provideMerge(BibleDatabase.Default),
+  Layer.provideMerge(BunContext.layer),
+);
 const runtime = ManagedRuntime.make(BibleToolsLayer);
 
 function runEffect<A>(effect: Effect.Effect<A, BibleDatabaseError, BibleDatabase>): Promise<A> {
   return runtime.runPromise(effect);
+}
+
+// Lazy cross-ref service singleton
+let _crossRefService: ReturnType<typeof createCrossRefService> | null = null;
+function getCrossRefService(): ReturnType<typeof createCrossRefService> | null {
+  if (_crossRefService !== null) return _crossRefService;
+  try {
+    const state = runtime.runSync(BibleState);
+    _crossRefService = createCrossRefService(state);
+    return _crossRefService;
+  } catch {
+    return null;
+  }
 }
 
 export const bibleTools = {
@@ -135,6 +154,21 @@ export const bibleTools = {
       required: ['book', 'chapter', 'verse'],
     }),
     execute: async ({ book, chapter, verse }) => {
+      // Try enriched cross-refs first (includes cached classifications + user refs)
+      const svc = getCrossRefService();
+      if (svc !== null) {
+        const refs = svc.getCrossRefs(book, chapter, verse);
+        return refs.map((r) => ({
+          book: r.book,
+          chapter: r.chapter,
+          verse: r.verse,
+          verseEnd: r.verseEnd,
+          source: r.source,
+          type: r.classification,
+          preview: r.previewText,
+        }));
+      }
+      // Fallback: raw refs without classifications
       const refs = await runEffect(
         Effect.gen(function* () {
           const db = yield* BibleDatabase;
@@ -147,6 +181,7 @@ export const bibleTools = {
         verse: r.verse,
         verseEnd: r.verseEnd,
         source: r.source,
+        type: null,
         preview: r.previewText,
       }));
     },

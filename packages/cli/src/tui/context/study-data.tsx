@@ -6,6 +6,7 @@
  * Uses BibleDatabase from @bible/core for unified data access.
  */
 
+import type { LanguageModel } from 'ai';
 import {
   BibleDatabase,
   type CrossReference,
@@ -18,10 +19,25 @@ import { BunContext } from '@effect/platform-bun';
 import { Effect, Layer, ManagedRuntime, Option } from 'effect';
 import { createContext, useContext, type ParentProps } from 'solid-js';
 
-import type { Reference } from '../../data/bible/types.js';
+import { BibleState } from '../../data/bible/state.js';
+import type { CrossRefType, UserCrossRef } from '../../data/bible/state.js';
+import {
+  createCrossRefService,
+  type ClassifiedCrossReference,
+  type CrossRefServiceInstance,
+} from '../../data/study/cross-refs.js';
+import { classifySingleCrossRef, classifyVerseCrossRefs } from '../../data/study/classification.js';
+import { appRuntime } from '../lib/app-runtime.js';
 
 // Re-export types from BibleDatabase for consumers
-export type { ConcordanceResult, CrossReference, MarginNote, StrongsEntry, VerseWord };
+export type {
+  ClassifiedCrossReference,
+  ConcordanceResult,
+  CrossReference,
+  MarginNote,
+  StrongsEntry,
+  VerseWord,
+};
 
 // WordWithStrongs is used by word-mode and verse.tsx
 // It's a simplified version of VerseWord
@@ -103,8 +119,43 @@ interface StudyDataContextValue {
   /** Error from database initialization (if any) */
   error: () => Error | undefined;
 
-  /** Get cross-references for a verse (returns empty array if not ready) */
-  getCrossRefs: (book: number, chapter: number, verse: number) => Reference[];
+  /** Get enriched cross-references for a verse (returns empty array if not ready) */
+  getCrossRefs: (book: number, chapter: number, verse: number) => ClassifiedCrossReference[];
+
+  /** Whether a verse's cross-refs have been classified */
+  isClassified: (book: number, chapter: number, verse: number) => boolean;
+
+  /** Classify all unclassified cross-refs for a verse using AI (batch) */
+  classifyVerse: (
+    book: number,
+    chapter: number,
+    verse: number,
+    models: { high: LanguageModel; low: LanguageModel },
+  ) => Promise<void>;
+
+  /** Classify a single cross-ref using AI */
+  classifyRef: (
+    source: { book: number; chapter: number; verse: number },
+    target: ClassifiedCrossReference,
+    models: { high: LanguageModel; low: LanguageModel },
+  ) => Promise<void>;
+
+  /** Manually set the type on a cross-ref */
+  setRefType: (
+    source: { book: number; chapter: number; verse: number },
+    target: ClassifiedCrossReference,
+    type: CrossRefType,
+  ) => void;
+
+  /** Add a user cross-reference */
+  addUserCrossRef: (
+    source: { book: number; chapter: number; verse: number },
+    target: { book: number; chapter: number; verse?: number; verseEnd?: number },
+    options?: { type?: CrossRefType; note?: string },
+  ) => UserCrossRef;
+
+  /** Remove a user cross-reference */
+  removeUserCrossRef: (id: string) => void;
 
   /** Get Strong's entry (returns null if not ready) */
   getStrongsEntry: (number: string) => StrongsEntryCompat | null;
@@ -131,21 +182,54 @@ const StudyDataContext = createContext<StudyDataContextValue>();
 ensureInitialized();
 
 export function StudyDataProvider(props: ParentProps) {
+  // Lazy cross-ref service (needs BibleState from bible context)
+  let crossRefSvc: CrossRefServiceInstance | null = null;
+  function getCrossRefSvc(): CrossRefServiceInstance | null {
+    if (crossRefSvc !== null) return crossRefSvc;
+    try {
+      // Get BibleState from the app runtime (available after BibleProvider mounts)
+      const state = appRuntime.runSync(BibleState);
+      crossRefSvc = createCrossRefService(state);
+      return crossRefSvc;
+    } catch {
+      return null;
+    }
+  }
+
   // Wrap database methods to handle loading state
-  const getCrossRefs = (book: number, chapter: number, verse: number): Reference[] =>
-    runSync(
+  const getCrossRefs = (
+    book: number,
+    chapter: number,
+    verse: number,
+  ): ClassifiedCrossReference[] => {
+    const svc = getCrossRefSvc();
+    if (svc !== null) {
+      return svc.getCrossRefs(book, chapter, verse);
+    }
+    // Fallback: raw refs without classifications
+    return runSync(
       Effect.gen(function* () {
         const db = yield* BibleDatabase;
         const refs = yield* db.getCrossRefs(book, chapter, verse);
-        return refs.map((r: CrossReference) => ({
-          book: r.book,
-          chapter: r.chapter,
-          verse: r.verse ?? undefined,
-          verseEnd: r.verseEnd ?? undefined,
-        }));
+        return refs.map(
+          (r: CrossReference): ClassifiedCrossReference => ({
+            book: r.book,
+            chapter: r.chapter,
+            verse: r.verse,
+            verseEnd: r.verseEnd,
+            source: r.source,
+            previewText: r.previewText,
+            classification: null,
+            confidence: null,
+            isUserAdded: false,
+            userNote: null,
+            userRefId: null,
+          }),
+        );
       }),
       [],
     );
+  };
 
   const getStrongsEntry = (number: string): StrongsEntryCompat | null =>
     runSync(
@@ -235,10 +319,87 @@ export function StudyDataProvider(props: ParentProps) {
       [],
     );
 
+  const isClassified = (book: number, chapter: number, verse: number): boolean => {
+    const svc = getCrossRefSvc();
+    return svc !== null ? svc.isClassified(book, chapter, verse) : false;
+  };
+
+  const classifyVerse = async (
+    book: number,
+    chapter: number,
+    verse: number,
+    models: { high: LanguageModel; low: LanguageModel },
+  ): Promise<void> => {
+    const svc = getCrossRefSvc();
+    if (svc === null) return;
+    try {
+      await classifyVerseCrossRefs(book, chapter, verse, svc, models);
+    } catch {
+      // AI not available — silently fail
+    }
+  };
+
+  const classifyRef = async (
+    source: { book: number; chapter: number; verse: number },
+    target: ClassifiedCrossReference,
+    models: { high: LanguageModel; low: LanguageModel },
+  ): Promise<void> => {
+    const svc = getCrossRefSvc();
+    if (svc === null) return;
+    try {
+      await classifySingleCrossRef(source, target, svc, models);
+    } catch {
+      // AI not available — silently fail
+    }
+  };
+
+  const setRefType = (
+    source: { book: number; chapter: number; verse: number },
+    target: ClassifiedCrossReference,
+    type: CrossRefType,
+  ): void => {
+    const svc = getCrossRefSvc();
+    if (svc === null) return;
+    svc.saveClassification(source.book, source.chapter, source.verse, {
+      refBook: target.book,
+      refChapter: target.chapter,
+      refVerse: target.verse,
+      refVerseEnd: target.verseEnd,
+      type,
+      confidence: null,
+      classifiedAt: Date.now(),
+    });
+  };
+
+  const addUserCrossRef = (
+    source: { book: number; chapter: number; verse: number },
+    target: { book: number; chapter: number; verse?: number; verseEnd?: number },
+    options?: { type?: CrossRefType; note?: string },
+  ): UserCrossRef => {
+    const svc = getCrossRefSvc();
+    if (svc === null) {
+      throw new Error('CrossRefService not initialized');
+    }
+    return svc.addUserRef(source, target, options);
+  };
+
+  const removeUserCrossRef = (id: string): void => {
+    const svc = getCrossRefSvc();
+    if (svc !== null) {
+      svc.removeUserRef(id);
+    }
+  };
+
   const value: StudyDataContextValue = {
     isLoading: () => !initialized,
     error: () => undefined,
     getCrossRefs,
+    isClassified,
+    classifyVerse,
+    classifyRef,
+    setRefType,
+    addUserCrossRef,
+    removeUserCrossRef,
     getStrongsEntry,
     getVerseWords,
     getMarginNotes,
