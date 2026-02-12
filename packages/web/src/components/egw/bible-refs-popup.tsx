@@ -44,26 +44,20 @@ export function BibleRefsPopup({ content, refcode, open, onClose }: BibleRefsPop
   return (
     <Dialog open={open} onOpenChange={(o) => !o && onClose()}>
       <DialogContent
-        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-[420px] rounded-xl bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] overflow-hidden"
+        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-[420px] rounded-xl bg-background border border-border overflow-hidden"
         showCloseButton={false}
       >
         <div className="p-5 space-y-3">
-          <h2 className="font-sans text-lg font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
-            Bible References
-          </h2>
+          <h2 className="font-sans text-lg font-semibold text-foreground">Bible References</h2>
 
-          {refcode && (
-            <p className="text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-              Found in {refcode}
-            </p>
-          )}
+          {refcode && <p className="text-sm text-muted-foreground">Found in {refcode}</p>}
 
           {refs.length > 0 ? (
-            <div className="border-t border-[--color-border] dark:border-[--color-border-dark] pt-3 space-y-1">
+            <div className="border-t border-border pt-3 space-y-1">
               {refs.map((extracted, i) => (
                 <button
                   key={i}
-                  className="w-full text-left px-3 py-2 rounded-lg text-sm transition-colors hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] text-[--color-accent] dark:text-[--color-accent-dark] font-medium"
+                  className="w-full text-left px-3 py-2 rounded-lg text-sm transition-colors hover:bg-accent text-primary font-medium"
                   onClick={() => handleRefClick(extracted.ref)}
                 >
                   {formatBibleReference(extracted.ref)}
@@ -71,15 +65,15 @@ export function BibleRefsPopup({ content, refcode, open, onClose }: BibleRefsPop
               ))}
             </div>
           ) : (
-            <p className="text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
+            <p className="text-sm text-muted-foreground italic">
               No Bible references found in this paragraph.
             </p>
           )}
         </div>
 
-        <div className="border-t border-[--color-border] dark:border-[--color-border-dark] px-5 py-3 flex justify-end">
+        <div className="border-t border-border px-5 py-3 flex justify-end">
           <button
-            className="px-3 py-1.5 text-sm font-medium text-[--color-accent] dark:text-[--color-accent-dark] hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] rounded transition-colors"
+            className="px-3 py-1.5 text-sm font-medium text-primary hover:bg-accent rounded transition-colors"
             onClick={onClose}
           >
             Close

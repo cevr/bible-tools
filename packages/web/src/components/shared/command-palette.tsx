@@ -167,20 +167,17 @@ export function CommandPalette() {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && closeOverlay()}>
       <DialogContent
-        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-lg rounded-xl bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] overflow-hidden"
+        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-lg rounded-xl bg-background border border-border overflow-hidden"
         showCloseButton={false}
         initialFocus={false}
       >
         {/* Header with breadcrumb */}
-        <div className="flex items-center gap-2 px-4 pt-4 pb-2 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+        <div className="flex items-center gap-2 px-4 pt-4 pb-2 text-sm text-muted-foreground">
           <span>Go to</span>
           {state.selectedBook && (
             <>
               <span>→</span>
-              <button
-                className="hover:text-[--color-ink] dark:hover:text-[--color-ink-dark]"
-                onClick={goBack}
-              >
+              <button className="hover:text-foreground" onClick={goBack}>
                 {state.selectedBook.name}
               </button>
             </>
@@ -209,11 +206,11 @@ export function CommandPalette() {
                   ? 'Select chapter...'
                   : 'Select verse...'
             }
-            className="w-full bg-transparent text-lg text-[--color-ink] dark:text-[--color-ink-dark] placeholder:text-[--color-ink-muted] dark:placeholder:text-[--color-ink-muted-dark] outline-none"
+            className="w-full bg-transparent text-lg text-foreground placeholder:text-muted-foreground outline-none"
           />
         </div>
 
-        <div className="border-t border-[--color-border] dark:border-[--color-border-dark]" />
+        <div className="border-t border-border" />
 
         {/* Results */}
         <div className="max-h-80 overflow-y-auto p-2">
@@ -224,35 +221,29 @@ export function CommandPalette() {
                   {filteredActions.map((action) => (
                     <button
                       key={action.label}
-                      className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-left hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] transition-colors"
+                      className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-left hover:bg-accent text-foreground transition-colors"
                       onClick={action.action}
                     >
                       <span>{action.label}</span>
-                      <span className="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-                        {action.hint}
-                      </span>
+                      <span className="text-xs text-muted-foreground">{action.hint}</span>
                     </button>
                   ))}
-                  <div className="border-t border-[--color-border] dark:border-[--color-border-dark] my-1" />
+                  <div className="border-t border-border my-1" />
                 </>
               )}
               {filteredBooks.length > 0 ? (
                 (filteredBooks as Book[]).map((book) => (
                   <button
                     key={book.number}
-                    className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-left hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] transition-colors"
+                    className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-left hover:bg-accent text-foreground transition-colors"
                     onClick={() => selectBook(book)}
                   >
                     <span>{book.name}</span>
-                    <span className="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-                      {book.chapters} chapters
-                    </span>
+                    <span className="text-xs text-muted-foreground">{book.chapters} chapters</span>
                   </button>
                 ))
               ) : filteredActions.length === 0 ? (
-                <p className="px-3 py-2 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-                  No results found
-                </p>
+                <p className="px-3 py-2 text-sm text-muted-foreground">No results found</p>
               ) : null}
             </div>
           )}
@@ -262,7 +253,7 @@ export function CommandPalette() {
               {filteredChapters.map((chapter) => (
                 <button
                   key={chapter}
-                  className="px-3 py-2 rounded-lg text-center hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] transition-colors"
+                  className="px-3 py-2 rounded-lg text-center hover:bg-accent text-foreground transition-colors"
                   onClick={() => selectChapter(chapter)}
                 >
                   {chapter}
@@ -274,15 +265,13 @@ export function CommandPalette() {
           {state.mode === 'verse' && (
             <>
               {loadingVerses ? (
-                <p className="px-3 py-2 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-                  Loading verses...
-                </p>
+                <p className="px-3 py-2 text-sm text-muted-foreground">Loading verses...</p>
               ) : (
                 <div className="grid grid-cols-8 gap-2">
                   {filteredVerses.map((verse) => (
                     <button
                       key={verse}
-                      className="px-3 py-2 rounded-lg text-center hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] transition-colors"
+                      className="px-3 py-2 rounded-lg text-center hover:bg-accent text-foreground transition-colors"
                       onClick={() => selectVerse(verse)}
                     >
                       {verse}
@@ -295,23 +284,16 @@ export function CommandPalette() {
         </div>
 
         {/* Footer hints */}
-        <div className="border-t border-[--color-border] dark:border-[--color-border-dark] px-4 py-2 text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] flex items-center gap-4">
+        <div className="border-t border-border px-4 py-2 text-xs text-muted-foreground flex items-center gap-4">
           <span>
-            <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">↵</kbd>{' '}
-            select
+            <kbd className="rounded bg-border px-1">↵</kbd> select
           </span>
           <span>
-            <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-              esc
-            </kbd>{' '}
-            close
+            <kbd className="rounded bg-border px-1">esc</kbd> close
           </span>
           {state.mode !== 'book' && (
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-                ⌫
-              </kbd>{' '}
-              back
+              <kbd className="rounded bg-border px-1">⌫</kbd> back
             </span>
           )}
         </div>

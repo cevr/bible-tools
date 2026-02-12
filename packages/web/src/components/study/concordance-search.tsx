@@ -64,8 +64,8 @@ export function ConcordanceSearch() {
 
   const languageColor = strongsEntry
     ? strongsEntry.language === 'hebrew'
-      ? 'text-[--color-strongs-hebrew] dark:text-[--color-strongs-hebrew-dark]'
-      : 'text-[--color-strongs-greek] dark:text-[--color-strongs-greek-dark]'
+      ? 'text-[--strongs-hebrew]'
+      : 'text-[--strongs-greek]'
     : '';
 
   return (
@@ -79,14 +79,12 @@ export function ConcordanceSearch() {
       }}
     >
       <DialogContent
-        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-xl rounded-xl bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] overflow-hidden max-h-[70vh] flex flex-col"
+        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-xl rounded-xl bg-background border border-border overflow-hidden max-h-[70vh] flex flex-col"
         showCloseButton={false}
         initialFocus={false}
       >
         <div className="px-4 pt-4 pb-2">
-          <span className="text-sm font-medium text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-            Strong's Concordance
-          </span>
+          <span className="text-sm font-medium text-muted-foreground">Strong's Concordance</span>
         </div>
 
         <div className="px-4 pb-2">
@@ -97,74 +95,63 @@ export function ConcordanceSearch() {
             onChange={(e) => setQuery(e.target.value)}
             autoFocus
             placeholder="Strong's number (e.g. H157, G26)"
-            className="w-full bg-transparent text-lg text-[--color-ink] dark:text-[--color-ink-dark] placeholder:text-[--color-ink-muted] dark:placeholder:text-[--color-ink-muted-dark] outline-none font-mono"
+            className="w-full bg-transparent text-lg text-foreground placeholder:text-muted-foreground outline-none font-mono"
           />
         </div>
 
         {/* Strong's entry preview */}
         {strongsEntry && (
-          <div className="px-4 py-2 bg-[--color-highlight]/50 dark:bg-[--color-highlight-dark]/50 shrink-0">
+          <div className="px-4 py-2 bg-accent/50 shrink-0">
             <span className={`font-mono font-bold ${languageColor}`}>{strongsEntry.number}</span>
-            <span className="ml-2 font-serif text-[--color-ink] dark:text-[--color-ink-dark]">
-              {strongsEntry.lemma}
-            </span>
+            <span className="ml-2 font-serif text-foreground">{strongsEntry.lemma}</span>
             {strongsEntry.transliteration && (
-              <span className="ml-2 text-sm italic text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+              <span className="ml-2 text-sm italic text-muted-foreground">
                 {strongsEntry.transliteration}
               </span>
             )}
-            <p className="mt-1 text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] line-clamp-2">
+            <p className="mt-1 text-xs text-muted-foreground line-clamp-2">
               {strongsEntry.definition}
             </p>
           </div>
         )}
 
-        <div className="border-t border-[--color-border] dark:border-[--color-border-dark]" />
+        <div className="border-t border-border" />
 
         {/* Results */}
         <div className="overflow-y-auto min-h-0 flex-1">
           {!strongsNumber ? (
-            <p className="px-4 py-6 text-center text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+            <p className="px-4 py-6 text-center text-sm text-muted-foreground">
               Enter a Strong's number (H for Hebrew, G for Greek)
             </p>
           ) : loading ? (
-            <p className="px-4 py-6 text-center text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-              Searching...
-            </p>
+            <p className="px-4 py-6 text-center text-sm text-muted-foreground">Searching...</p>
           ) : results.length > 0 ? (
             <div className="p-2 space-y-0.5">
               {results.map((result, i) => (
                 <button
                   key={`${result.book}-${result.chapter}-${result.verse}-${i}`}
-                  className="w-full text-left px-3 py-1.5 rounded-lg hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] transition-colors flex items-baseline gap-3"
+                  className="w-full text-left px-3 py-1.5 rounded-lg hover:bg-accent transition-colors flex items-baseline gap-3"
                   onClick={() => navigateToVerse(result.book, result.chapter, result.verse)}
                 >
-                  <span className="text-xs font-medium text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] w-36 shrink-0">
+                  <span className="text-xs font-medium text-muted-foreground w-36 shrink-0">
                     {formatRef(result.book, result.chapter, result.verse)}
                   </span>
                   {result.wordText && (
-                    <span className="text-sm text-[--color-ink] dark:text-[--color-ink-dark]">
-                      {result.wordText}
-                    </span>
+                    <span className="text-sm text-foreground">{result.wordText}</span>
                   )}
                 </button>
               ))}
             </div>
           ) : (
-            <p className="px-4 py-6 text-center text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-              No verses found
-            </p>
+            <p className="px-4 py-6 text-center text-sm text-muted-foreground">No verses found</p>
           )}
         </div>
 
         {/* Footer */}
-        <div className="border-t border-[--color-border] dark:border-[--color-border-dark] px-4 py-2 flex items-center justify-between text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] shrink-0">
+        <div className="border-t border-border px-4 py-2 flex items-center justify-between text-xs text-muted-foreground shrink-0">
           {results.length > 0 && <span>{results.length} verses</span>}
           <span>
-            <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-              esc
-            </kbd>{' '}
-            close
+            <kbd className="rounded bg-border px-1">esc</kbd> close
           </span>
         </div>
       </DialogContent>

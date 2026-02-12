@@ -44,15 +44,13 @@ export function GotoDialog() {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && closeOverlay()}>
       <DialogContent
-        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-md rounded-xl bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] overflow-hidden"
+        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-md rounded-xl bg-background border border-border overflow-hidden"
         showCloseButton={false}
         initialFocus={false}
       >
         <form onSubmit={handleSubmit}>
           <div className="px-4 pt-4 pb-2">
-            <span className="text-sm font-medium text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-              Go to reference
-            </span>
+            <span className="text-sm font-medium text-muted-foreground">Go to reference</span>
           </div>
           <div className="px-4 pb-3">
             <input
@@ -65,22 +63,16 @@ export function GotoDialog() {
               }}
               autoFocus
               placeholder="John 3:16, Genesis 1, Ps 23..."
-              className="w-full bg-transparent text-xl text-[--color-ink] dark:text-[--color-ink-dark] placeholder:text-[--color-ink-muted] dark:placeholder:text-[--color-ink-muted-dark] outline-none"
+              className="w-full bg-transparent text-xl text-foreground placeholder:text-muted-foreground outline-none"
             />
-            {error && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{error}</p>}
+            {error && <p className="mt-2 text-sm text-destructive">{error}</p>}
           </div>
-          <div className="border-t border-[--color-border] dark:border-[--color-border-dark] px-4 py-2 text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] flex items-center gap-4">
+          <div className="border-t border-border px-4 py-2 text-xs text-muted-foreground flex items-center gap-4">
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-                ↵
-              </kbd>{' '}
-              go
+              <kbd className="rounded bg-border px-1">↵</kbd> go
             </span>
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-                esc
-              </kbd>{' '}
-              close
+              <kbd className="rounded bg-border px-1">esc</kbd> close
             </span>
           </div>
         </form>

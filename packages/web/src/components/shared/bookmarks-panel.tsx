@@ -57,18 +57,16 @@ function BookmarksPanelInner() {
       }}
     >
       <DialogContent
-        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-lg rounded-xl bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] overflow-hidden max-h-[70vh] flex flex-col"
+        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-lg rounded-xl bg-background border border-border overflow-hidden max-h-[70vh] flex flex-col"
         showCloseButton={false}
       >
-        <div className="px-4 pt-4 pb-2 border-b border-[--color-border] dark:border-[--color-border-dark] shrink-0">
-          <h2 className="font-sans text-lg font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
-            Bookmarks
-          </h2>
+        <div className="px-4 pt-4 pb-2 border-b border-border shrink-0">
+          <h2 className="font-sans text-lg font-semibold text-foreground">Bookmarks</h2>
         </div>
 
         {/* Quick-add */}
         {currentRef && (
-          <div className="px-4 py-3 bg-[--color-highlight]/50 dark:bg-[--color-highlight-dark]/50 shrink-0">
+          <div className="px-4 py-3 bg-accent/50 shrink-0">
             <form
               className="flex gap-2"
               onSubmit={(e) => {
@@ -76,19 +74,19 @@ function BookmarksPanelInner() {
                 void handleAdd();
               }}
             >
-              <span className="text-sm text-[--color-ink] dark:text-[--color-ink-dark] shrink-0 py-1.5">
+              <span className="text-sm text-foreground shrink-0 py-1.5">
                 {formatRef(currentRef)}
               </span>
               <input
                 type="text"
                 placeholder="Note (optional)"
-                className="flex-1 px-2 py-1.5 text-sm rounded-lg border border-[--color-border] dark:border-[--color-border-dark] bg-transparent text-[--color-ink] dark:text-[--color-ink-dark] placeholder:text-[--color-ink-muted] dark:placeholder:text-[--color-ink-muted-dark] focus:outline-none focus:ring-1 focus:ring-[--color-accent] dark:focus:ring-[--color-accent-dark]"
+                className="flex-1 px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
                 value={noteInput}
                 onChange={(e) => setNoteInput(e.target.value)}
               />
               <button
                 type="submit"
-                className="px-3 py-1.5 text-sm font-medium rounded-lg bg-[--color-accent] dark:bg-[--color-accent-dark] text-white hover:opacity-90 transition-opacity"
+                className="px-3 py-1.5 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
               >
                 Add
               </button>
@@ -103,22 +101,18 @@ function BookmarksPanelInner() {
               {bookmarks.map((bm: Bookmark) => (
                 <div
                   key={bm.id}
-                  className="flex items-center gap-2 p-2 rounded-lg hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] transition-colors group"
+                  className="flex items-center gap-2 p-2 rounded-lg hover:bg-accent transition-colors group"
                 >
                   <button
                     className="flex-1 text-left min-w-0"
                     onClick={() => navigateToBookmark(bm.reference)}
                   >
-                    <span className="text-sm font-medium text-[--color-ink] dark:text-[--color-ink-dark]">
+                    <span className="text-sm font-medium text-foreground">
                       {formatRef(bm.reference)}
                     </span>
-                    {bm.note && (
-                      <p className="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] mt-0.5">
-                        {bm.note}
-                      </p>
-                    )}
+                    {bm.note && <p className="text-xs text-muted-foreground mt-0.5">{bm.note}</p>}
                     <time
-                      className="text-[10px] text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]"
+                      className="text-[10px] text-muted-foreground"
                       dateTime={new Date(bm.createdAt).toISOString()}
                     >
                       {formatDate(bm.createdAt)}
@@ -135,16 +129,14 @@ function BookmarksPanelInner() {
               ))}
             </div>
           ) : (
-            <p className="px-4 py-6 text-center text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-              No bookmarks yet.
-            </p>
+            <p className="px-4 py-6 text-center text-sm text-muted-foreground">No bookmarks yet.</p>
           )}
         </div>
 
         {/* Footer */}
-        <div className="border-t border-[--color-border] dark:border-[--color-border-dark] px-4 py-3 flex justify-end shrink-0">
+        <div className="border-t border-border px-4 py-3 flex justify-end shrink-0">
           <button
-            className="px-3 py-1.5 text-sm font-medium text-[--color-accent] dark:text-[--color-accent-dark] hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] rounded transition-colors"
+            className="px-3 py-1.5 text-sm font-medium text-primary hover:bg-accent rounded transition-colors"
             onClick={closeOverlay}
           >
             Done

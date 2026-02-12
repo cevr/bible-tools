@@ -138,40 +138,36 @@ export function CrossRefsPopup() {
       }}
     >
       <DialogContent
-        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-lg rounded-xl bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] overflow-hidden max-h-[70vh] flex flex-col"
+        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-lg rounded-xl bg-background border border-border overflow-hidden max-h-[70vh] flex flex-col"
         showCloseButton={false}
       >
         {/* Header */}
-        <div className="px-4 pt-4 pb-2 border-b border-[--color-border] dark:border-[--color-border-dark] shrink-0">
-          <h2 className="font-sans text-lg font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
+        <div className="px-4 pt-4 pb-2 border-b border-border shrink-0">
+          <h2 className="font-sans text-lg font-semibold text-foreground">
             {currentBook && data ? `${currentBook.name} ${data.chapter}:${data.verse}` : ''}
           </h2>
         </div>
 
         {/* Current verse text */}
         {currentVerseText && (
-          <div className="px-4 py-3 bg-[--color-highlight]/50 dark:bg-[--color-highlight-dark]/50 shrink-0">
-            <p className="reading-text text-[--color-ink] dark:text-[--color-ink-dark]">
-              {currentVerseText}
-            </p>
+          <div className="px-4 py-3 bg-accent/50 shrink-0">
+            <p className="reading-text text-foreground">{currentVerseText}</p>
           </div>
         )}
 
         {/* Cross-references */}
         <div className="px-4 py-3 overflow-y-auto min-h-0 flex-1">
-          <h3 className="text-xs font-medium text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] uppercase tracking-wider mb-2">
+          <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
             Cross-References
           </h3>
           {loading ? (
-            <p className="text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-              Loading...
-            </p>
+            <p className="text-sm text-muted-foreground">Loading...</p>
           ) : crossRefs.length > 0 ? (
             <div className="space-y-1">
               {crossRefs.map((ref, idx) => (
                 <div
                   key={`${ref.book}-${ref.chapter}-${ref.verse}-${idx}`}
-                  className="flex items-start gap-2 p-2 rounded-lg hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] transition-colors group"
+                  className="flex items-start gap-2 p-2 rounded-lg hover:bg-accent transition-colors group"
                 >
                   {/* Type badge */}
                   {ref.classification ? (
@@ -194,19 +190,17 @@ export function CrossRefsPopup() {
 
                   {/* Reference */}
                   <button className="flex-1 text-left min-w-0" onClick={() => navigateToRef(ref)}>
-                    <span className="text-sm font-medium text-[--color-ink] dark:text-[--color-ink-dark]">
+                    <span className="text-sm font-medium text-foreground">
                       {ref.isUserAdded ? '* ' : ''}
                       {formatRef(ref)}
                     </span>
                     {ref.previewText && (
-                      <p className="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] line-clamp-1 mt-0.5">
+                      <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
                         {ref.previewText}
                       </p>
                     )}
                     {ref.userNote && (
-                      <p className="text-xs italic text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] mt-0.5">
-                        {ref.userNote}
-                      </p>
+                      <p className="text-xs italic text-muted-foreground mt-0.5">{ref.userNote}</p>
                     )}
                   </button>
 
@@ -223,13 +217,13 @@ export function CrossRefsPopup() {
 
                   {/* Type picker dropdown */}
                   {editingRefIdx === idx && (
-                    <div className="absolute right-4 mt-6 z-10 bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] rounded-lg shadow-lg p-1 space-y-0.5">
+                    <div className="absolute right-4 mt-6 z-10 bg-background border border-border rounded-lg shadow-lg p-1 space-y-0.5">
                       {ALL_TYPES.map((type) => {
                         const badge = TYPE_BADGES[type];
                         return (
                           <button
                             key={type}
-                            className="w-full text-left px-2 py-1 text-xs rounded hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] flex items-center gap-2"
+                            className="w-full text-left px-2 py-1 text-xs rounded hover:bg-accent flex items-center gap-2"
                             onClick={() => handleSetType(ref, type)}
                           >
                             <span
@@ -237,14 +231,12 @@ export function CrossRefsPopup() {
                             >
                               {badge.abbr}
                             </span>
-                            <span className="text-[--color-ink] dark:text-[--color-ink-dark] capitalize">
-                              {type}
-                            </span>
+                            <span className="text-foreground capitalize">{type}</span>
                           </button>
                         );
                       })}
                       <button
-                        className="w-full text-left px-2 py-1 text-xs rounded hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]"
+                        className="w-full text-left px-2 py-1 text-xs rounded hover:bg-accent text-muted-foreground"
                         onClick={() => setEditingRefIdx(null)}
                       >
                         Cancel
@@ -255,13 +247,11 @@ export function CrossRefsPopup() {
               ))}
             </div>
           ) : (
-            <p className="text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-              No cross-references found.
-            </p>
+            <p className="text-sm text-muted-foreground">No cross-references found.</p>
           )}
 
           {/* Add user cross-ref */}
-          <div className="mt-3 pt-3 border-t border-[--color-border] dark:border-[--color-border-dark]">
+          <div className="mt-3 pt-3 border-t border-border">
             <form
               className="flex gap-2"
               onSubmit={(e) => {
@@ -272,13 +262,13 @@ export function CrossRefsPopup() {
               <input
                 type="text"
                 placeholder="Add cross-ref (e.g. John 3:16)"
-                className="flex-1 px-2 py-1.5 text-sm rounded-lg border border-[--color-border] dark:border-[--color-border-dark] bg-transparent text-[--color-ink] dark:text-[--color-ink-dark] placeholder:text-[--color-ink-muted] dark:placeholder:text-[--color-ink-muted-dark] focus:outline-none focus:ring-1 focus:ring-[--color-accent] dark:focus:ring-[--color-accent-dark]"
+                className="flex-1 px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
                 value={addRefInput}
                 onChange={(e) => setAddRefInput(e.target.value)}
               />
               <button
                 type="submit"
-                className="px-3 py-1.5 text-sm font-medium rounded-lg bg-[--color-accent] dark:bg-[--color-accent-dark] text-white hover:opacity-90 transition-opacity disabled:opacity-50"
+                className="px-3 py-1.5 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-50"
                 disabled={!addRefInput.trim()}
               >
                 Add
@@ -288,12 +278,12 @@ export function CrossRefsPopup() {
         </div>
 
         {/* Footer */}
-        <div className="px-4 py-3 border-t border-[--color-border] dark:border-[--color-border-dark] flex items-center justify-between shrink-0">
-          <div className="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+        <div className="px-4 py-3 border-t border-border flex items-center justify-between shrink-0">
+          <div className="text-xs text-muted-foreground">
             {crossRefs.length > 0 && <span>{crossRefs.length} cross-references</span>}
           </div>
           <button
-            className="px-3 py-1.5 text-sm font-medium text-[--color-accent] dark:text-[--color-accent-dark] hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] rounded transition-colors"
+            className="px-3 py-1.5 text-sm font-medium text-primary hover:bg-accent rounded transition-colors"
             onClick={closeOverlay}
           >
             Done

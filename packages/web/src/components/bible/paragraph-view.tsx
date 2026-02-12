@@ -34,7 +34,7 @@ export function ParagraphView({
           <span key={verse.verse}>
             <sup
               className={`verse-num cursor-pointer select-none ${
-                isSelected ? 'text-[--color-accent] dark:text-[--color-accent-dark] font-bold' : ''
+                isSelected ? 'text-primary font-bold' : ''
               }`}
               style={{ fontVariantNumeric: 'tabular-nums' }}
               onClick={() => onVerseClick(verse.verse)}
@@ -43,9 +43,7 @@ export function ParagraphView({
             </sup>
             <span
               className={`cursor-pointer transition-colors duration-100 ${
-                isSelected
-                  ? 'bg-[--color-highlight] dark:bg-[--color-highlight-dark] rounded-sm'
-                  : ''
+                isSelected ? 'bg-accent rounded-sm' : ''
               }`}
               onClick={() => onVerseClick(verse.verse)}
               data-verse={verse.verse}

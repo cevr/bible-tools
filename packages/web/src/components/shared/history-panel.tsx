@@ -67,16 +67,14 @@ function HistoryPanelInner() {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && closeOverlay()}>
       <DialogContent
-        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-lg rounded-xl bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] overflow-hidden max-h-[70vh] flex flex-col"
+        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-lg rounded-xl bg-background border border-border overflow-hidden max-h-[70vh] flex flex-col"
         showCloseButton={false}
       >
-        <div className="px-4 pt-4 pb-2 border-b border-[--color-border] dark:border-[--color-border-dark] shrink-0 flex items-center justify-between">
-          <h2 className="font-sans text-lg font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
-            History
-          </h2>
+        <div className="px-4 pt-4 pb-2 border-b border-border shrink-0 flex items-center justify-between">
+          <h2 className="font-sans text-lg font-semibold text-foreground">History</h2>
           {history.length > 0 && (
             <button
-              className="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] hover:text-red-500 dark:hover:text-red-400 transition-colors"
+              className="text-xs text-muted-foreground hover:text-red-500 dark:hover:text-red-400 transition-colors"
               onClick={() => void clear()}
             >
               Clear all
@@ -89,21 +87,21 @@ function HistoryPanelInner() {
             <div className="space-y-3">
               {grouped.map((group) => (
                 <div key={group.label}>
-                  <h3 className="px-2 py-1 text-xs font-semibold uppercase tracking-wider text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+                  <h3 className="px-2 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     {group.label}
                   </h3>
                   <div className="space-y-0.5">
                     {group.entries.map((entry, i) => (
                       <button
                         key={`${entry.reference.book}-${entry.reference.chapter}-${entry.visitedAt}-${i}`}
-                        className="w-full flex items-center justify-between gap-2 p-2 rounded-lg hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] transition-colors text-left"
+                        className="w-full flex items-center justify-between gap-2 p-2 rounded-lg hover:bg-accent transition-colors text-left"
                         onClick={() => navigateToEntry(entry.reference)}
                       >
-                        <span className="text-sm font-medium text-[--color-ink] dark:text-[--color-ink-dark]">
+                        <span className="text-sm font-medium text-foreground">
                           {formatRef(entry.reference)}
                         </span>
                         <time
-                          className="text-[10px] text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] shrink-0 tabular-nums"
+                          className="text-[10px] text-muted-foreground shrink-0 tabular-nums"
                           dateTime={new Date(entry.visitedAt).toISOString()}
                         >
                           {group.label === 'Today' || group.label === 'Yesterday'
@@ -117,15 +115,13 @@ function HistoryPanelInner() {
               ))}
             </div>
           ) : (
-            <p className="px-4 py-6 text-center text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-              No history yet.
-            </p>
+            <p className="px-4 py-6 text-center text-sm text-muted-foreground">No history yet.</p>
           )}
         </div>
 
-        <div className="border-t border-[--color-border] dark:border-[--color-border-dark] px-4 py-3 flex justify-end shrink-0">
+        <div className="border-t border-border px-4 py-3 flex justify-end shrink-0">
           <button
-            className="px-3 py-1.5 text-sm font-medium text-[--color-accent] dark:text-[--color-accent-dark] hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] rounded transition-colors"
+            className="px-3 py-1.5 text-sm font-medium text-primary hover:bg-accent rounded transition-colors"
             onClick={closeOverlay}
           >
             Done

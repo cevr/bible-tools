@@ -275,25 +275,21 @@ function MarginNoteSup({ note }: { note: MarginNote }) {
     <Popover>
       <PopoverTrigger
         render={<sup />}
-        className="margin-sup cursor-pointer hover:text-[--color-accent] dark:hover:text-[--color-accent-dark] transition-colors"
+        className="margin-sup cursor-pointer hover:text-primary transition-colors"
         aria-label={`Margin note ${note.noteIndex}`}
       >
         {note.noteIndex}
       </PopoverTrigger>
       <PopoverContent
-        className="max-w-[280px] rounded-lg bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] shadow-lg p-3 font-sans text-sm"
+        className="max-w-[280px] rounded-lg bg-background border border-border shadow-lg p-3 font-sans text-sm"
         sideOffset={4}
       >
         <div className="space-y-1">
           <p>
-            <span className="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-              {formatNoteType(note.noteType)}
-            </span>
-            <strong className="text-[--color-ink] dark:text-[--color-ink-dark]">
-              {note.phrase}
-            </strong>
+            <span className="text-muted-foreground">{formatNoteType(note.noteType)}</span>
+            <strong className="text-foreground">{note.phrase}</strong>
           </p>
-          <p className="text-[--color-ink] dark:text-[--color-ink-dark]">{note.noteText}</p>
+          <p className="text-foreground">{note.noteText}</p>
         </div>
       </PopoverContent>
     </Popover>

@@ -105,9 +105,7 @@ export function SearchOverlay() {
     return (
       <>
         {text.slice(0, idx)}
-        <mark className="bg-[--color-highlight] dark:bg-[--color-highlight-dark] rounded px-0.5">
-          {text.slice(idx, idx + q.length)}
-        </mark>
+        <mark className="bg-accent rounded px-0.5">{text.slice(idx, idx + q.length)}</mark>
         {text.slice(idx + q.length)}
       </>
     );
@@ -116,21 +114,19 @@ export function SearchOverlay() {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
       <DialogContent
-        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-xl rounded-xl bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] overflow-hidden"
+        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-xl rounded-xl bg-background border border-border overflow-hidden"
         showCloseButton={false}
         initialFocus={false}
       >
         {/* Header with scope toggle */}
         <div className="flex items-center justify-between px-4 pt-4 pb-2">
-          <span className="text-sm font-medium text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-            Search verses
-          </span>
+          <span className="text-sm font-medium text-muted-foreground">Search verses</span>
           <div className="flex gap-1 text-xs">
             <button
               className={`px-2 py-1 rounded transition-colors ${
                 searchScope === 'chapter'
-                  ? 'bg-[--color-highlight] dark:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark]'
-                  : 'text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] hover:text-[--color-ink] dark:hover:text-[--color-ink-dark]'
+                  ? 'bg-accent text-foreground'
+                  : 'text-muted-foreground hover:text-foreground'
               }`}
               onClick={() => setSearchScope('chapter')}
             >
@@ -139,8 +135,8 @@ export function SearchOverlay() {
             <button
               className={`px-2 py-1 rounded transition-colors ${
                 searchScope === 'global'
-                  ? 'bg-[--color-highlight] dark:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark]'
-                  : 'text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] hover:text-[--color-ink] dark:hover:text-[--color-ink-dark]'
+                  ? 'bg-accent text-foreground'
+                  : 'text-muted-foreground hover:text-foreground'
               }`}
               onClick={() => setSearchScope('global')}
             >
@@ -158,22 +154,20 @@ export function SearchOverlay() {
             onChange={(e) => setQuery(e.target.value)}
             autoFocus
             placeholder="Search for words or phrases..."
-            className="w-full bg-transparent text-lg text-[--color-ink] dark:text-[--color-ink-dark] placeholder:text-[--color-ink-muted] dark:placeholder:text-[--color-ink-muted-dark] outline-none"
+            className="w-full bg-transparent text-lg text-foreground placeholder:text-muted-foreground outline-none"
           />
         </div>
 
-        <div className="border-t border-[--color-border] dark:border-[--color-border-dark]" />
+        <div className="border-t border-border" />
 
         {/* Results */}
         <div className="max-h-80 overflow-y-auto">
           {query.length < 2 ? (
-            <p className="px-4 py-6 text-center text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+            <p className="px-4 py-6 text-center text-sm text-muted-foreground">
               Type at least 2 characters to search
             </p>
           ) : loading ? (
-            <p className="px-4 py-6 text-center text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-              Searching...
-            </p>
+            <p className="px-4 py-6 text-center text-sm text-muted-foreground">Searching...</p>
           ) : results.length > 0 ? (
             <div className="p-2 space-y-1">
               {results.map((result) => {
@@ -181,13 +175,13 @@ export function SearchOverlay() {
                 return (
                   <button
                     key={`${result.reference.book}-${result.reference.chapter}-${result.reference.verse}`}
-                    className="w-full text-left px-3 py-2 rounded-lg hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] transition-colors"
+                    className="w-full text-left px-3 py-2 rounded-lg hover:bg-accent transition-colors"
                     onClick={() => navigateToResult(result)}
                   >
-                    <div className="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] mb-0.5">
+                    <div className="text-xs text-muted-foreground mb-0.5">
                       {book?.name} {result.reference.chapter}:{result.reference.verse}
                     </div>
-                    <div className="text-sm text-[--color-ink] dark:text-[--color-ink-dark] line-clamp-2">
+                    <div className="text-sm text-foreground line-clamp-2">
                       {highlightMatch(result.text, query)}
                     </div>
                   </button>
@@ -195,23 +189,17 @@ export function SearchOverlay() {
               })}
             </div>
           ) : (
-            <p className="px-4 py-6 text-center text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-              No results found
-            </p>
+            <p className="px-4 py-6 text-center text-sm text-muted-foreground">No results found</p>
           )}
         </div>
 
         {/* Footer */}
-        <div className="border-t border-[--color-border] dark:border-[--color-border-dark] px-4 py-2 text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] flex items-center gap-4">
+        <div className="border-t border-border px-4 py-2 text-xs text-muted-foreground flex items-center gap-4">
           <span>
-            <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">↵</kbd>{' '}
-            select
+            <kbd className="rounded bg-border px-1">↵</kbd> select
           </span>
           <span>
-            <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1">
-              esc
-            </kbd>{' '}
-            close
+            <kbd className="rounded bg-border px-1">esc</kbd> close
           </span>
         </div>
       </DialogContent>

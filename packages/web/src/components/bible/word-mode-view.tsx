@@ -30,10 +30,10 @@ export function WordModeView({
             <span
               className={`cursor-pointer rounded px-0.5 transition-colors duration-75 ${
                 isSelected
-                  ? 'bg-[--color-accent]/15 dark:bg-[--color-accent-dark]/15 text-[--color-accent] dark:text-[--color-accent-dark] font-semibold underline underline-offset-2'
+                  ? 'bg-primary/15 text-primary font-semibold underline underline-offset-2'
                   : hasStrongs
-                    ? 'text-[--color-ink] dark:text-[--color-ink-dark]'
-                    : 'text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]'
+                    ? 'text-foreground'
+                    : 'text-muted-foreground'
               }`}
               tabIndex={0}
               aria-selected={isSelected}
@@ -51,7 +51,7 @@ export function WordModeView({
               {word.wordText}
             </span>
             {isSelected && hasStrongs && (
-              <sup className="text-[0.6rem] font-mono text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] ml-0.5">
+              <sup className="text-[0.6rem] font-mono text-muted-foreground ml-0.5">
                 {word.strongsNumbers?.[0]}
               </sup>
             )}

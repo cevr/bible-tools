@@ -418,33 +418,22 @@ function BibleRoute() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <header className="border-b border-[--color-border] dark:border-[--color-border-dark] pb-4">
-        <h1 className="font-sans text-2xl font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
+      <header className="border-b border-border pb-4">
+        <h1 className="font-sans text-2xl font-semibold text-foreground">
           {book?.name} {chapterNumber}
         </h1>
-        <p className="mt-1 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-          Press{' '}
-          <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1.5 py-0.5 text-xs">
-            ⌘K
-          </kbd>{' '}
-          for command palette
+        <p className="mt-1 text-sm text-muted-foreground">
+          Press <kbd className="rounded bg-border px-1.5 py-0.5 text-xs">⌘K</kbd> for command
+          palette
         </p>
       </header>
 
       {/* Chapter content */}
       <div className={displayMode === 'verse' ? 'reading-text space-y-3' : ''}>
-        {versesLoading && (
-          <p className="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
-            Loading verses...
-          </p>
-        )}
-        {versesError && (
-          <p className="text-red-600 dark:text-red-400">Failed to load verses: {versesError}</p>
-        )}
+        {versesLoading && <p className="text-muted-foreground italic">Loading verses...</p>}
+        {versesError && <p className="text-destructive">Failed to load verses: {versesError}</p>}
         {!versesLoading && !versesError && verses.length === 0 && (
-          <p className="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
-            No verses found for this chapter.
-          </p>
+          <p className="text-muted-foreground italic">No verses found for this chapter.</p>
         )}
         {!versesLoading && !versesError && verses.length > 0 && (
           <>
@@ -484,11 +473,11 @@ function BibleRoute() {
       />
 
       {/* Footer */}
-      <footer className="border-t border-[--color-border] dark:border-[--color-border-dark] pt-4 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+      <footer className="border-t border-border pt-4 text-sm text-muted-foreground">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <span className="flex items-center gap-2">
             <button
-              className="text-xs px-1.5 py-0.5 rounded bg-[--color-border] dark:bg-[--color-border-dark] hover:bg-[--color-accent]/20 dark:hover:bg-[--color-accent-dark]/20 transition-colors"
+              className="text-xs px-1.5 py-0.5 rounded bg-border hover:bg-primary/20 transition-colors"
               onClick={toggleDisplayMode}
               title={`Switch to ${displayMode === 'verse' ? 'paragraph' : 'verse'} mode (⌘D)`}
               aria-live="polite"
@@ -498,20 +487,20 @@ function BibleRoute() {
             {book?.name} {chapterNumber}:{selectedVerse}
             {/* Word mode indicator */}
             {wordModeActive && (
-              <span className="text-xs px-1.5 py-0.5 rounded bg-[--color-accent]/20 dark:bg-[--color-accent-dark]/20 text-[--color-accent] dark:text-[--color-accent-dark] font-medium">
+              <span className="text-xs px-1.5 py-0.5 rounded bg-primary/20 text-primary font-medium">
                 word
               </span>
             )}
             {/* Goto mode indicator */}
             {gotoState._tag === 'awaiting' && (
-              <span className="text-xs px-1.5 py-0.5 rounded bg-[--color-accent]/20 dark:bg-[--color-accent-dark]/20 text-[--color-accent] dark:text-[--color-accent-dark] font-mono">
+              <span className="text-xs px-1.5 py-0.5 rounded bg-primary/20 text-primary font-mono">
                 g{(gotoState as { digits: string }).digits}…
               </span>
             )}
             {/* Search query indicator */}
             {searchQuery.length >= 2 && (
               <button
-                className="text-xs px-1.5 py-0.5 rounded bg-[--color-highlight] dark:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] hover:opacity-70 transition-opacity"
+                className="text-xs px-1.5 py-0.5 rounded bg-accent text-foreground hover:opacity-70 transition-opacity"
                 onClick={() => setSearchQuery('')}
                 title="Clear search (click to dismiss)"
               >
@@ -521,34 +510,19 @@ function BibleRoute() {
           </span>
           <div className="flex gap-4 flex-wrap">
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ↑↓
-              </kbd>{' '}
-              verse
+              <kbd className="rounded bg-border px-1 text-xs">↑↓</kbd> verse
             </span>
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ←→
-              </kbd>{' '}
-              chapter
+              <kbd className="rounded bg-border px-1 text-xs">←→</kbd> chapter
             </span>
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                w
-              </kbd>{' '}
-              words
+              <kbd className="rounded bg-border px-1 text-xs">w</kbd> words
             </span>
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ⌘D
-              </kbd>{' '}
-              mode
+              <kbd className="rounded bg-border px-1 text-xs">⌘D</kbd> mode
             </span>
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ⌘G
-              </kbd>{' '}
-              go to
+              <kbd className="rounded bg-border px-1 text-xs">⌘G</kbd> go to
             </span>
           </div>
         </div>
@@ -587,9 +561,7 @@ function VerseDisplay({
     <p
       data-verse={verse.verse}
       className={`cursor-pointer rounded px-2 py-1 transition-colors duration-100 ${
-        isSelected
-          ? 'bg-[--color-highlight] dark:bg-[--color-highlight-dark]'
-          : 'hover:bg-[--color-highlight]/50 dark:hover:bg-[--color-highlight-dark]/50'
+        isSelected ? 'bg-accent' : 'hover:bg-accent/50'
       }`}
       onClick={onClick}
       tabIndex={0}

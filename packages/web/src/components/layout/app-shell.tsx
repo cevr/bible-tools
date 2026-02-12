@@ -25,7 +25,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   });
 
   return (
-    <div className="min-h-screen bg-[--color-paper] dark:bg-[--color-paper-dark]">
+    <div className="min-h-screen bg-background">
       <main className="mx-auto max-w-4xl px-[--spacing-gutter] py-8">{children}</main>
     </div>
   );

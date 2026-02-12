@@ -81,7 +81,7 @@ function HeadingElement({ content, level }: { content: string | null; level: num
   const text = content ? cleanHtml(content) : '';
   if (!text) return null;
 
-  const base = 'font-sans font-semibold text-[--color-ink] dark:text-[--color-ink-dark]';
+  const base = 'font-sans font-semibold text-foreground';
   const classes =
     level === 1
       ? `${base} text-2xl mt-8 mb-4`
@@ -112,17 +112,13 @@ function ParagraphElement({
       data-para={para.puborder}
       data-selected={isSelected ? 'true' : undefined}
       className={`cursor-pointer rounded-sm px-2 py-1 transition-colors duration-100 ${
-        isSelected
-          ? 'bg-[--color-highlight] dark:bg-[--color-highlight-dark]'
-          : 'hover:bg-[--color-highlight]/50 dark:hover:bg-[--color-highlight-dark]/50'
+        isSelected ? 'bg-accent' : 'hover:bg-accent/50'
       }`}
       onClick={onClick}
     >
       {text}
       {para.refcodeShort && (
-        <span className="ml-2 text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] select-none">
-          {para.refcodeShort}
-        </span>
+        <span className="ml-2 text-xs text-muted-foreground select-none">{para.refcodeShort}</span>
       )}
     </p>
   );

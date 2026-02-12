@@ -72,41 +72,30 @@ function BookListView() {
 
   return (
     <div className="space-y-6">
-      <header className="border-b border-[--color-border] dark:border-[--color-border-dark] pb-4">
-        <h1 className="font-sans text-2xl font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
+      <header className="border-b border-border pb-4">
+        <h1 className="font-sans text-2xl font-semibold text-foreground">
           Ellen G. White Writings
         </h1>
-        <p className="mt-1 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-          Select a book to begin reading
-        </p>
+        <p className="mt-1 text-sm text-muted-foreground">Select a book to begin reading</p>
       </header>
 
-      {loading && (
-        <p className="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
-          Loading books...
-        </p>
-      )}
+      {loading && <p className="text-muted-foreground italic">Loading books...</p>}
 
       {error && (
-        <div className="rounded-lg border border-[--color-border] dark:border-[--color-border-dark] bg-[--color-highlight]/30 dark:bg-[--color-highlight-dark]/30 p-4">
-          <p className="text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+        <div className="rounded-lg border border-border bg-accent/30 p-4">
+          <p className="text-sm text-muted-foreground">
             No books available. Run{' '}
-            <code className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-              bible egw sync
-            </code>{' '}
-            on the server to download books.
+            <code className="rounded bg-border px-1 text-xs">bible egw sync</code> on the server to
+            download books.
           </p>
         </div>
       )}
 
       {!loading && !error && books.length === 0 && (
-        <div className="rounded-lg border border-[--color-border] dark:border-[--color-border-dark] bg-[--color-highlight]/30 dark:bg-[--color-highlight-dark]/30 p-4">
-          <p className="text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+        <div className="rounded-lg border border-border bg-accent/30 p-4">
+          <p className="text-sm text-muted-foreground">
             No books synced. Run{' '}
-            <code className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-              bible egw sync
-            </code>{' '}
-            on the server.
+            <code className="rounded bg-border px-1 text-xs">bible egw sync</code> on the server.
           </p>
         </div>
       )}
@@ -117,15 +106,13 @@ function BookListView() {
             <a
               key={book.bookCode}
               href={`/egw/${book.bookCode}`}
-              className="group rounded-lg border border-[--color-border] dark:border-[--color-border-dark] p-4 transition-colors hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark]"
+              className="group rounded-lg border border-border p-4 transition-colors hover:bg-accent"
             >
-              <div className="font-sans font-semibold text-[--color-ink] dark:text-[--color-ink-dark] group-hover:text-[--color-accent] dark:group-hover:text-[--color-accent-dark]">
+              <div className="font-sans font-semibold text-foreground group-hover:text-primary">
                 {book.bookCode}
               </div>
-              <div className="mt-1 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-                {book.title}
-              </div>
-              <div className="mt-1 text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] opacity-60">
+              <div className="mt-1 text-sm text-muted-foreground">{book.title}</div>
+              <div className="mt-1 text-xs text-muted-foreground opacity-60">
                 {book.author}
                 {book.paragraphCount && <> &middot; {book.paragraphCount} paragraphs</>}
               </div>
@@ -271,16 +258,13 @@ function PageReaderView() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-[--color-paper] dark:bg-[--color-paper-dark] border-b border-[--color-border] dark:border-[--color-border-dark] pb-4 pt-2">
+      <header className="sticky top-0 z-10 bg-background border-b border-border pb-4 pt-2">
         <div className="flex items-baseline justify-between">
           <div className="flex items-baseline gap-3">
-            <a
-              href="/egw"
-              className="text-sm text-[--color-accent] dark:text-[--color-accent-dark] hover:underline"
-            >
+            <a href="/egw" className="text-sm text-primary hover:underline">
               Books
             </a>
-            <h1 className="font-sans text-2xl font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
+            <h1 className="font-sans text-2xl font-semibold text-foreground">
               {pageData ? pageData.book.title : bookCode}
             </h1>
           </div>
@@ -289,7 +273,7 @@ function PageReaderView() {
             {chapters.length > 0 && (
               <div className="relative">
                 <button
-                  className="text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] hover:text-[--color-accent] dark:hover:text-[--color-accent-dark] transition-colors"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   onClick={() => setTocOpen((o) => !o)}
                 >
                   Chapters ▾
@@ -307,7 +291,7 @@ function PageReaderView() {
                 )}
               </div>
             )}
-            <span className="text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+            <span className="text-sm text-muted-foreground">
               {pageData && (
                 <>
                   Page {pageData.page} of {pageData.totalPages}
@@ -317,22 +301,14 @@ function PageReaderView() {
           </div>
         </div>
         {pageData?.chapterHeading && (
-          <div className="mt-2 text-lg font-medium text-[--color-accent] dark:text-[--color-accent-dark]">
-            {pageData.chapterHeading}
-          </div>
+          <div className="mt-2 text-lg font-medium text-primary">{pageData.chapterHeading}</div>
         )}
       </header>
 
       {/* Content */}
-      {pageLoading && (
-        <p className="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
-          Loading...
-        </p>
-      )}
+      {pageLoading && <p className="text-muted-foreground italic">Loading...</p>}
 
-      {pageError && (
-        <p className="text-red-600 dark:text-red-400">Failed to load page: {pageError}</p>
-      )}
+      {pageError && <p className="text-destructive">Failed to load page: {pageError}</p>}
 
       {!pageLoading && !pageError && pageData && (
         <PageView
@@ -351,33 +327,21 @@ function PageReaderView() {
       />
 
       {/* Footer */}
-      <footer className="border-t border-[--color-border] dark:border-[--color-border-dark] pt-4 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+      <footer className="border-t border-border pt-4 text-sm text-muted-foreground">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <span>{selectedParagraph?.refcodeShort}</span>
           <div className="flex gap-4 flex-wrap">
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ↑↓
-              </kbd>{' '}
-              paragraph
+              <kbd className="rounded bg-border px-1 text-xs">↑↓</kbd> paragraph
             </span>
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ←→
-              </kbd>{' '}
-              page
+              <kbd className="rounded bg-border px-1 text-xs">←→</kbd> page
             </span>
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ␣
-              </kbd>{' '}
-              refs
+              <kbd className="rounded bg-border px-1 text-xs">␣</kbd> refs
             </span>
             <span>
-              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ⌘K
-              </kbd>{' '}
-              palette
+              <kbd className="rounded bg-border px-1 text-xs">⌘K</kbd> palette
             </span>
           </div>
         </div>
@@ -416,7 +380,7 @@ function ChapterDropdown({
   return (
     <div
       ref={ref}
-      className="absolute right-0 top-full mt-1 z-20 max-h-80 w-64 overflow-y-auto rounded-lg border border-[--color-border] dark:border-[--color-border-dark] bg-[--color-paper] dark:bg-[--color-paper-dark] shadow-xl"
+      className="absolute right-0 top-full mt-1 z-20 max-h-80 w-64 overflow-y-auto rounded-lg border border-border bg-background shadow-xl"
     >
       {chapters.map((ch, i) => {
         if (!ch.page) return null;
@@ -424,10 +388,8 @@ function ChapterDropdown({
         return (
           <button
             key={i}
-            className={`w-full text-left px-3 py-2 text-sm transition-colors hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] ${
-              page === currentPage
-                ? 'text-[--color-accent] dark:text-[--color-accent-dark] font-medium'
-                : 'text-[--color-ink] dark:text-[--color-ink-dark]'
+            className={`w-full text-left px-3 py-2 text-sm transition-colors hover:bg-accent ${
+              page === currentPage ? 'text-primary font-medium' : 'text-foreground'
             }`}
             onClick={() => onSelect(page)}
           >
