@@ -64,12 +64,12 @@ const STATE_SCHEMA = `
     source_verse INTEGER NOT NULL,
     ref_book INTEGER NOT NULL,
     ref_chapter INTEGER NOT NULL,
-    ref_verse INTEGER,
+    ref_verse INTEGER NOT NULL DEFAULT 0,
     ref_verse_end INTEGER,
     type TEXT NOT NULL,
     confidence REAL,
     classified_at INTEGER NOT NULL,
-    UNIQUE(source_book, source_chapter, source_verse, ref_book, ref_chapter, COALESCE(ref_verse, 0))
+    UNIQUE(source_book, source_chapter, source_verse, ref_book, ref_chapter, ref_verse)
   );
 
   CREATE INDEX IF NOT EXISTS idx_classifications_source

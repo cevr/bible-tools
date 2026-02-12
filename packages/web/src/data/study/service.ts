@@ -325,7 +325,7 @@ export function createStudyDataService(db: DbClient): StudyDataService {
         `INSERT INTO cross_ref_classifications
            (source_book, source_chapter, source_verse, ref_book, ref_chapter, ref_verse, type, confidence, classified_at)
          VALUES (?, ?, ?, ?, ?, ?, ?, NULL, ?)
-         ON CONFLICT(source_book, source_chapter, source_verse, ref_book, ref_chapter, COALESCE(ref_verse, 0))
+         ON CONFLICT(source_book, source_chapter, source_verse, ref_book, ref_chapter, ref_verse)
          DO UPDATE SET type = excluded.type, classified_at = excluded.classified_at`,
         [
           source.book,
@@ -333,7 +333,7 @@ export function createStudyDataService(db: DbClient): StudyDataService {
           source.verse,
           target.book,
           target.chapter,
-          target.verse ?? null,
+          target.verse ?? 0,
           type,
           Date.now(),
         ],
