@@ -9,12 +9,11 @@ import { useOverlay } from '@/providers/overlay-provider';
 import { useBible } from '@/providers/bible-provider';
 import { useApp } from '@/providers/db-provider';
 import { BOOK_ALIASES, type Verse } from '@/data/bible';
-import type { MarginNote, VerseWord } from '@/data/study/service';
+import type { MarginNote } from '@/data/study/service';
 import type { Preferences } from '@/data/state/effect-service';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
 import { ParagraphView } from '@/components/bible/paragraph-view';
-import { WordModeView } from '@/components/bible/word-mode-view';
-import { StrongsPopup } from '@/components/study/strongs-popup';
+import { VerseStudyPanel, type StudyTab } from '@/components/bible/verse-study-sheet';
 import { GotoModeState, gotoModeTransition, keyToGotoEvent } from '@/lib/goto-mode';
 
 function BibleRoute() {
@@ -61,23 +60,15 @@ function BibleRoute() {
   const [gotoState, setGotoState] = useState(GotoModeState.normal());
   const gotoTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
-  // Word mode state
-  const [wordModeActive, setWordModeActive] = useState(false);
-  const [selectedWordIndex, setSelectedWordIndex] = useState(0);
-  const [activeStrongsNumber, setActiveStrongsNumber] = useState<string | null>(null);
-  const [verseWords, setVerseWords] = useState<VerseWord[]>([]);
+  // Study sheet state
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const [sheetTab, setSheetTab] = useState<StudyTab>('verse');
 
   // Refs for latest state in event handlers
   const overlayRef = useRef(overlay);
   overlayRef.current = overlay;
   const searchQueryRef = useRef(searchQuery);
   searchQueryRef.current = searchQuery;
-  const wordModeRef = useRef(wordModeActive);
-  wordModeRef.current = wordModeActive;
-  const verseWordsRef = useRef(verseWords);
-  verseWordsRef.current = verseWords;
-  const selectedWordIndexRef = useRef(selectedWordIndex);
-  selectedWordIndexRef.current = selectedWordIndex;
   const displayModeRef = useRef(displayMode);
   displayModeRef.current = displayMode;
   const gotoStateRef = useRef(gotoState);
@@ -86,6 +77,8 @@ function BibleRoute() {
   versesRef.current = verses;
   const selectedVerseRef = useRef(selectedVerse);
   selectedVerseRef.current = selectedVerse;
+  const sheetOpenRef = useRef(sheetOpen);
+  sheetOpenRef.current = sheetOpen;
 
   // Load display mode preference on mount
   useEffect(() => {
@@ -170,31 +163,15 @@ function BibleRoute() {
     }
   }, [selectedVerse]);
 
-  // Exit word mode when selected verse changes
-  useEffect(() => {
-    setWordModeActive(false);
-    setSelectedWordIndex(0);
-  }, [selectedVerse]);
-
-  // Load verse words when word mode activates
-  useEffect(() => {
-    if (!wordModeActive) {
-      setVerseWords([]);
-      return;
-    }
-    let cancelled = false;
-    app.getVerseWords(bookNumber, chapterNumber, selectedVerse).then((words) => {
-      if (!cancelled) setVerseWords(words);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [wordModeActive, bookNumber, chapterNumber, selectedVerse, app]);
-
   const toggleDisplayMode = () => {
     const next = displayMode === 'verse' ? 'paragraph' : 'verse';
     setDisplayMode(next);
     void app.setPreferences({ displayMode: next });
+  };
+
+  const openSheet = (tab: StudyTab = 'verse') => {
+    setSheetTab(tab);
+    setSheetOpen(true);
   };
 
   // Search match verse numbers for n/N navigation
@@ -218,63 +195,12 @@ function BibleRoute() {
     }
   };
 
-  // Raw keydown handler for goto mode, search nav, and word mode
+  // Raw keydown handler for goto mode and search nav
   useEffect(() => {
     const handleRawKeyDown = (event: KeyboardEvent) => {
       if (overlayRef.current !== 'none') return;
       const target = event.target as HTMLElement;
       if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
-        return;
-      }
-
-      // Word mode keyboard handling
-      if (wordModeRef.current) {
-        const words = verseWordsRef.current;
-        switch (event.key) {
-          case 'ArrowLeft':
-          case 'h':
-            event.preventDefault();
-            event.stopPropagation();
-            setSelectedWordIndex((i) => Math.max(0, i - 1));
-            return;
-          case 'ArrowRight':
-          case 'l':
-            event.preventDefault();
-            event.stopPropagation();
-            setSelectedWordIndex((i) => Math.min(words.length - 1, i + 1));
-            return;
-          case ' ':
-          case 'Enter': {
-            event.preventDefault();
-            event.stopPropagation();
-            const word = words[selectedWordIndexRef.current];
-            if (word?.strongsNumbers?.length) {
-              setActiveStrongsNumber(word.strongsNumbers[0] ?? null);
-            }
-            return;
-          }
-          case 'Escape':
-          case 'w':
-            event.preventDefault();
-            event.stopPropagation();
-            setWordModeActive(false);
-            return;
-        }
-        return;
-      }
-
-      // 'w' to enter word mode (only in verse display mode)
-      if (
-        event.key === 'w' &&
-        !event.metaKey &&
-        !event.ctrlKey &&
-        !event.shiftKey &&
-        displayModeRef.current === 'verse'
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-        setWordModeActive(true);
-        setSelectedWordIndex(0);
         return;
       }
 
@@ -354,8 +280,6 @@ function BibleRoute() {
 
   // Handle keyboard navigation (parsed actions from keyboard provider)
   useKeyboardAction((action) => {
-    if (wordModeActive && (action === 'nextVerse' || action === 'prevVerse')) return;
-
     switch (action) {
       case 'nextVerse': {
         const max = verses.length;
@@ -388,11 +312,10 @@ function BibleRoute() {
         break;
       }
       case 'openCrossRefs':
-        openOverlay('cross-refs', {
-          book: bookNumber,
-          chapter: chapterNumber,
-          verse: selectedVerse,
-        });
+        openSheet('cross-refs');
+        break;
+      case 'openConcordance':
+        openSheet('concordance');
         break;
       case 'openSearch':
         openOverlay('search', {
@@ -412,6 +335,11 @@ function BibleRoute() {
         break;
     }
   });
+
+  const handleVerseClick = (verseNum: number) => {
+    setSelectedVerse(verseNum);
+    openSheet('verse');
+  };
 
   if (!params.book || !params.chapter) return null;
 
@@ -443,7 +371,7 @@ function BibleRoute() {
                 selectedVerse={selectedVerse}
                 marginNotesByVerse={marginNotesByVerse}
                 searchQuery={searchQuery}
-                onVerseClick={setSelectedVerse}
+                onVerseClick={handleVerseClick}
               />
             ) : (
               verses.map((verse) => (
@@ -453,12 +381,7 @@ function BibleRoute() {
                   isSelected={selectedVerse === verse.verse}
                   marginNotes={marginNotesByVerse.get(verse.verse)}
                   searchQuery={searchQuery}
-                  wordModeActive={wordModeActive && selectedVerse === verse.verse}
-                  words={wordModeActive && selectedVerse === verse.verse ? verseWords : []}
-                  selectedWordIndex={selectedWordIndex}
-                  onSelectWord={setSelectedWordIndex}
-                  onOpenStrongs={(num) => setActiveStrongsNumber(num)}
-                  onClick={() => setSelectedVerse(verse.verse)}
+                  onClick={() => handleVerseClick(verse.verse)}
                 />
               ))
             )}
@@ -466,10 +389,15 @@ function BibleRoute() {
         )}
       </div>
 
-      {/* Strong's popup */}
-      <StrongsPopup
-        strongsNumber={activeStrongsNumber}
-        onClose={() => setActiveStrongsNumber(null)}
+      {/* Verse study panel */}
+      <VerseStudyPanel
+        book={bookNumber}
+        chapter={chapterNumber}
+        verse={selectedVerse}
+        open={sheetOpen}
+        onOpenChange={setSheetOpen}
+        activeTab={sheetTab}
+        onTabChange={setSheetTab}
       />
 
       {/* Footer */}
@@ -485,12 +413,6 @@ function BibleRoute() {
               {displayMode === 'verse' ? '☰' : '¶'}
             </button>
             {book?.name} {chapterNumber}:{selectedVerse}
-            {/* Word mode indicator */}
-            {wordModeActive && (
-              <span className="text-xs px-1.5 py-0.5 rounded bg-primary/20 text-primary font-medium">
-                word
-              </span>
-            )}
             {/* Goto mode indicator */}
             {gotoState._tag === 'awaiting' && (
               <span className="text-xs px-1.5 py-0.5 rounded bg-primary/20 text-primary font-mono">
@@ -516,7 +438,7 @@ function BibleRoute() {
               <kbd className="rounded bg-border px-1 text-xs">←→</kbd> chapter
             </span>
             <span>
-              <kbd className="rounded bg-border px-1 text-xs">w</kbd> words
+              <kbd className="rounded bg-border px-1 text-xs">⌘I</kbd> study
             </span>
             <span>
               <kbd className="rounded bg-border px-1 text-xs">⌘D</kbd> mode
@@ -532,29 +454,19 @@ function BibleRoute() {
 }
 
 /**
- * Individual verse display with rich text or word mode rendering.
+ * Individual verse display with rich text rendering.
  */
 function VerseDisplay({
   verse,
   isSelected,
   marginNotes,
   searchQuery,
-  wordModeActive,
-  words = [],
-  selectedWordIndex = 0,
-  onSelectWord,
-  onOpenStrongs,
   onClick,
 }: {
   verse: Verse;
   isSelected: boolean;
   marginNotes?: MarginNote[];
   searchQuery?: string;
-  wordModeActive?: boolean;
-  words?: VerseWord[];
-  selectedWordIndex?: number;
-  onSelectWord?: (index: number) => void;
-  onOpenStrongs?: (num: string) => void;
   onClick: () => void;
 }) {
   return (
@@ -573,16 +485,7 @@ function VerseDisplay({
       }}
     >
       <span className="verse-num">{verse.verse}</span>
-      {wordModeActive && words.length > 0 ? (
-        <WordModeView
-          words={words}
-          selectedIndex={selectedWordIndex}
-          onSelectWord={(i) => onSelectWord?.(i)}
-          onOpenStrongs={(num) => onOpenStrongs?.(num)}
-        />
-      ) : (
-        <VerseRenderer text={verse.text} marginNotes={marginNotes} searchQuery={searchQuery} />
-      )}
+      <VerseRenderer text={verse.text} marginNotes={marginNotes} searchQuery={searchQuery} />
     </p>
   );
 }

@@ -7,8 +7,6 @@ import { AppShell } from './components/layout/app-shell';
 import { CommandPalette } from './components/shared/command-palette';
 import { GotoDialog } from './components/shared/goto-dialog';
 import { SearchOverlay } from './components/shared/search-overlay';
-import { CrossRefsPopup } from './components/shared/cross-refs-popup';
-import { ConcordanceSearch } from './components/study/concordance-search';
 import { BookmarksPanel } from './components/shared/bookmarks-panel';
 import { HistoryPanel } from './components/shared/history-panel';
 
@@ -23,8 +21,6 @@ export default function App() {
               <CommandPalette />
               <GotoDialog />
               <SearchOverlay />
-              <CrossRefsPopup />
-              <ConcordanceSearch />
               <BookmarksPanel />
               <HistoryPanel />
             </AppShell>

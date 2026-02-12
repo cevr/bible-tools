@@ -13,9 +13,6 @@ export function AppShell({ children }: { children: ReactNode }) {
       case 'openGotoDialog':
         openOverlay('goto-dialog');
         break;
-      case 'openConcordance':
-        openOverlay('concordance');
-        break;
       case 'closeOverlay':
         if (overlay !== 'none') {
           closeOverlay();

@@ -63,7 +63,10 @@ export function CommandPalette() {
       hint: '⌘⇧S',
       action: () => {
         closeOverlay();
-        openOverlay('concordance');
+        // Trigger via keyboard provider — bible route handles openConcordance
+        window.dispatchEvent(
+          new KeyboardEvent('keydown', { key: 's', metaKey: true, shiftKey: true, bubbles: true }),
+        );
       },
     },
   ];

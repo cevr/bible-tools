@@ -5,8 +5,6 @@ export type OverlayType =
   | 'command-palette'
   | 'goto-dialog'
   | 'search'
-  | 'cross-refs'
-  | 'concordance'
   | 'bookmarks'
   | 'history';
 
