@@ -22,6 +22,7 @@ export type KeyboardAction =
   | 'openCrossRefs'
   | 'openConcordance'
   | 'toggleDisplayMode'
+  | 'openBookmarks'
   | 'closeOverlay';
 
 type KeyboardHandler = (action: KeyboardAction, event: KeyboardEvent) => void;
@@ -80,6 +81,9 @@ function parseKeyboardEvent(event: KeyboardEvent): KeyboardAction | null {
 
   // Display mode: Cmd+D / Ctrl+D
   if (mod && key === 'd') return 'toggleDisplayMode';
+
+  // Bookmarks: Cmd+B / Ctrl+B
+  if (mod && key === 'b') return 'openBookmarks';
 
   // Navigation (no modifiers)
   if (!mod && !shiftKey) {

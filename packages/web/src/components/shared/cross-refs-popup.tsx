@@ -3,7 +3,7 @@ import { Dialog } from '@kobalte/core/dialog';
 import { useNavigate } from '@solidjs/router';
 import { useBible } from '@/providers/bible-provider';
 import { useOverlay } from '@/providers/overlay-provider';
-import { useStudyData } from '@/providers/study-data-provider';
+import { useStudyData } from '@/providers/study-hooks';
 import { fetchVerses } from '@/data/bible';
 import type { ClassifiedCrossReference, CrossRefType } from '@/data/study/service';
 

@@ -43,21 +43,28 @@ function createDbClient(): DbClient {
   let exportReject: ((err: Error) => void) | null = null;
   let dirtyResolve: ((dirty: boolean) => void) | null = null;
 
+  worker.onerror = (event) => {
+    console.error('[db-client] worker error:', event.message, event);
+  };
+
   worker.onmessage = (event: MessageEvent<WorkerResponse>) => {
     const msg = event.data;
 
     switch (msg.type) {
       case 'init-progress': {
+        console.log(`[db-client] progress: ${msg.stage} (${msg.progress}%)`);
         for (const cb of progressCallbacks) {
           cb(msg.stage, msg.progress);
         }
         break;
       }
       case 'init-complete': {
+        console.log('[db-client] init complete');
         initResolve?.();
         break;
       }
       case 'init-error': {
+        console.error('[db-client] init error:', msg.error);
         initReject?.(new Error(msg.error));
         break;
       }

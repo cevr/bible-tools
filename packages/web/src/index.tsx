@@ -19,8 +19,8 @@ render(
   () => (
     <Router root={App}>
       <Route path="/" component={() => <Navigate href="/bible" />} />
-      <Route path="/bible/*" component={BibleRoute} />
-      <Route path="/egw/*" component={EgwRoute} />
+      <Route path="/bible/:book?/:chapter?/:verse?" component={BibleRoute} />
+      <Route path="/egw/:bookCode?/:page?" component={EgwRoute} />
     </Router>
   ),
   root,

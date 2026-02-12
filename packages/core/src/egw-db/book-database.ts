@@ -26,6 +26,7 @@ import type { ConfigError } from 'effect';
 import { Config, Context, Effect, Layer, Option, Schema, Stream } from 'effect';
 
 import * as EGWSchemas from '../egw/schemas.js';
+import { isChapterHeading } from '../egw/parse.js';
 import {
   DatabaseConnectionError,
   DatabaseQueryError,
@@ -158,19 +159,6 @@ function parseRefcodeNumbers(refcode: string | null): {
     return { page: pageStr ? parseInt(pageStr, 10) : null, paragraph: null };
   }
   return { page: null, paragraph: null };
-}
-
-/**
- * Check if element type is a chapter heading
- * The EGW API returns HTML element names: h1, h2, h3, etc. for headings
- */
-export function isChapterHeading(elementType: string | null | undefined): boolean {
-  if (!elementType) return false;
-  const type = elementType.toLowerCase();
-  // HTML heading elements (h1-h6) are chapter/section headings
-  if (/^h[1-6]$/.test(type)) return true;
-  // Legacy values (in case API changes)
-  return ['chapter', 'heading', 'title'].includes(type);
 }
 
 // ============================================================================

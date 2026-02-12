@@ -16,12 +16,14 @@ export const AppShell: ParentComponent = (props) => {
       case 'openCommandPalette':
         openOverlay('command-palette');
         break;
-      case 'openSearch':
-        openOverlay('search');
-        break;
+      // openSearch handled by bible route (passes query context)
       case 'openGotoDialog':
         openOverlay('goto-dialog');
         break;
+      case 'openConcordance':
+        openOverlay('concordance');
+        break;
+      // openBookmarks handled by bible route (passes verse context)
       case 'closeOverlay':
         if (overlay() !== 'none') {
           closeOverlay();

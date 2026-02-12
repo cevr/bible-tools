@@ -187,23 +187,29 @@ async function downloadBibleDb(): Promise<void> {
 
 async function init(): Promise<void> {
   try {
+    console.log('[db-worker] init: loading wa-sqlite module');
     post({ type: 'init-progress', stage: 'Loading SQLite...', progress: 0 });
 
     const module = await SQLiteESMFactory();
     sqlite3 = SQLite.Factory(module);
+    console.log('[db-worker] init: wa-sqlite loaded');
 
     const vfs = await OPFSCoopSyncVFS.create('opfs-coop-sync', module);
     sqlite3.vfs_register(vfs as unknown as SQLiteVFS, false);
+    console.log('[db-worker] init: OPFS VFS registered');
 
     bibleDb = await sqlite3.open_v2(
       'bible.db',
       SQLite.SQLITE_OPEN_READWRITE | SQLite.SQLITE_OPEN_CREATE,
       'opfs-coop-sync',
     );
+    console.log('[db-worker] init: bible.db opened');
 
     const hasData = await checkBibleDbExists();
+    console.log('[db-worker] init: bible.db hasData =', hasData);
     if (!hasData) {
       await downloadBibleDb();
+      console.log('[db-worker] init: bible.db downloaded');
     }
 
     post({ type: 'init-progress', stage: 'Initializing...', progress: 100 });
@@ -212,10 +218,14 @@ async function init(): Promise<void> {
       SQLite.SQLITE_OPEN_READWRITE | SQLite.SQLITE_OPEN_CREATE,
       'opfs-coop-sync',
     );
+    console.log('[db-worker] init: state.db opened, running schema');
     await sqlite3.exec(stateDb, STATE_SCHEMA);
+    console.log('[db-worker] init: state.db schema applied');
 
     post({ type: 'init-complete' });
+    console.log('[db-worker] init: complete');
   } catch (err) {
+    console.error('[db-worker] init: FAILED', err);
     post({ type: 'init-error', error: err instanceof Error ? err.message : String(err) });
   }
 }

@@ -5,6 +5,12 @@ import { useBible } from '@/providers/bible-provider';
 import { useOverlay } from '@/providers/overlay-provider';
 import { fetchVerses, type Book } from '@/data/bible';
 
+interface QuickAction {
+  label: string;
+  hint: string;
+  action: () => void;
+}
+
 type CommandMode = 'book' | 'chapter' | 'verse';
 
 interface CommandState {
@@ -18,7 +24,7 @@ interface CommandState {
  * Opens with ⌘K and allows quick navigation to any verse.
  */
 export const CommandPalette: Component = () => {
-  const { overlay, closeOverlay } = useOverlay();
+  const { overlay, closeOverlay, openOverlay } = useOverlay();
   const navigate = useNavigate();
   const bible = useBible();
 
@@ -26,6 +32,47 @@ export const CommandPalette: Component = () => {
 
   const [query, setQuery] = createSignal('');
   const [state, setState] = createSignal<CommandState>({ mode: 'book' });
+
+  const quickActions: QuickAction[] = [
+    {
+      label: 'Bookmarks',
+      hint: '⌘B',
+      action: () => {
+        closeOverlay();
+        openOverlay('bookmarks');
+      },
+    },
+    {
+      label: 'History',
+      hint: 'recent',
+      action: () => {
+        closeOverlay();
+        openOverlay('history');
+      },
+    },
+    {
+      label: 'Search',
+      hint: '/',
+      action: () => {
+        closeOverlay();
+        openOverlay('search');
+      },
+    },
+    {
+      label: 'Concordance',
+      hint: '⌘⇧S',
+      action: () => {
+        closeOverlay();
+        openOverlay('concordance');
+      },
+    },
+  ];
+
+  const filteredActions = createMemo(() => {
+    const q = query().toLowerCase().trim();
+    if (!q) return quickActions;
+    return quickActions.filter((a) => a.label.toLowerCase().includes(q));
+  });
 
   // Filter books based on query
   const filteredBooks = createMemo(() => {
@@ -220,12 +267,32 @@ export const CommandPalette: Component = () => {
           <div class="max-h-80 overflow-y-auto p-2">
             <Show when={state().mode === 'book'}>
               <div class="space-y-1">
+                {/* Quick actions */}
+                <Show when={filteredActions().length > 0}>
+                  <For each={filteredActions()}>
+                    {(action) => (
+                      <button
+                        class="w-full flex items-center justify-between px-3 py-2 rounded-lg text-left hover:bg-[--color-highlight] dark:hover:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] transition-colors"
+                        onClick={action.action}
+                      >
+                        <span>{action.label}</span>
+                        <span class="text-xs text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+                          {action.hint}
+                        </span>
+                      </button>
+                    )}
+                  </For>
+                  <div class="border-t border-[--color-border] dark:border-[--color-border-dark] my-1" />
+                </Show>
+                {/* Books */}
                 <Show
                   when={filteredBooks().length > 0}
                   fallback={
-                    <p class="px-3 py-2 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-                      No books found
-                    </p>
+                    <Show when={filteredActions().length === 0}>
+                      <p class="px-3 py-2 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+                        No results found
+                      </p>
+                    </Show>
                   }
                 >
                   <For each={filteredBooks()}>

@@ -1,4 +1,12 @@
-import { type Component, createSignal, createMemo, For, Show, type JSX } from 'solid-js';
+import {
+  type Component,
+  createSignal,
+  createEffect,
+  createMemo,
+  For,
+  Show,
+  type JSX,
+} from 'solid-js';
 import { Dialog } from '@kobalte/core/dialog';
 import { useNavigate, useParams } from '@solidjs/router';
 import { useBible, useChapter, useSearch } from '@/providers/bible-provider';
@@ -10,15 +18,27 @@ import { BOOK_ALIASES, type Reference } from '@/data/bible';
  * Opens with ⌘F and searches verse text.
  */
 export const SearchOverlay: Component = () => {
-  const { overlay, closeOverlay } = useOverlay();
+  const { overlay, overlayData, closeOverlay } = useOverlay();
   const navigate = useNavigate();
   const params = useParams<{ book?: string; chapter?: string }>();
   const bible = useBible();
 
   const isOpen = () => overlay() === 'search';
 
+  // Overlay data can carry initial query and an onSearch callback
+  const searchData = () =>
+    overlayData() as { query?: string; onSearch?: (q: string) => void } | null;
+
   const [query, setQuery] = createSignal('');
   const [searchScope, setSearchScope] = createSignal<'chapter' | 'global'>('chapter');
+
+  // Pre-fill query from overlay data when opening
+  createEffect(() => {
+    if (isOpen()) {
+      const initial = searchData()?.query;
+      if (initial) setQuery(initial);
+    }
+  });
 
   // Get current book number from URL
   const currentBookNumber = createMemo(() => {
@@ -96,10 +116,9 @@ export const SearchOverlay: Component = () => {
 
   const handleOpenChange = (open: boolean) => {
     if (!open) {
+      // Report final query back to caller before closing
+      searchData()?.onSearch?.(query());
       closeOverlay();
-    }
-    if (open) {
-      setQuery('');
     }
   };
 
@@ -108,6 +127,7 @@ export const SearchOverlay: Component = () => {
     if (book) {
       const bookSlug = book.name.toLowerCase().replace(/\s+/g, '-');
       navigate(`/bible/${bookSlug}/${result.reference.chapter}/${result.reference.verse}`);
+      searchData()?.onSearch?.(query());
       closeOverlay();
     }
   };

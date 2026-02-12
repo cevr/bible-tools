@@ -246,6 +246,34 @@ export function getBookCode(ref: EGWParsedRef): Option.Option<string> {
   return Option.some(ref.bookCode);
 }
 
+// ---------------------------------------------------------------------------
+// Element type utilities (renderer-agnostic)
+// ---------------------------------------------------------------------------
+
+/**
+ * Check if element type is a chapter heading.
+ * The EGW API returns HTML element names: h1, h2, h3, etc. for headings.
+ */
+export function isChapterHeading(elementType: string | null | undefined): boolean {
+  if (!elementType) return false;
+  const type = elementType.toLowerCase();
+  if (/^h[1-6]$/.test(type)) return true;
+  return ['chapter', 'heading', 'title'].includes(type);
+}
+
+/**
+ * Extract heading level (1–6) from element type, or 0 if not a heading.
+ */
+export function headingLevel(elementType: string | null | undefined): number {
+  if (!elementType) return 0;
+  const match = elementType.toLowerCase().match(/^h(\d)$/);
+  return match?.[1] ? parseInt(match[1], 10) : 0;
+}
+
+// ---------------------------------------------------------------------------
+// Refcode patterns
+// ---------------------------------------------------------------------------
+
 /**
  * Refcode pattern for database queries
  * Builds a pattern to match refcode_short fields

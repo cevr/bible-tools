@@ -7,10 +7,9 @@ import {
   createResource,
   type Resource,
 } from 'solid-js';
+import { Effect } from 'effect';
 import {
   bibleDataService,
-  fetchVerses,
-  searchVerses as searchVersesApi,
   type Book,
   type Reference,
   type SearchResult,
@@ -18,36 +17,15 @@ import {
   formatReference,
   BOOKS,
 } from '@/data/bible';
+import { WebBibleService } from '@/data/bible/effect-service';
+import { useRuntime } from './db-provider';
 
 interface BibleContextValue {
-  /**
-   * Get all books of the Bible (sync - static data)
-   */
   books: readonly Book[];
-
-  /**
-   * Get a specific book by number (sync - static data)
-   */
   getBook: (bookNumber: number) => Book | undefined;
-
-  /**
-   * Parse a reference string (e.g., "john 3:16") (sync)
-   */
   parseReference: (ref: string) => Reference | undefined;
-
-  /**
-   * Format a reference for display (sync)
-   */
   formatReference: (ref: Reference) => string;
-
-  /**
-   * Get the next chapter reference (sync)
-   */
   getNextChapter: (book: number, chapter: number) => Reference | undefined;
-
-  /**
-   * Get the previous chapter reference (sync)
-   */
   getPrevChapter: (book: number, chapter: number) => Reference | undefined;
 }
 
@@ -55,7 +33,7 @@ const BibleContext = createContext<BibleContextValue>();
 
 /**
  * Provider for Bible data access.
- * Book metadata is synchronous, verse/chapter data uses createResource.
+ * Book metadata is synchronous, verse/chapter data uses Effect services.
  */
 export const BibleProvider: ParentComponent = (props) => {
   const value: BibleContextValue = {
@@ -71,7 +49,7 @@ export const BibleProvider: ParentComponent = (props) => {
 };
 
 /**
- * Hook to access Bible data.
+ * Hook to access Bible data (sync methods).
  */
 export function useBible(): BibleContextValue {
   const ctx = useContext(BibleContext);
@@ -82,16 +60,17 @@ export function useBible(): BibleContextValue {
 }
 
 /**
- * Hook to get chapter data reactively based on book and chapter numbers.
- * Returns a Resource that automatically fetches from the API.
+ * Hook to get chapter data reactively via Effect service.
  */
 export function useChapter(
   book: Accessor<number>,
   chapter: Accessor<number>,
 ): Resource<readonly Verse[]> {
+  const runtime = useRuntime();
   const [verses] = createResource(
     () => ({ book: book(), chapter: chapter() }),
-    async ({ book, chapter }) => fetchVerses(book, chapter),
+    async ({ book, chapter }) =>
+      runtime.runPromise(Effect.flatMap(WebBibleService, (s) => s.fetchVerses(book, chapter))),
   );
   return verses;
 }
@@ -105,16 +84,17 @@ export function useBook(bookNumber: Accessor<number>): Accessor<Book | undefined
 }
 
 /**
- * Hook for searching verses.
- * Returns a Resource that fetches search results from the API.
+ * Hook for searching verses via Effect service.
  */
 export function useSearch(
   query: Accessor<string>,
   limit?: number,
 ): Resource<readonly SearchResult[]> {
+  const runtime = useRuntime();
   const [results] = createResource(
     () => query(),
-    async (q) => searchVersesApi(q, limit),
+    async (q) =>
+      runtime.runPromise(Effect.flatMap(WebBibleService, (s) => s.searchVerses(q, limit))),
   );
   return results;
 }

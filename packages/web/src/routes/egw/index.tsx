@@ -28,7 +28,7 @@ import {
   type EGWChapter,
   type EGWParagraph,
 } from '@/data/egw/api';
-import { isChapterHeading } from '@bible/core/egw-db';
+import { isChapterHeading } from '@bible/core/egw';
 import { PageView } from '@/components/egw/page-view';
 import { BibleRefsPopup } from '@/components/egw/bible-refs-popup';
 
@@ -37,6 +37,7 @@ import { BibleRefsPopup } from '@/components/egw/bible-refs-popup';
 // ---------------------------------------------------------------------------
 
 const EgwRoute: Component = () => {
+  console.log('[egw-route] render');
   const params = useParams<{ bookCode?: string; page?: string }>();
   const navigate = useNavigate();
 

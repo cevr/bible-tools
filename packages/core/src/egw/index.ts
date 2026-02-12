@@ -35,6 +35,8 @@ export {
   isSearchQuery,
   getBookCode,
   buildRefcodePattern,
+  isChapterHeading,
+  headingLevel,
   EGWParseError,
   type EGWParsedRef,
   type EGWParagraphRef,

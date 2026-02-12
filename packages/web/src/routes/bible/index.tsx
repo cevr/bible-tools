@@ -15,11 +15,10 @@ import {
 import { useKeyboardAction } from '@/providers/keyboard-provider';
 import { useOverlay } from '@/providers/overlay-provider';
 import { useBible, useChapter } from '@/providers/bible-provider';
-import { useAppState } from '@/providers/state-provider';
-import { useStudyData } from '@/providers/study-data-provider';
+import { useAppState, type Preferences } from '@/providers/state-provider';
+import { useStudyData } from '@/providers/study-hooks';
 import { BOOK_ALIASES, type Verse } from '@/data/bible';
 import type { MarginNote, VerseWord } from '@/data/study/service';
-import type { Preferences } from '@/data/state/local-storage';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
 import { ParagraphView } from '@/components/bible/paragraph-view';
 import { WordModeView } from '@/components/bible/word-mode-view';
@@ -31,6 +30,7 @@ import { GotoModeState, gotoModeTransition, keyToGotoEvent } from '@/lib/goto-mo
  * Displays chapter content with verse navigation.
  */
 const BibleRoute: Component<ParentProps> = () => {
+  console.log('[bible-route] render');
   const params = useParams<{ book?: string; chapter?: string; verse?: string }>();
   const navigate = useNavigate();
   const bible = useBible();
@@ -383,163 +383,161 @@ const BibleRoute: Component<ParentProps> = () => {
     }
   });
 
-  if (!params.book || !params.chapter) {
-    return null;
-  }
-
   return (
-    <div class="space-y-6">
-      {/* Header */}
-      <header class="border-b border-[--color-border] dark:border-[--color-border-dark] pb-4">
-        <h1 class="font-sans text-2xl font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
-          {book()?.name} {chapterNumber()}
-        </h1>
-        <p class="mt-1 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-          Press{' '}
-          <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1.5 py-0.5 text-xs">
-            ⌘K
-          </kbd>{' '}
-          for command palette
-        </p>
-      </header>
-
-      {/* Chapter content */}
-      <div class={displayMode() === 'verse' ? 'reading-text space-y-3' : ''}>
-        <Show when={verses.loading}>
-          <p class="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
-            Loading verses...
+    <Show when={params.book && params.chapter} fallback={null}>
+      <div class="space-y-6">
+        {/* Header */}
+        <header class="border-b border-[--color-border] dark:border-[--color-border-dark] pb-4">
+          <h1 class="font-sans text-2xl font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
+            {book()?.name} {chapterNumber()}
+          </h1>
+          <p class="mt-1 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+            Press{' '}
+            <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1.5 py-0.5 text-xs">
+              ⌘K
+            </kbd>{' '}
+            for command palette
           </p>
-        </Show>
-        <Show when={verses.error}>
-          <p class="text-red-600 dark:text-red-400">
-            Failed to load verses: {String(verses.error)}
-          </p>
-        </Show>
-        <Show when={!verses.loading && !verses.error && verses()}>
-          {(loadedVerses) => (
-            <Show
-              when={loadedVerses().length > 0}
-              fallback={
-                <p class="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
-                  No verses found for this chapter.
-                </p>
-              }
-            >
-              <Switch>
-                <Match when={displayMode() === 'paragraph'}>
-                  <ParagraphView
-                    verses={loadedVerses()}
-                    selectedVerse={selectedVerse()}
-                    marginNotesByVerse={marginNotesByVerse()}
-                    searchQuery={searchQuery()}
-                    onVerseClick={setSelectedVerse}
-                  />
-                </Match>
-                <Match when={displayMode() === 'verse'}>
-                  <For each={loadedVerses()}>
-                    {(verse) => (
-                      <VerseDisplay
-                        verse={verse}
-                        isSelected={selectedVerse() === verse.verse}
-                        marginNotes={marginNotesByVerse()?.get(verse.verse)}
-                        searchQuery={searchQuery()}
-                        wordModeActive={wordModeActive() && selectedVerse() === verse.verse}
-                        words={
-                          wordModeActive() && selectedVerse() === verse.verse
-                            ? (verseWords() ?? [])
-                            : []
-                        }
-                        selectedWordIndex={selectedWordIndex()}
-                        onSelectWord={setSelectedWordIndex}
-                        onOpenStrongs={(num) => setActiveStrongsNumber(num)}
-                        onClick={() => setSelectedVerse(verse.verse)}
-                      />
-                    )}
-                  </For>
-                </Match>
-              </Switch>
-            </Show>
-          )}
-        </Show>
-      </div>
+        </header>
 
-      {/* Strong's popup */}
-      <StrongsPopup
-        strongsNumber={activeStrongsNumber()}
-        onClose={() => setActiveStrongsNumber(null)}
-      />
-
-      {/* Footer */}
-      <footer class="border-t border-[--color-border] dark:border-[--color-border-dark] pt-4 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-        <div class="flex items-center justify-between flex-wrap gap-2">
-          <span class="flex items-center gap-2">
-            <button
-              class="text-xs px-1.5 py-0.5 rounded bg-[--color-border] dark:bg-[--color-border-dark] hover:bg-[--color-accent]/20 dark:hover:bg-[--color-accent-dark]/20 transition-colors"
-              onClick={toggleDisplayMode}
-              title={`Switch to ${displayMode() === 'verse' ? 'paragraph' : 'verse'} mode (⌘D)`}
-              aria-live="polite"
-            >
-              {displayMode() === 'verse' ? '☰' : '¶'}
-            </button>
-            {book()?.name} {chapterNumber()}:{selectedVerse()}
-            {/* Word mode indicator */}
-            <Show when={wordModeActive()}>
-              <span class="text-xs px-1.5 py-0.5 rounded bg-[--color-accent]/20 dark:bg-[--color-accent-dark]/20 text-[--color-accent] dark:text-[--color-accent-dark] font-medium">
-                word
-              </span>
-            </Show>
-            {/* Goto mode indicator */}
-            <Show when={gotoState()._tag === 'awaiting'}>
-              <span class="text-xs px-1.5 py-0.5 rounded bg-[--color-accent]/20 dark:bg-[--color-accent-dark]/20 text-[--color-accent] dark:text-[--color-accent-dark] font-mono">
-                g{(gotoState() as { digits: string }).digits}…
-              </span>
-            </Show>
-            {/* Search query indicator */}
-            <Show when={searchQuery().length >= 2}>
-              <button
-                class="text-xs px-1.5 py-0.5 rounded bg-[--color-highlight] dark:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] hover:opacity-70 transition-opacity"
-                onClick={() => setSearchQuery('')}
-                title="Clear search (click to dismiss)"
+        {/* Chapter content */}
+        <div class={displayMode() === 'verse' ? 'reading-text space-y-3' : ''}>
+          <Show when={verses.loading}>
+            <p class="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
+              Loading verses...
+            </p>
+          </Show>
+          <Show when={verses.error}>
+            <p class="text-red-600 dark:text-red-400">
+              Failed to load verses: {String(verses.error)}
+            </p>
+          </Show>
+          <Show when={!verses.loading && !verses.error && verses()}>
+            {(loadedVerses) => (
+              <Show
+                when={loadedVerses().length > 0}
+                fallback={
+                  <p class="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
+                    No verses found for this chapter.
+                  </p>
+                }
               >
-                /{searchQuery()}/<span class="ml-1 opacity-60">{searchMatchVerses().length}</span>
-              </button>
-            </Show>
-          </span>
-          <div class="flex gap-4 flex-wrap">
-            <span>
-              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ↑↓
-              </kbd>{' '}
-              verse
-            </span>
-            <span>
-              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ←→
-              </kbd>{' '}
-              chapter
-            </span>
-            <span>
-              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                w
-              </kbd>{' '}
-              words
-            </span>
-            <span>
-              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ⌘D
-              </kbd>{' '}
-              mode
-            </span>
-            <span>
-              <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                ⌘G
-              </kbd>{' '}
-              go to
-            </span>
-          </div>
+                <Switch>
+                  <Match when={displayMode() === 'paragraph'}>
+                    <ParagraphView
+                      verses={loadedVerses()}
+                      selectedVerse={selectedVerse()}
+                      marginNotesByVerse={marginNotesByVerse()}
+                      searchQuery={searchQuery()}
+                      onVerseClick={setSelectedVerse}
+                    />
+                  </Match>
+                  <Match when={displayMode() === 'verse'}>
+                    <For each={loadedVerses()}>
+                      {(verse) => (
+                        <VerseDisplay
+                          verse={verse}
+                          isSelected={selectedVerse() === verse.verse}
+                          marginNotes={marginNotesByVerse()?.get(verse.verse)}
+                          searchQuery={searchQuery()}
+                          wordModeActive={wordModeActive() && selectedVerse() === verse.verse}
+                          words={
+                            wordModeActive() && selectedVerse() === verse.verse
+                              ? (verseWords() ?? [])
+                              : []
+                          }
+                          selectedWordIndex={selectedWordIndex()}
+                          onSelectWord={setSelectedWordIndex}
+                          onOpenStrongs={(num) => setActiveStrongsNumber(num)}
+                          onClick={() => setSelectedVerse(verse.verse)}
+                        />
+                      )}
+                    </For>
+                  </Match>
+                </Switch>
+              </Show>
+            )}
+          </Show>
         </div>
-      </footer>
-    </div>
+
+        {/* Strong's popup */}
+        <StrongsPopup
+          strongsNumber={activeStrongsNumber()}
+          onClose={() => setActiveStrongsNumber(null)}
+        />
+
+        {/* Footer */}
+        <footer class="border-t border-[--color-border] dark:border-[--color-border-dark] pt-4 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <span class="flex items-center gap-2">
+              <button
+                class="text-xs px-1.5 py-0.5 rounded bg-[--color-border] dark:bg-[--color-border-dark] hover:bg-[--color-accent]/20 dark:hover:bg-[--color-accent-dark]/20 transition-colors"
+                onClick={toggleDisplayMode}
+                title={`Switch to ${displayMode() === 'verse' ? 'paragraph' : 'verse'} mode (⌘D)`}
+                aria-live="polite"
+              >
+                {displayMode() === 'verse' ? '☰' : '¶'}
+              </button>
+              {book()?.name} {chapterNumber()}:{selectedVerse()}
+              {/* Word mode indicator */}
+              <Show when={wordModeActive()}>
+                <span class="text-xs px-1.5 py-0.5 rounded bg-[--color-accent]/20 dark:bg-[--color-accent-dark]/20 text-[--color-accent] dark:text-[--color-accent-dark] font-medium">
+                  word
+                </span>
+              </Show>
+              {/* Goto mode indicator */}
+              <Show when={gotoState()._tag === 'awaiting'}>
+                <span class="text-xs px-1.5 py-0.5 rounded bg-[--color-accent]/20 dark:bg-[--color-accent-dark]/20 text-[--color-accent] dark:text-[--color-accent-dark] font-mono">
+                  g{(gotoState() as { digits: string }).digits}…
+                </span>
+              </Show>
+              {/* Search query indicator */}
+              <Show when={searchQuery().length >= 2}>
+                <button
+                  class="text-xs px-1.5 py-0.5 rounded bg-[--color-highlight] dark:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] hover:opacity-70 transition-opacity"
+                  onClick={() => setSearchQuery('')}
+                  title="Clear search (click to dismiss)"
+                >
+                  /{searchQuery()}/<span class="ml-1 opacity-60">{searchMatchVerses().length}</span>
+                </button>
+              </Show>
+            </span>
+            <div class="flex gap-4 flex-wrap">
+              <span>
+                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
+                  ↑↓
+                </kbd>{' '}
+                verse
+              </span>
+              <span>
+                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
+                  ←→
+                </kbd>{' '}
+                chapter
+              </span>
+              <span>
+                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
+                  w
+                </kbd>{' '}
+                words
+              </span>
+              <span>
+                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
+                  ⌘D
+                </kbd>{' '}
+                mode
+              </span>
+              <span>
+                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
+                  ⌘G
+                </kbd>{' '}
+                go to
+              </span>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </Show>
   );
 };
 

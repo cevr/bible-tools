@@ -15,7 +15,9 @@ export type OverlayType =
   | 'goto-dialog'
   | 'search'
   | 'cross-refs'
-  | 'concordance';
+  | 'concordance'
+  | 'bookmarks'
+  | 'history';
 
 interface OverlayContextValue {
   /**

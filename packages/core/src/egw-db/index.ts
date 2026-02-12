@@ -11,8 +11,8 @@ export {
   DatabaseQueryError,
   ParagraphNotFoundError,
   SchemaInitializationError,
-  isChapterHeading,
 } from './book-database.js';
+export { isChapterHeading } from '../egw/parse.js';
 export type {
   BookRow,
   ParagraphDatabaseError,

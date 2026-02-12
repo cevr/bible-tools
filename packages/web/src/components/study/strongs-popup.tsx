@@ -7,7 +7,7 @@
  */
 import { type Component, createResource, Show } from 'solid-js';
 import { Dialog } from '@kobalte/core/dialog';
-import { useStudyData } from '@/providers/study-data-provider';
+import { useStudyData } from '@/providers/study-hooks';
 import type { StrongsEntry } from '@/data/study/service';
 
 export interface StrongsPopupProps {

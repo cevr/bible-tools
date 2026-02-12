@@ -10,8 +10,18 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
+  optimizeDeps: {
+    exclude: ['wa-sqlite'],
+  },
+  worker: {
+    format: 'es',
+  },
   server: {
     port: 5173,
+    headers: {
+      'Cross-Origin-Opener-Policy': 'same-origin',
+      'Cross-Origin-Embedder-Policy': 'credentialless',
+    },
     proxy: {
       // Proxy API requests to the backend server during development
       '/api': {

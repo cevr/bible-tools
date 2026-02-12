@@ -5,8 +5,8 @@
  * Body paragraphs are selectable with refcode suffix and highlight on selection.
  */
 import { type Component, For, Show } from 'solid-js';
+import { isChapterHeading, headingLevel } from '@bible/core/egw';
 import type { EGWParagraph } from '@/data/egw/api';
-import { isChapterHeading } from '@bible/core/egw-db';
 
 // ---------------------------------------------------------------------------
 // HTML content cleaning
@@ -32,16 +32,6 @@ function cleanHtml(content: string): string {
     .replace(STRIP_TAGS_RE, '')
     .replace(ENTITY_RE, (m) => ENTITY_MAP[m] ?? m)
     .trim();
-}
-
-// ---------------------------------------------------------------------------
-// Heading level detection
-// ---------------------------------------------------------------------------
-
-function headingLevel(elementType: string | null | undefined): number {
-  if (!elementType) return 0;
-  const match = elementType.toLowerCase().match(/^h(\d)$/);
-  return match?.[1] ? parseInt(match[1], 10) : 0;
 }
 
 // ---------------------------------------------------------------------------

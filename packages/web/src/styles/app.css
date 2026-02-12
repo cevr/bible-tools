@@ -19,6 +19,12 @@
   --color-highlight-dark: #3d3520;
   --color-border: #d4cfc7;
   --color-border-dark: #3d3a36;
+  --color-red-letter: #a83232;
+  --color-red-letter-dark: #d4897a;
+  --color-strongs-hebrew: #b8860b;
+  --color-strongs-hebrew-dark: #d4a574;
+  --color-strongs-greek: #4a6fa5;
+  --color-strongs-greek-dark: #7ba3d4;
 
   /* Spacing scale */
   --spacing-reading: 2.5rem;
@@ -93,6 +99,59 @@ body {
 @media (prefers-color-scheme: dark) {
   .verse-num {
     color: var(--color-ink-muted-dark);
+  }
+}
+
+/* Red-letter text (words of Christ) */
+.red-letter {
+  color: var(--color-red-letter);
+}
+
+@media (prefers-color-scheme: dark) {
+  .red-letter {
+    color: var(--color-red-letter-dark);
+  }
+}
+
+/* Translator additions — KJV italic words */
+.translator-addition {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Margin note superscripts */
+.margin-sup {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink-muted);
+  vertical-align: super;
+  cursor: help;
+  margin-left: 0.05em;
+  margin-right: 0.05em;
+  user-select: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .margin-sup {
+    color: var(--color-ink-muted-dark);
+  }
+}
+
+/* Search highlights */
+.search-highlight {
+  background-color: var(--color-highlight);
+  color: var(--color-ink);
+  border-radius: 2px;
+  padding: 0 1px;
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  .search-highlight {
+    background-color: var(--color-highlight-dark);
+    color: var(--color-ink-dark);
   }
 }
 
