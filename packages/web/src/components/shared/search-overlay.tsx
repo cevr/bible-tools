@@ -4,6 +4,7 @@ import { useBible } from '@/providers/bible-provider';
 import { useOverlay, useOverlayData } from '@/providers/overlay-provider';
 import { useApp } from '@/providers/db-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { BOOK_ALIASES, type Reference } from '@/data/bible';
 
 interface DisplayResult {
@@ -110,7 +111,7 @@ export function SearchOverlay() {
         <div className="border-t border-border" />
 
         {/* Results */}
-        <div className="max-h-80 overflow-y-auto">
+        <ScrollArea className="max-h-80">
           {q.length < 2 ? (
             <p className="px-4 py-6 text-center text-sm text-muted-foreground">
               Type at least 2 characters to search
@@ -130,7 +131,7 @@ export function SearchOverlay() {
               />
             </Suspense>
           )}
-        </div>
+        </ScrollArea>
 
         {/* Footer */}
         <div className="border-t border-border px-4 py-2 text-xs text-muted-foreground flex items-center gap-4">

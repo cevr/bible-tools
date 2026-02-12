@@ -274,8 +274,7 @@ function MarginNoteSup({ note }: { note: MarginNote }) {
   return (
     <Popover>
       <PopoverTrigger
-        render={<sup />}
-        className="margin-sup cursor-pointer hover:text-primary transition-colors"
+        className="margin-sup cursor-pointer hover:text-primary transition-colors align-super text-[0.6em] font-medium leading-none"
         aria-label={`Margin note ${note.noteIndex}`}
       >
         {note.noteIndex}

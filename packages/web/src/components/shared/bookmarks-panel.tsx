@@ -4,6 +4,7 @@ import { useBible } from '@/providers/bible-provider';
 import { useOverlay, useOverlayData } from '@/providers/overlay-provider';
 import { useBookmarks, type Bookmark } from '@/providers/state-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 function BookmarksPanelInner() {
   const { overlay, closeOverlay } = useOverlay();
@@ -95,7 +96,7 @@ function BookmarksPanelInner() {
         )}
 
         {/* List */}
-        <div className="overflow-y-auto min-h-0 flex-1 p-2">
+        <ScrollArea className="min-h-0 flex-1 p-2">
           {bookmarks.length > 0 ? (
             <div className="space-y-1">
               {bookmarks.map((bm: Bookmark) => (
@@ -131,7 +132,7 @@ function BookmarksPanelInner() {
           ) : (
             <p className="px-4 py-6 text-center text-sm text-muted-foreground">No bookmarks yet.</p>
           )}
-        </div>
+        </ScrollArea>
 
         {/* Footer */}
         <div className="border-t border-border px-4 py-3 flex justify-end shrink-0">

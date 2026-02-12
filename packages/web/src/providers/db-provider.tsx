@@ -6,7 +6,6 @@
  * Provides CachedApp (suspending reads) and raw DbClient via context.
  */
 import {
-  createContext,
   useContext,
   useState,
   useEffect,
@@ -21,6 +20,7 @@ import { LoadingScreen } from '@/components/shared/loading-screen';
 import { AppLive } from '@/data/layer';
 import { AppService, type AppRuntime } from '@/data/app-service';
 import { type CachedAppCore, createCachedApp, type CachedService } from '@/lib/cached-app';
+import { CachedAppContext, DbContext } from '@/providers/db-context';
 import type { WebBibleService } from '@/data/bible/effect-service';
 import type { AppStateService } from '@/data/state/effect-service';
 import type { WebStudyDataService } from '@/data/study/effect-service';
@@ -29,9 +29,6 @@ import type { WebSyncService } from '@/data/sync/effect-service';
 type AppServices = WebBibleService | AppStateService | WebStudyDataService | WebSyncService;
 
 export type CachedApp = CachedService<AppService>;
-
-const CachedAppContext = createContext<CachedAppCore | null>(null);
-const DbContext = createContext<DbClient | null>(null);
 
 export function DbProvider({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(false);

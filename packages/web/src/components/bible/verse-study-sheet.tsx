@@ -9,7 +9,7 @@
  *
  * All data reads suspend via CachedApp — no manual useEffect/useState for fetching.
  */
-import { useState, useEffect, useRef, Suspense } from 'react';
+import { useState, useEffect, useRef, useMemo, Suspense } from 'react';
 import { useNavigate } from 'react-router';
 import { XIcon } from 'lucide-react';
 import { useBible } from '@/providers/bible-provider';
@@ -57,6 +57,15 @@ const ALL_TYPES: CrossRefType[] = [
   'thematic',
 ];
 
+type GroupedRefs = {
+  type: CrossRefType | null;
+  count: number;
+  byBook: [number, ClassifiedCrossReference[]][];
+}[];
+
+const refKey = (ref: ClassifiedCrossReference, idx: number) =>
+  `${ref.source}-${ref.book}-${ref.chapter}-${ref.verse}-${idx}`;
+
 /** Width of the study panel for layout coordination. */
 export const STUDY_PANEL_WIDTH = 'sm:w-[28rem]';
 
@@ -102,13 +111,17 @@ export function VerseStudyPanel({
           <TabsTrigger value="concordance">Concordance</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="verse" className="overflow-y-auto p-4">
-          <Suspense fallback={TabFallback}>
-            <VerseTab book={book} chapter={chapter} verse={verse} />
-          </Suspense>
+        <TabsContent value="verse" className="flex flex-col flex-1 min-h-0">
+          <ScrollArea className="flex-1 min-h-0">
+            <div className="p-4">
+              <Suspense fallback={TabFallback}>
+                <VerseTab book={book} chapter={chapter} verse={verse} />
+              </Suspense>
+            </div>
+          </ScrollArea>
         </TabsContent>
 
-        <TabsContent value="cross-refs" className="overflow-y-auto flex-1 min-h-0">
+        <TabsContent value="cross-refs" className="flex flex-col flex-1 min-h-0">
           <Suspense fallback={TabFallback}>
             <CrossRefsTab
               book={book}
@@ -194,12 +207,12 @@ function CrossRefsTab({
 
   const crossRefs = app.crossRefs(book, chapter, verse);
 
-  const [editingRefIdx, setEditingRefIdx] = useState<number | null>(null);
+  const [editingRefKey, setEditingRefKey] = useState<string | null>(null);
   const [addRefInput, setAddRefInput] = useState('');
 
   // Reset edit state when verse changes
   useEffect(() => {
-    setEditingRefIdx(null);
+    setEditingRefKey(null);
     setAddRefInput('');
   }, [book, chapter, verse]);
 
@@ -230,7 +243,7 @@ function CrossRefsTab({
       { book: ref.book, chapter: ref.chapter, verse: ref.verse },
       type,
     );
-    setEditingRefIdx(null);
+    setEditingRefKey(null);
     app.crossRefs.invalidate(book, chapter, verse);
   };
 
@@ -251,128 +264,205 @@ function CrossRefsTab({
     app.crossRefs.invalidate(book, chapter, verse);
   };
 
-  return (
-    <div className="flex flex-col h-full">
-      <div className="px-4 py-3 overflow-y-auto min-h-0 flex-1">
-        <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
-          Cross-References
-        </h3>
-        {crossRefs.length > 0 ? (
-          <div className="space-y-1">
-            {crossRefs.map((ref, idx) => (
-              <div
-                key={`${ref.book}-${ref.chapter}-${ref.verse}-${idx}`}
-                className="flex items-start gap-2 p-2 rounded-lg hover:bg-accent transition-colors group relative"
-              >
-                {/* Type badge */}
-                {ref.classification ? (
-                  <button
-                    className={`shrink-0 px-1.5 py-0.5 text-[10px] font-mono rounded ${TYPE_BADGES[ref.classification].color} hover:opacity-80 transition-opacity`}
-                    onClick={() => setEditingRefIdx(idx)}
-                    title={ref.classification}
-                  >
-                    {TYPE_BADGES[ref.classification].abbr}
-                  </button>
-                ) : (
-                  <button
-                    className="shrink-0 px-1.5 py-0.5 text-[10px] font-mono rounded bg-gray-200/50 dark:bg-gray-700/50 text-gray-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                    onClick={() => setEditingRefIdx(idx)}
-                    title="Set type"
-                  >
-                    ???
-                  </button>
-                )}
+  const grouped = useMemo((): GroupedRefs => {
+    const byType = new Map<CrossRefType | null, Map<number, ClassifiedCrossReference[]>>();
+    for (const ref of crossRefs) {
+      let typeMap = byType.get(ref.classification);
+      if (!typeMap) {
+        typeMap = new Map();
+        byType.set(ref.classification, typeMap);
+      }
+      let bookList = typeMap.get(ref.book);
+      if (!bookList) {
+        bookList = [];
+        typeMap.set(ref.book, bookList);
+      }
+      bookList.push(ref);
+    }
+    // Sort refs within each book by chapter:verse
+    for (const [, typeMap] of byType) {
+      for (const [, refs] of typeMap) {
+        refs.sort((a, b) => a.chapter - b.chapter || (a.verse ?? 0) - (b.verse ?? 0));
+      }
+    }
+    const result: GroupedRefs = [];
+    for (const type of ALL_TYPES) {
+      const bookMap = byType.get(type);
+      if (bookMap) {
+        let count = 0;
+        for (const [, refs] of bookMap) count += refs.length;
+        result.push({ type, count, byBook: [...bookMap] });
+      }
+    }
+    const unclassified = byType.get(null);
+    if (unclassified) {
+      let count = 0;
+      for (const [, refs] of unclassified) count += refs.length;
+      result.push({ type: null, count, byBook: [...unclassified] });
+    }
+    return result;
+  }, [crossRefs]);
 
-                {/* Reference */}
-                <button className="flex-1 text-left min-w-0" onClick={() => navigateToRef(ref)}>
-                  <span className="text-sm font-medium text-foreground">
-                    {ref.source === 'user' ? '* ' : ''}
-                    {formatRef(ref)}
-                  </span>
-                  {ref.previewText && (
-                    <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
-                      {ref.previewText}
-                    </p>
-                  )}
-                  {ref.source === 'user' && ref.userNote && (
-                    <p className="text-xs italic text-muted-foreground mt-0.5">{ref.userNote}</p>
-                  )}
-                </button>
+  const showTypeHeaders = grouped.length > 1;
 
-                {/* Delete button for user refs */}
-                {ref.source === 'user' && (
-                  <button
-                    className="shrink-0 opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-700 dark:hover:text-red-300 transition-opacity text-xs px-1"
-                    onClick={() => {
-                      if (ref.source === 'user') handleRemoveUserRef(ref.userRefId);
-                    }}
-                    title="Remove"
-                  >
-                    x
-                  </button>
-                )}
-
-                {/* Type picker dropdown */}
-                {editingRefIdx === idx && (
-                  <div className="absolute right-4 mt-6 z-10 bg-background border border-border rounded-lg shadow-lg p-1 space-y-0.5">
-                    {ALL_TYPES.map((type) => {
-                      const badge = TYPE_BADGES[type];
-                      return (
-                        <button
-                          key={type}
-                          className="w-full text-left px-2 py-1 text-xs rounded hover:bg-accent flex items-center gap-2"
-                          onClick={() => handleSetType(ref, type)}
-                        >
-                          <span
-                            className={`px-1 py-0.5 rounded text-[10px] font-mono ${badge.color}`}
-                          >
-                            {badge.abbr}
-                          </span>
-                          <span className="text-foreground capitalize">{type}</span>
-                        </button>
-                      );
-                    })}
-                    <button
-                      className="w-full text-left px-2 py-1 text-xs rounded hover:bg-accent text-muted-foreground"
-                      onClick={() => setEditingRefIdx(null)}
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+  const renderRef = (ref: ClassifiedCrossReference, idx: number) => {
+    const key = refKey(ref, idx);
+    return (
+      <div
+        key={key}
+        className="flex items-start gap-2 p-2 rounded-lg hover:bg-accent transition-colors group relative"
+      >
+        {/* Type badge */}
+        {ref.classification ? (
+          <button
+            className={`shrink-0 px-1.5 py-0.5 text-[10px] font-mono rounded ${TYPE_BADGES[ref.classification].color} hover:opacity-80 transition-opacity`}
+            onClick={() => setEditingRefKey(key)}
+            title={ref.classification}
+          >
+            {TYPE_BADGES[ref.classification].abbr}
+          </button>
         ) : (
-          <p className="text-sm text-muted-foreground">No cross-references found.</p>
+          <button
+            className="shrink-0 px-1.5 py-0.5 text-[10px] font-mono rounded bg-gray-200/50 dark:bg-gray-700/50 text-gray-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+            onClick={() => setEditingRefKey(key)}
+            title="Set type"
+          >
+            ???
+          </button>
         )}
 
-        {/* Add user cross-ref */}
-        <div className="mt-3 pt-3 border-t border-border">
-          <form
-            className="flex gap-2"
-            onSubmit={(e) => {
-              e.preventDefault();
-              void handleAddUserRef();
-            }}
+        {/* Reference */}
+        <button className="flex-1 text-left min-w-0" onClick={() => navigateToRef(ref)}>
+          <span className="text-sm font-medium text-foreground">
+            {ref.source === 'user' ? '* ' : ''}
+            {formatRef(ref)}
+          </span>
+          {ref.previewText && (
+            <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">{ref.previewText}</p>
+          )}
+          {ref.source === 'user' && ref.userNote && (
+            <p className="text-xs italic text-muted-foreground mt-0.5">{ref.userNote}</p>
+          )}
+        </button>
+
+        {/* Delete button for user refs */}
+        {ref.source === 'user' && (
+          <button
+            className="shrink-0 opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-700 dark:hover:text-red-300 transition-opacity text-xs px-1"
+            onClick={() => handleRemoveUserRef(ref.userRefId)}
+            title="Remove"
           >
-            <input
-              type="text"
-              placeholder="Add cross-ref (e.g. John 3:16)"
-              className="flex-1 px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-              value={addRefInput}
-              onChange={(e) => setAddRefInput(e.target.value)}
-            />
+            x
+          </button>
+        )}
+
+        {/* Type picker dropdown */}
+        {editingRefKey === key && (
+          <div className="absolute right-4 mt-6 z-10 bg-background border border-border rounded-lg shadow-lg p-1 space-y-0.5">
+            {ALL_TYPES.map((type) => {
+              const badge = TYPE_BADGES[type];
+              return (
+                <button
+                  key={type}
+                  className="w-full text-left px-2 py-1 text-xs rounded hover:bg-accent flex items-center gap-2"
+                  onClick={() => handleSetType(ref, type)}
+                >
+                  <span className={`px-1 py-0.5 rounded text-[10px] font-mono ${badge.color}`}>
+                    {badge.abbr}
+                  </span>
+                  <span className="text-foreground capitalize">{type}</span>
+                </button>
+              );
+            })}
             <button
-              type="submit"
-              className="px-3 py-1.5 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-50"
-              disabled={!addRefInput.trim()}
+              className="w-full text-left px-2 py-1 text-xs rounded hover:bg-accent text-muted-foreground"
+              onClick={() => setEditingRefKey(null)}
             >
-              Add
+              Cancel
             </button>
-          </form>
-        </div>
+          </div>
+        )}
       </div>
+    );
+  };
+
+  return (
+    <div className="flex flex-col h-full">
+      <ScrollArea className="min-h-0 flex-1">
+        <div className="px-4 py-3">
+          {crossRefs.length > 0 ? (
+            <div className="space-y-3">
+              {grouped.map((group) => (
+                <div key={group.type ?? 'unclassified'}>
+                  {/* Type section header */}
+                  {showTypeHeaders && (
+                    <div className="flex items-center gap-2 mb-1.5">
+                      {group.type ? (
+                        <span
+                          className={`px-1.5 py-0.5 text-[10px] font-mono rounded ${TYPE_BADGES[group.type].color}`}
+                        >
+                          {TYPE_BADGES[group.type].abbr}
+                        </span>
+                      ) : (
+                        <span className="px-1.5 py-0.5 text-[10px] font-mono rounded bg-gray-200/50 dark:bg-gray-700/50 text-gray-500 dark:text-gray-400">
+                          ???
+                        </span>
+                      )}
+                      <span className="text-xs font-medium text-muted-foreground capitalize">
+                        {group.type ?? 'Unclassified'}
+                      </span>
+                      <span className="text-[10px] text-muted-foreground">{group.count}</span>
+                    </div>
+                  )}
+
+                  {/* Books within type */}
+                  <div className="space-y-2">
+                    {group.byBook.map(([bookNum, refs]) => {
+                      const bookInfo = bible.getBook(bookNum);
+                      return (
+                        <div key={bookNum}>
+                          <h4 className="text-xs font-medium text-muted-foreground px-2 mb-0.5">
+                            {bookInfo?.name ?? `Book ${bookNum}`}
+                          </h4>
+                          <div className="space-y-0.5">{refs.map(renderRef)}</div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-sm text-muted-foreground">No cross-references found.</p>
+          )}
+
+          {/* Add user cross-ref */}
+          <div className="mt-3 pt-3 border-t border-border">
+            <form
+              className="flex gap-2"
+              onSubmit={(e) => {
+                e.preventDefault();
+                void handleAddUserRef();
+              }}
+            >
+              <input
+                type="text"
+                placeholder="Add cross-ref (e.g. John 3:16)"
+                className="flex-1 px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+                value={addRefInput}
+                onChange={(e) => setAddRefInput(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="px-3 py-1.5 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-50"
+                disabled={!addRefInput.trim()}
+              >
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
+      </ScrollArea>
 
       <div className="px-4 py-3 border-t border-border text-xs text-muted-foreground shrink-0">
         {crossRefs.length > 0 && <span>{crossRefs.length} cross-references</span>}
@@ -606,11 +696,11 @@ function ConcordanceTab({ onClose }: { onClose: () => void }) {
       ) : (
         <>
           <div className="border-t border-border" />
-          <div className="overflow-y-auto min-h-0 flex-1">
+          <ScrollArea className="min-h-0 flex-1">
             <p className="px-4 py-6 text-center text-sm text-muted-foreground">
               Enter a Strong's number (H for Hebrew, G for Greek)
             </p>
-          </div>
+          </ScrollArea>
           <div className="border-t border-border px-4 py-2 text-xs text-muted-foreground shrink-0" />
         </>
       )}
@@ -669,7 +759,7 @@ function ConcordanceResults({
 
       <div className="border-t border-border" />
 
-      <div className="overflow-y-auto min-h-0 flex-1">
+      <ScrollArea className="min-h-0 flex-1">
         {results.length > 0 ? (
           <div className="p-2 space-y-0.5">
             {results.map((result, i) => (
@@ -690,7 +780,7 @@ function ConcordanceResults({
         ) : (
           <p className="px-4 py-6 text-center text-sm text-muted-foreground">No verses found</p>
         )}
-      </div>
+      </ScrollArea>
 
       <div className="border-t border-border px-4 py-2 text-xs text-muted-foreground shrink-0">
         {results.length > 0 && <span>{results.length} verses</span>}

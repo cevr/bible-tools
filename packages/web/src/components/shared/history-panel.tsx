@@ -4,6 +4,7 @@ import { useBible } from '@/providers/bible-provider';
 import { useOverlay } from '@/providers/overlay-provider';
 import { useHistory, type HistoryEntry } from '@/providers/state-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 interface GroupedEntries {
   label: string;
@@ -82,7 +83,7 @@ function HistoryPanelInner() {
           )}
         </div>
 
-        <div className="overflow-y-auto min-h-0 flex-1 p-2">
+        <ScrollArea className="min-h-0 flex-1 p-2">
           {history.length > 0 ? (
             <div className="space-y-3">
               {grouped.map((group) => (
@@ -117,7 +118,7 @@ function HistoryPanelInner() {
           ) : (
             <p className="px-4 py-6 text-center text-sm text-muted-foreground">No history yet.</p>
           )}
-        </div>
+        </ScrollArea>
 
         <div className="border-t border-border px-4 py-3 flex justify-end shrink-0">
           <button

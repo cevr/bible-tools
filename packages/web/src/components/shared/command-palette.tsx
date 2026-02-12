@@ -4,6 +4,7 @@ import { useBible } from '@/providers/bible-provider';
 import { useOverlay } from '@/providers/overlay-provider';
 import { useApp } from '@/providers/db-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import type { Book } from '@/data/bible';
 
 interface QuickAction {
@@ -195,7 +196,7 @@ export function CommandPalette() {
         <div className="border-t border-border" />
 
         {/* Results */}
-        <div className="max-h-80 overflow-y-auto p-2">
+        <ScrollArea className="max-h-80 p-2">
           {state.mode === 'book' && (
             <div className="space-y-1">
               {filteredActions.length > 0 && (
@@ -258,7 +259,7 @@ export function CommandPalette() {
               />
             </Suspense>
           )}
-        </div>
+        </ScrollArea>
 
         {/* Footer hints */}
         <div className="border-t border-border px-4 py-2 text-xs text-muted-foreground flex items-center gap-4">
