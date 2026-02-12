@@ -2,16 +2,14 @@
  * Rich verse text renderer.
  *
  * Transforms raw verse text into styled JSX with:
- * - Red-letter text (‹› delimiters → curly quotes, colored spans)
- * - Italic translator additions ([brackets] → <em>)
- * - Pilcrow removal (leading ¶)
+ * - Red-letter text (single angle quotes -> curly quotes, colored spans)
+ * - Italic translator additions ([brackets] -> <em>)
+ * - Pilcrow removal (leading paragraph mark)
  * - Margin note superscripts with popover details
  * - Search term highlighting
- *
- * Ported from CLI's tui/components/bible/verse.tsx.
  */
-import { createMemo, For, type Component } from 'solid-js';
-import { Popover } from '@kobalte/core/popover';
+import { type ReactNode } from 'react';
+import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
 import type { MarginNote } from '@/data/study/service';
 
 // --- Types ---
@@ -30,7 +28,7 @@ export type TextSegment =
 /**
  * Split text segments on [brackets] into italic segments.
  * KJV uses square brackets to denote words added by translators for clarity.
- * Handles both 'text' → 'italic' and 'redLetter' → 'redLetterItalic'.
+ * Handles both 'text' -> 'italic' and 'redLetter' -> 'redLetterItalic'.
  */
 export function applyItalicSegments(segments: TextSegment[]): TextSegment[] {
   const result: TextSegment[] = [];
@@ -53,8 +51,8 @@ export function applyItalicSegments(segments: TextSegment[]): TextSegment[] {
 }
 
 /**
- * Split text segments on ‹› (single angle quotation marks) into redLetter segments.
- * Replaces ‹ with \u201C (") and › with \u201D (") in the rendered text.
+ * Split text segments on single angle quotes into redLetter segments.
+ * Replaces opening with left double quote and closing with right double quote.
  * Tracks red-letter state across segment boundaries so that margin note
  * superscripts inserted mid-quote don't break the parsing.
  */
@@ -187,13 +185,12 @@ export function segmentVerseText(
     segments.push({ type: 'text', text });
   }
 
-  // Apply search highlighting before red-letter/italic (so highlights cut through)
   const highlighted = searchQuery ? applySearchHighlights(segments, searchQuery) : segments;
 
   return applyItalicSegments(applyRedLetterSegments(highlighted));
 }
 
-/** Strip leading pilcrow (¶) and whitespace. */
+/** Strip leading pilcrow and whitespace. */
 export function cleanVerseText(text: string): string {
   return text.replace(/^\u00b6\s*/, '');
 }
@@ -224,65 +221,87 @@ export interface VerseRendererProps {
 export function renderSegment(
   segment: TextSegment,
   marginNotes: MarginNote[],
-): ReturnType<Component> {
+  key: string | number,
+): ReactNode {
   switch (segment.type) {
     case 'margin': {
       const note = marginNotes.find((n) => n.noteIndex === segment.noteIndex);
-      if (!note) return <sup class="margin-sup">{segment.noteIndex}</sup>;
-      return <MarginNoteSup note={note} />;
+      if (!note)
+        return (
+          <sup key={key} className="margin-sup">
+            {segment.noteIndex}
+          </sup>
+        );
+      return <MarginNoteSup key={key} note={note} />;
     }
     case 'highlight':
-      return <mark class="search-highlight">{segment.text}</mark>;
+      return (
+        <mark key={key} className="search-highlight">
+          {segment.text}
+        </mark>
+      );
     case 'italic':
-      return <em class="translator-addition">{segment.text}</em>;
+      return (
+        <em key={key} className="translator-addition">
+          {segment.text}
+        </em>
+      );
     case 'redLetter':
-      return <span class="red-letter">{segment.text}</span>;
+      return (
+        <span key={key} className="red-letter">
+          {segment.text}
+        </span>
+      );
     case 'redLetterItalic':
-      return <em class="red-letter translator-addition">{segment.text}</em>;
+      return (
+        <em key={key} className="red-letter translator-addition">
+          {segment.text}
+        </em>
+      );
     case 'redLetterQuote':
-      return <span class="red-letter">{segment.text}</span>;
+      return (
+        <span key={key} className="red-letter">
+          {segment.text}
+        </span>
+      );
     case 'text':
-      return <span>{segment.text}</span>;
+      return <span key={key}>{segment.text}</span>;
   }
 }
 
 /** Margin note superscript with popover. */
-const MarginNoteSup: Component<{ note: MarginNote }> = (props) => {
+function MarginNoteSup({ note }: { note: MarginNote }) {
   return (
-    <Popover gutter={4}>
-      <Popover.Trigger
-        class="margin-sup cursor-pointer hover:text-[--color-accent] dark:hover:text-[--color-accent-dark] transition-colors"
-        as="sup"
-        aria-label={`Margin note ${props.note.noteIndex}`}
+    <Popover>
+      <PopoverTrigger
+        render={<sup />}
+        className="margin-sup cursor-pointer hover:text-[--color-accent] dark:hover:text-[--color-accent-dark] transition-colors"
+        aria-label={`Margin note ${note.noteIndex}`}
       >
-        {props.note.noteIndex}
-      </Popover.Trigger>
-      <Popover.Portal>
-        <Popover.Content class="z-50 max-w-[280px] rounded-lg bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] shadow-lg p-3 font-sans text-sm animate-in fade-in">
-          <Popover.Arrow class="fill-[--color-paper] dark:fill-[--color-paper-dark]" />
-          <Popover.Description class="space-y-1">
-            <p>
-              <span class="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-                {formatNoteType(props.note.noteType)}
-              </span>
-              <strong class="text-[--color-ink] dark:text-[--color-ink-dark]">
-                {props.note.phrase}
-              </strong>
-            </p>
-            <p class="text-[--color-ink] dark:text-[--color-ink-dark]">{props.note.noteText}</p>
-          </Popover.Description>
-        </Popover.Content>
-      </Popover.Portal>
+        {note.noteIndex}
+      </PopoverTrigger>
+      <PopoverContent
+        className="max-w-[280px] rounded-lg bg-[--color-paper] dark:bg-[--color-paper-dark] border border-[--color-border] dark:border-[--color-border-dark] shadow-lg p-3 font-sans text-sm"
+        sideOffset={4}
+      >
+        <div className="space-y-1">
+          <p>
+            <span className="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+              {formatNoteType(note.noteType)}
+            </span>
+            <strong className="text-[--color-ink] dark:text-[--color-ink-dark]">
+              {note.phrase}
+            </strong>
+          </p>
+          <p className="text-[--color-ink] dark:text-[--color-ink-dark]">{note.noteText}</p>
+        </div>
+      </PopoverContent>
     </Popover>
   );
-};
+}
 
-export const VerseRenderer: Component<VerseRendererProps> = (props) => {
-  const segments = createMemo(() =>
-    segmentVerseText(cleanVerseText(props.text), props.marginNotes ?? [], props.searchQuery),
-  );
+export function VerseRenderer({ text, marginNotes = [], searchQuery }: VerseRendererProps) {
+  const segments = segmentVerseText(cleanVerseText(text), marginNotes, searchQuery);
 
-  return (
-    <For each={segments()}>{(segment) => renderSegment(segment, props.marginNotes ?? [])}</For>
-  );
-};
+  return <>{segments.map((segment, i) => renderSegment(segment, marginNotes, i))}</>;
+}

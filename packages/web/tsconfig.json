@@ -3,21 +3,21 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
-    "types": ["vite/client", "@types/bun"],
-    "noEmit": true,
-    "isolatedModules": true,
+    "jsx": "react-jsx",
     "strict": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
     "paths": {
       "@/*": ["./src/*"]
     },
-    "baseUrl": "."
+    "types": ["bun"]
   },
-  "include": ["src/**/*", "server/**/*"],
+  "include": ["src/**/*", "server/**/*", "vite.config.ts"],
   "exclude": ["node_modules", "e2e", "dist"]
 }

@@ -1,46 +1,32 @@
-import type { Component, ParentProps } from 'solid-js';
-import { useParams, useNavigate } from '@solidjs/router';
-import {
-  createSignal,
-  createEffect,
-  createMemo,
-  createResource,
-  For,
-  Match,
-  Show,
-  Switch,
-  onMount,
-  onCleanup,
-} from 'solid-js';
+/**
+ * Bible reader route.
+ * Displays chapter content with verse navigation.
+ */
+import { useState, useEffect, useRef } from 'react';
+import { useParams, useNavigate } from 'react-router';
 import { useKeyboardAction } from '@/providers/keyboard-provider';
 import { useOverlay } from '@/providers/overlay-provider';
-import { useBible, useChapter } from '@/providers/bible-provider';
-import { useAppState, type Preferences } from '@/providers/state-provider';
-import { useStudyData } from '@/providers/study-hooks';
+import { useBible } from '@/providers/bible-provider';
+import { useApp } from '@/providers/db-provider';
 import { BOOK_ALIASES, type Verse } from '@/data/bible';
 import type { MarginNote, VerseWord } from '@/data/study/service';
+import type { Preferences } from '@/data/state/effect-service';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
 import { ParagraphView } from '@/components/bible/paragraph-view';
 import { WordModeView } from '@/components/bible/word-mode-view';
 import { StrongsPopup } from '@/components/study/strongs-popup';
 import { GotoModeState, gotoModeTransition, keyToGotoEvent } from '@/lib/goto-mode';
 
-/**
- * Bible reader route.
- * Displays chapter content with verse navigation.
- */
-const BibleRoute: Component<ParentProps> = () => {
-  console.log('[bible-route] render');
-  const params = useParams<{ book?: string; chapter?: string; verse?: string }>();
+function BibleRoute() {
+  const params = useParams<'book' | 'chapter' | 'verse'>();
   const navigate = useNavigate();
   const bible = useBible();
   const { overlay, openOverlay } = useOverlay();
-  const appState = useAppState();
-  const studyData = useStudyData();
+  const app = useApp();
 
-  // Parse book name to number
-  const bookNumber = createMemo(() => {
-    const bookParam = params.book?.toLowerCase();
+  // Derived route params
+  const bookParam = params.book?.toLowerCase();
+  const bookNumber = (() => {
     if (!bookParam) return 1;
     const num = parseInt(bookParam, 10);
     if (!isNaN(num) && num >= 1 && num <= 66) return num;
@@ -48,132 +34,181 @@ const BibleRoute: Component<ParentProps> = () => {
     if (aliasNum) return aliasNum;
     const book = bible.books.find((b) => b.name.toLowerCase() === bookParam);
     return book?.number ?? 1;
-  });
+  })();
+  const chapterNumber = parseInt(params.chapter ?? '1', 10) || 1;
+  const book = bible.getBook(bookNumber);
 
-  const chapterNumber = createMemo(() => {
-    const ch = parseInt(params.chapter ?? '1', 10);
-    return isNaN(ch) ? 1 : ch;
-  });
+  // Verses
+  const [verses, setVerses] = useState<readonly Verse[]>([]);
+  const [versesLoading, setVersesLoading] = useState(false);
+  const [versesError, setVersesError] = useState<string | null>(null);
 
-  const book = createMemo(() => bible.getBook(bookNumber()));
-  const verses = useChapter(bookNumber, chapterNumber);
-
-  // Batch-load margin notes for the whole chapter
-  const [marginNotesByVerse] = createResource(
-    () => ({ book: bookNumber(), chapter: chapterNumber() }),
-    async ({ book, chapter }) => studyData.getChapterMarginNotes(book, chapter),
+  // Margin notes
+  const [marginNotesByVerse, setMarginNotesByVerse] = useState<Map<number, MarginNote[]>>(
+    new Map(),
   );
 
   // Display mode
-  const [displayMode, setDisplayMode] = createSignal<Preferences['displayMode']>('verse');
-
-  onMount(async () => {
-    const prefs = await appState.getPreferences();
-    setDisplayMode(prefs.displayMode);
-  });
-
-  const toggleDisplayMode = () => {
-    const next = displayMode() === 'verse' ? 'paragraph' : 'verse';
-    setDisplayMode(next);
-    void appState.setPreferences({ displayMode: next });
-  };
+  const [displayMode, setDisplayMode] = useState<Preferences['displayMode']>('verse');
 
   // Selected verse
-  const [selectedVerse, setSelectedVerse] = createSignal(
-    params.verse ? parseInt(params.verse, 10) : 1,
-  );
+  const [selectedVerse, setSelectedVerse] = useState(params.verse ? parseInt(params.verse, 10) : 1);
 
   // Search query — persists after overlay closes
-  const [searchQuery, setSearchQuery] = createSignal('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Goto mode state machine
-  const [gotoState, setGotoState] = createSignal(GotoModeState.normal());
-  let gotoTimeoutId: ReturnType<typeof setTimeout> | undefined;
+  const [gotoState, setGotoState] = useState(GotoModeState.normal());
+  const gotoTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   // Word mode state
-  const [wordModeActive, setWordModeActive] = createSignal(false);
-  const [selectedWordIndex, setSelectedWordIndex] = createSignal(0);
-  const [activeStrongsNumber, setActiveStrongsNumber] = createSignal<string | null>(null);
+  const [wordModeActive, setWordModeActive] = useState(false);
+  const [selectedWordIndex, setSelectedWordIndex] = useState(0);
+  const [activeStrongsNumber, setActiveStrongsNumber] = useState<string | null>(null);
+  const [verseWords, setVerseWords] = useState<VerseWord[]>([]);
 
-  // Load verse words on demand when word mode activates
-  const [verseWords] = createResource(
-    () => {
-      if (!wordModeActive()) return null;
-      return { book: bookNumber(), chapter: chapterNumber(), verse: selectedVerse() };
-    },
-    async (params) => {
-      if (!params) return [];
-      return studyData.getVerseWords(params.book, params.chapter, params.verse);
-    },
-  );
+  // Refs for latest state in event handlers
+  const overlayRef = useRef(overlay);
+  overlayRef.current = overlay;
+  const searchQueryRef = useRef(searchQuery);
+  searchQueryRef.current = searchQuery;
+  const wordModeRef = useRef(wordModeActive);
+  wordModeRef.current = wordModeActive;
+  const verseWordsRef = useRef(verseWords);
+  verseWordsRef.current = verseWords;
+  const selectedWordIndexRef = useRef(selectedWordIndex);
+  selectedWordIndexRef.current = selectedWordIndex;
+  const displayModeRef = useRef(displayMode);
+  displayModeRef.current = displayMode;
+  const gotoStateRef = useRef(gotoState);
+  gotoStateRef.current = gotoState;
+  const versesRef = useRef(verses);
+  versesRef.current = verses;
+  const selectedVerseRef = useRef(selectedVerse);
+  selectedVerseRef.current = selectedVerse;
 
-  // Exit word mode when selected verse changes
-  createEffect(() => {
-    selectedVerse(); // track
-    setWordModeActive(false);
-    setSelectedWordIndex(0);
-  });
+  // Load display mode preference on mount
+  useEffect(() => {
+    app.getPreferences().then((prefs) => setDisplayMode(prefs.displayMode));
+  }, [app]);
 
-  // Search match verse numbers for n/N navigation
-  const searchMatchVerses = createMemo(() => {
-    const q = searchQuery().toLowerCase();
-    if (q.length < 2) return [];
-    const v = verses();
-    if (!v) return [];
-    return v.filter((verse) => verse.text.toLowerCase().includes(q)).map((verse) => verse.verse);
-  });
+  // Redirect to saved position if no book param
+  useEffect(() => {
+    if (!params.book) {
+      app.getPosition().then((savedPos) => {
+        const savedBook = bible.getBook(savedPos.book);
+        if (savedBook) {
+          const bookSlug = savedBook.name.toLowerCase().replace(/\s+/g, '-');
+          navigate(`/bible/${bookSlug}/${savedPos.chapter}/${savedPos.verse}`, { replace: true });
+        } else {
+          navigate('/bible/genesis/1', { replace: true });
+        }
+      });
+    } else if (!params.chapter) {
+      const bookName = book?.name.toLowerCase().replace(/\s+/g, '-') ?? 'genesis';
+      navigate(`/bible/${bookName}/1`, { replace: true });
+    }
+  }, [params.book, params.chapter]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Fetch verses when book/chapter changes
+  useEffect(() => {
+    let cancelled = false;
+    setVersesLoading(true);
+    setVersesError(null);
+    app
+      .fetchVerses(bookNumber, chapterNumber)
+      .then((v) => {
+        if (!cancelled) {
+          setVerses(v);
+          setVersesLoading(false);
+        }
+      })
+      .catch((err) => {
+        if (!cancelled) {
+          setVersesError(String(err));
+          setVersesLoading(false);
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [bookNumber, chapterNumber, app]);
+
+  // Fetch margin notes
+  useEffect(() => {
+    let cancelled = false;
+    app.getChapterMarginNotes(bookNumber, chapterNumber).then((notes) => {
+      if (!cancelled) setMarginNotesByVerse(notes);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [bookNumber, chapterNumber, app]);
 
   // Update selected verse when URL changes
-  createEffect(() => {
+  useEffect(() => {
     if (params.verse) {
       setSelectedVerse(parseInt(params.verse, 10));
     } else {
       setSelectedVerse(1);
     }
-  });
-
-  // Redirect to saved position
-  onMount(async () => {
-    if (!params.book) {
-      const savedPos = await appState.getPosition();
-      const savedBook = bible.getBook(savedPos.book);
-      if (savedBook) {
-        const bookSlug = savedBook.name.toLowerCase().replace(/\s+/g, '-');
-        navigate(`/bible/${bookSlug}/${savedPos.chapter}/${savedPos.verse}`, { replace: true });
-      } else {
-        navigate('/bible/genesis/1', { replace: true });
-      }
-    } else if (!params.chapter) {
-      const bookName = book()?.name.toLowerCase().replace(/\s+/g, '-') ?? 'genesis';
-      navigate(`/bible/${bookName}/1`, { replace: true });
-    }
-  });
+  }, [params.verse]);
 
   // Save position
-  createEffect(() => {
-    const b = bookNumber();
-    const c = chapterNumber();
-    const v = selectedVerse();
-    if (b && c && v) {
-      void appState.setPosition({ book: b, chapter: c, verse: v });
-      void appState.addToHistory({ book: b, chapter: c, verse: v });
+  useEffect(() => {
+    if (bookNumber && chapterNumber && selectedVerse) {
+      void app.setPosition({ book: bookNumber, chapter: chapterNumber, verse: selectedVerse });
+      void app.addToHistory({ book: bookNumber, chapter: chapterNumber, verse: selectedVerse });
     }
-  });
+  }, [bookNumber, chapterNumber, selectedVerse, app]);
 
   // Scroll selected verse into view
-  createEffect(() => {
-    const verse = selectedVerse();
-    const el = document.querySelector(`[data-verse="${verse}"]`);
+  useEffect(() => {
+    const el = document.querySelector(`[data-verse="${selectedVerse}"]`);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  });
+  }, [selectedVerse]);
+
+  // Exit word mode when selected verse changes
+  useEffect(() => {
+    setWordModeActive(false);
+    setSelectedWordIndex(0);
+  }, [selectedVerse]);
+
+  // Load verse words when word mode activates
+  useEffect(() => {
+    if (!wordModeActive) {
+      setVerseWords([]);
+      return;
+    }
+    let cancelled = false;
+    app.getVerseWords(bookNumber, chapterNumber, selectedVerse).then((words) => {
+      if (!cancelled) setVerseWords(words);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [wordModeActive, bookNumber, chapterNumber, selectedVerse, app]);
+
+  const toggleDisplayMode = () => {
+    const next = displayMode === 'verse' ? 'paragraph' : 'verse';
+    setDisplayMode(next);
+    void app.setPreferences({ displayMode: next });
+  };
+
+  // Search match verse numbers for n/N navigation
+  const searchMatchVerses = (() => {
+    const q = searchQuery.toLowerCase();
+    if (q.length < 2) return [];
+    return verses.filter((v) => v.text.toLowerCase().includes(q)).map((v) => v.verse);
+  })();
 
   // n/N search navigation
   const goToNextMatch = (forward: boolean) => {
-    const matches = searchMatchVerses();
+    const matches = searchMatchVerses;
     if (matches.length === 0) return;
-    const current = selectedVerse();
+    const current = selectedVerseRef.current;
     if (forward) {
       const next = matches.find((v) => v > current) ?? matches[0];
       if (next != null) setSelectedVerse(next);
@@ -184,151 +219,146 @@ const BibleRoute: Component<ParentProps> = () => {
   };
 
   // Raw keydown handler for goto mode, search nav, and word mode
-  const handleRawKeyDown = (event: KeyboardEvent) => {
-    if (overlay() !== 'none') return;
-    const target = event.target as HTMLElement;
-    if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
-      return;
-    }
+  useEffect(() => {
+    const handleRawKeyDown = (event: KeyboardEvent) => {
+      if (overlayRef.current !== 'none') return;
+      const target = event.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
+        return;
+      }
 
-    // Word mode keyboard handling
-    if (wordModeActive()) {
-      const words = verseWords() ?? [];
-      switch (event.key) {
-        case 'ArrowLeft':
-        case 'h':
-          event.preventDefault();
-          event.stopPropagation();
-          setSelectedWordIndex((i) => Math.max(0, i - 1));
-          return;
-        case 'ArrowRight':
-        case 'l':
-          event.preventDefault();
-          event.stopPropagation();
-          setSelectedWordIndex((i) => Math.min(words.length - 1, i + 1));
-          return;
-        case ' ':
-        case 'Enter': {
-          event.preventDefault();
-          event.stopPropagation();
-          const word = words[selectedWordIndex()];
-          if (word?.strongsNumbers?.length) {
-            setActiveStrongsNumber(word.strongsNumbers[0] ?? null);
+      // Word mode keyboard handling
+      if (wordModeRef.current) {
+        const words = verseWordsRef.current;
+        switch (event.key) {
+          case 'ArrowLeft':
+          case 'h':
+            event.preventDefault();
+            event.stopPropagation();
+            setSelectedWordIndex((i) => Math.max(0, i - 1));
+            return;
+          case 'ArrowRight':
+          case 'l':
+            event.preventDefault();
+            event.stopPropagation();
+            setSelectedWordIndex((i) => Math.min(words.length - 1, i + 1));
+            return;
+          case ' ':
+          case 'Enter': {
+            event.preventDefault();
+            event.stopPropagation();
+            const word = words[selectedWordIndexRef.current];
+            if (word?.strongsNumbers?.length) {
+              setActiveStrongsNumber(word.strongsNumbers[0] ?? null);
+            }
+            return;
           }
-          return;
+          case 'Escape':
+          case 'w':
+            event.preventDefault();
+            event.stopPropagation();
+            setWordModeActive(false);
+            return;
         }
-        case 'Escape':
-        case 'w':
+        return;
+      }
+
+      // 'w' to enter word mode (only in verse display mode)
+      if (
+        event.key === 'w' &&
+        !event.metaKey &&
+        !event.ctrlKey &&
+        !event.shiftKey &&
+        displayModeRef.current === 'verse'
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        setWordModeActive(true);
+        setSelectedWordIndex(0);
+        return;
+      }
+
+      // Escape clears active search
+      if (event.key === 'Escape' && searchQueryRef.current.length >= 2) {
+        event.preventDefault();
+        event.stopPropagation();
+        setSearchQuery('');
+        return;
+      }
+
+      // n/N for search navigation
+      if (searchQueryRef.current.length >= 2 && !event.metaKey && !event.ctrlKey) {
+        if (event.key === 'n' && !event.shiftKey) {
           event.preventDefault();
-          event.stopPropagation();
-          setWordModeActive(false);
+          goToNextMatch(true);
           return;
-      }
-      // Don't let other keys leak while in word mode
-      return;
-    }
-
-    // 'w' to enter word mode (only in verse display mode)
-    if (
-      event.key === 'w' &&
-      !event.metaKey &&
-      !event.ctrlKey &&
-      !event.shiftKey &&
-      displayMode() === 'verse'
-    ) {
-      event.preventDefault();
-      event.stopPropagation();
-      setWordModeActive(true);
-      setSelectedWordIndex(0);
-      return;
-    }
-
-    // Escape clears active search or exits word mode
-    if (event.key === 'Escape' && searchQuery().length >= 2) {
-      event.preventDefault();
-      event.stopPropagation();
-      setSearchQuery('');
-      return;
-    }
-
-    // n/N for search navigation
-    if (searchQuery().length >= 2 && !event.metaKey && !event.ctrlKey) {
-      if (event.key === 'n' && !event.shiftKey) {
-        event.preventDefault();
-        goToNextMatch(true);
-        return;
-      }
-      if (event.key === 'N' && event.shiftKey) {
-        event.preventDefault();
-        goToNextMatch(false);
-        return;
-      }
-    }
-
-    // Goto mode
-    const gotoEvent = keyToGotoEvent(event);
-    const current = gotoState();
-
-    if (
-      current._tag === 'normal' &&
-      gotoEvent._tag !== 'pressG' &&
-      gotoEvent._tag !== 'pressShiftG'
-    ) {
-      return;
-    }
-
-    if (
-      current._tag === 'awaiting' ||
-      gotoEvent._tag === 'pressG' ||
-      gotoEvent._tag === 'pressShiftG'
-    ) {
-      event.preventDefault();
-      event.stopPropagation();
-
-      const { state: nextState, action } = gotoModeTransition(current, gotoEvent);
-      setGotoState(nextState);
-
-      if (gotoTimeoutId !== undefined) clearTimeout(gotoTimeoutId);
-      if (nextState._tag === 'awaiting') {
-        gotoTimeoutId = setTimeout(() => setGotoState(GotoModeState.normal()), 2000);
-      }
-
-      if (action) {
-        const v = verses();
-        const max = v?.length ?? 0;
-        switch (action._tag) {
-          case 'goToFirst':
-            setSelectedVerse(1);
-            break;
-          case 'goToLast':
-            setSelectedVerse(max);
-            break;
-          case 'goToVerse':
-            setSelectedVerse(Math.max(1, Math.min(action.verse, max)));
-            break;
+        }
+        if (event.key === 'N' && event.shiftKey) {
+          event.preventDefault();
+          goToNextMatch(false);
+          return;
         }
       }
-    }
-  };
 
-  onMount(() => {
+      // Goto mode
+      const gotoEvent = keyToGotoEvent(event);
+      const current = gotoStateRef.current;
+
+      if (
+        current._tag === 'normal' &&
+        gotoEvent._tag !== 'pressG' &&
+        gotoEvent._tag !== 'pressShiftG'
+      ) {
+        return;
+      }
+
+      if (
+        current._tag === 'awaiting' ||
+        gotoEvent._tag === 'pressG' ||
+        gotoEvent._tag === 'pressShiftG'
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const { state: nextState, action } = gotoModeTransition(current, gotoEvent);
+        setGotoState(nextState);
+
+        if (gotoTimeoutRef.current !== undefined) clearTimeout(gotoTimeoutRef.current);
+        if (nextState._tag === 'awaiting') {
+          gotoTimeoutRef.current = setTimeout(() => setGotoState(GotoModeState.normal()), 2000);
+        }
+
+        if (action) {
+          const max = versesRef.current.length;
+          switch (action._tag) {
+            case 'goToFirst':
+              setSelectedVerse(1);
+              break;
+            case 'goToLast':
+              setSelectedVerse(max);
+              break;
+            case 'goToVerse':
+              setSelectedVerse(Math.max(1, Math.min(action.verse, max)));
+              break;
+          }
+        }
+      }
+    };
+
     window.addEventListener('keydown', handleRawKeyDown, true);
-  });
-
-  onCleanup(() => {
-    window.removeEventListener('keydown', handleRawKeyDown, true);
-    if (gotoTimeoutId !== undefined) clearTimeout(gotoTimeoutId);
-  });
+    return () => {
+      window.removeEventListener('keydown', handleRawKeyDown, true);
+      if (gotoTimeoutRef.current !== undefined) clearTimeout(gotoTimeoutRef.current);
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Handle keyboard navigation (parsed actions from keyboard provider)
   useKeyboardAction((action) => {
-    // Skip verse navigation when word mode is active
-    if (wordModeActive() && (action === 'nextVerse' || action === 'prevVerse')) return;
+    if (wordModeActive && (action === 'nextVerse' || action === 'prevVerse')) return;
 
     switch (action) {
       case 'nextVerse': {
-        const v = verses();
-        const max = v?.length ?? 0;
+        const max = verses.length;
         setSelectedVerse((v) => Math.min(v + 1, max));
         break;
       }
@@ -336,7 +366,7 @@ const BibleRoute: Component<ParentProps> = () => {
         setSelectedVerse((v) => Math.max(1, v - 1));
         break;
       case 'nextChapter': {
-        const next = bible.getNextChapter(bookNumber(), chapterNumber());
+        const next = bible.getNextChapter(bookNumber, chapterNumber);
         if (next) {
           const nextBook = bible.getBook(next.book);
           if (nextBook) {
@@ -347,7 +377,7 @@ const BibleRoute: Component<ParentProps> = () => {
         break;
       }
       case 'prevChapter': {
-        const prev = bible.getPrevChapter(bookNumber(), chapterNumber());
+        const prev = bible.getPrevChapter(bookNumber, chapterNumber);
         if (prev) {
           const prevBook = bible.getBook(prev.book);
           if (prevBook) {
@@ -359,22 +389,22 @@ const BibleRoute: Component<ParentProps> = () => {
       }
       case 'openCrossRefs':
         openOverlay('cross-refs', {
-          book: bookNumber(),
-          chapter: chapterNumber(),
-          verse: selectedVerse(),
+          book: bookNumber,
+          chapter: chapterNumber,
+          verse: selectedVerse,
         });
         break;
       case 'openSearch':
         openOverlay('search', {
-          query: searchQuery(),
+          query: searchQuery,
           onSearch: (q: string) => setSearchQuery(q),
         });
         break;
       case 'openBookmarks':
         openOverlay('bookmarks', {
-          book: bookNumber(),
-          chapter: chapterNumber(),
-          verse: selectedVerse(),
+          book: bookNumber,
+          chapter: chapterNumber,
+          verse: selectedVerse,
         });
         break;
       case 'toggleDisplayMode':
@@ -383,168 +413,165 @@ const BibleRoute: Component<ParentProps> = () => {
     }
   });
 
+  if (!params.book || !params.chapter) return null;
+
   return (
-    <Show when={params.book && params.chapter} fallback={null}>
-      <div class="space-y-6">
-        {/* Header */}
-        <header class="border-b border-[--color-border] dark:border-[--color-border-dark] pb-4">
-          <h1 class="font-sans text-2xl font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
-            {book()?.name} {chapterNumber()}
-          </h1>
-          <p class="mt-1 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-            Press{' '}
-            <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1.5 py-0.5 text-xs">
-              ⌘K
-            </kbd>{' '}
-            for command palette
+    <div className="space-y-6">
+      {/* Header */}
+      <header className="border-b border-[--color-border] dark:border-[--color-border-dark] pb-4">
+        <h1 className="font-sans text-2xl font-semibold text-[--color-ink] dark:text-[--color-ink-dark]">
+          {book?.name} {chapterNumber}
+        </h1>
+        <p className="mt-1 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+          Press{' '}
+          <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1.5 py-0.5 text-xs">
+            ⌘K
+          </kbd>{' '}
+          for command palette
+        </p>
+      </header>
+
+      {/* Chapter content */}
+      <div className={displayMode === 'verse' ? 'reading-text space-y-3' : ''}>
+        {versesLoading && (
+          <p className="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
+            Loading verses...
           </p>
-        </header>
-
-        {/* Chapter content */}
-        <div class={displayMode() === 'verse' ? 'reading-text space-y-3' : ''}>
-          <Show when={verses.loading}>
-            <p class="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
-              Loading verses...
-            </p>
-          </Show>
-          <Show when={verses.error}>
-            <p class="text-red-600 dark:text-red-400">
-              Failed to load verses: {String(verses.error)}
-            </p>
-          </Show>
-          <Show when={!verses.loading && !verses.error && verses()}>
-            {(loadedVerses) => (
-              <Show
-                when={loadedVerses().length > 0}
-                fallback={
-                  <p class="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
-                    No verses found for this chapter.
-                  </p>
-                }
-              >
-                <Switch>
-                  <Match when={displayMode() === 'paragraph'}>
-                    <ParagraphView
-                      verses={loadedVerses()}
-                      selectedVerse={selectedVerse()}
-                      marginNotesByVerse={marginNotesByVerse()}
-                      searchQuery={searchQuery()}
-                      onVerseClick={setSelectedVerse}
-                    />
-                  </Match>
-                  <Match when={displayMode() === 'verse'}>
-                    <For each={loadedVerses()}>
-                      {(verse) => (
-                        <VerseDisplay
-                          verse={verse}
-                          isSelected={selectedVerse() === verse.verse}
-                          marginNotes={marginNotesByVerse()?.get(verse.verse)}
-                          searchQuery={searchQuery()}
-                          wordModeActive={wordModeActive() && selectedVerse() === verse.verse}
-                          words={
-                            wordModeActive() && selectedVerse() === verse.verse
-                              ? (verseWords() ?? [])
-                              : []
-                          }
-                          selectedWordIndex={selectedWordIndex()}
-                          onSelectWord={setSelectedWordIndex}
-                          onOpenStrongs={(num) => setActiveStrongsNumber(num)}
-                          onClick={() => setSelectedVerse(verse.verse)}
-                        />
-                      )}
-                    </For>
-                  </Match>
-                </Switch>
-              </Show>
+        )}
+        {versesError && (
+          <p className="text-red-600 dark:text-red-400">Failed to load verses: {versesError}</p>
+        )}
+        {!versesLoading && !versesError && verses.length === 0 && (
+          <p className="text-[--color-ink-muted] dark:text-[--color-ink-muted-dark] italic">
+            No verses found for this chapter.
+          </p>
+        )}
+        {!versesLoading && !versesError && verses.length > 0 && (
+          <>
+            {displayMode === 'paragraph' ? (
+              <ParagraphView
+                verses={verses}
+                selectedVerse={selectedVerse}
+                marginNotesByVerse={marginNotesByVerse}
+                searchQuery={searchQuery}
+                onVerseClick={setSelectedVerse}
+              />
+            ) : (
+              verses.map((verse) => (
+                <VerseDisplay
+                  key={verse.verse}
+                  verse={verse}
+                  isSelected={selectedVerse === verse.verse}
+                  marginNotes={marginNotesByVerse.get(verse.verse)}
+                  searchQuery={searchQuery}
+                  wordModeActive={wordModeActive && selectedVerse === verse.verse}
+                  words={wordModeActive && selectedVerse === verse.verse ? verseWords : []}
+                  selectedWordIndex={selectedWordIndex}
+                  onSelectWord={setSelectedWordIndex}
+                  onOpenStrongs={(num) => setActiveStrongsNumber(num)}
+                  onClick={() => setSelectedVerse(verse.verse)}
+                />
+              ))
             )}
-          </Show>
-        </div>
-
-        {/* Strong's popup */}
-        <StrongsPopup
-          strongsNumber={activeStrongsNumber()}
-          onClose={() => setActiveStrongsNumber(null)}
-        />
-
-        {/* Footer */}
-        <footer class="border-t border-[--color-border] dark:border-[--color-border-dark] pt-4 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
-          <div class="flex items-center justify-between flex-wrap gap-2">
-            <span class="flex items-center gap-2">
-              <button
-                class="text-xs px-1.5 py-0.5 rounded bg-[--color-border] dark:bg-[--color-border-dark] hover:bg-[--color-accent]/20 dark:hover:bg-[--color-accent-dark]/20 transition-colors"
-                onClick={toggleDisplayMode}
-                title={`Switch to ${displayMode() === 'verse' ? 'paragraph' : 'verse'} mode (⌘D)`}
-                aria-live="polite"
-              >
-                {displayMode() === 'verse' ? '☰' : '¶'}
-              </button>
-              {book()?.name} {chapterNumber()}:{selectedVerse()}
-              {/* Word mode indicator */}
-              <Show when={wordModeActive()}>
-                <span class="text-xs px-1.5 py-0.5 rounded bg-[--color-accent]/20 dark:bg-[--color-accent-dark]/20 text-[--color-accent] dark:text-[--color-accent-dark] font-medium">
-                  word
-                </span>
-              </Show>
-              {/* Goto mode indicator */}
-              <Show when={gotoState()._tag === 'awaiting'}>
-                <span class="text-xs px-1.5 py-0.5 rounded bg-[--color-accent]/20 dark:bg-[--color-accent-dark]/20 text-[--color-accent] dark:text-[--color-accent-dark] font-mono">
-                  g{(gotoState() as { digits: string }).digits}…
-                </span>
-              </Show>
-              {/* Search query indicator */}
-              <Show when={searchQuery().length >= 2}>
-                <button
-                  class="text-xs px-1.5 py-0.5 rounded bg-[--color-highlight] dark:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] hover:opacity-70 transition-opacity"
-                  onClick={() => setSearchQuery('')}
-                  title="Clear search (click to dismiss)"
-                >
-                  /{searchQuery()}/<span class="ml-1 opacity-60">{searchMatchVerses().length}</span>
-                </button>
-              </Show>
-            </span>
-            <div class="flex gap-4 flex-wrap">
-              <span>
-                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                  ↑↓
-                </kbd>{' '}
-                verse
-              </span>
-              <span>
-                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                  ←→
-                </kbd>{' '}
-                chapter
-              </span>
-              <span>
-                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                  w
-                </kbd>{' '}
-                words
-              </span>
-              <span>
-                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                  ⌘D
-                </kbd>{' '}
-                mode
-              </span>
-              <span>
-                <kbd class="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
-                  ⌘G
-                </kbd>{' '}
-                go to
-              </span>
-            </div>
-          </div>
-        </footer>
+          </>
+        )}
       </div>
-    </Show>
+
+      {/* Strong's popup */}
+      <StrongsPopup
+        strongsNumber={activeStrongsNumber}
+        onClose={() => setActiveStrongsNumber(null)}
+      />
+
+      {/* Footer */}
+      <footer className="border-t border-[--color-border] dark:border-[--color-border-dark] pt-4 text-sm text-[--color-ink-muted] dark:text-[--color-ink-muted-dark]">
+        <div className="flex items-center justify-between flex-wrap gap-2">
+          <span className="flex items-center gap-2">
+            <button
+              className="text-xs px-1.5 py-0.5 rounded bg-[--color-border] dark:bg-[--color-border-dark] hover:bg-[--color-accent]/20 dark:hover:bg-[--color-accent-dark]/20 transition-colors"
+              onClick={toggleDisplayMode}
+              title={`Switch to ${displayMode === 'verse' ? 'paragraph' : 'verse'} mode (⌘D)`}
+              aria-live="polite"
+            >
+              {displayMode === 'verse' ? '☰' : '¶'}
+            </button>
+            {book?.name} {chapterNumber}:{selectedVerse}
+            {/* Word mode indicator */}
+            {wordModeActive && (
+              <span className="text-xs px-1.5 py-0.5 rounded bg-[--color-accent]/20 dark:bg-[--color-accent-dark]/20 text-[--color-accent] dark:text-[--color-accent-dark] font-medium">
+                word
+              </span>
+            )}
+            {/* Goto mode indicator */}
+            {gotoState._tag === 'awaiting' && (
+              <span className="text-xs px-1.5 py-0.5 rounded bg-[--color-accent]/20 dark:bg-[--color-accent-dark]/20 text-[--color-accent] dark:text-[--color-accent-dark] font-mono">
+                g{(gotoState as { digits: string }).digits}…
+              </span>
+            )}
+            {/* Search query indicator */}
+            {searchQuery.length >= 2 && (
+              <button
+                className="text-xs px-1.5 py-0.5 rounded bg-[--color-highlight] dark:bg-[--color-highlight-dark] text-[--color-ink] dark:text-[--color-ink-dark] hover:opacity-70 transition-opacity"
+                onClick={() => setSearchQuery('')}
+                title="Clear search (click to dismiss)"
+              >
+                /{searchQuery}/<span className="ml-1 opacity-60">{searchMatchVerses.length}</span>
+              </button>
+            )}
+          </span>
+          <div className="flex gap-4 flex-wrap">
+            <span>
+              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
+                ↑↓
+              </kbd>{' '}
+              verse
+            </span>
+            <span>
+              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
+                ←→
+              </kbd>{' '}
+              chapter
+            </span>
+            <span>
+              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
+                w
+              </kbd>{' '}
+              words
+            </span>
+            <span>
+              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
+                ⌘D
+              </kbd>{' '}
+              mode
+            </span>
+            <span>
+              <kbd className="rounded bg-[--color-border] dark:bg-[--color-border-dark] px-1 text-xs">
+                ⌘G
+              </kbd>{' '}
+              go to
+            </span>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
-};
+}
 
 /**
  * Individual verse display with rich text or word mode rendering.
  */
-const VerseDisplay: Component<{
+function VerseDisplay({
+  verse,
+  isSelected,
+  marginNotes,
+  searchQuery,
+  wordModeActive,
+  words = [],
+  selectedWordIndex = 0,
+  onSelectWord,
+  onOpenStrongs,
+  onClick,
+}: {
   verse: Verse;
   isSelected: boolean;
   marginNotes?: MarginNote[];
@@ -555,45 +582,37 @@ const VerseDisplay: Component<{
   onSelectWord?: (index: number) => void;
   onOpenStrongs?: (num: string) => void;
   onClick: () => void;
-}> = (props) => {
+}) {
   return (
     <p
-      data-verse={props.verse.verse}
-      class="cursor-pointer rounded px-2 py-1 transition-colors duration-100"
-      classList={{
-        'bg-[--color-highlight] dark:bg-[--color-highlight-dark]': props.isSelected,
-        'hover:bg-[--color-highlight]/50 dark:hover:bg-[--color-highlight-dark]/50':
-          !props.isSelected,
-      }}
-      onClick={props.onClick}
+      data-verse={verse.verse}
+      className={`cursor-pointer rounded px-2 py-1 transition-colors duration-100 ${
+        isSelected
+          ? 'bg-[--color-highlight] dark:bg-[--color-highlight-dark]'
+          : 'hover:bg-[--color-highlight]/50 dark:hover:bg-[--color-highlight-dark]/50'
+      }`}
+      onClick={onClick}
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          props.onClick();
+          onClick();
         }
       }}
     >
-      <span class="verse-num">{props.verse.verse}</span>
-      <Show
-        when={props.wordModeActive && props.words && props.words.length > 0}
-        fallback={
-          <VerseRenderer
-            text={props.verse.text}
-            marginNotes={props.marginNotes}
-            searchQuery={props.searchQuery}
-          />
-        }
-      >
+      <span className="verse-num">{verse.verse}</span>
+      {wordModeActive && words.length > 0 ? (
         <WordModeView
-          words={props.words ?? []}
-          selectedIndex={props.selectedWordIndex ?? 0}
-          onSelectWord={(i) => props.onSelectWord?.(i)}
-          onOpenStrongs={(num) => props.onOpenStrongs?.(num)}
+          words={words}
+          selectedIndex={selectedWordIndex}
+          onSelectWord={(i) => onSelectWord?.(i)}
+          onOpenStrongs={(num) => onOpenStrongs?.(num)}
         />
-      </Show>
+      ) : (
+        <VerseRenderer text={verse.text} marginNotes={marginNotes} searchQuery={searchQuery} />
+      )}
     </p>
   );
-};
+}
 
 export default BibleRoute;

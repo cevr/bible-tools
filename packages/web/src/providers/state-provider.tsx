@@ -1,113 +1,109 @@
 /**
- * State Provider - Web application state management via Effect.
+ * State hooks — backed by AppService (which wraps Effect runtime).
  *
- * Provides hooks backed by AppStateService (Effect) for position,
- * bookmarks, history, and preferences. All reads are async via runtime.
+ * Uses createCache for reads, manual invalidation for writes.
  */
-import { createResource, type Resource } from 'solid-js';
-import { Effect } from 'effect';
-import { useRuntime } from './db-provider';
-import {
-  AppStateService,
-  type Position,
-  type Bookmark,
-  type HistoryEntry,
-  type Preferences,
-} from '@/data/state/effect-service';
+import { createCache, useCache, type Cache } from '@/lib/cache';
+import { useApp } from './db-provider';
+import type { Position, Bookmark, HistoryEntry, Preferences } from '@/data/state/effect-service';
 import type { Reference } from '@/data/bible/types';
 
-// Re-export types for consumers
 export type { Position, Bookmark, HistoryEntry, Preferences };
 
-/**
- * Access application state — returns a promise-based interface matching the old API.
- * Must be called during component setup (captures runtime via context).
- */
-export function useAppState() {
-  const runtime = useRuntime();
+// ---------------------------------------------------------------------------
+// Caches — created once per app instance (singletons)
+// ---------------------------------------------------------------------------
 
-  function run<A>(effect: Effect.Effect<A, unknown, AppStateService>): Promise<A> {
-    return runtime.runPromise(effect as Effect.Effect<A, never, AppStateService>);
-  }
+let positionCache: Cache<[], Position> | null = null;
+let bookmarksCache: Cache<[], Bookmark[]> | null = null;
+let historyCache: Cache<[], HistoryEntry[]> | null = null;
+let preferencesCache: Cache<[], Preferences> | null = null;
 
-  return {
-    getPosition: () => run(Effect.flatMap(AppStateService, (s) => s.getPosition())),
-    setPosition: (pos: Position) => run(Effect.flatMap(AppStateService, (s) => s.setPosition(pos))),
-    getBookmarks: () => run(Effect.flatMap(AppStateService, (s) => s.getBookmarks())),
-    addBookmark: (ref: Reference, note?: string) =>
-      run(Effect.flatMap(AppStateService, (s) => s.addBookmark(ref, note))),
-    removeBookmark: (id: string) =>
-      run(Effect.flatMap(AppStateService, (s) => s.removeBookmark(id))),
-    getHistory: (limit?: number) =>
-      run(Effect.flatMap(AppStateService, (s) => s.getHistory(limit))),
-    addToHistory: (ref: Reference) =>
-      run(Effect.flatMap(AppStateService, (s) => s.addToHistory(ref))),
-    clearHistory: () => run(Effect.flatMap(AppStateService, (s) => s.clearHistory())),
-    getPreferences: () => run(Effect.flatMap(AppStateService, (s) => s.getPreferences())),
-    setPreferences: (prefs: Partial<Preferences>) =>
-      run(Effect.flatMap(AppStateService, (s) => s.setPreferences(prefs))),
-  };
+function getPositionCache(app: ReturnType<typeof useApp>) {
+  if (!positionCache) positionCache = createCache(() => app.getPosition());
+  return positionCache;
 }
 
-// Convenience hooks with createResource-backed reactivity
+function getBookmarksCache(app: ReturnType<typeof useApp>) {
+  if (!bookmarksCache) bookmarksCache = createCache(() => app.getBookmarks());
+  return bookmarksCache;
+}
+
+function getHistoryCache(app: ReturnType<typeof useApp>) {
+  if (!historyCache) historyCache = createCache(() => app.getHistory());
+  return historyCache;
+}
+
+function getPreferencesCache(app: ReturnType<typeof useApp>) {
+  if (!preferencesCache) preferencesCache = createCache(() => app.getPreferences());
+  return preferencesCache;
+}
+
+// ---------------------------------------------------------------------------
+// Hooks
+// ---------------------------------------------------------------------------
 
 export function usePosition() {
-  const state = useAppState();
-  const [position, { refetch }] = createResource(() => state.getPosition());
+  const app = useApp();
+  const cache = getPositionCache(app);
+  const position = useCache(cache);
 
   return {
-    position: position as Resource<Position>,
+    position,
     async set(pos: Position) {
-      await state.setPosition(pos);
-      refetch();
+      await app.setPosition(pos);
+      cache.invalidateAll();
     },
   };
 }
 
 export function useBookmarks() {
-  const state = useAppState();
-  const [bookmarks, { refetch }] = createResource(() => state.getBookmarks());
+  const app = useApp();
+  const cache = getBookmarksCache(app);
+  const bookmarks = useCache(cache);
 
   return {
-    bookmarks: bookmarks as Resource<Bookmark[]>,
-    async add(ref: { book: number; chapter: number; verse?: number }, note?: string) {
-      const b = await state.addBookmark(ref, note);
-      refetch();
-      return b;
+    bookmarks,
+    async add(ref: Reference, note?: string) {
+      const bm = await app.addBookmark(ref, note);
+      cache.invalidateAll();
+      return bm;
     },
     async remove(id: string) {
-      await state.removeBookmark(id);
-      refetch();
+      await app.removeBookmark(id);
+      cache.invalidateAll();
     },
   };
 }
 
 export function useHistory() {
-  const state = useAppState();
-  const [history, { refetch }] = createResource(() => state.getHistory());
+  const app = useApp();
+  const cache = getHistoryCache(app);
+  const history = useCache(cache);
 
   return {
-    history: history as Resource<HistoryEntry[]>,
-    async add(ref: { book: number; chapter: number; verse?: number }) {
-      await state.addToHistory(ref);
-      refetch();
+    history,
+    async add(ref: Reference) {
+      await app.addToHistory(ref);
+      cache.invalidateAll();
     },
     async clear() {
-      await state.clearHistory();
-      refetch();
+      await app.clearHistory();
+      cache.invalidateAll();
     },
   };
 }
 
 export function usePreferences() {
-  const state = useAppState();
-  const [prefs, { refetch }] = createResource(() => state.getPreferences());
+  const app = useApp();
+  const cache = getPreferencesCache(app);
+  const preferences = useCache(cache);
 
   return {
-    preferences: prefs as Resource<Preferences>,
-    async set(p: Partial<Preferences>) {
-      await state.setPreferences(p);
-      refetch();
+    preferences,
+    async set(prefs: Partial<Preferences>) {
+      await app.setPreferences(prefs);
+      cache.invalidateAll();
     },
   };
 }

@@ -1,10 +1,17 @@
-import { defineConfig } from 'vite';
-import solid from 'vite-plugin-solid';
-import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [solid(), tailwindcss()],
+  plugins: [
+    react({
+      babel: {
+        plugins: [['babel-plugin-react-compiler']],
+      },
+    }),
+    tailwindcss(),
+  ],
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
@@ -23,13 +30,7 @@ export default defineConfig({
       'Cross-Origin-Embedder-Policy': 'credentialless',
     },
     proxy: {
-      // Proxy API requests to the backend server during development
       '/api': {
-        target: 'http://localhost:3001',
-        changeOrigin: true,
-      },
-      // Proxy OpenAPI docs as well
-      '/docs': {
         target: 'http://localhost:3001',
         changeOrigin: true,
       },
