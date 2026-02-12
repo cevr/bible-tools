@@ -180,9 +180,6 @@ export class WebStudyDataService extends Context.Tag('@bible-web/StudyData')<
             previewText: r.preview_text,
             classification: (cls?.type as CrossRefType) ?? null,
             confidence: cls?.confidence ?? null,
-            isUserAdded: false,
-            userNote: null,
-            userRefId: null,
           };
         });
 
@@ -196,9 +193,8 @@ export class WebStudyDataService extends Context.Tag('@bible-web/StudyData')<
             previewText: null,
             classification: (u.type as CrossRefType) ?? null,
             confidence: null,
-            isUserAdded: true,
-            userNote: u.note,
             userRefId: u.id,
+            userNote: u.note,
           });
         }
 

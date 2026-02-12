@@ -1,6 +1,9 @@
 /**
  * Bible reader route.
  * Displays chapter content with verse navigation.
+ *
+ * Data reads suspend via CachedApp — the outer <Suspense> in index.tsx
+ * catches the initial load.
  */
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router';
@@ -10,7 +13,6 @@ import { useBible } from '@/providers/bible-provider';
 import { useApp } from '@/providers/db-provider';
 import { BOOK_ALIASES, type Verse } from '@/data/bible';
 import type { MarginNote } from '@/data/study/service';
-import type { Preferences } from '@/data/state/effect-service';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
 import { ParagraphView } from '@/components/bible/paragraph-view';
 import { VerseStudyPanel, type StudyTab } from '@/components/bible/verse-study-sheet';
@@ -37,18 +39,13 @@ function BibleRoute() {
   const chapterNumber = parseInt(params.chapter ?? '1', 10) || 1;
   const book = bible.getBook(bookNumber);
 
-  // Verses
-  const [verses, setVerses] = useState<readonly Verse[]>([]);
-  const [versesLoading, setVersesLoading] = useState(false);
-  const [versesError, setVersesError] = useState<string | null>(null);
+  // Suspending reads — data is available synchronously on cache hit
+  const verses = app.verses(bookNumber, chapterNumber);
+  const marginNotesByVerse = app.chapterMarginNotes(bookNumber, chapterNumber);
+  const preferences = app.preferences();
 
-  // Margin notes
-  const [marginNotesByVerse, setMarginNotesByVerse] = useState<Map<number, MarginNote[]>>(
-    new Map(),
-  );
-
-  // Display mode
-  const [displayMode, setDisplayMode] = useState<Preferences['displayMode']>('verse');
+  // Display mode — initialized from preferences, toggleable locally
+  const [displayMode, setDisplayMode] = useState(preferences.displayMode);
 
   // Selected verse
   const [selectedVerse, setSelectedVerse] = useState(params.verse ? parseInt(params.verse, 10) : 1);
@@ -69,74 +66,29 @@ function BibleRoute() {
   overlayRef.current = overlay;
   const searchQueryRef = useRef(searchQuery);
   searchQueryRef.current = searchQuery;
-  const displayModeRef = useRef(displayMode);
-  displayModeRef.current = displayMode;
   const gotoStateRef = useRef(gotoState);
   gotoStateRef.current = gotoState;
   const versesRef = useRef(verses);
   versesRef.current = verses;
   const selectedVerseRef = useRef(selectedVerse);
   selectedVerseRef.current = selectedVerse;
-  const sheetOpenRef = useRef(sheetOpen);
-  sheetOpenRef.current = sheetOpen;
-
-  // Load display mode preference on mount
-  useEffect(() => {
-    app.getPreferences().then((prefs) => setDisplayMode(prefs.displayMode));
-  }, [app]);
 
   // Redirect to saved position if no book param
+  const position = app.position();
   useEffect(() => {
     if (!params.book) {
-      app.getPosition().then((savedPos) => {
-        const savedBook = bible.getBook(savedPos.book);
-        if (savedBook) {
-          const bookSlug = savedBook.name.toLowerCase().replace(/\s+/g, '-');
-          navigate(`/bible/${bookSlug}/${savedPos.chapter}/${savedPos.verse}`, { replace: true });
-        } else {
-          navigate('/bible/genesis/1', { replace: true });
-        }
-      });
+      const savedBook = bible.getBook(position.book);
+      if (savedBook) {
+        const bookSlug = savedBook.name.toLowerCase().replace(/\s+/g, '-');
+        navigate(`/bible/${bookSlug}/${position.chapter}/${position.verse}`, { replace: true });
+      } else {
+        navigate('/bible/genesis/1', { replace: true });
+      }
     } else if (!params.chapter) {
       const bookName = book?.name.toLowerCase().replace(/\s+/g, '-') ?? 'genesis';
       navigate(`/bible/${bookName}/1`, { replace: true });
     }
   }, [params.book, params.chapter]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Fetch verses when book/chapter changes
-  useEffect(() => {
-    let cancelled = false;
-    setVersesLoading(true);
-    setVersesError(null);
-    app
-      .fetchVerses(bookNumber, chapterNumber)
-      .then((v) => {
-        if (!cancelled) {
-          setVerses(v);
-          setVersesLoading(false);
-        }
-      })
-      .catch((err) => {
-        if (!cancelled) {
-          setVersesError(String(err));
-          setVersesLoading(false);
-        }
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [bookNumber, chapterNumber, app]);
-
-  // Fetch margin notes
-  useEffect(() => {
-    let cancelled = false;
-    app.getChapterMarginNotes(bookNumber, chapterNumber).then((notes) => {
-      if (!cancelled) setMarginNotesByVerse(notes);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [bookNumber, chapterNumber, app]);
 
   // Update selected verse when URL changes
   useEffect(() => {
@@ -147,6 +99,27 @@ function BibleRoute() {
     }
   }, [params.verse]);
 
+  // Prefetch adjacent chapters
+  useEffect(() => {
+    const next = bible.getNextChapter(bookNumber, chapterNumber);
+    if (next) {
+      app.verses.preload(next.book, next.chapter);
+      app.chapterMarginNotes.preload(next.book, next.chapter);
+    }
+    const prev = bible.getPrevChapter(bookNumber, chapterNumber);
+    if (prev) {
+      app.verses.preload(prev.book, prev.chapter);
+      app.chapterMarginNotes.preload(prev.book, prev.chapter);
+    }
+  }, [bookNumber, chapterNumber, bible, app]);
+
+  // Prefetch study data for selected verse
+  useEffect(() => {
+    app.crossRefs.preload(bookNumber, chapterNumber, selectedVerse);
+    app.verseWords.preload(bookNumber, chapterNumber, selectedVerse);
+    app.marginNotes.preload(bookNumber, chapterNumber, selectedVerse);
+  }, [bookNumber, chapterNumber, selectedVerse, app]);
+
   // Save position
   useEffect(() => {
     if (bookNumber && chapterNumber && selectedVerse) {
@@ -155,13 +128,13 @@ function BibleRoute() {
     }
   }, [bookNumber, chapterNumber, selectedVerse, app]);
 
-  // Scroll selected verse into view (also after verses finish loading)
+  // Scroll selected verse into view
   useEffect(() => {
     const el = document.querySelector(`[data-verse="${selectedVerse}"]`);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  }, [selectedVerse, versesLoading, sheetOpen]);
+  }, [selectedVerse, sheetOpen]);
 
   const toggleDisplayMode = () => {
     const next = displayMode === 'verse' ? 'paragraph' : 'verse';
@@ -358,34 +331,27 @@ function BibleRoute() {
 
       {/* Chapter content */}
       <div className={displayMode === 'verse' ? 'reading-text space-y-3' : ''}>
-        {versesLoading && <p className="text-muted-foreground italic">Loading verses...</p>}
-        {versesError && <p className="text-destructive">Failed to load verses: {versesError}</p>}
-        {!versesLoading && !versesError && verses.length === 0 && (
+        {verses.length === 0 ? (
           <p className="text-muted-foreground italic">No verses found for this chapter.</p>
-        )}
-        {!versesLoading && !versesError && verses.length > 0 && (
-          <>
-            {displayMode === 'paragraph' ? (
-              <ParagraphView
-                verses={verses}
-                selectedVerse={selectedVerse}
-                marginNotesByVerse={marginNotesByVerse}
-                searchQuery={searchQuery}
-                onVerseClick={handleVerseClick}
-              />
-            ) : (
-              verses.map((verse) => (
-                <VerseDisplay
-                  key={verse.verse}
-                  verse={verse}
-                  isSelected={selectedVerse === verse.verse}
-                  marginNotes={marginNotesByVerse.get(verse.verse)}
-                  searchQuery={searchQuery}
-                  onClick={() => handleVerseClick(verse.verse)}
-                />
-              ))
-            )}
-          </>
+        ) : displayMode === 'paragraph' ? (
+          <ParagraphView
+            verses={verses}
+            selectedVerse={selectedVerse}
+            marginNotesByVerse={marginNotesByVerse}
+            searchQuery={searchQuery}
+            onVerseClick={handleVerseClick}
+          />
+        ) : (
+          verses.map((verse) => (
+            <VerseDisplay
+              key={verse.verse}
+              verse={verse}
+              isSelected={selectedVerse === verse.verse}
+              marginNotes={marginNotesByVerse.get(verse.verse)}
+              searchQuery={searchQuery}
+              onClick={() => handleVerseClick(verse.verse)}
+            />
+          ))
         )}
       </div>
 

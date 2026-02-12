@@ -1,7 +1,7 @@
-import { useState, useEffect, type ReactNode } from 'react';
+import { useState, useEffect, Suspense, type ReactNode } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useBible } from '@/providers/bible-provider';
-import { useOverlay } from '@/providers/overlay-provider';
+import { useOverlay, useOverlayData } from '@/providers/overlay-provider';
 import { useApp } from '@/providers/db-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { BOOK_ALIASES, type Reference } from '@/data/bible';
@@ -12,28 +12,25 @@ interface DisplayResult {
 }
 
 export function SearchOverlay() {
-  const { overlay, overlayData, closeOverlay } = useOverlay();
+  const { overlay, closeOverlay } = useOverlay();
+  const searchData = useOverlayData('search');
   const navigate = useNavigate();
-  const params = useParams<{ book?: string; chapter?: string }>();
   const bible = useBible();
-  const app = useApp();
 
   const isOpen = overlay === 'search';
-  const searchData = overlayData as { query?: string; onSearch?: (q: string) => void } | null;
 
   const [query, setQuery] = useState('');
   const [searchScope, setSearchScope] = useState<'chapter' | 'global'>('chapter');
-  const [results, setResults] = useState<DisplayResult[]>([]);
-  const [loading, setLoading] = useState(false);
 
   // Pre-fill query on open
   useEffect(() => {
     if (isOpen && searchData?.query) {
       setQuery(searchData.query);
     }
-  }, [isOpen]);
+  }, [isOpen]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Current book/chapter from URL
+  const params = useParams<{ book?: string; chapter?: string }>();
   const currentBookNumber = (() => {
     const bookParam = params.book?.toLowerCase();
     if (!bookParam) return 1;
@@ -44,44 +41,7 @@ export function SearchOverlay() {
     const book = bible.books.find((b) => b.name.toLowerCase() === bookParam);
     return book?.number ?? 1;
   })();
-
   const currentChapter = parseInt(params.chapter ?? '1', 10) || 1;
-
-  // Search effect
-  useEffect(() => {
-    if (!isOpen) return;
-    const q = query.toLowerCase().trim();
-    if (q.length < 2) {
-      setResults([]);
-      return;
-    }
-
-    setLoading(true);
-
-    if (searchScope === 'chapter') {
-      app.fetchVerses(currentBookNumber, currentChapter).then((verses) => {
-        const matches = verses
-          .filter((v) => v.text.toLowerCase().includes(q))
-          .map((v) => ({
-            reference: { book: currentBookNumber, chapter: currentChapter, verse: v.verse },
-            text: v.text,
-          }))
-          .slice(0, 20);
-        setResults(matches);
-        setLoading(false);
-      });
-    } else {
-      app.searchVerses(query, 20).then((searchResults) => {
-        setResults(
-          searchResults.map((sr) => ({
-            reference: { book: sr.book, chapter: sr.chapter, verse: sr.verse },
-            text: sr.text,
-          })),
-        );
-        setLoading(false);
-      });
-    }
-  }, [isOpen, query, searchScope, currentBookNumber, currentChapter, app]);
 
   const handleClose = () => {
     searchData?.onSearch?.(query);
@@ -98,18 +58,7 @@ export function SearchOverlay() {
     }
   };
 
-  const highlightMatch = (text: string, q: string): ReactNode => {
-    if (!q) return text;
-    const idx = text.toLowerCase().indexOf(q.toLowerCase());
-    if (idx === -1) return text;
-    return (
-      <>
-        {text.slice(0, idx)}
-        <mark className="bg-accent rounded px-0.5">{text.slice(idx, idx + q.length)}</mark>
-        {text.slice(idx + q.length)}
-      </>
-    );
-  };
+  const q = query.toLowerCase().trim();
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
@@ -162,34 +111,24 @@ export function SearchOverlay() {
 
         {/* Results */}
         <div className="max-h-80 overflow-y-auto">
-          {query.length < 2 ? (
+          {q.length < 2 ? (
             <p className="px-4 py-6 text-center text-sm text-muted-foreground">
               Type at least 2 characters to search
             </p>
-          ) : loading ? (
-            <p className="px-4 py-6 text-center text-sm text-muted-foreground">Searching...</p>
-          ) : results.length > 0 ? (
-            <div className="p-2 space-y-1">
-              {results.map((result) => {
-                const book = bible.getBook(result.reference.book);
-                return (
-                  <button
-                    key={`${result.reference.book}-${result.reference.chapter}-${result.reference.verse}`}
-                    className="w-full text-left px-3 py-2 rounded-lg hover:bg-accent transition-colors"
-                    onClick={() => navigateToResult(result)}
-                  >
-                    <div className="text-xs text-muted-foreground mb-0.5">
-                      {book?.name} {result.reference.chapter}:{result.reference.verse}
-                    </div>
-                    <div className="text-sm text-foreground line-clamp-2">
-                      {highlightMatch(result.text, query)}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
           ) : (
-            <p className="px-4 py-6 text-center text-sm text-muted-foreground">No results found</p>
+            <Suspense
+              fallback={
+                <p className="px-4 py-6 text-center text-sm text-muted-foreground">Searching...</p>
+              }
+            >
+              <SearchResults
+                query={q}
+                scope={searchScope}
+                bookNumber={currentBookNumber}
+                chapter={currentChapter}
+                onSelect={navigateToResult}
+              />
+            </Suspense>
           )}
         </div>
 
@@ -204,5 +143,80 @@ export function SearchOverlay() {
         </div>
       </DialogContent>
     </Dialog>
+  );
+}
+
+function SearchResults({
+  query,
+  scope,
+  bookNumber,
+  chapter,
+  onSelect,
+}: {
+  query: string;
+  scope: 'chapter' | 'global';
+  bookNumber: number;
+  chapter: number;
+  onSelect: (result: DisplayResult) => void;
+}) {
+  const app = useApp();
+  const bible = useBible();
+
+  let results: DisplayResult[];
+
+  if (scope === 'chapter') {
+    const verses = app.verses(bookNumber, chapter);
+    results = verses
+      .filter((v) => v.text.toLowerCase().includes(query))
+      .map((v) => ({
+        reference: { book: bookNumber, chapter, verse: v.verse },
+        text: v.text,
+      }))
+      .slice(0, 20);
+  } else {
+    const searchResults = app.searchVerses(query, 20);
+    results = searchResults.map((sr) => ({
+      reference: { book: sr.book, chapter: sr.chapter, verse: sr.verse },
+      text: sr.text,
+    }));
+  }
+
+  if (results.length === 0) {
+    return <p className="px-4 py-6 text-center text-sm text-muted-foreground">No results found</p>;
+  }
+
+  return (
+    <div className="p-2 space-y-1">
+      {results.map((result) => {
+        const book = bible.getBook(result.reference.book);
+        return (
+          <button
+            key={`${result.reference.book}-${result.reference.chapter}-${result.reference.verse}`}
+            className="w-full text-left px-3 py-2 rounded-lg hover:bg-accent transition-colors"
+            onClick={() => onSelect(result)}
+          >
+            <div className="text-xs text-muted-foreground mb-0.5">
+              {book?.name} {result.reference.chapter}:{result.reference.verse}
+            </div>
+            <div className="text-sm text-foreground line-clamp-2">
+              <HighlightMatch text={result.text} query={query} />
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function HighlightMatch({ text, query }: { text: string; query: string }): ReactNode {
+  if (!query) return text;
+  const idx = text.toLowerCase().indexOf(query.toLowerCase());
+  if (idx === -1) return text;
+  return (
+    <>
+      {text.slice(0, idx)}
+      <mark className="bg-accent rounded px-0.5">{text.slice(idx, idx + query.length)}</mark>
+      {text.slice(idx + query.length)}
+    </>
   );
 }

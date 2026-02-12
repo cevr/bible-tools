@@ -1,18 +1,18 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useNavigate } from 'react-router';
 import { useBible } from '@/providers/bible-provider';
-import { useOverlay } from '@/providers/overlay-provider';
+import { useOverlay, useOverlayData } from '@/providers/overlay-provider';
 import { useBookmarks, type Bookmark } from '@/providers/state-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 function BookmarksPanelInner() {
-  const { overlay, overlayData, closeOverlay } = useOverlay();
+  const { overlay, closeOverlay } = useOverlay();
+  const currentRef = useOverlayData('bookmarks');
   const navigate = useNavigate();
   const bible = useBible();
   const { bookmarks, add, remove } = useBookmarks();
 
   const isOpen = overlay === 'bookmarks';
-  const currentRef = overlayData as { book: number; chapter: number; verse: number } | null;
   const [noteInput, setNoteInput] = useState('');
 
   useEffect(() => {

@@ -1,17 +1,41 @@
 import { createContext, useContext, useState, useRef, type ReactNode } from 'react';
 
-export type OverlayType =
-  | 'none'
-  | 'command-palette'
-  | 'goto-dialog'
-  | 'search'
-  | 'bookmarks'
-  | 'history';
+// ---------------------------------------------------------------------------
+// Overlay type map — typed data per overlay
+// ---------------------------------------------------------------------------
+
+export interface SearchOverlayData {
+  query?: string;
+  onSearch?: (q: string) => void;
+}
+
+export interface BookmarksOverlayData {
+  book: number;
+  chapter: number;
+  verse: number;
+}
+
+interface OverlayDataMap {
+  search: SearchOverlayData;
+  bookmarks: BookmarksOverlayData;
+}
+
+type OverlayWithData = keyof OverlayDataMap;
+type OverlayWithoutData = 'command-palette' | 'goto-dialog' | 'history';
+
+export type OverlayType = 'none' | OverlayWithData | OverlayWithoutData;
+
+// ---------------------------------------------------------------------------
+// Context
+// ---------------------------------------------------------------------------
 
 interface OverlayContextValue {
   overlay: OverlayType;
   overlayData: unknown;
-  openOverlay: (type: OverlayType, data?: unknown) => void;
+  openOverlay: {
+    <T extends OverlayWithData>(type: T, data: OverlayDataMap[T]): void;
+    (type: OverlayWithoutData | OverlayWithData): void;
+  };
   closeOverlay: () => void;
   returnFocusRef: HTMLElement | null;
   setReturnFocusRef: (el: HTMLElement | null) => void;
@@ -32,7 +56,7 @@ export function OverlayProvider({ children }: { children: ReactNode }) {
     if (currentFocus) {
       setReturnFocusRef(currentFocus);
     }
-    setOverlayData(data);
+    setOverlayData(data ?? null);
     setOverlay(type);
   };
 
@@ -55,10 +79,16 @@ export function OverlayProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useOverlay(): OverlayContextValue {
+export function useOverlay() {
   const ctx = useContext(OverlayContext);
   if (!ctx) throw new Error('useOverlay must be used within an OverlayProvider');
   return ctx;
+}
+
+export function useOverlayData<T extends OverlayWithData>(type: T): OverlayDataMap[T] | null {
+  const { overlay, overlayData } = useOverlay();
+  if (overlay !== type) return null;
+  return overlayData as OverlayDataMap[T];
 }
 
 export function useIsOverlayOpen(type: OverlayType): boolean {

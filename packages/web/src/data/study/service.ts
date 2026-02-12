@@ -21,19 +21,27 @@ export const CROSS_REF_TYPES = [
 
 export type CrossRefType = (typeof CROSS_REF_TYPES)[number];
 
-export interface ClassifiedCrossReference {
+interface CrossRefBase {
   book: number;
   chapter: number;
   verse: number | null;
   verseEnd: number | null;
-  source: 'openbible' | 'tske' | 'user';
   previewText: string | null;
   classification: CrossRefType | null;
   confidence: number | null;
-  isUserAdded: boolean;
-  userNote: string | null;
-  userRefId: string | null;
 }
+
+export interface CatalogCrossReference extends CrossRefBase {
+  source: 'openbible' | 'tske';
+}
+
+export interface UserCrossReference extends CrossRefBase {
+  source: 'user';
+  userRefId: string;
+  userNote: string | null;
+}
+
+export type ClassifiedCrossReference = CatalogCrossReference | UserCrossReference;
 
 export interface StrongsEntry {
   number: string;
@@ -202,9 +210,6 @@ export function createStudyDataService(db: DbClient): StudyDataService {
           previewText: r.preview_text,
           classification: (cls?.type as CrossRefType) ?? null,
           confidence: cls?.confidence ?? null,
-          isUserAdded: false,
-          userNote: null,
-          userRefId: null,
         };
       });
 
@@ -227,9 +232,8 @@ export function createStudyDataService(db: DbClient): StudyDataService {
           previewText: null,
           classification: (u.type as CrossRefType) ?? null,
           confidence: null,
-          isUserAdded: true,
-          userNote: u.note,
           userRefId: u.id,
+          userNote: u.note,
         });
       }
 

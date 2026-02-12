@@ -1,9 +1,9 @@
 /**
- * State hooks — backed by AppService (which wraps Effect runtime).
+ * State hooks — thin wrappers adding mutation + invalidation on top of CachedApp.
  *
- * Uses createCache for reads, manual invalidation for writes.
+ * Read methods are synchronous (suspend via CachedApp).
+ * Write methods return Promise and invalidate the relevant cache.
  */
-import { createCache, useCache, type Cache } from '@/lib/cache';
 import { useApp } from './db-provider';
 import type { Position, Bookmark, HistoryEntry, Preferences } from '@/data/state/effect-service';
 import type { Reference } from '@/data/bible/types';
@@ -11,99 +11,66 @@ import type { Reference } from '@/data/bible/types';
 export type { Position, Bookmark, HistoryEntry, Preferences };
 
 // ---------------------------------------------------------------------------
-// Caches — created once per app instance (singletons)
-// ---------------------------------------------------------------------------
-
-let positionCache: Cache<[], Position> | null = null;
-let bookmarksCache: Cache<[], Bookmark[]> | null = null;
-let historyCache: Cache<[], HistoryEntry[]> | null = null;
-let preferencesCache: Cache<[], Preferences> | null = null;
-
-function getPositionCache(app: ReturnType<typeof useApp>) {
-  if (!positionCache) positionCache = createCache(() => app.getPosition());
-  return positionCache;
-}
-
-function getBookmarksCache(app: ReturnType<typeof useApp>) {
-  if (!bookmarksCache) bookmarksCache = createCache(() => app.getBookmarks());
-  return bookmarksCache;
-}
-
-function getHistoryCache(app: ReturnType<typeof useApp>) {
-  if (!historyCache) historyCache = createCache(() => app.getHistory());
-  return historyCache;
-}
-
-function getPreferencesCache(app: ReturnType<typeof useApp>) {
-  if (!preferencesCache) preferencesCache = createCache(() => app.getPreferences());
-  return preferencesCache;
-}
-
-// ---------------------------------------------------------------------------
 // Hooks
 // ---------------------------------------------------------------------------
 
 export function usePosition() {
   const app = useApp();
-  const cache = getPositionCache(app);
-  const position = useCache(cache);
+  const position = app.position();
 
   return {
     position,
     async set(pos: Position) {
       await app.setPosition(pos);
-      cache.invalidateAll();
+      app.position.invalidateAll();
     },
   };
 }
 
 export function useBookmarks() {
   const app = useApp();
-  const cache = getBookmarksCache(app);
-  const bookmarks = useCache(cache);
+  const bookmarks = app.bookmarks();
 
   return {
     bookmarks,
     async add(ref: Reference, note?: string) {
       const bm = await app.addBookmark(ref, note);
-      cache.invalidateAll();
+      app.bookmarks.invalidateAll();
       return bm;
     },
     async remove(id: string) {
       await app.removeBookmark(id);
-      cache.invalidateAll();
+      app.bookmarks.invalidateAll();
     },
   };
 }
 
 export function useHistory() {
   const app = useApp();
-  const cache = getHistoryCache(app);
-  const history = useCache(cache);
+  const history = app.history();
 
   return {
     history,
     async add(ref: Reference) {
       await app.addToHistory(ref);
-      cache.invalidateAll();
+      app.history.invalidateAll();
     },
     async clear() {
       await app.clearHistory();
-      cache.invalidateAll();
+      app.history.invalidateAll();
     },
   };
 }
 
 export function usePreferences() {
   const app = useApp();
-  const cache = getPreferencesCache(app);
-  const preferences = useCache(cache);
+  const preferences = app.preferences();
 
   return {
     preferences,
     async set(prefs: Partial<Preferences>) {
       await app.setPreferences(prefs);
-      cache.invalidateAll();
+      app.preferences.invalidateAll();
     },
   };
 }

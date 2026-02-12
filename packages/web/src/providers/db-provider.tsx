@@ -3,14 +3,24 @@
  *
  * Blocks rendering until wa-sqlite databases are ready.
  * Creates ManagedRuntime with all Effect services after init.
- * Provides AppService (facade) and raw DbClient via context.
+ * Provides CachedApp (suspending reads) and raw DbClient via context.
  */
-import { createContext, useContext, useState, useEffect, useRef, type ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useSyncExternalStore,
+  type ReactNode,
+} from 'react';
 import { ManagedRuntime, type Layer } from 'effect';
 import { getDbClient, type DbClient } from '@/workers/db-client';
 import { LoadingScreen } from '@/components/shared/loading-screen';
 import { AppLive } from '@/data/layer';
 import { AppService, type AppRuntime } from '@/data/app-service';
+import { type CachedAppCore, createCachedApp, type CachedService } from '@/lib/cached-app';
 import type { WebBibleService } from '@/data/bible/effect-service';
 import type { AppStateService } from '@/data/state/effect-service';
 import type { WebStudyDataService } from '@/data/study/effect-service';
@@ -18,7 +28,9 @@ import type { WebSyncService } from '@/data/sync/effect-service';
 
 type AppServices = WebBibleService | AppStateService | WebStudyDataService | WebSyncService;
 
-const AppServiceContext = createContext<AppService | null>(null);
+export type CachedApp = CachedService<AppService>;
+
+const CachedAppContext = createContext<CachedAppCore | null>(null);
 const DbContext = createContext<DbClient | null>(null);
 
 export function DbProvider({ children }: { children: ReactNode }) {
@@ -29,6 +41,7 @@ export function DbProvider({ children }: { children: ReactNode }) {
   const appServiceRef = useRef<AppService | null>(null);
   const dbClientRef = useRef<DbClient | null>(null);
   const runtimeRef = useRef<AppRuntime | null>(null);
+  const cachedAppRef = useRef<CachedAppCore | null>(null);
 
   useEffect(() => {
     let disposed = false;
@@ -49,7 +62,17 @@ export function DbProvider({ children }: { children: ReactNode }) {
         console.log('[db-provider] db ready, creating runtime');
         const runtime = ManagedRuntime.make(AppLive as Layer.Layer<AppServices, never, never>);
         runtimeRef.current = runtime;
-        appServiceRef.current = new AppService(runtime);
+        const appService = new AppService(runtime);
+        appServiceRef.current = appService;
+        const cachedApp = createCachedApp(appService);
+        cachedAppRef.current = cachedApp;
+
+        // Warm caches for data that's needed on first render
+        cachedApp.preload('getPosition');
+        cachedApp.preload('getPreferences');
+        cachedApp.preload('getBookmarks');
+        cachedApp.preload('getHistory');
+
         setReady(true);
         console.log('[db-provider] ready');
       })
@@ -80,17 +103,34 @@ export function DbProvider({ children }: { children: ReactNode }) {
 
   return (
     <DbContext.Provider value={dbClientRef.current}>
-      <AppServiceContext.Provider value={appServiceRef.current}>
-        {children}
-      </AppServiceContext.Provider>
+      <CachedAppContext.Provider value={cachedAppRef.current}>{children}</CachedAppContext.Provider>
     </DbContext.Provider>
   );
 }
 
-export function useApp(): AppService {
-  const ctx = useContext(AppServiceContext);
-  if (!ctx) throw new Error('useApp must be used within a DbProvider');
-  return ctx;
+/**
+ * Hook that returns a CachedApp proxy.
+ *
+ * Read methods suspend (return T, not Promise<T>).
+ * Write methods return Promise as-is.
+ * Only re-renders when a cache that was accessed during render is invalidated.
+ */
+export function useApp(): CachedApp {
+  const core = useContext(CachedAppContext);
+  if (!core) throw new Error('useApp must be used within a DbProvider');
+
+  const accessedRef = useRef(new Set<string>());
+  // Clear accessed set each render so we only track current render's reads
+  accessedRef.current.clear();
+
+  useSyncExternalStore(
+    core.subscribe,
+    () => core.snapshotFor(accessedRef.current),
+    () => core.snapshotFor(accessedRef.current),
+  );
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  return useMemo(() => core.withTracking(accessedRef.current), [core]) as unknown as CachedApp;
 }
 
 export function useDb(): DbClient {

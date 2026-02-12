@@ -6,8 +6,10 @@
  *
  * Tabs: Verse (text + margin notes), Cross-Refs, Words (Strong's), Concordance.
  * Opens on verse click, updates reactively as user navigates.
+ *
+ * All data reads suspend via CachedApp — no manual useEffect/useState for fetching.
  */
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useNavigate } from 'react-router';
 import { XIcon } from 'lucide-react';
 import { useBible } from '@/providers/bible-provider';
@@ -17,14 +19,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
 import { WordModeView } from '@/components/bible/word-mode-view';
-import type {
-  ClassifiedCrossReference,
-  ConcordanceResult,
-  CrossRefType,
-  MarginNote,
-  StrongsEntry,
-  VerseWord,
-} from '@/data/study/service';
+import type { ClassifiedCrossReference, CrossRefType } from '@/data/study/service';
 
 export type StudyTab = 'verse' | 'cross-refs' | 'words' | 'concordance';
 
@@ -34,12 +29,11 @@ export interface VerseStudyPanelProps {
   verse: number;
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  /** Which tab to activate when opening */
   activeTab?: StudyTab;
   onTabChange?: (tab: StudyTab) => void;
 }
 
-// --- Cross-ref type badges (extracted from cross-refs-popup) ---
+// --- Cross-ref type badges ---
 
 const TYPE_BADGES: Record<CrossRefType, { abbr: string; color: string }> = {
   quotation: { abbr: 'QUO', color: 'bg-blue-500/20 text-blue-700 dark:text-blue-300' },
@@ -65,6 +59,8 @@ const ALL_TYPES: CrossRefType[] = [
 
 /** Width of the study panel for layout coordination. */
 export const STUDY_PANEL_WIDTH = 'sm:w-[28rem]';
+
+const TabFallback = <p className="text-sm text-muted-foreground italic p-4">Loading...</p>;
 
 export function VerseStudyPanel({
   book,
@@ -107,25 +103,31 @@ export function VerseStudyPanel({
         </TabsList>
 
         <TabsContent value="verse" className="overflow-y-auto p-4">
-          <VerseTab book={book} chapter={chapter} verse={verse} />
+          <Suspense fallback={TabFallback}>
+            <VerseTab book={book} chapter={chapter} verse={verse} />
+          </Suspense>
         </TabsContent>
 
         <TabsContent value="cross-refs" className="overflow-y-auto flex-1 min-h-0">
-          <CrossRefsTab
-            book={book}
-            chapter={chapter}
-            verse={verse}
-            onClose={() => onOpenChange(false)}
-          />
+          <Suspense fallback={TabFallback}>
+            <CrossRefsTab
+              book={book}
+              chapter={chapter}
+              verse={verse}
+              onClose={() => onOpenChange(false)}
+            />
+          </Suspense>
         </TabsContent>
 
         <TabsContent value="words" className="flex flex-col flex-1 min-h-0 p-4">
-          <WordsTab
-            book={book}
-            chapter={chapter}
-            verse={verse}
-            onClose={() => onOpenChange(false)}
-          />
+          <Suspense fallback={TabFallback}>
+            <WordsTab
+              book={book}
+              chapter={chapter}
+              verse={verse}
+              onClose={() => onOpenChange(false)}
+            />
+          </Suspense>
         </TabsContent>
 
         <TabsContent value="concordance" className="flex flex-col flex-1 min-h-0">
@@ -142,28 +144,10 @@ export function VerseStudyPanel({
 
 function VerseTab({ book, chapter, verse }: { book: number; chapter: number; verse: number }) {
   const app = useApp();
-  const [verseText, setVerseText] = useState<string | null>(null);
-  const [marginNotes, setMarginNotes] = useState<MarginNote[]>([]);
-  const [loading, setLoading] = useState(false);
+  const verses = app.verses(book, chapter);
+  const marginNotes = app.marginNotes(book, chapter, verse);
 
-  useEffect(() => {
-    let cancelled = false;
-    setLoading(true);
-    Promise.all([
-      app.fetchVerses(book, chapter).then((vs) => vs.find((v) => v.verse === verse)?.text ?? null),
-      app.getMarginNotes(book, chapter, verse),
-    ]).then(([text, notes]) => {
-      if (cancelled) return;
-      setVerseText(text);
-      setMarginNotes(notes);
-      setLoading(false);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [book, chapter, verse, app]);
-
-  if (loading) return <p className="text-sm text-muted-foreground italic">Loading...</p>;
+  const verseText = verses.find((v) => v.verse === verse)?.text;
   if (!verseText) return <p className="text-sm text-muted-foreground">No verse found.</p>;
 
   return (
@@ -208,29 +192,16 @@ function CrossRefsTab({
   const bible = useBible();
   const app = useApp();
 
-  const [crossRefs, setCrossRefs] = useState<ClassifiedCrossReference[]>([]);
-  const [loading, setLoading] = useState(false);
+  const crossRefs = app.crossRefs(book, chapter, verse);
+
   const [editingRefIdx, setEditingRefIdx] = useState<number | null>(null);
   const [addRefInput, setAddRefInput] = useState('');
 
+  // Reset edit state when verse changes
   useEffect(() => {
-    let cancelled = false;
-    setLoading(true);
     setEditingRefIdx(null);
     setAddRefInput('');
-    app.getCrossRefs(book, chapter, verse).then((refs) => {
-      if (cancelled) return;
-      setCrossRefs(refs);
-      setLoading(false);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [book, chapter, verse, app]);
-
-  const refetchCrossRefs = () => {
-    app.getCrossRefs(book, chapter, verse).then(setCrossRefs);
-  };
+  }, [book, chapter, verse]);
 
   const navigateToRef = (ref: ClassifiedCrossReference) => {
     const refBook = bible.getBook(ref.book);
@@ -260,7 +231,7 @@ function CrossRefsTab({
       type,
     );
     setEditingRefIdx(null);
-    refetchCrossRefs();
+    app.crossRefs.invalidate(book, chapter, verse);
   };
 
   const handleAddUserRef = async () => {
@@ -272,12 +243,12 @@ function CrossRefsTab({
       { book: parsed.book, chapter: parsed.chapter, verse: parsed.verse },
     );
     setAddRefInput('');
-    refetchCrossRefs();
+    app.crossRefs.invalidate(book, chapter, verse);
   };
 
   const handleRemoveUserRef = async (id: string) => {
     await app.removeUserCrossRef(id);
-    refetchCrossRefs();
+    app.crossRefs.invalidate(book, chapter, verse);
   };
 
   return (
@@ -286,9 +257,7 @@ function CrossRefsTab({
         <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
           Cross-References
         </h3>
-        {loading ? (
-          <p className="text-sm text-muted-foreground">Loading...</p>
-        ) : crossRefs.length > 0 ? (
+        {crossRefs.length > 0 ? (
           <div className="space-y-1">
             {crossRefs.map((ref, idx) => (
               <div
@@ -317,7 +286,7 @@ function CrossRefsTab({
                 {/* Reference */}
                 <button className="flex-1 text-left min-w-0" onClick={() => navigateToRef(ref)}>
                   <span className="text-sm font-medium text-foreground">
-                    {ref.isUserAdded ? '* ' : ''}
+                    {ref.source === 'user' ? '* ' : ''}
                     {formatRef(ref)}
                   </span>
                   {ref.previewText && (
@@ -325,16 +294,18 @@ function CrossRefsTab({
                       {ref.previewText}
                     </p>
                   )}
-                  {ref.userNote && (
+                  {ref.source === 'user' && ref.userNote && (
                     <p className="text-xs italic text-muted-foreground mt-0.5">{ref.userNote}</p>
                   )}
                 </button>
 
                 {/* Delete button for user refs */}
-                {ref.isUserAdded && ref.userRefId && (
+                {ref.source === 'user' && (
                   <button
                     className="shrink-0 opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-700 dark:hover:text-red-300 transition-opacity text-xs px-1"
-                    onClick={() => ref.userRefId && handleRemoveUserRef(ref.userRefId)}
+                    onClick={() => {
+                      if (ref.source === 'user') handleRemoveUserRef(ref.userRefId);
+                    }}
                     title="Remove"
                   >
                     x
@@ -425,42 +396,89 @@ function WordsTab({
   verse: number;
   onClose: () => void;
 }) {
+  const app = useApp();
+  const words = app.verseWords(book, chapter, verse);
+
+  const [selectedWordIndex, setSelectedWordIndex] = useState(0);
+  const [selectedStrongs, setSelectedStrongs] = useState<string | null>(null);
+
+  // Reset when verse changes
+  useEffect(() => {
+    setSelectedWordIndex(0);
+    setSelectedStrongs(null);
+  }, [book, chapter, verse]);
+
+  if (words.length === 0) {
+    return <p className="text-sm text-muted-foreground">No word data available.</p>;
+  }
+
+  return (
+    <div className="flex flex-col gap-4 h-full">
+      <div className="reading-text shrink-0">
+        <WordModeView
+          words={words}
+          selectedIndex={selectedWordIndex}
+          onSelectWord={setSelectedWordIndex}
+          onOpenStrongs={(num) => setSelectedStrongs(num)}
+        />
+      </div>
+
+      {selectedStrongs && (
+        <Suspense
+          fallback={
+            <div className="border-t border-border pt-3">
+              <p className="text-sm text-muted-foreground italic">Loading...</p>
+            </div>
+          }
+        >
+          <StrongsDetail
+            strongsNumber={selectedStrongs}
+            currentBook={book}
+            currentChapter={chapter}
+            currentVerse={verse}
+            onClose={onClose}
+          />
+        </Suspense>
+      )}
+    </div>
+  );
+}
+
+function StrongsDetail({
+  strongsNumber,
+  currentBook,
+  currentChapter,
+  currentVerse,
+  onClose,
+}: {
+  strongsNumber: string;
+  currentBook: number;
+  currentChapter: number;
+  currentVerse: number;
+  onClose: () => void;
+}) {
   const navigate = useNavigate();
   const bible = useBible();
   const app = useApp();
-  const [words, setWords] = useState<VerseWord[]>([]);
-  const [selectedWordIndex, setSelectedWordIndex] = useState(0);
-  const [activeEntry, setActiveEntry] = useState<StrongsEntry | null>(null);
-  const [usage, setUsage] = useState<ConcordanceResult[]>([]);
-  const [usageLoading, setUsageLoading] = useState(false);
-  const [loading, setLoading] = useState(false);
 
+  const entry = app.strongsEntry(strongsNumber);
+  const usage = app.searchByStrongs(strongsNumber);
+
+  const usageListRef = useRef<HTMLDivElement>(null);
+
+  // Scroll current verse into view
   useEffect(() => {
-    let cancelled = false;
-    setLoading(true);
-    setSelectedWordIndex(0);
-    setActiveEntry(null);
-    setUsage([]);
-    app.getVerseWords(book, chapter, verse).then((w) => {
-      if (cancelled) return;
-      setWords(w);
-      setLoading(false);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [book, chapter, verse, app]);
+    const viewport = usageListRef.current?.querySelector('[data-slot="scroll-area-viewport"]');
+    const current = usageListRef.current?.querySelector('[data-current="true"]');
+    if (!viewport || !current) return;
+    const viewportRect = viewport.getBoundingClientRect();
+    const currentRect = current.getBoundingClientRect();
+    const offset =
+      currentRect.top - viewportRect.top - viewportRect.height / 2 + currentRect.height / 2;
+    viewport.scrollTop += offset;
+  }, [strongsNumber]);
 
-  const handleOpenStrongs = (strongsNumber: string) => {
-    setUsageLoading(true);
-    Promise.all([app.getStrongsEntry(strongsNumber), app.searchByStrongs(strongsNumber)]).then(
-      ([entry, results]) => {
-        setActiveEntry(entry);
-        setUsage(results);
-        setUsageLoading(false);
-      },
-    );
-  };
+  if (!entry) return null;
 
   const navigateToVerse = (b: number, ch: number, v: number) => {
     const bookInfo = bible.getBook(b);
@@ -476,113 +494,75 @@ function WordsTab({
     return bookInfo ? `${bookInfo.name} ${ch}:${v}` : `${b}:${ch}:${v}`;
   };
 
-  const usageListRef = useRef<HTMLDivElement>(null);
-
-  // Scroll the current verse into view within the usage list after results load
-  useEffect(() => {
-    if (usageLoading || usage.length === 0) return;
-    // Find the viewport (scroll container) inside the ScrollArea
-    const viewport = usageListRef.current?.querySelector('[data-slot="scroll-area-viewport"]');
-    const current = usageListRef.current?.querySelector('[data-current="true"]');
-    if (!viewport || !current) return;
-    const viewportRect = viewport.getBoundingClientRect();
-    const currentRect = current.getBoundingClientRect();
-    // Scroll so current verse is roughly centered
-    const offset =
-      currentRect.top - viewportRect.top - viewportRect.height / 2 + currentRect.height / 2;
-    viewport.scrollTop += offset;
-  }, [usage, usageLoading]);
-
-  if (loading) return <p className="text-sm text-muted-foreground italic">Loading...</p>;
-  if (words.length === 0)
-    return <p className="text-sm text-muted-foreground">No word data available.</p>;
-
-  const languageColor = (lang: 'hebrew' | 'greek') =>
-    lang === 'hebrew' ? 'text-[--strongs-hebrew]' : 'text-[--strongs-greek]';
+  const languageColor =
+    entry.language === 'hebrew' ? 'text-[--strongs-hebrew]' : 'text-[--strongs-greek]';
 
   return (
-    <div className="flex flex-col gap-4 h-full">
-      <div className="reading-text shrink-0">
-        <WordModeView
-          words={words}
-          selectedIndex={selectedWordIndex}
-          onSelectWord={setSelectedWordIndex}
-          onOpenStrongs={handleOpenStrongs}
-        />
+    <div className="border-t border-border pt-3 flex flex-col gap-3 flex-1 min-h-0">
+      <div className="flex items-baseline gap-3">
+        <span className={`font-mono text-lg font-bold ${languageColor}`}>{entry.number}</span>
+        <span className="font-serif text-xl text-foreground">{entry.lemma}</span>
       </div>
 
-      {activeEntry && (
-        <div className="border-t border-border pt-3 flex flex-col gap-3 flex-1 min-h-0">
-          <div className="flex items-baseline gap-3">
-            <span className={`font-mono text-lg font-bold ${languageColor(activeEntry.language)}`}>
-              {activeEntry.number}
-            </span>
-            <span className="font-serif text-xl text-foreground">{activeEntry.lemma}</span>
-          </div>
-
-          {(activeEntry.transliteration || activeEntry.pronunciation) && (
-            <div className="text-sm text-muted-foreground">
-              {activeEntry.transliteration && (
-                <span className="font-serif italic">{activeEntry.transliteration}</span>
-              )}
-              {activeEntry.pronunciation && (
-                <span className="ml-2">({activeEntry.pronunciation})</span>
-              )}
-            </div>
+      {(entry.transliteration || entry.pronunciation) && (
+        <div className="text-sm text-muted-foreground">
+          {entry.transliteration && (
+            <span className="font-serif italic">{entry.transliteration}</span>
           )}
-
-          <p className="text-sm text-foreground leading-relaxed">{activeEntry.definition}</p>
-
-          {activeEntry.kjvDefinition && (
-            <div className="text-xs text-muted-foreground">
-              <span className="font-semibold">KJV:</span> {activeEntry.kjvDefinition}
-            </div>
-          )}
-
-          {/* Usage — other verses with this Strong's number */}
-          <div className="border-t border-border pt-3 flex flex-col flex-1 min-h-0">
-            <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
-              Usage
-              {!usageLoading && usage.length > 0 && (
-                <span className="ml-1 normal-case tracking-normal font-normal">
-                  ({usage.length} verses)
-                </span>
-              )}
-            </h4>
-            {usageLoading ? (
-              <p className="text-xs text-muted-foreground">Loading...</p>
-            ) : usage.length > 0 ? (
-              <ScrollArea ref={usageListRef} className="flex-1 min-h-0">
-                <div className="space-y-0.5">
-                  {usage.map((result, i) => {
-                    const isCurrent =
-                      result.book === book && result.chapter === chapter && result.verse === verse;
-                    return (
-                      <button
-                        key={`${result.book}-${result.chapter}-${result.verse}-${i}`}
-                        data-current={isCurrent || undefined}
-                        className={`w-full text-left px-2 py-1 rounded hover:bg-accent transition-colors flex items-baseline gap-2 ${
-                          isCurrent ? 'bg-accent/50' : ''
-                        }`}
-                        onClick={() => navigateToVerse(result.book, result.chapter, result.verse)}
-                      >
-                        <span className="text-xs font-medium text-muted-foreground w-32 shrink-0">
-                          {formatRef(result.book, result.chapter, result.verse)}
-                        </span>
-                        {result.wordText && (
-                          <span className="text-xs text-foreground">{result.wordText}</span>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-              </ScrollArea>
-            ) : (
-              <p className="text-xs text-muted-foreground">No other uses found.</p>
-            )}
-          </div>
+          {entry.pronunciation && <span className="ml-2">({entry.pronunciation})</span>}
         </div>
       )}
+
+      <p className="text-sm text-foreground leading-relaxed">{entry.definition}</p>
+
+      {entry.kjvDefinition && (
+        <div className="text-xs text-muted-foreground">
+          <span className="font-semibold">KJV:</span> {entry.kjvDefinition}
+        </div>
+      )}
+
+      {/* Usage */}
+      <div className="border-t border-border pt-3 flex flex-col flex-1 min-h-0">
+        <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
+          Usage
+          {usage.length > 0 && (
+            <span className="ml-1 normal-case tracking-normal font-normal">
+              ({usage.length} verses)
+            </span>
+          )}
+        </h4>
+        {usage.length > 0 ? (
+          <ScrollArea ref={usageListRef} className="flex-1 min-h-0">
+            <div className="space-y-0.5">
+              {usage.map((result, i) => {
+                const isCurrent =
+                  result.book === currentBook &&
+                  result.chapter === currentChapter &&
+                  result.verse === currentVerse;
+                return (
+                  <button
+                    key={`${result.book}-${result.chapter}-${result.verse}-${i}`}
+                    data-current={isCurrent || undefined}
+                    className={`w-full text-left px-2 py-1 rounded hover:bg-accent transition-colors flex items-baseline gap-2 ${
+                      isCurrent ? 'bg-accent/50' : ''
+                    }`}
+                    onClick={() => navigateToVerse(result.book, result.chapter, result.verse)}
+                  >
+                    <span className="text-xs font-medium text-muted-foreground w-32 shrink-0">
+                      {formatRef(result.book, result.chapter, result.verse)}
+                    </span>
+                    {result.wordText && (
+                      <span className="text-xs text-foreground">{result.wordText}</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </ScrollArea>
+        ) : (
+          <p className="text-xs text-muted-foreground">No other uses found.</p>
+        )}
+      </div>
     </div>
   );
 }
@@ -592,55 +572,12 @@ function WordsTab({
 // ---------------------------------------------------------------------------
 
 function ConcordanceTab({ onClose }: { onClose: () => void }) {
-  const navigate = useNavigate();
-  const bible = useBible();
-  const app = useApp();
-
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<ConcordanceResult[]>([]);
-  const [strongsEntry, setStrongsEntry] = useState<StrongsEntry | null>(null);
-  const [loading, setLoading] = useState(false);
 
   const strongsNumber = (() => {
     const q = query.trim().toUpperCase();
     return /^[HG]\d+$/.test(q) ? q : null;
   })();
-
-  useEffect(() => {
-    if (!strongsNumber) {
-      setResults([]);
-      setStrongsEntry(null);
-      return;
-    }
-    setLoading(true);
-    Promise.all([app.searchByStrongs(strongsNumber), app.getStrongsEntry(strongsNumber)]).then(
-      ([res, entry]) => {
-        setResults(res);
-        setStrongsEntry(entry);
-        setLoading(false);
-      },
-    );
-  }, [strongsNumber, app]);
-
-  const navigateToVerse = (b: number, ch: number, v: number) => {
-    const bookInfo = bible.getBook(b);
-    if (bookInfo) {
-      const slug = bookInfo.name.toLowerCase().replace(/\s+/g, '-');
-      navigate(`/bible/${slug}/${ch}/${v}`);
-      onClose();
-    }
-  };
-
-  const formatRef = (b: number, ch: number, v: number) => {
-    const bookInfo = bible.getBook(b);
-    return bookInfo ? `${bookInfo.name} ${ch}:${v}` : `${b}:${ch}:${v}`;
-  };
-
-  const languageColor = strongsEntry
-    ? strongsEntry.language === 'hebrew'
-      ? 'text-[--strongs-hebrew]'
-      : 'text-[--strongs-greek]'
-    : '';
 
   return (
     <>
@@ -655,31 +592,85 @@ function ConcordanceTab({ onClose }: { onClose: () => void }) {
         />
       </div>
 
-      {strongsEntry && (
+      {strongsNumber ? (
+        <Suspense
+          fallback={
+            <>
+              <div className="border-t border-border" />
+              <p className="px-4 py-6 text-center text-sm text-muted-foreground">Searching...</p>
+            </>
+          }
+        >
+          <ConcordanceResults strongsNumber={strongsNumber} onClose={onClose} />
+        </Suspense>
+      ) : (
+        <>
+          <div className="border-t border-border" />
+          <div className="overflow-y-auto min-h-0 flex-1">
+            <p className="px-4 py-6 text-center text-sm text-muted-foreground">
+              Enter a Strong's number (H for Hebrew, G for Greek)
+            </p>
+          </div>
+          <div className="border-t border-border px-4 py-2 text-xs text-muted-foreground shrink-0" />
+        </>
+      )}
+    </>
+  );
+}
+
+function ConcordanceResults({
+  strongsNumber,
+  onClose,
+}: {
+  strongsNumber: string;
+  onClose: () => void;
+}) {
+  const navigate = useNavigate();
+  const bible = useBible();
+  const app = useApp();
+
+  const entry = app.strongsEntry(strongsNumber);
+  const results = app.searchByStrongs(strongsNumber);
+
+  const navigateToVerse = (b: number, ch: number, v: number) => {
+    const bookInfo = bible.getBook(b);
+    if (bookInfo) {
+      const slug = bookInfo.name.toLowerCase().replace(/\s+/g, '-');
+      navigate(`/bible/${slug}/${ch}/${v}`);
+      onClose();
+    }
+  };
+
+  const formatRef = (b: number, ch: number, v: number) => {
+    const bookInfo = bible.getBook(b);
+    return bookInfo ? `${bookInfo.name} ${ch}:${v}` : `${b}:${ch}:${v}`;
+  };
+
+  const languageColor = entry
+    ? entry.language === 'hebrew'
+      ? 'text-[--strongs-hebrew]'
+      : 'text-[--strongs-greek]'
+    : '';
+
+  return (
+    <>
+      {entry && (
         <div className="px-4 py-2 bg-accent/50 shrink-0">
-          <span className={`font-mono font-bold ${languageColor}`}>{strongsEntry.number}</span>
-          <span className="ml-2 font-serif text-foreground">{strongsEntry.lemma}</span>
-          {strongsEntry.transliteration && (
+          <span className={`font-mono font-bold ${languageColor}`}>{entry.number}</span>
+          <span className="ml-2 font-serif text-foreground">{entry.lemma}</span>
+          {entry.transliteration && (
             <span className="ml-2 text-sm italic text-muted-foreground">
-              {strongsEntry.transliteration}
+              {entry.transliteration}
             </span>
           )}
-          <p className="mt-1 text-xs text-muted-foreground line-clamp-2">
-            {strongsEntry.definition}
-          </p>
+          <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{entry.definition}</p>
         </div>
       )}
 
       <div className="border-t border-border" />
 
       <div className="overflow-y-auto min-h-0 flex-1">
-        {!strongsNumber ? (
-          <p className="px-4 py-6 text-center text-sm text-muted-foreground">
-            Enter a Strong's number (H for Hebrew, G for Greek)
-          </p>
-        ) : loading ? (
-          <p className="px-4 py-6 text-center text-sm text-muted-foreground">Searching...</p>
-        ) : results.length > 0 ? (
+        {results.length > 0 ? (
           <div className="p-2 space-y-0.5">
             {results.map((result, i) => (
               <button

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useNavigate } from 'react-router';
 import { useBible } from '@/providers/bible-provider';
 import { useOverlay } from '@/providers/overlay-provider';
@@ -24,14 +24,11 @@ export function CommandPalette() {
   const { overlay, closeOverlay, openOverlay } = useOverlay();
   const navigate = useNavigate();
   const bible = useBible();
-  const app = useApp();
 
   const isOpen = overlay === 'command-palette';
 
   const [query, setQuery] = useState('');
   const [state, setState] = useState<CommandState>({ mode: 'book' });
-  const [verseNumbers, setVerseNumbers] = useState<number[]>([]);
-  const [loadingVerses, setLoadingVerses] = useState(false);
 
   const quickActions: QuickAction[] = [
     {
@@ -76,22 +73,8 @@ export function CommandPalette() {
     if (isOpen) {
       setQuery('');
       setState({ mode: 'book' });
-      setVerseNumbers([]);
     }
   }, [isOpen]);
-
-  // Fetch verses when in verse mode
-  useEffect(() => {
-    if (state.mode !== 'verse' || !state.selectedBook || !state.selectedChapter) {
-      setVerseNumbers([]);
-      return;
-    }
-    setLoadingVerses(true);
-    app.fetchVerses(state.selectedBook.number, state.selectedChapter).then((verses) => {
-      setVerseNumbers(verses.map((v) => v.verse));
-      setLoadingVerses(false);
-    });
-  }, [state.mode, state.selectedBook, state.selectedChapter, app]);
 
   const q = query.toLowerCase().trim();
 
@@ -109,10 +92,6 @@ export function CommandPalette() {
   const filteredChapters = q
     ? chapters.filter((ch) => ch.toString().startsWith(q.trim()))
     : chapters;
-
-  const filteredVerses = q
-    ? verseNumbers.filter((v) => v.toString().startsWith(q.trim()))
-    : verseNumbers;
 
   const selectBook = (book: Book) => {
     setState({ mode: 'chapter', selectedBook: book });
@@ -265,24 +244,19 @@ export function CommandPalette() {
             </div>
           )}
 
-          {state.mode === 'verse' && (
-            <>
-              {loadingVerses ? (
+          {state.mode === 'verse' && state.selectedBook && state.selectedChapter && (
+            <Suspense
+              fallback={
                 <p className="px-3 py-2 text-sm text-muted-foreground">Loading verses...</p>
-              ) : (
-                <div className="grid grid-cols-8 gap-2">
-                  {filteredVerses.map((verse) => (
-                    <button
-                      key={verse}
-                      className="px-3 py-2 rounded-lg text-center hover:bg-accent text-foreground transition-colors"
-                      onClick={() => selectVerse(verse)}
-                    >
-                      {verse}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </>
+              }
+            >
+              <VerseGrid
+                bookNumber={state.selectedBook.number}
+                chapter={state.selectedChapter}
+                query={q}
+                onSelect={selectVerse}
+              />
+            </Suspense>
           )}
         </div>
 
@@ -302,5 +276,37 @@ export function CommandPalette() {
         </div>
       </DialogContent>
     </Dialog>
+  );
+}
+
+/** Suspending child that reads verses from cache and renders the grid. */
+function VerseGrid({
+  bookNumber,
+  chapter,
+  query,
+  onSelect,
+}: {
+  bookNumber: number;
+  chapter: number;
+  query: string;
+  onSelect: (verse: number) => void;
+}) {
+  const app = useApp();
+  const verses = app.verses(bookNumber, chapter);
+  const nums = verses.map((v) => v.verse);
+  const filtered = query ? nums.filter((v) => v.toString().startsWith(query)) : nums;
+
+  return (
+    <div className="grid grid-cols-8 gap-2">
+      {filtered.map((verse) => (
+        <button
+          key={verse}
+          className="px-3 py-2 rounded-lg text-center hover:bg-accent text-foreground transition-colors"
+          onClick={() => onSelect(verse)}
+        >
+          {verse}
+        </button>
+      ))}
+    </div>
   );
 }
