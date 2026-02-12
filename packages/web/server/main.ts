@@ -7,6 +7,7 @@
  * Run with: bun run server (production) or bun run server:dev (development)
  */
 import {
+  Headers,
   HttpApiBuilder,
   HttpApiScalar,
   HttpMiddleware,
@@ -15,7 +16,10 @@ import {
   HttpServerResponse,
 } from '@effect/platform';
 import { BunHttpServer, BunRuntime } from '@effect/platform-bun';
-import { Effect, Layer, Logger, LogLevel } from 'effect';
+import { Effect, Layer, Logger, LogLevel, Option } from 'effect';
+import { mkdirSync } from 'fs';
+import { homedir } from 'os';
+import { join } from 'path';
 
 import { BibleToolsApi } from '@bible/api';
 import { BibleDatabase } from '@bible/core/bible-db';
@@ -53,9 +57,11 @@ const ApiLive = HttpApiBuilder.api(BibleToolsApi).pipe(
   Layer.provide(EGWGroupLayer),
 );
 
-// ============================================================================
-// Static File Serving (Production Only)
-// ============================================================================
+// COOP/COEP headers required for SharedArrayBuffer (wa-sqlite OPFS)
+const CROSS_ORIGIN_HEADERS = {
+  'Cross-Origin-Opener-Policy': 'same-origin',
+  'Cross-Origin-Embedder-Policy': 'credentialless',
+};
 
 const serveStaticFile = (filePath: string, contentType: string) =>
   Effect.gen(function* () {
@@ -66,7 +72,7 @@ const serveStaticFile = (filePath: string, contentType: string) =>
     }
     const content = yield* Effect.promise(() => file.arrayBuffer());
     return HttpServerResponse.raw(content, {
-      headers: { 'Content-Type': contentType },
+      headers: { 'Content-Type': contentType, ...CROSS_ORIGIN_HEADERS },
     });
   });
 
@@ -84,12 +90,95 @@ const getContentType = (path: string): string => {
   return 'application/octet-stream';
 };
 
-// Middleware to serve static files in production
+const BIBLE_DB_PATH = join(homedir(), '.bible', 'bible.db');
+const SYNC_DIR = join(homedir(), '.bible', 'sync');
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const MAX_SYNC_BODY = 5 * 1024 * 1024; // 5MB
+
+const serveBibleDb = Effect.gen(function* () {
+  const file = Bun.file(BIBLE_DB_PATH);
+  const exists = yield* Effect.promise(() => file.exists());
+  if (!exists) {
+    return HttpServerResponse.text('bible.db not found', { status: 404 });
+  }
+  const size = file.size;
+  const stream = file.stream();
+  return HttpServerResponse.raw(stream, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/octet-stream',
+      'Content-Length': String(size),
+      'Cache-Control': 'public, max-age=86400',
+      ...CROSS_ORIGIN_HEADERS,
+    },
+  });
+});
 const StaticFilesMiddleware = HttpMiddleware.make((app) =>
   Effect.gen(function* () {
     const request = yield* HttpServerRequest.HttpServerRequest;
     const url = new URL(request.url, 'http://localhost');
     const pathname = url.pathname;
+
+    // Serve bible.db download
+    if (pathname === '/api/db/bible') {
+      const response = yield* serveBibleDb;
+      return response;
+    }
+
+    // Sync state backup
+    if (pathname === '/api/sync/state') {
+      const deviceIdOpt = Headers.get(request.headers, 'x-device-id');
+      if (Option.isNone(deviceIdOpt) || !UUID_RE.test(deviceIdOpt.value)) {
+        return HttpServerResponse.text('Missing or invalid X-Device-Id', {
+          status: 400,
+          headers: CROSS_ORIGIN_HEADERS,
+        });
+      }
+      const deviceId = deviceIdOpt.value;
+
+      if (request.method === 'POST') {
+        const buf = yield* request.arrayBuffer.pipe(Effect.catchAll(() => Effect.succeed(null)));
+
+        if (!buf || buf.byteLength === 0 || buf.byteLength > MAX_SYNC_BODY) {
+          return HttpServerResponse.text('Missing or oversized body', {
+            status: 400,
+            headers: CROSS_ORIGIN_HEADERS,
+          });
+        }
+
+        const dir = join(SYNC_DIR, deviceId);
+        const filePath = join(dir, 'state.db');
+        yield* Effect.sync(() => mkdirSync(dir, { recursive: true }));
+        yield* Effect.promise(() => Bun.write(filePath, new Uint8Array(buf)));
+
+        return HttpServerResponse.empty({ status: 204, headers: CROSS_ORIGIN_HEADERS });
+      }
+
+      if (request.method === 'GET') {
+        const filePath = join(SYNC_DIR, deviceId, 'state.db');
+        const file = Bun.file(filePath);
+        const exists = yield* Effect.promise(() => file.exists());
+        if (!exists) {
+          return HttpServerResponse.text('Not found', {
+            status: 404,
+            headers: CROSS_ORIGIN_HEADERS,
+          });
+        }
+        return HttpServerResponse.raw(file.stream(), {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/octet-stream',
+            'Content-Length': String(file.size),
+            ...CROSS_ORIGIN_HEADERS,
+          },
+        });
+      }
+
+      return HttpServerResponse.text('Method not allowed', {
+        status: 405,
+        headers: CROSS_ORIGIN_HEADERS,
+      });
+    }
 
     // Skip API routes
     if (pathname.startsWith('/api') || pathname.startsWith('/docs')) {
