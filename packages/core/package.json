@@ -37,12 +37,12 @@
     "sync:bible:force": "bun run src/sync/bible-sync.ts --force"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "^3.0.35",
-    "@ai-sdk/google": "^3.0.20",
-    "@ai-sdk/groq": "^3.0.21",
-    "@ai-sdk/openai": "^3.0.25",
+    "@ai-sdk/anthropic": "^3.0.43",
+    "@ai-sdk/google": "^3.0.29",
+    "@ai-sdk/groq": "^3.0.24",
+    "@ai-sdk/openai": "^3.0.28",
     "@effect/platform": "catalog:",
-    "@google/genai": "^1.39.0",
+    "@google/genai": "^1.41.0",
     "ai": "catalog:",
     "cheerio": "^1.2.0",
     "effect": "catalog:",
