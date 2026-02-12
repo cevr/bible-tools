@@ -7,12 +7,13 @@
  * Tabs: Verse (text + margin notes), Cross-Refs, Words (Strong's), Concordance.
  * Opens on verse click, updates reactively as user navigates.
  */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { XIcon } from 'lucide-react';
 import { useBible } from '@/providers/bible-provider';
 import { useApp } from '@/providers/db-provider';
 import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
 import { WordModeView } from '@/components/bible/word-mode-view';
@@ -118,8 +119,13 @@ export function VerseStudyPanel({
           />
         </TabsContent>
 
-        <TabsContent value="words" className="overflow-y-auto p-4">
-          <WordsTab book={book} chapter={chapter} verse={verse} />
+        <TabsContent value="words" className="flex flex-col flex-1 min-h-0 p-4">
+          <WordsTab
+            book={book}
+            chapter={chapter}
+            verse={verse}
+            onClose={() => onOpenChange(false)}
+          />
         </TabsContent>
 
         <TabsContent value="concordance" className="flex flex-col flex-1 min-h-0">
@@ -408,11 +414,25 @@ function CrossRefsTab({
 // Words Tab
 // ---------------------------------------------------------------------------
 
-function WordsTab({ book, chapter, verse }: { book: number; chapter: number; verse: number }) {
+function WordsTab({
+  book,
+  chapter,
+  verse,
+  onClose,
+}: {
+  book: number;
+  chapter: number;
+  verse: number;
+  onClose: () => void;
+}) {
+  const navigate = useNavigate();
+  const bible = useBible();
   const app = useApp();
   const [words, setWords] = useState<VerseWord[]>([]);
   const [selectedWordIndex, setSelectedWordIndex] = useState(0);
   const [activeEntry, setActiveEntry] = useState<StrongsEntry | null>(null);
+  const [usage, setUsage] = useState<ConcordanceResult[]>([]);
+  const [usageLoading, setUsageLoading] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -420,6 +440,7 @@ function WordsTab({ book, chapter, verse }: { book: number; chapter: number; ver
     setLoading(true);
     setSelectedWordIndex(0);
     setActiveEntry(null);
+    setUsage([]);
     app.getVerseWords(book, chapter, verse).then((w) => {
       if (cancelled) return;
       setWords(w);
@@ -431,8 +452,46 @@ function WordsTab({ book, chapter, verse }: { book: number; chapter: number; ver
   }, [book, chapter, verse, app]);
 
   const handleOpenStrongs = (strongsNumber: string) => {
-    app.getStrongsEntry(strongsNumber).then(setActiveEntry);
+    setUsageLoading(true);
+    Promise.all([app.getStrongsEntry(strongsNumber), app.searchByStrongs(strongsNumber)]).then(
+      ([entry, results]) => {
+        setActiveEntry(entry);
+        setUsage(results);
+        setUsageLoading(false);
+      },
+    );
   };
+
+  const navigateToVerse = (b: number, ch: number, v: number) => {
+    const bookInfo = bible.getBook(b);
+    if (bookInfo) {
+      const slug = bookInfo.name.toLowerCase().replace(/\s+/g, '-');
+      navigate(`/bible/${slug}/${ch}/${v}`);
+      onClose();
+    }
+  };
+
+  const formatRef = (b: number, ch: number, v: number) => {
+    const bookInfo = bible.getBook(b);
+    return bookInfo ? `${bookInfo.name} ${ch}:${v}` : `${b}:${ch}:${v}`;
+  };
+
+  const usageListRef = useRef<HTMLDivElement>(null);
+
+  // Scroll the current verse into view within the usage list after results load
+  useEffect(() => {
+    if (usageLoading || usage.length === 0) return;
+    // Find the viewport (scroll container) inside the ScrollArea
+    const viewport = usageListRef.current?.querySelector('[data-slot="scroll-area-viewport"]');
+    const current = usageListRef.current?.querySelector('[data-current="true"]');
+    if (!viewport || !current) return;
+    const viewportRect = viewport.getBoundingClientRect();
+    const currentRect = current.getBoundingClientRect();
+    // Scroll so current verse is roughly centered
+    const offset =
+      currentRect.top - viewportRect.top - viewportRect.height / 2 + currentRect.height / 2;
+    viewport.scrollTop += offset;
+  }, [usage, usageLoading]);
 
   if (loading) return <p className="text-sm text-muted-foreground italic">Loading...</p>;
   if (words.length === 0)
@@ -442,8 +501,8 @@ function WordsTab({ book, chapter, verse }: { book: number; chapter: number; ver
     lang === 'hebrew' ? 'text-[--strongs-hebrew]' : 'text-[--strongs-greek]';
 
   return (
-    <div className="space-y-4">
-      <div className="reading-text">
+    <div className="flex flex-col gap-4 h-full">
+      <div className="reading-text shrink-0">
         <WordModeView
           words={words}
           selectedIndex={selectedWordIndex}
@@ -453,7 +512,7 @@ function WordsTab({ book, chapter, verse }: { book: number; chapter: number; ver
       </div>
 
       {activeEntry && (
-        <div className="border-t border-border pt-3 space-y-2">
+        <div className="border-t border-border pt-3 flex flex-col gap-3 flex-1 min-h-0">
           <div className="flex items-baseline gap-3">
             <span className={`font-mono text-lg font-bold ${languageColor(activeEntry.language)}`}>
               {activeEntry.number}
@@ -479,6 +538,49 @@ function WordsTab({ book, chapter, verse }: { book: number; chapter: number; ver
               <span className="font-semibold">KJV:</span> {activeEntry.kjvDefinition}
             </div>
           )}
+
+          {/* Usage — other verses with this Strong's number */}
+          <div className="border-t border-border pt-3 flex flex-col flex-1 min-h-0">
+            <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
+              Usage
+              {!usageLoading && usage.length > 0 && (
+                <span className="ml-1 normal-case tracking-normal font-normal">
+                  ({usage.length} verses)
+                </span>
+              )}
+            </h4>
+            {usageLoading ? (
+              <p className="text-xs text-muted-foreground">Loading...</p>
+            ) : usage.length > 0 ? (
+              <ScrollArea ref={usageListRef} className="flex-1 min-h-0">
+                <div className="space-y-0.5">
+                  {usage.map((result, i) => {
+                    const isCurrent =
+                      result.book === book && result.chapter === chapter && result.verse === verse;
+                    return (
+                      <button
+                        key={`${result.book}-${result.chapter}-${result.verse}-${i}`}
+                        data-current={isCurrent || undefined}
+                        className={`w-full text-left px-2 py-1 rounded hover:bg-accent transition-colors flex items-baseline gap-2 ${
+                          isCurrent ? 'bg-accent/50' : ''
+                        }`}
+                        onClick={() => navigateToVerse(result.book, result.chapter, result.verse)}
+                      >
+                        <span className="text-xs font-medium text-muted-foreground w-32 shrink-0">
+                          {formatRef(result.book, result.chapter, result.verse)}
+                        </span>
+                        {result.wordText && (
+                          <span className="text-xs text-foreground">{result.wordText}</span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </ScrollArea>
+            ) : (
+              <p className="text-xs text-muted-foreground">No other uses found.</p>
+            )}
+          </div>
         </div>
       )}
     </div>

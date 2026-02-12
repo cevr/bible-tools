@@ -155,13 +155,13 @@ function BibleRoute() {
     }
   }, [bookNumber, chapterNumber, selectedVerse, app]);
 
-  // Scroll selected verse into view
+  // Scroll selected verse into view (also after verses finish loading)
   useEffect(() => {
     const el = document.querySelector(`[data-verse="${selectedVerse}"]`);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  }, [selectedVerse]);
+  }, [selectedVerse, versesLoading, sheetOpen]);
 
   const toggleDisplayMode = () => {
     const next = displayMode === 'verse' ? 'paragraph' : 'verse';
