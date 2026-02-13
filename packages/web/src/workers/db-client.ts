@@ -6,6 +6,12 @@
  */
 import type { WorkerRequest, WorkerResponse } from './db-protocol.js';
 
+export interface EgwSyncStatus {
+  bookCode: string;
+  status: string;
+  paragraphCount: number;
+}
+
 export interface DbClient {
   /** Initialize the worker and databases. Resolves when ready. */
   init(): Promise<void>;
@@ -13,7 +19,7 @@ export interface DbClient {
   onProgress(cb: (stage: string, progress: number) => void): void;
   /** Query a database. Returns rows as record arrays. */
   query<T = Record<string, unknown>>(
-    db: 'bible' | 'state',
+    db: 'bible' | 'state' | 'egw',
     sql: string,
     params?: unknown[],
   ): Promise<T[]>;
@@ -23,8 +29,18 @@ export interface DbClient {
   exportState(): Promise<ArrayBuffer>;
   /** Check if state.db has been written to since last export. */
   isDirty(): Promise<boolean>;
-  /** Register a callback that fires after every successful exec. */
-  onExec(cb: () => void): void;
+  /** Register a callback that fires after every successful exec. Returns unsubscribe. */
+  onExec(cb: () => void): () => void;
+  /** Sync a single EGW book by code. Returns paragraph count. */
+  syncBook(bookCode: string): Promise<number>;
+  /** Get EGW sync status for all books. */
+  getEgwSyncStatus(): Promise<EgwSyncStatus[]>;
+  /** Full monolithic EGW database download. */
+  syncFullEgw(): Promise<void>;
+  /** Register callback for EGW sync progress. Returns unsubscribe. */
+  onSyncProgress(cb: (bookCode: string, stage: string, progress: number) => void): () => void;
+  /** Register callback for background sync book completions. Returns unsubscribe. */
+  onSyncComplete(cb: (bookCode: string, paragraphCount: number) => void): () => void;
 }
 
 function createDbClient(): DbClient {
@@ -42,6 +58,11 @@ function createDbClient(): DbClient {
   let exportResolve: ((buf: ArrayBuffer) => void) | null = null;
   let exportReject: ((err: Error) => void) | null = null;
   let dirtyResolve: ((dirty: boolean) => void) | null = null;
+  let syncStatusResolve: ((status: EgwSyncStatus[]) => void) | null = null;
+  let fullSyncResolve: (() => void) | null = null;
+  let fullSyncReject: ((err: Error) => void) | null = null;
+  let syncProgressCallbacks: ((bookCode: string, stage: string, progress: number) => void)[] = [];
+  let syncCompleteCallbacks: ((bookCode: string, paragraphCount: number) => void)[] = [];
 
   worker.onerror = (event) => {
     console.error('[db-client] worker error:', event.message, event);
@@ -106,6 +127,46 @@ function createDbClient(): DbClient {
         dirtyResolve = null;
         break;
       }
+      case 'sync-book-progress': {
+        for (const cb of syncProgressCallbacks) {
+          cb(msg.bookCode, msg.stage, msg.progress);
+        }
+        break;
+      }
+      case 'sync-book-result': {
+        // Resolve pending request if it exists
+        if (msg.id > 0) {
+          pending.get(msg.id)?.resolve(msg.paragraphCount);
+          pending.delete(msg.id);
+        }
+        // Notify listeners (covers auto-sync completions where id=0)
+        for (const cb of syncCompleteCallbacks) {
+          cb(msg.bookCode, msg.paragraphCount);
+        }
+        break;
+      }
+      case 'sync-book-error': {
+        pending.get(msg.id)?.reject(new Error(msg.error));
+        pending.delete(msg.id);
+        break;
+      }
+      case 'egw-sync-status': {
+        syncStatusResolve?.(msg.books);
+        syncStatusResolve = null;
+        break;
+      }
+      case 'sync-full-egw-result': {
+        fullSyncResolve?.();
+        fullSyncResolve = null;
+        fullSyncReject = null;
+        break;
+      }
+      case 'sync-full-egw-error': {
+        fullSyncReject?.(new Error(msg.error));
+        fullSyncResolve = null;
+        fullSyncReject = null;
+        break;
+      }
     }
   };
 
@@ -127,7 +188,7 @@ function createDbClient(): DbClient {
     },
 
     query<T = Record<string, unknown>>(
-      db: 'bible' | 'state',
+      db: 'bible' | 'state' | 'egw',
       sql: string,
       params?: unknown[],
     ): Promise<T[]> {
@@ -169,6 +230,52 @@ function createDbClient(): DbClient {
 
     onExec(cb: () => void) {
       execCallbacks.push(cb);
+      return () => {
+        const i = execCallbacks.indexOf(cb);
+        if (i >= 0) execCallbacks.splice(i, 1);
+      };
+    },
+
+    syncBook(bookCode: string): Promise<number> {
+      const id = nextId++;
+      return new Promise<number>((resolve, reject) => {
+        pending.set(id, {
+          resolve: resolve as (value: unknown) => void,
+          reject,
+        });
+        send({ type: 'sync-book', id, bookCode });
+      });
+    },
+
+    getEgwSyncStatus(): Promise<EgwSyncStatus[]> {
+      return new Promise<EgwSyncStatus[]>((resolve) => {
+        syncStatusResolve = resolve;
+        send({ type: 'get-egw-sync-status' });
+      });
+    },
+
+    syncFullEgw(): Promise<void> {
+      return new Promise<void>((resolve, reject) => {
+        fullSyncResolve = resolve;
+        fullSyncReject = reject;
+        send({ type: 'sync-full-egw' });
+      });
+    },
+
+    onSyncProgress(cb: (bookCode: string, stage: string, progress: number) => void) {
+      syncProgressCallbacks.push(cb);
+      return () => {
+        const i = syncProgressCallbacks.indexOf(cb);
+        if (i >= 0) syncProgressCallbacks.splice(i, 1);
+      };
+    },
+
+    onSyncComplete(cb: (bookCode: string, paragraphCount: number) => void) {
+      syncCompleteCallbacks.push(cb);
+      return () => {
+        const i = syncCompleteCallbacks.indexOf(cb);
+        if (i >= 0) syncCompleteCallbacks.splice(i, 1);
+      };
     },
   };
 }

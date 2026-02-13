@@ -2,9 +2,10 @@
  * SQLite Web Worker
  *
  * Runs wa-sqlite with OPFSCoopSyncVFS for persistent local-first storage.
- * Manages two databases:
+ * Manages three databases:
  *   - bible.db (read-only, downloaded from server on first visit)
  *   - state.db (read-write, user data — position, bookmarks, etc.)
+ *   - egw-paragraphs.db (read-write, EGW commentary — incrementally synced per book)
  */
 import * as SQLite from 'wa-sqlite';
 import SQLiteESMFactory from 'wa-sqlite/dist/wa-sqlite.mjs';
@@ -15,6 +16,7 @@ import type { WorkerRequest, WorkerResponse } from './db-protocol.js';
 let sqlite3: SQLiteAPI;
 let bibleDb: number;
 let stateDb: number;
+let egwDb: number;
 let dirty = false;
 
 function post(msg: WorkerResponse) {
@@ -97,7 +99,104 @@ const STATE_SCHEMA = `
     device_id TEXT NOT NULL,
     last_synced_at INTEGER
   );
+
+  CREATE TABLE IF NOT EXISTS verse_notes (
+    id TEXT PRIMARY KEY,
+    book INTEGER NOT NULL,
+    chapter INTEGER NOT NULL,
+    verse INTEGER NOT NULL,
+    content TEXT NOT NULL,
+    created_at INTEGER NOT NULL
+  );
+  CREATE INDEX IF NOT EXISTS idx_verse_notes_location ON verse_notes(book, chapter, verse);
+
+  CREATE TABLE IF NOT EXISTS collections (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    color TEXT,
+    created_at INTEGER NOT NULL
+  );
+
+  CREATE TABLE IF NOT EXISTS collection_verses (
+    collection_id TEXT NOT NULL REFERENCES collections(id) ON DELETE CASCADE,
+    book INTEGER NOT NULL,
+    chapter INTEGER NOT NULL,
+    verse INTEGER NOT NULL,
+    added_at INTEGER NOT NULL,
+    PRIMARY KEY (collection_id, book, chapter, verse)
+  );
+  CREATE INDEX IF NOT EXISTS idx_collection_verses_location ON collection_verses(book, chapter, verse);
+
+  CREATE TABLE IF NOT EXISTS verse_markers (
+    id TEXT PRIMARY KEY,
+    book INTEGER NOT NULL,
+    chapter INTEGER NOT NULL,
+    verse INTEGER NOT NULL,
+    color TEXT NOT NULL,
+    created_at INTEGER NOT NULL,
+    UNIQUE(book, chapter, verse, color)
+  );
+  CREATE INDEX IF NOT EXISTS idx_verse_markers_chapter ON verse_markers(book, chapter);
 `;
+
+const EGW_SCHEMA = `
+  CREATE TABLE IF NOT EXISTS books (
+    book_id INTEGER PRIMARY KEY,
+    book_code TEXT NOT NULL,
+    book_title TEXT NOT NULL,
+    book_author TEXT NOT NULL,
+    paragraph_count INTEGER DEFAULT 0,
+    created_at TEXT NOT NULL
+  );
+  CREATE INDEX IF NOT EXISTS idx_books_code ON books(book_code);
+
+  CREATE TABLE IF NOT EXISTS paragraphs (
+    book_id INTEGER NOT NULL,
+    ref_code TEXT NOT NULL,
+    para_id TEXT,
+    refcode_short TEXT,
+    refcode_long TEXT,
+    content TEXT,
+    puborder INTEGER NOT NULL,
+    element_type TEXT,
+    element_subtype TEXT,
+    page_number INTEGER,
+    paragraph_number INTEGER,
+    is_chapter_heading INTEGER DEFAULT 0,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL,
+    PRIMARY KEY (book_id, ref_code),
+    FOREIGN KEY (book_id) REFERENCES books(book_id)
+  );
+  CREATE INDEX IF NOT EXISTS idx_paragraphs_book_id ON paragraphs(book_id);
+  CREATE INDEX IF NOT EXISTS idx_paragraphs_puborder ON paragraphs(book_id, puborder);
+  CREATE INDEX IF NOT EXISTS idx_paragraphs_page ON paragraphs(book_id, page_number);
+
+  CREATE TABLE IF NOT EXISTS paragraph_bible_refs (
+    para_book_id INTEGER NOT NULL,
+    para_ref_code TEXT NOT NULL,
+    bible_book INTEGER NOT NULL,
+    bible_chapter INTEGER NOT NULL,
+    bible_verse INTEGER,
+    PRIMARY KEY (para_book_id, para_ref_code, bible_book, bible_chapter, bible_verse),
+    FOREIGN KEY (para_book_id, para_ref_code) REFERENCES paragraphs(book_id, ref_code)
+  );
+  CREATE INDEX IF NOT EXISTS idx_pbr_bible
+    ON paragraph_bible_refs(bible_book, bible_chapter, bible_verse);
+
+  CREATE TABLE IF NOT EXISTS sync_status (
+    book_id INTEGER PRIMARY KEY,
+    book_code TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'pending',
+    error_message TEXT,
+    last_attempt TEXT NOT NULL,
+    paragraph_count INTEGER DEFAULT 0
+  );
+`;
+
+// Bible Commentary volumes to auto-sync
+const BC_VOLUMES = ['1BC', '2BC', '3BC', '4BC', '5BC', '6BC', '7BC'];
 
 async function execQuery(
   db: number,
@@ -185,6 +284,265 @@ async function downloadBibleDb(): Promise<void> {
   bibleDb = await sqlite3.open_v2('bible.db', SQLite.SQLITE_OPEN_READONLY, 'opfs-coop-sync');
 }
 
+// ---------------------------------------------------------------------------
+// EGW incremental sync
+// ---------------------------------------------------------------------------
+
+async function isBookSynced(bookCode: string): Promise<boolean> {
+  try {
+    const rows = await execQuery(
+      egwDb,
+      "SELECT status FROM sync_status WHERE book_code = ? AND status = 'success'",
+      [bookCode],
+    );
+    return rows.length > 0;
+  } catch {
+    return false;
+  }
+}
+
+async function getEgwSyncStatus(): Promise<
+  { bookCode: string; status: string; paragraphCount: number }[]
+> {
+  try {
+    const rows = await execQuery(
+      egwDb,
+      'SELECT book_code, status, paragraph_count FROM sync_status ORDER BY book_code',
+    );
+    return rows.map((r) => ({
+      bookCode: r.book_code as string,
+      status: r.status as string,
+      paragraphCount: r.paragraph_count as number,
+    }));
+  } catch {
+    return [];
+  }
+}
+
+async function syncBook(bookCode: string, _requestId?: number): Promise<number> {
+  // Check if already synced
+  if (await isBookSynced(bookCode)) {
+    console.log(`[db-worker] sync: ${bookCode} already synced, skipping`);
+    return 0;
+  }
+
+  post({ type: 'sync-book-progress', bookCode, stage: 'Fetching...', progress: 0 });
+
+  const response = await fetch(`/api/egw/${encodeURIComponent(bookCode)}/dump`);
+  if (!response.ok) {
+    const errMsg = `Failed to fetch ${bookCode}: ${response.statusText}`;
+    throw new Error(errMsg);
+  }
+
+  post({ type: 'sync-book-progress', bookCode, stage: 'Parsing...', progress: 30 });
+  const dump = await response.json();
+
+  const book = dump.book;
+  const paragraphs = dump.paragraphs as {
+    refCode: string;
+    paraId: string | null;
+    refcodeShort: string | null;
+    refcodeLong: string | null;
+    content: string | null;
+    puborder: number;
+    elementType: string | null;
+    elementSubtype: string | null;
+    pageNumber: number | null;
+    paragraphNumber: number | null;
+    isChapterHeading: boolean;
+  }[];
+  const bibleRefs = dump.bibleRefs as {
+    refCode: string;
+    bibleBook: number;
+    bibleChapter: number;
+    bibleVerse: number | null;
+  }[];
+
+  post({ type: 'sync-book-progress', bookCode, stage: 'Inserting...', progress: 50 });
+
+  const now = new Date().toISOString();
+
+  // Transaction: insert book, paragraphs, bible refs, sync status
+  await execWrite(egwDb, 'BEGIN IMMEDIATE');
+  try {
+    // Upsert book
+    await execWrite(
+      egwDb,
+      `INSERT INTO books (book_id, book_code, book_title, book_author, paragraph_count, created_at)
+       VALUES (?, ?, ?, ?, ?, ?)
+       ON CONFLICT(book_id) DO UPDATE SET
+         book_code = excluded.book_code,
+         book_title = excluded.book_title,
+         book_author = excluded.book_author,
+         paragraph_count = excluded.paragraph_count`,
+      [book.bookId, book.bookCode, book.title, book.author, paragraphs.length, now],
+    );
+
+    // Insert paragraphs and bible refs (sequential — SQLite single-writer)
+    /* eslint-disable no-await-in-loop */
+    for (const p of paragraphs) {
+      await execWrite(
+        egwDb,
+        `INSERT OR REPLACE INTO paragraphs
+         (book_id, ref_code, para_id, refcode_short, refcode_long, content,
+          puborder, element_type, element_subtype, page_number, paragraph_number,
+          is_chapter_heading, created_at, updated_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          book.bookId,
+          p.refCode,
+          p.paraId,
+          p.refcodeShort,
+          p.refcodeLong,
+          p.content,
+          p.puborder,
+          p.elementType,
+          p.elementSubtype,
+          p.pageNumber,
+          p.paragraphNumber,
+          p.isChapterHeading ? 1 : 0,
+          now,
+          now,
+        ],
+      );
+    }
+
+    post({ type: 'sync-book-progress', bookCode, stage: 'Bible refs...', progress: 80 });
+
+    for (const r of bibleRefs) {
+      await execWrite(
+        egwDb,
+        `INSERT OR IGNORE INTO paragraph_bible_refs
+         (para_book_id, para_ref_code, bible_book, bible_chapter, bible_verse)
+         VALUES (?, ?, ?, ?, ?)`,
+        [book.bookId, r.refCode, r.bibleBook, r.bibleChapter, r.bibleVerse],
+      );
+    }
+    /* eslint-enable no-await-in-loop */
+
+    // Update sync status
+    await execWrite(
+      egwDb,
+      `INSERT INTO sync_status (book_id, book_code, status, last_attempt, paragraph_count)
+       VALUES (?, ?, 'success', ?, ?)
+       ON CONFLICT(book_id) DO UPDATE SET
+         status = 'success',
+         error_message = NULL,
+         last_attempt = excluded.last_attempt,
+         paragraph_count = excluded.paragraph_count`,
+      [book.bookId, bookCode, now, paragraphs.length],
+    );
+
+    await execWrite(egwDb, 'COMMIT');
+  } catch (e) {
+    await execWrite(egwDb, 'ROLLBACK').catch(() => {});
+    throw e;
+  }
+
+  post({ type: 'sync-book-progress', bookCode, stage: 'Done', progress: 100 });
+  console.log(`[db-worker] sync: ${bookCode} done — ${paragraphs.length} paragraphs`);
+  return paragraphs.length;
+}
+
+async function syncFullEgw(): Promise<void> {
+  post({ type: 'init-progress', stage: 'Downloading EGW commentary...', progress: 0 });
+
+  const response = await fetch('/api/db/egw');
+  if (!response.ok) {
+    throw new Error(`Failed to download egw-paragraphs.db: ${response.statusText}`);
+  }
+  if (!response.body) {
+    throw new Error('No response body for egw-paragraphs.db download');
+  }
+
+  await sqlite3.close(egwDb);
+
+  const contentLength = Number(response.headers.get('Content-Length') ?? 0);
+  const root = await navigator.storage.getDirectory();
+  const fileHandle = await root.getFileHandle('egw-paragraphs.db', { create: true });
+  const writable = await fileHandle.createWritable();
+
+  const reader = response.body.getReader();
+  let received = 0;
+
+  /* eslint-disable no-await-in-loop -- sequential stream read */
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    await writable.write(value);
+    received += value.byteLength;
+    if (contentLength > 0) {
+      post({
+        type: 'init-progress',
+        stage: 'Downloading EGW commentary...',
+        progress: Math.round((received / contentLength) * 100),
+      });
+    }
+  }
+  /* eslint-enable no-await-in-loop */
+
+  await writable.close();
+
+  // Reopen read-write (schema might differ from incremental)
+  egwDb = await sqlite3.open_v2(
+    'egw-paragraphs.db',
+    SQLite.SQLITE_OPEN_READWRITE | SQLite.SQLITE_OPEN_CREATE,
+    'opfs-coop-sync',
+  );
+
+  // Apply schema in case the downloaded db doesn't have sync_status
+  await sqlite3.exec(egwDb, EGW_SCHEMA);
+
+  // Populate sync_status from existing books so the UI shows green dots
+  await execWrite(
+    egwDb,
+    `INSERT OR REPLACE INTO sync_status (book_id, book_code, status, last_attempt, paragraph_count)
+     SELECT book_id, book_code, 'success', ?, paragraph_count FROM books`,
+    [new Date().toISOString()],
+  );
+  console.log('[db-worker] syncFullEgw: populated sync_status from books table');
+}
+
+/**
+ * Background auto-sync of BC volumes after init.
+ * Non-blocking — runs sequentially, posting progress.
+ */
+async function autoSyncBcVolumes(): Promise<void> {
+  /* eslint-disable no-await-in-loop */
+  for (const bookCode of BC_VOLUMES) {
+    try {
+      if (await isBookSynced(bookCode)) continue;
+      console.log(`[db-worker] auto-sync: starting ${bookCode}`);
+      const count = await syncBook(bookCode);
+      if (count > 0) {
+        post({ type: 'sync-book-result', id: 0, bookCode, paragraphCount: count });
+      }
+    } catch (err) {
+      console.warn(`[db-worker] auto-sync: ${bookCode} failed`, err);
+      // Record failure but continue with other volumes
+      try {
+        await execWrite(
+          egwDb,
+          `INSERT INTO sync_status (book_id, book_code, status, error_message, last_attempt, paragraph_count)
+           VALUES (0, ?, 'failed', ?, ?, 0)
+           ON CONFLICT(book_id) DO UPDATE SET
+             status = 'failed',
+             error_message = excluded.error_message,
+             last_attempt = excluded.last_attempt`,
+          [bookCode, err instanceof Error ? err.message : String(err), new Date().toISOString()],
+        );
+      } catch {
+        // ignore
+      }
+    }
+  }
+  /* eslint-enable no-await-in-loop */
+}
+
+// ---------------------------------------------------------------------------
+// Init
+// ---------------------------------------------------------------------------
+
 async function init(): Promise<void> {
   try {
     console.log('[db-worker] init: loading wa-sqlite module');
@@ -222,13 +580,35 @@ async function init(): Promise<void> {
     await sqlite3.exec(stateDb, STATE_SCHEMA);
     console.log('[db-worker] init: state.db schema applied');
 
+    // EGW commentary database — schema-only init (no monolithic download)
+    try {
+      egwDb = await sqlite3.open_v2(
+        'egw-paragraphs.db',
+        SQLite.SQLITE_OPEN_READWRITE | SQLite.SQLITE_OPEN_CREATE,
+        'opfs-coop-sync',
+      );
+      await sqlite3.exec(egwDb, EGW_SCHEMA);
+      console.log('[db-worker] init: egw-paragraphs.db schema applied');
+    } catch (egwErr) {
+      console.warn('[db-worker] init: EGW database unavailable, continuing without it', egwErr);
+    }
+
     post({ type: 'init-complete' });
     console.log('[db-worker] init: complete');
+
+    // Auto-sync BC volumes in background (non-blocking)
+    autoSyncBcVolumes().catch((err) => {
+      console.warn('[db-worker] auto-sync: failed', err);
+    });
   } catch (err) {
     console.error('[db-worker] init: FAILED', err);
     post({ type: 'init-error', error: err instanceof Error ? err.message : String(err) });
   }
 }
+
+// ---------------------------------------------------------------------------
+// Message handler
+// ---------------------------------------------------------------------------
 
 self.onmessage = async (event: MessageEvent<WorkerRequest>) => {
   const msg = event.data;
@@ -240,7 +620,7 @@ self.onmessage = async (event: MessageEvent<WorkerRequest>) => {
 
     case 'query': {
       try {
-        const db = msg.db === 'bible' ? bibleDb : stateDb;
+        const db = msg.db === 'bible' ? bibleDb : msg.db === 'egw' ? egwDb : stateDb;
         const rows = await execQuery(db, msg.sql, msg.params);
         post({ type: 'query-result', id: msg.id, rows });
       } catch (err) {
@@ -288,6 +668,45 @@ self.onmessage = async (event: MessageEvent<WorkerRequest>) => {
 
     case 'is-dirty': {
       post({ type: 'is-dirty-result', dirty });
+      break;
+    }
+
+    case 'sync-book': {
+      try {
+        const count = await syncBook(msg.bookCode, msg.id);
+        post({
+          type: 'sync-book-result',
+          id: msg.id,
+          bookCode: msg.bookCode,
+          paragraphCount: count,
+        });
+      } catch (err) {
+        post({
+          type: 'sync-book-error',
+          id: msg.id,
+          bookCode: msg.bookCode,
+          error: err instanceof Error ? err.message : String(err),
+        });
+      }
+      break;
+    }
+
+    case 'get-egw-sync-status': {
+      const books = await getEgwSyncStatus();
+      post({ type: 'egw-sync-status', books });
+      break;
+    }
+
+    case 'sync-full-egw': {
+      try {
+        await syncFullEgw();
+        post({ type: 'sync-full-egw-result' });
+      } catch (err) {
+        post({
+          type: 'sync-full-egw-error',
+          error: err instanceof Error ? err.message : String(err),
+        });
+      }
       break;
     }
   }
