@@ -2,51 +2,266 @@
  * EGW reader route.
  *
  * Three states based on URL params:
- * 1. No bookCode -> Book list (fetched from API)
- * 2. bookCode, no page -> Redirect to page 1
- * 3. bookCode + page -> Page reader view
+ * 1. No bookCode -> Book list
+ * 2. bookCode, no chapter -> Redirect to chapter 0
+ * 3. bookCode + chapter -> Chapter reader view
  */
-import { useState, useEffect, useRef } from 'react';
+import { Component, useState, useEffect, useRef, useMemo, Suspense, type ReactNode } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { useKeyboardAction } from '@/providers/keyboard-provider';
 import { useOverlay } from '@/providers/overlay-provider';
-import {
-  fetchEgwBooks,
-  fetchEgwPage,
-  fetchEgwChapters,
-  type EGWBookInfo,
-  type EGWChapter,
-  type EGWPageResponse,
-  type EGWParagraph,
-} from '@/data/egw/api';
+import { useApp, useDb } from '@/providers/db-provider';
+import type { EgwSyncStatus } from '@/workers/db-client';
+import type { EGWBookInfo } from '@/data/egw/api';
 import { isChapterHeading } from '@bible/core/egw';
 import { PageView } from '@/components/egw/page-view';
 import { BibleRefsPopup } from '@/components/egw/bible-refs-popup';
 
 // ---------------------------------------------------------------------------
+// Book categories — static mapping from bookCode to series
+// ---------------------------------------------------------------------------
+
+const EGW_CATEGORIES: { label: string; codes: Set<string> }[] = [
+  {
+    label: 'Conflict of the Ages',
+    codes: new Set(['PP', 'PK', 'DA', 'AA', 'GC']),
+  },
+  {
+    label: 'Bible Commentary',
+    codes: new Set(['1BC', '2BC', '3BC', '4BC', '5BC', '6BC', '7BC', '7aBC']),
+  },
+  {
+    label: 'Testimonies for the Church',
+    codes: new Set(['1T', '2T', '3T', '4T', '5T', '6T', '7T', '8T', '9T']),
+  },
+  {
+    label: 'Selected Messages',
+    codes: new Set(['1SM', '2SM', '3SM']),
+  },
+  {
+    label: 'Christian Living',
+    codes: new Set(['SC', 'COL', 'MH', 'Ed', 'MB', 'MYP', 'AH', 'CG', 'CT', 'FE']),
+  },
+  {
+    label: 'Devotional',
+    codes: new Set([
+      'ML',
+      'OHC',
+      'HP',
+      'RC',
+      'AG',
+      'FLB',
+      'SD',
+      'TMK',
+      'LHU',
+      'TDG',
+      'UL',
+      'HP',
+      'Mar',
+      'CC',
+    ]),
+  },
+  {
+    label: 'Church & Ministry',
+    codes: new Set(['TM', 'GW', 'Ev', 'ChS', 'CM', 'WM', 'LS', 'CS']),
+  },
+  {
+    label: 'Health & Temperance',
+    codes: new Set(['CH', 'CD', 'Te', '2MCP', 'MM']),
+  },
+  {
+    label: 'History & Prophecy',
+    codes: new Set(['EW', 'SR', 'SG', 'SP', '1SP', '2SP', '3SP', '4SP', 'TA']),
+  },
+];
+
+/** Reverse lookup: bookCode → category label */
+const CODE_TO_CATEGORY = new Map<string, string>();
+for (const cat of EGW_CATEGORIES) {
+  for (const code of cat.codes) {
+    CODE_TO_CATEGORY.set(code, cat.label);
+  }
+}
+
+type CategorizedBooks = { label: string; books: readonly EGWBookInfo[] }[];
+
+function categorizeBooks(books: readonly EGWBookInfo[]): CategorizedBooks {
+  const grouped = new Map<string, EGWBookInfo[]>();
+  const uncategorized: EGWBookInfo[] = [];
+
+  for (const book of books) {
+    const cat = CODE_TO_CATEGORY.get(book.bookCode);
+    if (cat) {
+      const list = grouped.get(cat);
+      if (list) list.push(book);
+      else grouped.set(cat, [book]);
+    } else {
+      uncategorized.push(book);
+    }
+  }
+
+  // Preserve category order from EGW_CATEGORIES
+  const result: CategorizedBooks = [];
+  for (const cat of EGW_CATEGORIES) {
+    const list = grouped.get(cat.label);
+    if (list && list.length > 0) {
+      result.push({ label: cat.label, books: list });
+    }
+  }
+  if (uncategorized.length > 0) {
+    result.push({ label: 'Other', books: uncategorized });
+  }
+  return result;
+}
+
+// ---------------------------------------------------------------------------
 // Route component
 // ---------------------------------------------------------------------------
 
+function EgwErrorFallback({ error, reset }: { error: Error; reset: () => void }) {
+  return (
+    <div className="flex h-[calc(100dvh-8rem)] flex-col items-center justify-center gap-6 text-center">
+      <div className="space-y-2">
+        <h2 className="text-lg font-medium text-foreground">Something went wrong</h2>
+        <p className="max-w-sm text-sm text-muted-foreground">{error.message}</p>
+      </div>
+      <div className="flex gap-4">
+        <a
+          href="/egw"
+          className="rounded-md border border-border px-4 py-2 text-sm text-foreground transition-colors hover:bg-accent"
+        >
+          Back to books
+        </a>
+        <button
+          onClick={reset}
+          className="rounded-md bg-primary px-4 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary/90"
+        >
+          Try again
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function EgwRoute() {
   const params = useParams<'bookCode' | 'page'>();
-  const navigate = useNavigate();
 
-  // Redirect to page 1 when bookCode present but no page
-  useEffect(() => {
-    if (params.bookCode && !params.page) {
-      navigate(`/egw/${params.bookCode}/1`, { replace: true });
-    }
-  }, [params.bookCode, params.page, navigate]);
+  const errorBoundary = (children: ReactNode) => (
+    <EgwErrorBoundary fallback={(error, reset) => <EgwErrorFallback error={error} reset={reset} />}>
+      {children}
+    </EgwErrorBoundary>
+  );
 
   if (params.bookCode && params.page) {
-    return <PageReaderView />;
+    return errorBoundary(
+      <Suspense fallback={<p className="text-muted-foreground italic">Loading chapter…</p>}>
+        <ChapterReaderView />
+      </Suspense>,
+    );
   }
 
-  if (!params.bookCode) {
-    return <BookListView />;
+  if (params.bookCode) {
+    // bookCode present but no chapter — redirect to chapter 0
+    return errorBoundary(
+      <Suspense fallback={<p className="text-muted-foreground italic">Loading…</p>}>
+        <RedirectToFirstChapter bookCode={params.bookCode} />
+      </Suspense>,
+    );
   }
+
+  return (
+    <Suspense fallback={<p className="text-muted-foreground italic">Loading books…</p>}>
+      <BookListView />
+    </Suspense>
+  );
+}
+
+/** Redirects to chapter 0. */
+function RedirectToFirstChapter({ bookCode }: { bookCode: string }) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate(`/egw/${bookCode}/0`, { replace: true });
+  }, [bookCode, navigate]);
 
   return null;
+}
+
+// ---------------------------------------------------------------------------
+// Error boundary
+// ---------------------------------------------------------------------------
+
+class EgwErrorBoundary extends Component<
+  { fallback: (error: Error, reset: () => void) => ReactNode; children: ReactNode },
+  { error: Error | null }
+> {
+  state: { error: Error | null } = { error: null };
+
+  static getDerivedStateFromError(error: Error) {
+    return { error };
+  }
+
+  reset = () => this.setState({ error: null });
+
+  render() {
+    if (this.state.error) {
+      return this.props.fallback(this.state.error, this.reset);
+    }
+    return this.props.children;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Book card
+// ---------------------------------------------------------------------------
+
+function BookCard({
+  book,
+  syncStatus,
+  isSyncing,
+  onSync,
+  disabled,
+}: {
+  book: EGWBookInfo;
+  syncStatus: EgwSyncStatus | undefined;
+  isSyncing: boolean;
+  onSync: () => void;
+  disabled: boolean;
+}) {
+  const isSynced = syncStatus?.status === 'success';
+
+  return (
+    <div className="group rounded-lg border border-border p-4 transition-colors hover:bg-accent">
+      <div className="flex items-center justify-between">
+        <a
+          href={`/egw/${book.bookCode}`}
+          className="font-sans font-semibold text-foreground group-hover:text-primary"
+        >
+          {book.title}
+        </a>
+        <div className="flex items-center gap-2">
+          {isSynced ? (
+            <span
+              className="inline-block size-2 rounded-full bg-green-500"
+              title={`Synced (${syncStatus.paragraphCount} paragraphs)`}
+            />
+          ) : (
+            <button
+              className="rounded px-2 py-0.5 text-xs text-muted-foreground transition-colors hover:bg-border hover:text-foreground disabled:opacity-50"
+              onClick={onSync}
+              disabled={isSyncing || disabled}
+            >
+              {isSyncing ? 'Syncing…' : 'Sync'}
+            </button>
+          )}
+        </div>
+      </div>
+      <a href={`/egw/${book.bookCode}`}>
+        <div className="mt-1 text-sm text-muted-foreground">{book.bookCode}</div>
+        <div className="mt-1 text-xs text-muted-foreground opacity-60">{book.author}</div>
+      </a>
+    </div>
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -54,69 +269,166 @@ function EgwRoute() {
 // ---------------------------------------------------------------------------
 
 function BookListView() {
-  const [books, setBooks] = useState<readonly EGWBookInfo[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const app = useApp();
+  const db = useDb();
+  const { source, books } = app.egwBooks();
 
+  const [search, setSearch] = useState('');
+  const [syncStatus, setSyncStatus] = useState<Map<string, EgwSyncStatus>>(new Map());
+  const [syncing, setSyncing] = useState<Set<string>>(new Set());
+  const [fullSyncing, setFullSyncing] = useState(false);
+
+  const filteredBooks = useMemo(() => {
+    const q = search.toLowerCase().trim();
+    if (!q) return books;
+    return books.filter(
+      (b) =>
+        b.bookCode.toLowerCase().includes(q) ||
+        b.title.toLowerCase().includes(q) ||
+        b.author.toLowerCase().includes(q),
+    );
+  }, [books, search]);
+
+  const categories = useMemo(() => categorizeBooks(filteredBooks), [filteredBooks]);
+
+  const refreshSyncStatus = () => {
+    db.getEgwSyncStatus().then((statuses) => {
+      const map = new Map<string, EgwSyncStatus>();
+      for (const s of statuses) map.set(s.bookCode, s);
+      setSyncStatus(map);
+    });
+  };
+
+  // Fetch sync status on mount + subscribe to background completions
   useEffect(() => {
-    fetchEgwBooks()
-      .then((b) => {
-        setBooks(b);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(String(err));
-        setLoading(false);
+    refreshSyncStatus();
+    return db.onSyncComplete(() => {
+      refreshSyncStatus();
+      app.egwBooks.invalidateAll();
+    });
+  }, [db]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleSyncBook = async (bookCode: string) => {
+    setSyncing((prev) => new Set(prev).add(bookCode));
+    try {
+      await db.syncBook(bookCode);
+      refreshSyncStatus();
+      app.egwBooks.invalidateAll();
+    } catch (err) {
+      console.error(`Sync ${bookCode} failed:`, err);
+    } finally {
+      setSyncing((prev) => {
+        const next = new Set(prev);
+        next.delete(bookCode);
+        return next;
       });
-  }, []);
+    }
+  };
+
+  const handleSyncAllBc = async () => {
+    const bcCodes = ['1BC', '2BC', '3BC', '4BC', '5BC', '6BC', '7BC'];
+    /* eslint-disable no-await-in-loop */
+    for (const code of bcCodes) {
+      if (syncStatus.get(code)?.status === 'success') continue;
+      await handleSyncBook(code);
+    }
+    /* eslint-enable no-await-in-loop */
+  };
+
+  const handleFullSync = async () => {
+    if (!confirm('This will download ~635MB. Continue?')) return;
+    setFullSyncing(true);
+    try {
+      await db.syncFullEgw();
+      app.egwBooks.invalidateAll();
+      refreshSyncStatus();
+    } catch (err) {
+      console.error('Full sync failed:', err);
+    } finally {
+      setFullSyncing(false);
+    }
+  };
 
   return (
     <div className="space-y-6">
       <header className="border-b border-border pb-4">
-        <h1 className="font-sans text-2xl font-semibold text-foreground">
-          Ellen G. White Writings
-        </h1>
-        <p className="mt-1 text-sm text-muted-foreground">Select a book to begin reading</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="font-sans text-2xl font-semibold text-foreground">
+              Ellen G. White Writings
+            </h1>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Select a book to begin reading
+              {source !== 'empty' && (
+                <span className="ml-2 text-xs opacity-60">
+                  ({source === 'local' ? 'offline' : 'server'})
+                </span>
+              )}
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <button
+              className="rounded-md border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground disabled:opacity-50"
+              onClick={handleSyncAllBc}
+              disabled={fullSyncing}
+            >
+              Sync All BC
+            </button>
+            <button
+              className="rounded-md border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground disabled:opacity-50"
+              onClick={handleFullSync}
+              disabled={fullSyncing}
+            >
+              {fullSyncing ? 'Downloading…' : 'Full Sync (~635MB)'}
+            </button>
+          </div>
+        </div>
       </header>
 
-      {loading && <p className="text-muted-foreground italic">Loading books...</p>}
-
-      {error && (
-        <div className="rounded-lg border border-border bg-accent/30 p-4">
-          <p className="text-sm text-muted-foreground">
-            No books available. Run{' '}
-            <code className="rounded bg-border px-1 text-xs">bible egw sync</code> on the server to
-            download books.
-          </p>
-        </div>
+      {books.length > 0 && (
+        <input
+          type="search"
+          placeholder="Filter books…"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
+          spellCheck={false}
+        />
       )}
 
-      {!loading && !error && books.length === 0 && (
+      {books.length === 0 ? (
         <div className="rounded-lg border border-border bg-accent/30 p-4">
           <p className="text-sm text-muted-foreground">
-            No books synced. Run{' '}
-            <code className="rounded bg-border px-1 text-xs">bible egw sync</code> on the server.
+            No books available yet. Use <strong>Full Sync</strong> to download the complete EGW
+            database, or <strong>Sync All BC</strong> to fetch Bible Commentary volumes
+            incrementally.
           </p>
         </div>
-      )}
-
-      {!loading && !error && books.length > 0 && (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {books.map((book) => (
-            <a
-              key={book.bookCode}
-              href={`/egw/${book.bookCode}`}
-              className="group rounded-lg border border-border p-4 transition-colors hover:bg-accent"
-            >
-              <div className="font-sans font-semibold text-foreground group-hover:text-primary">
-                {book.bookCode}
+      ) : filteredBooks.length === 0 ? (
+        <p className="text-sm text-muted-foreground italic">
+          No books matching &ldquo;{search}&rdquo;
+        </p>
+      ) : (
+        <div className="space-y-8">
+          {categories.map((cat) => (
+            <section key={cat.label}>
+              <h2 className="mb-3 text-sm font-medium uppercase tracking-wider text-muted-foreground">
+                {cat.label}
+                <span className="ml-2 text-xs font-normal opacity-60">{cat.books.length}</span>
+              </h2>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {cat.books.map((book) => (
+                  <BookCard
+                    key={book.bookId}
+                    book={book}
+                    syncStatus={syncStatus.get(book.bookCode)}
+                    isSyncing={syncing.has(book.bookCode)}
+                    onSync={() => handleSyncBook(book.bookCode)}
+                    disabled={fullSyncing}
+                  />
+                ))}
               </div>
-              <div className="mt-1 text-sm text-muted-foreground">{book.title}</div>
-              <div className="mt-1 text-xs text-muted-foreground opacity-60">
-                {book.author}
-                {book.paragraphCount && <> &middot; {book.paragraphCount} paragraphs</>}
-              </div>
-            </a>
+            </section>
           ))}
         </div>
       )}
@@ -125,90 +437,78 @@ function BookListView() {
 }
 
 // ---------------------------------------------------------------------------
-// Page reader view
+// Chapter reader view
 // ---------------------------------------------------------------------------
 
-function PageReaderView() {
+function ChapterReaderView() {
   const params = useParams<'bookCode' | 'page'>();
+  const bookCode = params.bookCode ?? '';
+  const chapterIndex = parseInt(params.page ?? '0', 10) || 0;
+
+  // key resets selectedIndex when chapter changes
+  return (
+    <ChapterReaderInner
+      key={`${bookCode}/${chapterIndex}`}
+      bookCode={bookCode}
+      chapterIndex={chapterIndex}
+    />
+  );
+}
+
+function ChapterReaderInner({
+  bookCode,
+  chapterIndex,
+}: {
+  bookCode: string;
+  chapterIndex: number;
+}) {
   const navigate = useNavigate();
   const { overlay } = useOverlay();
+  const app = useApp();
 
-  const bookCode = params.bookCode ?? '';
-  const pageNum = parseInt(params.page ?? '1', 10) || 1;
+  // Suspending reads
+  const chapter = app.egwChapterContent(bookCode, chapterIndex);
+  const chapters = app.egwChapters(bookCode);
 
-  // State
-  const [pageData, setPageData] = useState<EGWPageResponse | null>(null);
-  const [pageLoading, setPageLoading] = useState(true);
-  const [pageError, setPageError] = useState<string | null>(null);
-  const [chapters, setChapters] = useState<readonly EGWChapter[]>([]);
+  const hasPrev = chapterIndex > 0;
+  const hasNext = chapterIndex < chapter.totalChapters - 1;
+
+  // Selection — starts at 0, reset via key prop on parent
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [tocOpen, setTocOpen] = useState(false);
   const [refsPopupOpen, setRefsPopupOpen] = useState(false);
 
-  // Refs for event handlers
+  // Stable refs for event handlers
   const overlayRef = useRef(overlay);
   overlayRef.current = overlay;
   const refsPopupOpenRef = useRef(refsPopupOpen);
   refsPopupOpenRef.current = refsPopupOpen;
 
-  // Fetch page data
-  useEffect(() => {
-    let cancelled = false;
-    setPageLoading(true);
-    setPageError(null);
-    fetchEgwPage(bookCode, pageNum)
-      .then((data) => {
-        if (!cancelled) {
-          setPageData(data);
-          setPageLoading(false);
-        }
-      })
-      .catch((err) => {
-        if (!cancelled) {
-          setPageError(String(err));
-          setPageLoading(false);
-        }
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [bookCode, pageNum]);
+  // Derived: body paragraphs (excluding headings)
+  const bodyParagraphs = useMemo(
+    () => chapter.paragraphs.filter((p) => !isChapterHeading(p.elementType)),
+    [chapter.paragraphs],
+  );
 
-  // Fetch chapters
-  useEffect(() => {
-    fetchEgwChapters(bookCode)
-      .then(setChapters)
-      .catch(() => {});
-  }, [bookCode]);
-
-  // Reset selection on page change
-  useEffect(() => {
-    setSelectedIndex(0);
-  }, [pageNum]);
-
-  // Body paragraphs (excluding headings)
-  const bodyParagraphs: readonly EGWParagraph[] = pageData
-    ? pageData.paragraphs.filter((p) => !isChapterHeading(p.elementType))
-    : [];
-
-  // Selected paragraph data
   const selectedParagraph = bodyParagraphs[selectedIndex] ?? null;
 
   // Scroll selected paragraph into view
   useEffect(() => {
-    if (!bodyParagraphs.length) return;
     const para = bodyParagraphs[selectedIndex];
     if (!para) return;
     const el = document.querySelector(`[data-para="${para.puborder}"]`);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, [selectedIndex, bodyParagraphs]);
 
-  const goToPage = (page: number | null) => {
-    if (page == null) return;
-    navigate(`/egw/${bookCode}/${page}`);
+  const goToChapter = (index: number) => {
+    navigate(`/egw/${bookCode}/${index}`);
   };
+
+  // Prefetch adjacent chapters
+  useEffect(() => {
+    if (hasPrev) app.egwChapterContent.preload(bookCode, chapterIndex - 1);
+    if (hasNext) app.egwChapterContent.preload(bookCode, chapterIndex + 1);
+  }, [bookCode, chapterIndex, hasPrev, hasNext, app]);
 
   // Space/Enter opens Bible refs popup
   useEffect(() => {
@@ -223,7 +523,7 @@ function PageReaderView() {
       if (event.key === ' ' || (event.key === 'Enter' && !event.metaKey && !event.ctrlKey)) {
         event.preventDefault();
         event.stopPropagation();
-        if (selectedParagraph) {
+        if (bodyParagraphs[selectedIndex]) {
           setRefsPopupOpen(true);
         }
       }
@@ -231,7 +531,7 @@ function PageReaderView() {
 
     window.addEventListener('keydown', handleRawKeyDown, true);
     return () => window.removeEventListener('keydown', handleRawKeyDown, true);
-  }, [selectedParagraph]);
+  }, [selectedIndex, bodyParagraphs]);
 
   // Keyboard navigation
   useKeyboardAction((action) => {
@@ -247,10 +547,10 @@ function PageReaderView() {
         setSelectedIndex((i) => Math.max(0, i - 1));
         break;
       case 'nextChapter':
-        if (pageData) goToPage(pageData.nextPage);
+        if (hasNext) goToChapter(chapterIndex + 1);
         break;
       case 'prevChapter':
-        if (pageData) goToPage(pageData.prevPage);
+        if (hasPrev) goToChapter(chapterIndex - 1);
         break;
     }
   });
@@ -258,22 +558,21 @@ function PageReaderView() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-background border-b border-border pb-4 pt-2">
+      <header className="sticky top-0 z-10 border-b border-border bg-background pb-4 pt-2">
         <div className="flex items-baseline justify-between">
           <div className="flex items-baseline gap-3">
             <a href="/egw" className="text-sm text-primary hover:underline">
               Books
             </a>
             <h1 className="font-sans text-2xl font-semibold text-foreground">
-              {pageData ? pageData.book.title : bookCode}
+              {chapter.book.title}
             </h1>
           </div>
           <div className="flex items-center gap-3">
-            {/* Chapter TOC dropdown */}
             {chapters.length > 0 && (
               <div className="relative">
                 <button
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   onClick={() => setTocOpen((o) => !o)}
                 >
                   Chapters ▾
@@ -281,10 +580,10 @@ function PageReaderView() {
                 {tocOpen && (
                   <ChapterDropdown
                     chapters={chapters}
-                    currentPage={pageNum}
-                    onSelect={(page) => {
+                    currentIndex={chapterIndex}
+                    onSelect={(index) => {
                       setTocOpen(false);
-                      goToPage(page);
+                      goToChapter(index);
                     }}
                     onClose={() => setTocOpen(false)}
                   />
@@ -292,31 +591,21 @@ function PageReaderView() {
               </div>
             )}
             <span className="text-sm text-muted-foreground">
-              {pageData && (
-                <>
-                  Page {pageData.page} of {pageData.totalPages}
-                </>
-              )}
+              {chapterIndex + 1} / {chapter.totalChapters}
             </span>
           </div>
         </div>
-        {pageData?.chapterHeading && (
-          <div className="mt-2 text-lg font-medium text-primary">{pageData.chapterHeading}</div>
+        {chapter.title && (
+          <div className="mt-2 text-lg font-medium text-primary">{chapter.title}</div>
         )}
       </header>
 
       {/* Content */}
-      {pageLoading && <p className="text-muted-foreground italic">Loading...</p>}
-
-      {pageError && <p className="text-destructive">Failed to load page: {pageError}</p>}
-
-      {!pageLoading && !pageError && pageData && (
-        <PageView
-          paragraphs={pageData.paragraphs}
-          selectedIndex={selectedIndex}
-          onSelect={setSelectedIndex}
-        />
-      )}
+      <PageView
+        paragraphs={chapter.paragraphs}
+        selectedIndex={selectedIndex}
+        onSelect={setSelectedIndex}
+      />
 
       {/* Bible refs popup */}
       <BibleRefsPopup
@@ -328,14 +617,14 @@ function PageReaderView() {
 
       {/* Footer */}
       <footer className="border-t border-border pt-4 text-sm text-muted-foreground">
-        <div className="flex items-center justify-between flex-wrap gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <span>{selectedParagraph?.refcodeShort}</span>
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex flex-wrap gap-4">
             <span>
               <kbd className="rounded bg-border px-1 text-xs">↑↓</kbd> paragraph
             </span>
             <span>
-              <kbd className="rounded bg-border px-1 text-xs">←→</kbd> page
+              <kbd className="rounded bg-border px-1 text-xs">←→</kbd> chapter
             </span>
             <span>
               <kbd className="rounded bg-border px-1 text-xs">␣</kbd> refs
@@ -356,13 +645,13 @@ function PageReaderView() {
 
 function ChapterDropdown({
   chapters,
-  currentPage,
+  currentIndex,
   onSelect,
   onClose,
 }: {
-  chapters: readonly EGWChapter[];
-  currentPage: number;
-  onSelect: (page: number) => void;
+  chapters: readonly { page: number | null; title: string | null; refcodeShort: string | null }[];
+  currentIndex: number;
+  onSelect: (index: number) => void;
   onClose: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -380,24 +669,19 @@ function ChapterDropdown({
   return (
     <div
       ref={ref}
-      className="absolute right-0 top-full mt-1 z-20 max-h-80 w-64 overflow-y-auto rounded-lg border border-border bg-background shadow-xl"
+      className="absolute right-0 top-full z-20 mt-1 max-h-80 w-64 overflow-y-auto rounded-lg border border-border bg-background shadow-xl"
     >
-      {chapters.map((ch, i) => {
-        if (!ch.page) return null;
-        const page = ch.page;
-        return (
-          <button
-            key={i}
-            className={`w-full text-left px-3 py-2 text-sm transition-colors hover:bg-accent ${
-              page === currentPage ? 'text-primary font-medium' : 'text-foreground'
-            }`}
-            onClick={() => onSelect(page)}
-          >
-            {ch.title || ch.refcodeShort || `Page ${page}`}
-            <span className="ml-2 text-xs opacity-50">p.{page}</span>
-          </button>
-        );
-      })}
+      {chapters.map((ch, i) => (
+        <button
+          key={i}
+          className={`w-full px-3 py-2 text-left text-sm transition-colors hover:bg-accent ${
+            i === currentIndex ? 'font-medium text-primary' : 'text-foreground'
+          }`}
+          onClick={() => onSelect(i)}
+        >
+          {ch.title || ch.refcodeShort || `Chapter ${i + 1}`}
+        </button>
+      ))}
     </div>
   );
 }

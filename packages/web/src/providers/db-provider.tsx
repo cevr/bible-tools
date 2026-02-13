@@ -59,7 +59,7 @@ export function DbProvider({ children }: { children: ReactNode }) {
         console.log('[db-provider] db ready, creating runtime');
         const runtime = ManagedRuntime.make(AppLive as Layer.Layer<AppServices, never, never>);
         runtimeRef.current = runtime;
-        const appService = new AppService(runtime);
+        const appService = new AppService(runtime, client);
         appServiceRef.current = appService;
         const cachedApp = createCachedApp(appService);
         cachedAppRef.current = cachedApp;

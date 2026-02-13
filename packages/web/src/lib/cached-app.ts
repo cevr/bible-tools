@@ -31,7 +31,16 @@ export type ReadMethod =
   | 'getVerseWords'
   | 'getMarginNotes'
   | 'getChapterMarginNotes'
-  | 'searchByStrongs';
+  | 'searchByStrongs'
+  | 'getVerseNotes'
+  | 'getChapterMarkers'
+  | 'getEgwCommentary'
+  | 'getCollections'
+  | 'getVerseCollections'
+  | 'getCollectionVerses'
+  | 'fetchEgwBooks'
+  | 'fetchEgwChapterContent'
+  | 'fetchEgwChapters';
 
 /** Strips get/fetch prefix — cache consumers don't need the verb. */
 type StripPrefix<S extends string> = S extends `fetch${infer R}`
@@ -57,6 +66,15 @@ const READ_METHODS: ReadMethod[] = [
   'getMarginNotes',
   'getChapterMarginNotes',
   'searchByStrongs',
+  'getVerseNotes',
+  'getChapterMarkers',
+  'getEgwCommentary',
+  'getCollections',
+  'getVerseCollections',
+  'getCollectionVerses',
+  'fetchEgwBooks',
+  'fetchEgwChapterContent',
+  'fetchEgwChapters',
 ];
 
 /** Maps cached (prefix-stripped) proxy names back to service method names. */
