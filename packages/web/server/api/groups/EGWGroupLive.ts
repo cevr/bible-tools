@@ -76,6 +76,20 @@ export const EGWGroupLive = HttpApiBuilder.group(BibleToolsApi, 'EGW', (handlers
       )
       .handle('search', ({ urlParams: { q, limit, bookCode } }) =>
         egw.search(q, limit, bookCode).pipe(mapDbError),
+      )
+      .handle('bookDump', ({ path: { bookCode } }) =>
+        Effect.gen(function* () {
+          const dumpOpt = yield* egw.getBookDump(bookCode).pipe(mapDbError);
+          if (Option.isNone(dumpOpt)) {
+            return yield* Effect.fail(
+              new EGWBookNotFoundError({
+                bookCode,
+                message: `Book '${bookCode}' not found`,
+              }),
+            );
+          }
+          return dumpOpt.value;
+        }),
       );
   }),
 );

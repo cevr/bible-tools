@@ -5,9 +5,15 @@
  * Vite dev proxy forwards /api → localhost:3001.
  */
 
-import type { EGWBookInfo, EGWPageResponse, EGWChapter, EGWSearchResult } from '@bible/api';
+import type {
+  EGWBookInfo,
+  EGWPageResponse,
+  EGWChapter,
+  EGWSearchResult,
+  EGWBookDump,
+} from '@bible/api';
 
-export type { EGWBookInfo, EGWPageResponse, EGWChapter, EGWSearchResult };
+export type { EGWBookInfo, EGWPageResponse, EGWChapter, EGWSearchResult, EGWBookDump };
 export type { EGWParagraph } from '@bible/api';
 
 async function fetchJson<T>(url: string): Promise<T> {
@@ -39,4 +45,8 @@ export function searchEgw(
   if (opts?.bookCode) params.set('bookCode', opts.bookCode);
   if (opts?.limit) params.set('limit', String(opts.limit));
   return fetchJson(`/api/egw/search?${params}`);
+}
+
+export function fetchEgwBookDump(bookCode: string): Promise<EGWBookDump> {
+  return fetchJson(`/api/egw/${encodeURIComponent(bookCode)}/dump`);
 }

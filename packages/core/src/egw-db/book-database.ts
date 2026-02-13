@@ -234,6 +234,9 @@ export interface EGWParagraphDatabaseService {
       bibleVerse: number | null;
     }[],
   ) => Effect.Effect<number, ParagraphDatabaseError>;
+  readonly getBibleRefsByBook: (
+    bookId: number,
+  ) => Effect.Effect<readonly BibleRefRow[], ParagraphDatabaseError>;
   readonly getParagraphsByBibleRef: (
     bibleBook: number,
     bibleChapter: number,
@@ -502,6 +505,11 @@ export class EGWParagraphDatabase extends Context.Tag(
 
       const getAllSyncStatusQuery = db.query<SyncStatusRow, Record<string, never>>(`
         SELECT * FROM sync_status ORDER BY book_code
+      `);
+
+      const getBibleRefsByBookQuery = db.query<BibleRefRow, { $bookId: number }>(`
+        SELECT para_book_id, para_ref_code, bible_book, bible_chapter, bible_verse
+        FROM paragraph_bible_refs WHERE para_book_id = $bookId
       `);
 
       const getParagraphByRefCodeQuery = db.query<
@@ -1130,6 +1138,22 @@ export class EGWParagraphDatabase extends Context.Tag(
         });
 
       /**
+       * Get all Bible references for a given book
+       */
+      const getBibleRefsByBook = (
+        bookId: number,
+      ): Effect.Effect<readonly BibleRefRow[], ParagraphDatabaseError> =>
+        Effect.try({
+          try: () => getBibleRefsByBookQuery.all({ $bookId: bookId }),
+          catch: (error) =>
+            new DatabaseQueryError({
+              operation: 'getBibleRefsByBook',
+              bookId,
+              cause: error,
+            }),
+        });
+
+      /**
        * Get paragraphs that cite a specific Bible verse
        */
       const getParagraphsByBibleRef = (
@@ -1324,6 +1348,7 @@ export class EGWParagraphDatabase extends Context.Tag(
         // Bible reference operations
         storeBibleRef,
         storeBibleRefsBatch,
+        getBibleRefsByBook,
         getParagraphsByBibleRef,
         // Sync status operations
         setSyncStatus,
@@ -1376,6 +1401,7 @@ export class EGWParagraphDatabase extends Context.Tag(
       getMaxPage: () => Effect.succeed(1),
       storeBibleRef: () => Effect.void,
       storeBibleRefsBatch: (refs) => Effect.succeed(refs.length),
+      getBibleRefsByBook: () => Effect.succeed([]),
       getParagraphsByBibleRef: () => Effect.succeed([]),
       setSyncStatus: () => Effect.void,
       getSyncStatus: () => Effect.succeed(Option.none()),

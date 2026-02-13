@@ -9,6 +9,23 @@
 import { Context, Effect, Layer, Option, Schema, Stream } from 'effect';
 
 import { EGWParagraphDatabase, type ParagraphDatabaseError } from '../egw-db/book-database.js';
+import { isChapterHeading as isChapterHeadingType } from '../egw/parse.js';
+
+function parsePageNumber(refcode: string | null): number | null {
+  if (!refcode) return null;
+  const match = refcode.match(/\s(\d+)\.(\d+)$/);
+  if (match?.[1]) return parseInt(match[1], 10);
+  const pageMatch = refcode.match(/\s(\d+)$/);
+  if (pageMatch?.[1]) return parseInt(pageMatch[1], 10);
+  return null;
+}
+
+function parseParagraphNumber(refcode: string | null): number | null {
+  if (!refcode) return null;
+  const match = refcode.match(/\s(\d+)\.(\d+)$/);
+  if (match?.[2]) return parseInt(match[2], 10);
+  return null;
+}
 
 // ============================================================================
 // Types
@@ -71,6 +88,38 @@ export class EGWSearchResult extends Schema.Class<EGWSearchResult>('EGWSearchRes
   bookTitle: Schema.String,
 }) {}
 
+/**
+ * EGW Book Dump — all paragraphs + bible refs for a single book (for incremental sync)
+ */
+export class EGWBookDumpParagraph extends Schema.Class<EGWBookDumpParagraph>(
+  'EGWBookDumpParagraph',
+)({
+  refCode: Schema.String,
+  paraId: Schema.NullOr(Schema.String),
+  refcodeShort: Schema.NullOr(Schema.String),
+  refcodeLong: Schema.NullOr(Schema.String),
+  content: Schema.NullOr(Schema.String),
+  puborder: Schema.Number,
+  elementType: Schema.NullOr(Schema.String),
+  elementSubtype: Schema.NullOr(Schema.String),
+  pageNumber: Schema.NullOr(Schema.Number),
+  paragraphNumber: Schema.NullOr(Schema.Number),
+  isChapterHeading: Schema.Boolean,
+}) {}
+
+export class EGWBookDumpBibleRef extends Schema.Class<EGWBookDumpBibleRef>('EGWBookDumpBibleRef')({
+  refCode: Schema.String,
+  bibleBook: Schema.Number,
+  bibleChapter: Schema.Number,
+  bibleVerse: Schema.NullOr(Schema.Number),
+}) {}
+
+export class EGWBookDump extends Schema.Class<EGWBookDump>('EGWBookDump')({
+  book: EGWBook,
+  paragraphs: Schema.Array(EGWBookDumpParagraph),
+  bibleRefs: Schema.Array(EGWBookDumpBibleRef),
+}) {}
+
 // ============================================================================
 // Service Interface
 // ============================================================================
@@ -95,6 +144,9 @@ export interface EGWServiceShape {
     limit?: number,
     bookCode?: string,
   ) => Effect.Effect<readonly EGWSearchResult[], ParagraphDatabaseError>;
+  readonly getBookDump: (
+    bookCode: string,
+  ) => Effect.Effect<Option.Option<EGWBookDump>, ParagraphDatabaseError>;
 }
 
 // ============================================================================
@@ -257,12 +309,68 @@ export class EGWService extends Context.Tag('@bible/core/egw-service/service/EGW
           ),
         );
 
+      const getBookDump = (
+        bookCode: string,
+      ): Effect.Effect<Option.Option<EGWBookDump>, ParagraphDatabaseError> =>
+        Effect.gen(function* () {
+          const bookOpt = yield* db.getBookByCode(bookCode);
+          if (Option.isNone(bookOpt)) return Option.none();
+
+          const book = bookOpt.value;
+          const paragraphs = yield* Stream.runCollect(db.getParagraphsByBook(book.book_id));
+          const bibleRefs = yield* db.getBibleRefsByBook(book.book_id);
+
+          return Option.some(
+            new EGWBookDump({
+              book: new EGWBook({
+                bookId: book.book_id,
+                bookCode: book.book_code,
+                title: book.book_title,
+                author: book.book_author,
+                paragraphCount: book.paragraph_count,
+              }),
+              paragraphs: [...paragraphs].map(
+                (p) =>
+                  new EGWBookDumpParagraph({
+                    refCode:
+                      p.refcode_short ??
+                      p.refcode_long ??
+                      p.para_id ??
+                      `${book.book_id}-${p.puborder}`,
+                    paraId: p.para_id ?? null,
+                    refcodeShort: p.refcode_short ?? null,
+                    refcodeLong: p.refcode_long ?? null,
+                    content: p.content ?? null,
+                    puborder: p.puborder,
+                    elementType: p.element_type ?? null,
+                    elementSubtype: p.element_subtype ?? null,
+                    pageNumber: parsePageNumber(p.refcode_short ?? p.refcode_long ?? null),
+                    paragraphNumber: parseParagraphNumber(
+                      p.refcode_short ?? p.refcode_long ?? null,
+                    ),
+                    isChapterHeading: isChapterHeadingType(p.element_type ?? null),
+                  }),
+              ),
+              bibleRefs: bibleRefs.map(
+                (r) =>
+                  new EGWBookDumpBibleRef({
+                    refCode: r.para_ref_code,
+                    bibleBook: r.bible_book,
+                    bibleChapter: r.bible_chapter,
+                    bibleVerse: r.bible_verse,
+                  }),
+              ),
+            }),
+          );
+        });
+
       return {
         getBooks,
         getBook,
         getPage,
         getChapters,
         search,
+        getBookDump,
       };
     }),
   );
@@ -292,5 +400,6 @@ export class EGWService extends Context.Tag('@bible/core/egw-service/service/EGW
       getPage: () => Effect.succeed(null),
       getChapters: () => Effect.succeed([]),
       search: () => Effect.succeed([]),
+      getBookDump: () => Effect.succeed(Option.none()),
     });
 }

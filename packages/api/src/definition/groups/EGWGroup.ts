@@ -67,6 +67,39 @@ export const EGWSearchResultSchema = S.Struct({
 
 export type EGWSearchResult = S.Schema.Type<typeof EGWSearchResultSchema>;
 
+export const EGWBookDumpParagraphSchema = S.Struct({
+  refCode: S.String,
+  paraId: S.NullOr(S.String),
+  refcodeShort: S.NullOr(S.String),
+  refcodeLong: S.NullOr(S.String),
+  content: S.NullOr(S.String),
+  puborder: S.Number,
+  elementType: S.NullOr(S.String),
+  elementSubtype: S.NullOr(S.String),
+  pageNumber: S.NullOr(S.Number),
+  paragraphNumber: S.NullOr(S.Number),
+  isChapterHeading: S.Boolean,
+});
+
+export type EGWBookDumpParagraph = S.Schema.Type<typeof EGWBookDumpParagraphSchema>;
+
+export const EGWBookDumpBibleRefSchema = S.Struct({
+  refCode: S.String,
+  bibleBook: S.Number,
+  bibleChapter: S.Number,
+  bibleVerse: S.NullOr(S.Number),
+});
+
+export type EGWBookDumpBibleRef = S.Schema.Type<typeof EGWBookDumpBibleRefSchema>;
+
+export const EGWBookDumpSchema = S.Struct({
+  book: EGWBookInfoSchema,
+  paragraphs: S.Array(EGWBookDumpParagraphSchema),
+  bibleRefs: S.Array(EGWBookDumpBibleRefSchema),
+});
+
+export type EGWBookDump = S.Schema.Type<typeof EGWBookDumpSchema>;
+
 // ============================================================================
 // Errors
 // ============================================================================
@@ -142,6 +175,13 @@ export const EGWGroup = HttpApiGroup.make('EGW')
         }),
       )
       .addSuccess(S.Array(EGWSearchResultSchema))
+      .addError(EGWDatabaseError),
+  )
+  .add(
+    HttpApiEndpoint.get('bookDump', '/:bookCode/dump')
+      .setPath(S.Struct({ bookCode: S.String }))
+      .addSuccess(EGWBookDumpSchema)
+      .addError(EGWBookNotFoundError)
       .addError(EGWDatabaseError),
   )
   .prefix('/egw');
