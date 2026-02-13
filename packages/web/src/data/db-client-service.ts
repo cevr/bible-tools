@@ -4,7 +4,7 @@ import { DatabaseQueryError, WorkerError } from './errors';
 
 interface DbClientServiceShape {
   readonly query: <T = Record<string, unknown>>(
-    db: 'bible' | 'state',
+    db: 'bible' | 'state' | 'egw',
     sql: string,
     params?: unknown[],
   ) => Effect.Effect<T[], DatabaseQueryError>;
@@ -89,7 +89,7 @@ export class DbClientService extends Context.Tag('@bible-web/DbClient')<
 
     return DbClientService.of({
       query: <T = Record<string, unknown>>(
-        db: 'bible' | 'state',
+        db: 'bible' | 'state' | 'egw',
         sql: string,
         params?: unknown[],
       ) =>

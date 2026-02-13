@@ -3,11 +3,17 @@ import { DbClientService } from '../db-client-service';
 import type { DatabaseQueryError } from '../errors';
 import type {
   ClassifiedCrossReference,
+  CollectionVerse,
   ConcordanceResult,
   CrossRefType,
+  EGWCommentaryEntry,
   MarginNote,
+  MarkerColor,
   StrongsEntry,
+  StudyCollection,
   UserCrossRef,
+  VerseMarker,
+  VerseNote,
   VerseWord,
 } from './service';
 
@@ -70,6 +76,48 @@ interface ConcordanceRow {
   word_text: string | null;
 }
 
+interface CollectionRow {
+  id: string;
+  name: string;
+  description: string | null;
+  color: string | null;
+  created_at: number;
+}
+
+interface CollectionVerseRow {
+  collection_id: string;
+  book: number;
+  chapter: number;
+  verse: number;
+  added_at: number;
+}
+
+interface EGWCommentaryRow {
+  refcode_short: string;
+  book_code: string;
+  book_title: string;
+  content: string;
+  puborder: number;
+}
+
+interface VerseMarkerRow {
+  id: string;
+  book: number;
+  chapter: number;
+  verse: number;
+  color: string;
+  created_at: number;
+}
+
+interface VerseNoteRow {
+  id: string;
+  book: number;
+  chapter: number;
+  verse: number;
+  content: string;
+  created_at: number;
+}
+
 function classificationKey(book: number, chapter: number, verse: number | null): string {
   return `${book}:${chapter}:${verse ?? 0}`;
 }
@@ -119,6 +167,74 @@ interface WebStudyDataServiceShape {
   ) => Effect.Effect<UserCrossRef, DatabaseQueryError>;
 
   readonly removeUserCrossRef: (id: string) => Effect.Effect<void, DatabaseQueryError>;
+
+  readonly getChapterMarkers: (
+    book: number,
+    chapter: number,
+  ) => Effect.Effect<Map<number, VerseMarker[]>, DatabaseQueryError>;
+
+  readonly addVerseMarker: (
+    book: number,
+    chapter: number,
+    verse: number,
+    color: MarkerColor,
+  ) => Effect.Effect<VerseMarker, DatabaseQueryError>;
+
+  readonly removeVerseMarker: (id: string) => Effect.Effect<void, DatabaseQueryError>;
+
+  readonly getVerseNotes: (
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => Effect.Effect<VerseNote[], DatabaseQueryError>;
+
+  readonly addVerseNote: (
+    book: number,
+    chapter: number,
+    verse: number,
+    content: string,
+  ) => Effect.Effect<VerseNote, DatabaseQueryError>;
+
+  readonly removeVerseNote: (id: string) => Effect.Effect<void, DatabaseQueryError>;
+
+  readonly getEgwCommentary: (
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => Effect.Effect<EGWCommentaryEntry[], DatabaseQueryError>;
+
+  readonly getCollections: () => Effect.Effect<StudyCollection[], DatabaseQueryError>;
+
+  readonly createCollection: (
+    name: string,
+    opts?: { description?: string; color?: string },
+  ) => Effect.Effect<StudyCollection, DatabaseQueryError>;
+
+  readonly removeCollection: (id: string) => Effect.Effect<void, DatabaseQueryError>;
+
+  readonly getVerseCollections: (
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => Effect.Effect<StudyCollection[], DatabaseQueryError>;
+
+  readonly addVerseToCollection: (
+    collectionId: string,
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => Effect.Effect<void, DatabaseQueryError>;
+
+  readonly removeVerseFromCollection: (
+    collectionId: string,
+    book: number,
+    chapter: number,
+    verse: number,
+  ) => Effect.Effect<void, DatabaseQueryError>;
+
+  readonly getCollectionVerses: (
+    collectionId: string,
+  ) => Effect.Effect<CollectionVerse[], DatabaseQueryError>;
 }
 
 export class WebStudyDataService extends Context.Tag('@bible-web/StudyData')<
@@ -381,6 +497,230 @@ export class WebStudyDataService extends Context.Tag('@bible-web/StudyData')<
         yield* db.exec('DELETE FROM user_cross_refs WHERE id = ?', [id]);
       });
 
+      const getChapterMarkers = Effect.fn('WebStudyDataService.getChapterMarkers')(function* (
+        book: number,
+        chapter: number,
+      ) {
+        const rows = yield* db.query<VerseMarkerRow>(
+          'state',
+          'SELECT id, book, chapter, verse, color, created_at FROM verse_markers WHERE book = ? AND chapter = ? ORDER BY verse, created_at ASC',
+          [book, chapter],
+        );
+        const map = new Map<number, VerseMarker[]>();
+        for (const r of rows) {
+          let arr = map.get(r.verse);
+          if (!arr) {
+            arr = [];
+            map.set(r.verse, arr);
+          }
+          arr.push({
+            id: r.id,
+            book: r.book,
+            chapter: r.chapter,
+            verse: r.verse,
+            color: r.color as MarkerColor,
+            createdAt: r.created_at,
+          });
+        }
+        return map;
+      });
+
+      const addVerseMarker = Effect.fn('WebStudyDataService.addVerseMarker')(function* (
+        book: number,
+        chapter: number,
+        verse: number,
+        color: MarkerColor,
+      ) {
+        const id = crypto.randomUUID();
+        const createdAt = Date.now();
+        yield* db.exec(
+          'INSERT OR IGNORE INTO verse_markers (id, book, chapter, verse, color, created_at) VALUES (?, ?, ?, ?, ?, ?)',
+          [id, book, chapter, verse, color, createdAt],
+        );
+        return { id, book, chapter, verse, color, createdAt } satisfies VerseMarker;
+      });
+
+      const removeVerseMarker = Effect.fn('WebStudyDataService.removeVerseMarker')(function* (
+        id: string,
+      ) {
+        yield* db.exec('DELETE FROM verse_markers WHERE id = ?', [id]);
+      });
+
+      const getVerseNotes = Effect.fn('WebStudyDataService.getVerseNotes')(function* (
+        book: number,
+        chapter: number,
+        verse: number,
+      ) {
+        const rows = yield* db.query<VerseNoteRow>(
+          'state',
+          'SELECT id, book, chapter, verse, content, created_at FROM verse_notes WHERE book = ? AND chapter = ? AND verse = ? ORDER BY created_at ASC',
+          [book, chapter, verse],
+        );
+        return rows.map(
+          (r): VerseNote => ({
+            id: r.id,
+            book: r.book,
+            chapter: r.chapter,
+            verse: r.verse,
+            content: r.content,
+            createdAt: r.created_at,
+          }),
+        );
+      });
+
+      const addVerseNote = Effect.fn('WebStudyDataService.addVerseNote')(function* (
+        book: number,
+        chapter: number,
+        verse: number,
+        content: string,
+      ) {
+        const id = crypto.randomUUID();
+        const createdAt = Date.now();
+        yield* db.exec(
+          'INSERT INTO verse_notes (id, book, chapter, verse, content, created_at) VALUES (?, ?, ?, ?, ?, ?)',
+          [id, book, chapter, verse, content, createdAt],
+        );
+        return { id, book, chapter, verse, content, createdAt } satisfies VerseNote;
+      });
+
+      const removeVerseNote = Effect.fn('WebStudyDataService.removeVerseNote')(function* (
+        id: string,
+      ) {
+        yield* db.exec('DELETE FROM verse_notes WHERE id = ?', [id]);
+      });
+
+      const getCollections = Effect.fn('WebStudyDataService.getCollections')(function* () {
+        const rows = yield* db.query<CollectionRow>(
+          'state',
+          'SELECT id, name, description, color, created_at FROM collections ORDER BY created_at DESC',
+        );
+        return rows.map(
+          (r): StudyCollection => ({
+            id: r.id,
+            name: r.name,
+            description: r.description,
+            color: r.color,
+            createdAt: r.created_at,
+          }),
+        );
+      });
+
+      const createCollection = Effect.fn('WebStudyDataService.createCollection')(function* (
+        name: string,
+        opts?: { description?: string; color?: string },
+      ) {
+        const id = crypto.randomUUID();
+        const createdAt = Date.now();
+        yield* db.exec(
+          'INSERT INTO collections (id, name, description, color, created_at) VALUES (?, ?, ?, ?, ?)',
+          [id, name, opts?.description ?? null, opts?.color ?? null, createdAt],
+        );
+        return {
+          id,
+          name,
+          description: opts?.description ?? null,
+          color: opts?.color ?? null,
+          createdAt,
+        } satisfies StudyCollection;
+      });
+
+      const removeCollection = Effect.fn('WebStudyDataService.removeCollection')(function* (
+        id: string,
+      ) {
+        yield* db.exec('DELETE FROM collections WHERE id = ?', [id]);
+      });
+
+      const getVerseCollections = Effect.fn('WebStudyDataService.getVerseCollections')(function* (
+        book: number,
+        chapter: number,
+        verse: number,
+      ) {
+        const rows = yield* db.query<CollectionRow>(
+          'state',
+          `SELECT c.id, c.name, c.description, c.color, c.created_at
+           FROM collections c
+           JOIN collection_verses cv ON c.id = cv.collection_id
+           WHERE cv.book = ? AND cv.chapter = ? AND cv.verse = ?
+           ORDER BY c.name`,
+          [book, chapter, verse],
+        );
+        return rows.map(
+          (r): StudyCollection => ({
+            id: r.id,
+            name: r.name,
+            description: r.description,
+            color: r.color,
+            createdAt: r.created_at,
+          }),
+        );
+      });
+
+      const addVerseToCollection = Effect.fn('WebStudyDataService.addVerseToCollection')(function* (
+        collectionId: string,
+        book: number,
+        chapter: number,
+        verse: number,
+      ) {
+        yield* db.exec(
+          'INSERT OR IGNORE INTO collection_verses (collection_id, book, chapter, verse, added_at) VALUES (?, ?, ?, ?, ?)',
+          [collectionId, book, chapter, verse, Date.now()],
+        );
+      });
+
+      const removeVerseFromCollection = Effect.fn('WebStudyDataService.removeVerseFromCollection')(
+        function* (collectionId: string, book: number, chapter: number, verse: number) {
+          yield* db.exec(
+            'DELETE FROM collection_verses WHERE collection_id = ? AND book = ? AND chapter = ? AND verse = ?',
+            [collectionId, book, chapter, verse],
+          );
+        },
+      );
+
+      const getCollectionVerses = Effect.fn('WebStudyDataService.getCollectionVerses')(function* (
+        collectionId: string,
+      ) {
+        const rows = yield* db.query<CollectionVerseRow>(
+          'state',
+          'SELECT collection_id, book, chapter, verse, added_at FROM collection_verses WHERE collection_id = ? ORDER BY added_at DESC',
+          [collectionId],
+        );
+        return rows.map(
+          (r): CollectionVerse => ({
+            collectionId: r.collection_id,
+            book: r.book,
+            chapter: r.chapter,
+            verse: r.verse,
+            addedAt: r.added_at,
+          }),
+        );
+      });
+
+      const getEgwCommentary = Effect.fn('WebStudyDataService.getEgwCommentary')(function* (
+        book: number,
+        chapter: number,
+        verse: number,
+      ) {
+        const rows = yield* db.query<EGWCommentaryRow>(
+          'egw',
+          `SELECT p.refcode_short, p.content, p.puborder, b.book_code, b.book_title
+           FROM paragraphs p
+           JOIN paragraph_bible_refs pbr ON p.book_id = pbr.para_book_id AND p.ref_code = pbr.para_ref_code
+           JOIN books b ON p.book_id = b.book_id
+           WHERE pbr.bible_book = ? AND pbr.bible_chapter = ? AND pbr.bible_verse = ?
+           ORDER BY b.book_code, p.puborder`,
+          [book, chapter, verse],
+        );
+        return rows.map(
+          (r): EGWCommentaryEntry => ({
+            refcode: r.refcode_short,
+            bookCode: r.book_code,
+            bookTitle: r.book_title,
+            content: r.content,
+            puborder: r.puborder,
+          }),
+        );
+      });
+
       return WebStudyDataService.of({
         getCrossRefs,
         getStrongsEntry,
@@ -391,6 +731,20 @@ export class WebStudyDataService extends Context.Tag('@bible-web/StudyData')<
         setRefType,
         addUserCrossRef,
         removeUserCrossRef,
+        getChapterMarkers,
+        addVerseMarker,
+        removeVerseMarker,
+        getVerseNotes,
+        addVerseNote,
+        removeVerseNote,
+        getEgwCommentary,
+        getCollections,
+        createCollection,
+        removeCollection,
+        getVerseCollections,
+        addVerseToCollection,
+        removeVerseFromCollection,
+        getCollectionVerses,
       });
     }),
   );

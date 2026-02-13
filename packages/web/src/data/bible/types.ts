@@ -22,3 +22,8 @@ export type Reference = BibleReference;
 
 // Re-export API types for convenience
 export type { Verse, SearchResult, ChapterResponse } from '@bible/api';
+
+/** Convert a book name to a URL-safe slug (e.g. "1 Samuel" → "1-samuel"). */
+export function toBookSlug(name: string): string {
+  return name.toLowerCase().replace(/\s+/g, '-');
+}

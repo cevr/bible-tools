@@ -5,17 +5,32 @@
  * Data reads suspend via CachedApp — the outer <Suspense> in index.tsx
  * catches the initial load.
  */
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useParams, useNavigate } from 'react-router';
+import { ArrowLeftIcon, ClipboardIcon, HashIcon, LinkIcon, XIcon } from 'lucide-react';
 import { useKeyboardAction } from '@/providers/keyboard-provider';
 import { useOverlay } from '@/providers/overlay-provider';
 import { useBible } from '@/providers/bible-provider';
 import { useApp } from '@/providers/db-provider';
-import { BOOK_ALIASES, type Verse } from '@/data/bible';
-import type { MarginNote } from '@/data/study/service';
+import { BOOK_ALIASES, toBookSlug, type Verse } from '@/data/bible';
+import type { ClassifiedCrossReference, MarginNote, VerseMarker } from '@/data/study/service';
+import {
+  MARKER_DOT_COLORS,
+  VerseStudyPanel,
+  type StudyTab,
+} from '@/components/bible/verse-study-sheet';
+import {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSeparator,
+} from '@/components/ui/context-menu';
+import { useSetWideLayout } from '@/components/layout/app-shell';
+import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
 import { ParagraphView } from '@/components/bible/paragraph-view';
-import { VerseStudyPanel, type StudyTab } from '@/components/bible/verse-study-sheet';
 import { GotoModeState, gotoModeTransition, keyToGotoEvent } from '@/lib/goto-mode';
 
 function BibleRoute() {
@@ -42,6 +57,7 @@ function BibleRoute() {
   // Suspending reads — data is available synchronously on cache hit
   const verses = app.verses(bookNumber, chapterNumber);
   const marginNotesByVerse = app.chapterMarginNotes(bookNumber, chapterNumber);
+  const chapterMarkers = app.chapterMarkers(bookNumber, chapterNumber);
   const preferences = app.preferences();
 
   // Display mode — initialized from preferences, toggleable locally
@@ -59,7 +75,15 @@ function BibleRoute() {
 
   // Study sheet state
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [sheetTab, setSheetTab] = useState<StudyTab>('verse');
+  const [sheetTab, setSheetTab] = useState<StudyTab>('notes');
+
+  // Split reader pane — stack-based for chain navigation
+  const [paneStack, setPaneStack] = useState<
+    { book: number; chapter: number; verse: number | null }[]
+  >([]);
+  const secondPane = paneStack.length > 0 ? paneStack[paneStack.length - 1] : null;
+
+  useSetWideLayout(secondPane !== null);
 
   // Refs for latest state in event handlers
   const overlayRef = useRef(overlay);
@@ -79,13 +103,14 @@ function BibleRoute() {
     if (!params.book) {
       const savedBook = bible.getBook(position.book);
       if (savedBook) {
-        const bookSlug = savedBook.name.toLowerCase().replace(/\s+/g, '-');
-        navigate(`/bible/${bookSlug}/${position.chapter}/${position.verse}`, { replace: true });
+        navigate(`/bible/${toBookSlug(savedBook.name)}/${position.chapter}/${position.verse}`, {
+          replace: true,
+        });
       } else {
         navigate('/bible/genesis/1', { replace: true });
       }
     } else if (!params.chapter) {
-      const bookName = book?.name.toLowerCase().replace(/\s+/g, '-') ?? 'genesis';
+      const bookName = book ? toBookSlug(book.name) : 'genesis';
       navigate(`/bible/${bookName}/1`, { replace: true });
     }
   }, [params.book, params.chapter]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -128,6 +153,11 @@ function BibleRoute() {
     }
   }, [bookNumber, chapterNumber, selectedVerse, app]);
 
+  // Clear pane stack when primary chapter changes
+  useEffect(() => {
+    setPaneStack([]);
+  }, [bookNumber, chapterNumber]);
+
   // Scroll selected verse into view
   useEffect(() => {
     const el = document.querySelector(`[data-verse="${selectedVerse}"]`);
@@ -142,9 +172,13 @@ function BibleRoute() {
     void app.setPreferences({ displayMode: next });
   };
 
-  const openSheet = (tab: StudyTab = 'verse') => {
+  const openSheet = (tab: StudyTab = 'notes') => {
     setSheetTab(tab);
     setSheetOpen(true);
+  };
+
+  const handleOpenSecondPane = (ref: ClassifiedCrossReference) => {
+    setPaneStack((stack) => [...stack, { book: ref.book, chapter: ref.chapter, verse: ref.verse }]);
   };
 
   // Search match verse numbers for n/N navigation
@@ -267,8 +301,7 @@ function BibleRoute() {
         if (next) {
           const nextBook = bible.getBook(next.book);
           if (nextBook) {
-            const bookSlug = nextBook.name.toLowerCase().replace(/\s+/g, '-');
-            navigate(`/bible/${bookSlug}/${next.chapter}`);
+            navigate(`/bible/${toBookSlug(nextBook.name)}/${next.chapter}`);
           }
         }
         break;
@@ -278,8 +311,7 @@ function BibleRoute() {
         if (prev) {
           const prevBook = bible.getBook(prev.book);
           if (prevBook) {
-            const bookSlug = prevBook.name.toLowerCase().replace(/\s+/g, '-');
-            navigate(`/bible/${bookSlug}/${prev.chapter}`);
+            navigate(`/bible/${toBookSlug(prevBook.name)}/${prev.chapter}`);
           }
         }
         break;
@@ -288,7 +320,7 @@ function BibleRoute() {
         openSheet('cross-refs');
         break;
       case 'openConcordance':
-        openSheet('concordance');
+        openSheet('words');
         break;
       case 'openSearch':
         openOverlay('search', {
@@ -311,26 +343,26 @@ function BibleRoute() {
 
   const handleVerseClick = (verseNum: number) => {
     setSelectedVerse(verseNum);
-    openSheet('verse');
+    if (!sheetOpen) openSheet('notes');
   };
 
   if (!params.book || !params.chapter) return null;
 
-  return (
-    <div className="space-y-6">
+  const primaryContent = (
+    <div className="flex flex-col gap-6">
       {/* Header */}
-      <header className="border-b border-border pb-4">
+      <header className="sticky top-0 z-10 flex flex-col gap-1 border-b border-border bg-background pb-4 pt-2 -mt-2">
         <h1 className="font-sans text-2xl font-semibold text-foreground">
           {book?.name} {chapterNumber}
         </h1>
-        <p className="mt-1 text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground">
           Press <kbd className="rounded bg-border px-1.5 py-0.5 text-xs">⌘K</kbd> for command
           palette
         </p>
       </header>
 
       {/* Chapter content */}
-      <div className={displayMode === 'verse' ? 'reading-text space-y-3' : ''}>
+      <div className={displayMode === 'verse' ? 'reading-text flex flex-col gap-3' : ''}>
         {verses.length === 0 ? (
           <p className="text-muted-foreground italic">No verses found for this chapter.</p>
         ) : displayMode === 'paragraph' ? (
@@ -348,23 +380,16 @@ function BibleRoute() {
               verse={verse}
               isSelected={selectedVerse === verse.verse}
               marginNotes={marginNotesByVerse.get(verse.verse)}
+              markers={chapterMarkers.get(verse.verse)}
               searchQuery={searchQuery}
+              bookName={book?.name ?? ''}
+              bookSlug={book ? toBookSlug(book.name) : ''}
+              chapter={chapterNumber}
               onClick={() => handleVerseClick(verse.verse)}
             />
           ))
         )}
       </div>
-
-      {/* Verse study panel */}
-      <VerseStudyPanel
-        book={bookNumber}
-        chapter={chapterNumber}
-        verse={selectedVerse}
-        open={sheetOpen}
-        onOpenChange={setSheetOpen}
-        activeTab={sheetTab}
-        onTabChange={setSheetTab}
-      />
 
       {/* Footer */}
       <footer className="border-t border-border pt-4 text-sm text-muted-foreground">
@@ -417,42 +442,255 @@ function BibleRoute() {
       </footer>
     </div>
   );
+
+  return (
+    <>
+      {secondPane ? (
+        <div className="sm:grid sm:grid-cols-2 sm:gap-6">
+          <div>{primaryContent}</div>
+          <Suspense
+            fallback={
+              <div className="border-l border-border sm:pl-6 pt-4">
+                <p className="text-sm text-muted-foreground italic">Loading...</p>
+              </div>
+            }
+          >
+            <SecondaryReaderPane
+              book={secondPane.book}
+              chapter={secondPane.chapter}
+              verse={secondPane.verse}
+              paneStack={paneStack}
+              onClose={() => setPaneStack([])}
+              onBack={() => setPaneStack((s) => s.slice(0, -1))}
+            />
+          </Suspense>
+        </div>
+      ) : (
+        primaryContent
+      )}
+
+      {/* Verse study panel */}
+      <VerseStudyPanel
+        book={bookNumber}
+        chapter={chapterNumber}
+        verse={selectedVerse}
+        open={sheetOpen}
+        onOpenChange={setSheetOpen}
+        activeTab={sheetTab}
+        onTabChange={setSheetTab}
+        onOpenSecondPane={handleOpenSecondPane}
+        verseMarkers={chapterMarkers.get(selectedVerse)}
+      />
+    </>
+  );
 }
 
 /**
- * Individual verse display with rich text rendering.
+ * Read-only secondary reader pane for cross-ref comparison.
+ * Supports stack-based chain navigation with breadcrumbs.
+ */
+function SecondaryReaderPane({
+  book,
+  chapter,
+  verse,
+  paneStack,
+  onClose,
+  onBack,
+}: {
+  book: number;
+  chapter: number;
+  verse: number | null;
+  paneStack: { book: number; chapter: number; verse: number | null }[];
+  onClose: () => void;
+  onBack: () => void;
+}) {
+  const bible = useBible();
+  const app = useApp();
+  const bookInfo = bible.getBook(book);
+  const verses = app.verses(book, chapter);
+  const marginNotesByVerse = app.chapterMarginNotes(book, chapter);
+
+  const [highlightedVerse, setHighlightedVerse] = useState(verse);
+
+  // Sync highlighted verse when stack changes
+  useEffect(() => {
+    setHighlightedVerse(verse);
+  }, [verse]);
+
+  // Scroll target verse into view
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (highlightedVerse == null) return;
+    const el = scrollRef.current?.querySelector(`[data-second-verse="${highlightedVerse}"]`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [highlightedVerse]);
+
+  const formatBreadcrumb = (entry: { book: number; chapter: number; verse: number | null }) => {
+    const b = bible.getBook(entry.book);
+    const name = b?.name ?? `${entry.book}`;
+    return entry.verse ? `${name} ${entry.chapter}:${entry.verse}` : `${name} ${entry.chapter}`;
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 bg-background sm:relative sm:inset-auto sm:z-auto sm:border-l sm:border-border sm:pl-6">
+      <header className="flex flex-col border-b border-border px-4 pb-3 pt-4 sm:pt-0 sm:px-0 gap-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            {paneStack.length > 1 && (
+              <Button variant="ghost" size="icon-sm" onClick={onBack}>
+                <ArrowLeftIcon />
+                <span className="sr-only">Back</span>
+              </Button>
+            )}
+            <h2 className="text-xl font-semibold text-foreground">
+              {bookInfo?.name} {chapter}
+            </h2>
+          </div>
+          <Button variant="ghost" size="icon-sm" onClick={onClose}>
+            <XIcon />
+            <span className="sr-only">Close second pane</span>
+          </Button>
+        </div>
+
+        {/* Breadcrumb trail */}
+        {paneStack.length > 1 && (
+          <div className="flex items-center gap-1 text-xs text-muted-foreground overflow-x-auto">
+            {paneStack.map((entry, i) => (
+              <span key={i} className="flex items-center gap-1 shrink-0">
+                {i > 0 && <span className="text-muted-foreground/50">&rarr;</span>}
+                <span className={i === paneStack.length - 1 ? 'text-foreground font-medium' : ''}>
+                  {formatBreadcrumb(entry)}
+                </span>
+              </span>
+            ))}
+          </div>
+        )}
+      </header>
+      <ScrollArea className="h-[calc(100dvh-12rem)]">
+        <div ref={scrollRef} className="reading-text flex flex-col gap-3 pt-4 px-4 sm:px-0">
+          {verses.map((v) => (
+            <p
+              key={v.verse}
+              data-second-verse={v.verse}
+              className={`rounded px-2 py-1 cursor-pointer transition-colors ${
+                v.verse === highlightedVerse ? 'bg-accent' : 'hover:bg-accent/50'
+              }`}
+              onClick={() => setHighlightedVerse(v.verse)}
+            >
+              <span className="verse-num">{v.verse}</span>
+              <VerseRenderer text={v.text} marginNotes={marginNotesByVerse.get(v.verse)} />
+            </p>
+          ))}
+        </div>
+      </ScrollArea>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Copy helpers
+// ---------------------------------------------------------------------------
+
+function stripVerseMarkup(text: string): string {
+  // Remove KJV markup tags like [add], [ital], etc.
+  return text
+    .replace(/\[(?:add|ital|divine|paragraph|colophon|inscription|selah)\]/g, '')
+    .replace(/\[\/(add|ital|divine|paragraph|colophon|inscription|selah)\]/g, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+function copyAsText(text: string, ref: string) {
+  const clean = stripVerseMarkup(text);
+  void navigator.clipboard.writeText(`"${clean}" \u2014 ${ref} KJV`);
+}
+
+function copyAsMarkdown(text: string, ref: string) {
+  const clean = stripVerseMarkup(text);
+  void navigator.clipboard.writeText(`> ${clean}\n> \u2014 *${ref} KJV*`);
+}
+
+function copyShareLink(bookSlug: string, chapter: number, verse: number) {
+  const url = `${window.location.origin}/bible/${bookSlug}/${chapter}/${verse}`;
+  void navigator.clipboard.writeText(url);
+}
+
+/**
+ * Individual verse display with rich text rendering and context menu.
  */
 function VerseDisplay({
   verse,
   isSelected,
   marginNotes,
+  markers,
   searchQuery,
+  bookName,
+  bookSlug,
+  chapter,
   onClick,
 }: {
   verse: Verse;
   isSelected: boolean;
   marginNotes?: MarginNote[];
+  markers?: VerseMarker[];
   searchQuery?: string;
+  bookName: string;
+  bookSlug: string;
+  chapter: number;
   onClick: () => void;
 }) {
+  const ref = `${bookName} ${chapter}:${verse.verse}`;
+
   return (
-    <p
-      data-verse={verse.verse}
-      className={`cursor-pointer rounded px-2 py-1 transition-colors duration-100 ${
-        isSelected ? 'bg-accent' : 'hover:bg-accent/50'
-      }`}
-      onClick={onClick}
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onClick();
+    <ContextMenu>
+      <ContextMenuTrigger
+        render={
+          <p
+            data-verse={verse.verse}
+            className={`cursor-pointer rounded px-2 py-1 transition-colors duration-100 flex items-start gap-1 ${
+              isSelected ? 'bg-accent' : 'hover:bg-accent/50'
+            }`}
+            onClick={onClick}
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onClick();
+              }
+            }}
+          />
         }
-      }}
-    >
-      <span className="verse-num">{verse.verse}</span>
-      <VerseRenderer text={verse.text} marginNotes={marginNotes} searchQuery={searchQuery} />
-    </p>
+      >
+        {markers && markers.length > 0 && (
+          <span className="flex flex-col gap-0.5 mt-1.5 shrink-0">
+            {markers.map((m) => (
+              <span key={m.id} className={`size-2 rounded-full ${MARKER_DOT_COLORS[m.color]}`} />
+            ))}
+          </span>
+        )}
+        <span>
+          <span className="verse-num">{verse.verse}</span>
+          <VerseRenderer text={verse.text} marginNotes={marginNotes} searchQuery={searchQuery} />
+        </span>
+      </ContextMenuTrigger>
+      <ContextMenuContent>
+        <ContextMenuItem onClick={() => copyAsText(verse.text, ref)}>
+          <ClipboardIcon />
+          Copy as text
+        </ContextMenuItem>
+        <ContextMenuItem onClick={() => copyAsMarkdown(verse.text, ref)}>
+          <HashIcon />
+          Copy as markdown
+        </ContextMenuItem>
+        <ContextMenuSeparator />
+        <ContextMenuItem onClick={() => copyShareLink(bookSlug, chapter, verse.verse)}>
+          <LinkIcon />
+          Copy share link
+        </ContextMenuItem>
+      </ContextMenuContent>
+    </ContextMenu>
   );
 }
 
