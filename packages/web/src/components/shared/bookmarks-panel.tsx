@@ -1,8 +1,8 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useNavigate } from 'react-router';
-import { useBible } from '@/providers/bible-provider';
+import { useBible } from '@/providers/bible-context';
 import { toBookSlug } from '@/data/bible';
-import { useOverlay, useOverlayData } from '@/providers/overlay-provider';
+import { useOverlay, useOverlayData } from '@/providers/overlay-context';
 import { useBookmarks, type Bookmark } from '@/providers/state-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';

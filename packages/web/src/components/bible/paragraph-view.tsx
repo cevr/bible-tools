@@ -6,7 +6,8 @@
  */
 import type { Verse } from '@/data/bible';
 import type { MarginNote } from '@/data/study/service';
-import { cleanVerseText, segmentVerseText, renderSegment } from './verse-renderer';
+import { cleanVerseText, segmentVerseText } from './verse-text';
+import { renderSegment } from './verse-renderer';
 
 export interface ParagraphViewProps {
   verses: readonly Verse[];

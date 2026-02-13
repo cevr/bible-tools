@@ -11,7 +11,7 @@ import type { EGWParagraph } from '@/data/egw/api';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { cleanHtml } from '@/components/egw/page-view';
+import { cleanHtml } from '@/components/egw/html-utils';
 
 export interface EgwStudyPanelProps {
   paragraph: EGWParagraph | null;

@@ -1,8 +1,8 @@
 import { useState, useEffect, Suspense, type ReactNode } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import { useBible } from '@/providers/bible-provider';
-import { useOverlay, useOverlayData } from '@/providers/overlay-provider';
-import { useApp } from '@/providers/db-provider';
+import { useBible } from '@/providers/bible-context';
+import { useOverlay, useOverlayData } from '@/providers/overlay-context';
+import { useApp } from '@/providers/db-context';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { BOOK_ALIASES, toBookSlug, type Reference } from '@/data/bible';

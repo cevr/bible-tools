@@ -12,8 +12,8 @@
 import { useState, useEffect, useRef, useMemo, useTransition, Suspense } from 'react';
 import { useNavigate } from 'react-router';
 import { XIcon, Trash2Icon } from 'lucide-react';
-import { useBible } from '@/providers/bible-provider';
-import { useApp } from '@/providers/db-provider';
+import { useBible } from '@/providers/bible-context';
+import { useApp } from '@/providers/db-context';
 import { Button } from '@/components/ui/button';
 import {
   Popover,
@@ -81,8 +81,7 @@ type GroupedRefs = {
 const refKey = (ref: ClassifiedCrossReference, idx: number) =>
   `${ref.source}-${ref.book}-${ref.chapter}-${ref.verse}-${idx}`;
 
-/** Width of the study panel for layout coordination. */
-export const STUDY_PANEL_WIDTH = 'sm:w-[28rem]';
+import { STUDY_PANEL_WIDTH } from '@/components/bible/study-constants';
 
 const MARKER_COLORS: { color: MarkerColor; bg: string; ring: string }[] = [
   { color: 'red', bg: 'bg-red-500', ring: 'ring-red-500' },
@@ -104,15 +103,6 @@ function formatRelativeTime(ts: number): string {
   if (days < 30) return `${days}d ago`;
   return new Date(ts).toLocaleDateString();
 }
-
-export const MARKER_DOT_COLORS: Record<MarkerColor, string> = {
-  red: 'bg-red-500',
-  orange: 'bg-orange-500',
-  yellow: 'bg-yellow-400',
-  green: 'bg-green-500',
-  blue: 'bg-blue-500',
-  purple: 'bg-purple-500',
-};
 
 function MarkerPicker({
   activeColors,

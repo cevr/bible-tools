@@ -8,17 +8,14 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { ArrowLeftIcon, ClipboardIcon, HashIcon, LinkIcon, XIcon } from 'lucide-react';
-import { useKeyboardAction } from '@/providers/keyboard-provider';
-import { useOverlay } from '@/providers/overlay-provider';
-import { useBible } from '@/providers/bible-provider';
-import { useApp } from '@/providers/db-provider';
+import { useKeyboardAction } from '@/providers/keyboard-context';
+import { useOverlay } from '@/providers/overlay-context';
+import { useBible } from '@/providers/bible-context';
+import { useApp } from '@/providers/db-context';
 import { BOOK_ALIASES, toBookSlug, type Verse } from '@/data/bible';
 import type { ClassifiedCrossReference, MarginNote, VerseMarker } from '@/data/study/service';
-import {
-  MARKER_DOT_COLORS,
-  VerseStudyPanel,
-  type StudyTab,
-} from '@/components/bible/verse-study-sheet';
+import { MARKER_DOT_COLORS } from '@/components/bible/study-constants';
+import { VerseStudyPanel, type StudyTab } from '@/components/bible/verse-study-sheet';
 import {
   ContextMenu,
   ContextMenuTrigger,
@@ -26,7 +23,7 @@ import {
   ContextMenuItem,
   ContextMenuSeparator,
 } from '@/components/ui/context-menu';
-import { useSetWideLayout } from '@/components/layout/app-shell';
+import { useSetWideLayout } from '@/components/layout/use-wide-layout';
 import { Button } from '@/components/ui/button';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
 import { BibleChapterView } from '@/components/bible/chapter-view';

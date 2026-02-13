@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import { useNavigate } from 'react-router';
-import { useBible } from '@/providers/bible-provider';
+import { useBible } from '@/providers/bible-context';
 import { toBookSlug } from '@/data/bible';
-import { useOverlay } from '@/providers/overlay-provider';
+import { useOverlay } from '@/providers/overlay-context';
 import { useHistory, type HistoryEntry } from '@/providers/state-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';

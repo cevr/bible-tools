@@ -1,28 +1,9 @@
-import { createContext, useContext, useState, useEffect, useRef, type ReactNode } from 'react';
-
-export type KeyboardAction =
-  | 'nextVerse'
-  | 'prevVerse'
-  | 'nextChapter'
-  | 'prevChapter'
-  | 'openCommandPalette'
-  | 'openSearch'
-  | 'openGotoDialog'
-  | 'openCrossRefs'
-  | 'openConcordance'
-  | 'toggleDisplayMode'
-  | 'openBookmarks'
-  | 'closeOverlay';
-
-type KeyboardHandler = (action: KeyboardAction, event: KeyboardEvent) => void;
-
-interface KeyboardContextValue {
-  registerHandler: (handler: KeyboardHandler) => () => void;
-  enabled: boolean;
-  setEnabled: (enabled: boolean) => void;
-}
-
-const KeyboardContext = createContext<KeyboardContextValue | null>(null);
+import { useState, useEffect, useRef, type ReactNode } from 'react';
+import {
+  KeyboardContext,
+  type KeyboardAction,
+  type KeyboardHandler,
+} from '@/providers/keyboard-context';
 
 function parseKeyboardEvent(event: KeyboardEvent): KeyboardAction | null {
   const { key, metaKey, ctrlKey, shiftKey } = event;
@@ -94,22 +75,4 @@ export function KeyboardProvider({ children }: { children: ReactNode }) {
       {children}
     </KeyboardContext.Provider>
   );
-}
-
-export function useKeyboard(): KeyboardContextValue {
-  const ctx = useContext(KeyboardContext);
-  if (!ctx) throw new Error('useKeyboard must be used within a KeyboardProvider');
-  return ctx;
-}
-
-export function useKeyboardAction(
-  handler: (action: KeyboardAction, event: KeyboardEvent) => void,
-): void {
-  const { registerHandler } = useKeyboard();
-  const handlerRef = useRef(handler);
-  handlerRef.current = handler;
-
-  useEffect(() => {
-    return registerHandler((action, event) => handlerRef.current(action, event));
-  }, [registerHandler]);
 }

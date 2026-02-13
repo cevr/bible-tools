@@ -9,32 +9,7 @@ import { useMemo } from 'react';
 import { isChapterHeading, headingLevel } from '@bible/core/egw';
 import { segmentTextWithReferences } from '@bible/core/bible-reader';
 import type { EGWParagraph } from '@/data/egw/api';
-
-// ---------------------------------------------------------------------------
-// HTML content cleaning
-// ---------------------------------------------------------------------------
-
-const ENTITY_MAP: Record<string, string> = {
-  '&amp;': '&',
-  '&lt;': '<',
-  '&gt;': '>',
-  '&quot;': '"',
-  '&#39;': "'",
-  '&apos;': "'",
-  '&nbsp;': ' ',
-};
-
-const ENTITY_RE = /&(?:amp|lt|gt|quot|#39|apos|nbsp);/g;
-const TAG_RE = /<br\s*\/?>/gi;
-const STRIP_TAGS_RE = /<[^>]*>/g;
-
-export function cleanHtml(content: string): string {
-  return content
-    .replace(TAG_RE, '\n')
-    .replace(STRIP_TAGS_RE, '')
-    .replace(ENTITY_RE, (m) => ENTITY_MAP[m] ?? m)
-    .trim();
-}
+import { cleanHtml } from '@/components/egw/html-utils';
 
 // ---------------------------------------------------------------------------
 // Component

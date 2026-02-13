@@ -5,7 +5,7 @@
  * Used by Bible route's SecondaryReaderPane and EGW route's Bible pane.
  */
 import { useEffect, useRef, type ReactNode } from 'react';
-import { useApp } from '@/providers/db-provider';
+import { useApp } from '@/providers/db-context';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
 

@@ -1,22 +1,8 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Link, useLocation } from 'react-router';
-import { useKeyboardAction } from '@/providers/keyboard-provider';
-import { useOverlay } from '@/providers/overlay-provider';
-
-// ---------------------------------------------------------------------------
-// Wide layout context — lets child routes widen the shell (e.g. split pane)
-// ---------------------------------------------------------------------------
-
-const WideLayoutContext = createContext<(wide: boolean) => void>(() => {});
-
-/** Call from a route to toggle the shell to wide mode. */
-export function useSetWideLayout(wide: boolean) {
-  const setWide = useContext(WideLayoutContext);
-  useEffect(() => {
-    setWide(wide);
-    return () => setWide(false);
-  }, [wide, setWide]);
-}
+import { useKeyboardAction } from '@/providers/keyboard-context';
+import { useOverlay } from '@/providers/overlay-context';
+import { WideLayoutContext } from '@/components/layout/use-wide-layout';
 
 export function AppShell({ children }: { children: ReactNode }) {
   const { openOverlay, closeOverlay, overlay } = useOverlay();

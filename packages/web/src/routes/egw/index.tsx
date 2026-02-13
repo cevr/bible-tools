@@ -9,17 +9,17 @@
 import { Component, useState, useEffect, useRef, useMemo, Suspense, type ReactNode } from 'react';
 import { useParams, useNavigate, Link } from 'react-router';
 import { XIcon } from 'lucide-react';
-import { useKeyboardAction } from '@/providers/keyboard-provider';
-import { useOverlay } from '@/providers/overlay-provider';
-import { useBible } from '@/providers/bible-provider';
-import { useApp, useDb } from '@/providers/db-provider';
+import { useKeyboardAction } from '@/providers/keyboard-context';
+import { useOverlay } from '@/providers/overlay-context';
+import { useBible } from '@/providers/bible-context';
+import { useApp, useDb } from '@/providers/db-context';
 import type { EgwSyncStatus } from '@/workers/db-client';
 import type { EGWBookInfo } from '@/data/egw/api';
 import { isChapterHeading } from '@bible/core/egw';
 import { PageView } from '@/components/egw/page-view';
 import { EgwStudyPanel } from '@/components/egw/egw-study-panel';
 import { BibleChapterView } from '@/components/bible/chapter-view';
-import { useSetWideLayout } from '@/components/layout/app-shell';
+import { useSetWideLayout } from '@/components/layout/use-wide-layout';
 import { Button } from '@/components/ui/button';
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable';
 

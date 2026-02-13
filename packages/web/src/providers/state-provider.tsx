@@ -4,7 +4,7 @@
  * Read methods are synchronous (suspend via CachedApp).
  * Write methods return Promise and invalidate the relevant cache.
  */
-import { useApp } from './db-provider';
+import { useApp } from './db-context';
 import type { Position, Bookmark, HistoryEntry, Preferences } from '@/data/state/effect-service';
 import type { Reference } from '@/data/bible/types';
 
