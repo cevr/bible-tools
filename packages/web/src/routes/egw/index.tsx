@@ -8,14 +8,20 @@
  */
 import { Component, useState, useEffect, useRef, useMemo, Suspense, type ReactNode } from 'react';
 import { useParams, useNavigate } from 'react-router';
+import { XIcon } from 'lucide-react';
 import { useKeyboardAction } from '@/providers/keyboard-provider';
 import { useOverlay } from '@/providers/overlay-provider';
+import { useBible } from '@/providers/bible-provider';
 import { useApp, useDb } from '@/providers/db-provider';
 import type { EgwSyncStatus } from '@/workers/db-client';
 import type { EGWBookInfo } from '@/data/egw/api';
 import { isChapterHeading } from '@bible/core/egw';
 import { PageView } from '@/components/egw/page-view';
-import { BibleRefsPopup } from '@/components/egw/bible-refs-popup';
+import { EgwStudyPanel } from '@/components/egw/egw-study-panel';
+import { BibleChapterView } from '@/components/bible/chapter-view';
+import { useSetWideLayout } from '@/components/layout/app-shell';
+import { Button } from '@/components/ui/button';
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable';
 
 // ---------------------------------------------------------------------------
 // Book categories — static mapping from bookCode to series
@@ -463,6 +469,7 @@ function ChapterReaderInner({
   chapterIndex: number;
 }) {
   const navigate = useNavigate();
+  const bible = useBible();
   const { overlay } = useOverlay();
   const app = useApp();
 
@@ -476,13 +483,27 @@ function ChapterReaderInner({
   // Selection — starts at 0, reset via key prop on parent
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [tocOpen, setTocOpen] = useState(false);
-  const [refsPopupOpen, setRefsPopupOpen] = useState(false);
+
+  // Aside study panel
+  const [asideOpen, setAsideOpen] = useState(false);
+
+  // Bible split pane
+  const [biblePaneRef, setBiblePaneRef] = useState<{
+    book: number;
+    chapter: number;
+    verse: number | null;
+  } | null>(null);
+
+  // Widen shell when Bible pane is open
+  useSetWideLayout(biblePaneRef !== null);
 
   // Stable refs for event handlers
   const overlayRef = useRef(overlay);
   overlayRef.current = overlay;
-  const refsPopupOpenRef = useRef(refsPopupOpen);
-  refsPopupOpenRef.current = refsPopupOpen;
+  const asideOpenRef = useRef(asideOpen);
+  asideOpenRef.current = asideOpen;
+  const biblePaneRefRef = useRef(biblePaneRef);
+  biblePaneRefRef.current = biblePaneRef;
 
   // Derived: body paragraphs (excluding headings)
   const bodyParagraphs = useMemo(
@@ -504,19 +525,35 @@ function ChapterReaderInner({
     navigate(`/egw/${bookCode}/${index}`);
   };
 
+  // Handle Bible reference click — opens/updates the Bible split pane
+  const handleRefClick = (ref: { book: number; chapter: number; verse?: number }) => {
+    setBiblePaneRef({ book: ref.book, chapter: ref.chapter, verse: ref.verse ?? null });
+  };
+
   // Prefetch adjacent chapters
   useEffect(() => {
     if (hasPrev) app.egwChapterContent.preload(bookCode, chapterIndex - 1);
     if (hasNext) app.egwChapterContent.preload(bookCode, chapterIndex + 1);
   }, [bookCode, chapterIndex, hasPrev, hasNext, app]);
 
-  // Space/Enter opens Bible refs popup
+  // Space/Enter toggles aside panel; Escape closes Bible pane or aside
   useEffect(() => {
     const handleRawKeyDown = (event: KeyboardEvent) => {
       if (overlayRef.current !== 'none') return;
-      if (refsPopupOpenRef.current) return;
       const target = event.target as HTMLElement;
       if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
+        return;
+      }
+
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        event.stopPropagation();
+        // Close Bible pane first, then aside
+        if (biblePaneRefRef.current) {
+          setBiblePaneRef(null);
+        } else if (asideOpenRef.current) {
+          setAsideOpen(false);
+        }
         return;
       }
 
@@ -524,7 +561,7 @@ function ChapterReaderInner({
         event.preventDefault();
         event.stopPropagation();
         if (bodyParagraphs[selectedIndex]) {
-          setRefsPopupOpen(true);
+          setAsideOpen((o) => !o);
         }
       }
     };
@@ -535,8 +572,6 @@ function ChapterReaderInner({
 
   // Keyboard navigation
   useKeyboardAction((action) => {
-    if (refsPopupOpen) return;
-
     switch (action) {
       case 'nextVerse': {
         const max = bodyParagraphs.length - 1;
@@ -555,7 +590,9 @@ function ChapterReaderInner({
     }
   });
 
-  return (
+  const bibleBookInfo = biblePaneRef ? bible.getBook(biblePaneRef.book) : null;
+
+  const egwContent = (
     <div className="space-y-6">
       {/* Header */}
       <header className="sticky top-0 z-10 border-b border-border bg-background pb-4 pt-2">
@@ -604,15 +641,11 @@ function ChapterReaderInner({
       <PageView
         paragraphs={chapter.paragraphs}
         selectedIndex={selectedIndex}
-        onSelect={setSelectedIndex}
-      />
-
-      {/* Bible refs popup */}
-      <BibleRefsPopup
-        content={selectedParagraph?.content ?? null}
-        refcode={selectedParagraph?.refcodeShort ?? null}
-        open={refsPopupOpen}
-        onClose={() => setRefsPopupOpen(false)}
+        onSelect={(i) => {
+          setSelectedIndex(i);
+          setAsideOpen(true);
+        }}
+        onRefClick={handleRefClick}
       />
 
       {/* Footer */}
@@ -627,7 +660,10 @@ function ChapterReaderInner({
               <kbd className="rounded bg-border px-1 text-xs">←→</kbd> chapter
             </span>
             <span>
-              <kbd className="rounded bg-border px-1 text-xs">␣</kbd> refs
+              <kbd className="rounded bg-border px-1 text-xs">␣</kbd> study
+            </span>
+            <span>
+              <kbd className="rounded bg-border px-1 text-xs">Esc</kbd> close
             </span>
             <span>
               <kbd className="rounded bg-border px-1 text-xs">⌘K</kbd> palette
@@ -636,6 +672,81 @@ function ChapterReaderInner({
         </div>
       </footer>
     </div>
+  );
+
+  const biblePaneHeader = biblePaneRef && (
+    <header className="flex items-center justify-between border-b border-border px-4 pb-3 pt-4 sm:pt-0 sm:px-0">
+      <h2 className="text-xl font-semibold text-foreground">
+        {bibleBookInfo?.name} {biblePaneRef.chapter}
+      </h2>
+      <Button variant="ghost" size="icon-sm" onClick={() => setBiblePaneRef(null)}>
+        <XIcon />
+        <span className="sr-only">Close Bible pane</span>
+      </Button>
+    </header>
+  );
+
+  return (
+    <>
+      {biblePaneRef ? (
+        <>
+          {/* Desktop: resizable split */}
+          <div className="hidden sm:block">
+            <ResizablePanelGroup orientation="horizontal">
+              <ResizablePanel defaultSize={55} minSize={30}>
+                {egwContent}
+              </ResizablePanel>
+              <ResizableHandle withHandle />
+              <ResizablePanel defaultSize={45} minSize={25}>
+                <Suspense
+                  fallback={
+                    <p className="p-4 text-muted-foreground italic">Loading Bible chapter…</p>
+                  }
+                >
+                  <BibleChapterView
+                    book={biblePaneRef.book}
+                    chapter={biblePaneRef.chapter}
+                    highlightVerse={biblePaneRef.verse}
+                    header={biblePaneHeader}
+                    className="border-l border-border pl-6"
+                  />
+                </Suspense>
+              </ResizablePanel>
+            </ResizablePanelGroup>
+          </div>
+
+          {/* Mobile: full-screen overlay */}
+          <div className="sm:hidden">
+            {egwContent}
+            <div className="fixed inset-0 z-50 bg-background">
+              <Suspense
+                fallback={
+                  <p className="p-4 text-muted-foreground italic">Loading Bible chapter…</p>
+                }
+              >
+                <BibleChapterView
+                  book={biblePaneRef.book}
+                  chapter={biblePaneRef.chapter}
+                  highlightVerse={biblePaneRef.verse}
+                  header={biblePaneHeader}
+                  className="px-4 pt-4"
+                />
+              </Suspense>
+            </div>
+          </div>
+        </>
+      ) : (
+        egwContent
+      )}
+
+      {/* Aside study panel */}
+      <EgwStudyPanel
+        paragraph={selectedParagraph}
+        open={asideOpen}
+        onOpenChange={setAsideOpen}
+        onRefClick={handleRefClick}
+      />
+    </>
   );
 }
 

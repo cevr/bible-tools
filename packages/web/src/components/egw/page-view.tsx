@@ -3,8 +3,11 @@
  *
  * Headings (h1-h6) render as styled section titles, not selectable paragraphs.
  * Body paragraphs are selectable with refcode suffix and highlight on selection.
+ * Bible references are rendered inline as clickable links.
  */
+import { useMemo } from 'react';
 import { isChapterHeading, headingLevel } from '@bible/core/egw';
+import { segmentTextWithReferences } from '@bible/core/bible-reader';
 import type { EGWParagraph } from '@/data/egw/api';
 
 // ---------------------------------------------------------------------------
@@ -25,7 +28,7 @@ const ENTITY_RE = /&(?:amp|lt|gt|quot|#39|apos|nbsp);/g;
 const TAG_RE = /<br\s*\/?>/gi;
 const STRIP_TAGS_RE = /<[^>]*>/g;
 
-function cleanHtml(content: string): string {
+export function cleanHtml(content: string): string {
   return content
     .replace(TAG_RE, '\n')
     .replace(STRIP_TAGS_RE, '')
@@ -41,9 +44,10 @@ export interface PageViewProps {
   paragraphs: readonly EGWParagraph[];
   selectedIndex: number;
   onSelect: (index: number) => void;
+  onRefClick?: (ref: { book: number; chapter: number; verse?: number }) => void;
 }
 
-export function PageView({ paragraphs, selectedIndex, onSelect }: PageViewProps) {
+export function PageView({ paragraphs, selectedIndex, onSelect, onRefClick }: PageViewProps) {
   let bodyIndex = 0;
   const items = paragraphs.map((para) => {
     const heading = isChapterHeading(para.elementType);
@@ -66,6 +70,7 @@ export function PageView({ paragraphs, selectedIndex, onSelect }: PageViewProps)
             para={item.para}
             isSelected={item.bodyIndex === selectedIndex}
             onClick={() => onSelect(item.bodyIndex)}
+            onRefClick={onRefClick}
           />
         ),
       )}
@@ -100,12 +105,16 @@ function ParagraphElement({
   para,
   isSelected,
   onClick,
+  onRefClick,
 }: {
   para: EGWParagraph;
   isSelected: boolean;
   onClick: () => void;
+  onRefClick?: (ref: { book: number; chapter: number; verse?: number }) => void;
 }) {
   const text = para.content ? cleanHtml(para.content) : '';
+  const segments = useMemo(() => segmentTextWithReferences(text), [text]);
+  const hasRefs = segments.some((s) => s.type === 'ref');
 
   return (
     <p
@@ -116,7 +125,25 @@ function ParagraphElement({
       }`}
       onClick={onClick}
     >
-      {text}
+      {hasRefs
+        ? segments.map((seg, i) =>
+            seg.type === 'text' ? (
+              <span key={i}>{seg.text}</span>
+            ) : (
+              <button
+                key={i}
+                type="button"
+                className="text-primary underline decoration-primary/30 hover:decoration-primary transition-colors"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onRefClick?.(seg.ref);
+                }}
+              >
+                {seg.text}
+              </button>
+            ),
+          )
+        : text}
       {para.refcodeShort && (
         <span className="ml-2 text-xs text-muted-foreground select-none">{para.refcodeShort}</span>
       )}

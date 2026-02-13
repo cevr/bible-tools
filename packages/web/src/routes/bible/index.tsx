@@ -28,8 +28,8 @@ import {
 } from '@/components/ui/context-menu';
 import { useSetWideLayout } from '@/components/layout/app-shell';
 import { Button } from '@/components/ui/button';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
+import { BibleChapterView } from '@/components/bible/chapter-view';
 import { ParagraphView } from '@/components/bible/paragraph-view';
 import { GotoModeState, gotoModeTransition, keyToGotoEvent } from '@/lib/goto-mode';
 
@@ -505,27 +505,7 @@ function SecondaryReaderPane({
   onBack: () => void;
 }) {
   const bible = useBible();
-  const app = useApp();
   const bookInfo = bible.getBook(book);
-  const verses = app.verses(book, chapter);
-  const marginNotesByVerse = app.chapterMarginNotes(book, chapter);
-
-  const [highlightedVerse, setHighlightedVerse] = useState(verse);
-
-  // Sync highlighted verse when stack changes
-  useEffect(() => {
-    setHighlightedVerse(verse);
-  }, [verse]);
-
-  // Scroll target verse into view
-  const scrollRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (highlightedVerse == null) return;
-    const el = scrollRef.current?.querySelector(`[data-second-verse="${highlightedVerse}"]`);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }, [highlightedVerse]);
 
   const formatBreadcrumb = (entry: { book: number; chapter: number; verse: number | null }) => {
     const b = bible.getBook(entry.book);
@@ -533,59 +513,50 @@ function SecondaryReaderPane({
     return entry.verse ? `${name} ${entry.chapter}:${entry.verse}` : `${name} ${entry.chapter}`;
   };
 
-  return (
-    <div className="fixed inset-0 z-50 bg-background sm:relative sm:inset-auto sm:z-auto sm:border-l sm:border-border sm:pl-6">
-      <header className="flex flex-col border-b border-border px-4 pb-3 pt-4 sm:pt-0 sm:px-0 gap-2">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            {paneStack.length > 1 && (
-              <Button variant="ghost" size="icon-sm" onClick={onBack}>
-                <ArrowLeftIcon />
-                <span className="sr-only">Back</span>
-              </Button>
-            )}
-            <h2 className="text-xl font-semibold text-foreground">
-              {bookInfo?.name} {chapter}
-            </h2>
-          </div>
-          <Button variant="ghost" size="icon-sm" onClick={onClose}>
-            <XIcon />
-            <span className="sr-only">Close second pane</span>
-          </Button>
+  const header = (
+    <header className="flex flex-col border-b border-border px-4 pb-3 pt-4 sm:pt-0 sm:px-0 gap-2">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          {paneStack.length > 1 && (
+            <Button variant="ghost" size="icon-sm" onClick={onBack}>
+              <ArrowLeftIcon />
+              <span className="sr-only">Back</span>
+            </Button>
+          )}
+          <h2 className="text-xl font-semibold text-foreground">
+            {bookInfo?.name} {chapter}
+          </h2>
         </div>
+        <Button variant="ghost" size="icon-sm" onClick={onClose}>
+          <XIcon />
+          <span className="sr-only">Close second pane</span>
+        </Button>
+      </div>
 
-        {/* Breadcrumb trail */}
-        {paneStack.length > 1 && (
-          <div className="flex items-center gap-1 text-xs text-muted-foreground overflow-x-auto">
-            {paneStack.map((entry, i) => (
-              <span key={i} className="flex items-center gap-1 shrink-0">
-                {i > 0 && <span className="text-muted-foreground/50">&rarr;</span>}
-                <span className={i === paneStack.length - 1 ? 'text-foreground font-medium' : ''}>
-                  {formatBreadcrumb(entry)}
-                </span>
+      {/* Breadcrumb trail */}
+      {paneStack.length > 1 && (
+        <div className="flex items-center gap-1 text-xs text-muted-foreground overflow-x-auto">
+          {paneStack.map((entry, i) => (
+            <span key={i} className="flex items-center gap-1 shrink-0">
+              {i > 0 && <span className="text-muted-foreground/50">&rarr;</span>}
+              <span className={i === paneStack.length - 1 ? 'text-foreground font-medium' : ''}>
+                {formatBreadcrumb(entry)}
               </span>
-            ))}
-          </div>
-        )}
-      </header>
-      <ScrollArea className="h-[calc(100dvh-12rem)]">
-        <div ref={scrollRef} className="reading-text flex flex-col gap-3 pt-4 px-4 sm:px-0">
-          {verses.map((v) => (
-            <p
-              key={v.verse}
-              data-second-verse={v.verse}
-              className={`rounded px-2 py-1 cursor-pointer transition-colors ${
-                v.verse === highlightedVerse ? 'bg-accent' : 'hover:bg-accent/50'
-              }`}
-              onClick={() => setHighlightedVerse(v.verse)}
-            >
-              <span className="verse-num">{v.verse}</span>
-              <VerseRenderer text={v.text} marginNotes={marginNotesByVerse.get(v.verse)} />
-            </p>
+            </span>
           ))}
         </div>
-      </ScrollArea>
-    </div>
+      )}
+    </header>
+  );
+
+  return (
+    <BibleChapterView
+      book={book}
+      chapter={chapter}
+      highlightVerse={verse}
+      header={header}
+      className="fixed inset-0 z-50 bg-background sm:relative sm:inset-auto sm:z-auto sm:border-l sm:border-border sm:pl-6"
+    />
   );
 }
 
