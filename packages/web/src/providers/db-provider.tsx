@@ -26,6 +26,8 @@ import type { AppStateService } from '@/data/state/effect-service';
 import type { WebStudyDataService } from '@/data/study/effect-service';
 import type { WebSyncService } from '@/data/sync/effect-service';
 
+const log = import.meta.env.DEV ? (...args: unknown[]) => console.log(...args) : () => {};
+
 type AppServices = WebBibleService | AppStateService | WebStudyDataService | WebSyncService;
 
 export type CachedApp = CachedService<AppService>;
@@ -56,7 +58,7 @@ export function DbProvider({ children }: { children: ReactNode }) {
       .init()
       .then(() => {
         if (disposed) return;
-        console.log('[db-provider] db ready, creating runtime');
+        log('[db-provider] db ready, creating runtime');
         const runtime = ManagedRuntime.make(AppLive as Layer.Layer<AppServices, never, never>);
         runtimeRef.current = runtime;
         const appService = new AppService(runtime, client);
@@ -71,7 +73,7 @@ export function DbProvider({ children }: { children: ReactNode }) {
         cachedApp.preload('getHistory');
 
         setReady(true);
-        console.log('[db-provider] ready');
+        log('[db-provider] ready');
       })
       .catch((err) => {
         if (disposed) return;

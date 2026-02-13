@@ -106,9 +106,8 @@ function resolveBook(bookPart: string, options?: ParseBibleQueryOptions): number
   }
 
   // Fallback: Partial match on book names (prefix match)
-  const lowerNormalized = normalized.toLowerCase();
   for (const book of BIBLE_BOOKS) {
-    if (book.name.toLowerCase().startsWith(lowerNormalized)) {
+    if (book.name.toLowerCase().startsWith(normalized)) {
       return book.number;
     }
   }

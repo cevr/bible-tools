@@ -13,6 +13,8 @@ import { OPFSCoopSyncVFS } from 'wa-sqlite/src/examples/OPFSCoopSyncVFS.js';
 
 import type { WorkerRequest, WorkerResponse } from './db-protocol.js';
 
+const log = import.meta.env.DEV ? (...args: unknown[]) => console.log(...args) : () => {};
+
 let sqlite3: SQLiteAPI;
 let bibleDb: number;
 let stateDb: number;
@@ -322,7 +324,7 @@ async function getEgwSyncStatus(): Promise<
 async function syncBook(bookCode: string, _requestId?: number): Promise<number> {
   // Check if already synced
   if (await isBookSynced(bookCode)) {
-    console.log(`[db-worker] sync: ${bookCode} already synced, skipping`);
+    log(`[db-worker] sync: ${bookCode} already synced, skipping`);
     return 0;
   }
 
@@ -440,7 +442,7 @@ async function syncBook(bookCode: string, _requestId?: number): Promise<number> 
   }
 
   post({ type: 'sync-book-progress', bookCode, stage: 'Done', progress: 100 });
-  console.log(`[db-worker] sync: ${bookCode} done — ${paragraphs.length} paragraphs`);
+  log(`[db-worker] sync: ${bookCode} done — ${paragraphs.length} paragraphs`);
   return paragraphs.length;
 }
 
@@ -500,7 +502,7 @@ async function syncFullEgw(): Promise<void> {
      SELECT book_id, book_code, 'success', ?, paragraph_count FROM books`,
     [new Date().toISOString()],
   );
-  console.log('[db-worker] syncFullEgw: populated sync_status from books table');
+  log('[db-worker] syncFullEgw: populated sync_status from books table');
 }
 
 /**
@@ -512,7 +514,7 @@ async function autoSyncBcVolumes(): Promise<void> {
   for (const bookCode of BC_VOLUMES) {
     try {
       if (await isBookSynced(bookCode)) continue;
-      console.log(`[db-worker] auto-sync: starting ${bookCode}`);
+      log(`[db-worker] auto-sync: starting ${bookCode}`);
       const count = await syncBook(bookCode);
       if (count > 0) {
         post({ type: 'sync-book-result', id: 0, bookCode, paragraphCount: count });
@@ -520,16 +522,23 @@ async function autoSyncBcVolumes(): Promise<void> {
     } catch (err) {
       console.warn(`[db-worker] auto-sync: ${bookCode} failed`, err);
       // Record failure but continue with other volumes
+      // Use negative index as deterministic book_id so each volume gets its own failure row
+      const failureId = -(BC_VOLUMES.indexOf(bookCode) + 1);
       try {
         await execWrite(
           egwDb,
           `INSERT INTO sync_status (book_id, book_code, status, error_message, last_attempt, paragraph_count)
-           VALUES (0, ?, 'failed', ?, ?, 0)
+           VALUES (?, ?, 'failed', ?, ?, 0)
            ON CONFLICT(book_id) DO UPDATE SET
              status = 'failed',
              error_message = excluded.error_message,
              last_attempt = excluded.last_attempt`,
-          [bookCode, err instanceof Error ? err.message : String(err), new Date().toISOString()],
+          [
+            failureId,
+            bookCode,
+            err instanceof Error ? err.message : String(err),
+            new Date().toISOString(),
+          ],
         );
       } catch {
         // ignore
@@ -545,29 +554,29 @@ async function autoSyncBcVolumes(): Promise<void> {
 
 async function init(): Promise<void> {
   try {
-    console.log('[db-worker] init: loading wa-sqlite module');
+    log('[db-worker] init: loading wa-sqlite module');
     post({ type: 'init-progress', stage: 'Loading SQLite...', progress: 0 });
 
     const module = await SQLiteESMFactory();
     sqlite3 = SQLite.Factory(module);
-    console.log('[db-worker] init: wa-sqlite loaded');
+    log('[db-worker] init: wa-sqlite loaded');
 
     const vfs = await OPFSCoopSyncVFS.create('opfs-coop-sync', module);
     sqlite3.vfs_register(vfs as unknown as SQLiteVFS, false);
-    console.log('[db-worker] init: OPFS VFS registered');
+    log('[db-worker] init: OPFS VFS registered');
 
     bibleDb = await sqlite3.open_v2(
       'bible.db',
       SQLite.SQLITE_OPEN_READWRITE | SQLite.SQLITE_OPEN_CREATE,
       'opfs-coop-sync',
     );
-    console.log('[db-worker] init: bible.db opened');
+    log('[db-worker] init: bible.db opened');
 
     const hasData = await checkBibleDbExists();
-    console.log('[db-worker] init: bible.db hasData =', hasData);
+    log('[db-worker] init: bible.db hasData =', hasData);
     if (!hasData) {
       await downloadBibleDb();
-      console.log('[db-worker] init: bible.db downloaded');
+      log('[db-worker] init: bible.db downloaded');
     }
 
     post({ type: 'init-progress', stage: 'Initializing...', progress: 100 });
@@ -576,9 +585,9 @@ async function init(): Promise<void> {
       SQLite.SQLITE_OPEN_READWRITE | SQLite.SQLITE_OPEN_CREATE,
       'opfs-coop-sync',
     );
-    console.log('[db-worker] init: state.db opened, running schema');
+    log('[db-worker] init: state.db opened, running schema');
     await sqlite3.exec(stateDb, STATE_SCHEMA);
-    console.log('[db-worker] init: state.db schema applied');
+    log('[db-worker] init: state.db schema applied');
 
     // EGW commentary database — schema-only init (no monolithic download)
     try {
@@ -588,13 +597,13 @@ async function init(): Promise<void> {
         'opfs-coop-sync',
       );
       await sqlite3.exec(egwDb, EGW_SCHEMA);
-      console.log('[db-worker] init: egw-paragraphs.db schema applied');
+      log('[db-worker] init: egw-paragraphs.db schema applied');
     } catch (egwErr) {
       console.warn('[db-worker] init: EGW database unavailable, continuing without it', egwErr);
     }
 
     post({ type: 'init-complete' });
-    console.log('[db-worker] init: complete');
+    log('[db-worker] init: complete');
 
     // Auto-sync BC volumes in background (non-blocking)
     autoSyncBcVolumes().catch((err) => {

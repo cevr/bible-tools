@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { useNavigate } from 'react-router';
 import { useBible } from '@/providers/bible-provider';
+import { toBookSlug } from '@/data/bible';
 import { useOverlay } from '@/providers/overlay-provider';
 import { useHistory, type HistoryEntry } from '@/providers/state-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -56,9 +57,8 @@ function HistoryPanelInner() {
   const navigateToEntry = (ref: { book: number; chapter: number; verse?: number }) => {
     const b = bible.getBook(ref.book);
     if (b) {
-      const slug = b.name.toLowerCase().replace(/\s+/g, '-');
       const versePart = ref.verse ? `/${ref.verse}` : '';
-      navigate(`/bible/${slug}/${ref.chapter}${versePart}`);
+      navigate(`/bible/${toBookSlug(b.name)}/${ref.chapter}${versePart}`);
       closeOverlay();
     }
   };

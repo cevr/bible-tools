@@ -187,10 +187,12 @@ function BibleRoute() {
     if (q.length < 2) return [];
     return verses.filter((v) => v.text.toLowerCase().includes(q)).map((v) => v.verse);
   })();
+  const searchMatchVersesRef = useRef(searchMatchVerses);
+  searchMatchVersesRef.current = searchMatchVerses;
 
   // n/N search navigation
   const goToNextMatch = (forward: boolean) => {
-    const matches = searchMatchVerses;
+    const matches = searchMatchVersesRef.current;
     if (matches.length === 0) return;
     const current = selectedVerseRef.current;
     if (forward) {

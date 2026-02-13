@@ -1,4 +1,12 @@
-import { createContext, useContext, useState, useRef, type ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useRef,
+  useCallback,
+  useMemo,
+  type ReactNode,
+} from 'react';
 
 // ---------------------------------------------------------------------------
 // Overlay type map — typed data per overlay
@@ -37,8 +45,6 @@ interface OverlayContextValue {
     (type: OverlayWithoutData | OverlayWithData): void;
   };
   closeOverlay: () => void;
-  returnFocusRef: HTMLElement | null;
-  setReturnFocusRef: (el: HTMLElement | null) => void;
 }
 
 const OverlayContext = createContext<OverlayContextValue | null>(null);
@@ -51,16 +57,16 @@ export function OverlayProvider({ children }: { children: ReactNode }) {
   const returnFocusRefLatest = useRef<HTMLElement | null>(null);
   returnFocusRefLatest.current = returnFocusRef;
 
-  const openOverlay = (type: OverlayType, data?: unknown) => {
+  const openOverlay = useCallback((type: OverlayType, data?: unknown) => {
     const currentFocus = document.activeElement as HTMLElement | null;
     if (currentFocus) {
       setReturnFocusRef(currentFocus);
     }
     setOverlayData(data ?? null);
     setOverlay(type);
-  };
+  }, []);
 
-  const closeOverlay = () => {
+  const closeOverlay = useCallback(() => {
     const ref = returnFocusRefLatest.current;
     setOverlay('none');
     setOverlayData(null);
@@ -68,15 +74,14 @@ export function OverlayProvider({ children }: { children: ReactNode }) {
       requestAnimationFrame(() => ref.focus());
     }
     setReturnFocusRef(null);
-  };
+  }, []);
 
-  return (
-    <OverlayContext.Provider
-      value={{ overlay, overlayData, openOverlay, closeOverlay, returnFocusRef, setReturnFocusRef }}
-    >
-      {children}
-    </OverlayContext.Provider>
+  const value = useMemo(
+    () => ({ overlay, overlayData, openOverlay, closeOverlay }),
+    [overlay, overlayData, openOverlay, closeOverlay],
   );
+
+  return <OverlayContext.Provider value={value}>{children}</OverlayContext.Provider>;
 }
 
 export function useOverlay() {
@@ -89,9 +94,4 @@ export function useOverlayData<T extends OverlayWithData>(type: T): OverlayDataM
   const { overlay, overlayData } = useOverlay();
   if (overlay !== type) return null;
   return overlayData as OverlayDataMap[T];
-}
-
-export function useIsOverlayOpen(type: OverlayType): boolean {
-  const { overlay } = useOverlay();
-  return overlay === type;
 }

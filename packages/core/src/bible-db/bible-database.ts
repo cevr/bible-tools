@@ -25,36 +25,7 @@ import {
   RecordNotFoundError,
 } from '../errors/index.js';
 
-// ============================================================================
-// Error Types (aliases for backwards compatibility)
-// ============================================================================
-
-/**
- * @deprecated Use DatabaseConnectionError from @bible/core/errors
- */
-export const BibleDatabaseConnectionError = DatabaseConnectionError;
-export type BibleDatabaseConnectionError = DatabaseConnectionError;
-
-/**
- * @deprecated Use DatabaseQueryError from @bible/core/errors
- */
-export const BibleDatabaseQueryError = DatabaseQueryError;
-export type BibleDatabaseQueryError = DatabaseQueryError;
-
-/**
- * @deprecated Use RecordNotFoundError from @bible/core/errors
- */
-export const BibleDatabaseNotFoundError = RecordNotFoundError;
-export type BibleDatabaseNotFoundError = RecordNotFoundError;
-
 export type BibleDatabaseError = DatabaseConnectionError | DatabaseQueryError | RecordNotFoundError;
-
-// Re-export for direct usage
-export {
-  DatabaseConnectionError,
-  DatabaseQueryError,
-  RecordNotFoundError,
-} from '../errors/index.js';
 
 // ============================================================================
 // Schema Types

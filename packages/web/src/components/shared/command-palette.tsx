@@ -5,7 +5,7 @@ import { useOverlay } from '@/providers/overlay-provider';
 import { useApp } from '@/providers/db-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import type { Book } from '@/data/bible';
+import { toBookSlug, type Book } from '@/data/bible';
 
 interface QuickAction {
   label: string;
@@ -106,8 +106,7 @@ export function CommandPalette() {
 
   const selectVerse = (verse: number) => {
     if (state.selectedBook && state.selectedChapter) {
-      const bookSlug = state.selectedBook.name.toLowerCase().replace(/\s+/g, '-');
-      navigate(`/bible/${bookSlug}/${state.selectedChapter}/${verse}`);
+      navigate(`/bible/${toBookSlug(state.selectedBook.name)}/${state.selectedChapter}/${verse}`);
       closeOverlay();
     }
   };
@@ -135,10 +134,9 @@ export function CommandPalette() {
     if (ref) {
       const book = bible.getBook(ref.book);
       if (book) {
-        const bookSlug = book.name.toLowerCase().replace(/\s+/g, '-');
         const path = ref.verse
-          ? `/bible/${bookSlug}/${ref.chapter}/${ref.verse}`
-          : `/bible/${bookSlug}/${ref.chapter}`;
+          ? `/bible/${toBookSlug(book.name)}/${ref.chapter}/${ref.verse}`
+          : `/bible/${toBookSlug(book.name)}/${ref.chapter}`;
         navigate(path);
         closeOverlay();
         return true;
@@ -215,7 +213,7 @@ export function CommandPalette() {
                 </>
               )}
               {filteredBooks.length > 0 ? (
-                (filteredBooks as Book[]).map((book) => (
+                filteredBooks.map((book) => (
                   <button
                     key={book.number}
                     className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-left hover:bg-accent text-foreground transition-colors"

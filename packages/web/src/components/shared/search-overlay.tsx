@@ -5,7 +5,7 @@ import { useOverlay, useOverlayData } from '@/providers/overlay-provider';
 import { useApp } from '@/providers/db-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { BOOK_ALIASES, type Reference } from '@/data/bible';
+import { BOOK_ALIASES, toBookSlug, type Reference } from '@/data/bible';
 
 interface DisplayResult {
   reference: Reference;
@@ -52,8 +52,9 @@ export function SearchOverlay() {
   const navigateToResult = (result: DisplayResult) => {
     const book = bible.getBook(result.reference.book);
     if (book) {
-      const bookSlug = book.name.toLowerCase().replace(/\s+/g, '-');
-      navigate(`/bible/${bookSlug}/${result.reference.chapter}/${result.reference.verse}`);
+      navigate(
+        `/bible/${toBookSlug(book.name)}/${result.reference.chapter}/${result.reference.verse}`,
+      );
       searchData?.onSearch?.(query);
       closeOverlay();
     }

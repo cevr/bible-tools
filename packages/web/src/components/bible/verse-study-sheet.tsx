@@ -457,9 +457,9 @@ function NotesTab({ book, chapter, verse }: { book: number; chapter: number; ver
                     {formatRelativeTime(note.createdAt)}
                   </span>
                   <button
-                    className="opacity-0 group-hover:opacity-100 text-muted-foreground hover:text-red-500 transition-all"
+                    className="opacity-0 group-hover:opacity-100 focus-visible:opacity-100 text-muted-foreground hover:text-red-500 transition-all"
                     onClick={() => handleRemove(note.id)}
-                    title="Delete note"
+                    aria-label="Delete note"
                   >
                     <Trash2Icon className="size-3.5" />
                   </button>
@@ -748,9 +748,9 @@ function CrossRefsTab({
         {/* Delete button for user refs */}
         {ref.source === 'user' && (
           <button
-            className="shrink-0 opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-700 dark:hover:text-red-300 transition-opacity text-xs px-1"
+            className="shrink-0 opacity-0 group-hover:opacity-100 focus-visible:opacity-100 text-red-500 hover:text-red-700 dark:hover:text-red-300 transition-opacity text-xs px-1"
             onClick={() => handleRemoveUserRef(ref.userRefId)}
-            title="Remove"
+            aria-label="Remove cross reference"
           >
             x
           </button>

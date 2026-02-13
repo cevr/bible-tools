@@ -25,7 +25,7 @@ export function ParagraphView({
 }: ParagraphViewProps) {
   return (
     <div className="reading-text leading-[1.9]">
-      {(verses as Verse[]).map((verse, index) => {
+      {verses.map((verse, index) => {
         const notes = marginNotesByVerse?.get(verse.verse) ?? [];
         const segments = segmentVerseText(cleanVerseText(verse.text), notes, searchQuery);
         const isSelected = selectedVerse === verse.verse;

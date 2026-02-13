@@ -147,13 +147,3 @@ export const isBibleReaderState = {
   loaded: (state: BibleReaderState): state is BibleReaderLoaded => state._tag === 'loaded',
   error: (state: BibleReaderState): state is BibleReaderErrorState => state._tag === 'error',
 } as const;
-
-/**
- * State constructors
- */
-export const BibleReaderStateConstructors = {
-  idle: (): BibleReaderState => new BibleReaderIdle({}),
-  loading: (message: string): BibleReaderState => new BibleReaderLoading({ message }),
-  loaded: (position: BiblePosition): BibleReaderState => new BibleReaderLoaded({ position }),
-  error: (error: string): BibleReaderState => new BibleReaderErrorState({ error }),
-} as const;

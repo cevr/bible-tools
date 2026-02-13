@@ -4,7 +4,7 @@
  * Renders verses with verse numbers, margin notes, highlight, and click.
  * Used by Bible route's SecondaryReaderPane and EGW route's Bible pane.
  */
-import { useState, useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import { useApp } from '@/providers/db-provider';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
@@ -30,12 +30,7 @@ export function BibleChapterView({
   const verses = app.verses(book, chapter);
   const marginNotesByVerse = app.chapterMarginNotes(book, chapter);
 
-  const [highlightedVerse, setHighlightedVerse] = useState(highlightVerseProp ?? null);
-
-  // Sync highlighted verse when prop changes
-  useEffect(() => {
-    setHighlightedVerse(highlightVerseProp ?? null);
-  }, [highlightVerseProp]);
+  const highlightedVerse = highlightVerseProp ?? null;
 
   // Scroll target verse into view
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -46,11 +41,6 @@ export function BibleChapterView({
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }, [highlightedVerse]);
-
-  const handleVerseClick = (verse: number) => {
-    setHighlightedVerse(verse);
-    onVerseClick?.(verse);
-  };
 
   return (
     <div className={className}>
@@ -64,7 +54,7 @@ export function BibleChapterView({
               className={`rounded px-2 py-1 cursor-pointer transition-colors ${
                 v.verse === highlightedVerse ? 'bg-accent' : 'hover:bg-accent/50'
               }`}
-              onClick={() => handleVerseClick(v.verse)}
+              onClick={() => onVerseClick?.(v.verse)}
             >
               <span className="verse-num">{v.verse}</span>
               <VerseRenderer text={v.text} marginNotes={marginNotesByVerse.get(v.verse)} />

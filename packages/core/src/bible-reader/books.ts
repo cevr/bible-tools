@@ -321,24 +321,22 @@ export const BIBLE_BOOKS: readonly BibleBook[] = [
   { number: 66, name: 'Revelation', chapters: 22, testament: 'new' },
 ];
 
-/**
- * Get book by number
- */
+const BOOK_BY_NUMBER = new Map(BIBLE_BOOKS.map((b) => [b.number, b]));
+
+const BOOK_BY_NAME = new Map<string, BibleBook>([
+  ...BIBLE_BOOKS.map((b) => [b.name.toLowerCase(), b] as const),
+  ...Object.entries(BIBLE_BOOK_ALIASES).flatMap(([alias, num]) => {
+    const book = BOOK_BY_NUMBER.get(num);
+    return book ? ([[alias, book]] as const) : [];
+  }),
+]);
+
 export function getBibleBook(bookNumber: number): BibleBook | undefined {
-  return BIBLE_BOOKS.find((b) => b.number === bookNumber);
+  return BOOK_BY_NUMBER.get(bookNumber);
 }
 
-/**
- * Get book by name or alias
- */
 export function getBibleBookByName(name: string): BibleBook | undefined {
-  const normalized = name.trim().toLowerCase();
-  const bookNum = BIBLE_BOOK_ALIASES[normalized];
-  if (bookNum) {
-    return getBibleBook(bookNum);
-  }
-  // Also check direct name match
-  return BIBLE_BOOKS.find((b) => b.name.toLowerCase() === normalized);
+  return BOOK_BY_NAME.get(name.trim().toLowerCase());
 }
 
 /**

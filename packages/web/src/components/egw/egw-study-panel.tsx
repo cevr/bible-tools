@@ -75,7 +75,7 @@ export function EgwStudyPanel({ paragraph, open, onOpenChange, onRefClick }: Egw
           <ScrollArea className="flex-1">
             <div className="p-4 space-y-4">
               {paragraph ? (
-                <>
+                <dl className="space-y-4">
                   {paragraph.refcodeShort && (
                     <div>
                       <dt className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
@@ -92,7 +92,7 @@ export function EgwStudyPanel({ paragraph, open, onOpenChange, onRefClick }: Egw
                       <dd className="mt-1 text-sm text-foreground">{paragraph.elementType}</dd>
                     </div>
                   )}
-                </>
+                </dl>
               ) : (
                 <p className="text-sm text-muted-foreground italic">No paragraph selected.</p>
               )}

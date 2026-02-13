@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useBible } from '@/providers/bible-provider';
+import { toBookSlug } from '@/data/bible';
 import { useOverlay } from '@/providers/overlay-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 
@@ -33,10 +34,9 @@ export function GotoDialog() {
       setError('Book not found');
       return;
     }
-    const bookSlug = book.name.toLowerCase().replace(/\s+/g, '-');
     const path = ref.verse
-      ? `/bible/${bookSlug}/${ref.chapter}/${ref.verse}`
-      : `/bible/${bookSlug}/${ref.chapter}`;
+      ? `/bible/${toBookSlug(book.name)}/${ref.chapter}/${ref.verse}`
+      : `/bible/${toBookSlug(book.name)}/${ref.chapter}`;
     navigate(path);
     closeOverlay();
   };

@@ -7,10 +7,6 @@
 
 export {
   BibleDatabase,
-  // Error types
-  BibleDatabaseConnectionError,
-  BibleDatabaseQueryError,
-  BibleDatabaseNotFoundError,
   type BibleDatabaseError,
   // Row schemas (for internal use / sync scripts)
   BookRow,

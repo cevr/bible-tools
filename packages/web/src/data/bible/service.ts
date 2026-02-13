@@ -5,104 +5,16 @@
  * No HTTP calls for reads — bible.db lives in OPFS.
  */
 
-import type { Book, ChapterResponse, SearchResult, Verse } from '@bible/api';
+import type { Book } from '@bible/api';
 import {
   getNextChapter as getNextChapterNav,
   getPrevChapter as getPrevChapterNav,
 } from '@bible/core/bible-reader';
 
 import { BOOKS, BOOK_ALIASES, getBook, type Reference } from './types.js';
-import { getDbClient } from '@/workers/db-client.js';
-
-interface VerseRow {
-  book: number;
-  chapter: number;
-  verse: number;
-  text: string;
-}
-
-/**
- * Fetch a chapter from local SQLite.
- */
-export async function fetchChapter(book: number, chapter: number): Promise<ChapterResponse> {
-  const db = getDbClient();
-  const verses = await db.query<VerseRow>(
-    'bible',
-    'SELECT book, chapter, verse, text FROM verses WHERE book = ? AND chapter = ? ORDER BY verse',
-    [book, chapter],
-  );
-
-  const bookInfo = getBook(book);
-  if (!bookInfo) {
-    throw new Error(`Book ${book} not found`);
-  }
-
-  const prev = getPrevChapterNav(book, chapter);
-  const next = getNextChapterNav(book, chapter);
-
-  return {
-    book: {
-      number: bookInfo.number,
-      name: bookInfo.name,
-      chapters: bookInfo.chapters,
-      testament: bookInfo.testament,
-    },
-    chapter,
-    verses: verses.map((v) => ({
-      book: v.book,
-      chapter: v.chapter,
-      verse: v.verse,
-      text: v.text,
-    })),
-    prevChapter: prev ? { book: prev.book, chapter: prev.chapter } : null,
-    nextChapter: next ? { book: next.book, chapter: next.chapter } : null,
-  };
-}
-
-/**
- * Fetch verses for a chapter.
- */
-export async function fetchVerses(book: number, chapter: number): Promise<readonly Verse[]> {
-  const db = getDbClient();
-  return db.query<Verse>(
-    'bible',
-    'SELECT book, chapter, verse, text FROM verses WHERE book = ? AND chapter = ? ORDER BY verse',
-    [book, chapter],
-  );
-}
-
-/**
- * Search verses via FTS5 on local SQLite.
- */
-export async function searchVerses(query: string, limit = 50): Promise<readonly SearchResult[]> {
-  if (!query.trim()) return [];
-
-  const db = getDbClient();
-  const rows = await db.query<VerseRow>(
-    'bible',
-    `SELECT v.book, v.chapter, v.verse, v.text
-     FROM verses_fts fts
-     JOIN verses v ON v.rowid = fts.rowid
-     WHERE verses_fts MATCH ?
-     LIMIT ?`,
-    [query, limit],
-  );
-
-  return rows.map((r) => {
-    const bookInfo = getBook(r.book);
-    return {
-      book: r.book,
-      bookName: bookInfo?.name ?? `Book ${r.book}`,
-      chapter: r.chapter,
-      verse: r.verse,
-      text: r.text,
-    };
-  });
-}
 
 /**
  * Static Bible data methods that don't require API calls.
- * For verse/chapter data, use the async fetchers above.
  */
 export const bibleDataService = {
   getBooks(): readonly Book[] {

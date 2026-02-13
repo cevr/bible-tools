@@ -541,11 +541,8 @@ export class EGWParagraphDatabase extends Context.Tag(
         ORDER BY p.book_id, p.puborder
       `);
 
-      const getDistinctBooksByAuthorQuery = db.query<
-        { book_id: number; book_code: string; book_title: string },
-        { $author: string }
-      >(`
-        SELECT book_id, book_code, book_title
+      const getDistinctBooksByAuthorQuery = db.query<BookRow, { $author: string }>(`
+        SELECT *
         FROM books
         WHERE book_author = $author
         ORDER BY book_id
@@ -941,20 +938,7 @@ export class EGWParagraphDatabase extends Context.Tag(
                 cause: error,
               }),
           }),
-        ).pipe(
-          Stream.flatMap((rows) =>
-            Stream.fromIterable(
-              rows.map((r) => ({
-                book_id: r.book_id,
-                book_code: r.book_code,
-                book_title: r.book_title,
-                book_author: author,
-                paragraph_count: 0,
-                created_at: '',
-              })),
-            ),
-          ),
-        );
+        ).pipe(Stream.flatMap((rows) => Stream.fromIterable(rows)));
 
       /**
        * Get a book by ID

@@ -4,7 +4,6 @@
  * Uses React 19's `use()` for reads: suspends on miss, returns T on hit.
  * No SWR, no TTL — invalidation is explicit.
  */
-import { use, useSyncExternalStore } from 'react';
 
 // ---------------------------------------------------------------------------
 // PromiseWithStatus — lets React's `use()` read synchronously when settled
@@ -109,32 +108,4 @@ export function createCache<Args extends unknown[], T>(
 
   // Expose subscribe/getSnapshot for useCache hook
   return Object.assign({ get, invalidate, invalidateAll }, { subscribe, getSnapshot });
-}
-
-// ---------------------------------------------------------------------------
-// useCache hook — suspends on miss via use()
-// ---------------------------------------------------------------------------
-
-type CacheWithSubscription<Args extends unknown[], T> = Cache<Args, T> & {
-  subscribe: (cb: () => void) => () => void;
-  getSnapshot: () => number;
-};
-
-/**
- * Suspending cache read.
- * On cache miss: starts fetch, suspends.
- * On cache hit: returns T synchronously.
- * On invalidation: triggers re-render which re-suspends.
- */
-export function useCache<Args extends unknown[], T>(cache: Cache<Args, T>, ...args: Args): T {
-  const c = cache as CacheWithSubscription<Args, T>;
-
-  // Subscribe to invalidations — triggers re-render when version changes
-  useSyncExternalStore(c.subscribe, c.getSnapshot, c.getSnapshot);
-
-  // Get or start the promise, then suspend with use()
-  // Cast needed because PromiseWithStatus's status field is typed as a union,
-  // but React's Usable<T> expects the discriminated literal on each branch.
-  const promise = c.get(...args) as Promise<T>;
-  return use(promise);
 }

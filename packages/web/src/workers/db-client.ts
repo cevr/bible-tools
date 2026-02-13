@@ -6,6 +6,8 @@
  */
 import type { WorkerRequest, WorkerResponse } from './db-protocol.js';
 
+const log = import.meta.env.DEV ? (...args: unknown[]) => console.log(...args) : () => {};
+
 export interface EgwSyncStatus {
   bookCode: string;
   status: string;
@@ -73,14 +75,14 @@ function createDbClient(): DbClient {
 
     switch (msg.type) {
       case 'init-progress': {
-        console.log(`[db-client] progress: ${msg.stage} (${msg.progress}%)`);
+        log(`[db-client] progress: ${msg.stage} (${msg.progress}%)`);
         for (const cb of progressCallbacks) {
           cb(msg.stage, msg.progress);
         }
         break;
       }
       case 'init-complete': {
-        console.log('[db-client] init complete');
+        log('[db-client] init complete');
         initResolve?.();
         break;
       }

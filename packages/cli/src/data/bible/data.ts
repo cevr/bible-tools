@@ -228,6 +228,3 @@ export const BibleDataLive = Layer.effect(BibleData, makeBibleDataService).pipe(
   Layer.provide(BibleDatabase.Default),
   Layer.provide(BunContext.layer),
 );
-
-// Helper to access the service in effects
-export const bibleData = Effect.map(BibleData, (service) => service);

@@ -7,7 +7,7 @@
  * 3. bookCode + chapter -> Chapter reader view
  */
 import { Component, useState, useEffect, useRef, useMemo, Suspense, type ReactNode } from 'react';
-import { useParams, useNavigate } from 'react-router';
+import { useParams, useNavigate, Link } from 'react-router';
 import { XIcon } from 'lucide-react';
 import { useKeyboardAction } from '@/providers/keyboard-provider';
 import { useOverlay } from '@/providers/overlay-provider';
@@ -132,12 +132,12 @@ function EgwErrorFallback({ error, reset }: { error: Error; reset: () => void })
         <p className="max-w-sm text-sm text-muted-foreground">{error.message}</p>
       </div>
       <div className="flex gap-4">
-        <a
-          href="/egw"
+        <Link
+          to="/egw"
           className="rounded-md border border-border px-4 py-2 text-sm text-foreground transition-colors hover:bg-accent"
         >
           Back to books
-        </a>
+        </Link>
         <button
           onClick={reset}
           className="rounded-md bg-primary px-4 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary/90"
@@ -239,12 +239,12 @@ function BookCard({
   return (
     <div className="group rounded-lg border border-border p-4 transition-colors hover:bg-accent">
       <div className="flex items-center justify-between">
-        <a
-          href={`/egw/${book.bookCode}`}
+        <Link
+          to={`/egw/${book.bookCode}`}
           className="font-sans font-semibold text-foreground group-hover:text-primary"
         >
           {book.title}
-        </a>
+        </Link>
         <div className="flex items-center gap-2">
           {isSynced ? (
             <span
@@ -262,10 +262,10 @@ function BookCard({
           )}
         </div>
       </div>
-      <a href={`/egw/${book.bookCode}`}>
+      <Link to={`/egw/${book.bookCode}`}>
         <div className="mt-1 text-sm text-muted-foreground">{book.bookCode}</div>
         <div className="mt-1 text-xs text-muted-foreground opacity-60">{book.author}</div>
-      </a>
+      </Link>
     </div>
   );
 }
@@ -598,9 +598,9 @@ function ChapterReaderInner({
       <header className="sticky top-0 z-10 border-b border-border bg-background pb-4 pt-2">
         <div className="flex items-baseline justify-between">
           <div className="flex items-baseline gap-3">
-            <a href="/egw" className="text-sm text-primary hover:underline">
+            <Link to="/egw" className="text-sm text-primary hover:underline">
               Books
-            </a>
+            </Link>
             <h1 className="font-sans text-2xl font-semibold text-foreground">
               {chapter.book.title}
             </h1>
