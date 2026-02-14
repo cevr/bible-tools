@@ -51,51 +51,6 @@ body {
   letter-spacing: var(--reading-letter-spacing, 0.01em);
 }
 
-/* Verse number styling */
-.verse-num {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--muted-foreground);
-  vertical-align: super;
-  margin-right: 0.25em;
-  user-select: none;
-}
-
-/* Red-letter text (words of Christ) */
-.red-letter {
-  color: var(--red-letter);
-}
-
-/* Translator additions — KJV italic words */
-.translator-addition {
-  font-style: italic;
-  opacity: 0.85;
-}
-
-/* Margin note superscripts */
-.margin-sup {
-  font-family: var(--font-sans);
-  font-size: 0.625rem;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  color: var(--muted-foreground);
-  vertical-align: super;
-  cursor: help;
-  margin-left: 0.05em;
-  margin-right: 0.05em;
-  user-select: none;
-}
-
-/* Search highlights */
-.search-highlight {
-  background-color: var(--accent);
-  color: var(--foreground);
-  border-radius: 2px;
-  padding: 0 1px;
-  font-weight: 600;
-}
-
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
   *,

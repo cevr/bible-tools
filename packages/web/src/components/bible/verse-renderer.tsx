@@ -13,6 +13,18 @@ import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover
 import type { MarginNote } from '@/data/study/service';
 import { type TextSegment, segmentVerseText, cleanVerseText } from '@/components/bible/verse-text';
 
+/** Convert 0-based note index to lowercase letter (0→a, 1→b, …, 26→aa). */
+function noteLabel(index: number): string {
+  let s = '';
+  let n = index + 1;
+  while (n > 0) {
+    n--;
+    s = String.fromCharCode(97 + (n % 26)) + s;
+    n = Math.floor(n / 26);
+  }
+  return s;
+}
+
 // --- Components ---
 
 export interface VerseRendererProps {
@@ -46,39 +58,42 @@ export function renderSegment(
       const note = marginNotes.find((n) => n.noteIndex === segment.noteIndex);
       if (!note)
         return (
-          <sup key={key} className="margin-sup">
-            {segment.noteIndex}
+          <sup
+            key={key}
+            className="text-[0.75em] font-semibold text-muted-foreground align-super cursor-help mx-[0.05em] select-none font-[family-name:var(--reading-font-family,var(--font-serif))]"
+          >
+            {noteLabel(segment.noteIndex)}
           </sup>
         );
       return <MarginNoteSup key={key} note={note} />;
     }
     case 'highlight':
       return (
-        <mark key={key} className="search-highlight">
+        <mark key={key} className="bg-accent text-foreground rounded-sm px-px font-semibold">
           {segment.text}
         </mark>
       );
     case 'italic':
       return (
-        <em key={key} className="translator-addition">
+        <em key={key} className="italic opacity-85">
           {segment.text}
         </em>
       );
     case 'redLetter':
       return (
-        <span key={key} className="red-letter">
+        <span key={key} className="text-[var(--red-letter)]">
           {segment.text}
         </span>
       );
     case 'redLetterItalic':
       return (
-        <em key={key} className="red-letter translator-addition">
+        <em key={key} className="text-[var(--red-letter)] italic opacity-85">
           {segment.text}
         </em>
       );
     case 'redLetterQuote':
       return (
-        <span key={key} className="red-letter">
+        <span key={key} className="text-[var(--red-letter)]">
           {segment.text}
         </span>
       );
@@ -92,13 +107,13 @@ function MarginNoteSup({ note }: { note: MarginNote }) {
   return (
     <Popover>
       <PopoverTrigger
-        className="margin-sup cursor-pointer hover:text-primary transition-colors align-super text-[0.6em] font-medium leading-none"
-        aria-label={`Margin note ${note.noteIndex}`}
+        className="text-[0.75em] font-semibold text-muted-foreground align-super cursor-pointer mx-[0.05em] select-none leading-none hover:text-primary transition-colors font-[family-name:var(--reading-font-family,var(--font-serif))]"
+        aria-label={`Margin note ${noteLabel(note.noteIndex)}`}
       >
-        {note.noteIndex}
+        {noteLabel(note.noteIndex)}
       </PopoverTrigger>
       <PopoverContent
-        className="max-w-[280px] rounded-lg bg-background border border-border shadow-lg p-3 font-sans text-sm"
+        className="reading-text max-w-[280px] rounded-lg bg-background border border-border shadow-lg p-3"
         sideOffset={4}
       >
         <div className="space-y-1">

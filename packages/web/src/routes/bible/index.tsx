@@ -654,7 +654,9 @@ function VerseDisplay({
           </span>
         )}
         <span>
-          <span className="verse-num">{verse.verse}</span>
+          <span className="font-sans text-[0.65em] font-semibold text-muted-foreground align-super mr-[0.25em] select-none">
+            {verse.verse}
+          </span>
           <VerseRenderer text={verse.text} marginNotes={marginNotes} searchQuery={searchQuery} />
         </span>
       </ContextMenuTrigger>

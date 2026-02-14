@@ -34,10 +34,9 @@ export function ParagraphView({
         return (
           <span key={verse.verse}>
             <sup
-              className={`verse-num cursor-pointer select-none ${
+              className={`font-sans text-[0.65em] font-semibold text-muted-foreground align-super mr-[0.25em] select-none cursor-pointer tabular-nums ${
                 isSelected ? 'text-primary font-bold' : ''
               }`}
-              style={{ fontVariantNumeric: 'tabular-nums' }}
               onClick={() => onVerseClick(verse.verse)}
             >
               {verse.verse}

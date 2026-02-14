@@ -56,7 +56,9 @@ export function BibleChapterView({
               }`}
               onClick={() => onVerseClick?.(v.verse)}
             >
-              <span className="verse-num">{v.verse}</span>
+              <span className="font-sans text-[0.65em] font-semibold text-muted-foreground align-super mr-[0.25em] select-none">
+                {v.verse}
+              </span>
               <VerseRenderer text={v.text} marginNotes={marginNotesByVerse.get(v.verse)} />
             </p>
           ))}

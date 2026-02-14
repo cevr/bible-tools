@@ -29,6 +29,7 @@ import { WordModeView } from '@/components/bible/word-mode-view';
 import type {
   ClassifiedCrossReference,
   CrossRefType,
+  MarginNote,
   MarkerColor,
   VerseMarker,
 } from '@/data/study/service';
@@ -370,6 +371,7 @@ export function VerseStudyPanel({
 function NotesTab({ book, chapter, verse }: { book: number; chapter: number; verse: number }) {
   const app = useApp();
   const notes = app.verseNotes(book, chapter, verse);
+  const marginNotes = app.marginNotes(book, chapter, verse);
   const [draft, setDraft] = useState('');
   const [isPending, startTransition] = useTransition();
 
@@ -462,6 +464,19 @@ function NotesTab({ book, chapter, verse }: { book: number; chapter: number; ver
             </p>
           )}
         </div>
+
+        {marginNotes.length > 0 && (
+          <div className="px-4 pb-3">
+            <p className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground mb-2">
+              Margin Notes
+            </p>
+            <div className="flex flex-col gap-1.5">
+              {marginNotes.map((note) => (
+                <MarginNoteItem key={note.noteIndex} note={note} />
+              ))}
+            </div>
+          </div>
+        )}
       </ScrollArea>
 
       <div className="px-4 py-3 border-t border-border text-xs text-muted-foreground shrink-0">
@@ -474,6 +489,25 @@ function NotesTab({ book, chapter, verse }: { book: number; chapter: number; ver
     </div>
   );
 }
+
+function MarginNoteItem({ note }: { note: MarginNote }) {
+  const typeLabel = NOTE_TYPE_LABELS[note.noteType];
+  return (
+    <div className="p-2 rounded-lg bg-accent/30 text-sm">
+      <p>
+        {typeLabel && <span className="text-muted-foreground">{typeLabel}</span>}
+        <strong className="text-foreground">{note.phrase}</strong>
+      </p>
+      <p className="text-foreground/80">{note.noteText}</p>
+    </div>
+  );
+}
+
+const NOTE_TYPE_LABELS: Record<string, string | undefined> = {
+  hebrew: 'Heb. ',
+  greek: 'Gr. ',
+  alternate: 'Or, ',
+};
 
 // ---------------------------------------------------------------------------
 // Verse Peek (popover content for cross-ref preview)
@@ -511,7 +545,9 @@ function PopoverVersePeek({
     <div className="reading-text text-sm flex flex-col gap-1.5">
       {clamped.map((v) => (
         <p key={v.verse}>
-          <span className="verse-num">{v.verse}</span>
+          <span className="font-sans text-[0.65em] font-semibold text-muted-foreground align-super mr-[0.25em] select-none">
+            {v.verse}
+          </span>
           <VerseRenderer text={v.text} />
         </p>
       ))}
