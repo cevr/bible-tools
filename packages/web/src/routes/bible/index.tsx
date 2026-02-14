@@ -41,12 +41,16 @@ function BibleRoute() {
   const bookParam = params.book?.toLowerCase();
   const bookNumber = (() => {
     if (!bookParam) return 1;
-    const num = parseInt(bookParam, 10);
-    if (!isNaN(num) && num >= 1 && num <= 66) return num;
-    const aliasNum = BOOK_ALIASES[bookParam];
+    // Slugs use hyphens, aliases/names use spaces
+    const spaced = bookParam.replace(/-/g, ' ');
+    const aliasNum = BOOK_ALIASES[spaced] ?? BOOK_ALIASES[bookParam];
     if (aliasNum) return aliasNum;
-    const book = bible.books.find((b) => b.name.toLowerCase() === bookParam);
-    return book?.number ?? 1;
+    const book = bible.books.find((b) => b.name.toLowerCase() === spaced);
+    if (book) return book.number;
+    // Pure numeric fallback (e.g. /bible/9/1)
+    const num = parseInt(bookParam, 10);
+    if (String(num) === bookParam && num >= 1 && num <= 66) return num;
+    return 1;
   })();
   const chapterNumber = parseInt(params.chapter ?? '1', 10) || 1;
   const book = bible.getBook(bookNumber);
