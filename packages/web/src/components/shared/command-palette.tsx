@@ -1,136 +1,235 @@
-import { useState, useEffect, Suspense } from 'react';
-import { useNavigate } from 'react-router';
+import { useState, useEffect, useMemo, useRef, Suspense, useCallback } from 'react';
+import { useNavigate, useLocation } from 'react-router';
 import { useBible } from '@/providers/bible-context';
 import { useOverlay } from '@/providers/overlay-context';
 import { useApp } from '@/providers/db-context';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { toBookSlug, type Book } from '@/data/bible';
+import {
+  CommandDialog,
+  Command,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandSeparator,
+  CommandShortcut,
+} from '@/components/ui/command';
+import { toBookSlug, BOOK_ALIASES, getBookByName, type Book } from '@/data/bible';
+import type { EGWBookInfo } from '@/data/egw/api';
+import { categorizeBooks } from '@/components/shared/egw-categories';
 
-interface QuickAction {
-  label: string;
-  hint: string;
-  action: () => void;
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+type PaletteContext = 'bible' | 'egw';
+
+type StackLevel =
+  | { level: 'books' }
+  | { level: 'chapters'; book: Book }
+  | { level: 'chapters'; bookCode: string; bookTitle: string }
+  | { level: 'verses'; book: Book; chapter: number }
+  | {
+      level: 'paragraphs';
+      bookCode: string;
+      bookTitle: string;
+      chapterIndex: number;
+      chapterTitle: string;
+    };
+
+interface PaletteState {
+  context: PaletteContext;
+  stack: StackLevel;
 }
 
-type CommandMode = 'book' | 'chapter' | 'verse';
-
-interface CommandState {
-  mode: CommandMode;
-  selectedBook?: Book;
-  selectedChapter?: number;
+function isBibleChapters(s: StackLevel): s is { level: 'chapters'; book: Book } {
+  return s.level === 'chapters' && 'book' in s;
 }
+
+function isEgwChapters(
+  s: StackLevel,
+): s is { level: 'chapters'; bookCode: string; bookTitle: string } {
+  return s.level === 'chapters' && 'bookCode' in s;
+}
+
+function isVerses(s: StackLevel): s is { level: 'verses'; book: Book; chapter: number } {
+  return s.level === 'verses';
+}
+
+function isEgwParagraphs(s: StackLevel): s is {
+  level: 'paragraphs';
+  bookCode: string;
+  bookTitle: string;
+  chapterIndex: number;
+  chapterTitle: string;
+} {
+  return s.level === 'paragraphs';
+}
+
+// ---------------------------------------------------------------------------
+// Route parsing
+// ---------------------------------------------------------------------------
+
+function resolveBookFromSlug(slug: string): Book | undefined {
+  const slugLower = slug.toLowerCase();
+  const num = BOOK_ALIASES[slugLower];
+  if (num != null) return getBookByName(slug) ?? undefined;
+
+  // "1-samuel" → "1 samuel"
+  const spaced = slugLower.replace(/-/g, ' ');
+  return getBookByName(spaced) ?? undefined;
+}
+
+function stateFromLocation(pathname: string): PaletteState {
+  const segments = pathname.split('/').filter(Boolean);
+  const root = segments[0];
+
+  if (root === 'egw') {
+    const bookCode = segments[1];
+    if (bookCode) {
+      return { context: 'egw', stack: { level: 'chapters', bookCode, bookTitle: bookCode } };
+    }
+    return { context: 'egw', stack: { level: 'books' } };
+  }
+
+  // Default to bible
+  const bookSlug = segments[1];
+  if (bookSlug) {
+    const book = resolveBookFromSlug(bookSlug);
+    if (book) {
+      return { context: 'bible', stack: { level: 'chapters', book } };
+    }
+  }
+
+  return { context: 'bible', stack: { level: 'books' } };
+}
+
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
 
 export function CommandPalette() {
-  const { overlay, closeOverlay, openOverlay } = useOverlay();
+  const { overlay, closeOverlay } = useOverlay();
   const navigate = useNavigate();
+  const location = useLocation();
   const bible = useBible();
 
   const isOpen = overlay === 'command-palette';
 
-  const [query, setQuery] = useState('');
-  const [state, setState] = useState<CommandState>({ mode: 'book' });
+  const [state, setState] = useState<PaletteState>({
+    context: 'bible',
+    stack: { level: 'books' },
+  });
 
-  const quickActions: QuickAction[] = [
-    {
-      label: 'Bookmarks',
-      hint: '⌘B',
-      action: () => {
-        closeOverlay();
-        openOverlay('bookmarks');
-      },
-    },
-    {
-      label: 'History',
-      hint: 'recent',
-      action: () => {
-        closeOverlay();
-        openOverlay('history');
-      },
-    },
-    {
-      label: 'Search',
-      hint: '/',
-      action: () => {
-        closeOverlay();
-        openOverlay('search');
-      },
-    },
-    {
-      label: 'Concordance',
-      hint: '⌘⇧S',
-      action: () => {
-        closeOverlay();
-        // Trigger via keyboard provider — bible route handles openConcordance
-        window.dispatchEvent(
-          new KeyboardEvent('keydown', { key: 's', metaKey: true, shiftKey: true, bubbles: true }),
-        );
-      },
-    },
-  ];
+  // Track input value for quick-navigate (cmdk owns filter state internally)
+  const [inputValue, setInputValue] = useState('');
+  // Track cmdk's highlighted item value for arrow-key drill
+  const [selectedValue, setSelectedValue] = useState('');
+  // Refs populated by suspending children for ArrowRight drill lookup
+  const egwBooksRef = useRef<readonly EGWBookInfo[]>([]);
+  const egwChaptersRef = useRef<
+    readonly { title: string | null; refcodeShort: string | null; index: number }[]
+  >([]);
 
-  // Reset on open
+  // Reset state from route on open
   useEffect(() => {
     if (isOpen) {
-      setQuery('');
-      setState({ mode: 'book' });
+      setState(stateFromLocation(location.pathname));
+      setInputValue('');
+      setSelectedValue('');
     }
-  }, [isOpen]);
+  }, [isOpen, location.pathname]);
 
-  const q = query.toLowerCase().trim();
+  const { context, stack } = state;
 
-  const filteredActions = q
-    ? quickActions.filter((a) => a.label.toLowerCase().includes(q))
-    : quickActions;
+  // --- Navigation helpers ---
 
-  const filteredBooks = q
-    ? bible.books.filter((b) => b.name.toLowerCase().includes(q))
-    : bible.books;
-
-  const chapters = state.selectedBook
-    ? Array.from({ length: state.selectedBook.chapters }, (_, i) => i + 1)
-    : [];
-  const filteredChapters = q
-    ? chapters.filter((ch) => ch.toString().startsWith(q.trim()))
-    : chapters;
-
-  const selectBook = (book: Book) => {
-    setState({ mode: 'chapter', selectedBook: book });
-    setQuery('');
-  };
-
-  const selectChapter = (chapter: number) => {
-    setState((s) => ({ ...s, mode: 'verse', selectedChapter: chapter }));
-    setQuery('');
-  };
-
-  const selectVerse = (verse: number) => {
-    if (state.selectedBook && state.selectedChapter) {
-      navigate(`/bible/${toBookSlug(state.selectedBook.name)}/${state.selectedChapter}/${verse}`);
-      closeOverlay();
-    }
-  };
-
-  const goBack = () => {
+  const goBack = useCallback(() => {
     setState((s) => {
-      if (s.mode === 'verse') return { ...s, mode: 'chapter', selectedChapter: undefined };
-      if (s.mode === 'chapter') return { mode: 'book', selectedBook: undefined };
+      if (isVerses(s.stack)) {
+        return { ...s, stack: { level: 'chapters', book: s.stack.book } };
+      }
+      if (isEgwParagraphs(s.stack)) {
+        return {
+          ...s,
+          stack: { level: 'chapters', bookCode: s.stack.bookCode, bookTitle: s.stack.bookTitle },
+        };
+      }
+      if (s.stack.level === 'chapters') {
+        return { ...s, stack: { level: 'books' } };
+      }
       return s;
     });
-    setQuery('');
-  };
+    setInputValue('');
+  }, []);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      tryQuickNavigate();
-    } else if (e.key === 'Backspace' && query === '') {
-      e.preventDefault();
-      goBack();
+  const switchContext = useCallback((ctx: PaletteContext) => {
+    setState({ context: ctx, stack: { level: 'books' } });
+    setInputValue('');
+  }, []);
+
+  const drillBibleBook = useCallback((book: Book) => {
+    if (book.chapters === 1) {
+      setState((s) => ({ ...s, stack: { level: 'verses', book, chapter: 1 } }));
+    } else {
+      setState((s) => ({ ...s, stack: { level: 'chapters', book } }));
     }
-  };
+    setInputValue('');
+  }, []);
 
-  const tryQuickNavigate = () => {
-    const ref = bible.parseReference(query);
+  const drillBibleChapter = useCallback((book: Book, chapter: number) => {
+    setState((s) => ({ ...s, stack: { level: 'verses', book, chapter } }));
+    setInputValue('');
+  }, []);
+
+  const navigateToBibleVerse = useCallback(
+    (book: Book, chapter: number, verse: number) => {
+      navigate(`/bible/${toBookSlug(book.name)}/${chapter}/${verse}`);
+      closeOverlay();
+    },
+    [navigate, closeOverlay],
+  );
+
+  const drillEgwBook = useCallback((book: EGWBookInfo) => {
+    setState((s) => ({
+      ...s,
+      stack: { level: 'chapters', bookCode: book.bookCode, bookTitle: book.title },
+    }));
+    setInputValue('');
+  }, []);
+
+  const drillEgwChapter = useCallback(
+    (bookCode: string, bookTitle: string, chapterIndex: number, chapterTitle: string) => {
+      setState((s) => ({
+        ...s,
+        stack: { level: 'paragraphs', bookCode, bookTitle, chapterIndex, chapterTitle },
+      }));
+      setInputValue('');
+    },
+    [],
+  );
+
+  const navigateToEgwChapter = useCallback(
+    (bookCode: string, chapterIndex: number) => {
+      navigate(`/egw/${bookCode}/${chapterIndex}`);
+      closeOverlay();
+    },
+    [navigate, closeOverlay],
+  );
+
+  const navigateToEgwParagraph = useCallback(
+    (bookCode: string, chapterIndex: number, puborder: number) => {
+      navigate(`/egw/${bookCode}/${chapterIndex}/${puborder}`);
+      closeOverlay();
+    },
+    [navigate, closeOverlay],
+  );
+
+  // --- Quick navigate (Bible only) ---
+
+  const tryQuickNavigate = useCallback(() => {
+    if (context !== 'bible') return false;
+    const ref = bible.parseReference(inputValue);
     if (ref) {
       const book = bible.getBook(ref.book);
       if (book) {
@@ -143,169 +242,559 @@ export function CommandPalette() {
       }
     }
     return false;
-  };
+  }, [context, inputValue, bible, navigate, closeOverlay]);
+
+  // --- ArrowRight drill: resolve selected value → drill into it ---
+
+  const drillSelected = useCallback(() => {
+    const val = selectedValue.toLowerCase();
+    if (!val) return;
+
+    if (stack.level === 'books' && context === 'bible') {
+      const book = bible.books.find((b) => b.name.toLowerCase() === val);
+      if (book) drillBibleBook(book);
+    } else if (stack.level === 'books' && context === 'egw') {
+      const egwBook = egwBooksRef.current.find(
+        (b) => `${b.title} ${b.bookCode}`.toLowerCase() === val,
+      );
+      if (egwBook) drillEgwBook(egwBook);
+    } else if (isBibleChapters(stack)) {
+      const match = val.match(/^chapter (\d+)$/);
+      if (match) drillBibleChapter(stack.book, parseInt(match[1], 10));
+    } else if (isEgwChapters(stack)) {
+      const ch = egwChaptersRef.current.find(
+        (c) => (c.title || c.refcodeShort || `chapter ${c.index + 1}`).toLowerCase() === val,
+      );
+      if (ch) {
+        drillEgwChapter(
+          stack.bookCode,
+          stack.bookTitle,
+          ch.index,
+          ch.title || ch.refcodeShort || `Chapter ${ch.index + 1}`,
+        );
+      }
+    }
+    // Verses and EGW paragraphs are leaves — ArrowRight is a no-op
+  }, [
+    selectedValue,
+    stack,
+    context,
+    bible.books,
+    drillBibleBook,
+    drillBibleChapter,
+    drillEgwBook,
+    drillEgwChapter,
+  ]);
+
+  // --- Keyboard ---
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === 'ArrowLeft' && inputValue === '') {
+        e.preventDefault();
+        goBack();
+      } else if (e.key === 'ArrowRight' && inputValue === '') {
+        e.preventDefault();
+        drillSelected();
+      }
+    },
+    [inputValue, goBack, drillSelected],
+  );
+
+  // --- Placeholder ---
+
+  const placeholder = (() => {
+    if (stack.level === 'books') {
+      return context === 'bible'
+        ? 'Search books or type reference (e.g., John 3:16)...'
+        : 'Search EGW books...';
+    }
+    if (isVerses(stack)) return 'Search verses...';
+    if (isEgwParagraphs(stack)) return 'Search paragraphs...';
+    return 'Search chapters...';
+  })();
+
+  // --- Breadcrumb ---
+
+  const breadcrumbs: { label: string; onClick?: () => void }[] = [];
+
+  breadcrumbs.push({
+    label: context === 'bible' ? 'Bible' : 'EGW',
+    onClick:
+      stack.level !== 'books'
+        ? () => {
+            setState((s) => ({ ...s, stack: { level: 'books' } }));
+            setInputValue('');
+          }
+        : undefined,
+  });
+
+  if (isBibleChapters(stack)) {
+    breadcrumbs.push({ label: stack.book.name });
+  } else if (isEgwChapters(stack)) {
+    breadcrumbs.push({ label: stack.bookTitle });
+  } else if (isVerses(stack)) {
+    breadcrumbs.push({
+      label: stack.book.name,
+      onClick: () => {
+        setState((s) => {
+          const book = isVerses(s.stack) ? s.stack.book : undefined;
+          if (!book) return s;
+          return { ...s, stack: { level: 'chapters', book } };
+        });
+        setInputValue('');
+      },
+    });
+    breadcrumbs.push({ label: `Chapter ${stack.chapter}` });
+  } else if (isEgwParagraphs(stack)) {
+    breadcrumbs.push({
+      label: stack.bookTitle,
+      onClick: () => {
+        setState((s) => {
+          if (!isEgwParagraphs(s.stack)) return s;
+          return {
+            ...s,
+            stack: { level: 'chapters', bookCode: s.stack.bookCode, bookTitle: s.stack.bookTitle },
+          };
+        });
+        setInputValue('');
+      },
+    });
+    breadcrumbs.push({ label: stack.chapterTitle });
+  }
 
   return (
-    <Dialog open={isOpen} onOpenChange={(open) => !open && closeOverlay()}>
-      <DialogContent
-        className="top-1/4 translate-y-0 p-0 gap-0 w-full max-w-lg rounded-xl bg-background border border-border overflow-hidden"
-        showCloseButton={false}
-        initialFocus={false}
-      >
-        {/* Header with breadcrumb */}
-        <div className="flex items-center gap-2 px-4 pt-4 pb-2 text-sm text-muted-foreground">
-          <span>Go to</span>
-          {state.selectedBook && (
-            <>
-              <span>→</span>
-              <button className="hover:text-foreground" onClick={goBack}>
-                {state.selectedBook.name}
-              </button>
-            </>
-          )}
-          {state.selectedChapter != null && (
-            <>
-              <span>→</span>
-              <span>Chapter {state.selectedChapter}</span>
-            </>
-          )}
-        </div>
-
-        {/* Search input */}
-        <div className="px-4 pb-2">
-          <input
-            id="command-input"
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={handleKeyDown}
-            autoFocus
-            placeholder={
-              state.mode === 'book'
-                ? 'Search books or type reference (e.g., John 3:16)...'
-                : state.mode === 'chapter'
-                  ? 'Select chapter...'
-                  : 'Select verse...'
-            }
-            className="w-full bg-transparent text-lg text-foreground placeholder:text-muted-foreground outline-none"
-          />
-        </div>
-
-        <div className="border-t border-border" />
-
-        {/* Results */}
-        <ScrollArea className="max-h-80 p-2">
-          {state.mode === 'book' && (
-            <div className="space-y-1">
-              {filteredActions.length > 0 && (
-                <>
-                  {filteredActions.map((action) => (
-                    <button
-                      key={action.label}
-                      className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-left hover:bg-accent text-foreground transition-colors"
-                      onClick={action.action}
-                    >
-                      <span>{action.label}</span>
-                      <span className="text-xs text-muted-foreground">{action.hint}</span>
-                    </button>
-                  ))}
-                  <div className="border-t border-border my-1" />
-                </>
-              )}
-              {filteredBooks.length > 0 ? (
-                filteredBooks.map((book) => (
+    <CommandDialog
+      open={isOpen}
+      onOpenChange={(open) => !open && closeOverlay()}
+      title="Go to"
+      description="Navigate to a Bible book, chapter, or verse"
+    >
+      <Command value={selectedValue} onValueChange={setSelectedValue} onKeyDown={handleKeyDown}>
+        {/* Breadcrumb (non-books levels only) */}
+        {stack.level !== 'books' && (
+          <div className="flex items-center gap-2 px-3 pt-3 pb-1 text-sm text-muted-foreground">
+            {breadcrumbs.map((crumb, i) => (
+              <span key={i} className="flex items-center gap-2">
+                {i > 0 && <span className="text-muted-foreground/50">›</span>}
+                {crumb.onClick ? (
                   <button
-                    key={book.number}
-                    className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-left hover:bg-accent text-foreground transition-colors"
-                    onClick={() => selectBook(book)}
+                    className="hover:text-foreground transition-colors"
+                    onClick={crumb.onClick}
                   >
-                    <span>{book.name}</span>
-                    <span className="text-xs text-muted-foreground">{book.chapters} chapters</span>
+                    {crumb.label}
                   </button>
-                ))
-              ) : filteredActions.length === 0 ? (
-                <p className="px-3 py-2 text-sm text-muted-foreground">No results found</p>
-              ) : null}
-            </div>
+                ) : (
+                  <span className="text-foreground">{crumb.label}</span>
+                )}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <CommandInput
+          placeholder={placeholder}
+          value={inputValue}
+          onValueChange={setInputValue}
+          onKeyDown={(e) => {
+            // Enter on input: try quick-navigate before cmdk handles it
+            if (e.key === 'Enter' && inputValue.trim()) {
+              if (tryQuickNavigate()) {
+                e.preventDefault();
+              }
+            }
+          }}
+        />
+
+        <CommandList className="max-h-80">
+          {/* Context switch */}
+          {stack.level === 'books' && (
+            <CommandGroup heading="Context">
+              <CommandItem
+                value="Switch to Bible"
+                onSelect={() => switchContext('bible')}
+                className={context === 'bible' ? 'font-medium' : 'opacity-60'}
+              >
+                Bible
+              </CommandItem>
+              <CommandItem
+                value="Switch to EGW"
+                onSelect={() => switchContext('egw')}
+                className={context === 'egw' ? 'font-medium' : 'opacity-60'}
+              >
+                EGW
+              </CommandItem>
+            </CommandGroup>
           )}
 
-          {state.mode === 'chapter' && (
-            <div className="grid grid-cols-6 gap-2">
-              {filteredChapters.map((chapter) => (
-                <button
-                  key={chapter}
-                  className="px-3 py-2 rounded-lg text-center hover:bg-accent text-foreground transition-colors"
-                  onClick={() => selectChapter(chapter)}
-                >
-                  {chapter}
-                </button>
-              ))}
-            </div>
+          {/* Book level */}
+          {stack.level === 'books' && context === 'bible' && (
+            <BibleBookList books={bible.books} onSelectBook={drillBibleBook} />
           )}
 
-          {state.mode === 'verse' && state.selectedBook && state.selectedChapter && (
+          {stack.level === 'books' && context === 'egw' && (
             <Suspense
               fallback={
-                <p className="px-3 py-2 text-sm text-muted-foreground">Loading verses...</p>
+                <div className="py-6 text-center text-sm text-muted-foreground">
+                  Loading books...
+                </div>
               }
             >
-              <VerseGrid
-                bookNumber={state.selectedBook.number}
-                chapter={state.selectedChapter}
-                query={q}
-                onSelect={selectVerse}
+              <EgwBookList onSelectBook={drillEgwBook} booksRef={egwBooksRef} />
+            </Suspense>
+          )}
+
+          {/* Bible chapters */}
+          {isBibleChapters(stack) && (
+            <BibleChapterList
+              book={stack.book}
+              onSelectChapter={(ch) => drillBibleChapter(stack.book, ch)}
+            />
+          )}
+
+          {/* EGW chapter list */}
+          {isEgwChapters(stack) && (
+            <Suspense
+              fallback={
+                <div className="py-6 text-center text-sm text-muted-foreground">
+                  Loading chapters...
+                </div>
+              }
+            >
+              <EgwChapterList
+                bookCode={stack.bookCode}
+                bookTitle={stack.bookTitle}
+                chaptersRef={egwChaptersRef}
+                onSelectChapter={(chapterIndex) =>
+                  navigateToEgwChapter(stack.bookCode, chapterIndex)
+                }
               />
             </Suspense>
           )}
-        </ScrollArea>
+
+          {/* EGW paragraphs */}
+          {isEgwParagraphs(stack) && (
+            <Suspense
+              fallback={
+                <div className="py-6 text-center text-sm text-muted-foreground">
+                  Loading paragraphs...
+                </div>
+              }
+            >
+              <EgwParagraphList
+                bookCode={stack.bookCode}
+                chapterIndex={stack.chapterIndex}
+                onNavigateParagraph={(puborder) =>
+                  navigateToEgwParagraph(stack.bookCode, stack.chapterIndex, puborder)
+                }
+              />
+            </Suspense>
+          )}
+
+          {/* Bible verses */}
+          {isVerses(stack) && (
+            <Suspense
+              fallback={
+                <div className="py-6 text-center text-sm text-muted-foreground">
+                  Loading verses...
+                </div>
+              }
+            >
+              <VerseList
+                bookNumber={stack.book.number}
+                chapter={stack.chapter}
+                onSelect={(verse) => navigateToBibleVerse(stack.book, stack.chapter, verse)}
+              />
+            </Suspense>
+          )}
+
+          <CommandEmpty>No results found</CommandEmpty>
+        </CommandList>
 
         {/* Footer hints */}
-        <div className="border-t border-border px-4 py-2 text-xs text-muted-foreground flex items-center gap-4">
+        <div className="border-t border-border px-3 py-2 text-xs text-muted-foreground flex items-center gap-4">
           <span>
             <kbd className="rounded bg-border px-1">↵</kbd> select
           </span>
           <span>
             <kbd className="rounded bg-border px-1">esc</kbd> close
           </span>
-          {state.mode !== 'book' && (
-            <span>
-              <kbd className="rounded bg-border px-1">⌫</kbd> back
-            </span>
-          )}
+          <span>
+            <kbd className="rounded bg-border px-1">←→</kbd> navigate
+          </span>
         </div>
-      </DialogContent>
-    </Dialog>
+      </Command>
+    </CommandDialog>
   );
 }
 
-/** Suspending child that reads verses from cache and renders the grid. */
-function VerseGrid({
+// ---------------------------------------------------------------------------
+// Bible book list — uses cmdk items for fuzzy filtering + keyboard nav
+// ---------------------------------------------------------------------------
+
+function BibleBookList({
+  books,
+  onSelectBook,
+}: {
+  books: readonly Book[];
+  onSelectBook: (book: Book) => void;
+}) {
+  const { closeOverlay, openOverlay } = useOverlay();
+
+  return (
+    <>
+      <CommandGroup heading="Quick Actions">
+        <CommandItem
+          onSelect={() => {
+            closeOverlay();
+            openOverlay('bookmarks');
+          }}
+        >
+          Bookmarks
+          <CommandShortcut>⌘B</CommandShortcut>
+        </CommandItem>
+        <CommandItem
+          onSelect={() => {
+            closeOverlay();
+            openOverlay('history');
+          }}
+        >
+          History
+          <CommandShortcut>recent</CommandShortcut>
+        </CommandItem>
+        <CommandItem
+          onSelect={() => {
+            closeOverlay();
+            openOverlay('search');
+          }}
+        >
+          Search
+          <CommandShortcut>/</CommandShortcut>
+        </CommandItem>
+        <CommandItem
+          onSelect={() => {
+            closeOverlay();
+            window.dispatchEvent(
+              new KeyboardEvent('keydown', {
+                key: 's',
+                metaKey: true,
+                shiftKey: true,
+                bubbles: true,
+              }),
+            );
+          }}
+        >
+          Concordance
+          <CommandShortcut>⌘⇧S</CommandShortcut>
+        </CommandItem>
+      </CommandGroup>
+      <CommandSeparator />
+      <CommandGroup heading="Books">
+        {books.map((book) => (
+          <CommandItem key={book.number} value={book.name} onSelect={() => onSelectBook(book)}>
+            {book.name}
+            <CommandShortcut>{book.chapters} ch</CommandShortcut>
+          </CommandItem>
+        ))}
+      </CommandGroup>
+    </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// EGW book list (suspending) — uses cmdk items for fuzzy filtering
+// ---------------------------------------------------------------------------
+
+function EgwBookList({
+  onSelectBook,
+  booksRef,
+}: {
+  onSelectBook: (book: EGWBookInfo) => void;
+  booksRef: React.MutableRefObject<readonly EGWBookInfo[]>;
+}) {
+  const app = useApp();
+  const { books } = app.egwBooks();
+
+  // Expose books to parent for ArrowRight drill
+  booksRef.current = books;
+
+  const categories = useMemo(() => categorizeBooks(books), [books]);
+
+  if (books.length === 0) {
+    return (
+      <div className="py-6 text-center text-sm text-muted-foreground">No EGW books synced yet.</div>
+    );
+  }
+
+  return (
+    <>
+      {categories.map((cat) => (
+        <CommandGroup key={cat.label} heading={cat.label}>
+          {cat.books.map((book) => (
+            <CommandItem
+              key={book.bookId}
+              value={`${book.title} ${book.bookCode}`}
+              onSelect={() => onSelectBook(book)}
+            >
+              {book.title}
+              <CommandShortcut>{book.bookCode}</CommandShortcut>
+            </CommandItem>
+          ))}
+        </CommandGroup>
+      ))}
+    </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Bible chapter list
+// ---------------------------------------------------------------------------
+
+function BibleChapterList({
+  book,
+  onSelectChapter,
+}: {
+  book: Book;
+  onSelectChapter: (chapter: number) => void;
+}) {
+  const chapters = useMemo(
+    () => Array.from({ length: book.chapters }, (_, i) => i + 1),
+    [book.chapters],
+  );
+
+  return (
+    <CommandGroup heading="Chapters">
+      {chapters.map((chapter) => (
+        <CommandItem
+          key={chapter}
+          value={`Chapter ${chapter}`}
+          onSelect={() => onSelectChapter(chapter)}
+        >
+          Chapter {chapter}
+        </CommandItem>
+      ))}
+    </CommandGroup>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// EGW chapter list (suspending) — uses cmdk items for fuzzy search
+// ---------------------------------------------------------------------------
+
+function EgwChapterList({
+  bookCode,
+  bookTitle: _bookTitle,
+  chaptersRef,
+  onSelectChapter,
+}: {
+  bookCode: string;
+  bookTitle: string;
+  chaptersRef: React.MutableRefObject<
+    readonly { title: string | null; refcodeShort: string | null; index: number }[]
+  >;
+  onSelectChapter: (chapterIndex: number) => void;
+}) {
+  const app = useApp();
+  const chapters = app.egwChapters(bookCode);
+
+  // Expose for ArrowRight drill lookup
+  chaptersRef.current = chapters.map((ch, i) => ({
+    title: ch.title,
+    refcodeShort: ch.refcodeShort,
+    index: i,
+  }));
+
+  if (chapters.length === 0) {
+    return (
+      <div className="py-6 text-center text-sm text-muted-foreground">No chapters available</div>
+    );
+  }
+
+  return (
+    <CommandGroup heading="Chapters">
+      {chapters.map((ch, i) => {
+        const label = ch.title || ch.refcodeShort || `Chapter ${i + 1}`;
+        return (
+          <CommandItem key={i} value={label} onSelect={() => onSelectChapter(i)}>
+            {label}
+            <CommandShortcut>{i + 1}</CommandShortcut>
+          </CommandItem>
+        );
+      })}
+    </CommandGroup>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// EGW paragraph list (suspending) — preview of chapter content
+// ---------------------------------------------------------------------------
+
+function EgwParagraphList({
+  bookCode,
+  chapterIndex,
+  onNavigateParagraph,
+}: {
+  bookCode: string;
+  chapterIndex: number;
+  onNavigateParagraph: (puborder: number) => void;
+}) {
+  const app = useApp();
+  const chapter = app.egwChapterContent(bookCode, chapterIndex);
+
+  if (chapter.paragraphs.length === 0) {
+    return (
+      <div className="py-6 text-center text-sm text-muted-foreground">No content available</div>
+    );
+  }
+
+  return (
+    <CommandGroup heading={chapter.title || `Chapter ${chapterIndex + 1}`}>
+      {chapter.paragraphs.map((p) => {
+        // Strip HTML tags for preview text
+        const text = p.content?.replace(/<[^>]*>/g, '') ?? '';
+        const preview = text.length > 100 ? text.slice(0, 100) + '…' : text;
+        return (
+          <CommandItem
+            key={p.puborder}
+            value={`${p.refcodeShort ?? ''} ${text}`}
+            onSelect={() => onNavigateParagraph(p.puborder)}
+          >
+            <div className="flex flex-col gap-0.5 min-w-0">
+              {p.refcodeShort && (
+                <span className="text-xs text-muted-foreground">{p.refcodeShort}</span>
+              )}
+              <span className="truncate">{preview || '(empty)'}</span>
+            </div>
+          </CommandItem>
+        );
+      })}
+    </CommandGroup>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Verse list (suspending)
+// ---------------------------------------------------------------------------
+
+function VerseList({
   bookNumber,
   chapter,
-  query,
   onSelect,
 }: {
   bookNumber: number;
   chapter: number;
-  query: string;
   onSelect: (verse: number) => void;
 }) {
   const app = useApp();
   const verses = app.verses(bookNumber, chapter);
-  const nums = verses.map((v) => v.verse);
-  const filtered = query ? nums.filter((v) => v.toString().startsWith(query)) : nums;
 
   return (
-    <div className="grid grid-cols-8 gap-2">
-      {filtered.map((verse) => (
-        <button
-          key={verse}
-          className="px-3 py-2 rounded-lg text-center hover:bg-accent text-foreground transition-colors"
-          onClick={() => onSelect(verse)}
-        >
-          {verse}
-        </button>
+    <CommandGroup heading="Verses">
+      {verses.map((v) => (
+        <CommandItem key={v.verse} value={`Verse ${v.verse}`} onSelect={() => onSelect(v.verse)}>
+          Verse {v.verse}
+        </CommandItem>
       ))}
-    </div>
+    </CommandGroup>
   );
 }

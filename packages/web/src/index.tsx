@@ -24,7 +24,7 @@ createRoot(root).render(
           }
         />
         <Route
-          path="/egw/:bookCode?/:page?"
+          path="/egw/:bookCode?/:page?/:para?"
           element={
             <Suspense fallback={<FallbackScreen />}>
               <EgwRoute />

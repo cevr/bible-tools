@@ -22,103 +22,7 @@ import { BibleChapterView } from '@/components/bible/chapter-view';
 import { useSetWideLayout } from '@/components/layout/use-wide-layout';
 import { Button } from '@/components/ui/button';
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable';
-
-// ---------------------------------------------------------------------------
-// Book categories — static mapping from bookCode to series
-// ---------------------------------------------------------------------------
-
-const EGW_CATEGORIES: { label: string; codes: Set<string> }[] = [
-  {
-    label: 'Conflict of the Ages',
-    codes: new Set(['PP', 'PK', 'DA', 'AA', 'GC']),
-  },
-  {
-    label: 'Bible Commentary',
-    codes: new Set(['1BC', '2BC', '3BC', '4BC', '5BC', '6BC', '7BC', '7aBC']),
-  },
-  {
-    label: 'Testimonies for the Church',
-    codes: new Set(['1T', '2T', '3T', '4T', '5T', '6T', '7T', '8T', '9T']),
-  },
-  {
-    label: 'Selected Messages',
-    codes: new Set(['1SM', '2SM', '3SM']),
-  },
-  {
-    label: 'Christian Living',
-    codes: new Set(['SC', 'COL', 'MH', 'Ed', 'MB', 'MYP', 'AH', 'CG', 'CT', 'FE']),
-  },
-  {
-    label: 'Devotional',
-    codes: new Set([
-      'ML',
-      'OHC',
-      'HP',
-      'RC',
-      'AG',
-      'FLB',
-      'SD',
-      'TMK',
-      'LHU',
-      'TDG',
-      'UL',
-      'HP',
-      'Mar',
-      'CC',
-    ]),
-  },
-  {
-    label: 'Church & Ministry',
-    codes: new Set(['TM', 'GW', 'Ev', 'ChS', 'CM', 'WM', 'LS', 'CS']),
-  },
-  {
-    label: 'Health & Temperance',
-    codes: new Set(['CH', 'CD', 'Te', '2MCP', 'MM']),
-  },
-  {
-    label: 'History & Prophecy',
-    codes: new Set(['EW', 'SR', 'SG', 'SP', '1SP', '2SP', '3SP', '4SP', 'TA']),
-  },
-];
-
-/** Reverse lookup: bookCode → category label */
-const CODE_TO_CATEGORY = new Map<string, string>();
-for (const cat of EGW_CATEGORIES) {
-  for (const code of cat.codes) {
-    CODE_TO_CATEGORY.set(code, cat.label);
-  }
-}
-
-type CategorizedBooks = { label: string; books: readonly EGWBookInfo[] }[];
-
-function categorizeBooks(books: readonly EGWBookInfo[]): CategorizedBooks {
-  const grouped = new Map<string, EGWBookInfo[]>();
-  const uncategorized: EGWBookInfo[] = [];
-
-  for (const book of books) {
-    const cat = CODE_TO_CATEGORY.get(book.bookCode);
-    if (cat) {
-      const list = grouped.get(cat);
-      if (list) list.push(book);
-      else grouped.set(cat, [book]);
-    } else {
-      uncategorized.push(book);
-    }
-  }
-
-  // Preserve category order from EGW_CATEGORIES
-  const result: CategorizedBooks = [];
-  for (const cat of EGW_CATEGORIES) {
-    const list = grouped.get(cat.label);
-    if (list && list.length > 0) {
-      result.push({ label: cat.label, books: list });
-    }
-  }
-  if (uncategorized.length > 0) {
-    result.push({ label: 'Other', books: uncategorized });
-  }
-  return result;
-}
+import { categorizeBooks } from '@/components/shared/egw-categories';
 
 // ---------------------------------------------------------------------------
 // Route component
@@ -447,9 +351,10 @@ function BookListView() {
 // ---------------------------------------------------------------------------
 
 function ChapterReaderView() {
-  const params = useParams<'bookCode' | 'page'>();
+  const params = useParams<'bookCode' | 'page' | 'para'>();
   const bookCode = params.bookCode ?? '';
   const chapterIndex = parseInt(params.page ?? '0', 10) || 0;
+  const initialPara = params.para ? parseInt(params.para, 10) : undefined;
 
   // key resets selectedIndex when chapter changes
   return (
@@ -457,6 +362,7 @@ function ChapterReaderView() {
       key={`${bookCode}/${chapterIndex}`}
       bookCode={bookCode}
       chapterIndex={chapterIndex}
+      initialPara={initialPara}
     />
   );
 }
@@ -464,9 +370,11 @@ function ChapterReaderView() {
 function ChapterReaderInner({
   bookCode,
   chapterIndex,
+  initialPara,
 }: {
   bookCode: string;
   chapterIndex: number;
+  initialPara?: number;
 }) {
   const navigate = useNavigate();
   const bible = useBible();
@@ -480,8 +388,14 @@ function ChapterReaderInner({
   const hasPrev = chapterIndex > 0;
   const hasNext = chapterIndex < chapter.totalChapters - 1;
 
-  // Selection — starts at 0, reset via key prop on parent
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  // Selection — starts at initialPara (from URL) or 0, reset via key prop on parent
+  const [selectedIndex, setSelectedIndex] = useState(() => {
+    if (initialPara == null) return 0;
+    const idx = chapter.paragraphs
+      .filter((p) => !isChapterHeading(p.elementType))
+      .findIndex((p) => p.puborder === initialPara);
+    return idx >= 0 ? idx : 0;
+  });
   const [tocOpen, setTocOpen] = useState(false);
 
   // Aside study panel
@@ -520,6 +434,13 @@ function ChapterReaderInner({
     const el = document.querySelector(`[data-para="${para.puborder}"]`);
     el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, [selectedIndex, bodyParagraphs]);
+
+  // Sync selected paragraph puborder to URL (replace, no history spam)
+  useEffect(() => {
+    const puborder = bodyParagraphs[selectedIndex]?.puborder;
+    if (puborder == null) return;
+    navigate(`/egw/${bookCode}/${chapterIndex}/${puborder}`, { replace: true });
+  }, [selectedIndex, bodyParagraphs, bookCode, chapterIndex, navigate]);
 
   const goToChapter = (index: number) => {
     navigate(`/egw/${bookCode}/${index}`);
@@ -597,14 +518,7 @@ function ChapterReaderInner({
       {/* Header */}
       <header className="sticky top-0 z-10 border-b border-border bg-background pb-4 pt-2">
         <div className="flex items-baseline justify-between">
-          <div className="flex items-baseline gap-3">
-            <Link to="/egw" className="text-sm text-primary hover:underline">
-              Books
-            </Link>
-            <h1 className="font-sans text-2xl font-semibold text-foreground">
-              {chapter.book.title}
-            </h1>
-          </div>
+          <h1 className="font-sans text-2xl font-semibold text-foreground">{chapter.book.title}</h1>
           <div className="flex items-center gap-3">
             {chapters.length > 0 && (
               <div className="relative">
@@ -632,9 +546,6 @@ function ChapterReaderInner({
             </span>
           </div>
         </div>
-        {chapter.title && (
-          <div className="mt-2 text-lg font-medium text-primary">{chapter.title}</div>
-        )}
       </header>
 
       {/* Content */}
