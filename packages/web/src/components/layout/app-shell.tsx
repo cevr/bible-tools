@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { Link, useLocation } from 'react-router';
+import { Settings } from 'lucide-react';
 import { useKeyboardAction } from '@/providers/keyboard-context';
 import { useOverlay } from '@/providers/overlay-context';
 import { WideLayoutContext } from '@/components/layout/use-wide-layout';
@@ -53,6 +54,13 @@ export function AppShell({ children }: { children: ReactNode }) {
             >
               EGW Writings
             </Link>
+            <button
+              className="ml-auto p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+              onClick={() => openOverlay('settings')}
+              aria-label="Settings"
+            >
+              <Settings className="size-4" />
+            </button>
           </div>
         </nav>
         <main

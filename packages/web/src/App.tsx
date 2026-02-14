@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Outlet } from 'react-router';
 import { DbProvider } from './providers/db-provider';
 import { BibleProvider } from './providers/bible-provider';
@@ -9,6 +10,8 @@ import { GotoDialog } from './components/shared/goto-dialog';
 import { SearchOverlay } from './components/shared/search-overlay';
 import { BookmarksPanel } from './components/shared/bookmarks-panel';
 import { HistoryPanel } from './components/shared/history-panel';
+import { SettingsPanel } from './components/shared/settings-panel';
+import { ReadingStyleProvider } from './components/shared/reading-style-provider';
 
 export default function App() {
   return (
@@ -17,12 +20,16 @@ export default function App() {
         <KeyboardProvider>
           <OverlayProvider>
             <AppShell>
+              <Suspense>
+                <ReadingStyleProvider />
+              </Suspense>
               <Outlet />
               <CommandPalette />
               <GotoDialog />
               <SearchOverlay />
               <BookmarksPanel />
               <HistoryPanel />
+              <SettingsPanel />
             </AppShell>
           </OverlayProvider>
         </KeyboardProvider>

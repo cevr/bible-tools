@@ -24,12 +24,20 @@ export interface HistoryEntry {
 export interface Preferences {
   theme: 'light' | 'dark' | 'system';
   displayMode: 'verse' | 'paragraph';
+  fontFamily: string;
+  fontSize: number;
+  lineHeight: number;
+  letterSpacing: number;
 }
 
 const DEFAULT_POSITION: Position = { book: 1, chapter: 1, verse: 1 };
 const DEFAULT_PREFERENCES: Preferences = {
   theme: 'system',
   displayMode: 'verse',
+  fontFamily: 'Crimson Pro',
+  fontSize: 18,
+  lineHeight: 1.8,
+  letterSpacing: 0.01,
 };
 
 interface PositionRow {
@@ -57,6 +65,10 @@ interface HistoryRow {
 interface PreferencesRow {
   theme: string;
   display_mode: string;
+  font_family: string;
+  font_size: number;
+  line_height: number;
+  letter_spacing: number;
 }
 
 interface AppStateServiceShape {
@@ -163,13 +175,17 @@ export class AppStateService extends Context.Tag('@bible-web/AppState')<
       const getPreferences = Effect.fn('AppStateService.getPreferences')(function* () {
         const rows = yield* db.query<PreferencesRow>(
           'state',
-          'SELECT theme, display_mode FROM preferences WHERE id = 1',
+          'SELECT theme, display_mode, font_family, font_size, line_height, letter_spacing FROM preferences WHERE id = 1',
         );
         const row = rows[0];
         if (!row) return DEFAULT_PREFERENCES;
         return {
           theme: row.theme as Preferences['theme'],
           displayMode: row.display_mode as Preferences['displayMode'],
+          fontFamily: row.font_family ?? DEFAULT_PREFERENCES.fontFamily,
+          fontSize: row.font_size ?? DEFAULT_PREFERENCES.fontSize,
+          lineHeight: row.line_height ?? DEFAULT_PREFERENCES.lineHeight,
+          letterSpacing: row.letter_spacing ?? DEFAULT_PREFERENCES.letterSpacing,
         } satisfies Preferences;
       });
 
@@ -178,10 +194,17 @@ export class AppStateService extends Context.Tag('@bible-web/AppState')<
       ) {
         const current = yield* getPreferences();
         const updated = { ...current, ...prefs };
-        yield* db.exec('UPDATE preferences SET theme = ?, display_mode = ? WHERE id = 1', [
-          updated.theme,
-          updated.displayMode,
-        ]);
+        yield* db.exec(
+          'UPDATE preferences SET theme = ?, display_mode = ?, font_family = ?, font_size = ?, line_height = ?, letter_spacing = ? WHERE id = 1',
+          [
+            updated.theme,
+            updated.displayMode,
+            updated.fontFamily,
+            updated.fontSize,
+            updated.lineHeight,
+            updated.letterSpacing,
+          ],
+        );
       });
 
       return AppStateService.of({

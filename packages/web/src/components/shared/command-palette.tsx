@@ -587,6 +587,14 @@ function BibleBookList({
           Concordance
           <CommandShortcut>⌘⇧S</CommandShortcut>
         </CommandItem>
+        <CommandItem
+          onSelect={() => {
+            closeOverlay();
+            openOverlay('settings');
+          }}
+        >
+          Settings
+        </CommandItem>
       </CommandGroup>
       <CommandSeparator />
       <CommandGroup heading="Books">

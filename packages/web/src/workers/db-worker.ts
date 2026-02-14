@@ -589,6 +589,23 @@ async function init(): Promise<void> {
     await sqlite3.exec(stateDb, STATE_SCHEMA);
     log('[db-worker] init: state.db schema applied');
 
+    // Migrations: add font preference columns (ALTER TABLE throws if column exists)
+    /* eslint-disable no-await-in-loop -- sequential schema migrations */
+    for (const col of [
+      "ALTER TABLE preferences ADD COLUMN font_family TEXT NOT NULL DEFAULT 'Crimson Pro'",
+      'ALTER TABLE preferences ADD COLUMN font_size REAL NOT NULL DEFAULT 18',
+      'ALTER TABLE preferences ADD COLUMN line_height REAL NOT NULL DEFAULT 1.8',
+      'ALTER TABLE preferences ADD COLUMN letter_spacing REAL NOT NULL DEFAULT 0.01',
+    ]) {
+      try {
+        await sqlite3.exec(stateDb, col);
+      } catch {
+        // Column already exists — expected
+      }
+    }
+    /* eslint-enable no-await-in-loop */
+    log('[db-worker] init: state.db migrations applied');
+
     // EGW commentary database — schema-only init (no monolithic download)
     try {
       egwDb = await sqlite3.open_v2(
