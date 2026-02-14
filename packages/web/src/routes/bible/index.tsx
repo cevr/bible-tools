@@ -5,14 +5,14 @@
  * Data reads suspend via CachedApp — the outer <Suspense> in index.tsx
  * catches the initial load.
  */
-import { useState, useEffect, useRef, Suspense } from 'react';
+import { useState, useEffect, useRef, useMemo, Suspense } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { ArrowLeftIcon, ClipboardIcon, HashIcon, LinkIcon, XIcon } from 'lucide-react';
 import { useKeyboardAction } from '@/providers/keyboard-context';
 import { useOverlay } from '@/providers/overlay-context';
 import { useBible } from '@/providers/bible-context';
 import { useApp } from '@/providers/db-context';
-import { BOOK_ALIASES, toBookSlug, type Verse } from '@/data/bible';
+import { BOOK_ALIASES, toBookSlug, type Book, type Verse } from '@/data/bible';
 import type { ClassifiedCrossReference, MarginNote, VerseMarker } from '@/data/study/service';
 import { MARKER_DOT_COLORS } from '@/components/bible/study-constants';
 import { VerseStudyPanel, type StudyTab } from '@/components/bible/verse-study-sheet';
@@ -351,8 +351,17 @@ function BibleRoute() {
     <div className="flex flex-col gap-6">
       {/* Header */}
       <header className="sticky top-0 z-10 flex flex-col gap-1 border-b border-border bg-background pb-4 pt-2 -mt-2">
-        <h1 className="font-sans text-2xl font-semibold text-foreground">
-          {book?.name} {chapterNumber}
+        <h1 className="font-sans text-2xl font-semibold text-foreground flex items-baseline gap-1">
+          <BookPicker
+            books={bible.books}
+            currentBook={book}
+            onSelect={(b) => navigate(`/bible/${toBookSlug(b.name)}/1`)}
+          />
+          <ChapterPicker
+            book={book}
+            currentChapter={chapterNumber}
+            onSelect={(ch) => navigate(`/bible/${toBookSlug(book?.name ?? 'genesis')}/${ch}`)}
+          />
         </h1>
         <p className="text-sm text-muted-foreground">
           Press <kbd className="rounded bg-border px-1.5 py-0.5 text-xs">⌘K</kbd> for command
@@ -661,6 +670,163 @@ function VerseDisplay({
         </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Book & Chapter pickers
+// ---------------------------------------------------------------------------
+
+const OT_GROUPS = [
+  { label: 'Pentateuch', range: [1, 5] as const },
+  { label: 'History', range: [6, 17] as const },
+  { label: 'Poetry', range: [18, 22] as const },
+  { label: 'Major Prophets', range: [23, 27] as const },
+  { label: 'Minor Prophets', range: [28, 39] as const },
+];
+
+const NT_GROUPS = [
+  { label: 'Gospels', range: [40, 43] as const },
+  { label: 'History', range: [44, 44] as const },
+  { label: 'Pauline Epistles', range: [45, 57] as const },
+  { label: 'General Epistles', range: [58, 65] as const },
+  { label: 'Prophecy', range: [66, 66] as const },
+];
+
+function BookPicker({
+  books,
+  currentBook,
+  onSelect,
+}: {
+  books: readonly Book[];
+  currentBook: Book | undefined;
+  onSelect: (book: Book) => void;
+}) {
+  const [open, setOpen] = useState(false);
+
+  const grouped = useMemo(() => {
+    const groups: { label: string; books: Book[] }[] = [];
+    for (const g of [...OT_GROUPS, ...NT_GROUPS]) {
+      const matched = books.filter((b) => b.number >= g.range[0] && b.number <= g.range[1]);
+      if (matched.length > 0) groups.push({ label: g.label, books: matched });
+    }
+    return groups;
+  }, [books]);
+
+  return (
+    <span className="relative">
+      <button className="hover:text-primary transition-colors" onClick={() => setOpen((o) => !o)}>
+        {currentBook?.name ?? 'Book'}
+      </button>
+      {open && (
+        <PickerDropdown onClose={() => setOpen(false)}>
+          {grouped.map((g) => (
+            <div key={g.label}>
+              <div className="px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                {g.label}
+              </div>
+              {g.books.map((b) => (
+                <button
+                  key={b.number}
+                  className={`w-full px-3 py-1.5 text-left text-sm transition-colors hover:bg-accent ${
+                    b.number === currentBook?.number
+                      ? 'font-medium text-primary'
+                      : 'text-foreground'
+                  }`}
+                  onClick={() => {
+                    setOpen(false);
+                    onSelect(b);
+                  }}
+                >
+                  {b.name}
+                </button>
+              ))}
+            </div>
+          ))}
+        </PickerDropdown>
+      )}
+    </span>
+  );
+}
+
+function ChapterPicker({
+  book,
+  currentChapter,
+  onSelect,
+}: {
+  book: Book | undefined;
+  currentChapter: number;
+  onSelect: (chapter: number) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const count = book?.chapters ?? 1;
+
+  return (
+    <span className="relative">
+      <button className="hover:text-primary transition-colors" onClick={() => setOpen((o) => !o)}>
+        {currentChapter}
+      </button>
+      {open && (
+        <PickerDropdown onClose={() => setOpen(false)} className="w-48">
+          <div className="grid grid-cols-5 gap-0.5 p-2">
+            {Array.from({ length: count }, (_, i) => i + 1).map((ch) => (
+              <button
+                key={ch}
+                className={`rounded px-2 py-1.5 text-sm text-center transition-colors hover:bg-accent ${
+                  ch === currentChapter
+                    ? 'font-medium text-primary bg-primary/10'
+                    : 'text-foreground'
+                }`}
+                onClick={() => {
+                  setOpen(false);
+                  onSelect(ch);
+                }}
+              >
+                {ch}
+              </button>
+            ))}
+          </div>
+        </PickerDropdown>
+      )}
+    </span>
+  );
+}
+
+function PickerDropdown({
+  children,
+  onClose,
+  className,
+}: {
+  children: React.ReactNode;
+  onClose: () => void;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        onClose();
+      }
+    };
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('click', handleClick, true);
+    document.addEventListener('keydown', handleKey, true);
+    return () => {
+      document.removeEventListener('click', handleClick, true);
+      document.removeEventListener('keydown', handleKey, true);
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      ref={ref}
+      className={`absolute left-0 top-full z-20 mt-1 max-h-80 overflow-y-auto rounded-lg border border-border bg-background shadow-xl ${className ?? 'w-56'}`}
+    >
+      {children}
+    </div>
   );
 }
 
