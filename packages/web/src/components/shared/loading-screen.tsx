@@ -34,7 +34,7 @@ export function LoadingScreen({ stage, progress, error, onRetry }: LoadingScreen
                 <div className="text-sm text-muted-foreground">{progress}%</div>
               </>
             ) : (
-              <div className="text-muted-foreground animate-pulse">Loading...</div>
+              <div className="text-muted-foreground animate-pulse">Loading…</div>
             )}
           </>
         )}

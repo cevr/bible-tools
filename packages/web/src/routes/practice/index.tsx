@@ -10,11 +10,11 @@ export default function PracticeRoute() {
   const verseId = searchParams.get('verse');
 
   return verseId ? (
-    <Suspense fallback={<p className="text-muted-foreground">Loading...</p>}>
+    <Suspense fallback={<p className="text-muted-foreground">Loading…</p>}>
       <PracticeSession verseId={verseId} />
     </Suspense>
   ) : (
-    <Suspense fallback={<p className="text-muted-foreground">Loading verses...</p>}>
+    <Suspense fallback={<p className="text-muted-foreground">Loading verses…</p>}>
       <VerseList />
     </Suspense>
   );
@@ -27,7 +27,8 @@ function VerseList() {
 
   const verses = app.memoryVerses();
 
-  const handleRemove = (id: string) => {
+  const handleRemove = (id: string, ref: string) => {
+    if (!window.confirm(`Remove ${ref} from memory verses?`)) return;
     startTransition(async () => {
       await app.removeMemoryVerse(id);
       app.memoryVerses.invalidateAll();
@@ -37,7 +38,9 @@ function VerseList() {
   return (
     <div className="space-y-6">
       <header className="border-b border-border pb-4">
-        <h1 className="font-sans text-2xl font-semibold text-foreground">Memory Verses</h1>
+        <h1 className="font-sans text-2xl font-semibold text-foreground text-balance">
+          Memory Verses
+        </h1>
         <p className="mt-1 text-sm text-muted-foreground">
           Practice memorizing Bible verses with progressive reveal or type-to-recall.
         </p>
@@ -46,7 +49,13 @@ function VerseList() {
       {verses.length === 0 ? (
         <div className="text-center py-12 text-muted-foreground">
           <p>No memory verses yet.</p>
-          <p className="text-sm mt-2">Add verses from the study panel while reading the Bible.</p>
+          <p className="text-sm mt-2">
+            Add verses from the study panel while{' '}
+            <button className="text-primary hover:underline" onClick={() => navigate('/bible')}>
+              reading the Bible
+            </button>
+            .
+          </p>
         </div>
       ) : (
         <div className="space-y-2">
@@ -70,7 +79,8 @@ function VerseList() {
                 </button>
                 <button
                   className="p-1 text-muted-foreground hover:text-destructive transition-colors"
-                  onClick={() => handleRemove(mv.id)}
+                  onClick={() => handleRemove(mv.id, ref)}
+                  aria-label="Remove memory verse"
                 >
                   <Trash2 className="size-4" />
                 </button>
@@ -122,7 +132,7 @@ function PracticeSession({ verseId }: { verseId: string }) {
           <ChevronLeft className="size-4" />
           Back to verses
         </button>
-        <h1 className="font-sans text-2xl font-semibold text-foreground">{ref}</h1>
+        <h1 className="font-sans text-2xl font-semibold text-foreground text-balance">{ref}</h1>
       </header>
 
       {mode === 'choose' && (
@@ -149,13 +159,13 @@ function PracticeSession({ verseId }: { verseId: string }) {
       )}
 
       {mode === 'reveal' && (
-        <Suspense fallback={<p className="text-muted-foreground">Loading verse...</p>}>
+        <Suspense fallback={<p className="text-muted-foreground">Loading verse…</p>}>
           <RevealMode verse={mv} onBack={() => setMode('choose')} />
         </Suspense>
       )}
 
       {mode === 'type' && (
-        <Suspense fallback={<p className="text-muted-foreground">Loading verse...</p>}>
+        <Suspense fallback={<p className="text-muted-foreground">Loading verse…</p>}>
           <TypeMode verse={mv} onBack={() => setMode('choose')} />
         </Suspense>
       )}
@@ -163,16 +173,21 @@ function PracticeSession({ verseId }: { verseId: string }) {
   );
 }
 
+function useVerseText(mv: MemoryVerse): string {
+  const app = useApp();
+  const allVerses = app.verses(mv.book, mv.chapter);
+  return allVerses
+    .filter((v) => v.verse >= mv.verseStart && v.verse <= (mv.verseEnd ?? mv.verseStart))
+    .map((v) => v.text)
+    .join(' ');
+}
+
 function RevealMode({ verse, onBack }: { verse: MemoryVerse; onBack: () => void }) {
   const app = useApp();
   const [round, setRound] = useState(0);
   const [, startTransition] = useTransition();
 
-  const allVerses = app.verses(verse.book, verse.chapter);
-  const verseTexts = allVerses
-    .filter((v) => v.verse >= verse.verseStart && v.verse <= (verse.verseEnd ?? verse.verseStart))
-    .map((v) => v.text);
-  const fullText = verseTexts.join(' ');
+  const fullText = useVerseText(verse);
   const words = fullText.split(/\s+/);
 
   // Each round hides more words. Round 0 = full, round N = N/total fraction hidden
@@ -245,7 +260,7 @@ function RevealMode({ verse, onBack }: { verse: MemoryVerse; onBack: () => void 
         <button
           className="p-2 text-muted-foreground hover:text-foreground transition-colors"
           onClick={() => setRound(0)}
-          title="Reset"
+          aria-label="Reset practice"
         >
           <RotateCcw className="size-4" />
         </button>
@@ -257,20 +272,16 @@ function RevealMode({ verse, onBack }: { verse: MemoryVerse; onBack: () => void 
 function TypeMode({ verse, onBack }: { verse: MemoryVerse; onBack: () => void }) {
   const app = useApp();
   const [input, setInput] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [score, setScore] = useState<number | null>(null);
   const [, startTransition] = useTransition();
 
-  const allVerses = app.verses(verse.book, verse.chapter);
-  const verseTexts = allVerses
-    .filter((v) => v.verse >= verse.verseStart && v.verse <= (verse.verseEnd ?? verse.verseStart))
-    .map((v) => v.text);
-  const fullText = verseTexts.join(' ');
+  const fullText = useVerseText(verse);
 
   const handleSubmit = () => {
-    setSubmitted(true);
-    const score = computeScore(input, fullText);
+    const computed = computeScore(input, fullText);
+    setScore(computed);
     startTransition(async () => {
-      await app.recordPractice(verse.id, 'type', score);
+      await app.recordPractice(verse.id, 'type', computed);
       app.practiceHistory.invalidate(verse.id);
     });
   };
@@ -282,8 +293,7 @@ function TypeMode({ verse, onBack }: { verse: MemoryVerse; onBack: () => void })
     verseEnd: verse.verseEnd ?? undefined,
   });
 
-  if (submitted) {
-    const score = computeScore(input, fullText);
+  if (score != null) {
     const pct = Math.round(score * 100);
     return (
       <div className="space-y-6 max-w-2xl">
@@ -318,7 +328,7 @@ function TypeMode({ verse, onBack }: { verse: MemoryVerse; onBack: () => void })
             className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded transition-colors"
             onClick={() => {
               setInput('');
-              setSubmitted(false);
+              setScore(null);
             }}
           >
             Try Again
@@ -338,8 +348,8 @@ function TypeMode({ verse, onBack }: { verse: MemoryVerse; onBack: () => void })
       <textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Type the verse here..."
-        className="w-full min-h-[8rem] rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
+        placeholder="Type the verse here…"
+        className="w-full min-h-32 rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 resize-none"
         autoFocus
         onKeyDown={(e) => {
           if (e.key === 'Enter' && e.metaKey) {

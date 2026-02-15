@@ -126,8 +126,7 @@ export class WebReadingPlanService extends Context.Tag('@bible-web/ReadingPlanSe
       });
 
       const removePlan = Effect.fn('WebReadingPlanService.removePlan')(function* (id: string) {
-        yield* db.exec('DELETE FROM reading_plan_progress WHERE plan_id = ?', [id]);
-        yield* db.exec('DELETE FROM reading_plan_items WHERE plan_id = ?', [id]);
+        // CASCADE deletes reading_plan_items and reading_plan_progress
         yield* db.exec('DELETE FROM reading_plans WHERE id = ?', [id]);
       });
 

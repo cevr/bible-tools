@@ -793,6 +793,7 @@ async function init(): Promise<void> {
       'opfs-coop-sync',
     );
     log('[db-worker] init: state.db opened, running schema');
+    await sqlite3.exec(stateDb, 'PRAGMA foreign_keys = ON');
     await sqlite3.exec(stateDb, STATE_SCHEMA);
     log('[db-worker] init: state.db schema applied');
 

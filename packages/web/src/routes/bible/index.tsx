@@ -464,7 +464,7 @@ function BibleRoute() {
           <Suspense
             fallback={
               <div className="border-l border-border sm:pl-6 pt-4">
-                <p className="text-sm text-muted-foreground italic">Loading...</p>
+                <p className="text-sm text-muted-foreground italic">Loading…</p>
               </div>
             }
           >

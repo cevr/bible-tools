@@ -88,6 +88,8 @@ const refKey = (ref: ClassifiedCrossReference, idx: number) =>
 
 import { STUDY_PANEL_WIDTH } from '@/components/bible/study-constants';
 
+const EMPTY_MARKERS: VerseMarker[] = [];
+
 const MARKER_COLORS: { color: MarkerColor; bg: string; ring: string }[] = [
   { color: 'red', bg: 'bg-red-500', ring: 'ring-red-500' },
   { color: 'orange', bg: 'bg-orange-500', ring: 'ring-orange-500' },
@@ -121,7 +123,7 @@ function MarkerPicker({
       {MARKER_COLORS.map(({ color, bg, ring }) => (
         <button
           key={color}
-          className={`size-4 rounded-full transition-all ${bg} ${
+          className={`size-4 rounded-full transition-[opacity,transform,box-shadow] ${bg} ${
             activeColors.has(color)
               ? `ring-2 ${ring} ring-offset-1 ring-offset-background scale-110`
               : 'opacity-40 hover:opacity-70'
@@ -207,8 +209,9 @@ function CollectionChips({
             )}
             {c.name}
             <button
-              className="text-muted-foreground hover:text-red-500 transition-colors"
+              className="-mr-1 p-0.5 text-muted-foreground hover:text-red-500 transition-colors rounded-full"
               onClick={() => handleRemove(c.id)}
+              aria-label={`Remove from ${c.name}`}
             >
               <XIcon className="size-3" />
             </button>
@@ -242,8 +245,8 @@ function CollectionChips({
           >
             <input
               type="text"
-              placeholder="New collection..."
-              className="flex-1 px-2 py-1 text-xs rounded border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+              placeholder="New collection…"
+              className="flex-1 px-2 py-1 text-xs rounded border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
               value={newName}
               onChange={(e) => setNewName(e.target.value)}
             />
@@ -261,7 +264,7 @@ function CollectionChips({
   );
 }
 
-const TabFallback = <p className="text-sm text-muted-foreground italic p-4">Loading...</p>;
+const TabFallback = <p className="text-sm text-muted-foreground italic p-4">Loading…</p>;
 
 export function VerseStudyPanel({
   book,
@@ -272,7 +275,7 @@ export function VerseStudyPanel({
   activeTab = 'notes',
   onTabChange,
   onOpenSecondPane,
-  verseMarkers = [],
+  verseMarkers = EMPTY_MARKERS,
 }: VerseStudyPanelProps) {
   const bible = useBible();
   const app = useApp();
@@ -282,6 +285,7 @@ export function VerseStudyPanel({
   const activeColors = useMemo(() => new Set(verseMarkers.map((m) => m.color)), [verseMarkers]);
   const [, startMarkerTransition] = useTransition();
   const [memoryAdded, setMemoryAdded] = useState(false);
+  const memoryTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const handleToggleMarker = (color: MarkerColor) => {
     startMarkerTransition(async () => {
@@ -300,7 +304,8 @@ export function VerseStudyPanel({
       await app.addMemoryVerse(book, chapter, verse);
       app.memoryVerses.invalidateAll();
       setMemoryAdded(true);
-      setTimeout(() => setMemoryAdded(false), 2000);
+      clearTimeout(memoryTimerRef.current);
+      memoryTimerRef.current = setTimeout(() => setMemoryAdded(false), 2000);
     });
   };
 
@@ -349,13 +354,19 @@ export function VerseStudyPanel({
 
         <TabsContent value="notes" className="flex flex-col flex-1 min-h-0">
           <Suspense fallback={TabFallback}>
-            <NotesTab book={book} chapter={chapter} verse={verse} />
+            <NotesTab
+              key={`${book}-${chapter}-${verse}`}
+              book={book}
+              chapter={chapter}
+              verse={verse}
+            />
           </Suspense>
         </TabsContent>
 
         <TabsContent value="cross-refs" className="flex flex-col flex-1 min-h-0">
           <Suspense fallback={TabFallback}>
             <CrossRefsTab
+              key={`${book}-${chapter}-${verse}`}
               book={book}
               chapter={chapter}
               verse={verse}
@@ -368,6 +379,7 @@ export function VerseStudyPanel({
         <TabsContent value="words" className="flex flex-col flex-1 min-h-0 p-4">
           <Suspense fallback={TabFallback}>
             <WordsTab
+              key={`${book}-${chapter}-${verse}`}
               book={book}
               chapter={chapter}
               verse={verse}
@@ -396,11 +408,6 @@ function NotesTab({ book, chapter, verse }: { book: number; chapter: number; ver
   const marginNotes = app.marginNotes(book, chapter, verse);
   const [draft, setDraft] = useState('');
   const [isPending, startTransition] = useTransition();
-
-  // Reset draft when verse changes
-  useEffect(() => {
-    setDraft('');
-  }, [book, chapter, verse]);
 
   const handleAdd = () => {
     const content = draft.trim();
@@ -431,8 +438,8 @@ function NotesTab({ book, chapter, verse }: { book: number; chapter: number; ver
           className="flex flex-col gap-2"
         >
           <textarea
-            placeholder="Add a note..."
-            className="w-full px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary resize-none"
+            placeholder="Add a note…"
+            className="w-full px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary resize-none"
             rows={2}
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
@@ -471,7 +478,7 @@ function NotesTab({ book, chapter, verse }: { book: number; chapter: number; ver
                     {formatRelativeTime(note.createdAt)}
                   </span>
                   <button
-                    className="opacity-0 group-hover:opacity-100 focus-visible:opacity-100 text-muted-foreground hover:text-red-500 transition-all"
+                    className="opacity-0 group-hover:opacity-100 focus-visible:opacity-100 text-muted-foreground hover:text-red-500 transition-[opacity,color]"
                     onClick={() => handleRemove(note.id)}
                     aria-label="Delete note"
                   >
@@ -664,12 +671,6 @@ function CrossRefsTab({
   const [editingRefKey, setEditingRefKey] = useState<string | null>(null);
   const [addRefInput, setAddRefInput] = useState('');
   const [, startTransition] = useTransition();
-
-  // Reset edit state when verse changes
-  useEffect(() => {
-    setEditingRefKey(null);
-    setAddRefInput('');
-  }, [book, chapter, verse]);
 
   // Preload first ~10 unique cross-ref chapters so popover feels instant
   useEffect(() => {
@@ -942,7 +943,7 @@ function CrossRefsTab({
               <input
                 type="text"
                 placeholder="Add cross-ref (e.g. John 3:16)"
-                className="flex-1 px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+                className="flex-1 px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                 value={addRefInput}
                 onChange={(e) => setAddRefInput(e.target.value)}
               />
@@ -987,13 +988,6 @@ function WordsTab({
   const [selectedStrongs, setSelectedStrongs] = useState<string | null>(null);
   const [concordanceQuery, setConcordanceQuery] = useState('');
 
-  // Reset when verse changes
-  useEffect(() => {
-    setSelectedWordIndex(0);
-    setSelectedStrongs(null);
-    setConcordanceQuery('');
-  }, [book, chapter, verse]);
-
   // Derive Strong's number from concordance input
   const concordanceStrongs = (() => {
     const q = concordanceQuery.trim().toUpperCase();
@@ -1029,7 +1023,7 @@ function WordsTab({
             if (e.target.value.trim()) setSelectedStrongs(null);
           }}
           placeholder="Look up Strong's # (e.g. H157, G26)"
-          className="w-full px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary font-mono"
+          className="w-full px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary font-mono"
         />
       </div>
 
@@ -1037,7 +1031,7 @@ function WordsTab({
         <Suspense
           fallback={
             <div className="border-t border-border pt-3">
-              <p className="text-sm text-muted-foreground italic">Loading...</p>
+              <p className="text-sm text-muted-foreground italic">Loading…</p>
             </div>
           }
         >

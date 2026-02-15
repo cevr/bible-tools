@@ -1,4 +1,4 @@
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense, useState, useEffect, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router';
 import { ChevronLeft, Search } from 'lucide-react';
 import { useApp, useRawApp } from '@/providers/db-context';
@@ -8,35 +8,46 @@ import type { Topic, TopicVerse } from '@/data/topics/types';
 
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
+type TopicsInitState =
+  | { status: 'loading' }
+  | { status: 'ready' }
+  | { status: 'error'; message: string };
+
 export default function TopicsRoute() {
   const { db } = useRawApp();
-  const [ready, setReady] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [state, setState] = useState<TopicsInitState>({ status: 'loading' });
 
-  useEffect(() => {
+  const initTopics = useCallback(() => {
+    setState({ status: 'loading' });
     db.initTopics()
-      .then(() => setReady(true))
-      .catch((err) => setError(err.message));
+      .then(() => setState({ status: 'ready' }))
+      .catch((err) => setState({ status: 'error', message: err.message }));
   }, [db]);
 
-  if (error) {
-    return (
-      <div className="text-center py-12">
-        <p className="text-destructive font-medium">Failed to load topics database</p>
-        <p className="text-sm text-muted-foreground mt-2">{error}</p>
-      </div>
-    );
-  }
+  useEffect(() => {
+    initTopics();
+  }, [initTopics]);
 
-  if (!ready) {
-    return (
-      <div className="text-center py-12">
-        <p className="text-muted-foreground animate-pulse">Loading topics database…</p>
-      </div>
-    );
+  switch (state.status) {
+    case 'error':
+      return (
+        <div className="text-center py-12">
+          <p className="text-destructive font-medium">Failed to load topics database</p>
+          <p className="text-sm text-muted-foreground mt-2">{state.message}</p>
+          <button className="mt-4 text-sm text-primary hover:underline" onClick={initTopics}>
+            Retry
+          </button>
+        </div>
+      );
+    case 'loading':
+      return (
+        <div className="text-center py-12">
+          <p className="text-muted-foreground animate-pulse">Loading topics database…</p>
+        </div>
+      );
+    case 'ready':
+      return <TopicsContent />;
   }
-
-  return <TopicsContent />;
 }
 
 function TopicsContent() {
@@ -62,7 +73,9 @@ function TopicBrowser() {
   return (
     <div className="space-y-6">
       <header className="border-b border-border pb-4">
-        <h1 className="font-sans text-2xl font-semibold text-foreground">Topical Index</h1>
+        <h1 className="font-sans text-2xl font-semibold text-foreground text-balance">
+          Topical Index
+        </h1>
         <p className="mt-1 text-sm text-muted-foreground">
           Browse Bible topics from Nave's Topical Bible.
         </p>
@@ -76,7 +89,7 @@ function TopicBrowser() {
           placeholder="Search topics…"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+          className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
         />
       </div>
 
@@ -218,7 +231,9 @@ function TopicDetail({ topicId }: { topicId: number }) {
           <ChevronLeft className="size-4" />
           Back to topics
         </button>
-        <h1 className="font-sans text-2xl font-semibold text-foreground">{topic.name}</h1>
+        <h1 className="font-sans text-2xl font-semibold text-foreground text-balance">
+          {topic.name}
+        </h1>
         {topic.description && (
           <p className="mt-1 text-sm text-muted-foreground">{topic.description}</p>
         )}
@@ -244,7 +259,7 @@ function TopicDetail({ topicId }: { topicId: number }) {
                 </h3>
                 {bookVerses.map((v, i) => {
                   const ref = v.verseEnd
-                    ? `${v.chapter}:${v.verseStart}-${v.verseEnd}`
+                    ? `${v.chapter}:${v.verseStart}\u2013${v.verseEnd}`
                     : `${v.chapter}:${v.verseStart}`;
                   return (
                     <button

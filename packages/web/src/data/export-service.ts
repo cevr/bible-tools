@@ -81,48 +81,6 @@ interface BackupData {
 // Export all data as JSON backup
 // ---------------------------------------------------------------------------
 
-export async function exportAllJson(app: AppService): Promise<Blob> {
-  const [bookmarks, history, preferences, collections] = await Promise.all([
-    app.getBookmarks(),
-    app.getHistory(10000),
-    app.getPreferences(),
-    app.getCollections(),
-  ]);
-
-  // Gather notes and markers from all bookmarked/history locations
-  // Since we can't enumerate all notes without a dedicated query,
-  // we export the state.db tables directly via raw queries
-  const notes: VerseNote[] = [];
-  const markers: VerseMarker[] = [];
-  const collectionData: BackupData['collections'] = [];
-
-  // Use the app service's runtime to gather data
-  // Notes and markers need a full table scan — we'll query them via the db
-  // But AppService doesn't expose full-table queries, so we collect per-collection
-  const collectionVerses = await Promise.all(
-    collections.map((coll) => app.getCollectionVerses(coll.id)),
-  );
-  for (let i = 0; i < collections.length; i++) {
-    collectionData.push({ collection: collections[i], verses: collectionVerses[i] });
-  }
-
-  const backup: BackupData = {
-    version: 1,
-    exportedAt: new Date().toISOString(),
-    bookmarks,
-    history,
-    preferences,
-    notes,
-    markers,
-    collections: collectionData,
-  };
-
-  return new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
-}
-
-/**
- * Enhanced export that uses DbClient for full table scans of notes/markers.
- */
 export async function exportAllJsonFull(app: AppService, db: DbClient): Promise<Blob> {
   const [bookmarks, history, preferences, collections] = await Promise.all([
     app.getBookmarks(),
@@ -196,10 +154,26 @@ export async function exportAllJsonFull(app: AppService, db: DbClient): Promise<
 
 export async function importFromJson(db: DbClient, blob: Blob): Promise<{ imported: string[] }> {
   const text = await blob.text();
-  const data = JSON.parse(text) as BackupData;
+  const raw: unknown = JSON.parse(text);
+
+  if (typeof raw !== 'object' || raw === null) {
+    throw new Error('Invalid backup: expected a JSON object');
+  }
+
+  const data = raw as BackupData;
 
   if (data.version !== 1) {
-    throw new Error(`Unsupported backup version: ${data.version}`);
+    throw new Error(`Unsupported backup version: ${(raw as { version?: unknown }).version}`);
+  }
+
+  if (
+    !Array.isArray(data.bookmarks) ||
+    !Array.isArray(data.history) ||
+    !Array.isArray(data.notes) ||
+    !Array.isArray(data.markers) ||
+    !Array.isArray(data.collections)
+  ) {
+    throw new Error('Invalid backup: missing required data arrays');
   }
 
   const imported: string[] = [];

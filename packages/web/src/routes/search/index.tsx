@@ -1,4 +1,4 @@
-import { Suspense, useState, useCallback, useTransition } from 'react';
+import { Suspense, useState, useCallback, useMemo, useTransition } from 'react';
 import { useSearchParams, useNavigate } from 'react-router';
 import { Search } from 'lucide-react';
 import { useApp } from '@/providers/db-context';
@@ -18,7 +18,10 @@ export default function SearchRoute() {
   const [inputValue, setInputValue] = useState(q);
   const [isPending, startTransition] = useTransition();
 
-  const bookFilter = bookParam ? bookParam.split(',').map(Number).filter(Boolean) : [];
+  const bookFilter = useMemo(
+    () => (bookParam ? bookParam.split(',').map(Number).filter(Boolean) : []),
+    [bookParam],
+  );
 
   const handleSearch = useCallback(
     (newQuery: string) => {
@@ -56,11 +59,12 @@ export default function SearchRoute() {
     startTransition(() => {
       setSearchParams((prev) => {
         const next = new URLSearchParams(prev);
-        next.set('page', String(page + 1));
+        const currentPage = parseInt(prev.get('page') ?? '0', 10);
+        next.set('page', String(currentPage + 1));
         return next;
       });
     });
-  }, [setSearchParams, page]);
+  }, [setSearchParams]);
 
   return (
     <div className="space-y-6">
@@ -74,8 +78,8 @@ export default function SearchRoute() {
           onKeyDown={(e) => {
             if (e.key === 'Enter') handleSearch(inputValue);
           }}
-          placeholder="Search the Bible..."
-          className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+          placeholder="Search the Bible…"
+          className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
           autoFocus
         />
       </div>
@@ -85,9 +89,7 @@ export default function SearchRoute() {
 
       {/* Results */}
       {q.trim().length >= 2 ? (
-        <Suspense
-          fallback={<p className="text-center text-muted-foreground py-12">Searching...</p>}
-        >
+        <Suspense fallback={<p className="text-center text-muted-foreground py-12">Searching…</p>}>
           <SearchResults
             query={q}
             bookFilter={bookFilter}
@@ -227,7 +229,7 @@ function SearchResults({
             onClick={onLoadMore}
             disabled={isPending}
           >
-            {isPending ? 'Loading...' : `Load more (${results.length} of ${total})`}
+            {isPending ? 'Loading…' : `Load more (${results.length} of ${total})`}
           </button>
         </div>
       )}

@@ -82,7 +82,7 @@ export class WebMemoryVerseService extends Context.Tag('@bible-web/MemoryVerseSe
       const removeMemoryVerse = Effect.fn('WebMemoryVerseService.removeMemoryVerse')(function* (
         id: string,
       ) {
-        yield* db.exec('DELETE FROM memory_practice WHERE verse_id = ?', [id]);
+        // CASCADE deletes memory_practice rows
         yield* db.exec('DELETE FROM memory_verses WHERE id = ?', [id]);
       });
 

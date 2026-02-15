@@ -106,7 +106,7 @@ export function SearchOverlay() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             autoFocus
-            placeholder="Search for words or phrases..."
+            placeholder="Search for words or phrases…"
             className="w-full bg-transparent text-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded"
           />
         </div>
@@ -122,7 +122,7 @@ export function SearchOverlay() {
           ) : (
             <Suspense
               fallback={
-                <p className="px-4 py-6 text-center text-sm text-muted-foreground">Searching...</p>
+                <p className="px-4 py-6 text-center text-sm text-muted-foreground">Searching…</p>
               }
             >
               <SearchResults

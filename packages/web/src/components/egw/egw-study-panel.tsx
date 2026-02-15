@@ -71,10 +71,12 @@ export function EgwStudyPanel({
 
         <TabsContent value="notes" className="flex flex-col flex-1 min-h-0">
           {paragraph && bookCode ? (
-            <Suspense
-              fallback={<div className="p-4 text-sm text-muted-foreground">Loading...</div>}
-            >
-              <EgwNotesTab bookCode={bookCode} puborder={paragraph.puborder} />
+            <Suspense fallback={<div className="p-4 text-sm text-muted-foreground">Loading…</div>}>
+              <EgwNotesTab
+                key={`${bookCode}-${paragraph.puborder}`}
+                bookCode={bookCode}
+                puborder={paragraph.puborder}
+              />
             </Suspense>
           ) : (
             <div className="p-4 text-sm text-muted-foreground italic">No paragraph selected.</div>
@@ -179,9 +181,9 @@ function EgwNotesTab({ bookCode, puborder }: { bookCode: string; puborder: numbe
             {MARKER_COLORS.map((color) => (
               <button
                 key={color}
-                className={`size-6 rounded-full ${MARKER_COLOR_MAP[color]} hover:ring-2 hover:ring-offset-2 hover:ring-offset-background hover:ring-${color}-400 transition-all`}
+                className={`size-6 rounded-full ${MARKER_COLOR_MAP[color]} hover:ring-2 hover:ring-offset-2 hover:ring-offset-background hover:ring-${color}-400 transition-shadow`}
                 onClick={() => handleToggleMarker(color)}
-                title={color}
+                aria-label={`Highlight ${color}`}
               />
             ))}
           </div>
@@ -196,8 +198,8 @@ function EgwNotesTab({ bookCode, puborder }: { bookCode: string; puborder: numbe
             <textarea
               value={noteText}
               onChange={(e) => setNoteText(e.target.value)}
-              placeholder="Add a note..."
-              className="flex-1 min-h-[4rem] rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary resize-none"
+              placeholder="Add a note…"
+              className="flex-1 min-h-16 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary resize-none"
               onKeyDown={(e) => {
                 if (e.key === 'Enter' && e.metaKey) {
                   e.preventDefault();
@@ -227,6 +229,7 @@ function EgwNotesTab({ bookCode, puborder }: { bookCode: string; puborder: numbe
                 <button
                   className="p-1 text-muted-foreground hover:text-destructive transition-colors shrink-0"
                   onClick={() => handleRemoveNote(note.id)}
+                  aria-label="Delete note"
                 >
                   <Trash2 className="size-3.5" />
                 </button>

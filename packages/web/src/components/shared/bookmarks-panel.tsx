@@ -81,7 +81,7 @@ function BookmarksPanelInner() {
               <input
                 type="text"
                 placeholder="Note (optional)"
-                className="flex-1 px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+                className="flex-1 px-2 py-1.5 text-sm rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                 value={noteInput}
                 onChange={(e) => setNoteInput(e.target.value)}
               />

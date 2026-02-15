@@ -12,11 +12,11 @@ export default function PlansRoute() {
   const planId = searchParams.get('plan');
 
   return planId ? (
-    <Suspense fallback={<p className="text-muted-foreground">Loading plan...</p>}>
+    <Suspense fallback={<p className="text-muted-foreground">Loading plan…</p>}>
       <PlanDetail planId={planId} />
     </Suspense>
   ) : (
-    <Suspense fallback={<p className="text-muted-foreground">Loading plans...</p>}>
+    <Suspense fallback={<p className="text-muted-foreground">Loading plans…</p>}>
       <PlanList />
     </Suspense>
   );
@@ -40,7 +40,8 @@ function PlanList() {
     });
   };
 
-  const handleRemove = (id: string) => {
+  const handleRemove = (id: string, name: string) => {
+    if (!window.confirm(`Remove "${name}"? All progress will be lost.`)) return;
     startTransition(async () => {
       await app.removePlan(id);
       app.plans.invalidateAll();
@@ -54,7 +55,9 @@ function PlanList() {
   return (
     <div className="space-y-6">
       <header className="border-b border-border pb-4">
-        <h1 className="font-sans text-2xl font-semibold text-foreground">Reading Plans</h1>
+        <h1 className="font-sans text-2xl font-semibold text-foreground text-balance">
+          Reading Plans
+        </h1>
         <p className="mt-1 text-sm text-muted-foreground">
           Track your progress through structured Bible reading.
         </p>
@@ -72,7 +75,7 @@ function PlanList() {
                 key={plan.id}
                 plan={plan}
                 onOpen={() => navigate(`/plans?plan=${plan.id}`)}
-                onRemove={() => handleRemove(plan.id)}
+                onRemove={() => handleRemove(plan.id, plan.name)}
               />
             ))}
           </div>
@@ -138,6 +141,7 @@ function PlanCard({
             e.stopPropagation();
             onRemove();
           }}
+          aria-label="Remove plan"
         >
           <Trash2 className="size-4" />
         </button>
@@ -160,7 +164,7 @@ function PlanProgressBar({ planId }: { planId: string }) {
 
   return (
     <div className="mt-3 space-y-1">
-      <div className="flex items-center justify-between text-xs text-muted-foreground">
+      <div className="flex items-center justify-between text-xs text-muted-foreground tabular-nums">
         <span>
           {done}/{total} readings
         </span>
@@ -244,7 +248,9 @@ function PlanDetail({ planId }: { planId: string }) {
           <ChevronLeft className="size-4" />
           Back to plans
         </button>
-        <h1 className="font-sans text-2xl font-semibold text-foreground">{plan.name}</h1>
+        <h1 className="font-sans text-2xl font-semibold text-foreground text-balance">
+          {plan.name}
+        </h1>
         {plan.description && (
           <p className="mt-1 text-sm text-muted-foreground">{plan.description}</p>
         )}
@@ -289,7 +295,7 @@ function PlanDetail({ planId }: { planId: string }) {
                   const label =
                     item.label ??
                     `${book?.name ?? `Book ${item.book}`} ${item.startChapter}${
-                      item.endChapter ? `-${item.endChapter}` : ''
+                      item.endChapter ? `\u2013${item.endChapter}` : ''
                     }`;
 
                   return (
@@ -302,6 +308,9 @@ function PlanDetail({ planId }: { planId: string }) {
                         }`}
                         onClick={() => handleToggle(item.id)}
                         disabled={isPending}
+                        role="checkbox"
+                        aria-checked={isDone}
+                        aria-label={isDone ? 'Mark as incomplete' : 'Mark as complete'}
                       >
                         {isDone && <Check className="size-3" />}
                       </button>
@@ -319,7 +328,7 @@ function PlanDetail({ planId }: { planId: string }) {
                             navigate(`/bible/${toBookSlug(book.name)}/${item.startChapter}`);
                           }
                         }}
-                        title="Read"
+                        aria-label="Read chapter"
                       >
                         <BookOpen className="size-4" />
                       </button>

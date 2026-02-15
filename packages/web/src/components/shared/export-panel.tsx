@@ -1,4 +1,4 @@
-import { useState, useTransition } from 'react';
+import { useState } from 'react';
 import { Download, Upload, FileText, Check, AlertCircle } from 'lucide-react';
 import { useOverlay } from '@/providers/overlay-context';
 import { useRawApp } from '@/providers/db-context';
@@ -12,7 +12,6 @@ export function ExportPanel() {
   const { app, db } = useRawApp();
   const [status, setStatus] = useState<ExportStatus>('idle');
   const [message, setMessage] = useState('');
-  const [, startTransition] = useTransition();
 
   const isOpen = overlay === 'export';
 
@@ -48,11 +47,8 @@ export function ExportPanel() {
         const result = await importFromJson(db, file);
         setStatus('success');
         setMessage(`Restored: ${result.imported.join(', ')}`);
-        // Invalidate all caches after import
-        startTransition(() => {
-          // Force a full page reload to pick up all restored data
-          window.location.reload();
-        });
+        // Force a full page reload to pick up all restored data
+        window.location.reload();
       } catch (err) {
         setStatus('error');
         setMessage(err instanceof Error ? err.message : 'Import failed');
@@ -128,8 +124,8 @@ export function ExportPanel() {
                 <FileText className="size-4 shrink-0 animate-pulse" />
               )}
               <span>
-                {status === 'exporting' && 'Exporting...'}
-                {status === 'importing' && 'Importing...'}
+                {status === 'exporting' && 'Exporting…'}
+                {status === 'importing' && 'Importing…'}
                 {(status === 'success' || status === 'error') && message}
               </span>
             </div>
