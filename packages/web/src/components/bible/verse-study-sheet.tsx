@@ -9,7 +9,7 @@
  *
  * All data reads suspend via CachedApp — no manual useEffect/useState for fetching.
  */
-import { useState, useEffect, useRef, useMemo, useTransition, useCallback, Suspense } from 'react';
+import { useState, useEffect, useRef, useMemo, useTransition, Suspense } from 'react';
 import { useNavigate } from 'react-router';
 import { XIcon, Trash2Icon, ExternalLinkIcon, ChevronDownIcon } from 'lucide-react';
 import { useBible } from '@/providers/bible-context';
@@ -1132,30 +1132,32 @@ function EgwEntryCard({
   const app = useApp();
   const [contextOpen, setContextOpen] = useState(false);
   const [context, setContext] = useState<EGWContextParagraph[] | null>(null);
-  const [loadingContext, setLoadingContext] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
-  const handleToggleContext = useCallback(async () => {
+  const handleToggleContext = () => {
     if (contextOpen) {
       setContextOpen(false);
       return;
     }
-    if (!context) {
-      setLoadingContext(true);
+    if (context) {
+      setContextOpen(true);
+      return;
+    }
+    startTransition(async () => {
       const paragraphs = await app.getEgwParagraphContext(entry.bookCode, entry.puborder, 2);
       setContext(paragraphs);
-      setLoadingContext(false);
-    }
-    setContextOpen(true);
-  }, [app, entry.bookCode, entry.puborder, context, contextOpen]);
+      setContextOpen(true);
+    });
+  };
 
   return (
     <div className="flex flex-col gap-1 p-2 rounded-lg hover:bg-accent/30 transition-colors group">
       <div className="flex items-center justify-between gap-2">
         <span className="text-[10px] font-mono text-muted-foreground">{entry.refcode}</span>
         <button
-          className="shrink-0 text-muted-foreground hover:text-primary transition-colors opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
+          className="shrink-0 p-1 -m-1 text-muted-foreground hover:text-primary transition-colors max-md:opacity-100 opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
           onClick={() => onNavigate(entry.bookCode, entry.puborder)}
-          aria-label={`Open in EGW reader`}
+          aria-label="Open in EGW reader"
           title="Open in EGW reader"
         >
           <ExternalLinkIcon className="size-3.5" />
@@ -1167,11 +1169,8 @@ function EgwEntryCard({
           {context.map((p) => (
             <p
               key={p.puborder}
-              className={`text-sm leading-relaxed ${
-                p.puborder === entry.puborder
-                  ? 'text-foreground bg-primary/10 rounded px-1 -mx-1'
-                  : 'text-muted-foreground'
-              }`}
+              className="text-sm leading-relaxed text-muted-foreground data-[matched]:text-foreground data-[matched]:bg-primary/10 data-[matched]:rounded data-[matched]:px-1 data-[matched]:-mx-1"
+              data-matched={p.puborder === entry.puborder ? '' : undefined}
             >
               {cleanHtml(p.content)}
             </p>
@@ -1182,14 +1181,14 @@ function EgwEntryCard({
       )}
 
       <button
-        className="self-start text-[10px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-0.5"
+        className="self-start py-1 text-[10px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-0.5"
         onClick={handleToggleContext}
-        disabled={loadingContext}
+        disabled={isPending}
       >
         <ChevronDownIcon
           className={`size-3 transition-transform ${contextOpen ? 'rotate-180' : ''}`}
         />
-        {loadingContext ? 'Loading...' : contextOpen ? 'Hide context' : 'Show context'}
+        {isPending ? 'Loading\u2026' : contextOpen ? 'Hide context' : 'Show context'}
       </button>
     </div>
   );
@@ -1220,9 +1219,11 @@ function EgwEntryGroup({
 
   return (
     <div className="flex flex-col gap-3">
-      <h3 className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
-        {label}
-      </h3>
+      {label && (
+        <h3 className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+          {label}
+        </h3>
+      )}
       {grouped.map(([bookCode, groupEntries]) => (
         <div key={bookCode} className="flex flex-col gap-1.5">
           <h4 className="text-xs font-mono font-semibold text-primary uppercase tracking-wider">
@@ -1246,7 +1247,7 @@ function EgwTab({ book, chapter, verse }: { book: number; chapter: number; verse
   const navigate = useNavigate();
   const entries = app.egwCommentary(book, chapter, verse);
 
-  const { bcIndexed, bcSearch, otherIndexed, otherSearch } = useMemo(() => {
+  const { bcEntries, otherEntries } = useMemo(() => {
     const bcIndexed: EGWCommentaryEntry[] = [];
     const bcSearch: EGWCommentaryEntry[] = [];
     const otherIndexed: EGWCommentaryEntry[] = [];
@@ -1259,19 +1260,16 @@ function EgwTab({ book, chapter, verse }: { book: number; chapter: number; verse
         (isBC ? bcSearch : otherSearch).push(e);
       }
     }
-    return { bcIndexed, bcSearch, otherIndexed, otherSearch };
+    return {
+      bcEntries: [...bcIndexed, ...bcSearch],
+      otherEntries: [...otherIndexed, ...otherSearch],
+    };
   }, [entries]);
 
-  const bcEntries = [...bcIndexed, ...bcSearch];
-  const otherEntries = [...otherIndexed, ...otherSearch];
-
-  const handleNavigate = useCallback(
-    async (bookCode: string, puborder: number) => {
-      const chapterIndex = await app.getEgwChapterIndex(bookCode, puborder);
-      navigate(`/egw/${bookCode}/${chapterIndex}/${puborder}`);
-    },
-    [app, navigate],
-  );
+  const handleNavigate = async (bookCode: string, puborder: number) => {
+    const chapterIndex = await app.getEgwChapterIndex(bookCode, puborder);
+    navigate(`/egw/${bookCode}/${chapterIndex}/${puborder}`);
+  };
 
   if (entries.length === 0) {
     return (
