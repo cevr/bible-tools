@@ -9,11 +9,12 @@
  *
  * All data reads suspend via CachedApp — no manual useEffect/useState for fetching.
  */
-import { useState, useEffect, useRef, useMemo, useTransition, Suspense } from 'react';
+import { useState, useEffect, useRef, useMemo, useTransition, useCallback, Suspense } from 'react';
 import { useNavigate } from 'react-router';
-import { XIcon, Trash2Icon } from 'lucide-react';
+import { XIcon, Trash2Icon, ExternalLinkIcon, ChevronDownIcon } from 'lucide-react';
 import { useBible } from '@/providers/bible-context';
 import { useApp } from '@/providers/db-context';
+import { cleanHtml } from '@/components/egw/html-utils';
 import { Button } from '@/components/ui/button';
 import {
   Popover,
@@ -29,11 +30,14 @@ import { WordModeView } from '@/components/bible/word-mode-view';
 import type {
   ClassifiedCrossReference,
   CrossRefType,
+  EGWCommentaryEntry,
+  EGWContextParagraph,
   MarginNote,
   MarkerColor,
   VerseMarker,
 } from '@/data/study/service';
 import { toBookSlug } from '@/data/bible';
+import { EGW_CATEGORIES } from '@/components/shared/egw-categories';
 
 export type StudyTab = 'notes' | 'cross-refs' | 'words' | 'egw';
 
@@ -1116,13 +1120,93 @@ function StrongsDetail({
 // EGW Tab
 // ---------------------------------------------------------------------------
 
-function EgwTab({ book, chapter, verse }: { book: number; chapter: number; verse: number }) {
-  const app = useApp();
-  const entries = app.egwCommentary(book, chapter, verse);
+const BC_CODES = EGW_CATEGORIES[1].codes; // Bible Commentary codes
 
-  // Group entries by bookCode
+function EgwEntryCard({
+  entry,
+  onNavigate,
+}: {
+  entry: EGWCommentaryEntry;
+  onNavigate: (bookCode: string, puborder: number) => void;
+}) {
+  const app = useApp();
+  const [contextOpen, setContextOpen] = useState(false);
+  const [context, setContext] = useState<EGWContextParagraph[] | null>(null);
+  const [loadingContext, setLoadingContext] = useState(false);
+
+  const handleToggleContext = useCallback(async () => {
+    if (contextOpen) {
+      setContextOpen(false);
+      return;
+    }
+    if (!context) {
+      setLoadingContext(true);
+      const paragraphs = await app.getEgwParagraphContext(entry.bookCode, entry.puborder, 2);
+      setContext(paragraphs);
+      setLoadingContext(false);
+    }
+    setContextOpen(true);
+  }, [app, entry.bookCode, entry.puborder, context, contextOpen]);
+
+  return (
+    <div className="flex flex-col gap-1 p-2 rounded-lg hover:bg-accent/30 transition-colors group">
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-[10px] font-mono text-muted-foreground">{entry.refcode}</span>
+        <button
+          className="shrink-0 text-muted-foreground hover:text-primary transition-colors opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
+          onClick={() => onNavigate(entry.bookCode, entry.puborder)}
+          aria-label={`Open in EGW reader`}
+          title="Open in EGW reader"
+        >
+          <ExternalLinkIcon className="size-3.5" />
+        </button>
+      </div>
+
+      {contextOpen && context ? (
+        <div className="flex flex-col gap-1.5">
+          {context.map((p) => (
+            <p
+              key={p.puborder}
+              className={`text-sm leading-relaxed ${
+                p.puborder === entry.puborder
+                  ? 'text-foreground bg-primary/10 rounded px-1 -mx-1'
+                  : 'text-muted-foreground'
+              }`}
+            >
+              {cleanHtml(p.content)}
+            </p>
+          ))}
+        </div>
+      ) : (
+        <p className="text-sm text-foreground leading-relaxed">{cleanHtml(entry.content)}</p>
+      )}
+
+      <button
+        className="self-start text-[10px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-0.5"
+        onClick={handleToggleContext}
+        disabled={loadingContext}
+      >
+        <ChevronDownIcon
+          className={`size-3 transition-transform ${contextOpen ? 'rotate-180' : ''}`}
+        />
+        {loadingContext ? 'Loading...' : contextOpen ? 'Hide context' : 'Show context'}
+      </button>
+    </div>
+  );
+}
+
+function EgwEntryGroup({
+  label,
+  entries,
+  onNavigate,
+}: {
+  label: string;
+  entries: EGWCommentaryEntry[];
+  onNavigate: (bookCode: string, puborder: number) => void;
+}) {
+  // Group by bookCode within this group
   const grouped = useMemo(() => {
-    const map = new Map<string, typeof entries>();
+    const map = new Map<string, EGWCommentaryEntry[]>();
     for (const entry of entries) {
       let arr = map.get(entry.bookCode);
       if (!arr) {
@@ -1134,6 +1218,61 @@ function EgwTab({ book, chapter, verse }: { book: number; chapter: number; verse
     return [...map];
   }, [entries]);
 
+  return (
+    <div className="flex flex-col gap-3">
+      <h3 className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+        {label}
+      </h3>
+      {grouped.map(([bookCode, groupEntries]) => (
+        <div key={bookCode} className="flex flex-col gap-1.5">
+          <h4 className="text-xs font-mono font-semibold text-primary uppercase tracking-wider">
+            {bookCode}
+          </h4>
+          {groupEntries.map((entry) => (
+            <EgwEntryCard
+              key={`${entry.bookCode}-${entry.puborder}`}
+              entry={entry}
+              onNavigate={onNavigate}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function EgwTab({ book, chapter, verse }: { book: number; chapter: number; verse: number }) {
+  const app = useApp();
+  const navigate = useNavigate();
+  const entries = app.egwCommentary(book, chapter, verse);
+
+  const { bcIndexed, bcSearch, otherIndexed, otherSearch } = useMemo(() => {
+    const bcIndexed: EGWCommentaryEntry[] = [];
+    const bcSearch: EGWCommentaryEntry[] = [];
+    const otherIndexed: EGWCommentaryEntry[] = [];
+    const otherSearch: EGWCommentaryEntry[] = [];
+    for (const e of entries) {
+      const isBC = BC_CODES.has(e.bookCode);
+      if (e.source === 'indexed') {
+        (isBC ? bcIndexed : otherIndexed).push(e);
+      } else {
+        (isBC ? bcSearch : otherSearch).push(e);
+      }
+    }
+    return { bcIndexed, bcSearch, otherIndexed, otherSearch };
+  }, [entries]);
+
+  const bcEntries = [...bcIndexed, ...bcSearch];
+  const otherEntries = [...otherIndexed, ...otherSearch];
+
+  const handleNavigate = useCallback(
+    async (bookCode: string, puborder: number) => {
+      const chapterIndex = await app.getEgwChapterIndex(bookCode, puborder);
+      navigate(`/egw/${bookCode}/${chapterIndex}/${puborder}`);
+    },
+    [app, navigate],
+  );
+
   if (entries.length === 0) {
     return (
       <div className="flex items-center justify-center h-full px-4">
@@ -1144,33 +1283,53 @@ function EgwTab({ book, chapter, verse }: { book: number; chapter: number; verse
     );
   }
 
-  const volumeCount = grouped.length;
+  const totalBC = bcEntries.length;
+  const totalOther = otherEntries.length;
 
   return (
     <div className="flex flex-col h-full">
       <ScrollArea className="flex-1 min-h-0">
         <div className="flex flex-col gap-4 px-4 py-3">
-          {grouped.map(([bookCode, groupEntries]) => (
-            <div key={bookCode} className="flex flex-col gap-2">
-              <h3 className="text-xs font-mono font-semibold text-primary uppercase tracking-wider">
-                {bookCode}
-              </h3>
-              {groupEntries.map((entry) => (
-                <div key={`${entry.bookCode}-${entry.puborder}`} className="flex flex-col gap-1">
-                  <span className="text-[10px] font-mono text-muted-foreground">
-                    {entry.refcode}
-                  </span>
-                  <p className="text-sm text-foreground leading-relaxed">{entry.content}</p>
-                </div>
-              ))}
+          {bcEntries.length > 0 && (
+            <EgwEntryGroup
+              label="Bible Commentary"
+              entries={bcEntries}
+              onNavigate={handleNavigate}
+            />
+          )}
+
+          {bcEntries.length > 0 && otherEntries.length > 0 && (
+            <div className="flex items-center gap-2">
+              <div className="flex-1 border-t border-border" />
+              <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground shrink-0">
+                Other Writings
+              </span>
+              <div className="flex-1 border-t border-border" />
             </div>
-          ))}
+          )}
+
+          {otherEntries.length > 0 && (
+            <EgwEntryGroup
+              label={bcEntries.length > 0 ? '' : 'EGW Writings'}
+              entries={otherEntries}
+              onNavigate={handleNavigate}
+            />
+          )}
         </div>
       </ScrollArea>
 
       <div className="px-4 py-3 border-t border-border text-xs text-muted-foreground shrink-0">
-        {entries.length} {entries.length === 1 ? 'entry' : 'entries'} from {volumeCount}{' '}
-        {volumeCount === 1 ? 'volume' : 'volumes'}
+        {totalBC > 0 && (
+          <span>
+            {totalBC} BC {totalBC === 1 ? 'entry' : 'entries'}
+          </span>
+        )}
+        {totalBC > 0 && totalOther > 0 && <span> · </span>}
+        {totalOther > 0 && (
+          <span>
+            {totalOther} other {totalOther === 1 ? 'entry' : 'entries'}
+          </span>
+        )}
       </div>
     </div>
   );

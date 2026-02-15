@@ -114,6 +114,14 @@ export interface EGWCommentaryEntry {
   bookTitle: string;
   content: string;
   puborder: number;
+  source: 'indexed' | 'search';
+}
+
+export interface EGWContextParagraph {
+  refcode: string;
+  bookCode: string;
+  content: string;
+  puborder: number;
 }
 
 export interface UserCrossRef {

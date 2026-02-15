@@ -1,4 +1,5 @@
 import { Context, Effect, Layer } from 'effect';
+import { BIBLE_BOOK_ALIASES, getBibleBook } from '@bible/core/bible-reader';
 import { DbClientService } from '../db-client-service';
 import type { DatabaseQueryError } from '../errors';
 import type {
@@ -7,6 +8,7 @@ import type {
   ConcordanceResult,
   CrossRefType,
   EGWCommentaryEntry,
+  EGWContextParagraph,
   MarginNote,
   MarkerColor,
   StrongsEntry,
@@ -96,6 +98,13 @@ interface EGWCommentaryRow {
   refcode_short: string;
   book_code: string;
   book_title: string;
+  content: string;
+  puborder: number;
+}
+
+interface EGWContextRow {
+  refcode_short: string;
+  book_code: string;
   content: string;
   puborder: number;
 }
@@ -202,6 +211,17 @@ interface WebStudyDataServiceShape {
     chapter: number,
     verse: number,
   ) => Effect.Effect<EGWCommentaryEntry[], DatabaseQueryError>;
+
+  readonly getEgwChapterIndex: (
+    bookCode: string,
+    puborder: number,
+  ) => Effect.Effect<number, DatabaseQueryError>;
+
+  readonly getEgwParagraphContext: (
+    bookCode: string,
+    puborder: number,
+    radius: number,
+  ) => Effect.Effect<EGWContextParagraph[], DatabaseQueryError>;
 
   readonly getCollections: () => Effect.Effect<StudyCollection[], DatabaseQueryError>;
 
@@ -700,7 +720,8 @@ export class WebStudyDataService extends Context.Tag('@bible-web/StudyData')<
         chapter: number,
         verse: number,
       ) {
-        const rows = yield* db.query<EGWCommentaryRow>(
+        // Phase 1: Indexed results from paragraph_bible_refs
+        const indexedRows = yield* db.query<EGWCommentaryRow>(
           'egw',
           `SELECT p.refcode_short, p.content, p.puborder, b.book_code, b.book_title
            FROM paragraphs p
@@ -710,16 +731,106 @@ export class WebStudyDataService extends Context.Tag('@bible-web/StudyData')<
            ORDER BY b.book_code, p.puborder`,
           [book, chapter, verse],
         );
-        return rows.map(
-          (r): EGWCommentaryEntry => ({
-            refcode: r.refcode_short,
-            bookCode: r.book_code,
-            bookTitle: r.book_title,
-            content: r.content,
-            puborder: r.puborder,
-          }),
+
+        const indexed: EGWCommentaryEntry[] = indexedRows.map((r) => ({
+          refcode: r.refcode_short,
+          bookCode: r.book_code,
+          bookTitle: r.book_title,
+          content: r.content,
+          puborder: r.puborder,
+          source: 'indexed' as const,
+        }));
+
+        // Phase 2: FTS5 search for verse mentions in paragraph text
+        const bookInfo = getBibleBook(book);
+        if (!bookInfo) return indexed;
+
+        // Build FTS5 query from book aliases: "ephesians 4 15" OR "eph 4 15"
+        const seen = new Set<string>();
+        const ftsTerms: string[] = [];
+        for (const [alias, num] of Object.entries(BIBLE_BOOK_ALIASES)) {
+          if (num === book && !seen.has(alias)) {
+            seen.add(alias);
+            // FTS5 phrase: "bookname chapter verse"
+            ftsTerms.push(`"${alias} ${chapter} ${verse}"`);
+          }
+        }
+        // Always include canonical name
+        const canonical = bookInfo.name.toLowerCase();
+        if (!seen.has(canonical)) {
+          ftsTerms.push(`"${canonical} ${chapter} ${verse}"`);
+        }
+
+        const ftsQuery = ftsTerms.join(' OR ');
+
+        const searchRows = yield* db.query<EGWCommentaryRow>(
+          'egw',
+          `SELECT p.refcode_short, p.content, p.puborder, b.book_code, b.book_title
+           FROM paragraphs p
+           JOIN paragraphs_fts fts ON p.rowid = fts.rowid
+           JOIN books b ON p.book_id = b.book_id
+           WHERE paragraphs_fts MATCH ?
+           ORDER BY b.book_code, p.puborder
+           LIMIT 50`,
+          [ftsQuery],
         );
+
+        // Deduplicate: exclude results already in indexed set
+        const indexedKeys = new Set(indexed.map((r) => `${r.bookCode}:${r.puborder}`));
+        const searchResults: EGWCommentaryEntry[] = [];
+        for (const r of searchRows) {
+          const key = `${r.book_code}:${r.puborder}`;
+          if (!indexedKeys.has(key)) {
+            searchResults.push({
+              refcode: r.refcode_short,
+              bookCode: r.book_code,
+              bookTitle: r.book_title,
+              content: r.content,
+              puborder: r.puborder,
+              source: 'search' as const,
+            });
+          }
+        }
+
+        return [...indexed, ...searchResults];
       });
+
+      const getEgwChapterIndex = Effect.fn('WebStudyDataService.getEgwChapterIndex')(function* (
+        bookCode: string,
+        puborder: number,
+      ) {
+        const rows = yield* db.query<{ chapter_index: number }>(
+          'egw',
+          `SELECT COUNT(*) - 1 as chapter_index
+           FROM paragraphs p
+           JOIN books b ON p.book_id = b.book_id
+           WHERE b.book_code = ? AND p.is_chapter_heading = 1 AND p.puborder <= ?`,
+          [bookCode, puborder],
+        );
+        return rows[0]?.chapter_index ?? 0;
+      });
+
+      const getEgwParagraphContext = Effect.fn('WebStudyDataService.getEgwParagraphContext')(
+        function* (bookCode: string, puborder: number, radius: number) {
+          const rows = yield* db.query<EGWContextRow>(
+            'egw',
+            `SELECT p.refcode_short, p.content, p.puborder, b.book_code
+             FROM paragraphs p
+             JOIN books b ON p.book_id = b.book_id
+             WHERE b.book_code = ? AND p.puborder BETWEEN ? AND ?
+             ORDER BY p.puborder`,
+            [bookCode, puborder - radius, puborder + radius],
+          );
+          return rows.map(
+            (r): EGWContextParagraph => ({
+              refcode: r.refcode_short,
+              bookCode: r.book_code,
+              content: r.content,
+              puborder: r.puborder,
+            }),
+          );
+        },
+      );
 
       return WebStudyDataService.of({
         getCrossRefs,
@@ -738,6 +849,8 @@ export class WebStudyDataService extends Context.Tag('@bible-web/StudyData')<
         addVerseNote,
         removeVerseNote,
         getEgwCommentary,
+        getEgwChapterIndex,
+        getEgwParagraphContext,
         getCollections,
         createCollection,
         removeCollection,

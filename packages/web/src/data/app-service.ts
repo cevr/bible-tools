@@ -23,6 +23,7 @@ import type {
   ConcordanceResult,
   CrossRefType,
   EGWCommentaryEntry,
+  EGWContextParagraph,
   MarginNote,
   MarkerColor,
   StrongsEntry,
@@ -203,6 +204,20 @@ export class AppService {
 
   getEgwCommentary(book: number, chapter: number, verse: number): Promise<EGWCommentaryEntry[]> {
     return this.run(WebStudyDataService, (s) => s.getEgwCommentary(book, chapter, verse));
+  }
+
+  getEgwChapterIndex(bookCode: string, puborder: number): Promise<number> {
+    return this.run(WebStudyDataService, (s) => s.getEgwChapterIndex(bookCode, puborder));
+  }
+
+  getEgwParagraphContext(
+    bookCode: string,
+    puborder: number,
+    radius: number,
+  ): Promise<EGWContextParagraph[]> {
+    return this.run(WebStudyDataService, (s) =>
+      s.getEgwParagraphContext(bookCode, puborder, radius),
+    );
   }
 
   getCollections(): Promise<StudyCollection[]> {

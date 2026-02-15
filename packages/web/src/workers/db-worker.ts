@@ -195,6 +195,14 @@ const EGW_SCHEMA = `
     last_attempt TEXT NOT NULL,
     paragraph_count INTEGER DEFAULT 0
   );
+
+  CREATE VIRTUAL TABLE IF NOT EXISTS paragraphs_fts USING fts5(
+    content,
+    refcode_short,
+    book_id UNINDEXED,
+    content_rowid='rowid',
+    tokenize='unicode61'
+  );
 `;
 
 // Bible Commentary volumes to auto-sync
@@ -284,6 +292,34 @@ async function downloadBibleDb(): Promise<void> {
 
   // Reopen as readonly
   bibleDb = await sqlite3.open_v2('bible.db', SQLite.SQLITE_OPEN_READONLY, 'opfs-coop-sync');
+}
+
+// ---------------------------------------------------------------------------
+// EGW FTS helpers
+// ---------------------------------------------------------------------------
+
+async function rebuildFtsForBook(bookId: number): Promise<void> {
+  // Delete existing FTS entries for this book, then re-insert
+  await execWrite(egwDb, `DELETE FROM paragraphs_fts WHERE book_id = ?`, [bookId]);
+  await execWrite(
+    egwDb,
+    `INSERT INTO paragraphs_fts(rowid, content, refcode_short, book_id)
+     SELECT rowid, content, refcode_short, book_id
+     FROM paragraphs WHERE book_id = ?`,
+    [bookId],
+  );
+}
+
+async function rebuildAllFts(): Promise<void> {
+  // Full rebuild: clear + re-insert all
+  await execWrite(egwDb, `DELETE FROM paragraphs_fts`);
+  await execWrite(
+    egwDb,
+    `INSERT INTO paragraphs_fts(rowid, content, refcode_short, book_id)
+     SELECT rowid, content, refcode_short, book_id
+     FROM paragraphs`,
+  );
+  log('[db-worker] FTS: full rebuild complete');
 }
 
 // ---------------------------------------------------------------------------
@@ -441,6 +477,10 @@ async function syncBook(bookCode: string, _requestId?: number): Promise<number> 
     throw e;
   }
 
+  // Rebuild FTS index for this book's paragraphs
+  post({ type: 'sync-book-progress', bookCode, stage: 'Indexing...', progress: 95 });
+  await rebuildFtsForBook(book.bookId);
+
   post({ type: 'sync-book-progress', bookCode, stage: 'Done', progress: 100 });
   log(`[db-worker] sync: ${bookCode} done — ${paragraphs.length} paragraphs`);
   return paragraphs.length;
@@ -503,6 +543,9 @@ async function syncFullEgw(): Promise<void> {
     [new Date().toISOString()],
   );
   log('[db-worker] syncFullEgw: populated sync_status from books table');
+
+  // Rebuild FTS index from all paragraphs
+  await rebuildAllFts();
 }
 
 /**
@@ -615,6 +658,14 @@ async function init(): Promise<void> {
       );
       await sqlite3.exec(egwDb, EGW_SCHEMA);
       log('[db-worker] init: egw-paragraphs.db schema applied');
+
+      // Ensure FTS index is populated (handles existing databases that lack FTS data)
+      const ftsCount = await execQuery(egwDb, 'SELECT COUNT(*) as n FROM paragraphs_fts');
+      const paraCount = await execQuery(egwDb, 'SELECT COUNT(*) as n FROM paragraphs');
+      if ((paraCount[0]?.n as number) > 0 && (ftsCount[0]?.n as number) === 0) {
+        log('[db-worker] init: FTS index empty, rebuilding...');
+        await rebuildAllFts();
+      }
     } catch (egwErr) {
       console.warn('[db-worker] init: EGW database unavailable, continuing without it', egwErr);
     }
