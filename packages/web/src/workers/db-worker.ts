@@ -19,6 +19,7 @@ let sqlite3: SQLiteAPI;
 let bibleDb: number;
 let stateDb: number;
 let egwDb: number;
+let topicsDb: number | null = null;
 let dirty = false;
 
 function post(msg: WorkerResponse) {
@@ -140,6 +141,82 @@ const STATE_SCHEMA = `
     UNIQUE(book, chapter, verse, color)
   );
   CREATE INDEX IF NOT EXISTS idx_verse_markers_chapter ON verse_markers(book, chapter);
+
+  CREATE TABLE IF NOT EXISTS egw_notes (
+    id TEXT PRIMARY KEY,
+    book_code TEXT NOT NULL,
+    puborder INTEGER NOT NULL,
+    content TEXT NOT NULL,
+    created_at INTEGER NOT NULL
+  );
+  CREATE INDEX IF NOT EXISTS idx_egw_notes_location ON egw_notes(book_code, puborder);
+
+  CREATE TABLE IF NOT EXISTS egw_markers (
+    id TEXT PRIMARY KEY,
+    book_code TEXT NOT NULL,
+    puborder INTEGER NOT NULL,
+    color TEXT NOT NULL,
+    created_at INTEGER NOT NULL,
+    UNIQUE(book_code, puborder, color)
+  );
+  CREATE INDEX IF NOT EXISTS idx_egw_markers_location ON egw_markers(book_code, puborder);
+
+  CREATE TABLE IF NOT EXISTS egw_collection_items (
+    collection_id TEXT NOT NULL REFERENCES collections(id) ON DELETE CASCADE,
+    book_code TEXT NOT NULL,
+    puborder INTEGER NOT NULL,
+    added_at INTEGER NOT NULL,
+    PRIMARY KEY (collection_id, book_code, puborder)
+  );
+  CREATE INDEX IF NOT EXISTS idx_egw_collection_items_location ON egw_collection_items(book_code, puborder);
+
+  CREATE TABLE IF NOT EXISTS reading_plans (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    type TEXT NOT NULL DEFAULT 'custom',
+    source_id TEXT,
+    start_date INTEGER,
+    created_at INTEGER NOT NULL
+  );
+
+  CREATE TABLE IF NOT EXISTS reading_plan_items (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    plan_id TEXT NOT NULL REFERENCES reading_plans(id) ON DELETE CASCADE,
+    day_number INTEGER NOT NULL,
+    book INTEGER NOT NULL,
+    start_chapter INTEGER NOT NULL,
+    end_chapter INTEGER,
+    label TEXT,
+    UNIQUE(plan_id, day_number, book, start_chapter)
+  );
+  CREATE INDEX IF NOT EXISTS idx_plan_items_plan ON reading_plan_items(plan_id, day_number);
+
+  CREATE TABLE IF NOT EXISTS reading_plan_progress (
+    plan_id TEXT NOT NULL REFERENCES reading_plans(id) ON DELETE CASCADE,
+    item_id INTEGER NOT NULL REFERENCES reading_plan_items(id) ON DELETE CASCADE,
+    completed_at INTEGER NOT NULL,
+    PRIMARY KEY (plan_id, item_id)
+  );
+
+  CREATE TABLE IF NOT EXISTS memory_verses (
+    id TEXT PRIMARY KEY,
+    book INTEGER NOT NULL,
+    chapter INTEGER NOT NULL,
+    verse_start INTEGER NOT NULL,
+    verse_end INTEGER,
+    created_at INTEGER NOT NULL,
+    UNIQUE(book, chapter, verse_start)
+  );
+
+  CREATE TABLE IF NOT EXISTS memory_practice (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    verse_id TEXT NOT NULL REFERENCES memory_verses(id) ON DELETE CASCADE,
+    mode TEXT NOT NULL,
+    score REAL,
+    practiced_at INTEGER NOT NULL
+  );
+  CREATE INDEX IF NOT EXISTS idx_memory_practice_verse ON memory_practice(verse_id, practiced_at DESC);
 `;
 
 const EGW_SCHEMA = `
@@ -592,6 +669,93 @@ async function autoSyncBcVolumes(): Promise<void> {
 }
 
 // ---------------------------------------------------------------------------
+// Topics database (lazy-loaded on first access)
+// ---------------------------------------------------------------------------
+
+// topics.db schema (pre-built, downloaded on first access):
+// - topics (id, name, parent_id, description) + FTS5 on name/description
+// - topic_verses (topic_id, book, chapter, verse_start, verse_end, note)
+
+async function checkTopicsDbExists(): Promise<boolean> {
+  if (!topicsDb) return false;
+  try {
+    const rows = await execQuery(topicsDb, 'SELECT COUNT(*) as cnt FROM topics');
+    return (rows[0]?.cnt as number) > 0;
+  } catch {
+    return false;
+  }
+}
+
+async function downloadTopicsDb(): Promise<void> {
+  post({ type: 'init-topics-progress', stage: 'Downloading topics database...', progress: 0 });
+
+  const response = await fetch('/api/db/topics');
+  if (!response.ok) {
+    throw new Error(`Failed to download topics.db: ${response.statusText}`);
+  }
+  if (!response.body) {
+    throw new Error('No response body for topics.db download');
+  }
+
+  if (topicsDb) {
+    await sqlite3.close(topicsDb);
+    topicsDb = null;
+  }
+
+  const contentLength = Number(response.headers.get('Content-Length') ?? 0);
+  const root = await navigator.storage.getDirectory();
+  const fileHandle = await root.getFileHandle('topics.db', { create: true });
+  const writable = await fileHandle.createWritable();
+
+  const reader = response.body.getReader();
+  let received = 0;
+
+  /* eslint-disable no-await-in-loop -- sequential stream read */
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    await writable.write(value);
+    received += value.byteLength;
+    if (contentLength > 0) {
+      post({
+        type: 'init-topics-progress',
+        stage: 'Downloading topics database...',
+        progress: Math.round((received / contentLength) * 100),
+      });
+    }
+  }
+  /* eslint-enable no-await-in-loop */
+
+  await writable.close();
+
+  // Open as readonly
+  topicsDb = await sqlite3.open_v2('topics.db', SQLite.SQLITE_OPEN_READONLY, 'opfs-coop-sync');
+}
+
+async function initTopics(): Promise<void> {
+  try {
+    // Try opening existing
+    topicsDb = await sqlite3.open_v2(
+      'topics.db',
+      SQLite.SQLITE_OPEN_READWRITE | SQLite.SQLITE_OPEN_CREATE,
+      'opfs-coop-sync',
+    );
+
+    const hasData = await checkTopicsDbExists();
+    if (!hasData) {
+      await downloadTopicsDb();
+    }
+
+    post({ type: 'init-topics-complete' });
+    log('[db-worker] topics.db ready');
+  } catch (err) {
+    console.error('[db-worker] topics init failed:', err);
+    topicsDb = null;
+    post({ type: 'init-topics-error', error: err instanceof Error ? err.message : String(err) });
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Init
 // ---------------------------------------------------------------------------
 
@@ -697,7 +861,17 @@ self.onmessage = async (event: MessageEvent<WorkerRequest>) => {
 
     case 'query': {
       try {
-        const db = msg.db === 'bible' ? bibleDb : msg.db === 'egw' ? egwDb : stateDb;
+        const db =
+          msg.db === 'bible'
+            ? bibleDb
+            : msg.db === 'egw'
+              ? egwDb
+              : msg.db === 'topics'
+                ? topicsDb
+                : stateDb;
+        if (db == null) {
+          throw new Error(`Database '${msg.db}' is not initialized`);
+        }
         const rows = await execQuery(db, msg.sql, msg.params);
         post({ type: 'query-result', id: msg.id, rows });
       } catch (err) {
@@ -784,6 +958,11 @@ self.onmessage = async (event: MessageEvent<WorkerRequest>) => {
           error: err instanceof Error ? err.message : String(err),
         });
       }
+      break;
+    }
+
+    case 'init-topics': {
+      await initTopics();
       break;
     }
   }

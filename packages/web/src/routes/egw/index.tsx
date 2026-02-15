@@ -654,6 +654,7 @@ function ChapterReaderInner({
       {/* Aside study panel */}
       <EgwStudyPanel
         paragraph={selectedParagraph}
+        bookCode={bookCode}
         open={asideOpen}
         onOpenChange={setAsideOpen}
         onRefClick={handleRefClick}

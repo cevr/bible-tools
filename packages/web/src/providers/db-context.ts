@@ -12,6 +12,7 @@ import type { AppService } from '@/data/app-service';
 
 export const CachedAppContext = createContext<CachedAppCore | null>(null);
 export const DbContext = createContext<DbClient | null>(null);
+export const AppServiceContext = createContext<AppService | null>(null);
 
 export type CachedApp = CachedService<AppService>;
 
@@ -44,4 +45,12 @@ export function useDb(): DbClient {
   const ctx = useContext(DbContext);
   if (!ctx) throw new Error('useDb must be used within a DbProvider');
   return ctx;
+}
+
+/** Access the raw AppService and DbClient for non-cached operations (e.g. export/import). */
+export function useRawApp(): { app: AppService; db: DbClient } {
+  const app = useContext(AppServiceContext);
+  const db = useContext(DbContext);
+  if (!app || !db) throw new Error('useRawApp must be used within a DbProvider');
+  return { app, db };
 }

@@ -17,6 +17,11 @@ interface VerseRow {
   text: string;
 }
 
+export interface SearchWithCountResult {
+  results: readonly SearchResult[];
+  total: number;
+}
+
 interface WebBibleServiceShape {
   readonly fetchChapter: (
     book: number,
@@ -32,6 +37,11 @@ interface WebBibleServiceShape {
     query: string,
     limit?: number,
   ) => Effect.Effect<readonly SearchResult[], DatabaseQueryError>;
+
+  readonly searchVersesWithCount: (
+    query: string,
+    opts?: { bookFilter?: number[]; offset?: number; limit?: number },
+  ) => Effect.Effect<SearchWithCountResult, DatabaseQueryError>;
 }
 
 export class WebBibleService extends Context.Tag('@bible-web/BibleService')<
@@ -122,7 +132,56 @@ export class WebBibleService extends Context.Tag('@bible-web/BibleService')<
         });
       });
 
-      return WebBibleService.of({ fetchChapter, fetchVerses, searchVerses });
+      const searchVersesWithCount = Effect.fn('WebBibleService.searchVersesWithCount')(function* (
+        query: string,
+        opts?: { bookFilter?: number[]; offset?: number; limit?: number },
+      ) {
+        if (!query.trim()) return { results: [] as readonly SearchResult[], total: 0 };
+
+        const limit = opts?.limit ?? 20;
+        const offset = opts?.offset ?? 0;
+        const bookFilter = opts?.bookFilter;
+
+        let sql: string;
+        const params: unknown[] = [query];
+
+        if (bookFilter && bookFilter.length > 0) {
+          const placeholders = bookFilter.map(() => '?').join(', ');
+          sql = `SELECT COUNT(*) OVER() as total, v.book, v.chapter, v.verse, highlight(verses_fts, 3, '<mark>', '</mark>') as text
+                 FROM verses_fts fts
+                 JOIN verses v ON v.rowid = fts.rowid
+                 WHERE verses_fts MATCH ? AND v.book IN (${placeholders})
+                 ORDER BY rank
+                 LIMIT ? OFFSET ?`;
+          params.push(...bookFilter, limit, offset);
+        } else {
+          sql = `SELECT COUNT(*) OVER() as total, v.book, v.chapter, v.verse, highlight(verses_fts, 3, '<mark>', '</mark>') as text
+                 FROM verses_fts fts
+                 JOIN verses v ON v.rowid = fts.rowid
+                 WHERE verses_fts MATCH ?
+                 ORDER BY rank
+                 LIMIT ? OFFSET ?`;
+          params.push(limit, offset);
+        }
+
+        const rows = yield* db.query<VerseRow & { total: number }>('bible', sql, params);
+
+        const total = rows.length > 0 ? rows[0].total : 0;
+        const results: SearchResult[] = rows.map((r) => {
+          const bookInfo = getBook(r.book);
+          return {
+            book: r.book,
+            bookName: bookInfo?.name ?? `Book ${r.book}`,
+            chapter: r.chapter,
+            verse: r.verse,
+            text: r.text,
+          };
+        });
+
+        return { results, total };
+      });
+
+      return WebBibleService.of({ fetchChapter, fetchVerses, searchVerses, searchVersesWithCount });
     }),
   );
 }

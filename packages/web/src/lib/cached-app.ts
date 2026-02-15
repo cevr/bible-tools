@@ -22,6 +22,7 @@ export type ReadMethod =
   | 'fetchChapter'
   | 'fetchVerses'
   | 'searchVerses'
+  | 'searchVersesWithCount'
   | 'getPosition'
   | 'getBookmarks'
   | 'getHistory'
@@ -40,7 +41,22 @@ export type ReadMethod =
   | 'getCollectionVerses'
   | 'fetchEgwBooks'
   | 'fetchEgwChapterContent'
-  | 'fetchEgwChapters';
+  | 'fetchEgwChapters'
+  | 'getEgwNotes'
+  | 'getEgwChapterMarkers'
+  | 'getEgwParagraphCollections'
+  | 'getPlans'
+  | 'getPlanItems'
+  | 'getPlanProgress'
+  | 'getMemoryVerses'
+  | 'getPracticeHistory'
+  | 'searchTopics'
+  | 'getTopic'
+  | 'getTopicVerses'
+  | 'getVerseTopics'
+  | 'getTopicChildren'
+  | 'getRootTopics'
+  | 'getTopicsByLetter';
 
 /** Strips get/fetch prefix — cache consumers don't need the verb. */
 type StripPrefix<S extends string> = S extends `fetch${infer R}`
@@ -56,6 +72,7 @@ const READ_METHODS: ReadMethod[] = [
   'fetchChapter',
   'fetchVerses',
   'searchVerses',
+  'searchVersesWithCount',
   'getPosition',
   'getBookmarks',
   'getHistory',
@@ -75,6 +92,21 @@ const READ_METHODS: ReadMethod[] = [
   'fetchEgwBooks',
   'fetchEgwChapterContent',
   'fetchEgwChapters',
+  'getEgwNotes',
+  'getEgwChapterMarkers',
+  'getEgwParagraphCollections',
+  'getPlans',
+  'getPlanItems',
+  'getPlanProgress',
+  'getMemoryVerses',
+  'getPracticeHistory',
+  'searchTopics',
+  'getTopic',
+  'getTopicVerses',
+  'getVerseTopics',
+  'getTopicChildren',
+  'getRootTopics',
+  'getTopicsByLetter',
 ];
 
 /** Maps cached (prefix-stripped) proxy names back to service method names. */

@@ -7,7 +7,7 @@
 import { Effect, type ManagedRuntime } from 'effect';
 import type { ChapterResponse, SearchResult, Verse } from '@bible/api';
 
-import { WebBibleService } from './bible/effect-service';
+import { WebBibleService, type SearchWithCountResult } from './bible/effect-service';
 import {
   AppStateService,
   type Bookmark,
@@ -17,6 +17,12 @@ import {
 } from './state/effect-service';
 import { WebStudyDataService } from './study/effect-service';
 import { WebSyncService } from './sync/effect-service';
+import { WebReadingPlanService } from './plans/effect-service';
+import type { ReadingPlan, ReadingPlanItem, PlanItemInput } from './plans/types';
+import { WebMemoryVerseService } from './practice/effect-service';
+import type { MemoryVerse, PracticeRecord } from './practice/types';
+import { WebTopicService } from './topics/effect-service';
+import type { Topic, TopicVerse } from './topics/types';
 import type {
   ClassifiedCrossReference,
   CollectionVerse,
@@ -24,6 +30,8 @@ import type {
   CrossRefType,
   EGWCommentaryEntry,
   EGWContextParagraph,
+  EgwMarker,
+  EgwNote,
   MarginNote,
   MarkerColor,
   StrongsEntry,
@@ -56,7 +64,14 @@ export interface EgwChapterContent {
   paragraphs: EGWParagraph[];
 }
 
-type AppServices = WebBibleService | AppStateService | WebStudyDataService | WebSyncService;
+type AppServices =
+  | WebBibleService
+  | AppStateService
+  | WebStudyDataService
+  | WebSyncService
+  | WebReadingPlanService
+  | WebMemoryVerseService
+  | WebTopicService;
 export type AppRuntime = ManagedRuntime.ManagedRuntime<AppServices, never>;
 
 export class AppService {
@@ -79,6 +94,13 @@ export class AppService {
 
   searchVerses(query: string, limit?: number): Promise<readonly SearchResult[]> {
     return this.run(WebBibleService, (s) => s.searchVerses(query, limit));
+  }
+
+  searchVersesWithCount(
+    query: string,
+    opts?: { bookFilter?: number[]; offset?: number; limit?: number },
+  ): Promise<SearchWithCountResult> {
+    return this.run(WebBibleService, (s) => s.searchVersesWithCount(query, opts));
   }
 
   // ---------------------------------------------------------------------------
@@ -266,6 +288,56 @@ export class AppService {
   }
 
   // ---------------------------------------------------------------------------
+  // EGW Annotations
+  // ---------------------------------------------------------------------------
+
+  getEgwNotes(bookCode: string, puborder: number): Promise<EgwNote[]> {
+    return this.run(WebStudyDataService, (s) => s.getEgwNotes(bookCode, puborder));
+  }
+
+  addEgwNote(bookCode: string, puborder: number, content: string): Promise<EgwNote> {
+    return this.run(WebStudyDataService, (s) => s.addEgwNote(bookCode, puborder, content));
+  }
+
+  removeEgwNote(id: string): Promise<void> {
+    return this.run(WebStudyDataService, (s) => s.removeEgwNote(id));
+  }
+
+  getEgwChapterMarkers(
+    bookCode: string,
+    startPuborder: number,
+    endPuborder: number,
+  ): Promise<Map<number, EgwMarker[]>> {
+    return this.run(WebStudyDataService, (s) =>
+      s.getEgwChapterMarkers(bookCode, startPuborder, endPuborder),
+    );
+  }
+
+  addEgwMarker(bookCode: string, puborder: number, color: MarkerColor): Promise<EgwMarker> {
+    return this.run(WebStudyDataService, (s) => s.addEgwMarker(bookCode, puborder, color));
+  }
+
+  removeEgwMarker(id: string): Promise<void> {
+    return this.run(WebStudyDataService, (s) => s.removeEgwMarker(id));
+  }
+
+  getEgwParagraphCollections(bookCode: string, puborder: number): Promise<StudyCollection[]> {
+    return this.run(WebStudyDataService, (s) => s.getEgwParagraphCollections(bookCode, puborder));
+  }
+
+  addEgwToCollection(collectionId: string, bookCode: string, puborder: number): Promise<void> {
+    return this.run(WebStudyDataService, (s) =>
+      s.addEgwToCollection(collectionId, bookCode, puborder),
+    );
+  }
+
+  removeEgwFromCollection(collectionId: string, bookCode: string, puborder: number): Promise<void> {
+    return this.run(WebStudyDataService, (s) =>
+      s.removeEgwFromCollection(collectionId, bookCode, puborder),
+    );
+  }
+
+  // ---------------------------------------------------------------------------
   // EGW (direct fetch, not Effect-routed)
   // ---------------------------------------------------------------------------
 
@@ -413,6 +485,113 @@ export class AppService {
       puborder: r.puborder,
       page: r.page_number,
     }));
+  }
+
+  // ---------------------------------------------------------------------------
+  // Reading Plans
+  // ---------------------------------------------------------------------------
+
+  getPlans(): Promise<ReadingPlan[]> {
+    return this.run(WebReadingPlanService, (s) => s.getPlans());
+  }
+
+  getPlanItems(planId: string): Promise<ReadingPlanItem[]> {
+    return this.run(WebReadingPlanService, (s) => s.getPlanItems(planId));
+  }
+
+  getPlanProgress(planId: string): Promise<Set<number>> {
+    return this.run(WebReadingPlanService, (s) => s.getPlanProgress(planId));
+  }
+
+  createPlan(
+    name: string,
+    description: string | null,
+    type: 'builtin' | 'custom',
+    sourceId: string | null,
+    items: PlanItemInput[],
+  ): Promise<ReadingPlan> {
+    return this.run(WebReadingPlanService, (s) =>
+      s.createPlan(name, description, type, sourceId, items),
+    );
+  }
+
+  removePlan(id: string): Promise<void> {
+    return this.run(WebReadingPlanService, (s) => s.removePlan(id));
+  }
+
+  markItemComplete(planId: string, itemId: number): Promise<void> {
+    return this.run(WebReadingPlanService, (s) => s.markItemComplete(planId, itemId));
+  }
+
+  markItemIncomplete(planId: string, itemId: number): Promise<void> {
+    return this.run(WebReadingPlanService, (s) => s.markItemIncomplete(planId, itemId));
+  }
+
+  setPlanStartDate(planId: string, startDate: number): Promise<void> {
+    return this.run(WebReadingPlanService, (s) => s.setPlanStartDate(planId, startDate));
+  }
+
+  // ---------------------------------------------------------------------------
+  // Memory Verse Practice
+  // ---------------------------------------------------------------------------
+
+  getMemoryVerses(): Promise<MemoryVerse[]> {
+    return this.run(WebMemoryVerseService, (s) => s.getMemoryVerses());
+  }
+
+  addMemoryVerse(
+    book: number,
+    chapter: number,
+    verseStart: number,
+    verseEnd?: number,
+  ): Promise<MemoryVerse> {
+    return this.run(WebMemoryVerseService, (s) =>
+      s.addMemoryVerse(book, chapter, verseStart, verseEnd),
+    );
+  }
+
+  removeMemoryVerse(id: string): Promise<void> {
+    return this.run(WebMemoryVerseService, (s) => s.removeMemoryVerse(id));
+  }
+
+  recordPractice(verseId: string, mode: 'reveal' | 'type', score: number): Promise<void> {
+    return this.run(WebMemoryVerseService, (s) => s.recordPractice(verseId, mode, score));
+  }
+
+  getPracticeHistory(verseId: string, limit?: number): Promise<PracticeRecord[]> {
+    return this.run(WebMemoryVerseService, (s) => s.getPracticeHistory(verseId, limit));
+  }
+
+  // ---------------------------------------------------------------------------
+  // Topics
+  // ---------------------------------------------------------------------------
+
+  searchTopics(query: string): Promise<Topic[]> {
+    return this.run(WebTopicService, (s) => s.searchTopics(query));
+  }
+
+  getTopic(id: number): Promise<Topic | null> {
+    return this.run(WebTopicService, (s) => s.getTopic(id));
+  }
+
+  getTopicVerses(id: number): Promise<TopicVerse[]> {
+    return this.run(WebTopicService, (s) => s.getTopicVerses(id));
+  }
+
+  getVerseTopics(book: number, chapter: number, verse: number): Promise<Topic[]> {
+    return this.run(WebTopicService, (s) => s.getVerseTopics(book, chapter, verse));
+  }
+
+  getTopicChildren(parentId: number): Promise<Topic[]> {
+    return this.run(WebTopicService, (s) => s.getTopicChildren(parentId));
+  }
+
+  getRootTopics(): Promise<Topic[]> {
+    return this.run(WebTopicService, (s) => s.getRootTopics());
+  }
+
+  getTopicsByLetter(letter: string): Promise<Topic[]> {
+    return this.run(WebTopicService, (s) => s.getTopicsByLetter(letter));
   }
 
   // ---------------------------------------------------------------------------

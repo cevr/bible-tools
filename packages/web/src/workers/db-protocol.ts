@@ -2,13 +2,20 @@
 
 export type WorkerRequest =
   | { type: 'init' }
-  | { type: 'query'; id: number; db: 'bible' | 'state' | 'egw'; sql: string; params?: unknown[] }
+  | {
+      type: 'query';
+      id: number;
+      db: 'bible' | 'state' | 'egw' | 'topics';
+      sql: string;
+      params?: unknown[];
+    }
   | { type: 'exec'; id: number; db: 'state'; sql: string; params?: unknown[] }
   | { type: 'export-state' }
   | { type: 'is-dirty' }
   | { type: 'sync-book'; id: number; bookCode: string }
   | { type: 'get-egw-sync-status' }
-  | { type: 'sync-full-egw' };
+  | { type: 'sync-full-egw' }
+  | { type: 'init-topics' };
 
 export type WorkerResponse =
   | { type: 'init-progress'; stage: string; progress: number }
@@ -29,4 +36,7 @@ export type WorkerResponse =
       books: { bookCode: string; status: string; paragraphCount: number }[];
     }
   | { type: 'sync-full-egw-result' }
-  | { type: 'sync-full-egw-error'; error: string };
+  | { type: 'sync-full-egw-error'; error: string }
+  | { type: 'init-topics-progress'; stage: string; progress: number }
+  | { type: 'init-topics-complete' }
+  | { type: 'init-topics-error'; error: string };

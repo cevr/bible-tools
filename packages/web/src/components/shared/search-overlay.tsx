@@ -144,6 +144,17 @@ export function SearchOverlay() {
           <span>
             <kbd className="rounded bg-border px-1">esc</kbd> close
           </span>
+          {q.length >= 2 && (
+            <button
+              className="ml-auto text-primary hover:text-primary/80 transition-colors"
+              onClick={() => {
+                navigate(`/search?q=${encodeURIComponent(q)}`);
+                closeOverlay();
+              }}
+            >
+              See all results &rarr;
+            </button>
+          )}
         </div>
       </DialogContent>
     </Dialog>

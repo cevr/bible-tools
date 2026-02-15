@@ -9,6 +9,8 @@ import type {
   CrossRefType,
   EGWCommentaryEntry,
   EGWContextParagraph,
+  EgwMarker,
+  EgwNote,
   MarginNote,
   MarkerColor,
   StrongsEntry,
@@ -255,6 +257,51 @@ interface WebStudyDataServiceShape {
   readonly getCollectionVerses: (
     collectionId: string,
   ) => Effect.Effect<CollectionVerse[], DatabaseQueryError>;
+
+  // EGW Annotations
+  readonly getEgwNotes: (
+    bookCode: string,
+    puborder: number,
+  ) => Effect.Effect<EgwNote[], DatabaseQueryError>;
+
+  readonly addEgwNote: (
+    bookCode: string,
+    puborder: number,
+    content: string,
+  ) => Effect.Effect<EgwNote, DatabaseQueryError>;
+
+  readonly removeEgwNote: (id: string) => Effect.Effect<void, DatabaseQueryError>;
+
+  readonly getEgwChapterMarkers: (
+    bookCode: string,
+    startPuborder: number,
+    endPuborder: number,
+  ) => Effect.Effect<Map<number, EgwMarker[]>, DatabaseQueryError>;
+
+  readonly addEgwMarker: (
+    bookCode: string,
+    puborder: number,
+    color: MarkerColor,
+  ) => Effect.Effect<EgwMarker, DatabaseQueryError>;
+
+  readonly removeEgwMarker: (id: string) => Effect.Effect<void, DatabaseQueryError>;
+
+  readonly getEgwParagraphCollections: (
+    bookCode: string,
+    puborder: number,
+  ) => Effect.Effect<StudyCollection[], DatabaseQueryError>;
+
+  readonly addEgwToCollection: (
+    collectionId: string,
+    bookCode: string,
+    puborder: number,
+  ) => Effect.Effect<void, DatabaseQueryError>;
+
+  readonly removeEgwFromCollection: (
+    collectionId: string,
+    bookCode: string,
+    puborder: number,
+  ) => Effect.Effect<void, DatabaseQueryError>;
 }
 
 export class WebStudyDataService extends Context.Tag('@bible-web/StudyData')<
@@ -832,6 +879,155 @@ export class WebStudyDataService extends Context.Tag('@bible-web/StudyData')<
         },
       );
 
+      // -----------------------------------------------------------------------
+      // EGW Annotations
+      // -----------------------------------------------------------------------
+
+      const getEgwNotes = Effect.fn('WebStudyDataService.getEgwNotes')(function* (
+        bookCode: string,
+        puborder: number,
+      ) {
+        const rows = yield* db.query<{
+          id: string;
+          book_code: string;
+          puborder: number;
+          content: string;
+          created_at: number;
+        }>(
+          'state',
+          'SELECT id, book_code, puborder, content, created_at FROM egw_notes WHERE book_code = ? AND puborder = ? ORDER BY created_at DESC',
+          [bookCode, puborder],
+        );
+        return rows.map(
+          (r): EgwNote => ({
+            id: r.id,
+            bookCode: r.book_code,
+            puborder: r.puborder,
+            content: r.content,
+            createdAt: r.created_at,
+          }),
+        );
+      });
+
+      const addEgwNote = Effect.fn('WebStudyDataService.addEgwNote')(function* (
+        bookCode: string,
+        puborder: number,
+        content: string,
+      ) {
+        const id = crypto.randomUUID();
+        const createdAt = Date.now();
+        yield* db.exec(
+          'INSERT INTO egw_notes (id, book_code, puborder, content, created_at) VALUES (?, ?, ?, ?, ?)',
+          [id, bookCode, puborder, content, createdAt],
+        );
+        return { id, bookCode, puborder, content, createdAt } satisfies EgwNote;
+      });
+
+      const removeEgwNote = Effect.fn('WebStudyDataService.removeEgwNote')(function* (id: string) {
+        yield* db.exec('DELETE FROM egw_notes WHERE id = ?', [id]);
+      });
+
+      const getEgwChapterMarkers = Effect.fn('WebStudyDataService.getEgwChapterMarkers')(function* (
+        bookCode: string,
+        startPuborder: number,
+        endPuborder: number,
+      ) {
+        const rows = yield* db.query<{
+          id: string;
+          book_code: string;
+          puborder: number;
+          color: string;
+          created_at: number;
+        }>(
+          'state',
+          'SELECT id, book_code, puborder, color, created_at FROM egw_markers WHERE book_code = ? AND puborder >= ? AND puborder < ? ORDER BY puborder',
+          [bookCode, startPuborder, endPuborder],
+        );
+        const map = new Map<number, EgwMarker[]>();
+        for (const r of rows) {
+          const marker: EgwMarker = {
+            id: r.id,
+            bookCode: r.book_code,
+            puborder: r.puborder,
+            color: r.color as MarkerColor,
+            createdAt: r.created_at,
+          };
+          const existing = map.get(r.puborder);
+          if (existing) existing.push(marker);
+          else map.set(r.puborder, [marker]);
+        }
+        return map;
+      });
+
+      const addEgwMarker = Effect.fn('WebStudyDataService.addEgwMarker')(function* (
+        bookCode: string,
+        puborder: number,
+        color: MarkerColor,
+      ) {
+        const id = crypto.randomUUID();
+        const createdAt = Date.now();
+        yield* db.exec(
+          'INSERT OR IGNORE INTO egw_markers (id, book_code, puborder, color, created_at) VALUES (?, ?, ?, ?, ?)',
+          [id, bookCode, puborder, color, createdAt],
+        );
+        return { id, bookCode, puborder, color, createdAt } satisfies EgwMarker;
+      });
+
+      const removeEgwMarker = Effect.fn('WebStudyDataService.removeEgwMarker')(function* (
+        id: string,
+      ) {
+        yield* db.exec('DELETE FROM egw_markers WHERE id = ?', [id]);
+      });
+
+      const getEgwParagraphCollections = Effect.fn(
+        'WebStudyDataService.getEgwParagraphCollections',
+      )(function* (bookCode: string, puborder: number) {
+        const rows = yield* db.query<{
+          id: string;
+          name: string;
+          description: string | null;
+          color: string | null;
+          created_at: number;
+        }>(
+          'state',
+          `SELECT c.id, c.name, c.description, c.color, c.created_at
+           FROM collections c
+           JOIN egw_collection_items eci ON eci.collection_id = c.id
+           WHERE eci.book_code = ? AND eci.puborder = ?
+           ORDER BY c.name`,
+          [bookCode, puborder],
+        );
+        return rows.map(
+          (r): StudyCollection => ({
+            id: r.id,
+            name: r.name,
+            description: r.description,
+            color: r.color,
+            createdAt: r.created_at,
+          }),
+        );
+      });
+
+      const addEgwToCollection = Effect.fn('WebStudyDataService.addEgwToCollection')(function* (
+        collectionId: string,
+        bookCode: string,
+        puborder: number,
+      ) {
+        yield* db.exec(
+          'INSERT OR IGNORE INTO egw_collection_items (collection_id, book_code, puborder, added_at) VALUES (?, ?, ?, ?)',
+          [collectionId, bookCode, puborder, Date.now()],
+        );
+      });
+
+      const removeEgwFromCollection = Effect.fn('WebStudyDataService.removeEgwFromCollection')(
+        function* (collectionId: string, bookCode: string, puborder: number) {
+          yield* db.exec(
+            'DELETE FROM egw_collection_items WHERE collection_id = ? AND book_code = ? AND puborder = ?',
+            [collectionId, bookCode, puborder],
+          );
+        },
+      );
+
       return WebStudyDataService.of({
         getCrossRefs,
         getStrongsEntry,
@@ -858,6 +1054,15 @@ export class WebStudyDataService extends Context.Tag('@bible-web/StudyData')<
         addVerseToCollection,
         removeVerseFromCollection,
         getCollectionVerses,
+        getEgwNotes,
+        addEgwNote,
+        removeEgwNote,
+        getEgwChapterMarkers,
+        addEgwMarker,
+        removeEgwMarker,
+        getEgwParagraphCollections,
+        addEgwToCollection,
+        removeEgwFromCollection,
       });
     }),
   );

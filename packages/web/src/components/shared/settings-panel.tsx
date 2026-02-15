@@ -1,4 +1,5 @@
 import { Suspense, useState, useEffect } from 'react';
+import { Download } from 'lucide-react';
 import { useOverlay } from '@/providers/overlay-context';
 import { usePreferences, type Preferences } from '@/providers/state-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -16,7 +17,7 @@ const DEFAULTS: FontPrefs = {
 };
 
 function SettingsPanelInner() {
-  const { overlay, closeOverlay } = useOverlay();
+  const { overlay, closeOverlay, openOverlay } = useOverlay();
   const { preferences, set } = usePreferences();
 
   const isOpen = overlay === 'settings';
@@ -162,20 +163,33 @@ function SettingsPanelInner() {
           </div>
         </div>
 
-        <div className="border-t border-border px-4 py-3 flex items-center justify-end gap-2 shrink-0">
+        <div className="border-t border-border px-4 py-3 flex items-center justify-between shrink-0">
           <button
-            className="px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded transition-colors"
-            onClick={cancel}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded transition-colors"
+            onClick={() => {
+              closeOverlay();
+              // Small delay to let settings close before opening export
+              requestAnimationFrame(() => openOverlay('export'));
+            }}
           >
-            Cancel
+            <Download className="size-3.5" />
+            Export/Import
           </button>
-          <button
-            className="px-3 py-1.5 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded transition-colors disabled:opacity-50 disabled:pointer-events-none"
-            onClick={save}
-            disabled={!isDirty}
-          >
-            Save
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              className="px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded transition-colors"
+              onClick={cancel}
+            >
+              Cancel
+            </button>
+            <button
+              className="px-3 py-1.5 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded transition-colors disabled:opacity-50 disabled:pointer-events-none"
+              onClick={save}
+              disabled={!isDirty}
+            >
+              Save
+            </button>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

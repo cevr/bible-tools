@@ -12,15 +12,25 @@ import { LoadingScreen } from '@/components/shared/loading-screen';
 import { AppLive } from '@/data/layer';
 import { AppService, type AppRuntime } from '@/data/app-service';
 import { type CachedAppCore, createCachedApp } from '@/lib/cached-app';
-import { CachedAppContext, DbContext } from '@/providers/db-context';
+import { CachedAppContext, DbContext, AppServiceContext } from '@/providers/db-context';
 import type { WebBibleService } from '@/data/bible/effect-service';
 import type { AppStateService } from '@/data/state/effect-service';
 import type { WebStudyDataService } from '@/data/study/effect-service';
 import type { WebSyncService } from '@/data/sync/effect-service';
+import type { WebReadingPlanService } from '@/data/plans/effect-service';
+import type { WebMemoryVerseService } from '@/data/practice/effect-service';
+import type { WebTopicService } from '@/data/topics/effect-service';
 
 const log = import.meta.env.DEV ? (...args: unknown[]) => console.log(...args) : () => {};
 
-type AppServices = WebBibleService | AppStateService | WebStudyDataService | WebSyncService;
+type AppServices =
+  | WebBibleService
+  | AppStateService
+  | WebStudyDataService
+  | WebSyncService
+  | WebReadingPlanService
+  | WebMemoryVerseService
+  | WebTopicService;
 
 export function DbProvider({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(false);
@@ -92,7 +102,11 @@ export function DbProvider({ children }: { children: ReactNode }) {
 
   return (
     <DbContext.Provider value={dbClientRef.current}>
-      <CachedAppContext.Provider value={cachedAppRef.current}>{children}</CachedAppContext.Provider>
+      <AppServiceContext.Provider value={appServiceRef.current}>
+        <CachedAppContext.Provider value={cachedAppRef.current}>
+          {children}
+        </CachedAppContext.Provider>
+      </AppServiceContext.Provider>
     </DbContext.Provider>
   );
 }

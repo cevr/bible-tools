@@ -11,6 +11,7 @@ import { SearchOverlay } from './components/shared/search-overlay';
 import { BookmarksPanel } from './components/shared/bookmarks-panel';
 import { HistoryPanel } from './components/shared/history-panel';
 import { SettingsPanel } from './components/shared/settings-panel';
+import { ExportPanel } from './components/shared/export-panel';
 import { ReadingStyleProvider } from './components/shared/reading-style-provider';
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
               <BookmarksPanel />
               <HistoryPanel />
               <SettingsPanel />
+              <ExportPanel />
             </AppShell>
           </OverlayProvider>
         </KeyboardProvider>

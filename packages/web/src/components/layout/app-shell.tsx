@@ -54,6 +54,36 @@ export function AppShell({ children }: { children: ReactNode }) {
             >
               EGW Writings
             </Link>
+            <Link
+              to="/plans"
+              className={
+                pathname.startsWith('/plans')
+                  ? 'text-sm font-medium text-foreground'
+                  : 'text-sm text-muted-foreground hover:text-foreground transition-colors'
+              }
+            >
+              Plans
+            </Link>
+            <Link
+              to="/practice"
+              className={
+                pathname.startsWith('/practice')
+                  ? 'text-sm font-medium text-foreground'
+                  : 'text-sm text-muted-foreground hover:text-foreground transition-colors'
+              }
+            >
+              Practice
+            </Link>
+            <Link
+              to="/topics"
+              className={
+                pathname.startsWith('/topics')
+                  ? 'text-sm font-medium text-foreground'
+                  : 'text-sm text-muted-foreground hover:text-foreground transition-colors'
+              }
+            >
+              Topics
+            </Link>
             <button
               className="ml-auto p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
               onClick={() => openOverlay('settings')}

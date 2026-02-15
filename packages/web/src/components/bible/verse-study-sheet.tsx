@@ -11,7 +11,7 @@
  */
 import { useState, useEffect, useRef, useMemo, useTransition, Suspense } from 'react';
 import { useNavigate } from 'react-router';
-import { XIcon, Trash2Icon, ExternalLinkIcon, ChevronDownIcon } from 'lucide-react';
+import { XIcon, Trash2Icon, ExternalLinkIcon, ChevronDownIcon, BookMarkedIcon } from 'lucide-react';
 import { useBible } from '@/providers/bible-context';
 import { useApp } from '@/providers/db-context';
 import { cleanHtml } from '@/components/egw/html-utils';
@@ -281,6 +281,7 @@ export function VerseStudyPanel({
 
   const activeColors = useMemo(() => new Set(verseMarkers.map((m) => m.color)), [verseMarkers]);
   const [, startMarkerTransition] = useTransition();
+  const [memoryAdded, setMemoryAdded] = useState(false);
 
   const handleToggleMarker = (color: MarkerColor) => {
     startMarkerTransition(async () => {
@@ -291,6 +292,15 @@ export function VerseStudyPanel({
         await app.addVerseMarker(book, chapter, verse, color);
       }
       app.chapterMarkers.invalidate(book, chapter);
+    });
+  };
+
+  const handleAddToMemory = () => {
+    startMarkerTransition(async () => {
+      await app.addMemoryVerse(book, chapter, verse);
+      app.memoryVerses.invalidateAll();
+      setMemoryAdded(true);
+      setTimeout(() => setMemoryAdded(false), 2000);
     });
   };
 
@@ -306,6 +316,14 @@ export function VerseStudyPanel({
           <div className="flex items-center gap-3">
             <h2 className="text-lg font-semibold text-foreground">{title}</h2>
             <MarkerPicker activeColors={activeColors} onToggle={handleToggleMarker} />
+            <button
+              className="p-1 text-muted-foreground hover:text-primary transition-colors"
+              onClick={handleAddToMemory}
+              aria-label="Add to memory verses"
+              title="Add to memory verses"
+            >
+              <BookMarkedIcon className={`size-4 ${memoryAdded ? 'text-primary' : ''}`} />
+            </button>
           </div>
           <Button variant="ghost" size="icon-sm" onClick={() => onOpenChange(false)}>
             <XIcon />
@@ -481,6 +499,10 @@ function NotesTab({ book, chapter, verse }: { book: number; chapter: number; ver
             </div>
           </div>
         )}
+
+        <Suspense fallback={null}>
+          <VerseTopicsSection book={book} chapter={chapter} verse={verse} />
+        </Suspense>
       </ScrollArea>
 
       <div className="px-4 py-3 border-t border-border text-xs text-muted-foreground shrink-0">
@@ -489,6 +511,48 @@ function NotesTab({ book, chapter, verse }: { book: number; chapter: number; ver
             {notes.length} note{notes.length !== 1 ? 's' : ''}
           </span>
         )}
+      </div>
+    </div>
+  );
+}
+
+function VerseTopicsSection({
+  book,
+  chapter,
+  verse,
+}: {
+  book: number;
+  chapter: number;
+  verse: number;
+}) {
+  const app = useApp();
+  const navigate = useNavigate();
+
+  let topics: { id: number; name: string; parentId: number | null; description: string | null }[];
+  try {
+    topics = app.verseTopics(book, chapter, verse);
+  } catch {
+    // topics.db not initialized — silently skip
+    return null;
+  }
+
+  if (topics.length === 0) return null;
+
+  return (
+    <div className="px-4 pb-3">
+      <p className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground mb-2">
+        Topics
+      </p>
+      <div className="flex flex-wrap gap-1">
+        {topics.map((t) => (
+          <button
+            key={t.id}
+            className="px-2 py-0.5 text-xs rounded-full bg-accent text-foreground hover:bg-accent/80 transition-colors"
+            onClick={() => navigate(`/topics?topic=${t.id}`)}
+          >
+            {t.name}
+          </button>
+        ))}
       </div>
     </div>
   );

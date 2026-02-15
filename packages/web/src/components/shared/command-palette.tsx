@@ -540,6 +540,7 @@ function BibleBookList({
   onSelectBook: (book: Book) => void;
 }) {
   const { closeOverlay, openOverlay } = useOverlay();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -594,6 +595,30 @@ function BibleBookList({
           }}
         >
           Settings
+        </CommandItem>
+        <CommandItem
+          onSelect={() => {
+            closeOverlay();
+            openOverlay('export');
+          }}
+        >
+          Export / Import Data
+        </CommandItem>
+        <CommandItem
+          onSelect={() => {
+            closeOverlay();
+            navigate('/practice');
+          }}
+        >
+          Practice Memory Verses
+        </CommandItem>
+        <CommandItem
+          onSelect={() => {
+            closeOverlay();
+            navigate('/topics');
+          }}
+        >
+          Browse Topics
         </CommandItem>
       </CommandGroup>
       <CommandSeparator />

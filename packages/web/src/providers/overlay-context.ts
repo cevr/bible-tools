@@ -27,7 +27,7 @@ interface OverlayDataMap {
 }
 
 type OverlayWithData = keyof OverlayDataMap;
-type OverlayWithoutData = 'command-palette' | 'goto-dialog' | 'history' | 'settings';
+type OverlayWithoutData = 'command-palette' | 'goto-dialog' | 'history' | 'settings' | 'export';
 
 export type OverlayType = 'none' | OverlayWithData | OverlayWithoutData;
 

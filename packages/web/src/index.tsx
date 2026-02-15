@@ -6,6 +6,10 @@ import './styles/app.css';
 
 const BibleRoute = lazy(() => import('./routes/bible'));
 const EgwRoute = lazy(() => import('./routes/egw'));
+const SearchRoute = lazy(() => import('./routes/search'));
+const PlansRoute = lazy(() => import('./routes/plans'));
+const PracticeRoute = lazy(() => import('./routes/practice'));
+const TopicsRoute = lazy(() => import('./routes/topics'));
 
 const root = document.getElementById('root');
 if (!root) throw new Error('Root element not found');
@@ -28,6 +32,38 @@ createRoot(root).render(
           element={
             <Suspense fallback={<FallbackScreen />}>
               <EgwRoute />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <Suspense fallback={<FallbackScreen />}>
+              <SearchRoute />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/plans"
+          element={
+            <Suspense fallback={<FallbackScreen />}>
+              <PlansRoute />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/practice"
+          element={
+            <Suspense fallback={<FallbackScreen />}>
+              <PracticeRoute />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/topics"
+          element={
+            <Suspense fallback={<FallbackScreen />}>
+              <TopicsRoute />
             </Suspense>
           }
         />

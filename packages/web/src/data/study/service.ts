@@ -124,6 +124,22 @@ export interface EGWContextParagraph {
   puborder: number;
 }
 
+export interface EgwNote {
+  id: string;
+  bookCode: string;
+  puborder: number;
+  content: string;
+  createdAt: number;
+}
+
+export interface EgwMarker {
+  id: string;
+  bookCode: string;
+  puborder: number;
+  color: MarkerColor;
+  createdAt: number;
+}
+
 export interface UserCrossRef {
   id: string;
   refBook: number;

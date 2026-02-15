@@ -21,7 +21,7 @@ export interface DbClient {
   onProgress(cb: (stage: string, progress: number) => void): void;
   /** Query a database. Returns rows as record arrays. */
   query<T = Record<string, unknown>>(
-    db: 'bible' | 'state' | 'egw',
+    db: 'bible' | 'state' | 'egw' | 'topics',
     sql: string,
     params?: unknown[],
   ): Promise<T[]>;
@@ -43,6 +43,8 @@ export interface DbClient {
   onSyncProgress(cb: (bookCode: string, stage: string, progress: number) => void): () => void;
   /** Register callback for background sync book completions. Returns unsubscribe. */
   onSyncComplete(cb: (bookCode: string, paragraphCount: number) => void): () => void;
+  /** Initialize topics database (download on first access). */
+  initTopics(): Promise<void>;
 }
 
 function createDbClient(): DbClient {
@@ -65,6 +67,8 @@ function createDbClient(): DbClient {
   let fullSyncReject: ((err: Error) => void) | null = null;
   let syncProgressCallbacks: ((bookCode: string, stage: string, progress: number) => void)[] = [];
   let syncCompleteCallbacks: ((bookCode: string, paragraphCount: number) => void)[] = [];
+  let topicsInitResolve: (() => void) | null = null;
+  let topicsInitReject: ((err: Error) => void) | null = null;
 
   worker.onerror = (event) => {
     console.error('[db-client] worker error:', event.message, event);
@@ -169,6 +173,23 @@ function createDbClient(): DbClient {
         fullSyncReject = null;
         break;
       }
+      case 'init-topics-progress': {
+        log(`[db-client] topics: ${msg.stage} (${msg.progress}%)`);
+        break;
+      }
+      case 'init-topics-complete': {
+        log('[db-client] topics init complete');
+        topicsInitResolve?.();
+        topicsInitResolve = null;
+        topicsInitReject = null;
+        break;
+      }
+      case 'init-topics-error': {
+        topicsInitReject?.(new Error(msg.error));
+        topicsInitResolve = null;
+        topicsInitReject = null;
+        break;
+      }
     }
   };
 
@@ -190,7 +211,7 @@ function createDbClient(): DbClient {
     },
 
     query<T = Record<string, unknown>>(
-      db: 'bible' | 'state' | 'egw',
+      db: 'bible' | 'state' | 'egw' | 'topics',
       sql: string,
       params?: unknown[],
     ): Promise<T[]> {
@@ -278,6 +299,14 @@ function createDbClient(): DbClient {
         const i = syncCompleteCallbacks.indexOf(cb);
         if (i >= 0) syncCompleteCallbacks.splice(i, 1);
       };
+    },
+
+    initTopics(): Promise<void> {
+      return new Promise<void>((resolve, reject) => {
+        topicsInitResolve = resolve;
+        topicsInitReject = reject;
+        send({ type: 'init-topics' });
+      });
     },
   };
 }
