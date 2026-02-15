@@ -2,15 +2,9 @@ import { Suspense, useState, useEffect } from 'react';
 import { useOverlay } from '@/providers/overlay-context';
 import { usePreferences, type Preferences } from '@/providers/state-provider';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { FONT_FALLBACKS, fontFamilyValue } from '@/data/fonts';
 
-const FONT_FAMILIES = [
-  'Crimson Pro',
-  'Lora',
-  'Literata',
-  'EB Garamond',
-  'Source Sans 3',
-  'Georgia',
-] as const;
+const FONT_FAMILIES = Object.keys(FONT_FALLBACKS);
 
 type FontPrefs = Pick<Preferences, 'fontFamily' | 'fontSize' | 'lineHeight' | 'letterSpacing'>;
 
@@ -20,19 +14,6 @@ const DEFAULTS: FontPrefs = {
   lineHeight: 1.8,
   letterSpacing: 0.01,
 };
-
-const FONT_FALLBACKS: Record<string, string> = {
-  'Crimson Pro': "'Crimson Pro', Georgia, serif",
-  Lora: "'Lora', Georgia, serif",
-  Literata: "'Literata', Georgia, serif",
-  'EB Garamond': "'EB Garamond', Georgia, serif",
-  'Source Sans 3': "'Source Sans 3', system-ui, sans-serif",
-  Georgia: 'Georgia, serif',
-};
-
-function fontFamilyValue(name: string) {
-  return FONT_FALLBACKS[name] ?? `'${name}', Georgia, serif`;
-}
 
 function SettingsPanelInner() {
   const { overlay, closeOverlay } = useOverlay();

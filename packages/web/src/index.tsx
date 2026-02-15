@@ -38,7 +38,7 @@ createRoot(root).render(
 
 function FallbackScreen() {
   return (
-    <div className="flex h-screen w-full items-center justify-center">
+    <div className="flex h-dvh w-full items-center justify-center">
       <div className="text-muted-foreground animate-pulse">Loading...</div>
     </div>
   );

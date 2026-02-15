@@ -23,6 +23,7 @@ import { useSetWideLayout } from '@/components/layout/use-wide-layout';
 import { Button } from '@/components/ui/button';
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable';
 import { categorizeBooks } from '@/components/shared/egw-categories';
+import { PickerDropdown } from '@/components/shared/picker-dropdown';
 
 // ---------------------------------------------------------------------------
 // Route component
@@ -676,23 +677,8 @@ function ChapterDropdown({
   onSelect: (index: number) => void;
   onClose: () => void;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        onClose();
-      }
-    };
-    document.addEventListener('click', handleClick, true);
-    return () => document.removeEventListener('click', handleClick, true);
-  }, [onClose]);
-
   return (
-    <div
-      ref={ref}
-      className="absolute right-0 top-full z-20 mt-1 max-h-80 w-64 overflow-y-auto rounded-lg border border-border bg-background shadow-xl"
-    >
+    <PickerDropdown onClose={onClose} className="right-0 w-64">
       {chapters.map((ch, i) => (
         <button
           key={i}
@@ -704,7 +690,7 @@ function ChapterDropdown({
           {ch.title || ch.refcodeShort || `Chapter ${i + 1}`}
         </button>
       ))}
-    </div>
+    </PickerDropdown>
   );
 }
 

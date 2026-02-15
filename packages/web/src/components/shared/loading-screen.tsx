@@ -7,7 +7,7 @@ interface LoadingScreenProps {
 
 export function LoadingScreen({ stage, progress, error, onRetry }: LoadingScreenProps) {
   return (
-    <div className="flex h-screen w-full items-center justify-center">
+    <div className="flex h-dvh w-full items-center justify-center">
       <div className="w-80 space-y-4 text-center">
         {error ? (
           <>

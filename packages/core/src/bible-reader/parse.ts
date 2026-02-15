@@ -293,6 +293,30 @@ function normalizeBookName(name: string): string {
  * - "Psalm 23:1, 2"
  * - "Matt. 5:3-12"
  */
+// Continuation pattern: comma followed by verse or verse-range (e.g., ", 15" or ", 15-20")
+// Must NOT be followed by a colon (which would indicate a new chapter:verse reference)
+const CONTINUATION_PATTERN = /^,\s*(\d+)(?:\s*[-–]\s*(\d+))?(?![\s]*:)/;
+
+/**
+ * Resolve a book name to a book number, trying alias lookup with common normalizations.
+ */
+function resolveBookAlias(bookPart: string): number | undefined {
+  const normalized = normalizeBookName(bookPart);
+
+  // Direct lookup (O(1))
+  let bookNum = BIBLE_BOOK_ALIASES[normalized];
+  if (bookNum) return bookNum;
+
+  // Try without spaces (e.g., "1cor" for "1 cor")
+  const noSpaces = normalized.replace(/\s+/g, '');
+  bookNum = BIBLE_BOOK_ALIASES[noSpaces];
+  if (bookNum) return bookNum;
+
+  // Try adding space after number prefix (e.g., "1cor" -> "1 cor")
+  const withSpace = normalized.replace(/^(\d)([a-z])/, '$1 $2');
+  return BIBLE_BOOK_ALIASES[withSpace];
+}
+
 export function extractBibleReferences(text: string): ExtractedReference[] {
   const results: ExtractedReference[] = [];
 
@@ -310,25 +334,7 @@ export function extractBibleReferences(text: string): ExtractedReference[] {
       continue;
     }
 
-    // Normalize and look up book name
-    const normalized = normalizeBookName(bookPart);
-
-    // Try direct lookup first (O(1))
-    let bookNum = BIBLE_BOOK_ALIASES[normalized];
-
-    // If not found, try variations
-    if (!bookNum) {
-      // Try without spaces (e.g., "1cor" for "1 cor")
-      const noSpaces = normalized.replace(/\s+/g, '');
-      bookNum = BIBLE_BOOK_ALIASES[noSpaces];
-    }
-
-    if (!bookNum) {
-      // Try adding space after number prefix (e.g., "1cor" -> "1 cor")
-      const withSpace = normalized.replace(/^(\d)([a-z])/, '$1 $2');
-      bookNum = BIBLE_BOOK_ALIASES[withSpace];
-    }
-
+    const bookNum = resolveBookAlias(bookPart);
     if (!bookNum) continue;
 
     const chapter = parseInt(chapterStr, 10);
@@ -343,6 +349,26 @@ export function extractBibleReferences(text: string): ExtractedReference[] {
       end: matchIndex + fullMatch.length,
       ref: { book: bookNum, chapter, verse },
     });
+
+    // Scan for comma-separated continuations: "Eph 4:10, 15, 17-20"
+    let pos = matchIndex + fullMatch.length;
+    while (pos < text.length) {
+      const remaining = text.slice(pos);
+      const cont = remaining.match(CONTINUATION_PATTERN);
+      if (!cont) break;
+
+      const contVerse = parseInt(cont[1] ?? '', 10);
+      const contText = cont[0] ?? '';
+
+      results.push({
+        text: contText,
+        start: pos,
+        end: pos + contText.length,
+        ref: { book: bookNum, chapter, verse: contVerse },
+      });
+
+      pos += contText.length;
+    }
   }
 
   return results;

@@ -63,7 +63,7 @@ export function GotoDialog() {
               }}
               autoFocus
               placeholder="John 3:16, Genesis 1, Ps 23..."
-              className="w-full bg-transparent text-xl text-foreground placeholder:text-muted-foreground outline-none"
+              className="w-full bg-transparent text-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded"
             />
             {error && <p className="mt-2 text-sm text-destructive">{error}</p>}
           </div>

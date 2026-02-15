@@ -35,12 +35,14 @@ export function SearchOverlay() {
   const currentBookNumber = (() => {
     const bookParam = params.book?.toLowerCase();
     if (!bookParam) return 1;
-    const num = parseInt(bookParam, 10);
-    if (!isNaN(num) && num >= 1 && num <= 66) return num;
-    const aliasNum = BOOK_ALIASES[bookParam];
+    const spaced = bookParam.replace(/-/g, ' ');
+    const aliasNum = BOOK_ALIASES[spaced] ?? BOOK_ALIASES[bookParam];
     if (aliasNum) return aliasNum;
-    const book = bible.books.find((b) => b.name.toLowerCase() === bookParam);
-    return book?.number ?? 1;
+    const book = bible.books.find((b) => b.name.toLowerCase() === spaced);
+    if (book) return book.number;
+    const num = parseInt(bookParam, 10);
+    if (String(num) === bookParam && num >= 1 && num <= 66) return num;
+    return 1;
   })();
   const currentChapter = parseInt(params.chapter ?? '1', 10) || 1;
 
@@ -105,7 +107,7 @@ export function SearchOverlay() {
             onChange={(e) => setQuery(e.target.value)}
             autoFocus
             placeholder="Search for words or phrases..."
-            className="w-full bg-transparent text-lg text-foreground placeholder:text-muted-foreground outline-none"
+            className="w-full bg-transparent text-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded"
           />
         </div>
 

@@ -15,6 +15,7 @@ import {
   CommandShortcut,
 } from '@/components/ui/command';
 import { toBookSlug, BOOK_ALIASES, getBookByName, type Book } from '@/data/bible';
+import { cleanHtml } from '@/components/egw/html-utils';
 import type { EGWBookInfo } from '@/data/egw/api';
 import { categorizeBooks } from '@/components/shared/egw-categories';
 
@@ -463,7 +464,6 @@ export function CommandPalette() {
             >
               <EgwChapterList
                 bookCode={stack.bookCode}
-                bookTitle={stack.bookTitle}
                 chaptersRef={egwChaptersRef}
                 onSelectChapter={(chapterIndex) =>
                   navigateToEgwChapter(stack.bookCode, chapterIndex)
@@ -691,12 +691,10 @@ function BibleChapterList({
 
 function EgwChapterList({
   bookCode,
-  bookTitle: _bookTitle,
   chaptersRef,
   onSelectChapter,
 }: {
   bookCode: string;
-  bookTitle: string;
   chaptersRef: React.MutableRefObject<
     readonly { title: string | null; refcodeShort: string | null; index: number }[]
   >;
@@ -758,8 +756,7 @@ function EgwParagraphList({
   return (
     <CommandGroup heading={chapter.title || `Chapter ${chapterIndex + 1}`}>
       {chapter.paragraphs.map((p) => {
-        // Strip HTML tags for preview text
-        const text = p.content?.replace(/<[^>]*>/g, '') ?? '';
+        const text = p.content ? cleanHtml(p.content) : '';
         const preview = text.length > 100 ? text.slice(0, 100) + '…' : text;
         return (
           <CommandItem

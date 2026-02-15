@@ -24,6 +24,7 @@ import {
   ContextMenuSeparator,
 } from '@/components/ui/context-menu';
 import { useSetWideLayout } from '@/components/layout/use-wide-layout';
+import { PickerDropdown } from '@/components/shared/picker-dropdown';
 import { Button } from '@/components/ui/button';
 import { VerseRenderer } from '@/components/bible/verse-renderer';
 import { BibleChapterView } from '@/components/bible/chapter-view';
@@ -773,7 +774,7 @@ function ChapterPicker({
         {currentChapter}
       </button>
       {open && (
-        <PickerDropdown onClose={() => setOpen(false)} className="w-48">
+        <PickerDropdown onClose={() => setOpen(false)} className="left-0 w-48">
           <div className="grid grid-cols-5 gap-0.5 p-2">
             {Array.from({ length: count }, (_, i) => i + 1).map((ch) => (
               <button
@@ -795,44 +796,6 @@ function ChapterPicker({
         </PickerDropdown>
       )}
     </span>
-  );
-}
-
-function PickerDropdown({
-  children,
-  onClose,
-  className,
-}: {
-  children: React.ReactNode;
-  onClose: () => void;
-  className?: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        onClose();
-      }
-    };
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    document.addEventListener('click', handleClick, true);
-    document.addEventListener('keydown', handleKey, true);
-    return () => {
-      document.removeEventListener('click', handleClick, true);
-      document.removeEventListener('keydown', handleKey, true);
-    };
-  }, [onClose]);
-
-  return (
-    <div
-      ref={ref}
-      className={`absolute left-0 top-full z-20 mt-1 max-h-80 overflow-y-auto rounded-lg border border-border bg-background shadow-xl ${className ?? 'w-56'}`}
-    >
-      {children}
-    </div>
   );
 }
 
