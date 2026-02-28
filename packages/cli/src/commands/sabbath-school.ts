@@ -2,11 +2,11 @@ import { Command, Options } from '@effect/cli';
 import { FileSystem } from '@effect/platform';
 import * as cheerio from 'cheerio';
 import { Array, Data, Effect, Option, Schema, Stream } from 'effect';
-import { join } from 'path';
+import { dirname, join } from 'path';
 
 import { makeSyncCommand } from '~/src/lib/content/commands';
 import { SabbathSchoolConfig } from '~/src/lib/content/configs';
-import { SabbathSchoolFrontmatter } from '~/src/lib/content/schemas';
+import { type AppleNoteId, SabbathSchoolFrontmatter } from '~/src/lib/content/schemas';
 import { parseFrontmatter, stringifyFrontmatter, updateFrontmatter } from '~/src/lib/frontmatter';
 import { msToMinutes } from '~/src/lib/general';
 import { makeAppleNoteFromMarkdown } from '~/src/lib/markdown-to-notes';
@@ -18,7 +18,7 @@ import {
   reviewCheckUserPrompt,
   reviseSystemPrompt,
   reviseUserPrompt,
-} from '~/src/prompts/sabbath-school/prompts';
+} from '@bible/core/sabbath-school';
 import { AI } from '~/src/services/ai';
 import { requiredModel } from '~/src/services/model';
 
@@ -159,8 +159,15 @@ const findQuarterUrls = Effect.fn('findQuarterUrls')(function* (year: number, qu
   return weekUrls;
 });
 
-const downloadFile = Effect.fn('downloadFile')(function* (url: string) {
-  return yield* Effect.tryPromise({
+const downloadPdf = Effect.fn('downloadPdf')(function* (url: string, cachePath: string) {
+  const fs = yield* FileSystem.FileSystem;
+  const exists = yield* fs.exists(cachePath);
+  if (exists) {
+    const bytes = yield* fs.readFile(cachePath);
+    return bytes.buffer as ArrayBuffer;
+  }
+
+  const buffer = yield* Effect.tryPromise({
     try: () =>
       fetch(url).then((res) => {
         if (!res.ok) {
@@ -170,15 +177,25 @@ const downloadFile = Effect.fn('downloadFile')(function* (url: string) {
       }),
     catch: (cause: unknown) =>
       new DownloadError({
-        week: 0, // This will be set by the caller
+        week: 0,
         cause,
       }),
   });
+
+  yield* fs.makeDirectory(dirname(cachePath), { recursive: true });
+  yield* fs.writeFile(cachePath, new Uint8Array(buffer));
+
+  return buffer;
 });
 
 const getFilePath = (year: number, quarter: number, week: number) => {
   const outputDir = getOutputsPath('sabbath-school');
   return join(outputDir, `${year}-Q${quarter}-W${week}.md`);
+};
+
+const getPdfPath = (year: number, quarter: number, week: number, type: 'lesson' | 'egw') => {
+  const pdfDir = getOutputsPath('sabbath-school', 'pdfs');
+  return join(pdfDir, `${year}-Q${quarter}-W${week}-${type}.pdf`);
 };
 
 const reviseOutline = Effect.fn('reviseOutline')(function* (
@@ -290,25 +307,17 @@ const generateOutline = Effect.fn('generateOutline')(function* (
   return response.text;
 });
 
-// Helper to create frontmatter for sabbath school
-const makeSabbathSchoolFrontmatter = (year: number, quarter: number, week: number) =>
-  new SabbathSchoolFrontmatter({
-    created_at: new Date().toISOString(),
-    year,
-    quarter,
-    week,
-    apple_note_id: Option.none(),
-  });
+const force = Options.boolean('force').pipe(Options.withAlias('f'), Options.withDefault(false));
 
 const processQuarter = Command.make(
   'process',
-  { year, quarter, week, model: requiredModel },
-  ({ year, quarter, week }) =>
+  { year, quarter, week, model: requiredModel, force },
+  ({ year, quarter, week, force }) =>
     Effect.gen(function* () {
       yield* Effect.log(
         `Starting download for Q${quarter} ${year}${
           Option.isSome(week) ? ` Week ${week.value}` : ''
-        }`,
+        }${force ? ' (force)' : ''}`,
       );
 
       const weeks = Option.match(week, {
@@ -318,16 +327,15 @@ const processQuarter = Command.make(
 
       const quarterUrls = yield* findQuarterUrls(year, quarter);
 
-      yield* Effect.log(
-        `Found ${quarterUrls.length} missing Sabbath School lessons to download...`,
-      );
+      yield* Effect.log(`Found ${quarterUrls.length} Sabbath School lessons available...`);
 
       const fs = yield* FileSystem.FileSystem;
 
-      const weeksToDownload = yield* Effect.filter(
+      const weeksToProcess = yield* Effect.filter(
         weeks,
         (weekNumber) =>
           Effect.gen(function* () {
+            if (force) return true;
             const outlinePath = getFilePath(year, quarter, weekNumber);
             const exists = yield* fs.exists(outlinePath);
             return !exists;
@@ -344,23 +352,38 @@ const processQuarter = Command.make(
         Effect.map(Option.reduceCompact([] as WeekUrls[], (acc, week) => [...acc, week])),
       );
 
-      if (weeksToDownload.length === 0) {
+      if (weeksToProcess.length === 0) {
         yield* Effect.log('All Sabbath School lessons are already downloaded!');
         return;
       }
 
-      yield* Effect.log(
-        `Found ${weeksToDownload.length} missing Sabbath School lessons to download...`,
-      );
+      yield* Effect.log(`Found ${weeksToProcess.length} Sabbath School lessons to process...`);
 
-      yield* Stream.fromIterable(weeksToDownload).pipe(
+      yield* Stream.fromIterable(weeksToProcess).pipe(
         Stream.mapEffect(
           (urls) =>
             Effect.gen(function* () {
+              // Read existing frontmatter to preserve apple_note_id
+              const outlinePath = getFilePath(year, quarter, urls.weekNumber);
+              const existingAppleNoteId: Option.Option<AppleNoteId> = yield* Effect.gen(
+                function* () {
+                  const exists = yield* fs.exists(outlinePath);
+                  if (!exists) return Option.none<AppleNoteId>();
+                  const raw = yield* fs
+                    .readFile(outlinePath)
+                    .pipe(Effect.map((i) => new TextDecoder().decode(i)));
+                  const { frontmatter } = parseFrontmatter(raw);
+                  return Option.fromNullable(frontmatter.apple_note_id as AppleNoteId | undefined);
+                },
+              );
+
               yield* Effect.log(`Downloading PDFs...`);
               const [lessonPdf, egwPdf] = yield* Effect.all([
-                downloadFile(urls.files.lessonPdf),
-                downloadFile(urls.files.egwPdf),
+                downloadPdf(
+                  urls.files.lessonPdf,
+                  getPdfPath(year, quarter, urls.weekNumber, 'lesson'),
+                ),
+                downloadPdf(urls.files.egwPdf, getPdfPath(year, quarter, urls.weekNumber, 'egw')),
               ]);
 
               let outline = yield* generateOutline(
@@ -379,14 +402,23 @@ const processQuarter = Command.make(
                 onNone: () => outline,
               });
 
-              // Create frontmatter and write with it
-              const frontmatter = makeSabbathSchoolFrontmatter(year, quarter, urls.weekNumber);
+              // Preserve apple_note_id from existing file if present
+              const frontmatter = new SabbathSchoolFrontmatter({
+                created_at: new Date().toISOString(),
+                year,
+                quarter,
+                week: urls.weekNumber,
+                apple_note_id: existingAppleNoteId,
+              });
               const contentWithFrontmatter = stringifyFrontmatter(
                 {
                   created_at: frontmatter.created_at,
                   year: frontmatter.year,
                   quarter: frontmatter.quarter,
                   week: frontmatter.week,
+                  ...(Option.isSome(frontmatter.apple_note_id)
+                    ? { apple_note_id: frontmatter.apple_note_id.value }
+                    : {}),
                 },
                 outline,
               );

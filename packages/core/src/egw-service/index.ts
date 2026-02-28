@@ -10,3 +10,6 @@ export {
   EGWSearchResult,
   type EGWServiceShape,
 } from './service.js';
+
+// AI tool
+export { createEGWTool } from './tool.js';

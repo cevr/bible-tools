@@ -2,8 +2,9 @@
  * Bible Data Tools for AI Tool Calling
  *
  * Defines tools that the AI can invoke during generation to look up
- * Strong's entries, verse words, cross-references, and margin notes.
- * Uses BibleDatabase from @bible/core via a provided runtime.
+ * Strong's entries, verse words, cross-references, margin notes,
+ * and EGW writings.
+ * Uses BibleDatabase and EGW services from @bible/core via provided runtimes.
  */
 
 import {
@@ -12,6 +13,9 @@ import {
   type StrongsEntry,
   type VerseWord,
 } from '@bible/core/bible-db';
+import { EGWParagraphDatabase } from '@bible/core/egw-db';
+import { EGWCommentaryService } from '@bible/core/egw-commentary';
+import { EGWService, createEGWTool } from '@bible/core/egw-service';
 import { BunContext } from '@effect/platform-bun';
 import { tool, jsonSchema } from 'ai';
 import { Effect, Layer, ManagedRuntime, Option } from 'effect';
@@ -25,6 +29,13 @@ const BibleToolsLayer = Layer.mergeAll(BibleStateLive).pipe(
   Layer.provideMerge(BunContext.layer),
 );
 const runtime = ManagedRuntime.make(BibleToolsLayer);
+
+// EGW layer + runtime for EGW tool execution
+const EGWToolsLayer = Layer.mergeAll(EGWService.Live, EGWCommentaryService.Live).pipe(
+  Layer.provide(EGWParagraphDatabase.Default),
+  Layer.provideMerge(BunContext.layer),
+);
+const egwRuntime = ManagedRuntime.make(EGWToolsLayer);
 
 function runEffect<A>(effect: Effect.Effect<A, BibleDatabaseError, BibleDatabase>): Promise<A> {
   return runtime.runPromise(effect);
@@ -253,4 +264,6 @@ export const bibleTools = {
       };
     },
   }),
+
+  egw_writings: createEGWTool(egwRuntime),
 };

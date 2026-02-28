@@ -71,7 +71,7 @@ export interface SabbathSchoolService {
 // Service Definition
 // ============================================================================
 
-export class SabbathSchool extends Context.Tag('@bible/sabbath-school/Service')<
+export class SabbathSchool extends Context.Tag('@bible/core/sabbath-school/service/SabbathSchool')<
   SabbathSchool,
   SabbathSchoolService
 >() {
@@ -120,7 +120,7 @@ export class SabbathSchool extends Context.Tag('@bible/sabbath-school/Service')<
               const text = $(element).text().trim();
               const href = $(element).attr('href');
 
-              if (!href) return;
+              if (href == null) return;
 
               if (text === 'Teachers PDF') {
                 currentFiles.lessonPdf = href;
@@ -128,7 +128,7 @@ export class SabbathSchool extends Context.Tag('@bible/sabbath-school/Service')<
                 currentFiles.egwPdf = href;
               }
 
-              if (currentFiles.lessonPdf && currentFiles.egwPdf) {
+              if (currentFiles.lessonPdf != null && currentFiles.egwPdf != null) {
                 weekUrls.push(
                   new WeekUrls({
                     weekNumber: currentWeek,
