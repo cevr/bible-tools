@@ -42,14 +42,7 @@ export const ReadingsConfig: ContentTypeConfig<typeof ReadingFrontmatter> = {
   displayName: 'Reading',
   outputDir: 'readings',
   notesFolder: 'readings',
-  promptResolver: {
-    _tag: 'from-filename',
-    patterns: {
-      'speaker-notes': 'generate-speaker-notes.md',
-      slides: 'generate-slides.md',
-      study: 'generate-study.md',
-    },
-  },
+  promptResolver: { _tag: 'single', file: 'generate-study.md' },
   frontmatterSchema: ReadingFrontmatter,
   sortStrategy: { _tag: 'chapter-asc' },
 };

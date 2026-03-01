@@ -10,13 +10,13 @@ describe('readings commands', () => {
   });
 
   describe('revise command', () => {
-    it('should revise a study file', async () => {
+    it('should revise a reading file', async () => {
       const result = await runCli(
         readings,
         [
           'revise',
           '--file',
-          '/path/to/chapter-1-study.md',
+          '/path/to/chapter-1.md',
           '--instructions',
           'Add more detail',
           '--model',
@@ -25,7 +25,7 @@ describe('readings commands', () => {
         {
           files: {
             files: {
-              '/path/to/chapter-1-study.md': '# Original Study\n\nContent...',
+              '/path/to/chapter-1.md': '# Original Study\n\nContent...',
               [`${process.cwd()}/src/prompts/readings/generate-study.md`]: 'Study prompt...',
             },
           },
@@ -45,80 +45,6 @@ describe('readings commands', () => {
         { _tag: 'AI.generateText' }, // revise
         { _tag: 'Chime.play' },
         { _tag: 'FileSystem.writeFile' }, // write revised
-      ]);
-    });
-
-    it('should revise a slides file with correct prompt', async () => {
-      const result = await runCli(
-        readings,
-        [
-          'revise',
-          '--file',
-          '/path/to/chapter-1-slides.md',
-          '--instructions',
-          'Simplify slides',
-          '--model',
-          'gemini',
-        ],
-        {
-          files: {
-            files: {
-              '/path/to/chapter-1-slides.md': '# Original Slides\n\nContent...',
-              [`${process.cwd()}/src/prompts/readings/generate-slides.md`]: 'Slides prompt...',
-            },
-          },
-          ai: {
-            responses: {
-              high: ['# Simplified Slides\n\nSimpler content...'],
-              low: [],
-            },
-          },
-        },
-      );
-
-      expect(result.success).toBe(true);
-      // Should use the slides prompt, not study prompt
-      expectContains(result.calls, [
-        { _tag: 'FileSystem.readFile' },
-        { _tag: 'FileSystem.readFile' },
-        { _tag: 'AI.generateText' },
-      ]);
-    });
-
-    it('should revise a speaker-notes file with correct prompt', async () => {
-      const result = await runCli(
-        readings,
-        [
-          'revise',
-          '--file',
-          '/path/to/chapter-1-speaker-notes.md',
-          '--instructions',
-          'Make more conversational',
-          '--model',
-          'gemini',
-        ],
-        {
-          files: {
-            files: {
-              '/path/to/chapter-1-speaker-notes.md': '# Original Notes\n\nContent...',
-              [`${process.cwd()}/src/prompts/readings/generate-speaker-notes.md`]:
-                'Speaker notes prompt...',
-            },
-          },
-          ai: {
-            responses: {
-              high: ['# Conversational Notes\n\nFriendly content...'],
-              low: [],
-            },
-          },
-        },
-      );
-
-      expect(result.success).toBe(true);
-      expectContains(result.calls, [
-        { _tag: 'FileSystem.readFile' },
-        { _tag: 'FileSystem.readFile' },
-        { _tag: 'AI.generateText' },
       ]);
     });
 
@@ -152,11 +78,11 @@ describe('readings commands', () => {
 
   describe('sync command', () => {
     it('should update existing Apple Note when apple_note_id present', async () => {
-      const result = await runCli(readings, ['sync', '--files', '/path/to/chapter-1-study.md'], {
+      const result = await runCli(readings, ['sync', '--files', '/path/to/chapter-1.md'], {
         files: {
           files: {
-            '/path/to/chapter-1-study.md':
-              '---\ncreated_at: "2024-01-01"\nchapter: 1\ntype: study\napple_note_id: "note-123"\n---\n\n# Study\n\nContent...',
+            '/path/to/chapter-1.md':
+              '---\ncreated_at: "2024-01-01"\nchapter: 1\napple_note_id: "note-123"\n---\n\n# Study\n\nContent...',
           },
         },
       });
@@ -166,11 +92,11 @@ describe('readings commands', () => {
     });
 
     it('should create new Apple Note and write ID back when no apple_note_id', async () => {
-      const result = await runCli(readings, ['sync', '--files', '/path/to/chapter-1-study.md'], {
+      const result = await runCli(readings, ['sync', '--files', '/path/to/chapter-1.md'], {
         files: {
           files: {
-            '/path/to/chapter-1-study.md':
-              '---\ncreated_at: "2024-01-01"\nchapter: 1\ntype: study\n---\n\n# Study\n\nContent...',
+            '/path/to/chapter-1.md':
+              '---\ncreated_at: "2024-01-01"\nchapter: 1\n---\n\n# Study\n\nContent...',
           },
         },
       });
@@ -189,9 +115,8 @@ describe('readings commands', () => {
       const result = await runCli(readings, ['list'], {
         files: {
           files: {
-            [`${process.cwd()}/outputs/readings/chapter-1-study.md`]: 'content',
-            [`${process.cwd()}/outputs/readings/chapter-1-slides.md`]: 'content',
-            [`${process.cwd()}/outputs/readings/chapter-2-study.md`]: 'content',
+            [`${process.cwd()}/outputs/readings/chapter-1.md`]: 'content',
+            [`${process.cwd()}/outputs/readings/chapter-2.md`]: 'content',
           },
           directories: [`${process.cwd()}/outputs/readings`],
         },
@@ -217,7 +142,7 @@ describe('readings commands', () => {
       const result = await runCli(readings, ['list', '--json'], {
         files: {
           files: {
-            [`${process.cwd()}/outputs/readings/chapter-1-study.md`]: 'content',
+            [`${process.cwd()}/outputs/readings/chapter-1.md`]: 'content',
           },
           directories: [`${process.cwd()}/outputs/readings`],
         },

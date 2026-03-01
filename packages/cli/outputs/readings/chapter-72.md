@@ -1,7 +1,6 @@
 ---
 created_at: '2026-01-25T23:29:00.343Z'
 chapter: 72
-type: study
 apple_note_id: 'x-coredata://CF342100-3178-4D1E-A270-0C3B275F6425/ICNote/p1359'
 ---
 

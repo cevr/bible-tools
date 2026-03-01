@@ -25,13 +25,9 @@ export class StudyFrontmatter extends Schema.Class<StudyFrontmatter>('StudyFront
 }) {}
 
 // Readings frontmatter
-export const ReadingType = Schema.Literal('study', 'slides', 'speaker-notes');
-export type ReadingType = typeof ReadingType.Type;
-
 export class ReadingFrontmatter extends Schema.Class<ReadingFrontmatter>('ReadingFrontmatter')({
   created_at: Schema.String,
   chapter: Schema.Number,
-  type: ReadingType,
   apple_note_id: Schema.optionalWith(AppleNoteId, { as: 'Option' }),
 }) {}
 
