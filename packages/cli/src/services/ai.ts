@@ -132,7 +132,9 @@ export class AI extends Context.Tag('@bible/cli/services/ai')<AI, AIService>() {
               tools: options.tools,
               stopWhen: stepCountIs(options.maxSteps ?? 5),
             });
-            return { text: result.text };
+            // result.text is empty when the final step is a tool call, not a text response
+            const text = result.text || [...result.steps].reverse().find((s) => s.text)?.text || '';
+            return { text };
           },
           catch: (error) =>
             new AIError({

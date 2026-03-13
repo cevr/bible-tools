@@ -36,7 +36,7 @@ const generateStudy = Command.make('generate', { topic, model: requiredModel }, 
 
     const { filename, response } = yield* generate(systemPrompt, args.topic, {
       tools: bibleTools,
-      maxSteps: 8,
+      maxSteps: 20,
     });
 
     const studiesDir = getOutputsPath('studies');
@@ -100,7 +100,7 @@ const generateFromNoteStudy = Command.make('from-note', { noteId, model: require
 
     const { filename, response } = yield* generate(systemPrompt, note, {
       tools: bibleTools,
-      maxSteps: 8,
+      maxSteps: 20,
     });
 
     const studiesDir = getOutputsPath('studies');

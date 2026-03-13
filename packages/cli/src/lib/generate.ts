@@ -69,6 +69,12 @@ export const generate = Effect.fn('generate')(function* (
 
   yield* Effect.logDebug(`response: \n\n ${message}`);
 
+  if (message.trim().length === 0) {
+    return yield* new GenerateResponseError({
+      cause: new Error('AI returned empty response'),
+    });
+  }
+
   const filename = yield* ai
     .generateText({
       model: 'low',
