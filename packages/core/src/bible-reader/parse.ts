@@ -297,6 +297,9 @@ function normalizeBookName(name: string): string {
 // Must NOT be followed by a colon (which would indicate a new chapter:verse reference)
 const CONTINUATION_PATTERN = /^,\s*(\d+)(?:\s*[-–]\s*(\d+))?(?![\s]*:)/;
 
+// "verse 3" or "verses 3-5" pattern — carries forward book+chapter from previous reference
+const VERSE_KEYWORD_PATTERN = /\bverses?\s+(\d+)(?:\s*[-–]\s*(\d+))?\b/gi;
+
 /**
  * Resolve a book name to a book number, trying alias lookup with common normalizations.
  */
@@ -370,6 +373,39 @@ export function extractBibleReferences(text: string): ExtractedReference[] {
       pos += contText.length;
     }
   }
+
+  // Second pass: resolve "verse 3" / "verses 3-5" using context from nearest preceding reference
+  VERSE_KEYWORD_PATTERN.lastIndex = 0;
+  for (const match of text.matchAll(VERSE_KEYWORD_PATTERN)) {
+    const matchIndex = match.index;
+    if (matchIndex === undefined) continue;
+
+    // Skip if this position already overlaps with an existing reference
+    if (results.some((r) => matchIndex >= r.start && matchIndex < r.end)) continue;
+
+    // Find the nearest preceding reference for book+chapter context
+    const context = results.filter((r) => r.end <= matchIndex).at(-1);
+    if (!context) continue;
+
+    const verse = parseInt(match[1] ?? '', 10);
+    const verseEnd = match[2] ? parseInt(match[2], 10) : undefined;
+    const fullMatch = match[0];
+
+    results.push({
+      text: fullMatch,
+      start: matchIndex,
+      end: matchIndex + fullMatch.length,
+      ref: {
+        book: context.ref.book,
+        chapter: context.ref.chapter,
+        verse,
+        ...(verseEnd !== undefined ? { verseEnd } : {}),
+      },
+    });
+  }
+
+  // Sort by position since the second pass may have inserted out of order
+  results.sort((a, b) => a.start - b.start);
 
   return results;
 }

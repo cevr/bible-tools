@@ -1,6 +1,7 @@
 import {
   BIBLE_BOOK_ALIASES,
   BIBLE_BOOKS,
+  extractBibleReferences,
   formatBibleReference,
   getBibleBook,
   getBibleBookByName,
@@ -268,6 +269,73 @@ describe('Bible books data (core)', () => {
 
     it('should return empty string for invalid book', () => {
       expect(formatBibleReference({ book: 99, chapter: 1 })).toBe('');
+    });
+  });
+});
+
+describe('extractBibleReferences', () => {
+  it('should extract standard references', () => {
+    const refs = extractBibleReferences('Read John 3:16 and Gen 1:1');
+    expect(refs).toHaveLength(2);
+    expect(refs[0]?.ref).toEqual({ book: 43, chapter: 3, verse: 16 });
+    expect(refs[1]?.ref).toEqual({ book: 1, chapter: 1, verse: 1 });
+  });
+
+  it('should handle comma continuations', () => {
+    const refs = extractBibleReferences('Eph 4:10, 15');
+    expect(refs).toHaveLength(2);
+    expect(refs[0]?.ref).toEqual({ book: 49, chapter: 4, verse: 10 });
+    expect(refs[1]?.ref).toEqual({ book: 49, chapter: 4, verse: 15 });
+  });
+
+  describe('verse keyword references', () => {
+    it('should resolve "verse N" using preceding reference context', () => {
+      const refs = extractBibleReferences(
+        'In John 3:16 we see love. Then verse 17 shows the purpose.',
+      );
+      expect(refs).toHaveLength(2);
+      expect(refs[0]?.ref).toEqual({ book: 43, chapter: 3, verse: 16 });
+      expect(refs[1]?.ref).toEqual({ book: 43, chapter: 3, verse: 17 });
+      expect(refs[1]?.text).toBe('verse 17');
+    });
+
+    it('should resolve "verses N-M" as a range', () => {
+      const refs = extractBibleReferences(
+        'Read Galatians 5:22. Then look at verses 19-21 for contrast.',
+      );
+      expect(refs).toHaveLength(2);
+      expect(refs[1]?.ref).toEqual({ book: 48, chapter: 5, verse: 19, verseEnd: 21 });
+      expect(refs[1]?.text).toBe('verses 19-21');
+    });
+
+    it('should handle "Verse" with capital V', () => {
+      const refs = extractBibleReferences('Genesis 1:1 is foundational. Verse 2 continues.');
+      expect(refs).toHaveLength(2);
+      expect(refs[1]?.ref).toEqual({ book: 1, chapter: 1, verse: 2 });
+    });
+
+    it('should use the nearest preceding reference for context', () => {
+      const refs = extractBibleReferences(
+        'John 3:16 is key. Then Romans 8:28 is also important. Verse 29 continues the thought.',
+      );
+      expect(refs).toHaveLength(3);
+      // "verse 29" should resolve to Romans 8 (nearest preceding), not John 3
+      expect(refs[2]?.ref).toEqual({ book: 45, chapter: 8, verse: 29 });
+    });
+
+    it('should not match "verse N" without a preceding reference', () => {
+      const refs = extractBibleReferences('Look at verse 5 for more details.');
+      expect(refs).toHaveLength(0);
+    });
+
+    it('should handle multiple verse keywords', () => {
+      const refs = extractBibleReferences(
+        'Psalm 23:1 is comfort. Verse 2 paints a picture. Verse 4 brings courage.',
+      );
+      expect(refs).toHaveLength(3);
+      expect(refs[0]?.ref).toEqual({ book: 19, chapter: 23, verse: 1 });
+      expect(refs[1]?.ref).toEqual({ book: 19, chapter: 23, verse: 2 });
+      expect(refs[2]?.ref).toEqual({ book: 19, chapter: 23, verse: 4 });
     });
   });
 });
